@@ -1,4 +1,4 @@
-FROM python:3.10.0-alpine
+FROM python:3.10-alpine
 
 # Official PyPI is preferred when reachable.
 ENV PIP_INDEX_URL=https://pypi.org/simple
@@ -32,6 +32,10 @@ RUN mkdocs build -f ./ja/mkdocs.yml
 COPY ru/docs ./build/ru/docs
 COPY ru/mkdocs.yml ./ru/mkdocs.yml
 RUN mkdocs build -f ./ru/mkdocs.yml
+
+COPY vi/docs ./build/vi/docs
+COPY vi/mkdocs.yml ./vi/mkdocs.yml
+RUN mkdocs build -f ./vi/mkdocs.yml
 
 WORKDIR /hello-algo/site
 EXPOSE 8000
