@@ -1,4 +1,4 @@
-FROM python:3.10.0-alpine
+FROM python:3.10-alpine
 
 ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 RUN pip install --upgrade pip
@@ -19,6 +19,10 @@ RUN mkdocs build -f ./zh-hant/mkdocs.yml
 COPY en/docs ./build/en/docs
 COPY en/mkdocs.yml ./en/mkdocs.yml
 RUN mkdocs build -f ./en/mkdocs.yml
+
+COPY vi/docs ./build/vi/docs
+COPY vi/mkdocs.yml ./vi/mkdocs.yml
+RUN mkdocs build -f ./vi/mkdocs.yml
 
 WORKDIR /hello-algo/site
 EXPOSE 8000
