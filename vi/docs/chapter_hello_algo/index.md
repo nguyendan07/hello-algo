@@ -3,17 +3,17 @@ comments: true
 icon: material/rocket-launch-outline
 ---
 
-# Before starting
+# Trước khi bắt đầu
 
-A few years ago, I shared the "Sword for Offer" problem solutions on LeetCode, receiving encouragement and support from many readers. During interactions with readers, the most common question I encountered was "how to get started with algorithms." Gradually, I developed a keen interest in this question.
+Vài năm trước, mình đã chia sẻ các lời giải cho bộ đề "Sword for Offer" trên LeetCode và nhận được nhiều sự động viên, ủng hộ từ các bạn đọc. Trong quá trình trao đổi với mọi người, câu hỏi mình gặp nhiều nhất là "làm sao để bắt đầu học thuật toán". Dần dần, mình trở nên rất quan tâm đến câu hỏi này.
 
-Directly solving problems seems to be the most popular method — it's simple, direct, and effective. However, problem-solving is like playing Minesweeper: those with strong self-study skills can navigate the pitfalls one by one, while those lacking a solid foundation may find themselves repeatedly stumbling and retreating in frustration. Reading through textbooks is also a common practice, but for job seekers, writing graduation thesis, submitting resumes, preparing for written tests and interviews have already consumed most of their energy, and reading thick books often becomes a daunting challenge.
+Giải bài tập trực tiếp có lẽ là cách phổ biến nhất — đơn giản, trực tiếp và hiệu quả. Tuy nhiên, việc giải bài giống như chơi trò dò mìn: ai có khả năng tự học tốt sẽ vượt qua từng "bãi mìn", còn những bạn chưa có nền tảng vững chắc sẽ dễ vấp ngã và nản lòng. Đọc sách giáo khoa cũng là một cách thường gặp, nhưng với các bạn đang tìm việc, làm luận văn, nộp CV, chuẩn bị thi tuyển hay phỏng vấn thì đã tốn rất nhiều thời gian, nên việc đọc những cuốn sách dày cộp trở thành thử thách lớn.
 
-If you're facing similar troubles, then this book is lucky to have found you. This book is my answer to the question. While it may not be the best solution, it is at least a positive attempt. Although this book is not enough to get you an offer directly, it will guide you to explore the "knowledge map" of data structures and algorithms, help you understand the shapes, sizes, and locations of different "mines", and enable you to master various "mine clearance methods". With these skills, I believe you can solve problems and read literature more comfortably, gradually building a knowledge system.
+Nếu bạn cũng đang gặp khó khăn như vậy, thì cuốn sách này thật may mắn khi được bạn tìm thấy. Đây là câu trả lời của mình cho câu hỏi trên. Dù chưa chắc là giải pháp tốt nhất, nhưng ít nhất nó là một nỗ lực tích cực. Cuốn sách này không giúp bạn nhận được offer ngay lập tức, nhưng sẽ dẫn dắt bạn khám phá "bản đồ tri thức" về cấu trúc dữ liệu và thuật toán, giúp bạn hiểu được hình dạng, vị trí của các "bãi mìn" khác nhau, và nắm được nhiều "cách dò mìn". Với những kỹ năng này, mình tin bạn sẽ giải bài và đọc tài liệu dễ dàng hơn, dần xây dựng được hệ thống kiến thức cho riêng mình.
 
-I deeply agree with Professor Feynman's statement: "Knowledge isn't free. You have to pay attention." In this sense, this book is not entirely "free." In order to live up to your precious "attention" for this book, I will do my best and devote my greatest "attention" to write this book.
+Mình rất đồng tình với câu nói của giáo sư Feynman: "Kiến thức không miễn phí. Bạn phải chú ý để có được nó." Theo nghĩa này, cuốn sách này cũng không hoàn toàn "miễn phí". Để xứng đáng với sự "chú ý" quý giá của bạn dành cho cuốn sách, mình sẽ cố gắng hết sức và dành trọn sự "chú ý" của mình để viết sách.
 
-Aware of my limitations, I recognize that despite the content of this book being refined over time, errors surely remain. I sincerely welcome critiques and corrections from both teachers and students.
+Mình hiểu rằng bản thân còn nhiều hạn chế, dù nội dung sách đã được chỉnh sửa nhiều lần nhưng chắc chắn vẫn còn sai sót. Mình rất mong nhận được góp ý, chỉnh sửa từ các thầy cô và các bạn.
 
 ![Hello Algo](../assets/covers/chapter_hello_algo.jpg){ class="cover-image" }
 
@@ -21,10 +21,11 @@ Aware of my limitations, I recognize that despite the content of this book being
     <h2 style="margin-top: 0.8em; margin-bottom: 0.8em;">Hello, Algo!</h2>
 </div>
 
-The advent of computers has brought significant changes to the world. With their high-speed computing power and excellent programmability, they have become the ideal medium for executing algorithms and processing data. Whether it's the realistic graphics of video games, the intelligent decisions in autonomous driving, the brilliant Go games of AlphaGo, or the natural interactions of ChatGPT, these applications are all exquisite demonstrations of algorithms at work on computers.
+Sự ra đời của máy tính đã làm thay đổi thế giới. Nhờ khả năng tính toán nhanh và dễ lập trình, máy tính trở thành công cụ lý tưởng để thực hiện thuật toán và xử lý dữ liệu. Từ đồ họa sống động trong game, quyết định thông minh của xe tự lái, những ván cờ xuất sắc của AlphaGo, đến sự tương tác tự nhiên của ChatGPT — tất cả đều là ví dụ tuyệt vời về thuật toán hoạt động trên máy tính.
 
-In fact, before the advent of computers, algorithms and data structures already existed in every corner of the world. Early algorithms were relatively simple, such as ancient counting methods and tool-making procedures. As civilization progressed, algorithms became more refined and complex. From the exquisite craftsmanship of artisans, to industrial products that liberate productive forces, to the scientific laws governing the universe, almost every ordinary or astonishing thing has behind it the ingenious thought of algorithms.
+Thực ra, trước khi có máy tính, thuật toán và cấu trúc dữ liệu đã xuất hiện ở khắp nơi trong cuộc sống. Những thuật toán đầu tiên khá đơn giản, như cách đếm số cổ xưa hay quy trình làm công cụ. Khi xã hội phát triển, thuật toán ngày càng tinh vi và phức tạp hơn. Từ tay nghề thủ công tinh xảo, sản phẩm công nghiệp giúp tăng năng suất, đến các quy luật khoa học giải thích vũ trụ — hầu như mọi điều bình thường hay kỳ diệu đều có sự sáng tạo của thuật toán phía sau.
 
-Similarly, data structures are everywhere: from social networks to subway lines, many systems can be modeled as "graphs"; from a country to a family, the main forms of social organization exhibit characteristics of "trees"; winter clothes are like a "stack", where the first item worn is the last to be taken off; a badminton shuttle tube resembles a "queue", with one end for insertion and the other for retrieval; a dictionary is like a "hash table", enabling quick search for target entries.
+Cấu trúc dữ liệu cũng hiện diện khắp nơi: từ mạng xã hội đến tuyến tàu điện ngầm, nhiều hệ thống có thể mô phỏng bằng "đồ thị"; từ quốc gia đến gia đình, các tổ chức xã hội thường có dạng "cây"; quần áo mùa đông giống như một "ngăn xếp", món mặc vào trước sẽ cởi ra sau; ống cầu lông giống như một "hàng đợi", một đầu để cho vào, đầu kia để lấy ra; từ điển giống như "bảng băm", giúp tra cứu nhanh mục tiêu.
 
-This book aims to help readers understand the core concepts of algorithms and data structures through clear, easy-to-understand animated illustrations and runnable code examples, and to be able to implement them through programming. On this basis, this book strives to reveal the vivid manifestations of algorithms in the complex world, showcasing the beauty of algorithms. I hope this book can help you!
+Cuốn sách này giúp bạn hiểu các khái niệm cốt lõi về thuật toán và cấu trúc dữ liệu qua hình minh họa sinh động, dễ hiểu và các ví dụ mã nguồn có thể chạy được, đồng thời hướng dẫn bạn tự lập trình để thực hiện chúng. Trên cơ sở đó, sách còn cố gắng chỉ ra những biểu hiện sống động của thuật toán trong thế giới phức tạp, để bạn cảm nhận được vẻ đẹp của thuật toán. Mình hy vọng cuốn sách này sẽ giúp ích cho bạn!
+
