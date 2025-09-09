@@ -1,22 +1,22 @@
-# Time complexity
+# Độ phức tạp thời gian
 
-The runtime can intuitively assess the efficiency of an algorithm. How can we accurately estimate the runtime of a piece of an algorithm?
+Thời gian chạy (runtime) có thể trực quan đánh giá hiệu suất của một thuật toán. Làm thế nào để chúng ta ước lượng chính xác thời gian chạy của một đoạn thuật toán?
 
-1. **Determining the Running Platform**: This includes hardware configuration, programming language, system environment, etc., all of which can affect the efficiency of code execution.
-2. **Evaluating the Run Time for Various Computational Operations**: For instance, an addition operation `+` might take 1 ns, a multiplication operation `*` might take 10 ns, a print operation `print()` might take 5 ns, etc.
-3. **Counting All the Computational Operations in the Code**: Summing the execution times of all these operations gives the total run time.
+1. **Xác định nền tảng chạy**: Bao gồm cấu hình phần cứng, ngôn ngữ lập trình, môi trường hệ thống, v.v., tất cả đều có thể ảnh hưởng đến hiệu suất thực thi mã.
+2. **Đánh giá thời gian chạy cho từng phép toán tính toán**: Ví dụ, phép cộng `+` có thể mất 1 ns, phép nhân `*` có thể mất 10 ns, thao tác in `print()` có thể mất 5 ns, v.v.
+3. **Đếm tất cả các phép toán tính toán trong mã**: Cộng thời gian thực thi của tất cả các phép toán này sẽ cho tổng thời gian chạy.
 
-For example, consider the following code with an input size of $n$:
+Ví dụ, xét đoạn mã sau với kích thước đầu vào là $n$:
 
 === "Python"
 
     ```python title=""
-    # Under an operating platform
+    # Dưới một nền tảng chạy
     def algorithm(n: int):
         a = 2      # 1 ns
         a = a + 1  # 1 ns
         a = a * 2  # 10 ns
-        # Cycle n times
+        # Lặp n lần
         for _ in range(n):  # 1 ns
             print(0)        # 5 ns
     ```
@@ -24,13 +24,13 @@ For example, consider the following code with an input size of $n$:
 === "C++"
 
     ```cpp title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
-        for (int i = 0; i < n; i++) {  // 1 ns , every round i++ is executed
+        // Vòng lặp lặp n lần
+        for (int i = 0; i < n; i++) {  // 1 ns , mỗi lần vòng i++ được thực hiện
             cout << 0 << endl;         // 5 ns
         }
     }
@@ -39,13 +39,13 @@ For example, consider the following code with an input size of $n$:
 === "Java"
 
     ```java title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
-        for (int i = 0; i < n; i++) {  // 1 ns , every round i++ is executed
+        // Vòng lặp lặp n lần
+        for (int i = 0; i < n; i++) {  // 1 ns , mỗi lần vòng i++ được thực hiện
             System.out.println(0);     // 5 ns
         }
     }
@@ -54,13 +54,13 @@ For example, consider the following code with an input size of $n$:
 === "C#"
 
     ```csharp title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     void Algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
-        for (int i = 0; i < n; i++) {  // 1 ns , every round i++ is executed
+        // Vòng lặp lặp n lần
+        for (int i = 0; i < n; i++) {  // 1 ns , mỗi lần vòng i++ được thực hiện
             Console.WriteLine(0);      // 5 ns
         }
     }
@@ -69,12 +69,12 @@ For example, consider the following code with an input size of $n$:
 === "Go"
 
     ```go title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     func algorithm(n int) {
         a := 2     // 1 ns
         a = a + 1  // 1 ns
         a = a * 2  // 10 ns
-        // Loop n times
+        // Lặp n lần
         for i := 0; i < n; i++ {  // 1 ns
             fmt.Println(a)        // 5 ns
         }
@@ -84,12 +84,12 @@ For example, consider the following code with an input size of $n$:
 === "Swift"
 
     ```swift title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     func algorithm(n: Int) {
         var a = 2 // 1 ns
         a = a + 1 // 1 ns
         a = a * 2 // 10 ns
-        // Loop n times
+        // Lặp n lần
         for _ in 0 ..< n { // 1 ns
             print(0) // 5 ns
         }
@@ -99,13 +99,13 @@ For example, consider the following code with an input size of $n$:
 === "JS"
 
     ```javascript title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     function algorithm(n) {
         var a = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        // Loop n times
-        for(let i = 0; i < n; i++) { // 1 ns , every round i++ is executed
+        // Lặp n lần
+        for(let i = 0; i < n; i++) { // 1 ns , mỗi lần vòng i++ được thực hiện
             console.log(0); // 5 ns
         }
     }
@@ -114,13 +114,13 @@ For example, consider the following code with an input size of $n$:
 === "TS"
 
     ```typescript title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     function algorithm(n: number): void {
         var a: number = 2; // 1 ns
         a = a + 1; // 1 ns
         a = a * 2; // 10 ns
-        // Loop n times
-        for(let i = 0; i < n; i++) { // 1 ns , every round i++ is executed
+        // Lặp n lần
+        for(let i = 0; i < n; i++) { // 1 ns , mỗi lần vòng i++ được thực hiện
             console.log(0); // 5 ns
         }
     }
@@ -129,13 +129,13 @@ For example, consider the following code with an input size of $n$:
 === "Dart"
 
     ```dart title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     void algorithm(int n) {
       int a = 2; // 1 ns
       a = a + 1; // 1 ns
       a = a * 2; // 10 ns
-      // Loop n times
-      for (int i = 0; i < n; i++) { // 1 ns , every round i++ is executed
+      // Lặp n lần
+      for (int i = 0; i < n; i++) { // 1 ns , mỗi lần vòng i++ được thực hiện
         print(0); // 5 ns
       }
     }
@@ -144,13 +144,13 @@ For example, consider the following code with an input size of $n$:
 === "Rust"
 
     ```rust title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     fn algorithm(n: i32) {
         let mut a = 2;      // 1 ns
         a = a + 1;          // 1 ns
         a = a * 2;          // 10 ns
-        // Loop n times
-        for _ in 0..n {     // 1 ns for each round i++
+        // Lặp n lần
+        for _ in 0..n {     // 1 ns cho mỗi lần i++
             println!("{}", 0);  // 5 ns
         }
     }
@@ -159,13 +159,13 @@ For example, consider the following code with an input size of $n$:
 === "C"
 
     ```c title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     void algorithm(int n) {
         int a = 2;  // 1 ns
         a = a + 1;  // 1 ns
         a = a * 2;  // 10 ns
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // 1 ns , every round i++ is executed
+        // Lặp n lần
+        for (int i = 0; i < n; i++) {   // 1 ns , mỗi lần vòng i++ được thực hiện
             printf("%d", 0);            // 5 ns
         }
     }
@@ -180,43 +180,43 @@ For example, consider the following code with an input size of $n$:
 === "Zig"
 
     ```zig title=""
-    // Under a particular operating platform
+    // Dưới một nền tảng chạy cụ thể
     fn algorithm(n: usize) void {
         var a: i32 = 2; // 1 ns
         a += 1; // 1 ns
         a *= 2; // 10 ns
-        // Loop n times
+        // Lặp n lần
         for (0..n) |_| { // 1 ns
             std.debug.print("{}\n", .{0}); // 5 ns
         }
     }
     ```
 
-Using the above method, the run time of the algorithm can be calculated as $(6n + 12)$ ns:
+Sử dụng phương pháp trên, thời gian chạy của thuật toán có thể được tính là $(6n + 12)$ ns:
 
 $$
 1 + 1 + 10 + (1 + 5) \times n = 6n + 12
 $$
 
-However, in practice, **counting the run time of an algorithm is neither practical nor reasonable**. First, we don't want to tie the estimated time to the running platform, as algorithms need to run on various platforms. Second, it's challenging to know the run time for each type of operation, making the estimation process difficult.
+Tuy nhiên, trong thực tế, **việc đếm thời gian chạy của một thuật toán là không thực tế và không hợp lý**. Thứ nhất, chúng ta không muốn gán thời gian ước lượng cho nền tảng chạy cụ thể, vì thuật toán cần chạy trên nhiều nền tảng khác nhau. Thứ hai, rất khó để biết thời gian chạy chính xác cho từng loại phép toán, làm cho quá trình ước lượng trở nên khó khăn.
 
-## Assessing time growth trend
+## Đánh giá xu hướng tăng trưởng thời gian
 
-Time complexity analysis does not count the algorithm's run time, **but rather the growth trend of the run time as the data volume increases**.
+Phân tích độ phức tạp thời gian không phải là đếm thời gian chạy, **mà là xu hướng tăng trưởng của thời gian chạy khi khối lượng dữ liệu tăng lên**.
 
-Let's understand this concept of "time growth trend" with an example. Assume the input data size is $n$, and consider three algorithms `A`, `B`, and `C`:
+Hãy hiểu khái niệm "xu hướng tăng trưởng thời gian" bằng ví dụ. Giả sử kích thước dữ liệu đầu vào là $n$, và xét ba thuật toán `A`, `B`, và `C`:
 
 === "Python"
 
     ```python title=""
-    # Time complexity of algorithm A: constant order
+    # Độ phức tạp thời gian của thuật toán A: hằng số
     def algorithm_A(n: int):
         print(0)
-    # Time complexity of algorithm B: linear order
+    # Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     def algorithm_B(n: int):
         for _ in range(n):
             print(0)
-    # Time complexity of algorithm C: constant order
+    # Độ phức tạp thời gian của thuật toán C: hằng số
     def algorithm_C(n: int):
         for _ in range(1000000):
             print(0)
@@ -225,17 +225,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "C++"
 
     ```cpp title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     void algorithm_A(int n) {
         cout << 0 << endl;
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             cout << 0 << endl;
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             cout << 0 << endl;
@@ -246,17 +246,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Java"
 
     ```java title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     void algorithm_A(int n) {
         System.out.println(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             System.out.println(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             System.out.println(0);
@@ -267,17 +267,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "C#"
 
     ```csharp title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     void AlgorithmA(int n) {
         Console.WriteLine(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     void AlgorithmB(int n) {
         for (int i = 0; i < n; i++) {
             Console.WriteLine(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     void AlgorithmC(int n) {
         for (int i = 0; i < 1000000; i++) {
             Console.WriteLine(0);
@@ -288,17 +288,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Go"
 
     ```go title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     func algorithm_A(n int) {
         fmt.Println(0)
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     func algorithm_B(n int) {
         for i := 0; i < n; i++ {
             fmt.Println(0)
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     func algorithm_C(n int) {
         for i := 0; i < 1000000; i++ {
             fmt.Println(0)
@@ -309,19 +309,19 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Swift"
 
     ```swift title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     func algorithmA(n: Int) {
         print(0)
     }
 
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     func algorithmB(n: Int) {
         for _ in 0 ..< n {
             print(0)
         }
     }
 
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     func algorithmC(n: Int) {
         for _ in 0 ..< 1_000_000 {
             print(0)
@@ -332,17 +332,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "JS"
 
     ```javascript title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     function algorithm_A(n) {
         console.log(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     function algorithm_B(n) {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     function algorithm_C(n) {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -354,17 +354,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "TS"
 
     ```typescript title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     function algorithm_A(n: number): void {
         console.log(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     function algorithm_B(n: number): void {
         for (let i = 0; i < n; i++) {
             console.log(0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     function algorithm_C(n: number): void {
         for (let i = 0; i < 1000000; i++) {
             console.log(0);
@@ -375,17 +375,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Dart"
 
     ```dart title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     void algorithmA(int n) {
       print(0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     void algorithmB(int n) {
       for (int i = 0; i < n; i++) {
         print(0);
       }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     void algorithmC(int n) {
       for (int i = 0; i < 1000000; i++) {
         print(0);
@@ -396,17 +396,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Rust"
 
     ```rust title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     fn algorithm_A(n: i32) {
         println!("{}", 0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     fn algorithm_B(n: i32) {
         for _ in 0..n {
             println!("{}", 0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     fn algorithm_C(n: i32) {
         for _ in 0..1000000 {
             println!("{}", 0);
@@ -417,17 +417,17 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "C"
 
     ```c title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     void algorithm_A(int n) {
         printf("%d", 0);
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     void algorithm_B(int n) {
         for (int i = 0; i < n; i++) {
             printf("%d", 0);
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     void algorithm_C(int n) {
         for (int i = 0; i < 1000000; i++) {
             printf("%d", 0);
@@ -444,18 +444,18 @@ Let's understand this concept of "time growth trend" with an example. Assume the
 === "Zig"
 
     ```zig title=""
-    // Time complexity of algorithm A: constant order
+    // Độ phức tạp thời gian của thuật toán A: hằng số
     fn algorithm_A(n: usize) void {
         _ = n;
         std.debug.print("{}\n", .{0});
     }
-    // Time complexity of algorithm B: linear order
+    // Độ phức tạp thời gian của thuật toán B: bậc tuyến tính
     fn algorithm_B(n: i32) void {
         for (0..n) |_| {
             std.debug.print("{}\n", .{0});
         }
     }
-    // Time complexity of algorithm C: constant order
+    // Độ phức tạp thời gian của thuật toán C: hằng số
     fn algorithm_C(n: i32) void {
         _ = n;
         for (0..1000000) |_| {
@@ -464,23 +464,23 @@ Let's understand this concept of "time growth trend" with an example. Assume the
     }
     ```
 
-The figure below shows the time complexities of these three algorithms.
+Hình bên dưới thể hiện độ phức tạp thời gian của ba thuật toán này.
 
-- Algorithm `A` has just one print operation, and its run time does not grow with $n$. Its time complexity is considered "constant order."
-- Algorithm `B` involves a print operation looping $n$ times, and its run time grows linearly with $n$. Its time complexity is "linear order."
-- Algorithm `C` has a print operation looping 1,000,000 times. Although it takes a long time, it is independent of the input data size $n$. Therefore, the time complexity of `C` is the same as `A`, which is "constant order."
+- Thuật toán `A` chỉ có một thao tác in, và thời gian chạy của nó không tăng theo $n$. Độ phức tạp thời gian được coi là "hằng số".
+- Thuật toán `B` thực hiện thao tác in lặp $n$ lần, thời gian chạy tăng tuyến tính theo $n$. Độ phức tạp thời gian là "bậc tuyến tính".
+- Thuật toán `C` lặp in 1.000.000 lần. Mặc dù tốn nhiều thời gian thực thi, nhưng nó độc lập với kích thước đầu vào $n$. Vì vậy, độ phức tạp thời gian của `C` giống `A`, đều là "hằng số".
 
-![Time growth trend of algorithms a, b, and c](time_complexity.assets/time_complexity_simple_example.png)
+![Đồ thị xu hướng tăng trưởng thời gian của các thuật toán a, b và c](time_complexity.assets/time_complexity_simple_example.png)
 
-Compared to directly counting the run time of an algorithm, what are the characteristics of time complexity analysis?
+So với việc đếm trực tiếp thời gian chạy của thuật toán, phân tích độ phức tạp thời gian có những đặc điểm gì?
 
-- **Time complexity effectively assesses algorithm efficiency**. For instance, algorithm `B` has linearly growing run time, which is slower than algorithm `A` when $n > 1$ and slower than `C` when $n > 1,000,000$. In fact, as long as the input data size $n$ is sufficiently large, a "constant order" complexity algorithm will always be better than a "linear order" one, demonstrating the essence of time growth trend.
-- **Time complexity analysis is more straightforward**. Obviously, the running platform and the types of computational operations are irrelevant to the trend of run time growth. Therefore, in time complexity analysis, we can simply treat the execution time of all computational operations as the same "unit time," simplifying the "computational operation run time count" to a "computational operation count." This significantly reduces the complexity of estimation.
-- **Time complexity has its limitations**. For example, although algorithms `A` and `C` have the same time complexity, their actual run times can be quite different. Similarly, even though algorithm `B` has a higher time complexity than `C`, it is clearly superior when the input data size $n$ is small. In these cases, it's difficult to judge the efficiency of algorithms based solely on time complexity. Nonetheless, despite these issues, complexity analysis remains the most effective and commonly used method for evaluating algorithm efficiency.
+- **Độ phức tạp thời gian đánh giá hiệu quả thuật toán một cách hiệu quả**. Ví dụ, thuật toán `B` có thời gian chạy tăng tuyến tính, chậm hơn thuật toán `A` khi $n > 1$ và chậm hơn `C` khi $n > 1{,}000{,}000$. Thực tế, khi kích thước dữ liệu đầu vào $n$ đủ lớn, thuật toán có độ phức tạp "hằng số" luôn tốt hơn thuật toán "tuyến tính", đây là bản chất của xu hướng tăng trưởng thời gian.
+- **Phân tích độ phức tạp thời gian đơn giản hơn**. Rõ ràng, nền tảng chạy và loại phép toán tính toán không ảnh hưởng tới xu hướng tăng trưởng thời gian. Vì vậy, khi phân tích độ phức tạp thời gian, ta có thể coi thời gian thực thi của mọi phép toán đều là cùng một "đơn vị thời gian", đơn giản hóa việc "đếm thời gian thực thi của phép toán" thành "đếm số phép toán". Điều này giảm đáng kể độ phức tạp khi ước lượng.
+- **Độ phức tạp thời gian có giới hạn của nó**. Ví dụ, mặc dù `A` và `C` có cùng độ phức tạp thời gian, thời gian chạy thực tế của chúng có thể rất khác nhau. Tương tự, mặc dù `B` có độ phức tạp cao hơn `C`, nhưng khi $n$ nhỏ thì `B` có thể tốt hơn. Trong những trường hợp này, khó đánh giá hiệu suất chỉ dựa trên độ phức tạp thời gian. Tuy nhiên, mặc dù có những vấn đề đó, phân tích độ phức tạp vẫn là phương pháp hiệu quả và phổ biến nhất để đánh giá hiệu suất thuật toán.
 
-## Asymptotic upper bound
+## Cận trên tiệm cận
 
-Consider a function with an input size of $n$:
+Xét một hàm với kích thước đầu vào $n$:
 
 === "Python"
 
@@ -489,7 +489,7 @@ Consider a function with an input size of $n$:
         a = 1      # +1
         a = a + 1  # +1
         a = a * 2  # +1
-        # Cycle n times
+        # Lặp n lần
         for i in range(n):  # +1
             print(0)        # +1
     ```
@@ -501,8 +501,8 @@ Consider a function with an input size of $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) { // +1 (execute i ++ every round)
+        // Vòng lặp lặp n lần
+        for (int i = 0; i < n; i++) { // +1 (mỗi lần thực hiện i ++)
             cout << 0 << endl;    // +1
         }
     }
@@ -515,8 +515,8 @@ Consider a function with an input size of $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) { // +1 (execute i ++ every round)
+        // Vòng lặp lặp n lần
+        for (int i = 0; i < n; i++) { // +1 (mỗi lần thực hiện i ++)
             System.out.println(0);    // +1
         }
     }
@@ -529,8 +529,8 @@ Consider a function with an input size of $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // +1 (execute i ++ every round)
+        // Vòng lặp lặp n lần
+        for (int i = 0; i < n; i++) {   // +1 (mỗi lần thực hiện i ++)
             Console.WriteLine(0);   // +1
         }
     }
@@ -543,7 +543,7 @@ Consider a function with an input size of $n$:
         a := 1      // +1
         a = a + 1   // +1
         a = a * 2   // +1
-        // Loop n times
+        // Lặp n lần
         for i := 0; i < n; i++ {   // +1
             fmt.Println(a)         // +1
         }
@@ -557,7 +557,7 @@ Consider a function with an input size of $n$:
         var a = 1 // +1
         a = a + 1 // +1
         a = a * 2 // +1
-        // Loop n times
+        // Lặp n lần
         for _ in 0 ..< n { // +1
             print(0) // +1
         }
@@ -571,8 +571,8 @@ Consider a function with an input size of $n$:
         var a = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for(let i = 0; i < n; i++){ // +1 (execute i ++ every round)
+        // Lặp n lần
+        for(let i = 0; i < n; i++){ // +1 (mỗi lần thực hiện i ++)
             console.log(0); // +1
         }
     }
@@ -585,8 +585,8 @@ Consider a function with an input size of $n$:
         var a: number = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for(let i = 0; i < n; i++){ // +1 (execute i ++ every round)
+        // Lặp n lần
+        for(let i = 0; i < n; i++){ // +1 (mỗi lần thực hiện i ++)
             console.log(0); // +1
         }
     }
@@ -599,8 +599,8 @@ Consider a function with an input size of $n$:
       int a = 1; // +1
       a = a + 1; // +1
       a = a * 2; // +1
-      // Loop n times
-      for (int i = 0; i < n; i++) { // +1 (execute i ++ every round)
+      // Lặp n lần
+      for (int i = 0; i < n; i++) { // +1 (mỗi lần thực hiện i ++)
         print(0); // +1
       }
     }
@@ -614,8 +614,8 @@ Consider a function with an input size of $n$:
         a = a + 1;      // +1
         a = a * 2;      // +1
 
-        // Loop n times
-        for _ in 0..n { // +1 (execute i ++ every round)
+        // Lặp n lần
+        for _ in 0..n { // +1 (mỗi lần thực hiện i ++)
             println!("{}", 0); // +1
         }
     }
@@ -628,8 +628,8 @@ Consider a function with an input size of $n$:
         int a = 1;  // +1
         a = a + 1;  // +1
         a = a * 2;  // +1
-        // Loop n times
-        for (int i = 0; i < n; i++) {   // +1 (execute i ++ every round)
+        // Lặp n lần
+        for (int i = 0; i < n; i++) {   // +1 (mỗi lần thực hiện i ++)
             printf("%d", 0);            // +1
         }
     } 
@@ -648,57 +648,57 @@ Consider a function with an input size of $n$:
         var a: i32 = 1; // +1
         a += 1; // +1
         a *= 2; // +1
-        // Loop n times
-        for (0..n) |_| { // +1 (execute i ++ every round)
+        // Lặp n lần
+        for(0..n) |_| { // +1 (mỗi lần thực hiện i ++)
             std.debug.print("{}\n", .{0}); // +1
         }
     }
     ```
 
-Given a function that represents the number of operations of an algorithm as a function of the input size $n$, denoted as $T(n)$, consider the following example:
+Cho một hàm biểu diễn số phép toán của một thuật toán theo kích thước đầu vào $n$, ký hiệu là $T(n)$, xem ví dụ sau:
 
 $$
 T(n) = 3 + 2n
 $$
 
-Since $T(n)$ is a linear function, its growth trend is linear, and therefore, its time complexity is of linear order, denoted as $O(n)$. This mathematical notation, known as <u>big-O notation</u>, represents the <u>asymptotic upper bound</u> of the function $T(n)$.
+Vì $T(n)$ là một hàm tuyến tính, xu hướng tăng trưởng của nó là tuyến tính, nên độ phức tạp thời gian là bậc tuyến tính, ký hiệu là $O(n)$. Ký hiệu toán học này, gọi là chú thích big-O (big-O notation), biểu diễn <u>cận trên tiệm cận</u> của hàm $T(n)$.
 
-In essence, time complexity analysis is about finding the asymptotic upper bound of the "number of operations $T(n)$". It has a precise mathematical definition.
+Về bản chất, phân tích độ phức tạp thời gian là tìm cận trên tiệm cận của "số phép toán $T(n)$". Nó có định nghĩa toán học chính xác.
 
-!!! note "Asymptotic Upper Bound"
+!!! note "Cận trên tiệm cận"
 
-    If there exist positive real numbers $c$ and $n_0$ such that for all $n > n_0$, $T(n) \leq c \cdot f(n)$, then $f(n)$ is considered an asymptotic upper bound of $T(n)$, denoted as $T(n) = O(f(n))$.
+    Nếu tồn tại các số thực dương $c$ và $n_0$ sao cho với mọi $n > n_0$, $T(n) \leq c \cdot f(n)$, thì $f(n)$ được coi là cận trên tiệm cận của $T(n)$, ký hiệu $T(n) = O(f(n))$.
 
-As shown in the figure below, calculating the asymptotic upper bound involves finding a function $f(n)$ such that, as $n$ approaches infinity, $T(n)$ and $f(n)$ have the same growth order, differing only by a constant factor $c$.
+Như minh họa trong hình dưới, việc tính cận trên tiệm cận là tìm một hàm $f(n)$ sao cho khi $n$ tiến tới vô cùng, $T(n)$ và $f(n)$ có cùng bậc tăng trưởng, chỉ khác nhau bởi một hệ số hằng $c$.
 
-![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
+![Cận trên tiệm cận của một hàm](time_complexity.assets/asymptotic_upper_bound.png)
 
-## Calculation method
+## Phương pháp tính toán
 
-While the concept of asymptotic upper bound might seem mathematically dense, you don't need to fully grasp it right away. Let's first understand the method of calculation, which can be practiced and comprehended over time.
+Mặc dù khái niệm cận trên tiệm cận có vẻ toán học, bạn không cần nắm vững ngay lập tức. Hãy bắt đầu hiểu phương pháp tính, bạn có thể luyện tập và hiểu dần theo thời gian.
 
-Once $f(n)$ is determined, we obtain the time complexity $O(f(n))$. But how do we determine the asymptotic upper bound $f(n)$? This process generally involves two steps: counting the number of operations and determining the asymptotic upper bound.
+Khi đã xác định được $f(n)$, ta có độ phức tạp thời gian $O(f(n))$. Nhưng làm thế nào để xác định cận trên tiệm cận $f(n)$? Quá trình này thường gồm hai bước: đếm số phép toán và xác định cận trên tiệm cận.
 
-### Step 1: counting the number of operations
+### Bước 1: đếm số phép toán
 
-This step involves going through the code line by line. However, due to the presence of the constant $c$ in $c \cdot f(n)$, **all coefficients and constant terms in $T(n)$ can be ignored**. This principle allows for simplification techniques in counting operations.
+Bước này gồm duyệt mã từng dòng. Tuy nhiên, do tồn tại hệ số hằng $c$ trong $c \cdot f(n)$, **tất cả các hệ số và hằng số trong $T(n)$ có thể bị bỏ qua**. Nguyên tắc này cho phép các kỹ thuật đơn giản hóa khi đếm phép toán.
 
-1. **Ignore constant terms in $T(n)$**, as they do not affect the time complexity being independent of $n$.
-2. **Omit all coefficients**. For example, looping $2n$, $5n + 1$ times, etc., can be simplified to $n$ times since the coefficient before $n$ does not impact the time complexity.
-3. **Use multiplication for nested loops**. The total number of operations equals the product of the number of operations in each loop, applying the simplification techniques from points 1 and 2 for each loop level.
+1. **Bỏ qua các hằng số trong $T(n)$**, vì chúng không phụ thuộc vào $n$ nên không ảnh hưởng đến độ phức tạp.
+2. **Loại bỏ tất cả hệ số**. Ví dụ, lặp 2n, 5n + 1 lần, v.v., có thể đơn giản thành n lần vì hệ số trước n không làm thay đổi độ phức tạp.
+3. **Dùng phép nhân cho vòng lặp lồng nhau**. Tổng số phép toán bằng tích số lượng phép toán ở mỗi vòng lặp, áp dụng kỹ thuật 1 và 2 cho mỗi cấp vòng lặp.
 
-Given a function, we can use these techniques to count operations:
+Với một đoạn mã, ta có thể dùng các kỹ thuật trên để đếm phép toán:
 
 === "Python"
 
     ```python title=""
     def algorithm(n: int):
-        a = 1      # +0 (trick 1)
-        a = a + n  # +0 (trick 1)
-        # +n (technique 2)
+        a = 1      # +0 (mẹo 1)
+        a = a + n  # +0 (mẹo 1)
+        # +n (kỹ thuật 2)
         for i in range(5 * n + 1):
             print(0)
-        # +n*n (technique 3)
+        # +n*n (kỹ thuật 3)
         for i in range(2 * n):
             for j in range(n + 1):
                 print(0)
@@ -708,13 +708,13 @@ Given a function, we can use these techniques to count operations:
 
     ```cpp title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (trick 1)
-        a = a + n;  // +0 (trick 1)
-        // +n (technique 2)
+        int a = 1;  // +0 (mẹo 1)
+        a = a + n;  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             cout << 0 << endl;
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 cout << 0 << endl;
@@ -727,13 +727,13 @@ Given a function, we can use these techniques to count operations:
 
     ```java title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (trick 1)
-        a = a + n;  // +0 (trick 1)
-        // +n (technique 2)
+        int a = 1;  // +0 (mẹo 1)
+        a = a + n;  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             System.out.println(0);
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 System.out.println(0);
@@ -746,13 +746,13 @@ Given a function, we can use these techniques to count operations:
 
     ```csharp title=""
     void Algorithm(int n) {
-        int a = 1;  // +0 (trick 1)
-        a = a + n;  // +0 (trick 1)
-        // +n (technique 2)
+        int a = 1;  // +0 (mẹo 1)
+        a = a + n;  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
@@ -765,13 +765,13 @@ Given a function, we can use these techniques to count operations:
 
     ```go title=""
     func algorithm(n int) {
-        a := 1     // +0 (trick 1)
-        a = a + n  // +0 (trick 1)
-        // +n (technique 2)
+        a := 1     // +0 (mẹo 1)
+        a = a + n  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for i := 0; i < 5 * n + 1; i++ {
             fmt.Println(0)
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for i := 0; i < 2 * n; i++ {
             for j := 0; j < n + 1; j++ {
                 fmt.Println(0)
@@ -784,13 +784,13 @@ Given a function, we can use these techniques to count operations:
 
     ```swift title=""
     func algorithm(n: Int) {
-        var a = 1 // +0 (trick 1)
-        a = a + n // +0 (trick 1)
-        // +n (technique 2)
+        var a = 1 // +0 (mẹo 1)
+        a = a + n // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for _ in 0 ..< (5 * n + 1) {
             print(0)
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for _ in 0 ..< (2 * n) {
             for _ in 0 ..< (n + 1) {
                 print(0)
@@ -803,13 +803,13 @@ Given a function, we can use these techniques to count operations:
 
     ```javascript title=""
     function algorithm(n) {
-        let a = 1;  // +0 (trick 1)
-        a = a + n;  // +0 (trick 1)
-        // +n (technique 2)
+        let a = 1;  // +0 (mẹo 1)
+        a = a + n;  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -822,13 +822,13 @@ Given a function, we can use these techniques to count operations:
 
     ```typescript title=""
     function algorithm(n: number): void {
-        let a = 1;  // +0 (trick 1)
-        a = a + n;  // +0 (trick 1)
-        // +n (technique 2)
+        let a = 1;  // +0 (mẹo 1)
+        a = a + n;  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for (let i = 0; i < 5 * n + 1; i++) {
             console.log(0);
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for (let i = 0; i < 2 * n; i++) {
             for (let j = 0; j < n + 1; j++) {
                 console.log(0);
@@ -841,13 +841,13 @@ Given a function, we can use these techniques to count operations:
 
     ```dart title=""
     void algorithm(int n) {
-      int a = 1; // +0 (trick 1)
-      a = a + n; // +0 (trick 1)
-      // +n (technique 2)
+      int a = 1; // +0 (mẹo 1)
+      a = a + n; // +0 (mẹo 1)
+      // +n (kỹ thuật 2)
       for (int i = 0; i < 5 * n + 1; i++) {
         print(0);
       }
-      // +n*n (technique 3)
+      // +n*n (kỹ thuật 3)
       for (int i = 0; i < 2 * n; i++) {
         for (int j = 0; j < n + 1; j++) {
           print(0);
@@ -860,15 +860,15 @@ Given a function, we can use these techniques to count operations:
 
     ```rust title=""
     fn algorithm(n: i32) {
-        let mut a = 1;     // +0 (trick 1)
-        a = a + n;        // +0 (trick 1)
+        let mut a = 1;     // +0 (mẹo 1)
+        a = a + n;        // +0 (mẹo 1)
 
-        // +n (technique 2)
+        // +n (kỹ thuật 2)
         for i in 0..(5 * n + 1) {
             println!("{}", 0);
         }
 
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for i in 0..(2 * n) {
             for j in 0..(n + 1) {
                 println!("{}", 0);
@@ -881,13 +881,13 @@ Given a function, we can use these techniques to count operations:
 
     ```c title=""
     void algorithm(int n) {
-        int a = 1;  // +0 (trick 1)
-        a = a + n;  // +0 (trick 1)
-        // +n (technique 2)
+        int a = 1;  // +0 (mẹo 1)
+        a = a + n;  // +0 (mẹo 1)
+        // +n (kỹ thuật 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             printf("%d", 0);
         }
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 printf("%d", 0);
@@ -906,15 +906,15 @@ Given a function, we can use these techniques to count operations:
 
     ```zig title=""
     fn algorithm(n: usize) void {
-        var a: i32 = 1;     // +0 (trick 1)
-        a = a + @as(i32, @intCast(n));        // +0 (trick 1)
+        var a: i32 = 1;     // +0 (mẹo 1)
+        a = a + @as(i32, @intCast(n));        // +0 (mẹo 1)
 
-        // +n (technique 2)
+        // +n (kỹ thuật 2)
         for(0..(5 * n + 1)) |_| {
             std.debug.print("{}\n", .{0});
         }
 
-        // +n*n (technique 3)
+        // +n*n (kỹ thuật 3)
         for(0..(2 * n)) |_| {
             for(0..(n + 1)) |_| {
                 std.debug.print("{}\n", .{0});
@@ -923,25 +923,25 @@ Given a function, we can use these techniques to count operations:
     }
     ```
 
-The formula below shows the counting results before and after simplification, both leading to a time complexity of $O(n^2)$:
+Công thức dưới đây cho thấy kết quả đếm trước và sau khi đơn giản hóa, đều dẫn tới độ phức tạp thời gian $O(n^2)$:
 
 $$
 \begin{aligned}
-T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Complete Count (-.-|||)} \newline
+T(n) & = 2n(n + 1) + (5n + 1) + 2 & \text{Đếm đầy đủ (-.-|||)} \newline
 & = 2n^2 + 7n + 3 \newline
-T(n) & = n^2 + n & \text{Simplified Count (o.O)}
+T(n) & = n^2 + n & \text{Đếm đã đơn giản (o.O)}
 \end{aligned}
 $$
 
-### Step 2: determining the asymptotic upper bound
+### Bước 2: xác định cận trên tiệm cận
 
-**The time complexity is determined by the highest order term in $T(n)$**. This is because, as $n$ approaches infinity, the highest order term dominates, rendering the influence of other terms negligible.
+**Độ phức tạp thời gian được xác định bởi hạng lớn nhất trong $T(n)$**. Bởi vì khi $n$ tiến tới vô cùng, hạng lớn nhất sẽ chi phối, làm cho ảnh hưởng của các hạng khác trở nên không đáng kể.
 
-The following table illustrates examples of different operation counts and their corresponding time complexities. Some exaggerated values are used to emphasize that coefficients cannot alter the order of growth. When $n$ becomes very large, these constants become insignificant.
+Bảng dưới đây minh họa ví dụ về các số phép toán khác nhau và độ phức tạp tương ứng. Một số giá trị được phóng đại để nhấn mạnh rằng hệ số không thể thay đổi cấp độ tăng trưởng. Khi $n$ rất lớn, các hằng số trở nên không đáng kể.
 
-<p align="center"> Table: Time complexity for different operation counts </p>
+<p align="center"> Bảng: Độ phức tạp thời gian cho các số phép toán khác nhau </p>
 
-| Operation Count $T(n)$ | Time Complexity $O(f(n))$ |
+| Số phép toán $T(n)$ | Độ phức tạp $O(f(n))$ |
 | ---------------------- | ------------------------- |
 | $100000$               | $O(1)$                    |
 | $3n + 2$               | $O(n)$                    |
@@ -949,164 +949,164 @@ The following table illustrates examples of different operation counts and their
 | $n^3 + 10000n^2$       | $O(n^3)$                  |
 | $2^n + 10000n^{10000}$ | $O(2^n)$                  |
 
-## Common types of time complexity
+## Các loại độ phức tạp thời gian phổ biến
 
-Let's consider the input data size as $n$. The common types of time complexities are shown in the figure below, arranged from lowest to highest:
+Giả sử kích thước dữ liệu đầu vào là $n$. Các loại độ phức tạp thời gian phổ biến được sắp xếp từ thấp đến cao như sau:
 
 $$
 \begin{aligned}
 & O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
-& \text{Constant} < \text{Log} < \text{Linear} < \text{Linear-Log} < \text{Quadratic} < \text{Exp} < \text{Factorial}
+& \text{Hằng số} < \text{Log} < \text{Tuyến tính} < \text{Tuyến tính-Log} < \text{Bậc hai} < \text{Mũ} < \text{Giai thừa}
 \end{aligned}
 $$
 
-![Common types of time complexity](time_complexity.assets/time_complexity_common_types.png)
+![Các loại độ phức tạp thời gian phổ biến](time_complexity.assets/time_complexity_common_types.png)
 
-### Constant order $O(1)$
+### Bậc hằng số $O(1)$
 
-Constant order means the number of operations is independent of the input data size $n$. In the following function, although the number of operations `size` might be large, the time complexity remains $O(1)$ as it's unrelated to $n$:
+Bậc hằng số nghĩa là số phép toán không phụ thuộc vào kích thước đầu vào $n$. Trong hàm dưới đây, mặc dù số lần in `size` có thể lớn, độ phức tạp vẫn là $O(1)$ vì không liên quan đến $n$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{constant}
 ```
 
-### Linear order $O(n)$
+### Bậc tuyến tính $O(n)$
 
-Linear order indicates the number of operations grows linearly with the input data size $n$. Linear order commonly appears in single-loop structures:
+Bậc tuyến tính nghĩa là số phép toán tăng theo tuyến tính với kích thước đầu vào $n$. Bậc tuyến tính thường xuất hiện ở cấu trúc vòng lặp đơn:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{linear}
 ```
 
-Operations like array traversal and linked list traversal have a time complexity of $O(n)$, where $n$ is the length of the array or list:
+Các thao tác như duyệt mảng và duyệt danh sách liên kết có độ phức tạp là $O(n)$, với $n$ là độ dài mảng hoặc danh sách:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{array_traversal}
 ```
 
-It's important to note that **the input data size $n$ should be determined based on the type of input data**. For example, in the first example, $n$ represents the input data size, while in the second example, the length of the array $n$ is the data size.
+Cần lưu ý rằng **kích thước dữ liệu $n$ nên được xác định dựa trên loại dữ liệu đầu vào**. Ví dụ, trong ví dụ đầu tiên, $n$ là kích thước dữ liệu đầu vào, trong ví dụ thứ hai, $n$ là độ dài mảng.
 
-### Quadratic order $O(n^2)$
+### Bậc hai $O(n^2)$
 
-Quadratic order means the number of operations grows quadratically with the input data size $n$. Quadratic order typically appears in nested loops, where both the outer and inner loops have a time complexity of $O(n)$, resulting in an overall complexity of $O(n^2)$:
+Bậc hai nghĩa là số phép toán tăng bình phương theo kích thước đầu vào $n$. Bậc hai thường xuất hiện ở vòng lặp lồng nhau, khi vòng ngoài và vòng trong đều có độ phức tạp $O(n)$, dẫn tới tổng thể $O(n^2)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{quadratic}
 ```
 
-The figure below compares constant order, linear order, and quadratic order time complexities.
+Hình dưới so sánh bậc hằng số, tuyến tính và bậc hai.
 
-![Constant, linear, and quadratic order time complexities](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![Bậc hằng số, tuyến tính, và bậc hai](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
-For instance, in bubble sort, the outer loop runs $n - 1$ times, and the inner loop runs $n-1$, $n-2$, ..., $2$, $1$ times, averaging $n / 2$ times, resulting in a time complexity of $O((n - 1) n / 2) = O(n^2)$:
+Ví dụ, trong sắp xếp nổi bọt (bubble sort), vòng ngoài chạy $n - 1$ lần, vòng trong chạy $n-1$, $n-2$, ..., $2$, $1$ lần, trung bình $n / 2$ lần, dẫn tới độ phức tạp $O((n - 1) n / 2) = O(n^2)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{bubble_sort}
 ```
 
-### Exponential order $O(2^n)$
+### Bậc mũ $O(2^n)$
 
-Biological "cell division" is a classic example of exponential order growth: starting with one cell, it becomes two after one division, four after two divisions, and so on, resulting in $2^n$ cells after $n$ divisions.
+"Phân chia tế bào" trong sinh học là ví dụ kinh điển của tăng trưởng bậc mũ: bắt đầu từ một tế bào, sau một lần phân chia thành hai, sau hai lần thành bốn, và cứ thế, sau $n$ lần sẽ có $2^n$ tế bào.
 
-The figure below and code simulate the cell division process, with a time complexity of $O(2^n)$:
+Hình dưới và mã mô phỏng quá trình phân chia tế bào, có độ phức tạp $O(2^n)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![Exponential order time complexity](time_complexity.assets/time_complexity_exponential.png)
+![Bậc mũ](time_complexity.assets/time_complexity_exponential.png)
 
-In practice, exponential order often appears in recursive functions. For example, in the code below, it recursively splits into two halves, stopping after $n$ divisions:
+Trong thực tế, bậc mũ thường xuất hiện ở các hàm đệ quy. Ví dụ, trong mã dưới, nó đệ quy tách thành hai nhánh, dừng sau $n$ lần phân chia:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{exp_recur}
 ```
 
-Exponential order growth is extremely rapid and is commonly seen in exhaustive search methods (brute force, backtracking, etc.). For large-scale problems, exponential order is unacceptable, often requiring dynamic programming or greedy algorithms as solutions.
+Tăng trưởng bậc mũ rất nhanh và thường xuất hiện ở các phương pháp tìm kiếm toàn diện (brute force, backtracking, v.v.). Với bài toán quy mô lớn, bậc mũ là không chấp nhận được, thường cần dùng quy hoạch động hoặc thuật toán tham lam làm giải pháp.
 
-### Logarithmic order $O(\log n)$
+### Bậc logarit $O(\log n)$
 
-In contrast to exponential order, logarithmic order reflects situations where "the size is halved each round." Given an input data size $n$, since the size is halved each round, the number of iterations is $\log_2 n$, the inverse function of $2^n$.
+Ngược với bậc mũ, bậc logarit mô tả tình huống "kích thước giảm một nửa mỗi vòng". Với kích thước đầu vào $n$, vì mỗi vòng giảm một nửa, số vòng cần thiết là $\log_2 n$, là hàm đảo của $2^n$.
 
-The figure below and code simulate the "halving each round" process, with a time complexity of $O(\log_2 n)$, commonly abbreviated as $O(\log n)$:
+Hình dưới và mã mô phỏng quá trình "giảm một nửa mỗi vòng", có độ phức tạp $O(\log_2 n)$, thường viết tắt là $O(\log n)$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![Logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic.png)
+![Bậc logarit](time_complexity.assets/time_complexity_logarithmic.png)
 
-Like exponential order, logarithmic order also frequently appears in recursive functions. The code below forms a recursive tree of height $\log_2 n$:
+Giống như bậc mũ, bậc logarit cũng thường xuất hiện ở các hàm đệ quy. Mã dưới tạo một cây đệ quy có chiều cao $\log_2 n$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{log_recur}
 ```
 
-Logarithmic order is typical in algorithms based on the divide-and-conquer strategy, embodying the "split into many" and "simplify complex problems" approach. It's slow-growing and is the most ideal time complexity after constant order.
+Bậc logarit phổ biến trong các thuật toán chia để trị (divide-and-conquer), thể hiện ý tưởng "chia nhỏ" và "giải quyết vấn đề lớn bằng cách chia nhỏ". Đây là tốc độ tăng trưởng rất chậm và là độ phức tạp lý tưởng sau bậc hằng số.
 
-!!! tip "What is the base of $O(\log n)$?"
+!!! tip "Cơ số của $O(\log n)$ là gì?"
 
-    Technically, "splitting into $m$" corresponds to a time complexity of $O(\log_m n)$. Using the logarithm base change formula, we can equate different logarithmic complexities:
+    Kỹ thuật thực tế "chia thành m phần" tương ứng với độ phức tạp $O(\log_m n)$. Dùng công thức đổi cơ số logarit, ta có thể quy mọi cơ số về nhau:
 
     $$
     O(\log_m n) = O(\log_k n / \log_k m) = O(\log_k n)
     $$
 
-    This means the base $m$ can be changed without affecting the complexity. Therefore, we often omit the base $m$ and simply denote logarithmic order as $O(\log n)$.
+    Điều này nghĩa là cơ số $m$ có thể thay đổi mà không ảnh hưởng tới độ phức tạp. Vì vậy, thường ta bỏ qua cơ số và viết đơn giản là $O(\log n)$.
 
-### Linear-logarithmic order $O(n \log n)$
+### Bậc tuyến tính-logarit $O(n \log n)$
 
-Linear-logarithmic order often appears in nested loops, with the complexities of the two loops being $O(\log n)$ and $O(n)$ respectively. The related code is as follows:
+Bậc tuyến tính-logarit thường xuất hiện ở vòng lặp lồng nhau mà một vòng có độ phức tạp $O(\log n)$ và vòng kia là $O(n)$. Mã liên quan như sau:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{linear_log_recur}
 ```
 
-The figure below demonstrates how linear-logarithmic order is generated. Each level of a binary tree has $n$ operations, and the tree has $\log_2 n + 1$ levels, resulting in a time complexity of $O(n \log n)$.
+Hình dưới cho thấy cách tạo ra bậc $O(n \log n)$. Mỗi cấp trong cây nhị phân có $n$ phép toán, và cây có $\log_2 n + 1$ cấp, dẫn tới tổng là $O(n \log n)$.
 
-![Linear-logarithmic order time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![Bậc tuyến tính-logarit](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
-Mainstream sorting algorithms typically have a time complexity of $O(n \log n)$, such as quicksort, mergesort, and heapsort.
+Các thuật toán sắp xếp phổ biến thường có độ phức tạp $O(n \log n)$, như quicksort, mergesort, và heapsort.
 
-### Factorial order $O(n!)$
+### Bậc giai thừa $O(n!)$
 
-Factorial order corresponds to the mathematical problem of "full permutation." Given $n$ distinct elements, the total number of possible permutations is:
+Bậc giai thừa tương ứng với bài toán "hoán vị đầy đủ". Với $n$ phần tử phân biệt, số hoán vị là:
 
 $$
 n! = n \times (n - 1) \times (n - 2) \times \dots \times 2 \times 1
 $$
 
-Factorials are typically implemented using recursion. As shown in the code and the figure below, the first level splits into $n$ branches, the second level into $n - 1$ branches, and so on, stopping after the $n$th level:
+Giai thừa thường được cài bằng đệ quy. Như trong mã và hình dưới, cấp đầu tách thành $n$ nhánh, cấp hai thành $n - 1$ nhánh, và cứ thế, dừng sau cấp thứ $n$:
 
 ```src
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![Factorial order time complexity](time_complexity.assets/time_complexity_factorial.png)
+![Bậc giai thừa](time_complexity.assets/time_complexity_factorial.png)
 
-Note that factorial order grows even faster than exponential order; it's unacceptable for larger $n$ values.
+Lưu ý rằng bậc giai thừa tăng nhanh hơn cả bậc mũ; nó không chấp nhận được cho $n$ lớn.
 
-## Worst, best, and average time complexities
+## Độ phức tạp trong trường hợp xấu nhất, tốt nhất và trung bình
 
-**The time efficiency of an algorithm is often not fixed but depends on the distribution of the input data**. Assume we have an array `nums` of length $n$, consisting of numbers from $1$ to $n$, each appearing only once, but in a randomly shuffled order. The task is to return the index of the element $1$. We can draw the following conclusions:
+**Hiệu suất thời gian của một thuật toán thường không cố định mà phụ thuộc vào phân bố dữ liệu đầu vào**. Giả sử ta có một mảng `nums` độ dài $n$, gồm các số từ $1$ đến $n$, mỗi số xuất hiện đúng một lần, nhưng bị tráo ngẫu nhiên. Nhiệm vụ là trả về chỉ số của phần tử $1$. Ta có thể rút ra:
 
-- When `nums = [?, ?, ..., 1]`, that is, when the last element is $1$, it requires a complete traversal of the array, **achieving the worst-case time complexity of $O(n)$**.
-- When `nums = [1, ?, ?, ...]`, that is, when the first element is $1$, no matter the length of the array, no further traversal is needed, **achieving the best-case time complexity of $\Omega(1)$**.
+- Khi `nums = [?, ?, ..., 1]`, tức là phần tử cuối cùng là $1$, cần duyệt toàn bộ mảng, **đạt độ phức tạp trường hợp xấu nhất $O(n)$**.
+- Khi `nums = [1, ?, ?, ...]`, tức là phần tử đầu tiên là $1$, không cần duyệt thêm, **đạt độ phức tạp tốt nhất $\Omega(1)$**.
 
-The "worst-case time complexity" corresponds to the asymptotic upper bound, denoted by the big $O$ notation. Correspondingly, the "best-case time complexity" corresponds to the asymptotic lower bound, denoted by $\Omega$:
+"Độ phức tạp thời gian trường hợp xấu nhất" tương ứng với cận trên tiệm cận, ký hiệu bằng ký tự lớn $O$. Tương ứng, "độ phức tạp tốt nhất" tương ứng với cận dưới tiệm cận, ký hiệu bằng $\Omega$:
 
 ```src
 [file]{worst_best_time_complexity}-[class]{}-[func]{find_one}
 ```
 
-It's important to note that the best-case time complexity is rarely used in practice, as it is usually only achievable under very low probabilities and might be misleading. **The worst-case time complexity is more practical as it provides a safety value for efficiency**, allowing us to confidently use the algorithm.
+Cần lưu ý rằng độ phức tạp tốt nhất hiếm khi được dùng trong thực tế, vì nó thường chỉ đạt được trong các phân bố dữ liệu rất hiếm và có thể gây hiểu lầm. **Độ phức tạp trường hợp xấu nhất thực tế hơn vì nó cung cấp giá trị an toàn cho hiệu suất**, giúp ta tự tin sử dụng thuật toán.
 
-From the above example, it's clear that both the worst-case and best-case time complexities only occur under "special data distributions," which may have a small probability of occurrence and may not accurately reflect the algorithm's run efficiency. In contrast, **the average time complexity can reflect the algorithm's efficiency under random input data**, denoted by the $\Theta$ notation.
+Từ ví dụ trên, rõ ràng rằng cả trường hợp xấu nhất và tốt nhất đều xảy ra khi có "phân bố dữ liệu đặc biệt", có thể xác suất nhỏ và không phản ánh đúng hiệu suất thực tế. Ngược lại, **độ phức tạp trung bình có thể phản ánh hiệu suất thuật toán dưới dữ liệu ngẫu nhiên**, ký hiệu bằng $\Theta$.
 
-For some algorithms, we can simply estimate the average case under a random data distribution. For example, in the aforementioned example, since the input array is shuffled, the probability of element $1$ appearing at any index is equal. Therefore, the average number of loops for the algorithm is half the length of the array $n / 2$, giving an average time complexity of $\Theta(n / 2) = \Theta(n)$.
+Với một số thuật toán, ta có thể ước lượng trung bình đơn giản khi giả sử phân bố dữ liệu ngẫu nhiên. Ví dụ, trong ví dụ tìm 1 ở trên, vì mảng bị tráo đều, xác suất phần tử 1 xuất hiện ở mỗi vị trí là như nhau. Do đó, số vòng trung bình là nửa độ dài mảng $n / 2$, cho độ phức tạp trung bình $\Theta(n / 2) = \Theta(n)$.
 
-However, calculating the average time complexity for more complex algorithms can be quite difficult, as it's challenging to analyze the overall mathematical expectation under the data distribution. In such cases, we usually use the worst-case time complexity as the standard for judging the efficiency of the algorithm.
+Tuy nhiên, tính độ phức tạp trung bình cho các thuật toán phức tạp hơn có thể khó, vì khó phân tích giá trị kỳ vọng dưới phân bố dữ liệu. Trong những trường hợp này, ta thường dùng độ phức tạp trường hợp xấu nhất làm tiêu chuẩn đánh giá hiệu suất.
 
-!!! question "Why is the $\Theta$ symbol rarely seen?"
+!!! question "Tại sao ít thấy ký hiệu $\Theta$?"
 
-    Possibly because the $O$ notation is more commonly spoken, it is often used to represent the average time complexity. However, strictly speaking, this practice is not accurate. In this book and other materials, if you encounter statements like "average time complexity $O(n)$", please understand it directly as $\Theta(n)$.
+    Có thể vì chú thích $O$ được dùng phổ biến hơn trong lời nói, nên người ta hay dùng $O$ để chỉ cả độ phức tạp trung bình. Tuy nhiên, nghiêm túc mà nói, cách làm đó không chính xác. Trong sách này và các tài liệu khác, nếu bạn thấy câu "độ phức tạp trung bình $O(n)$", hãy hiểu trực tiếp là $\Theta(n)$.
