@@ -1,49 +1,49 @@
-# Algorithm efficiency assessment
+# Đánh giá hiệu quả thuật toán
 
-In algorithm design, we pursue the following two objectives in sequence.
+Khi thiết kế thuật toán, chúng ta theo đuổi hai mục tiêu sau theo thứ tự.
 
-1. **Finding a Solution to the Problem**: The algorithm should reliably find the correct solution within the specified range of inputs.
-2. **Seeking the Optimal Solution**: For the same problem, multiple solutions might exist, and we aim to find the most efficient algorithm possible.
+1. **Tìm ra giải pháp cho bài toán**: Thuật toán cần đảm bảo tìm được lời giải đúng trong phạm vi đầu vào đã cho.
+2. **Tìm kiếm giải pháp tối ưu**: Với cùng một bài toán, có thể có nhiều cách giải khác nhau, và chúng ta hướng tới việc tìm ra thuật toán hiệu quả nhất.
 
-In other words, under the premise of being able to solve the problem, algorithm efficiency has become the main criterion for evaluating an algorithm, which includes the following two dimensions.
+Nói cách khác, khi đã có thể giải quyết được bài toán, hiệu quả của thuật toán trở thành tiêu chí chính để đánh giá, bao gồm hai khía cạnh sau:
 
-- **Time efficiency**: The speed at which an algorithm runs.
-- **Space efficiency**: The size of the memory space occupied by an algorithm.
+- **Hiệu quả thời gian**: Tốc độ thực thi của thuật toán.
+- **Hiệu quả không gian**: Lượng bộ nhớ mà thuật toán sử dụng.
 
-In short, **our goal is to design data structures and algorithms that are both fast and memory-efficient**. Effectively assessing algorithm efficiency is crucial because only then can we compare various algorithms and guide the process of algorithm design and optimization.
+Tóm lại, **mục tiêu của chúng ta là thiết kế cấu trúc dữ liệu và thuật toán vừa nhanh vừa tiết kiệm bộ nhớ**. Đánh giá hiệu quả thuật toán là rất quan trọng, vì nhờ đó chúng ta có thể so sánh các thuật toán khác nhau và định hướng quá trình thiết kế, tối ưu thuật toán.
 
-There are mainly two methods of efficiency assessment: actual testing and theoretical estimation.
+Có hai phương pháp chính để đánh giá hiệu quả: kiểm thử thực tế và ước lượng lý thuyết.
 
-## Actual testing
+## Kiểm thử thực tế
 
-Suppose we have algorithms `A` and `B`, both capable of solving the same problem, and we need to compare their efficiencies. The most direct method is to use a computer to run these two algorithms, monitor and record their runtime and memory usage. This assessment method reflects the actual situation, but it has significant limitations.
+Giả sử chúng ta có hai thuật toán `A` và `B`, đều giải được cùng một bài toán, và cần so sánh hiệu quả của chúng. Cách trực tiếp nhất là chạy hai thuật toán này trên máy tính, theo dõi và ghi lại thời gian chạy cũng như lượng bộ nhớ sử dụng. Phương pháp này phản ánh thực tế, nhưng có nhiều hạn chế.
 
-On one hand, **it's difficult to eliminate interference from the testing environment**. Hardware configurations can affect algorithm performance. For example, an algorithm with a high degree of parallelism is better suited for running on multi-core CPUs, while an algorithm that involves intensive memory operations performs better with high-performance memory. The test results of an algorithm may vary across different machines. This means testing across multiple machines to calculate average efficiency becomes impractical.
+Một mặt, **rất khó loại bỏ ảnh hưởng từ môi trường kiểm thử**. Cấu hình phần cứng có thể ảnh hưởng đến hiệu năng thuật toán. Ví dụ, thuật toán có khả năng xử lý song song cao sẽ chạy tốt hơn trên CPU đa nhân, còn thuật toán thao tác nhiều với bộ nhớ sẽ chạy tốt hơn với RAM hiệu năng cao. Kết quả kiểm thử có thể khác nhau trên các máy khác nhau. Điều này khiến việc kiểm thử trên nhiều máy để tính trung bình hiệu quả trở nên không khả thi.
 
-On the other hand, **conducting a full test is very resource-intensive**. Algorithm efficiency varies with input data size. For example, with smaller data volumes, algorithm `A` might run faster than `B`, but with larger data volumes, the test results may be the opposite. Therefore, to draw convincing conclusions, we need to test a wide range of input data sizes, which requires excessive computational resources.
+Mặt khác, **kiểm thử toàn diện rất tốn tài nguyên**. Hiệu quả thuật toán thay đổi theo kích thước dữ liệu đầu vào. Ví dụ, với dữ liệu nhỏ, thuật toán `A` có thể chạy nhanh hơn `B`, nhưng với dữ liệu lớn, kết quả có thể ngược lại. Vì vậy, để có kết luận thuyết phục, cần kiểm thử với nhiều kích thước dữ liệu, đòi hỏi rất nhiều tài nguyên tính toán.
 
-## Theoretical estimation
+## Ước lượng lý thuyết
 
-Due to the significant limitations of actual testing, we can consider evaluating algorithm efficiency solely through calculations. This estimation method is known as <u>asymptotic complexity analysis</u>, or simply <u>complexity analysis</u>.
+Do kiểm thử thực tế có nhiều hạn chế, chúng ta có thể đánh giá hiệu quả thuật toán chỉ bằng cách tính toán. Phương pháp này gọi là <u>phân tích độ phức tạp tiệm cận</u>, hay đơn giản là <u>phân tích độ phức tạp</u>.
 
-Complexity analysis reflects the relationship between the time and space resources required for algorithm execution and the size of the input data. **It describes the trend of growth in the time and space required by the algorithm as the size of the input data increases**. This definition might sound complex, but we can break it down into three key points to understand it better.
+Phân tích độ phức tạp phản ánh mối quan hệ giữa tài nguyên thời gian và không gian cần thiết để thực thi thuật toán với kích thước dữ liệu đầu vào. **Nó mô tả xu hướng tăng lên của thời gian và bộ nhớ khi kích thước dữ liệu đầu vào tăng**. Định nghĩa này nghe có vẻ phức tạp, nhưng chúng ta có thể hiểu qua ba điểm chính sau:
 
-- "Time and space resources" correspond to <u>time complexity</u> and <u>space complexity</u>, respectively.
-- "As the size of input data increases" means that complexity reflects the relationship between algorithm efficiency and the volume of input data.
-- "The trend of growth in time and space" indicates that complexity analysis focuses not on the specific values of runtime or space occupied, but on the "rate" at which time or space increases.
+- "Tài nguyên thời gian và không gian" tương ứng với <u>độ phức tạp thời gian</u> và <u>độ phức tạp không gian</u>.
+- "Khi kích thước dữ liệu đầu vào tăng" nghĩa là độ phức tạp phản ánh mối quan hệ giữa hiệu quả thuật toán và lượng dữ liệu đầu vào.
+- "Xu hướng tăng lên của thời gian và bộ nhớ" nghĩa là phân tích độ phức tạp không tập trung vào giá trị cụ thể của thời gian chạy hay bộ nhớ sử dụng, mà chú trọng vào "tốc độ" tăng lên của chúng.
 
-**Complexity analysis overcomes the disadvantages of actual testing methods**, reflected in the following aspects:
+**Phân tích độ phức tạp khắc phục được nhược điểm của kiểm thử thực tế**, thể hiện ở các điểm sau:
 
-- It does not require actually running the code, making it more environmentally friendly and energy efficient.
-- It is independent of the testing environment and applicable to all operating platforms.
-- It can reflect algorithm efficiency under different data volumes, especially in the performance of algorithms with large data volumes.
+- Không cần chạy mã nguồn thực tế, tiết kiệm năng lượng và thân thiện với môi trường.
+- Không phụ thuộc vào môi trường kiểm thử, áp dụng được trên mọi nền tảng.
+- Phản ánh hiệu quả thuật toán với các kích thước dữ liệu khác nhau, đặc biệt là khi dữ liệu lớn.
 
 !!! tip
 
-    If you're still confused about the concept of complexity, don't worry. We will cover it in detail in subsequent chapters.
+    Nếu bạn vẫn còn bối rối về khái niệm độ phức tạp, đừng lo lắng. Chúng ta sẽ tìm hiểu kỹ hơn ở các chương sau.
 
-Complexity analysis provides us with a "ruler" to evaluate the efficiency of an algorithm, enabling us to measure the time and space resources required to execute it and compare the efficiency of different algorithms.
+Phân tích độ phức tạp cung cấp cho chúng ta một "thước đo" để đánh giá hiệu quả thuật toán, giúp đo lường tài nguyên thời gian và không gian cần thiết để thực thi, và so sánh hiệu quả giữa các thuật toán khác nhau.
 
-Complexity is a mathematical concept that might be abstract and challenging for beginners. From this perspective, complexity analysis might not be the most suitable topic to introduce first. However, when discussing the characteristics of a particular data structure or algorithm, it's hard to avoid analyzing its speed and space usage.
+Độ phức tạp là một khái niệm toán học, có thể khá trừu tượng và khó hiểu với người mới bắt đầu. Vì vậy, phân tích độ phức tạp có thể chưa phải là chủ đề phù hợp để học đầu tiên. Tuy nhiên, khi tìm hiểu về đặc điểm của một cấu trúc dữ liệu hay thuật toán cụ thể, chúng ta khó tránh khỏi việc phân tích tốc độ và bộ nhớ sử dụng của nó.
 
-In summary, it is recommended to develop a basic understanding of complexity analysis before diving deep into data structures and algorithms, **so that you can perform complexity analysis on simple algorithms**.
+Tóm lại, bạn nên có hiểu biết cơ bản về phân tích độ phức tạp trước khi đi sâu vào cấu trúc dữ liệu và thuật toán, **để có thể tự phân tích độ phức tạp của các thuật toán đơn giản**.

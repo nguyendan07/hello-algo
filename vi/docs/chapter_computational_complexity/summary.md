@@ -1,49 +1,49 @@
-# Summary
+# Tóm tắt
 
-### Key review
+### Ôn tập chính
 
-**Algorithm Efficiency Assessment**
+**Đánh giá hiệu quả thuật toán**
 
-- Time efficiency and space efficiency are the two main criteria for assessing the merits of an algorithm.
-- We can assess algorithm efficiency through actual testing, but it's challenging to eliminate the influence of the test environment, and it consumes substantial computational resources.
-- Complexity analysis can overcome the disadvantages of actual testing. Its results are applicable across all operating platforms and can reveal the efficiency of algorithms at different data scales.
+- Hiệu quả về thời gian và hiệu quả về bộ nhớ là hai tiêu chí chính để đánh giá chất lượng của một thuật toán.
+- Ta có thể đánh giá hiệu quả thuật toán bằng cách kiểm thử thực tế, nhưng khó loại bỏ ảnh hưởng của môi trường kiểm thử và tốn nhiều tài nguyên tính toán.
+- Phân tích độ phức tạp giúp khắc phục nhược điểm của kiểm thử thực tế. Kết quả phân tích áp dụng cho mọi nền tảng và cho thấy hiệu quả của thuật toán ở các quy mô dữ liệu khác nhau.
 
-**Time Complexity**
+**Độ phức tạp thời gian**
 
-- Time complexity measures the trend of an algorithm's running time with the increase in data volume, effectively assessing algorithm efficiency. However, it can fail in certain cases, such as with small input data volumes or when time complexities are the same, making it challenging to precisely compare the efficiency of algorithms.
-- Worst-case time complexity is denoted using big-$O$ notation, representing the asymptotic upper bound, reflecting the growth level of the number of operations $T(n)$ as $n$ approaches infinity.
-- Calculating time complexity involves two steps: first counting the number of operations, then determining the asymptotic upper bound.
-- Common time complexities, arranged from low to high, include $O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$, and $O(n!)$, among others.
-- The time complexity of some algorithms is not fixed and depends on the distribution of input data. Time complexities are divided into worst, best, and average cases. The best case is rarely used because input data generally needs to meet strict conditions to achieve the best case.
-- Average time complexity reflects the efficiency of an algorithm under random data inputs, closely resembling the algorithm's performance in actual applications. Calculating average time complexity requires accounting for the distribution of input data and the subsequent mathematical expectation.
+- Độ phức tạp thời gian đo xu hướng thời gian chạy của thuật toán khi khối lượng dữ liệu tăng lên, giúp đánh giá hiệu quả thuật toán. Tuy nhiên, nó có thể không chính xác trong một số trường hợp, ví dụ khi dữ liệu đầu vào nhỏ hoặc khi các thuật toán có cùng độ phức tạp thời gian, khiến việc so sánh hiệu quả trở nên khó khăn.
+- Độ phức tạp thời gian trường hợp xấu nhất được ký hiệu bằng big-$O$, biểu thị giới hạn trên tiệm cận, phản ánh mức tăng số phép toán $T(n)$ khi $n$ tiến tới vô cùng.
+- Để tính độ phức tạp thời gian, ta thực hiện hai bước: đếm số phép toán, sau đó xác định giới hạn trên tiệm cận.
+- Các độ phức tạp thời gian phổ biến, sắp xếp từ thấp đến cao, gồm $O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$, $O(2^n)$ và $O(n!)$, v.v.
+- Độ phức tạp thời gian của một số thuật toán không cố định, phụ thuộc vào phân bố dữ liệu đầu vào. Độ phức tạp thời gian được chia thành trường hợp xấu nhất, tốt nhất và trung bình. Trường hợp tốt nhất ít được dùng vì dữ liệu đầu vào thường phải đáp ứng điều kiện rất đặc biệt.
+- Độ phức tạp thời gian trung bình phản ánh hiệu quả của thuật toán khi dữ liệu đầu vào ngẫu nhiên, gần giống với hiệu suất thực tế. Để tính độ phức tạp trung bình, cần xét đến phân bố dữ liệu đầu vào và kỳ vọng toán học.
 
-**Space Complexity**
+**Độ phức tạp bộ nhớ**
 
-- Space complexity, similar to time complexity, measures the trend of memory space occupied by an algorithm with the increase in data volume.
-- The relevant memory space used during the algorithm's execution can be divided into input space, temporary space, and output space. Generally, input space is not included in space complexity calculations. Temporary space can be divided into temporary data, stack frame space, and instruction space, where stack frame space usually affects space complexity only in recursive functions.
-- We usually focus only on the worst-case space complexity, which means calculating the space complexity of the algorithm under the worst input data and at the worst moment of operation.
-- Common space complexities, arranged from low to high, include $O(1)$, $O(\log n)$, $O(n)$, $O(n^2)$, and $O(2^n)$, among others.
+- Độ phức tạp bộ nhớ, giống như độ phức tạp thời gian, đo xu hướng bộ nhớ mà thuật toán sử dụng khi khối lượng dữ liệu tăng lên.
+- Bộ nhớ sử dụng khi thuật toán chạy gồm bộ nhớ đầu vào, bộ nhớ tạm thời và bộ nhớ đầu ra. Thông thường, bộ nhớ đầu vào không tính vào độ phức tạp bộ nhớ. Bộ nhớ tạm thời gồm dữ liệu tạm, bộ nhớ khung ngăn xếp và bộ nhớ lệnh; trong đó bộ nhớ khung ngăn xếp thường chỉ ảnh hưởng đến độ phức tạp bộ nhớ trong hàm đệ quy.
+- Ta thường chỉ quan tâm đến độ phức tạp bộ nhớ trường hợp xấu nhất, tức là tính độ phức tạp bộ nhớ của thuật toán với dữ liệu đầu vào xấu nhất và tại thời điểm sử dụng bộ nhớ nhiều nhất.
+- Các độ phức tạp bộ nhớ phổ biến, sắp xếp từ thấp đến cao, gồm $O(1)$, $O(\log n)$, $O(n)$, $O(n^2)$ và $O(2^n)$, v.v.
 
-### Q & A
+### Hỏi & Đáp
 
-**Q**: Is the space complexity of tail recursion $O(1)$?
+**Hỏi**: Độ phức tạp bộ nhớ của đệ quy đuôi có phải là $O(1)$ không?
 
-Theoretically, the space complexity of a tail-recursive function can be optimized to $O(1)$. However, most programming languages (such as Java, Python, C++, Go, C#) do not support automatic optimization of tail recursion, so it's generally considered to have a space complexity of $O(n)$.
+Về lý thuyết, độ phức tạp bộ nhớ của hàm đệ quy đuôi có thể tối ưu về $O(1)$. Tuy nhiên, hầu hết các ngôn ngữ lập trình (như Java, Python, C++, Go, C#) không tự động tối ưu đệ quy đuôi, nên thường được coi là có độ phức tạp bộ nhớ $O(n)$.
 
-**Q**: What is the difference between the terms "function" and "method"?
+**Hỏi**: Sự khác biệt giữa "hàm" và "phương thức" là gì?
 
-A <u>function</u> can be executed independently, with all parameters passed explicitly. A <u>method</u> is associated with an object and is implicitly passed to the object calling it, able to operate on the data contained within an instance of a class.
+<u>Hàm</u> có thể thực thi độc lập, với tất cả tham số được truyền rõ ràng. <u>Phương thức</u> gắn với một đối tượng và được truyền ngầm đối tượng gọi nó, có thể thao tác trên dữ liệu của một đối tượng thuộc lớp.
 
-Here are some examples from common programming languages:
+Một số ví dụ từ các ngôn ngữ lập trình phổ biến:
 
-- C is a procedural programming language without object-oriented concepts, so it only has functions. However, we can simulate object-oriented programming by creating structures (struct), and functions associated with these structures are equivalent to methods in other programming languages.
-- Java and C# are object-oriented programming languages where code blocks (methods) are typically part of a class. Static methods behave like functions because they are bound to the class and cannot access specific instance variables.
-- C++ and Python support both procedural programming (functions) and object-oriented programming (methods).
+- C là ngôn ngữ lập trình thủ tục, không có khái niệm hướng đối tượng, nên chỉ có hàm. Tuy nhiên, ta có thể mô phỏng lập trình hướng đối tượng bằng cách tạo cấu trúc (struct), và các hàm liên kết với cấu trúc này tương đương với phương thức ở các ngôn ngữ khác.
+- Java và C# là ngôn ngữ hướng đối tượng, nơi các khối mã (phương thức) thường nằm trong lớp. Phương thức tĩnh hoạt động giống như hàm vì nó gắn với lớp và không truy cập được biến của đối tượng cụ thể.
+- C++ và Python hỗ trợ cả lập trình thủ tục (hàm) và lập trình hướng đối tượng (phương thức).
 
-**Q**: Does the "Common Types of Space Complexity" figure reflect the absolute size of occupied space?
+**Hỏi**: Hình "Các loại độ phức tạp bộ nhớ phổ biến" có phản ánh kích thước bộ nhớ tuyệt đối không?
 
-No, the figure shows space complexities, which reflect growth trends, not the absolute size of the occupied space.
+Không, hình chỉ thể hiện độ phức tạp bộ nhớ, tức là xu hướng tăng trưởng, chứ không phải kích thước bộ nhớ tuyệt đối.
 
-If you take $n = 8$, you might find that the values of each curve don't correspond to their functions. This is because each curve includes a constant term, intended to compress the value range into a visually comfortable range.
+Nếu bạn lấy $n = 8$, có thể thấy giá trị của mỗi đường cong không khớp với hàm của nó. Đó là vì mỗi đường cong đều có một hằng số, nhằm nén phạm vi giá trị lại cho dễ nhìn.
 
-In practice, since we usually don't know the "constant term" complexity of each method, it's generally not possible to choose the best solution for $n = 8$ based solely on complexity. However, for $n = 8^5$, it's much easier to choose, as the growth trend becomes dominant.
+Trong thực tế, vì ta thường không biết "hằng số" độ phức tạp của từng phương pháp, nên không thể chọn giải pháp tốt nhất cho $n = 8$ chỉ dựa vào độ phức tạp. Tuy nhiên, với $n = 8^5$, việc lựa chọn sẽ dễ hơn nhiều vì xu hướng tăng trưởng sẽ chiếm ưu thế.
