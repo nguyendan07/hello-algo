@@ -28,4 +28,3 @@ Thực ra, trước khi có máy tính, thuật toán và cấu trúc dữ liệ
 Cấu trúc dữ liệu cũng hiện diện khắp nơi: từ mạng xã hội đến tuyến tàu điện ngầm, nhiều hệ thống có thể mô phỏng bằng "đồ thị"; từ quốc gia đến gia đình, các tổ chức xã hội thường có dạng "cây"; quần áo mùa đông giống như một "ngăn xếp", món mặc vào trước sẽ cởi ra sau; ống cầu lông giống như một "hàng đợi", một đầu để cho vào, đầu kia để lấy ra; từ điển giống như "bảng băm", giúp tra cứu nhanh mục tiêu.
 
 Cuốn sách này giúp bạn hiểu các khái niệm cốt lõi về thuật toán và cấu trúc dữ liệu qua hình minh họa sinh động, dễ hiểu và các ví dụ mã nguồn có thể chạy được, đồng thời hướng dẫn bạn tự lập trình để thực hiện chúng. Trên cơ sở đó, sách còn cố gắng chỉ ra những biểu hiện sống động của thuật toán trong thế giới phức tạp, để bạn cảm nhận được vẻ đẹp của thuật toán. Mình hy vọng cuốn sách này sẽ giúp ích cho bạn!
-
