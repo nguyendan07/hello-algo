@@ -1,66 +1,62 @@
-# Summary
+# Tóm tắt
 
-### Key review
+### Ôn tập chính
 
-- Data structures can be categorized from two perspectives: logical structure and physical structure. Logical structure describes the logical relationships between data, while physical structure describes how data is stored in memory.
-- Frequently used logical structures include linear structures, trees, and networks. We usually divide data structures into linear (arrays, linked lists, stacks, queues) and non-linear (trees, graphs, heaps) based on their logical structure. The implementation of hash tables may involve both linear and non-linear data structures.
-- When a program is running, data is stored in memory. Each memory space has a corresponding address, and the program accesses data through these addresses.
-- Physical structures can be divided into continuous space storage (arrays) and discrete space storage (linked lists). All data structures are implemented using arrays, linked lists, or a combination of both.
-- The basic data types in computers include integers (`byte`, `short`, `int`, `long`), floating-point numbers (`float`, `double`), characters (`char`), and booleans (`bool`). The value range of a data type depends on its size and representation.
-- Sign-magnitude, 1's complement, 2's complement are three methods of encoding integers in computers, and they can be converted into each other. The most significant bit of the sign-magnitude is the sign bit, and the remaining bits represent the value of the number.
-- Integers are encoded by 2's complement in computers. The benefits of this representation include (i) the computer can unify the addition of positive and negative integers, (ii) no need to design special hardware circuits for subtraction, and (iii) no ambiguity of positive and negative zero.
-- The encoding of floating-point numbers consists of 1 sign bit, 8 exponent bits, and 23 fraction bits. Due to the exponent bit, the range of floating-point numbers is much greater than that of integers, but at the cost of precision.
-- ASCII is the earliest English character set, with 1 byte in length and a total of 127 characters. GBK is a popular Chinese character set, which includes more than 20,000 Chinese characters. Unicode aims to provide a complete character set standard that includes characters from various languages in the world, thus solving the garbled character problem caused by inconsistent character encoding methods.
-- UTF-8 is the most popular and general Unicode encoding method. It is a variable-length encoding method with good scalability and space efficiency. UTF-16 and UTF-32 are fixed-length encoding methods. When encoding Chinese characters, UTF-16 takes up less space than UTF-8. Programming languages like Java and C# use UTF-16 encoding by default.
+- Cấu trúc dữ liệu có hai loại: cấu trúc logic (cách dữ liệu liên kết với nhau) và cấu trúc vật lý (cách dữ liệu lưu trong bộ nhớ).
+- Cấu trúc logic gồm tuyến tính (mảng, danh sách liên kết, ngăn xếp, hàng đợi) và phi tuyến tính (cây, đồ thị, heap). Bảng băm có thể dùng cả hai loại này.
+- Khi chương trình chạy, dữ liệu lưu trong bộ nhớ, mỗi vùng nhớ có địa chỉ riêng để truy cập.
+- Cấu trúc vật lý gồm lưu trữ liên tục (mảng) và lưu trữ rời rạc (danh sách liên kết). Các cấu trúc dữ liệu đều xây dựng từ mảng, danh sách liên kết hoặc kết hợp cả hai.
+- Kiểu dữ liệu cơ bản: số nguyên (`byte`, `short`, `int`, `long`), số thực (`float`, `double`), ký tự (`char`), boolean (`bool`). Giá trị của kiểu dữ liệu phụ thuộc vào kích thước và cách biểu diễn.
+- Có ba cách mã hóa số nguyên: dấu-chân, bù 1, bù 2. Bit đầu là bit dấu, các bit còn lại là giá trị số.
+- Máy tính dùng bù 2 để mã hóa số nguyên. Ưu điểm: (i) cộng số dương và âm dễ dàng, (ii) không cần mạch phần cứng đặc biệt cho phép trừ, (iii) không có hai số 0 khác nhau.
+- Số thực được mã hóa bằng 1 bit dấu, 8 bit số mũ, 23 bit phần thập phân. Nhờ số mũ, phạm vi số thực lớn hơn số nguyên, nhưng độ chính xác giảm.
+- ASCII là bộ ký tự tiếng Anh, dài 1 byte, có 127 ký tự. GBK là bộ mã tiếng Trung, có hơn 20.000 ký tự. Unicode là chuẩn chung cho các ngôn ngữ, giúp tránh lỗi ký tự do mã hóa khác nhau.
+- UTF-8 là cách mã hóa Unicode phổ biến nhất, có độ dài thay đổi, tiết kiệm không gian. UTF-16 và UTF-32 có độ dài cố định. Khi lưu ký tự Trung Quốc, UTF-16 tiết kiệm hơn UTF-8. Java và C# mặc định dùng UTF-16.
 
-### Q & A
+### Hỏi & Đáp
 
-**Q**: Why does a hash table contain both linear and non-linear data structures?
+**Hỏi**: Tại sao bảng băm dùng cả cấu trúc tuyến tính và phi tuyến tính?
 
-The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining" (discussed in a later section, "Hash collision"): each bucket in the array points to a linked list, which may transform into a tree (usually a red-black tree) when its length is larger than a certain threshold.
-From a storage perspective, the underlying structure of a hash table is an array, where each bucket might contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
+Bảng băm dùng mảng làm nền tảng. Để xử lý va chạm, mỗi ô mảng có thể trỏ đến danh sách liên kết hoặc cây. Vì vậy, bảng băm vừa dùng cấu trúc tuyến tính (mảng, danh sách liên kết) vừa dùng phi tuyến tính (cây).
 
-**Q**: Is the length of the `char` type 1 byte?
+**Hỏi**: Kiểu `char` có luôn dài 1 byte không?
 
-The length of the `char` type is determined by the encoding method of the programming language. For example, Java, JavaScript, TypeScript, and C# all use UTF-16 encoding (to save Unicode code points), so the length of the `char` type is 2 bytes.
+Độ dài kiểu `char` phụ thuộc vào ngôn ngữ lập trình. Java, JavaScript, TypeScript, C# dùng UTF-16, nên `char` dài 2 byte.
 
-**Q**: Is there any ambiguity when we refer to array-based data structures as "static data structures"? The stack can also perform "dynamic" operations such as popping and pushing.
+**Hỏi**: Cấu trúc dữ liệu dựa trên mảng gọi là "tĩnh" có đúng không? Ngăn xếp vẫn thêm/xóa động mà.
 
-The stack can implement dynamic data operations, but the data structure is still "static" (the length is fixed). Although array-based data structures can dynamically add or remove elements, their capacity is fixed. If the stack size exceeds the pre-allocated size, then the old array will be copied into a newly created and larger array.
+Ngăn xếp thao tác động với dữ liệu, nhưng dung lượng mảng là cố định. Nếu vượt quá dung lượng, mảng sẽ được sao chép sang mảng mới lớn hơn.
 
-**Q**: When building a stack (queue), its size is not specified, so why are they "static data structures"?
+**Hỏi**: Khi xây dựng ngăn xếp/hàng đợi, không chỉ định kích thước, sao vẫn gọi là "tĩnh"?
 
-In high-level programming languages, we do not need to manually specify the initial capacity of stacks (queues); this task is automatically completed within the class. For example, the initial capacity of Java's `ArrayList` is usually 10. Furthermore, the expansion operation is also completed automatically. See the subsequent "List" chapter for details.
+Trong ngôn ngữ cấp cao, dung lượng ban đầu được tự động cấp phát (ví dụ, `ArrayList` trong Java thường là 10). Khi cần, dung lượng sẽ tự động mở rộng.
 
-**Q**：The method of converting the sign-magnitude to the 2's complement is "first negate and then add 1", so converting the 2's complement to the sign-magnitude should be its inverse operation "first subtract 1 and then negate".
-However, the 2's complement can also be converted to the sign-magnitude through "first negate and then add 1", why is this?
+**Hỏi**: Chuyển dấu-chân sang bù 2 là "đổi dấu rồi cộng 1", vậy chuyển ngược lại là "trừ 1 rồi đổi dấu". Nhưng bù 2 cũng có thể chuyển sang dấu-chân bằng "đổi dấu rồi cộng 1", tại sao?
 
-**A**：This is because the mutual conversion between the sign-magnitude and the 2's complement is equivalent to computing the "complement". We first define the complement: assuming $a + b = c$, then we say that $a$ is the complement of $b$ to $c$, and vice versa, $b$ is the complement of $a$ to $c$.
+**Đáp**: Chuyển đổi giữa dấu-chân và bù 2 thực chất là tính "bù". Nếu $a + b = c$, thì $a$ là bù của $b$ tới $c$.
 
-Given a binary number $0010$ with length $n = 4$, if this number is the sign-magnitude (ignoring the sign bit), then its 2's complement can be obtained by "first negating and then adding 1":
+Ví dụ, số nhị phân $0010$ (4 bit), chuyển dấu-chân sang bù 2 bằng "đổi dấu rồi cộng 1":
 
 $$
 0010 \rightarrow 1101 \rightarrow 1110
 $$
 
-Observe that the sum of the sign-magnitude and the 2's complement is $0010 + 1110 = 10000$, i.e., the 2's complement $1110$ is the "complement" of the sign-magnitude $0010$ to $10000$. **This means that the above "first negate and then add 1" is equivalent to computing the complement to $10000$**.
+Tổng $0010 + 1110 = 10000$, nghĩa là $1110$ là bù của $0010$ tới $10000$.
 
-So, what is the "complement" of $1110$ to $10000$? We can still compute it by "negating first and then adding 1":
+Chuyển ngược lại cũng dùng "đổi dấu rồi cộng 1":
 
 $$
 1110 \rightarrow 0001 \rightarrow 0010
 $$
 
-In other words, the sign-magnitude and the 2's complement are each other's "complement" to $10000$, so "sign-magnitude to 2's complement" and "2's complement to sign-magnitude" can be implemented with the same operation (first negate and then add 1).
-
-Of course, we can also use the inverse operation of "first negate and then add 1" to find the sign-magnitude of the 2's complement $1110$, that is, "first subtract 1 and then negate":
+Vì vậy, cả hai chiều đều dùng được "đổi dấu rồi cộng 1". Ngoài ra, có thể dùng "trừ 1 rồi đổi dấu":
 
 $$
 1110 \rightarrow 1101 \rightarrow 0010
 $$
 
-To sum up, "first negate and then add 1" and "first subtract 1 and then negate" are both computing the complement to $10000$, and they are equivalent.
+Tóm lại, "đổi dấu rồi cộng 1" và "trừ 1 rồi đổi dấu" đều là tính bù tới $10000$, và đều đúng.
 
-Essentially, the "negate" operation is actually to find the complement to $1111$ (because `sign-magnitude + 1's complement = 1111` always holds); and the 1's complement plus 1 is equal to the 2's complement to $10000$.
+Thực chất, "đổi dấu" là tìm bù tới $1111$ (vì dấu-chân + bù 1 = $1111$), còn bù 1 cộng 1 thì ra bù 2 tới $10000$.
 
-We take $n = 4$ as an example in the above, and it can be generalized to any binary number with any number of digits.
+Ví dụ dùng 4 bit, nhưng áp dụng cho mọi số nhị phân.

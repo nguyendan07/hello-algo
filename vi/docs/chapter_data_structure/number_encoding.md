@@ -1,24 +1,24 @@
-# Number encoding *
+# Mã hóa số *
 
 !!! tip
 
-    In this book, chapters marked with an asterisk '*' are optional readings. If you are short on time or find them challenging, you may skip these initially and return to them after completing the essential chapters.
+    Trong cuốn sách này, các chương được đánh dấu bằng dấu sao '*' là phần đọc thêm tùy chọn. Nếu bạn không có nhiều thời gian hoặc thấy khó hiểu, bạn có thể bỏ qua chúng lúc đầu và quay lại sau khi hoàn thành các chương quan trọng.
 
-## Integer encoding
+## Mã hóa số nguyên
 
-In the table from the previous section, we observed that all integer types can represent one more negative number than positive numbers, such as the `byte` range of $[-128, 127]$. This phenomenon seems counterintuitive, and its underlying reason involves knowledge of sign-magnitude, one's complement, and two's complement encoding.
+Trong bảng ở phần trước, ta thấy rằng tất cả các kiểu số nguyên đều có thể biểu diễn nhiều số âm hơn số dương một đơn vị, ví dụ phạm vi của `byte` là $[-128, 127]$. Hiện tượng này có vẻ khó hiểu, và lý do đằng sau liên quan đến kiến thức về mã hóa dấu-giá trị, bù một, và bù hai.
 
-Firstly, it's important to note that **numbers are stored in computers using the two's complement form**. Before analyzing why this is the case, let's define these three encoding methods:
+Trước tiên, cần lưu ý rằng **các số được lưu trữ trong máy tính dưới dạng bù hai**. Trước khi phân tích lý do, hãy định nghĩa ba phương pháp mã hóa này:
 
-- **Sign-magnitude**: The highest bit of a binary representation of a number is considered the sign bit, where $0$ represents a positive number and $1$ represents a negative number. The remaining bits represent the value of the number.
-- **One's complement**: The one's complement of a positive number is the same as its sign-magnitude. For negative numbers, it's obtained by inverting all bits except the sign bit.
-- **Two's complement**: The two's complement of a positive number is the same as its sign-magnitude. For negative numbers, it's obtained by adding $1$ to their one's complement.
+- **Dấu-giá trị (Sign-magnitude)**: Bit cao nhất của số nhị phân là bit dấu, $0$ là số dương, $1$ là số âm. Các bit còn lại biểu diễn giá trị số.
+- **Bù một (One's complement)**: Bù một của số dương giống dấu-giá trị. Với số âm, bù một là đảo tất cả các bit trừ bit dấu.
+- **Bù hai (Two's complement)**: Bù hai của số dương giống dấu-giá trị. Với số âm, bù hai là lấy bù một rồi cộng thêm $1$.
 
-The figure below illustrates the conversions among sign-magnitude, one's complement, and two's complement:
+Hình dưới minh họa cách chuyển đổi giữa dấu-giá trị, bù một và bù hai:
 
-![Conversions between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.png)
+![Chuyển đổi giữa dấu-giá trị, bù một và bù hai](number_encoding.assets/1s_2s_complement.png)
 
-Although <u>sign-magnitude</u> is the most intuitive, it has limitations. For one, **negative numbers in sign-magnitude cannot be directly used in calculations**. For example, in sign-magnitude, calculating $1 + (-2)$ results in $-3$, which is incorrect.
+Mặc dù <u>dấu-giá trị</u> là trực quan nhất, nó có hạn chế. Ví dụ, **số âm ở dấu-giá trị không thể dùng trực tiếp để tính toán**. Chẳng hạn, trong dấu-giá trị, phép tính $1 + (-2)$ ra kết quả $-3$, là sai.
 
 $$
 \begin{aligned}
@@ -29,20 +29,20 @@ $$
 \end{aligned}
 $$
 
-To address this, computers introduced the <u>one's complement</u>. If we convert to one's complement and calculate $1 + (-2)$, then convert the result back to sign-magnitude, we get the correct result of $-1$.
+Để khắc phục, máy tính đưa ra <u>bù một</u>. Nếu chuyển sang bù một và tính $1 + (-2)$, rồi chuyển kết quả về dấu-giá trị, ta được kết quả đúng là $-1$.
 
 $$
 \begin{aligned}
 & 1 + (-2) \newline
-& \rightarrow 0000 \; 0001 \; \text{(Sign-magnitude)} + 1000 \; 0010 \; \text{(Sign-magnitude)} \newline
-& = 0000 \; 0001 \; \text{(One's complement)} + 1111 \; 1101 \; \text{(One's complement)} \newline
-& = 1111 \; 1110 \; \text{(One's complement)} \newline
-& = 1000 \; 0001 \; \text{(Sign-magnitude)} \newline
+& \rightarrow 0000 \; 0001 \; \text{(Dấu-giá trị)} + 1000 \; 0010 \; \text{(Dấu-giá trị)} \newline
+& = 0000 \; 0001 \; \text{(Bù một)} + 1111 \; 1101 \; \text{(Bù một)} \newline
+& = 1111 \; 1110 \; \text{(Bù một)} \newline
+& = 1000 \; 0001 \; \text{(Dấu-giá trị)} \newline
 & \rightarrow -1
 \end{aligned}
 $$
 
-Additionally, **there are two representations of zero in sign-magnitude**: $+0$ and $-0$. This means two different binary encodings for zero, which could lead to ambiguity. For example, in conditional checks, not differentiating between positive and negative zero might result in incorrect outcomes. Addressing this ambiguity would require additional checks, potentially reducing computational efficiency.
+Ngoài ra, **có hai cách biểu diễn số 0 trong dấu-giá trị**: $+0$ và $-0$. Điều này nghĩa là có hai mã nhị phân khác nhau cho số 0, dễ gây nhầm lẫn. Ví dụ, khi kiểm tra điều kiện, không phân biệt được 0 dương và 0 âm có thể dẫn đến kết quả sai. Để xử lý, cần kiểm tra bổ sung, làm giảm hiệu suất tính toán.
 
 $$
 \begin{aligned}
@@ -51,70 +51,70 @@ $$
 \end{aligned}
 $$
 
-Like sign-magnitude, one's complement also suffers from the positive and negative zero ambiguity. Therefore, computers further introduced the <u>two's complement</u>. Let's observe the conversion process for negative zero in sign-magnitude, one's complement, and two's complement:
+Tương tự dấu-giá trị, bù một cũng gặp vấn đề 0 dương và 0 âm. Vì vậy, máy tính tiếp tục dùng <u>bù hai</u>. Hãy xem quá trình chuyển đổi số 0 âm trong dấu-giá trị, bù một và bù hai:
 
 $$
 \begin{aligned}
--0 \rightarrow \; & 1000 \; 0000 \; \text{(Sign-magnitude)} \newline
-= \; & 1111 \; 1111 \; \text{(One's complement)} \newline
-= 1 \; & 0000 \; 0000 \; \text{(Two's complement)} \newline
+-0 \rightarrow \; & 1000 \; 0000 \; \text{(Dấu-giá trị)} \newline
+= \; & 1111 \; 1111 \; \text{(Bù một)} \newline
+= 1 \; & 0000 \; 0000 \; \text{(Bù hai)} \newline
 \end{aligned}
 $$
 
-Adding $1$ to the one's complement of negative zero produces a carry, but with `byte` length being only 8 bits, the carried-over $1$ to the 9th bit is discarded. Therefore, **the two's complement of negative zero is $0000 \; 0000$**, the same as positive zero, thus resolving the ambiguity.
+Khi cộng $1$ vào bù một của số 0 âm sẽ sinh ra số dư, nhưng với độ dài `byte` chỉ 8 bit, số dư ở bit thứ 9 bị loại bỏ. Vì vậy, **bù hai của số 0 âm là $0000 \; 0000$**, giống số 0 dương, giải quyết vấn đề nhầm lẫn.
 
-One last puzzle is the $[-128, 127]$ range for `byte`, with an additional negative number, $-128$. We observe that for the interval $[-127, +127]$, all integers have corresponding sign-magnitude, one's complement, and two's complement, allowing for mutual conversion between them.
+Một điểm nữa là phạm vi $[-128, 127]$ của `byte`, có thêm số âm $-128$. Ta thấy với đoạn $[-127, +127]$, mọi số nguyên đều có dấu-giá trị, bù một và bù hai tương ứng, có thể chuyển đổi qua lại.
 
-However, **the two's complement $1000 \; 0000$ is an exception without a corresponding sign-magnitude**. According to the conversion method, its sign-magnitude would be $0000 \; 0000$, indicating zero. This presents a contradiction because its two's complement should represent itself. Computers designate this special two's complement $1000 \; 0000$ as representing $-128$. In fact, the calculation of $(-1) + (-127)$ in two's complement results in $-128$.
+Tuy nhiên, **bù hai $1000 \; 0000$ là ngoại lệ, không có dấu-giá trị tương ứng**. Theo cách chuyển đổi, dấu-giá trị của nó sẽ là $0000 \; 0000$, tức là số 0. Điều này mâu thuẫn vì bù hai phải biểu diễn chính nó. Máy tính quy định bù hai đặc biệt $1000 \; 0000$ là $-128$. Thực tế, phép tính $(-1) + (-127)$ trong bù hai ra $-128$.
 
 $$
 \begin{aligned}
 & (-127) + (-1) \newline
-& \rightarrow 1111 \; 1111 \; \text{(Sign-magnitude)} + 1000 \; 0001 \; \text{(Sign-magnitude)} \newline
-& = 1000 \; 0000 \; \text{(One's complement)} + 1111 \; 1110 \; \text{(One's complement)} \newline
-& = 1000 \; 0001 \; \text{(Two's complement)} + 1111 \; 1111 \; \text{(Two's complement)} \newline
-& = 1000 \; 0000 \; \text{(Two's complement)} \newline
+& \rightarrow 1111 \; 1111 \; \text{(Dấu-giá trị)} + 1000 \; 0001 \; \text{(Dấu-giá trị)} \newline
+& = 1000 \; 0000 \; \text{(Bù một)} + 1111 \; 1110 \; \text{(Bù một)} \newline
+& = 1000 \; 0001 \; \text{(Bù hai)} + 1111 \; 1111 \; \text{(Bù hai)} \newline
+& = 1000 \; 0000 \; \text{(Bù hai)} \newline
 & \rightarrow -128
 \end{aligned}
 $$
 
-As you might have noticed, all these calculations are additions, hinting at an important fact: **computers' internal hardware circuits are primarily designed around addition operations**. This is because addition is simpler to implement in hardware compared to other operations like multiplication, division, and subtraction, allowing for easier parallelization and faster computation.
+Bạn có thể nhận thấy, tất cả các phép tính trên đều là phép cộng, cho thấy một sự thật quan trọng: **các mạch phần cứng trong máy tính chủ yếu được thiết kế để thực hiện phép cộng**. Vì phép cộng dễ thực hiện hơn các phép khác như nhân, chia, trừ, giúp dễ song song hóa và tính toán nhanh hơn.
 
-It's important to note that this doesn't mean computers can only perform addition. **By combining addition with basic logical operations, computers can execute a variety of other mathematical operations**. For example, the subtraction $a - b$ can be translated into $a + (-b)$; multiplication and division can be translated into multiple additions or subtractions.
+Lưu ý rằng điều này không có nghĩa máy tính chỉ cộng được. **Kết hợp phép cộng với các phép logic cơ bản, máy tính có thể thực hiện nhiều phép toán khác**. Ví dụ, phép trừ $a - b$ có thể chuyển thành $a + (-b)$; phép nhân, chia có thể chuyển thành nhiều phép cộng hoặc trừ.
 
-We can now summarize the reason for using two's complement in computers: with two's complement representation, computers can use the same circuits and operations to handle both positive and negative number addition, eliminating the need for special hardware circuits for subtraction and avoiding the ambiguity of positive and negative zero. This greatly simplifies hardware design and enhances computational efficiency.
+Tóm lại, lý do máy tính dùng bù hai là: với bù hai, máy tính có thể dùng cùng một mạch và phép toán để xử lý cả số dương và số âm, không cần mạch đặc biệt cho phép trừ, đồng thời tránh nhầm lẫn 0 dương và 0 âm. Điều này đơn giản hóa thiết kế phần cứng và tăng hiệu suất tính toán.
 
-The design of two's complement is quite ingenious, and due to space constraints, we'll stop here. Interested readers are encouraged to explore further.
+Thiết kế bù hai rất thông minh, do giới hạn nội dung, chúng ta dừng lại ở đây. Nếu bạn quan tâm, hãy tìm hiểu thêm.
 
-## Floating-point number encoding
+## Mã hóa số thực (floating-point)
 
-You might have noticed something intriguing: despite having the same length of 4 bytes, why does a `float` have a much larger range of values compared to an `int`? This seems counterintuitive, as one would expect the range to shrink for `float` since it needs to represent fractions.
+Bạn có thể thấy điều thú vị: dù cùng độ dài 4 byte, tại sao `float` lại có phạm vi giá trị lớn hơn nhiều so với `int`? Điều này có vẻ lạ, vì ta nghĩ rằng phạm vi sẽ nhỏ hơn do phải biểu diễn số thập phân.
 
-In fact, **this is due to the different representation method used by floating-point numbers (`float`)**. Let's consider a 32-bit binary number as:
+Thực ra, **điều này là do cách biểu diễn khác của số thực (`float`)**. Hãy xét một số nhị phân 32 bit:
 
 $$
 b_{31} b_{30} b_{29} \ldots b_2 b_1 b_0
 $$
 
-According to the IEEE 754 standard, a 32-bit `float` consists of the following three parts:
+Theo chuẩn IEEE 754, một `float` 32 bit gồm ba phần:
 
-- Sign bit $\mathrm{S}$: Occupies 1 bit, corresponding to $b_{31}$.
-- Exponent bit $\mathrm{E}$: Occupies 8 bits, corresponding to $b_{30} b_{29} \ldots b_{23}$.
-- Fraction bit $\mathrm{N}$: Occupies 23 bits, corresponding to $b_{22} b_{21} \ldots b_0$.
+- Bit dấu $\mathrm{S}$: 1 bit, là $b_{31}$.
+- Bit số mũ $\mathrm{E}$: 8 bit, là $b_{30} b_{29} \ldots b_{23}$.
+- Bit phần thập phân $\mathrm{N}$: 23 bit, là $b_{22} b_{21} \ldots b_0$.
 
-The value of a binary `float` number is calculated as:
+Giá trị của một số `float` nhị phân được tính như sau:
 
 $$
 \text{val} = (-1)^{b_{31}} \times 2^{\left(b_{30} b_{29} \ldots b_{23}\right)_2 - 127} \times \left(1 . b_{22} b_{21} \ldots b_0\right)_2
 $$
 
-Converted to a decimal formula, this becomes:
+Chuyển sang công thức thập phân:
 
 $$
 \text{val} = (-1)^{\mathrm{S}} \times 2^{\mathrm{E} - 127} \times (1 + \mathrm{N})
 $$
 
-The range of each component is:
+Phạm vi của từng thành phần:
 
 $$
 \begin{aligned}
@@ -123,28 +123,28 @@ $$
 \end{aligned}
 $$
 
-![Example calculation of a float in IEEE 754 standard](number_encoding.assets/ieee_754_float.png)
+![Ví dụ tính giá trị float theo chuẩn IEEE 754](number_encoding.assets/ieee_754_float.png)
 
-Observing the figure above, given an example data $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, we have:
+Quan sát hình trên, với ví dụ $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, ta có:
 
 $$
 \text{val} = (-1)^0 \times 2^{124 - 127} \times (1 + 0.375) = 0.171875
 $$
 
-Now we can answer the initial question: **The representation of `float` includes an exponent bit, leading to a much larger range than `int`**. Based on the above calculation, the maximum positive number representable by `float` is approximately $2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}$, and the minimum negative number is obtained by switching the sign bit.
+Giờ ta có thể trả lời câu hỏi ban đầu: **Kiểu `float` có bit số mũ nên phạm vi lớn hơn nhiều so với `int`**. Theo cách tính trên, số dương lớn nhất kiểu `float` là khoảng $2^{254 - 127} \times (2 - 2^{-23}) \approx 3.4 \times 10^{38}$, số âm nhỏ nhất là đổi bit dấu.
 
-**However, the trade-off for `float`'s expanded range is a sacrifice in precision**. The integer type `int` uses all 32 bits to represent the number, with values evenly distributed; but due to the exponent bit, the larger the value of a `float`, the greater the difference between adjacent numbers.
+**Tuy nhiên, đổi lại phạm vi lớn, `float` bị giảm độ chính xác**. Kiểu `int` dùng cả 32 bit để biểu diễn số, các giá trị cách đều nhau; còn `float` do có bit số mũ, giá trị càng lớn thì khoảng cách giữa hai số liền kề càng lớn.
 
-As shown in the table below, exponent bits $\mathrm{E} = 0$ and $\mathrm{E} = 255$ have special meanings, **used to represent zero, infinity, $\mathrm{NaN}$, etc.**
+Như bảng dưới, bit số mũ $\mathrm{E} = 0$ và $\mathrm{E} = 255$ có ý nghĩa đặc biệt, **dùng để biểu diễn số 0, vô cực, $\mathrm{NaN}$, v.v.**
 
-<p align="center"> Table <id> &nbsp; Meaning of exponent bits </p>
+<p align="center"> Bảng <id> &nbsp; Ý nghĩa của bit số mũ </p>
 
-| Exponent Bit E     | Fraction Bit $\mathrm{N} = 0$ | Fraction Bit $\mathrm{N} \ne 0$ | Calculation Formula                                                    |
-| ------------------ | ----------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| $0$                | $\pm 0$                       | Subnormal Numbers               | $(-1)^{\mathrm{S}} \times 2^{-126} \times (0.\mathrm{N})$              |
-| $1, 2, \dots, 254$ | Normal Numbers                | Normal Numbers                  | $(-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1.\mathrm{N})$ |
-| $255$              | $\pm \infty$                  | $\mathrm{NaN}$                  |                                                                        |
+| Bit số mũ E        | Bit phần thập phân $\mathrm{N} = 0$ | Bit phần thập phân $\mathrm{N} \ne 0$ | Công thức tính                                                        |
+| ------------------ | ----------------------------------- | ------------------------------------- | ---------------------------------------------------------------------- |
+| $0$                | $\pm 0$                             | Số phụ (subnormal)                    | $(-1)^{\mathrm{S}} \times 2^{-126} \times (0.\mathrm{N})$              |
+| $1, 2, \dots, 254$ | Số bình thường                      | Số bình thường                        | $(-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1.\mathrm{N})$ |
+| $255$              | $\pm \infty$                        | $\mathrm{NaN}$                        |                                                                        |
 
-It's worth noting that subnormal numbers significantly improve the precision of floating-point numbers. The smallest positive normal number is $2^{-126}$, and the smallest positive subnormal number is $2^{-126} \times 2^{-23}$.
+Lưu ý rằng số phụ giúp tăng độ chính xác của số thực. Số dương nhỏ nhất kiểu bình thường là $2^{-126}$, số dương nhỏ nhất kiểu phụ là $2^{-126} \times 2^{-23}$.
 
-Double-precision `double` also uses a similar representation method to `float`, which is not elaborated here for brevity.
+Kiểu `double` (số thực độ chính xác kép) cũng dùng cách biểu diễn tương tự `float`, ở đây không trình bày chi tiết.

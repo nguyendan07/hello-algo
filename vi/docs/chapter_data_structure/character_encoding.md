@@ -1,87 +1,87 @@
-# Character encoding *
+# Mã hóa ký tự *
 
-In the computer system, all data is stored in binary form, and `char` is no exception. To represent characters, we need to develop a "character set" that defines a one-to-one mapping between each character and binary numbers. With the character set, computers can convert binary numbers to characters by looking up the table.
+Trong hệ thống máy tính, tất cả dữ liệu đều được lưu trữ dưới dạng nhị phân, và `char` cũng không ngoại lệ. Để biểu diễn ký tự, chúng ta cần phát triển một "bộ ký tự" định nghĩa ánh xạ một-một giữa mỗi ký tự và số nhị phân. Với bộ ký tự, máy tính có thể chuyển đổi số nhị phân thành ký tự bằng cách tra cứu bảng.
 
-## ASCII character set
+## Bộ ký tự ASCII
 
-The <u>ASCII code</u> is one of the earliest character sets, officially known as the American Standard Code for Information Interchange. It uses 7 binary digits (the lower 7 bits of a byte) to represent a character, allowing for a maximum of 128 different characters. As shown in the figure below, ASCII includes uppercase and lowercase English letters, numbers 0 ~ 9, various punctuation marks, and certain control characters (such as newline and tab).
+<u>Mã ASCII</u> là một trong những bộ ký tự sớm nhất, chính thức được gọi là American Standard Code for Information Interchange. Nó sử dụng 7 bit nhị phân (7 bit thấp hơn của một byte) để biểu diễn một ký tự, cho phép tối đa 128 ký tự khác nhau. Như hình dưới đây, ASCII bao gồm chữ cái in hoa và in thường tiếng Anh, số từ 0 đến 9, các dấu chấm câu khác nhau, và một số ký tự điều khiển (như dòng mới và tab).
 
-![ASCII code](character_encoding.assets/ascii_table.png)
+![Mã ASCII](character_encoding.assets/ascii_table.png)
 
-However, **ASCII can only represent English characters**. With the globalization of computers, a character set called <u>EASCII</u> was developed to represent more languages. It expands from the 7-bit structure of ASCII to 8 bits, enabling the representation of 256 characters.
+Tuy nhiên, **ASCII chỉ có thể biểu diễn ký tự tiếng Anh**. Với sự toàn cầu hóa của máy tính, một bộ ký tự gọi là <u>EASCII</u> đã được phát triển để biểu diễn nhiều ngôn ngữ hơn. Nó mở rộng từ cấu trúc 7 bit của ASCII thành 8 bit, cho phép biểu diễn 256 ký tự.
 
-Globally, various region-specific EASCII character sets have been introduced. The first 128 characters of these sets are consistent with the ASCII, while the remaining 128 characters are defined differently to accommodate the requirements of different languages.
+Trên toàn cầu, nhiều bộ ký tự EASCII dành riêng cho từng khu vực đã được giới thiệu. 128 ký tự đầu tiên của các bộ này nhất quán với ASCII, trong khi 128 ký tự còn lại được định nghĩa khác nhau để đáp ứng yêu cầu của các ngôn ngữ khác nhau.
 
-## GBK character set
+## Bộ ký tự GBK
 
-Later, it was found that **EASCII still could not meet the character requirements of many languages**. For instance, there are nearly a hundred thousand Chinese characters, with several thousand used regularly. In 1980, the Standardization Administration of China released the <u>GB2312</u> character set, which included 6763 Chinese characters, essentially fulfilling the computer processing needs for the Chinese language.
+Sau đó, người ta phát hiện rằng **EASCII vẫn không thể đáp ứng yêu cầu ký tự của nhiều ngôn ngữ**. Ví dụ, có gần trăm nghìn ký tự Trung Quốc, với vài nghìn ký tự được sử dụng thường xuyên. Năm 1980, Cơ quan Tiêu chuẩn hóa Trung Quốc đã phát hành bộ ký tự <u>GB2312</u>, bao gồm 6763 ký tự Trung Quốc, về cơ bản đáp ứng nhu cầu xử lý máy tính cho ngôn ngữ Trung Quốc.
 
-However, GB2312 could not handle some rare and traditional characters. The <u>GBK</u> character set expands GB2312 and includes 21886 Chinese characters. In the GBK encoding scheme, ASCII characters are represented with one byte, while Chinese characters use two bytes.
+Tuy nhiên, GB2312 không thể xử lý một số ký tự hiếm và truyền thống. Bộ ký tự <u>GBK</u> mở rộng GB2312 và bao gồm 21886 ký tự Trung Quốc. Trong lược đồ mã hóa GBK, ký tự ASCII được biểu diễn bằng một byte, trong khi ký tự Trung Quốc sử dụng hai byte.
 
-## Unicode character set
+## Bộ ký tự Unicode
 
-With the rapid evolution of computer technology and a plethora of character sets and encoding standards, numerous problems arose. On the one hand, these character sets generally only defined characters for specific languages and could not function properly in multilingual environments. On the other hand, the existence of multiple character set standards for the same language caused garbled text when information was exchanged between computers using different encoding standards.
+Với sự phát triển nhanh chóng của công nghệ máy tính và vô số bộ ký tự và tiêu chuẩn mã hóa, nhiều vấn đề đã nảy sinh. Một mặt, các bộ ký tự này thường chỉ định nghĩa ký tự cho các ngôn ngữ cụ thể và không thể hoạt động đúng trong môi trường đa ngôn ngữ. Mặt khác, sự tồn tại của nhiều tiêu chuẩn bộ ký tự cho cùng một ngôn ngữ gây ra hiện tượng văn bản bị lỗi khi trao đổi thông tin giữa các máy tính sử dụng tiêu chuẩn mã hóa khác nhau.
 
-Researchers of that era thought: **What if a comprehensive character set encompassing all global languages and symbols was developed? Wouldn't this resolve the issues associated with cross-linguistic environments and garbled text?** Inspired by this idea, the extensive character set, Unicode, was born.
+Các nhà nghiên cứu thời đó nghĩ: **Nếu chúng ta phát triển một bộ ký tự toàn diện bao gồm tất cả ngôn ngữ và ký hiệu toàn cầu thì sao? Điều này có giải quyết các vấn đề liên quan đến môi trường đa ngôn ngữ và văn bản bị lỗi không?** Lấy cảm hứng từ ý tưởng này, bộ ký tự rộng lớn, Unicode, đã ra đời.
 
-<u>Unicode</u> is referred to as "统一码" (Unified Code) in Chinese, theoretically capable of accommodating over a million characters. It aims to incorporate characters from all over the world into a single set, providing a universal character set for processing and displaying various languages and reducing the issues of garbled text due to different encoding standards.
+<u>Unicode</u> được gọi là "统一码" (Unified Code) bằng tiếng Trung, về lý thuyết có thể chứa hơn một triệu ký tự. Nó nhằm mục đích kết hợp các ký tự từ khắp nơi trên thế giới vào một bộ duy nhất, cung cấp bộ ký tự phổ quát để xử lý và hiển thị các ngôn ngữ khác nhau, giảm thiểu các vấn đề về văn bản bị lỗi do các tiêu chuẩn mã hóa khác nhau.
 
-Since its release in 1991, Unicode has continually expanded to include new languages and characters. As of September 2022, Unicode contains 149,186 characters, including characters, symbols, and even emojis from various languages. In the vast Unicode character set, commonly used characters occupy 2 bytes, while some rare characters may occupy 3 or even 4 bytes.
+Kể từ khi phát hành năm 1991, Unicode đã liên tục mở rộng để bao gồm các ngôn ngữ và ký tự mới. Tính đến tháng 9 năm 2022, Unicode chứa 149.186 ký tự, bao gồm ký tự, ký hiệu, và thậm chí cả emoji từ các ngôn ngữ khác nhau. Trong bộ ký tự Unicode rộng lớn, các ký tự thường dùng chiếm 2 byte, trong khi một số ký tự hiếm có thể chiếm 3 hoặc thậm chí 4 byte.
 
-Unicode is a universal character set that assigns a number (called a "code point") to each character, **but it does not specify how these character code points should be stored in a computer system**. One might ask: How does a system interpret Unicode code points of varying lengths within a text? For example, given a 2-byte code, how does the system determine if it represents a single 2-byte character or two 1-byte characters?
+Unicode là bộ ký tự phổ quát gán một số (gọi là "điểm mã") cho mỗi ký tự, **nhưng nó không chỉ định cách các điểm mã ký tự Unicode này nên được lưu trữ trong hệ thống máy tính**. Người ta có thể hỏi: Làm thế nào hệ thống diễn giải các điểm mã Unicode có độ dài khác nhau trong một văn bản? Ví dụ, với một mã 2 byte, làm thế nào hệ thống xác định nó biểu diễn một ký tự 2 byte đơn lẻ hay hai ký tự 1 byte?
 
-**A straightforward solution to this problem is to store all characters as equal-length encodings**. As shown in the figure below, each character in "Hello" occupies 1 byte, while each character in "算法" (algorithm) occupies 2 bytes. We could encode all characters in "Hello 算法" as 2 bytes by padding the higher bits with zeros. This method would enable the system to interpret a character every 2 bytes, recovering the content of the phrase.
+**Một giải pháp đơn giản cho vấn đề này là lưu trữ tất cả ký tự dưới dạng mã hóa độ dài bằng nhau**. Như hình dưới đây, mỗi ký tự trong "Hello" chiếm 1 byte, trong khi mỗi ký tự trong "算法" (algorithm) chiếm 2 byte. Chúng ta có thể mã hóa tất cả ký tự trong "Hello 算法" thành 2 byte bằng cách đệm các bit cao hơn bằng số không. Phương pháp này sẽ cho phép hệ thống diễn giải một ký tự mỗi 2 byte, khôi phục nội dung của cụm từ.
 
-![Unicode encoding example](character_encoding.assets/unicode_hello_algo.png)
+![Ví dụ mã hóa Unicode](character_encoding.assets/unicode_hello_algo.png)
 
-However, as ASCII has shown us, encoding English only requires 1 byte. Using the above approach would double the space occupied by English text compared to ASCII encoding, which is a waste of memory space. Therefore, a more efficient Unicode encoding method is needed.
+Tuy nhiên, như ASCII đã cho chúng ta thấy, mã hóa tiếng Anh chỉ cần 1 byte. Sử dụng phương pháp trên sẽ làm tăng gấp đôi không gian chiếm bởi văn bản tiếng Anh so với mã hóa ASCII, điều này lãng phí không gian bộ nhớ. Do đó, cần một phương pháp mã hóa Unicode hiệu quả hơn.
 
-## UTF-8 encoding
+## Mã hóa UTF-8
 
-Currently, UTF-8 has become the most widely used Unicode encoding method internationally. **It is a variable-length encoding**, using 1 to 4 bytes to represent a character, depending on the complexity of the character. ASCII characters need only 1 byte, Latin and Greek letters require 2 bytes, commonly used Chinese characters need 3 bytes, and some other rare characters need 4 bytes.
+Hiện tại, UTF-8 đã trở thành phương pháp mã hóa Unicode được sử dụng rộng rãi nhất trên toàn cầu. **Nó là mã hóa độ dài biến đổi**, sử dụng 1 đến 4 byte để biểu diễn một ký tự, tùy thuộc vào độ phức tạp của ký tự. Ký tự ASCII chỉ cần 1 byte, chữ cái Latin và Hy Lạp yêu cầu 2 byte, ký tự Trung Quốc thường dùng cần 3 byte, và một số ký tự hiếm khác cần 4 byte.
 
-The encoding rules for UTF-8 are not complex and can be divided into two cases:
+Các quy tắc mã hóa cho UTF-8 không phức tạp và có thể chia thành hai trường hợp:
 
-- For 1-byte characters, set the highest bit to $0$, and the remaining 7 bits to the Unicode code point. Notably, ASCII characters occupy the first 128 code points in the Unicode set. This means that **UTF-8 encoding is backward compatible with ASCII**. This implies that UTF-8 can be used to parse ancient ASCII text.
-- For characters of length $n$ bytes (where $n > 1$), set the highest $n$ bits of the first byte to $1$, and the $(n + 1)^{\text{th}}$ bit to $0$; starting from the second byte, set the highest 2 bits of each byte to $10$; the rest of the bits are used to fill the Unicode code point.
+- Đối với ký tự 1 byte, đặt bit cao nhất thành $0$, và 7 bit còn lại thành điểm mã Unicode. Đặc biệt, ký tự ASCII chiếm 128 điểm mã đầu tiên trong bộ Unicode. Điều này có nghĩa là **mã hóa UTF-8 tương thích ngược với ASCII**. Điều này ngụ ý rằng UTF-8 có thể được sử dụng để phân tích văn bản ASCII cổ xưa.
+- Đối với ký tự có độ dài $n$ byte (trong đó $n > 1$), đặt $n$ bit cao nhất của byte đầu tiên thành $1$, và bit $(n + 1)^{\text{th}}$ thành $0$; bắt đầu từ byte thứ hai, đặt 2 bit cao nhất của mỗi byte thành $10$; các bit còn lại được sử dụng để điền điểm mã Unicode.
 
-The figure below shows the UTF-8 encoding for "Hello算法". It can be observed that since the highest $n$ bits are set to $1$, the system can determine the length of the character as $n$ by counting the number of highest bits set to $1$.
+Hình dưới đây cho thấy mã hóa UTF-8 cho "Hello算法". Có thể quan sát thấy rằng vì $n$ bit cao nhất được đặt thành $1$, hệ thống có thể xác định độ dài của ký tự là $n$ bằng cách đếm số bit cao nhất được đặt thành $1$.
 
-But why set the highest 2 bits of the remaining bytes to $10$? Actually, this $10$ serves as a kind of checksum. If the system starts parsing text from an incorrect byte, the $10$ at the beginning of the byte can help the system quickly detect anomalies.
+Nhưng tại sao đặt 2 bit cao nhất của các byte còn lại thành $10$? Thực ra, $10$ này phục vụ như một loại kiểm tra tổng. Nếu hệ thống bắt đầu phân tích văn bản từ một byte sai, $10$ ở đầu byte có thể giúp hệ thống nhanh chóng phát hiện bất thường.
 
-The reason for using $10$ as a checksum is that, under UTF-8 encoding rules, it's impossible for the highest two bits of a character to be $10$. This can be proven by contradiction: If the highest two bits of a character are $10$, it indicates that the character's length is $1$, corresponding to ASCII. However, the highest bit of an ASCII character should be $0$, which contradicts the assumption.
+Lý do sử dụng $10$ làm kiểm tra tổng là vì, dưới quy tắc mã hóa UTF-8, không thể có 2 bit cao nhất của một ký tự là $10$. Điều này có thể được chứng minh bằng mâu thuẫn: Nếu 2 bit cao nhất của một ký tự là $10$, nó chỉ ra độ dài ký tự là $1$, tương ứng với ASCII. Tuy nhiên, bit cao nhất của ký tự ASCII nên là $0$, điều này mâu thuẫn với giả định.
 
-![UTF-8 encoding example](character_encoding.assets/utf-8_hello_algo.png)
+![Ví dụ mã hóa UTF-8](character_encoding.assets/utf-8_hello_algo.png)
 
-Apart from UTF-8, other common encoding methods include:
+Ngoài UTF-8, các phương pháp mã hóa phổ biến khác bao gồm:
 
-- **UTF-16 encoding**: Uses 2 or 4 bytes to represent a character. All ASCII characters and commonly used non-English characters are represented with 2 bytes; a few characters require 4 bytes. For 2-byte characters, the UTF-16 encoding equals the Unicode code point.
-- **UTF-32 encoding**: Every character uses 4 bytes. This means UTF-32 occupies more space than UTF-8 and UTF-16, especially for texts with a high proportion of ASCII characters.
+- **Mã hóa UTF-16**: Sử dụng 2 hoặc 4 byte để biểu diễn một ký tự. Tất cả ký tự ASCII và ký tự không tiếng Anh thường dùng được biểu diễn bằng 2 byte; một vài ký tự yêu cầu 4 byte. Đối với ký tự 2 byte, mã hóa UTF-16 bằng điểm mã Unicode.
+- **Mã hóa UTF-32**: Mỗi ký tự sử dụng 4 byte. Điều này có nghĩa là UTF-32 chiếm nhiều không gian hơn UTF-8 và UTF-16, đặc biệt đối với văn bản có tỷ lệ cao ký tự ASCII.
 
-From the perspective of storage space, using UTF-8 to represent English characters is very efficient because it only requires 1 byte; using UTF-16 to encode some non-English characters (such as Chinese) can be more efficient because it only requires 2 bytes, while UTF-8 might need 3 bytes.
+Từ góc độ không gian lưu trữ, sử dụng UTF-8 để biểu diễn ký tự tiếng Anh rất hiệu quả vì nó chỉ cần 1 byte; sử dụng UTF-16 để mã hóa một số ký tự không tiếng Anh (như tiếng Trung) có thể hiệu quả hơn vì nó chỉ cần 2 byte, trong khi UTF-8 có thể cần 3 byte.
 
-From a compatibility perspective, UTF-8 is the most versatile, with many tools and libraries supporting UTF-8 as a priority.
+Từ góc độ tương thích, UTF-8 là linh hoạt nhất, với nhiều công cụ và thư viện hỗ trợ UTF-8 là ưu tiên.
 
-## Character encoding in programming languages
+## Mã hóa ký tự trong ngôn ngữ lập trình
 
-Historically, many programming languages utilized fixed-length encodings such as UTF-16 or UTF-32 for processing strings during program execution. This allows strings to be handled as arrays, offering several advantages:
+Lịch sử, nhiều ngôn ngữ lập trình sử dụng mã hóa độ dài cố định như UTF-16 hoặc UTF-32 để xử lý chuỗi trong quá trình thực thi chương trình. Điều này cho phép xử lý chuỗi như mảng, mang lại một số lợi thế:
 
-- **Random access**: Strings encoded in UTF-16 can be accessed randomly with ease. For UTF-8, which is a variable-length encoding, locating the $i^{th}$ character requires traversing the string from the start to the $i^{th}$ position, taking $O(n)$ time.
-- **Character counting**: Similar to random access, counting the number of characters in a UTF-16 encoded string is an $O(1)$ operation. However, counting characters in a UTF-8 encoded string requires traversing the entire string.
-- **String operations**: Many string operations like splitting, concatenating, inserting, and deleting are easier on UTF-16 encoded strings. These operations generally require additional computation on UTF-8 encoded strings to ensure the validity of the UTF-8 encoding.
+- **Truy cập ngẫu nhiên**: Chuỗi mã hóa UTF-16 có thể được truy cập ngẫu nhiên dễ dàng. Đối với UTF-8, là mã hóa độ dài biến đổi, việc định vị ký tự $i^{\text{th}}$ yêu cầu duyệt chuỗi từ đầu đến vị trí $i^{\text{th}}$, mất thời gian $O(n)$.
+- **Đếm ký tự**: Tương tự như truy cập ngẫu nhiên, đếm số lượng ký tự trong chuỗi mã hóa UTF-16 là thao tác $O(1)$. Tuy nhiên, đếm ký tự trong chuỗi mã hóa UTF-8 yêu cầu duyệt toàn bộ chuỗi.
+- **Thao tác chuỗi**: Nhiều thao tác chuỗi như tách, nối, chèn và xóa dễ dàng hơn trên chuỗi mã hóa UTF-16. Các thao tác này thường yêu cầu tính toán bổ sung trên chuỗi mã hóa UTF-8 để đảm bảo tính hợp lệ của mã hóa UTF-8.
 
-The design of character encoding schemes in programming languages is an interesting topic involving various factors:
+Thiết kế lược đồ mã hóa ký tự trong ngôn ngữ lập trình là chủ đề thú vị liên quan đến nhiều yếu tố:
 
-- Java’s `String` type uses UTF-16 encoding, with each character occupying 2 bytes. This was based on the initial belief that 16 bits were sufficient to represent all possible characters and proven incorrect later. As the Unicode standard expanded beyond 16 bits, characters in Java may now be represented by a pair of 16-bit values, known as “surrogate pairs.”
-- JavaScript and TypeScript use UTF-16 encoding for similar reasons as Java. When JavaScript was first introduced by Netscape in 1995, Unicode was still in its early stages, and 16-bit encoding was sufficient to represent all Unicode characters.
-- C# uses UTF-16 encoding, largely because the .NET platform, designed by Microsoft, and many Microsoft technologies, including the Windows operating system, extensively use UTF-16 encoding.
+- Kiểu `String` của Java sử dụng mã hóa UTF-16, với mỗi ký tự chiếm 2 byte. Điều này dựa trên niềm tin ban đầu rằng 16 bit đủ để biểu diễn tất cả ký tự có thể và sau đó chứng minh là sai. Khi tiêu chuẩn Unicode mở rộng vượt quá 16 bit, ký tự trong Java có thể được biểu diễn bằng cặp giá trị 16 bit, được gọi là "cặp thay thế."
+- JavaScript và TypeScript sử dụng mã hóa UTF-16 vì lý do tương tự như Java. Khi JavaScript được giới thiệu lần đầu bởi Netscape năm 1995, Unicode vẫn ở giai đoạn đầu, và mã hóa 16 bit đủ để biểu diễn tất cả ký tự Unicode.
+- C# sử dụng mã hóa UTF-16, chủ yếu vì nền tảng .NET, được thiết kế bởi Microsoft, và nhiều công nghệ Microsoft, bao gồm hệ điều hành Windows, sử dụng rộng rãi mã hóa UTF-16.
 
-Due to the underestimation of character counts, these languages had to use "surrogate pairs" to represent Unicode characters exceeding 16 bits. This approach has its drawbacks: strings containing surrogate pairs may have characters occupying 2 or 4 bytes, losing the advantage of fixed-length encoding. Additionally, handling surrogate pairs adds complexity and debugging difficulty to programming.
+Do đánh giá thấp số lượng ký tự, các ngôn ngữ này phải sử dụng "cặp thay thế" để biểu diễn ký tự Unicode vượt quá 16 bit. Phương pháp này có nhược điểm: chuỗi chứa cặp thay thế có thể có ký tự chiếm 2 hoặc 4 byte, mất lợi thế của mã hóa độ dài cố định. Ngoài ra, xử lý cặp thay thế thêm độ phức tạp và khó khăn trong gỡ lỗi.
 
-Addressing these challenges, some languages have adopted alternative encoding strategies:
+Giải quyết những thách thức này, một số ngôn ngữ đã áp dụng chiến lược mã hóa thay thế:
 
-- Python’s `str` type uses Unicode encoding with a flexible representation where the storage length of characters depends on the largest Unicode code point in the string. If all characters are ASCII, each character occupies 1 byte, 2 bytes for characters within the Basic Multilingual Plane (BMP), and 4 bytes for characters beyond the BMP.
-- Go’s `string` type internally uses UTF-8 encoding. Go also provides the `rune` type for representing individual Unicode code points.
-- Rust’s `str` and `String` types use UTF-8 encoding internally. Rust also offers the `char` type for individual Unicode code points.
+- Kiểu `str` của Python sử dụng mã hóa Unicode với biểu diễn linh hoạt nơi độ dài lưu trữ của ký tự phụ thuộc vào điểm mã Unicode lớn nhất trong chuỗi. Nếu tất cả ký tự là ASCII, mỗi ký tự chiếm 1 byte, 2 byte cho ký tự trong Mặt phẳng đa ngôn ngữ cơ bản (BMP), và 4 byte cho ký tự vượt quá BMP.
+- Kiểu `string` của Go sử dụng mã hóa UTF-8 nội bộ. Go cũng cung cấp kiểu `rune` để biểu diễn điểm mã Unicode riêng lẻ.
+- Kiểu `str` và `String` của Rust sử dụng mã hóa UTF-8 nội bộ. Rust cũng cung cấp kiểu `char` cho điểm mã Unicode riêng lẻ.
 
-It’s important to note that the above discussion pertains to how strings are stored in programming languages, **which is different from how strings are stored in files or transmitted over networks**. For file storage or network transmission, strings are usually encoded in UTF-8 format for optimal compatibility and space efficiency.
+Quan trọng là lưu ý rằng thảo luận trên liên quan đến cách chuỗi được lưu trữ trong ngôn ngữ lập trình, **khác với cách chuỗi được lưu trữ trong tệp hoặc truyền qua mạng**. Đối với lưu trữ tệp hoặc truyền mạng, chuỗi thường được mã hóa ở định dạng UTF-8 để tối ưu tương thích và hiệu quả không gian.
