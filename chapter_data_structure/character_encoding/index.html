@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="zh" class="no-js"><head>
+<!DOCTYPE html><html lang="vi" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
+        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_data_structure/character_encoding/">
+        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_data_structure/character_encoding/">
       
       
         <link rel="prev" href="../number_encoding/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>3.4 &nbsp; 字符编码 * - Hello 算法</title>
+        <title>3.4 Character encoding * - Hello Algo</title>
       
     
     
@@ -44,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -87,8 +87,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
-          跳转至
+        <a href="#ma-hoa-ky-tu" class="md-skip">
+          Bỏ qua
         </a>
       
     </div>
@@ -99,13 +99,11 @@
             
             
 
-    
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
         <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
     </svg>
-    <span>纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a></span>
+    <span></span>
 </div>
 
           </div>
@@ -120,8 +118,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
@@ -134,13 +132,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello 算法
+            Hello Algo
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.4 &nbsp; 字符编码 *
+              3.4 Character encoding *
             
           </span>
         </div>
@@ -153,9 +151,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="深色模式" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,9 +161,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="浅色模式" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -180,7 +178,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
     </button>
     <div class="md-select__inner">
@@ -224,21 +222,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
         </button>
@@ -251,7 +249,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -262,7 +260,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -296,18 +294,18 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    Hello 算法
+    Hello Algo
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -353,7 +351,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    序
+    Before starting
   </span>
   
 
@@ -364,7 +362,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            序
+            Before starting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -414,7 +412,7 @@
               
   
   <span class="md-ellipsis">
-    第 0 章 &nbsp; 前言
+    Chapter 0. Preface
   </span>
   
 
@@ -430,7 +428,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            第 0 章 &nbsp; 前言
+            Chapter 0. Preface
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -447,7 +445,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 &nbsp; 关于本书
+    0.1 About this book
   </span>
   
 
@@ -468,7 +466,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 &nbsp; 如何使用本书
+    0.2 How to read
   </span>
   
 
@@ -489,7 +487,7 @@
         
   
   <span class="md-ellipsis">
-    0.3 &nbsp; 小结
+    0.3 Summary
   </span>
   
 
@@ -543,7 +541,7 @@
               
   
   <span class="md-ellipsis">
-    第 1 章 &nbsp; 初识算法
+    Chapter 1. Encounter with algorithms
   </span>
   
 
@@ -559,7 +557,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 1 章 &nbsp; 初识算法
+            Chapter 1. Encounter with algorithms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -576,7 +574,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 &nbsp; 算法无处不在
+    1.1 Algorithms are everywhere
   </span>
   
 
@@ -597,7 +595,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 &nbsp; 算法是什么
+    1.2 What is an algorithm
   </span>
   
 
@@ -618,7 +616,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 &nbsp; 小结
+    1.3 Summary
   </span>
   
 
@@ -676,7 +674,7 @@
               
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度分析
+    Chapter 2. Complexity analysis
   </span>
   
 
@@ -692,7 +690,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度分析
+            Chapter 2. Complexity analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -709,7 +707,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 &nbsp; 算法效率评估
+    2.1 Algorithm efficiency assessment
   </span>
   
 
@@ -730,7 +728,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 迭代与递归
+    2.2 Iteration and recursion
   </span>
   
 
@@ -751,7 +749,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 时间复杂度
+    2.3 Time complexity
   </span>
   
 
@@ -772,7 +770,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 空间复杂度
+    2.4 Space complexity
   </span>
   
 
@@ -793,7 +791,7 @@
         
   
   <span class="md-ellipsis">
-    2.5 &nbsp; 小结
+    2.5 Summary
   </span>
   
 
@@ -853,7 +851,7 @@
               
   
   <span class="md-ellipsis">
-    第 3 章 &nbsp; 数据结构
+    Chapter 3. Data structures
   </span>
   
 
@@ -869,7 +867,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            第 3 章 &nbsp; 数据结构
+            Chapter 3. Data structures
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -886,7 +884,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 &nbsp; 数据结构分类
+    3.1 Classification of data structures
   </span>
   
 
@@ -907,7 +905,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 &nbsp; 基本数据类型
+    3.2 Basic data types
   </span>
   
 
@@ -928,7 +926,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 &nbsp; 数字编码 *
+    3.3 Number encoding *
   </span>
   
 
@@ -958,7 +956,7 @@
           
   
   <span class="md-ellipsis">
-    3.4 &nbsp; 字符编码 *
+    3.4 Character encoding *
   </span>
   
 
@@ -969,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 &nbsp; 字符编码 *
+    3.4 Character encoding *
   </span>
   
 
@@ -977,7 +975,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -986,50 +984,50 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ascii" class="md-nav__link">
+  <a href="#bo-ky-tu-ascii" class="md-nav__link">
     <span class="md-ellipsis">
-      ASCII 字符集
+      Bộ ký tự ASCII
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gbk" class="md-nav__link">
+  <a href="#bo-ky-tu-gbk" class="md-nav__link">
     <span class="md-ellipsis">
-      GBK 字符集
+      Bộ ký tự GBK
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unicode" class="md-nav__link">
+  <a href="#bo-ky-tu-unicode" class="md-nav__link">
     <span class="md-ellipsis">
-      Unicode 字符集
+      Bộ ký tự Unicode
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#utf-8" class="md-nav__link">
+  <a href="#ma-hoa-utf-8" class="md-nav__link">
     <span class="md-ellipsis">
-      UTF-8 编码
+      Mã hóa UTF-8
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#ma-hoa-ky-tu-trong-ngon-ngu-lap-trinh" class="md-nav__link">
     <span class="md-ellipsis">
-      编程语言的字符编码
+      Mã hóa ký tự trong ngôn ngữ lập trình
     </span>
   </a>
   
@@ -1055,7 +1053,7 @@
         
   
   <span class="md-ellipsis">
-    3.5 &nbsp; 小结
+    3.5 Summary
   </span>
   
 
@@ -1113,7 +1111,7 @@
               
   
   <span class="md-ellipsis">
-    第 4 章 &nbsp; 数组与链表
+    Chapter 4. Array and linked list
   </span>
   
 
@@ -1129,7 +1127,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            第 4 章 &nbsp; 数组与链表
+            Chapter 4. Array and linked list
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1146,7 +1144,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 &nbsp; 数组
+    4.1 Array
   </span>
   
 
@@ -1167,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 &nbsp; 链表
+    4.2 Linked list
   </span>
   
 
@@ -1188,7 +1186,7 @@
         
   
   <span class="md-ellipsis">
-    4.3 &nbsp; 列表
+    4.3 List
   </span>
   
 
@@ -1209,7 +1207,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 &nbsp; 内存与缓存 *
+    4.4 Memory and cache *
   </span>
   
 
@@ -1230,7 +1228,7 @@
         
   
   <span class="md-ellipsis">
-    4.5 &nbsp; 小结
+    4.5 Summary
   </span>
   
 
@@ -1286,7 +1284,7 @@
               
   
   <span class="md-ellipsis">
-    第 5 章 &nbsp; 栈与队列
+    Chapter 5. Stack and queue
   </span>
   
 
@@ -1302,7 +1300,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 5 章 &nbsp; 栈与队列
+            Chapter 5. Stack and queue
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1319,7 +1317,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 &nbsp; 栈
+    5.1 Stack
   </span>
   
 
@@ -1340,7 +1338,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 &nbsp; 队列
+    5.2 Queue
   </span>
   
 
@@ -1361,7 +1359,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 &nbsp; 双向队列
+    5.3 Double-ended queue
   </span>
   
 
@@ -1382,7 +1380,7 @@
         
   
   <span class="md-ellipsis">
-    5.4 &nbsp; 小结
+    5.4 Summary
   </span>
   
 
@@ -1438,7 +1436,7 @@
               
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 哈希表
+    Chapter 6. Hash table
   </span>
   
 
@@ -1454,7 +1452,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 哈希表
+            Chapter 6. Hash table
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1471,7 +1469,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 &nbsp; 哈希表
+    6.1 Hash table
   </span>
   
 
@@ -1492,7 +1490,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 &nbsp; 哈希冲突
+    6.2 Hash collision
   </span>
   
 
@@ -1513,7 +1511,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 &nbsp; 哈希算法
+    6.3 Hash algorithm
   </span>
   
 
@@ -1534,7 +1532,7 @@
         
   
   <span class="md-ellipsis">
-    6.4 &nbsp; 小结
+    6.4 Summary
   </span>
   
 
@@ -1594,7 +1592,7 @@
               
   
   <span class="md-ellipsis">
-    第 7 章 &nbsp; 树
+    Chapter 7. Tree
   </span>
   
 
@@ -1610,7 +1608,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            第 7 章 &nbsp; 树
+            Chapter 7. Tree
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1627,7 +1625,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 &nbsp; 二叉树
+    7.1 Binary tree
   </span>
   
 
@@ -1648,7 +1646,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 &nbsp; 二叉树遍历
+    7.2 Binary tree traversal
   </span>
   
 
@@ -1669,7 +1667,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 &nbsp; 二叉树数组表示
+    7.3 Array Representation of tree
   </span>
   
 
@@ -1690,7 +1688,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 &nbsp; 二叉搜索树
+    7.4 Binary Search tree
   </span>
   
 
@@ -1711,7 +1709,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 &nbsp; AVL 树 *
+    7.5 AVL tree *
   </span>
   
 
@@ -1732,7 +1730,7 @@
         
   
   <span class="md-ellipsis">
-    7.6 &nbsp; 小结
+    7.6 Summary
   </span>
   
 
@@ -1788,7 +1786,7 @@
               
   
   <span class="md-ellipsis">
-    第 8 章 &nbsp; 堆
+    Chapter 8. Heap
   </span>
   
 
@@ -1804,7 +1802,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            第 8 章 &nbsp; 堆
+            Chapter 8. Heap
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1821,7 +1819,7 @@
         
   
   <span class="md-ellipsis">
-    8.1 &nbsp; 堆
+    8.1 Heap
   </span>
   
 
@@ -1842,7 +1840,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 &nbsp; 建堆操作
+    8.2 Building a heap
   </span>
   
 
@@ -1863,7 +1861,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-k 问题
+    8.3 Top-k problem
   </span>
   
 
@@ -1884,7 +1882,7 @@
         
   
   <span class="md-ellipsis">
-    8.4 &nbsp; 小结
+    8.4 Summary
   </span>
   
 
@@ -1940,7 +1938,7 @@
               
   
   <span class="md-ellipsis">
-    第 9 章 &nbsp; 图
+    Chapter 9. Graph
   </span>
   
 
@@ -1956,7 +1954,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            第 9 章 &nbsp; 图
+            Chapter 9. Graph
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1973,7 +1971,7 @@
         
   
   <span class="md-ellipsis">
-    9.1 &nbsp; 图
+    9.1 Graph
   </span>
   
 
@@ -1994,7 +1992,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 &nbsp; 图基础操作
+    9.2 Basic graph operations
   </span>
   
 
@@ -2015,7 +2013,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 &nbsp; 图的遍历
+    9.3 Graph traversal
   </span>
   
 
@@ -2036,7 +2034,7 @@
         
   
   <span class="md-ellipsis">
-    9.4 &nbsp; 小结
+    9.4 Summary
   </span>
   
 
@@ -2096,7 +2094,7 @@
               
   
   <span class="md-ellipsis">
-    第 10 章 &nbsp; 搜索
+    Chapter 10. Searching
   </span>
   
 
@@ -2112,7 +2110,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            第 10 章 &nbsp; 搜索
+            Chapter 10. Searching
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2129,7 +2127,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 &nbsp; 二分查找
+    10.1 Binary search
   </span>
   
 
@@ -2150,7 +2148,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 &nbsp; 二分查找插入点
+    10.2 Binary search insertion
   </span>
   
 
@@ -2171,7 +2169,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 &nbsp; 二分查找边界
+    10.3 Binary search boundaries
   </span>
   
 
@@ -2192,7 +2190,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 &nbsp; 哈希优化策略
+    10.4 Hashing optimization strategies
   </span>
   
 
@@ -2213,7 +2211,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 &nbsp; 重识搜索算法
+    10.5 Search algorithms revisited
   </span>
   
 
@@ -2234,7 +2232,7 @@
         
   
   <span class="md-ellipsis">
-    10.6 &nbsp; 小结
+    10.6 Summary
   </span>
   
 
@@ -2304,7 +2302,7 @@
               
   
   <span class="md-ellipsis">
-    第 11 章 &nbsp; 排序
+    Chapter 11. Sorting
   </span>
   
 
@@ -2320,7 +2318,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            第 11 章 &nbsp; 排序
+            Chapter 11. Sorting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2337,7 +2335,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 &nbsp; 排序算法
+    11.1 Sorting algorithms
   </span>
   
 
@@ -2358,7 +2356,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 &nbsp; 选择排序
+    11.2 Selection sort
   </span>
   
 
@@ -2379,7 +2377,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 &nbsp; 冒泡排序
+    11.3 Bubble sort
   </span>
   
 
@@ -2400,7 +2398,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 &nbsp; 插入排序
+    11.4 Insertion sort
   </span>
   
 
@@ -2421,7 +2419,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 &nbsp; 快速排序
+    11.5 Quick sort
   </span>
   
 
@@ -2442,7 +2440,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 &nbsp; 归并排序
+    11.6 Merge sort
   </span>
   
 
@@ -2463,7 +2461,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 &nbsp; 堆排序
+    11.7 Heap sort
   </span>
   
 
@@ -2484,7 +2482,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 &nbsp; 桶排序
+    11.8 Bucket sort
   </span>
   
 
@@ -2505,7 +2503,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 &nbsp; 计数排序
+    11.9 Counting sort
   </span>
   
 
@@ -2526,7 +2524,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 &nbsp; 基数排序
+    11.10 Radix sort
   </span>
   
 
@@ -2547,7 +2545,7 @@
         
   
   <span class="md-ellipsis">
-    11.11 &nbsp; 小结
+    11.11 Summary
   </span>
   
 
@@ -2605,7 +2603,7 @@
               
   
   <span class="md-ellipsis">
-    第 12 章 &nbsp; 分治
+    Chapter 12. Divide and conquer
   </span>
   
 
@@ -2621,7 +2619,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            第 12 章 &nbsp; 分治
+            Chapter 12. Divide and conquer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2638,7 +2636,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 &nbsp; 分治算法
+    12.1 Divide and conquer algorithms
   </span>
   
 
@@ -2659,7 +2657,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 &nbsp; 分治搜索策略
+    12.2 Divide and conquer search strategy
   </span>
   
 
@@ -2680,7 +2678,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 &nbsp; 构建树问题
+    12.3 Building binary tree problem
   </span>
   
 
@@ -2701,7 +2699,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 &nbsp; 汉诺塔问题
+    12.4 Tower of Hanoi Problem
   </span>
   
 
@@ -2722,7 +2720,7 @@
         
   
   <span class="md-ellipsis">
-    12.5 &nbsp; 小结
+    12.5 Summary
   </span>
   
 
@@ -2780,7 +2778,7 @@
               
   
   <span class="md-ellipsis">
-    第 13 章 &nbsp; 回溯
+    Chapter 13. Backtracking
   </span>
   
 
@@ -2796,7 +2794,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
-            第 13 章 &nbsp; 回溯
+            Chapter 13. Backtracking
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2813,7 +2811,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 &nbsp; 回溯算法
+    13.1 Backtracking algorithms
   </span>
   
 
@@ -2834,7 +2832,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 &nbsp; 全排列问题
+    13.2 Permutation problem
   </span>
   
 
@@ -2855,7 +2853,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 &nbsp; 子集和问题
+    13.3 Subset sum problem
   </span>
   
 
@@ -2876,7 +2874,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 &nbsp; N 皇后问题
+    13.4 n queens problem
   </span>
   
 
@@ -2897,7 +2895,7 @@
         
   
   <span class="md-ellipsis">
-    13.5 &nbsp; 小结
+    13.5 Summary
   </span>
   
 
@@ -2959,7 +2957,7 @@
               
   
   <span class="md-ellipsis">
-    第 14 章 &nbsp; 动态规划
+    Chapter 14. Dynamic programming
   </span>
   
 
@@ -2975,7 +2973,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            第 14 章 &nbsp; 动态规划
+            Chapter 14. Dynamic programming
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2992,7 +2990,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 &nbsp; 初探动态规划
+    14.1 Introduction to dynamic programming
   </span>
   
 
@@ -3013,7 +3011,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 &nbsp; DP 问题特性
+    14.2 Characteristics of DP problems
   </span>
   
 
@@ -3034,7 +3032,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 &nbsp; DP 解题思路
+    14.3 DP problem-solving approach¶
   </span>
   
 
@@ -3055,7 +3053,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 &nbsp; 0-1 背包问题
+    14.4 0-1 Knapsack problem
   </span>
   
 
@@ -3076,7 +3074,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 &nbsp; 完全背包问题
+    14.5 Unbounded knapsack problem
   </span>
   
 
@@ -3097,7 +3095,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 &nbsp; 编辑距离问题
+    14.6 Edit distance problem
   </span>
   
 
@@ -3118,7 +3116,7 @@
         
   
   <span class="md-ellipsis">
-    14.7 &nbsp; 小结
+    14.7 Summary
   </span>
   
 
@@ -3176,7 +3174,7 @@
               
   
   <span class="md-ellipsis">
-    第 15 章 &nbsp; 贪心
+    Chapter 15. Greedy
   </span>
   
 
@@ -3192,7 +3190,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_17">
             <span class="md-nav__icon md-icon"></span>
-            第 15 章 &nbsp; 贪心
+            Chapter 15. Greedy
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3209,7 +3207,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 &nbsp; 贪心算法
+    15.1 Greedy algorithms
   </span>
   
 
@@ -3230,7 +3228,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 &nbsp; 分数背包问题
+    15.2 Fractional knapsack problem
   </span>
   
 
@@ -3251,7 +3249,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 &nbsp; 最大容量问题
+    15.3 Maximum capacity problem
   </span>
   
 
@@ -3272,7 +3270,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 &nbsp; 最大切分乘积问题
+    15.4 Maximum product cutting problem
   </span>
   
 
@@ -3293,7 +3291,7 @@
         
   
   <span class="md-ellipsis">
-    15.5 &nbsp; 小结
+    15.5 Summary
   </span>
   
 
@@ -3347,7 +3345,7 @@
               
   
   <span class="md-ellipsis">
-    第 16 章 &nbsp; 附录
+    Chapter 16. Appendix
   </span>
   
 
@@ -3363,7 +3361,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_18">
             <span class="md-nav__icon md-icon"></span>
-            第 16 章 &nbsp; 附录
+            Chapter 16. Appendix
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3380,7 +3378,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 &nbsp; 编程环境安装
+    16.1 Installation
   </span>
   
 
@@ -3401,7 +3399,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 &nbsp; 一起参与创作
+    16.2 Contributing
   </span>
   
 
@@ -3422,7 +3420,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 &nbsp; 术语表
+    16.3 Terminology
   </span>
   
 
@@ -3472,7 +3470,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"></path></svg>
   
   <span class="md-ellipsis">
-    参考文献
+    References
   </span>
   
 
@@ -3483,72 +3481,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            参考文献
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20">
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_paperbook/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"></path></svg>
-  
-  <span class="md-ellipsis">
-    纸质书
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_20">
-            <span class="md-nav__icon md-icon"></span>
-            纸质书
+            References
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3574,7 +3507,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -3583,50 +3516,50 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ascii" class="md-nav__link">
+  <a href="#bo-ky-tu-ascii" class="md-nav__link">
     <span class="md-ellipsis">
-      ASCII 字符集
+      Bộ ký tự ASCII
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gbk" class="md-nav__link">
+  <a href="#bo-ky-tu-gbk" class="md-nav__link">
     <span class="md-ellipsis">
-      GBK 字符集
+      Bộ ký tự GBK
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unicode" class="md-nav__link">
+  <a href="#bo-ky-tu-unicode" class="md-nav__link">
     <span class="md-ellipsis">
-      Unicode 字符集
+      Bộ ký tự Unicode
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#utf-8" class="md-nav__link">
+  <a href="#ma-hoa-utf-8" class="md-nav__link">
     <span class="md-ellipsis">
-      UTF-8 编码
+      Mã hóa UTF-8
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#ma-hoa-ky-tu-trong-ngon-ngu-lap-trinh" class="md-nav__link">
     <span class="md-ellipsis">
-      编程语言的字符编码
+      Mã hóa ký tự trong ngôn ngữ lập trình
     </span>
   </a>
   
@@ -3653,7 +3586,7 @@
 
   <!-- Edit button -->
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_data_structure/character_encoding.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/vi/docs/chapter_data_structure/character_encoding.md" title="Chỉnh sửa" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2 344 121.9l46.1 46.1-134.3 134.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25c-28.1-28.1-73.7-28.1-101.8 0zM88 64c-48.6 0-88 39.4-88 88v272c0 48.6 39.4 88 88 88h272c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24v112c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40h112c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"></path></svg>
     </a>
@@ -3664,64 +3597,64 @@
 
 
 <!-- Page content -->
-<h1 id="_1">字符编码 *<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>在计算机中，所有数据都是以二进制数的形式存储的，字符 <code>char</code> 也不例外。为了表示字符，我们需要建立一套“字符集”，规定每个字符和二进制数之间的一一对应关系。有了字符集之后，计算机就可以通过查表完成二进制数到字符的转换。</p>
-<h2 id="ascii">ASCII 字符集<a class="headerlink" href="#ascii" title="Permanent link">¶</a></h2>
-<p><u>ASCII 码</u>是最早出现的字符集，其全称为 American Standard Code for Information Interchange（美国标准信息交换代码）。它使用 7 位二进制数（一个字节的低 7 位）表示一个字符，最多能够表示 128 个不同的字符。如下图所示，ASCII 码包括英文字母的大小写、数字 0 ~ 9、一些标点符号，以及一些控制字符（如换行符和制表符）。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../character_encoding.assets/ascii_table.png" data-desc-position="bottom"><img alt="ASCII 码" src="../character_encoding.assets/ascii_table.png"></a></p>
-<p>然而，<strong>ASCII 码仅能够表示英文</strong>。随着计算机的全球化，诞生了一种能够表示更多语言的 <u>EASCII</u> 字符集。它在 ASCII 的 7 位基础上扩展到 8 位，能够表示 256 个不同的字符。</p>
-<p>在世界范围内，陆续出现了一批适用于不同地区的 EASCII 字符集。这些字符集的前 128 个字符统一为 ASCII 码，后 128 个字符定义不同，以适应不同语言的需求。</p>
-<h2 id="gbk">GBK 字符集<a class="headerlink" href="#gbk" title="Permanent link">¶</a></h2>
-<p>后来人们发现，<strong>EASCII 码仍然无法满足许多语言的字符数量要求</strong>。比如汉字有近十万个，光日常使用的就有几千个。中国国家标准总局于 1980 年发布了 <u>GB2312</u> 字符集，其收录了 6763 个汉字，基本满足了汉字的计算机处理需要。</p>
-<p>然而，GB2312 无法处理部分罕见字和繁体字。<u>GBK</u> 字符集是在 GB2312 的基础上扩展得到的，它共收录了 21886 个汉字。在 GBK 的编码方案中，ASCII 字符使用一个字节表示，汉字使用两个字节表示。</p>
-<h2 id="unicode">Unicode 字符集<a class="headerlink" href="#unicode" title="Permanent link">¶</a></h2>
-<p>随着计算机技术的蓬勃发展，字符集与编码标准百花齐放，而这带来了许多问题。一方面，这些字符集一般只定义了特定语言的字符，无法在多语言环境下正常工作。另一方面，同一种语言存在多种字符集标准，如果两台计算机使用的是不同的编码标准，则在信息传递时就会出现乱码。</p>
-<p>那个时代的研究人员就在想：<strong>如果推出一个足够完整的字符集，将世界范围内的所有语言和符号都收录其中，不就可以解决跨语言环境和乱码问题了吗</strong>？在这种想法的驱动下，一个大而全的字符集 Unicode 应运而生。</p>
-<p><u>Unicode</u> 的中文名称为“统一码”，理论上能容纳 100 多万个字符。它致力于将全球范围内的字符纳入统一的字符集之中，提供一种通用的字符集来处理和显示各种语言文字，减少因为编码标准不同而产生的乱码问题。</p>
-<p>自 1991 年发布以来，Unicode 不断扩充新的语言与字符。截至 2022 年 9 月，Unicode 已经包含 149186 个字符，包括各种语言的字符、符号甚至表情符号等。在庞大的 Unicode 字符集中，常用的字符占用 2 字节，有些生僻的字符占用 3 字节甚至 4 字节。</p>
-<p>Unicode 是一种通用字符集，本质上是给每个字符分配一个编号（称为“码点”），<strong>但它并没有规定在计算机中如何存储这些字符码点</strong>。我们不禁会问：当多种长度的 Unicode 码点同时出现在一个文本中时，系统如何解析字符？例如给定一个长度为 2 字节的编码，系统如何确认它是一个 2 字节的字符还是两个 1 字节的字符？</p>
-<p>对于以上问题，<strong>一种直接的解决方案是将所有字符存储为等长的编码</strong>。如下图所示，“Hello”中的每个字符占用 1 字节，“算法”中的每个字符占用 2 字节。我们可以通过高位填 0 将“Hello 算法”中的所有字符都编码为 2 字节长度。这样系统就可以每隔 2 字节解析一个字符，恢复这个短语的内容了。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../character_encoding.assets/unicode_hello_algo.png" data-desc-position="bottom"><img alt="Unicode 编码示例" src="../character_encoding.assets/unicode_hello_algo.png"></a></p>
-<p>然而 ASCII 码已经向我们证明，编码英文只需 1 字节。若采用上述方案，英文文本占用空间的大小将会是 ASCII 编码下的两倍，非常浪费内存空间。因此，我们需要一种更加高效的 Unicode 编码方法。</p>
-<h2 id="utf-8">UTF-8 编码<a class="headerlink" href="#utf-8" title="Permanent link">¶</a></h2>
-<p>目前，UTF-8 已成为国际上使用最广泛的 Unicode 编码方法。<strong>它是一种可变长度的编码</strong>，使用 1 到 4 字节来表示一个字符，根据字符的复杂性而变。ASCII 字符只需 1 字节，拉丁字母和希腊字母需要 2 字节，常用的中文字符需要 3 字节，其他的一些生僻字符需要 4 字节。</p>
-<p>UTF-8 的编码规则并不复杂，分为以下两种情况。</p>
+<h1 id="ma-hoa-ky-tu">Mã hóa ký tự *<a class="headerlink" href="#ma-hoa-ky-tu" title="Permanent link">¶</a></h1>
+<p>Trong hệ thống máy tính, tất cả dữ liệu đều được lưu trữ dưới dạng nhị phân, và <code>char</code> cũng không ngoại lệ. Để biểu diễn ký tự, chúng ta cần phát triển một "bộ ký tự" định nghĩa ánh xạ một-một giữa mỗi ký tự và số nhị phân. Với bộ ký tự, máy tính có thể chuyển đổi số nhị phân thành ký tự bằng cách tra cứu bảng.</p>
+<h2 id="bo-ky-tu-ascii">Bộ ký tự ASCII<a class="headerlink" href="#bo-ky-tu-ascii" title="Permanent link">¶</a></h2>
+<p><u>Mã ASCII</u> là một trong những bộ ký tự sớm nhất, chính thức được gọi là American Standard Code for Information Interchange. Nó sử dụng 7 bit nhị phân (7 bit thấp hơn của một byte) để biểu diễn một ký tự, cho phép tối đa 128 ký tự khác nhau. Như hình dưới đây, ASCII bao gồm chữ cái in hoa và in thường tiếng Anh, số từ 0 đến 9, các dấu chấm câu khác nhau, và một số ký tự điều khiển (như dòng mới và tab).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../character_encoding.assets/ascii_table.png" data-desc-position="bottom"><img alt="Mã ASCII" src="../character_encoding.assets/ascii_table.png"></a></p>
+<p>Tuy nhiên, <strong>ASCII chỉ có thể biểu diễn ký tự tiếng Anh</strong>. Với sự toàn cầu hóa của máy tính, một bộ ký tự gọi là <u>EASCII</u> đã được phát triển để biểu diễn nhiều ngôn ngữ hơn. Nó mở rộng từ cấu trúc 7 bit của ASCII thành 8 bit, cho phép biểu diễn 256 ký tự.</p>
+<p>Trên toàn cầu, nhiều bộ ký tự EASCII dành riêng cho từng khu vực đã được giới thiệu. 128 ký tự đầu tiên của các bộ này nhất quán với ASCII, trong khi 128 ký tự còn lại được định nghĩa khác nhau để đáp ứng yêu cầu của các ngôn ngữ khác nhau.</p>
+<h2 id="bo-ky-tu-gbk">Bộ ký tự GBK<a class="headerlink" href="#bo-ky-tu-gbk" title="Permanent link">¶</a></h2>
+<p>Sau đó, người ta phát hiện rằng <strong>EASCII vẫn không thể đáp ứng yêu cầu ký tự của nhiều ngôn ngữ</strong>. Ví dụ, có gần trăm nghìn ký tự Trung Quốc, với vài nghìn ký tự được sử dụng thường xuyên. Năm 1980, Cơ quan Tiêu chuẩn hóa Trung Quốc đã phát hành bộ ký tự <u>GB2312</u>, bao gồm 6763 ký tự Trung Quốc, về cơ bản đáp ứng nhu cầu xử lý máy tính cho ngôn ngữ Trung Quốc.</p>
+<p>Tuy nhiên, GB2312 không thể xử lý một số ký tự hiếm và truyền thống. Bộ ký tự <u>GBK</u> mở rộng GB2312 và bao gồm 21886 ký tự Trung Quốc. Trong lược đồ mã hóa GBK, ký tự ASCII được biểu diễn bằng một byte, trong khi ký tự Trung Quốc sử dụng hai byte.</p>
+<h2 id="bo-ky-tu-unicode">Bộ ký tự Unicode<a class="headerlink" href="#bo-ky-tu-unicode" title="Permanent link">¶</a></h2>
+<p>Với sự phát triển nhanh chóng của công nghệ máy tính và vô số bộ ký tự và tiêu chuẩn mã hóa, nhiều vấn đề đã nảy sinh. Một mặt, các bộ ký tự này thường chỉ định nghĩa ký tự cho các ngôn ngữ cụ thể và không thể hoạt động đúng trong môi trường đa ngôn ngữ. Mặt khác, sự tồn tại của nhiều tiêu chuẩn bộ ký tự cho cùng một ngôn ngữ gây ra hiện tượng văn bản bị lỗi khi trao đổi thông tin giữa các máy tính sử dụng tiêu chuẩn mã hóa khác nhau.</p>
+<p>Các nhà nghiên cứu thời đó nghĩ: <strong>Nếu chúng ta phát triển một bộ ký tự toàn diện bao gồm tất cả ngôn ngữ và ký hiệu toàn cầu thì sao? Điều này có giải quyết các vấn đề liên quan đến môi trường đa ngôn ngữ và văn bản bị lỗi không?</strong> Lấy cảm hứng từ ý tưởng này, bộ ký tự rộng lớn, Unicode, đã ra đời.</p>
+<p><u>Unicode</u> được gọi là "统一码" (Unified Code) bằng tiếng Trung, về lý thuyết có thể chứa hơn một triệu ký tự. Nó nhằm mục đích kết hợp các ký tự từ khắp nơi trên thế giới vào một bộ duy nhất, cung cấp bộ ký tự phổ quát để xử lý và hiển thị các ngôn ngữ khác nhau, giảm thiểu các vấn đề về văn bản bị lỗi do các tiêu chuẩn mã hóa khác nhau.</p>
+<p>Kể từ khi phát hành năm 1991, Unicode đã liên tục mở rộng để bao gồm các ngôn ngữ và ký tự mới. Tính đến tháng 9 năm 2022, Unicode chứa 149.186 ký tự, bao gồm ký tự, ký hiệu, và thậm chí cả emoji từ các ngôn ngữ khác nhau. Trong bộ ký tự Unicode rộng lớn, các ký tự thường dùng chiếm 2 byte, trong khi một số ký tự hiếm có thể chiếm 3 hoặc thậm chí 4 byte.</p>
+<p>Unicode là bộ ký tự phổ quát gán một số (gọi là "điểm mã") cho mỗi ký tự, <strong>nhưng nó không chỉ định cách các điểm mã ký tự Unicode này nên được lưu trữ trong hệ thống máy tính</strong>. Người ta có thể hỏi: Làm thế nào hệ thống diễn giải các điểm mã Unicode có độ dài khác nhau trong một văn bản? Ví dụ, với một mã 2 byte, làm thế nào hệ thống xác định nó biểu diễn một ký tự 2 byte đơn lẻ hay hai ký tự 1 byte?</p>
+<p><strong>Một giải pháp đơn giản cho vấn đề này là lưu trữ tất cả ký tự dưới dạng mã hóa độ dài bằng nhau</strong>. Như hình dưới đây, mỗi ký tự trong "Hello" chiếm 1 byte, trong khi mỗi ký tự trong "算法" (algorithm) chiếm 2 byte. Chúng ta có thể mã hóa tất cả ký tự trong "Hello 算法" thành 2 byte bằng cách đệm các bit cao hơn bằng số không. Phương pháp này sẽ cho phép hệ thống diễn giải một ký tự mỗi 2 byte, khôi phục nội dung của cụm từ.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../character_encoding.assets/unicode_hello_algo.png" data-desc-position="bottom"><img alt="Ví dụ mã hóa Unicode" src="../character_encoding.assets/unicode_hello_algo.png"></a></p>
+<p>Tuy nhiên, như ASCII đã cho chúng ta thấy, mã hóa tiếng Anh chỉ cần 1 byte. Sử dụng phương pháp trên sẽ làm tăng gấp đôi không gian chiếm bởi văn bản tiếng Anh so với mã hóa ASCII, điều này lãng phí không gian bộ nhớ. Do đó, cần một phương pháp mã hóa Unicode hiệu quả hơn.</p>
+<h2 id="ma-hoa-utf-8">Mã hóa UTF-8<a class="headerlink" href="#ma-hoa-utf-8" title="Permanent link">¶</a></h2>
+<p>Hiện tại, UTF-8 đã trở thành phương pháp mã hóa Unicode được sử dụng rộng rãi nhất trên toàn cầu. <strong>Nó là mã hóa độ dài biến đổi</strong>, sử dụng 1 đến 4 byte để biểu diễn một ký tự, tùy thuộc vào độ phức tạp của ký tự. Ký tự ASCII chỉ cần 1 byte, chữ cái Latin và Hy Lạp yêu cầu 2 byte, ký tự Trung Quốc thường dùng cần 3 byte, và một số ký tự hiếm khác cần 4 byte.</p>
+<p>Các quy tắc mã hóa cho UTF-8 không phức tạp và có thể chia thành hai trường hợp:</p>
 <ul>
-<li>对于长度为 1 字节的字符，将最高位设置为 <span class="arithmatex">\(0\)</span> ，其余 7 位设置为 Unicode 码点。值得注意的是，ASCII 字符在 Unicode 字符集中占据了前 128 个码点。也就是说，<strong>UTF-8 编码可以向下兼容 ASCII 码</strong>。这意味着我们可以使用 UTF-8 来解析年代久远的 ASCII 码文本。</li>
-<li>对于长度为 <span class="arithmatex">\(n\)</span> 字节的字符（其中 <span class="arithmatex">\(n &gt; 1\)</span>），将首个字节的高 <span class="arithmatex">\(n\)</span> 位都设置为 <span class="arithmatex">\(1\)</span> ，第 <span class="arithmatex">\(n + 1\)</span> 位设置为 <span class="arithmatex">\(0\)</span> ；从第二个字节开始，将每个字节的高 2 位都设置为 <span class="arithmatex">\(10\)</span> ；其余所有位用于填充字符的 Unicode 码点。</li>
+<li>Đối với ký tự 1 byte, đặt bit cao nhất thành <span class="arithmatex">\(0\)</span>, và 7 bit còn lại thành điểm mã Unicode. Đặc biệt, ký tự ASCII chiếm 128 điểm mã đầu tiên trong bộ Unicode. Điều này có nghĩa là <strong>mã hóa UTF-8 tương thích ngược với ASCII</strong>. Điều này ngụ ý rằng UTF-8 có thể được sử dụng để phân tích văn bản ASCII cổ xưa.</li>
+<li>Đối với ký tự có độ dài <span class="arithmatex">\(n\)</span> byte (trong đó <span class="arithmatex">\(n &gt; 1\)</span>), đặt <span class="arithmatex">\(n\)</span> bit cao nhất của byte đầu tiên thành <span class="arithmatex">\(1\)</span>, và bit <span class="arithmatex">\((n + 1)^{\text{th}}\)</span> thành <span class="arithmatex">\(0\)</span>; bắt đầu từ byte thứ hai, đặt 2 bit cao nhất của mỗi byte thành <span class="arithmatex">\(10\)</span>; các bit còn lại được sử dụng để điền điểm mã Unicode.</li>
 </ul>
-<p>下图展示了“Hello算法”对应的 UTF-8 编码。观察发现，由于最高 <span class="arithmatex">\(n\)</span> 位都设置为 <span class="arithmatex">\(1\)</span> ，因此系统可以通过读取最高位 <span class="arithmatex">\(1\)</span> 的个数来解析出字符的长度为 <span class="arithmatex">\(n\)</span> 。</p>
-<p>但为什么要将其余所有字节的高 2 位都设置为 <span class="arithmatex">\(10\)</span> 呢？实际上，这个 <span class="arithmatex">\(10\)</span> 能够起到校验符的作用。假设系统从一个错误的字节开始解析文本，字节头部的 <span class="arithmatex">\(10\)</span> 能够帮助系统快速判断出异常。</p>
-<p>之所以将 <span class="arithmatex">\(10\)</span> 当作校验符，是因为在 UTF-8 编码规则下，不可能有字符的最高两位是 <span class="arithmatex">\(10\)</span> 。这个结论可以用反证法来证明：假设一个字符的最高两位是 <span class="arithmatex">\(10\)</span> ，说明该字符的长度为 <span class="arithmatex">\(1\)</span> ，对应 ASCII 码。而 ASCII 码的最高位应该是 <span class="arithmatex">\(0\)</span> ，与假设矛盾。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../character_encoding.assets/utf-8_hello_algo.png" data-desc-position="bottom"><img alt="UTF-8 编码示例" src="../character_encoding.assets/utf-8_hello_algo.png"></a></p>
-<p>除了 UTF-8 之外，常见的编码方式还包括以下两种。</p>
+<p>Hình dưới đây cho thấy mã hóa UTF-8 cho "Hello算法". Có thể quan sát thấy rằng vì <span class="arithmatex">\(n\)</span> bit cao nhất được đặt thành <span class="arithmatex">\(1\)</span>, hệ thống có thể xác định độ dài của ký tự là <span class="arithmatex">\(n\)</span> bằng cách đếm số bit cao nhất được đặt thành <span class="arithmatex">\(1\)</span>.</p>
+<p>Nhưng tại sao đặt 2 bit cao nhất của các byte còn lại thành <span class="arithmatex">\(10\)</span>? Thực ra, <span class="arithmatex">\(10\)</span> này phục vụ như một loại kiểm tra tổng. Nếu hệ thống bắt đầu phân tích văn bản từ một byte sai, <span class="arithmatex">\(10\)</span> ở đầu byte có thể giúp hệ thống nhanh chóng phát hiện bất thường.</p>
+<p>Lý do sử dụng <span class="arithmatex">\(10\)</span> làm kiểm tra tổng là vì, dưới quy tắc mã hóa UTF-8, không thể có 2 bit cao nhất của một ký tự là <span class="arithmatex">\(10\)</span>. Điều này có thể được chứng minh bằng mâu thuẫn: Nếu 2 bit cao nhất của một ký tự là <span class="arithmatex">\(10\)</span>, nó chỉ ra độ dài ký tự là <span class="arithmatex">\(1\)</span>, tương ứng với ASCII. Tuy nhiên, bit cao nhất của ký tự ASCII nên là <span class="arithmatex">\(0\)</span>, điều này mâu thuẫn với giả định.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../character_encoding.assets/utf-8_hello_algo.png" data-desc-position="bottom"><img alt="Ví dụ mã hóa UTF-8" src="../character_encoding.assets/utf-8_hello_algo.png"></a></p>
+<p>Ngoài UTF-8, các phương pháp mã hóa phổ biến khác bao gồm:</p>
 <ul>
-<li><strong>UTF-16 编码</strong>：使用 2 或 4 字节来表示一个字符。所有的 ASCII 字符和常用的非英文字符，都用 2 字节表示；少数字符需要用到 4 字节表示。对于 2 字节的字符，UTF-16 编码与 Unicode 码点相等。</li>
-<li><strong>UTF-32 编码</strong>：每个字符都使用 4 字节。这意味着 UTF-32 比 UTF-8 和 UTF-16 更占用空间，特别是对于 ASCII 字符占比较高的文本。</li>
+<li><strong>Mã hóa UTF-16</strong>: Sử dụng 2 hoặc 4 byte để biểu diễn một ký tự. Tất cả ký tự ASCII và ký tự không tiếng Anh thường dùng được biểu diễn bằng 2 byte; một vài ký tự yêu cầu 4 byte. Đối với ký tự 2 byte, mã hóa UTF-16 bằng điểm mã Unicode.</li>
+<li><strong>Mã hóa UTF-32</strong>: Mỗi ký tự sử dụng 4 byte. Điều này có nghĩa là UTF-32 chiếm nhiều không gian hơn UTF-8 và UTF-16, đặc biệt đối với văn bản có tỷ lệ cao ký tự ASCII.</li>
 </ul>
-<p>从存储空间占用的角度看，使用 UTF-8 表示英文字符非常高效，因为它仅需 1 字节；使用 UTF-16 编码某些非英文字符（例如中文）会更加高效，因为它仅需 2 字节，而 UTF-8 可能需要 3 字节。</p>
-<p>从兼容性的角度看，UTF-8 的通用性最佳，许多工具和库优先支持 UTF-8 。</p>
-<h2 id="_2">编程语言的字符编码<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>对于以往的大多数编程语言，程序运行中的字符串都采用 UTF-16 或 UTF-32 这类等长编码。在等长编码下，我们可以将字符串看作数组来处理，这种做法具有以下优点。</p>
+<p>Từ góc độ không gian lưu trữ, sử dụng UTF-8 để biểu diễn ký tự tiếng Anh rất hiệu quả vì nó chỉ cần 1 byte; sử dụng UTF-16 để mã hóa một số ký tự không tiếng Anh (như tiếng Trung) có thể hiệu quả hơn vì nó chỉ cần 2 byte, trong khi UTF-8 có thể cần 3 byte.</p>
+<p>Từ góc độ tương thích, UTF-8 là linh hoạt nhất, với nhiều công cụ và thư viện hỗ trợ UTF-8 là ưu tiên.</p>
+<h2 id="ma-hoa-ky-tu-trong-ngon-ngu-lap-trinh">Mã hóa ký tự trong ngôn ngữ lập trình<a class="headerlink" href="#ma-hoa-ky-tu-trong-ngon-ngu-lap-trinh" title="Permanent link">¶</a></h2>
+<p>Lịch sử, nhiều ngôn ngữ lập trình sử dụng mã hóa độ dài cố định như UTF-16 hoặc UTF-32 để xử lý chuỗi trong quá trình thực thi chương trình. Điều này cho phép xử lý chuỗi như mảng, mang lại một số lợi thế:</p>
 <ul>
-<li><strong>随机访问</strong>：UTF-16 编码的字符串可以很容易地进行随机访问。UTF-8 是一种变长编码，要想找到第 <span class="arithmatex">\(i\)</span> 个字符，我们需要从字符串的开始处遍历到第 <span class="arithmatex">\(i\)</span> 个字符，这需要 <span class="arithmatex">\(O(n)\)</span> 的时间。</li>
-<li><strong>字符计数</strong>：与随机访问类似，计算 UTF-16 编码的字符串的长度也是 <span class="arithmatex">\(O(1)\)</span> 的操作。但是，计算 UTF-8 编码的字符串的长度需要遍历整个字符串。</li>
-<li><strong>字符串操作</strong>：在 UTF-16 编码的字符串上，很多字符串操作（如分割、连接、插入、删除等）更容易进行。在 UTF-8 编码的字符串上，进行这些操作通常需要额外的计算，以确保不会产生无效的 UTF-8 编码。</li>
+<li><strong>Truy cập ngẫu nhiên</strong>: Chuỗi mã hóa UTF-16 có thể được truy cập ngẫu nhiên dễ dàng. Đối với UTF-8, là mã hóa độ dài biến đổi, việc định vị ký tự <span class="arithmatex">\(i^{\text{th}}\)</span> yêu cầu duyệt chuỗi từ đầu đến vị trí <span class="arithmatex">\(i^{\text{th}}\)</span>, mất thời gian <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Đếm ký tự</strong>: Tương tự như truy cập ngẫu nhiên, đếm số lượng ký tự trong chuỗi mã hóa UTF-16 là thao tác <span class="arithmatex">\(O(1)\)</span>. Tuy nhiên, đếm ký tự trong chuỗi mã hóa UTF-8 yêu cầu duyệt toàn bộ chuỗi.</li>
+<li><strong>Thao tác chuỗi</strong>: Nhiều thao tác chuỗi như tách, nối, chèn và xóa dễ dàng hơn trên chuỗi mã hóa UTF-16. Các thao tác này thường yêu cầu tính toán bổ sung trên chuỗi mã hóa UTF-8 để đảm bảo tính hợp lệ của mã hóa UTF-8.</li>
 </ul>
-<p>实际上，编程语言的字符编码方案设计是一个很有趣的话题，涉及许多因素。</p>
+<p>Thiết kế lược đồ mã hóa ký tự trong ngôn ngữ lập trình là chủ đề thú vị liên quan đến nhiều yếu tố:</p>
 <ul>
-<li>Java 的 <code>String</code> 类型使用 UTF-16 编码，每个字符占用 2 字节。这是因为 Java 语言设计之初，人们认为 16 位足以表示所有可能的字符。然而，这是一个不正确的判断。后来 Unicode 规范扩展到了超过 16 位，所以 Java 中的字符现在可能由一对 16 位的值（称为“代理对”）表示。</li>
-<li>JavaScript 和 TypeScript 的字符串使用 UTF-16 编码的原因与 Java 类似。当 1995 年 Netscape 公司首次推出 JavaScript 语言时，Unicode 还处于发展早期，那时候使用 16 位的编码就足以表示所有的 Unicode 字符了。</li>
-<li>C# 使用 UTF-16 编码，主要是因为 .NET 平台是由 Microsoft 设计的，而 Microsoft 的很多技术（包括 Windows 操作系统）都广泛使用 UTF-16 编码。</li>
+<li>Kiểu <code>String</code> của Java sử dụng mã hóa UTF-16, với mỗi ký tự chiếm 2 byte. Điều này dựa trên niềm tin ban đầu rằng 16 bit đủ để biểu diễn tất cả ký tự có thể và sau đó chứng minh là sai. Khi tiêu chuẩn Unicode mở rộng vượt quá 16 bit, ký tự trong Java có thể được biểu diễn bằng cặp giá trị 16 bit, được gọi là "cặp thay thế."</li>
+<li>JavaScript và TypeScript sử dụng mã hóa UTF-16 vì lý do tương tự như Java. Khi JavaScript được giới thiệu lần đầu bởi Netscape năm 1995, Unicode vẫn ở giai đoạn đầu, và mã hóa 16 bit đủ để biểu diễn tất cả ký tự Unicode.</li>
+<li>C# sử dụng mã hóa UTF-16, chủ yếu vì nền tảng .NET, được thiết kế bởi Microsoft, và nhiều công nghệ Microsoft, bao gồm hệ điều hành Windows, sử dụng rộng rãi mã hóa UTF-16.</li>
 </ul>
-<p>由于以上编程语言对字符数量的低估，它们不得不采取“代理对”的方式来表示超过 16 位长度的 Unicode 字符。这是一个不得已为之的无奈之举。一方面，包含代理对的字符串中，一个字符可能占用 2 字节或 4 字节，从而丧失了等长编码的优势。另一方面，处理代理对需要额外增加代码，这提高了编程的复杂性和调试难度。</p>
-<p>出于以上原因，部分编程语言提出了一些不同的编码方案。</p>
+<p>Do đánh giá thấp số lượng ký tự, các ngôn ngữ này phải sử dụng "cặp thay thế" để biểu diễn ký tự Unicode vượt quá 16 bit. Phương pháp này có nhược điểm: chuỗi chứa cặp thay thế có thể có ký tự chiếm 2 hoặc 4 byte, mất lợi thế của mã hóa độ dài cố định. Ngoài ra, xử lý cặp thay thế thêm độ phức tạp và khó khăn trong gỡ lỗi.</p>
+<p>Giải quyết những thách thức này, một số ngôn ngữ đã áp dụng chiến lược mã hóa thay thế:</p>
 <ul>
-<li>Python 中的 <code>str</code> 使用 Unicode 编码，并采用一种灵活的字符串表示，存储的字符长度取决于字符串中最大的 Unicode 码点。若字符串中全部是 ASCII 字符，则每个字符占用 1 字节；如果有字符超出了 ASCII 范围，但全部在基本多语言平面（BMP）内，则每个字符占用 2 字节；如果有超出 BMP 的字符，则每个字符占用 4 字节。</li>
-<li>Go 语言的 <code>string</code> 类型在内部使用 UTF-8 编码。Go 语言还提供了 <code>rune</code> 类型，它用于表示单个 Unicode 码点。</li>
-<li>Rust 语言的 <code>str</code> 和 <code>String</code> 类型在内部使用 UTF-8 编码。Rust 也提供了 <code>char</code> 类型，用于表示单个 Unicode 码点。</li>
+<li>Kiểu <code>str</code> của Python sử dụng mã hóa Unicode với biểu diễn linh hoạt nơi độ dài lưu trữ của ký tự phụ thuộc vào điểm mã Unicode lớn nhất trong chuỗi. Nếu tất cả ký tự là ASCII, mỗi ký tự chiếm 1 byte, 2 byte cho ký tự trong Mặt phẳng đa ngôn ngữ cơ bản (BMP), và 4 byte cho ký tự vượt quá BMP.</li>
+<li>Kiểu <code>string</code> của Go sử dụng mã hóa UTF-8 nội bộ. Go cũng cung cấp kiểu <code>rune</code> để biểu diễn điểm mã Unicode riêng lẻ.</li>
+<li>Kiểu <code>str</code> và <code>String</code> của Rust sử dụng mã hóa UTF-8 nội bộ. Rust cũng cung cấp kiểu <code>char</code> cho điểm mã Unicode riêng lẻ.</li>
 </ul>
-<p>需要注意的是，以上讨论的都是字符串在编程语言中的存储方式，<strong>这和字符串如何在文件中存储或在网络中传输是不同的问题</strong>。在文件存储或网络传输中，我们通常会将字符串编码为 UTF-8 格式，以达到最优的兼容性和空间效率。</p>
+<p>Quan trọng là lưu ý rằng thảo luận trên liên quan đến cách chuỗi được lưu trữ trong ngôn ngữ lập trình, <strong>khác với cách chuỗi được lưu trữ trong tệp hoặc truyền qua mạng</strong>. Đối với lưu trữ tệp hoặc truyền mạng, chuỗi thường được mã hóa ở định dạng UTF-8 để tối ưu tương thích và hiệu quả không gian.</p>
 
 
 
@@ -3732,22 +3665,22 @@
 
 
 
-<nav class="md-footer__inner md-grid" aria-label="页脚">
+<nav class="md-footer__inner md-grid" aria-label="Chân trang">
 
 <!-- Link to previous page -->
 
   
-  <a href="../number_encoding/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.3 &amp;nbsp; 数字编码 *" rel="prev">
+  <a href="../number_encoding/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 3.3 Number encoding *" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
     </div>
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        上一页
+        Trước
       </span>
       <div class="md-ellipsis">
-        3.3 &nbsp; 数字编码 *
+        3.3 Number encoding *
       </div>
     </div>
   </a>
@@ -3756,13 +3689,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3.5 &amp;nbsp; 小结" rel="next">
+  <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="Sau: 3.5 Summary" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        下一页
+        Sau
       </span>
       <div class="md-ellipsis">
-        3.5 &nbsp; 小结
+        3.5 Summary
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3788,7 +3721,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-  回到页面顶部
+  Trở lại mục lục
 </button>
         
       </main>
@@ -3797,33 +3730,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚">
+      <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../number_encoding/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 3.3 &amp;nbsp; 数字编码 *">
+          <a href="../number_encoding/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 3.3 Number encoding *">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Trước
               </span>
               <div class="md-ellipsis">
-                3.3 &nbsp; 数字编码 *
+                3.3 Number encoding *
               </div>
             </div>
           </a>
         
         
           
-          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3.5 &amp;nbsp; 小结">
+          <a href="../summary/" class="md-footer__link md-footer__link--next" aria-label="Sau: 3.5 Summary">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Sau
               </span>
               <div class="md-ellipsis">
-                3.5 &nbsp; 小结
+                3.5 Summary
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3893,7 +3826,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
