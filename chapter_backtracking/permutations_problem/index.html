@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="zh" class="no-js"><head>
+<!DOCTYPE html><html lang="vi" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
+        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_backtracking/permutations_problem/">
+        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_backtracking/permutations_problem/">
       
       
         <link rel="prev" href="../backtracking_algorithm/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>13.2 &nbsp; 全排列问题 - Hello 算法</title>
+        <title>13.2 Permutation problem - Hello Algo</title>
       
     
     
@@ -44,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -87,8 +87,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
-          跳转至
+        <a href="#permutation-problem" class="md-skip">
+          Bỏ qua
         </a>
       
     </div>
@@ -99,13 +99,11 @@
             
             
 
-    
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
         <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
     </svg>
-    <span>纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a></span>
+    <span></span>
 </div>
 
           </div>
@@ -120,8 +118,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
@@ -134,13 +132,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello 算法
+            Hello Algo
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13.2 &nbsp; 全排列问题
+              13.2 Permutation problem
             
           </span>
         </div>
@@ -153,9 +151,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="深色模式" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,9 +161,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="浅色模式" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -180,7 +178,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
     </button>
     <div class="md-select__inner">
@@ -224,21 +222,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
         </button>
@@ -251,7 +249,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -262,7 +260,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -296,18 +294,18 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    Hello 算法
+    Hello Algo
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -353,7 +351,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    序
+    Before starting
   </span>
   
 
@@ -364,7 +362,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            序
+            Before starting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -414,7 +412,7 @@
               
   
   <span class="md-ellipsis">
-    第 0 章 &nbsp; 前言
+    Chapter 0. Preface
   </span>
   
 
@@ -430,7 +428,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            第 0 章 &nbsp; 前言
+            Chapter 0. Preface
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -447,7 +445,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 &nbsp; 关于本书
+    0.1 About this book
   </span>
   
 
@@ -468,7 +466,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 &nbsp; 如何使用本书
+    0.2 How to read
   </span>
   
 
@@ -489,7 +487,7 @@
         
   
   <span class="md-ellipsis">
-    0.3 &nbsp; 小结
+    0.3 Summary
   </span>
   
 
@@ -543,7 +541,7 @@
               
   
   <span class="md-ellipsis">
-    第 1 章 &nbsp; 初识算法
+    Chapter 1. Encounter with algorithms
   </span>
   
 
@@ -559,7 +557,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 1 章 &nbsp; 初识算法
+            Chapter 1. Encounter with algorithms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -576,7 +574,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 &nbsp; 算法无处不在
+    1.1 Algorithms are everywhere
   </span>
   
 
@@ -597,7 +595,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 &nbsp; 算法是什么
+    1.2 What is an algorithm
   </span>
   
 
@@ -618,7 +616,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 &nbsp; 小结
+    1.3 Summary
   </span>
   
 
@@ -676,7 +674,7 @@
               
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度分析
+    Chapter 2. Complexity analysis
   </span>
   
 
@@ -692,7 +690,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度分析
+            Chapter 2. Complexity analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -709,7 +707,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 &nbsp; 算法效率评估
+    2.1 Algorithm efficiency assessment
   </span>
   
 
@@ -730,7 +728,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 迭代与递归
+    2.2 Iteration and recursion
   </span>
   
 
@@ -751,7 +749,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 时间复杂度
+    2.3 Time complexity
   </span>
   
 
@@ -772,7 +770,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 空间复杂度
+    2.4 Space complexity
   </span>
   
 
@@ -793,7 +791,7 @@
         
   
   <span class="md-ellipsis">
-    2.5 &nbsp; 小结
+    2.5 Summary
   </span>
   
 
@@ -851,7 +849,7 @@
               
   
   <span class="md-ellipsis">
-    第 3 章 &nbsp; 数据结构
+    Chapter 3. Data structures
   </span>
   
 
@@ -867,7 +865,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            第 3 章 &nbsp; 数据结构
+            Chapter 3. Data structures
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -884,7 +882,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 &nbsp; 数据结构分类
+    3.1 Classification of data structures
   </span>
   
 
@@ -905,7 +903,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 &nbsp; 基本数据类型
+    3.2 Basic data types
   </span>
   
 
@@ -926,7 +924,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 &nbsp; 数字编码 *
+    3.3 Number encoding *
   </span>
   
 
@@ -947,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 &nbsp; 字符编码 *
+    3.4 Character encoding *
   </span>
   
 
@@ -968,7 +966,7 @@
         
   
   <span class="md-ellipsis">
-    3.5 &nbsp; 小结
+    3.5 Summary
   </span>
   
 
@@ -1026,7 +1024,7 @@
               
   
   <span class="md-ellipsis">
-    第 4 章 &nbsp; 数组与链表
+    Chapter 4. Array and linked list
   </span>
   
 
@@ -1042,7 +1040,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            第 4 章 &nbsp; 数组与链表
+            Chapter 4. Array and linked list
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1059,7 +1057,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 &nbsp; 数组
+    4.1 Array
   </span>
   
 
@@ -1080,7 +1078,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 &nbsp; 链表
+    4.2 Linked list
   </span>
   
 
@@ -1101,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    4.3 &nbsp; 列表
+    4.3 List
   </span>
   
 
@@ -1122,7 +1120,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 &nbsp; 内存与缓存 *
+    4.4 Memory and cache *
   </span>
   
 
@@ -1143,7 +1141,7 @@
         
   
   <span class="md-ellipsis">
-    4.5 &nbsp; 小结
+    4.5 Summary
   </span>
   
 
@@ -1199,7 +1197,7 @@
               
   
   <span class="md-ellipsis">
-    第 5 章 &nbsp; 栈与队列
+    Chapter 5. Stack and queue
   </span>
   
 
@@ -1215,7 +1213,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 5 章 &nbsp; 栈与队列
+            Chapter 5. Stack and queue
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1232,7 +1230,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 &nbsp; 栈
+    5.1 Stack
   </span>
   
 
@@ -1253,7 +1251,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 &nbsp; 队列
+    5.2 Queue
   </span>
   
 
@@ -1274,7 +1272,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 &nbsp; 双向队列
+    5.3 Double-ended queue
   </span>
   
 
@@ -1295,7 +1293,7 @@
         
   
   <span class="md-ellipsis">
-    5.4 &nbsp; 小结
+    5.4 Summary
   </span>
   
 
@@ -1351,7 +1349,7 @@
               
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 哈希表
+    Chapter 6. Hash table
   </span>
   
 
@@ -1367,7 +1365,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 哈希表
+            Chapter 6. Hash table
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1384,7 +1382,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 &nbsp; 哈希表
+    6.1 Hash table
   </span>
   
 
@@ -1405,7 +1403,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 &nbsp; 哈希冲突
+    6.2 Hash collision
   </span>
   
 
@@ -1426,7 +1424,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 &nbsp; 哈希算法
+    6.3 Hash algorithm
   </span>
   
 
@@ -1447,7 +1445,7 @@
         
   
   <span class="md-ellipsis">
-    6.4 &nbsp; 小结
+    6.4 Summary
   </span>
   
 
@@ -1507,7 +1505,7 @@
               
   
   <span class="md-ellipsis">
-    第 7 章 &nbsp; 树
+    Chapter 7. Tree
   </span>
   
 
@@ -1523,7 +1521,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            第 7 章 &nbsp; 树
+            Chapter 7. Tree
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1540,7 +1538,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 &nbsp; 二叉树
+    7.1 Binary tree
   </span>
   
 
@@ -1561,7 +1559,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 &nbsp; 二叉树遍历
+    7.2 Binary tree traversal
   </span>
   
 
@@ -1582,7 +1580,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 &nbsp; 二叉树数组表示
+    7.3 Array Representation of tree
   </span>
   
 
@@ -1603,7 +1601,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 &nbsp; 二叉搜索树
+    7.4 Binary Search tree
   </span>
   
 
@@ -1624,7 +1622,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 &nbsp; AVL 树 *
+    7.5 AVL tree *
   </span>
   
 
@@ -1645,7 +1643,7 @@
         
   
   <span class="md-ellipsis">
-    7.6 &nbsp; 小结
+    7.6 Summary
   </span>
   
 
@@ -1701,7 +1699,7 @@
               
   
   <span class="md-ellipsis">
-    第 8 章 &nbsp; 堆
+    Chapter 8. Heap
   </span>
   
 
@@ -1717,7 +1715,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            第 8 章 &nbsp; 堆
+            Chapter 8. Heap
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1734,7 +1732,7 @@
         
   
   <span class="md-ellipsis">
-    8.1 &nbsp; 堆
+    8.1 Heap
   </span>
   
 
@@ -1755,7 +1753,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 &nbsp; 建堆操作
+    8.2 Building a heap
   </span>
   
 
@@ -1776,7 +1774,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-k 问题
+    8.3 Top-k problem
   </span>
   
 
@@ -1797,7 +1795,7 @@
         
   
   <span class="md-ellipsis">
-    8.4 &nbsp; 小结
+    8.4 Summary
   </span>
   
 
@@ -1853,7 +1851,7 @@
               
   
   <span class="md-ellipsis">
-    第 9 章 &nbsp; 图
+    Chapter 9. Graph
   </span>
   
 
@@ -1869,7 +1867,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            第 9 章 &nbsp; 图
+            Chapter 9. Graph
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1886,7 +1884,7 @@
         
   
   <span class="md-ellipsis">
-    9.1 &nbsp; 图
+    9.1 Graph
   </span>
   
 
@@ -1907,7 +1905,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 &nbsp; 图基础操作
+    9.2 Basic graph operations
   </span>
   
 
@@ -1928,7 +1926,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 &nbsp; 图的遍历
+    9.3 Graph traversal
   </span>
   
 
@@ -1949,7 +1947,7 @@
         
   
   <span class="md-ellipsis">
-    9.4 &nbsp; 小结
+    9.4 Summary
   </span>
   
 
@@ -2009,7 +2007,7 @@
               
   
   <span class="md-ellipsis">
-    第 10 章 &nbsp; 搜索
+    Chapter 10. Searching
   </span>
   
 
@@ -2025,7 +2023,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            第 10 章 &nbsp; 搜索
+            Chapter 10. Searching
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2042,7 +2040,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 &nbsp; 二分查找
+    10.1 Binary search
   </span>
   
 
@@ -2063,7 +2061,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 &nbsp; 二分查找插入点
+    10.2 Binary search insertion
   </span>
   
 
@@ -2084,7 +2082,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 &nbsp; 二分查找边界
+    10.3 Binary search boundaries
   </span>
   
 
@@ -2105,7 +2103,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 &nbsp; 哈希优化策略
+    10.4 Hashing optimization strategies
   </span>
   
 
@@ -2126,7 +2124,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 &nbsp; 重识搜索算法
+    10.5 Search algorithms revisited
   </span>
   
 
@@ -2147,7 +2145,7 @@
         
   
   <span class="md-ellipsis">
-    10.6 &nbsp; 小结
+    10.6 Summary
   </span>
   
 
@@ -2217,7 +2215,7 @@
               
   
   <span class="md-ellipsis">
-    第 11 章 &nbsp; 排序
+    Chapter 11. Sorting
   </span>
   
 
@@ -2233,7 +2231,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            第 11 章 &nbsp; 排序
+            Chapter 11. Sorting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2250,7 +2248,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 &nbsp; 排序算法
+    11.1 Sorting algorithms
   </span>
   
 
@@ -2271,7 +2269,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 &nbsp; 选择排序
+    11.2 Selection sort
   </span>
   
 
@@ -2292,7 +2290,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 &nbsp; 冒泡排序
+    11.3 Bubble sort
   </span>
   
 
@@ -2313,7 +2311,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 &nbsp; 插入排序
+    11.4 Insertion sort
   </span>
   
 
@@ -2334,7 +2332,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 &nbsp; 快速排序
+    11.5 Quick sort
   </span>
   
 
@@ -2355,7 +2353,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 &nbsp; 归并排序
+    11.6 Merge sort
   </span>
   
 
@@ -2376,7 +2374,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 &nbsp; 堆排序
+    11.7 Heap sort
   </span>
   
 
@@ -2397,7 +2395,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 &nbsp; 桶排序
+    11.8 Bucket sort
   </span>
   
 
@@ -2418,7 +2416,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 &nbsp; 计数排序
+    11.9 Counting sort
   </span>
   
 
@@ -2439,7 +2437,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 &nbsp; 基数排序
+    11.10 Radix sort
   </span>
   
 
@@ -2460,7 +2458,7 @@
         
   
   <span class="md-ellipsis">
-    11.11 &nbsp; 小结
+    11.11 Summary
   </span>
   
 
@@ -2518,7 +2516,7 @@
               
   
   <span class="md-ellipsis">
-    第 12 章 &nbsp; 分治
+    Chapter 12. Divide and conquer
   </span>
   
 
@@ -2534,7 +2532,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            第 12 章 &nbsp; 分治
+            Chapter 12. Divide and conquer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2551,7 +2549,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 &nbsp; 分治算法
+    12.1 Divide and conquer algorithms
   </span>
   
 
@@ -2572,7 +2570,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 &nbsp; 分治搜索策略
+    12.2 Divide and conquer search strategy
   </span>
   
 
@@ -2593,7 +2591,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 &nbsp; 构建树问题
+    12.3 Building binary tree problem
   </span>
   
 
@@ -2614,7 +2612,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 &nbsp; 汉诺塔问题
+    12.4 Tower of Hanoi Problem
   </span>
   
 
@@ -2635,7 +2633,7 @@
         
   
   <span class="md-ellipsis">
-    12.5 &nbsp; 小结
+    12.5 Summary
   </span>
   
 
@@ -2695,7 +2693,7 @@
               
   
   <span class="md-ellipsis">
-    第 13 章 &nbsp; 回溯
+    Chapter 13. Backtracking
   </span>
   
 
@@ -2711,7 +2709,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
-            第 13 章 &nbsp; 回溯
+            Chapter 13. Backtracking
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2728,7 +2726,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 &nbsp; 回溯算法
+    13.1 Backtracking algorithms
   </span>
   
 
@@ -2758,7 +2756,7 @@
           
   
   <span class="md-ellipsis">
-    13.2 &nbsp; 全排列问题
+    13.2 Permutation problem
   </span>
   
 
@@ -2769,7 +2767,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 &nbsp; 全排列问题
+    13.2 Permutation problem
   </span>
   
 
@@ -2777,7 +2775,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -2786,33 +2784,33 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#cases-without-duplicate-elements" class="md-nav__link">
     <span class="md-ellipsis">
-      无相等元素的情况
+      Cases without duplicate elements
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="无相等元素的情况">
+    <nav class="md-nav" aria-label="Cases without duplicate elements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#repeated-choice-pruning" class="md-nav__link">
     <span class="md-ellipsis">
-      重复选择剪枝
+      Repeated-choice pruning
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#code-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
+      Code implementation
     </span>
   </a>
   
@@ -2824,37 +2822,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#considering-duplicate-elements" class="md-nav__link">
     <span class="md-ellipsis">
-      考虑相等元素的情况
+      Considering duplicate elements
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="考虑相等元素的情况">
+    <nav class="md-nav" aria-label="Considering duplicate elements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#equal-element-pruning" class="md-nav__link">
     <span class="md-ellipsis">
-      相等元素剪枝
+      Equal-element pruning
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#code-implementation_1" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
+      Code implementation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#comparing-the-two-pruning-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      两种剪枝对比
+      Comparing the two pruning methods
     </span>
   </a>
   
@@ -2885,7 +2883,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 &nbsp; 子集和问题
+    13.3 Subset sum problem
   </span>
   
 
@@ -2906,7 +2904,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 &nbsp; N 皇后问题
+    13.4 n queens problem
   </span>
   
 
@@ -2927,7 +2925,7 @@
         
   
   <span class="md-ellipsis">
-    13.5 &nbsp; 小结
+    13.5 Summary
   </span>
   
 
@@ -2989,7 +2987,7 @@
               
   
   <span class="md-ellipsis">
-    第 14 章 &nbsp; 动态规划
+    Chapter 14. Dynamic programming
   </span>
   
 
@@ -3005,7 +3003,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            第 14 章 &nbsp; 动态规划
+            Chapter 14. Dynamic programming
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3022,7 +3020,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 &nbsp; 初探动态规划
+    14.1 Introduction to dynamic programming
   </span>
   
 
@@ -3043,7 +3041,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 &nbsp; DP 问题特性
+    14.2 Characteristics of DP problems
   </span>
   
 
@@ -3064,7 +3062,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 &nbsp; DP 解题思路
+    14.3 DP problem-solving approach¶
   </span>
   
 
@@ -3085,7 +3083,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 &nbsp; 0-1 背包问题
+    14.4 0-1 Knapsack problem
   </span>
   
 
@@ -3106,7 +3104,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 &nbsp; 完全背包问题
+    14.5 Unbounded knapsack problem
   </span>
   
 
@@ -3127,7 +3125,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 &nbsp; 编辑距离问题
+    14.6 Edit distance problem
   </span>
   
 
@@ -3148,7 +3146,7 @@
         
   
   <span class="md-ellipsis">
-    14.7 &nbsp; 小结
+    14.7 Summary
   </span>
   
 
@@ -3206,7 +3204,7 @@
               
   
   <span class="md-ellipsis">
-    第 15 章 &nbsp; 贪心
+    Chapter 15. Greedy
   </span>
   
 
@@ -3222,7 +3220,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_17">
             <span class="md-nav__icon md-icon"></span>
-            第 15 章 &nbsp; 贪心
+            Chapter 15. Greedy
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3239,7 +3237,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 &nbsp; 贪心算法
+    15.1 Greedy algorithms
   </span>
   
 
@@ -3260,7 +3258,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 &nbsp; 分数背包问题
+    15.2 Fractional knapsack problem
   </span>
   
 
@@ -3281,7 +3279,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 &nbsp; 最大容量问题
+    15.3 Maximum capacity problem
   </span>
   
 
@@ -3302,7 +3300,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 &nbsp; 最大切分乘积问题
+    15.4 Maximum product cutting problem
   </span>
   
 
@@ -3323,7 +3321,7 @@
         
   
   <span class="md-ellipsis">
-    15.5 &nbsp; 小结
+    15.5 Summary
   </span>
   
 
@@ -3377,7 +3375,7 @@
               
   
   <span class="md-ellipsis">
-    第 16 章 &nbsp; 附录
+    Chapter 16. Appendix
   </span>
   
 
@@ -3393,7 +3391,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_18">
             <span class="md-nav__icon md-icon"></span>
-            第 16 章 &nbsp; 附录
+            Chapter 16. Appendix
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3410,7 +3408,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 &nbsp; 编程环境安装
+    16.1 Installation
   </span>
   
 
@@ -3431,7 +3429,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 &nbsp; 一起参与创作
+    16.2 Contributing
   </span>
   
 
@@ -3452,7 +3450,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 &nbsp; 术语表
+    16.3 Terminology
   </span>
   
 
@@ -3502,7 +3500,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"></path></svg>
   
   <span class="md-ellipsis">
-    参考文献
+    References
   </span>
   
 
@@ -3513,72 +3511,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            参考文献
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20">
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_paperbook/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"></path></svg>
-  
-  <span class="md-ellipsis">
-    纸质书
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_20">
-            <span class="md-nav__icon md-icon"></span>
-            纸质书
+            References
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3604,7 +3537,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -3613,33 +3546,33 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#cases-without-duplicate-elements" class="md-nav__link">
     <span class="md-ellipsis">
-      无相等元素的情况
+      Cases without duplicate elements
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="无相等元素的情况">
+    <nav class="md-nav" aria-label="Cases without duplicate elements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#repeated-choice-pruning" class="md-nav__link">
     <span class="md-ellipsis">
-      重复选择剪枝
+      Repeated-choice pruning
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#code-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
+      Code implementation
     </span>
   </a>
   
@@ -3651,37 +3584,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#considering-duplicate-elements" class="md-nav__link">
     <span class="md-ellipsis">
-      考虑相等元素的情况
+      Considering duplicate elements
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="考虑相等元素的情况">
+    <nav class="md-nav" aria-label="Considering duplicate elements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#equal-element-pruning" class="md-nav__link">
     <span class="md-ellipsis">
-      相等元素剪枝
+      Equal-element pruning
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#code-implementation_1" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
+      Code implementation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#comparing-the-two-pruning-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      两种剪枝对比
+      Comparing the two pruning methods
     </span>
   </a>
   
@@ -3713,7 +3646,7 @@
 
   <!-- Edit button -->
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_backtracking/permutations_problem.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/vi/docs/chapter_backtracking/permutations_problem.md" title="Chỉnh sửa" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2 344 121.9l46.1 46.1-134.3 134.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25c-28.1-28.1-73.7-28.1-101.8 0zM88 64c-48.6 0-88 39.4-88 88v272c0 48.6 39.4 88 88 88h272c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24v112c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40h112c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"></path></svg>
     </a>
@@ -3724,16 +3657,16 @@
 
 
 <!-- Page content -->
-<h1 id="_1">全排列问题<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>全排列问题是回溯算法的一个典型应用。它的定义是在给定一个集合（如一个数组或字符串）的情况下，找出其中元素的所有可能的排列。</p>
-<p>下表列举了几个示例数据，包括输入数组和对应的所有排列。</p>
-<p align="center"> 表 <id> &nbsp; 全排列示例 </id></p>
+<h1 id="permutation-problem">Permutation problem<a class="headerlink" href="#permutation-problem" title="Permanent link">¶</a></h1>
+<p>The permutation problem is a typical application of the backtracking algorithm. It involves finding all possible arrangements (permutations) of elements from a given set, such as an array or a string.</p>
+<p>The table below shows several examples, including input arrays and their corresponding permutations.</p>
+<p align="center"> Table <id> &nbsp; Permutation examples </id></p>
 
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">输入数组</th>
-<th style="text-align: left;">所有排列</th>
+<th style="text-align: left;">Input array</th>
+<th style="text-align: left;">Permutations</th>
 </tr>
 </thead>
 <tbody>
@@ -3751,56 +3684,56 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_2">无相等元素的情况<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h2 id="cases-without-duplicate-elements">Cases without duplicate elements<a class="headerlink" href="#cases-without-duplicate-elements" title="Permanent link">¶</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>输入一个整数数组，其中不包含重复元素，返回所有可能的排列。</p>
+<p>Given an integer array with no duplicate elements, return all possible permutations.</p>
 </div>
-<p>从回溯算法的角度看，<strong>我们可以把生成排列的过程想象成一系列选择的结果</strong>。假设输入数组为 <span class="arithmatex">\([1, 2, 3]\)</span> ，如果我们先选择 <span class="arithmatex">\(1\)</span> ，再选择 <span class="arithmatex">\(3\)</span> ，最后选择 <span class="arithmatex">\(2\)</span> ，则获得排列 <span class="arithmatex">\([1, 3, 2]\)</span> 。回退表示撤销一个选择，之后继续尝试其他选择。</p>
-<p>从回溯代码的角度看，候选集合 <code>choices</code> 是输入数组中的所有元素，状态 <code>state</code> 是直至目前已被选择的元素。请注意，每个元素只允许被选择一次，<strong>因此 <code>state</code> 中的所有元素都应该是唯一的</strong>。</p>
-<p>如下图所示，我们可以将搜索过程展开成一棵递归树，树中的每个节点代表当前状态 <code>state</code> 。从根节点开始，经过三轮选择后到达叶节点，每个叶节点都对应一个排列。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_i.png" data-desc-position="bottom"><img alt="全排列的递归树" src="../permutations_problem.assets/permutations_i.png"></a></p>
-<h3 id="_3">重复选择剪枝<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>为了实现每个元素只被选择一次，我们考虑引入一个布尔型数组 <code>selected</code> ，其中 <code>selected[i]</code> 表示 <code>choices[i]</code> 是否已被选择，并基于它实现以下剪枝操作。</p>
+<p>From a backtracking perspective, <strong>we can view the process of generating permutations as a series of choices.</strong> Suppose the input array is <span class="arithmatex">\([1, 2, 3]\)</span>. If we choose <span class="arithmatex">\(1\)</span> first, then <span class="arithmatex">\(3\)</span>, and finally <span class="arithmatex">\(2\)</span>, we get the permutation <span class="arithmatex">\([1, 3, 2]\)</span>. "Backtracking" means undoing a previous choice and exploring alternative options.</p>
+<p>From a coding perspective, the candidate set <code>choices</code> consists of all elements in the input array, while <code>state</code> holds the elements selected so far. Since each element can only be chosen once, <strong>all elements in <code>state</code> must be unique</strong>.</p>
+<p>As illustrated in the figure below, we can expand the search process into a recursive tree, where each node represents the current <code>state</code>. Starting from the root node, after three rounds of selections, we reach the leaf nodes—each corresponding to a permutation.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_i.png" data-desc-position="bottom"><img alt="Permutation recursive tree" src="../permutations_problem.assets/permutations_i.png"></a></p>
+<h3 id="repeated-choice-pruning">Repeated-choice pruning<a class="headerlink" href="#repeated-choice-pruning" title="Permanent link">¶</a></h3>
+<p>To ensure each element is selected only once, we introduce a boolean array <code>selected</code>, where <code>selected[i]</code> indicates whether <code>choices[i]</code> has been chosen. We then base our pruning steps on this array:</p>
 <ul>
-<li>在做出选择 <code>choice[i]</code> 后，我们就将 <code>selected[i]</code> 赋值为 <span class="arithmatex">\(\text{True}\)</span> ，代表它已被选择。</li>
-<li>遍历选择列表 <code>choices</code> 时，跳过所有已被选择的节点，即剪枝。</li>
+<li>After choosing <code>choice[i]</code>, set <code>selected[i]</code> to <span class="arithmatex">\(\text{True}\)</span> to mark it as chosen.</li>
+<li>While iterating through <code>choices</code>, skip all elements marked as chosen (i.e., prune those branches).</li>
 </ul>
-<p>如下图所示，假设我们第一轮选择 1 ，第二轮选择 3 ，第三轮选择 2 ，则需要在第二轮剪掉元素 1 的分支，在第三轮剪掉元素 1 和元素 3 的分支。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_i_pruning.png" data-desc-position="bottom"><img alt="全排列剪枝示例" src="../permutations_problem.assets/permutations_i_pruning.png"></a></p>
-<p>观察上图发现，该剪枝操作将搜索空间大小从 <span class="arithmatex">\(O(n^n)\)</span> 减小至 <span class="arithmatex">\(O(n!)\)</span> 。</p>
-<h3 id="_4">代码实现<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>想清楚以上信息之后，我们就可以在框架代码中做“完形填空”了。为了缩短整体代码，我们不单独实现框架代码中的各个函数，而是将它们展开在 <code>backtrack()</code> 函数中：</p>
+<p>As shown in the figure below, suppose we choose 1 in the first round, then 3 in the second round, and finally 2 in the third round. We need to prune the branch for element 1 in the second round and the branches for elements 1 and 3 in the third round.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_i_pruning.png" data-desc-position="bottom"><img alt="Permutation pruning example" src="../permutations_problem.assets/permutations_i_pruning.png"></a></p>
+<p>From the figure, we can see that this pruning process reduces the search space from <span class="arithmatex">\(O(n^n)\)</span> to <span class="arithmatex">\(O(n!)\)</span>.</p>
+<h3 id="code-implementation">Code implementation<a class="headerlink" href="#code-implementation" title="Permanent link">¶</a></h3>
+<p>With this understanding, we can "fill in the blanks" of our framework code. To keep the overall code concise, we won’t implement each part of the framework separately but instead expand everything in the <code>backtrack()</code> function:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{permutations_i}-[class]{}-[func]{permutations_i}
 </code></pre></div>
-<h2 id="_5">考虑相等元素的情况<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<h2 id="considering-duplicate-elements">Considering duplicate elements<a class="headerlink" href="#considering-duplicate-elements" title="Permanent link">¶</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>输入一个整数数组，<strong>数组中可能包含重复元素</strong>，返回所有不重复的排列。</p>
+<p>Given an integer array**that may contain duplicate elements**, return all unique permutations.</p>
 </div>
-<p>假设输入数组为 <span class="arithmatex">\([1, 1, 2]\)</span> 。为了方便区分两个重复元素 <span class="arithmatex">\(1\)</span> ，我们将第二个 <span class="arithmatex">\(1\)</span> 记为 <span class="arithmatex">\(\hat{1}\)</span> 。</p>
-<p>如下图所示，上述方法生成的排列有一半是重复的。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_ii.png" data-desc-position="bottom"><img alt="重复排列" src="../permutations_problem.assets/permutations_ii.png"></a></p>
-<p>那么如何去除重复的排列呢？最直接地，考虑借助一个哈希集合，直接对排列结果进行去重。然而这样做不够优雅，<strong>因为生成重复排列的搜索分支没有必要，应当提前识别并剪枝</strong>，这样可以进一步提升算法效率。</p>
-<h3 id="_6">相等元素剪枝<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p>观察下图，在第一轮中，选择 <span class="arithmatex">\(1\)</span> 或选择 <span class="arithmatex">\(\hat{1}\)</span> 是等价的，在这两个选择之下生成的所有排列都是重复的。因此应该把 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
-<p>同理，在第一轮选择 <span class="arithmatex">\(2\)</span> 之后，第二轮选择中的 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\hat{1}\)</span> 也会产生重复分支，因此也应将第二轮的 <span class="arithmatex">\(\hat{1}\)</span> 剪枝。</p>
-<p>从本质上看，<strong>我们的目标是在某一轮选择中，保证多个相等的元素仅被选择一次</strong>。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_ii_pruning.png" data-desc-position="bottom"><img alt="重复排列剪枝" src="../permutations_problem.assets/permutations_ii_pruning.png"></a></p>
-<h3 id="_7">代码实现<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>在上一题的代码的基础上，我们考虑在每一轮选择中开启一个哈希集合 <code>duplicated</code> ，用于记录该轮中已经尝试过的元素，并将重复元素剪枝：</p>
+<p>Suppose the input array is <span class="arithmatex">\([1, 1, 2]\)</span>. To distinguish between the two identical elements <span class="arithmatex">\(1\)</span>, we label the second one as <span class="arithmatex">\(\hat{1}\)</span>.</p>
+<p>As shown in the figure below, half of the permutations produced by this method are duplicates:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_ii.png" data-desc-position="bottom"><img alt="Duplicate permutations" src="../permutations_problem.assets/permutations_ii.png"></a></p>
+<p>So how can we eliminate these duplicate permutations? One direct approach is to use a hash set to remove duplicates after generating all permutations. However, this is less elegant <strong>because branches that produce duplicates are inherently unnecessary and should be pruned in advance,</strong> thus improving the algorithm’s efficiency.</p>
+<h3 id="equal-element-pruning">Equal-element pruning<a class="headerlink" href="#equal-element-pruning" title="Permanent link">¶</a></h3>
+<p>Looking at the figure below, in the first round, choosing <span class="arithmatex">\(1\)</span> or <span class="arithmatex">\(\hat{1}\)</span> leads to the same permutations, so we prune <span class="arithmatex">\(\hat{1}\)</span>.</p>
+<p>Similarly, after choosing <span class="arithmatex">\(2\)</span> in the first round, choosing <span class="arithmatex">\(1\)</span> or <span class="arithmatex">\(\hat{1}\)</span> in the second round also leads to duplicate branches, so we prune <span class="arithmatex">\(\hat{1}\)</span> then as well.</p>
+<p>Essentially, <strong>our goal is to ensure that multiple identical elements are only selected once per round of choices.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_ii_pruning.png" data-desc-position="bottom"><img alt="Duplicate permutations pruning" src="../permutations_problem.assets/permutations_ii_pruning.png"></a></p>
+<h3 id="code-implementation_1">Code implementation<a class="headerlink" href="#code-implementation_1" title="Permanent link">¶</a></h3>
+<p>Based on the code from the previous problem, we introduce a hash set <code>duplicated</code> in each round. This set keeps track of elements we have already attempted, so we can prune duplicates:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{permutations_ii}-[class]{}-[func]{permutations_ii}
 </code></pre></div>
-<p>假设元素两两之间互不相同，则 <span class="arithmatex">\(n\)</span> 个元素共有 <span class="arithmatex">\(n!\)</span>  种排列（阶乘）；在记录结果时，需要复制长度为 <span class="arithmatex">\(n\)</span> 的列表，使用 <span class="arithmatex">\(O(n)\)</span> 时间。<strong>因此时间复杂度为 <span class="arithmatex">\(O(n!n)\)</span></strong> 。</p>
-<p>最大递归深度为 <span class="arithmatex">\(n\)</span> ，使用 <span class="arithmatex">\(O(n)\)</span> 栈帧空间。<code>selected</code> 使用 <span class="arithmatex">\(O(n)\)</span> 空间。同一时刻最多共有 <span class="arithmatex">\(n\)</span> 个 <code>duplicated</code> ，使用 <span class="arithmatex">\(O(n^2)\)</span> 空间。<strong>因此空间复杂度为 <span class="arithmatex">\(O(n^2)\)</span></strong> 。</p>
-<h3 id="_8">两种剪枝对比<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<p>请注意，虽然 <code>selected</code> 和 <code>duplicated</code> 都用于剪枝，但两者的目标不同。</p>
+<p>Assuming all elements are distinct, there are <span class="arithmatex">\(n!\)</span> (factorial) permutations of <span class="arithmatex">\(n\)</span> elements. Recording each result requires copying a list of length <span class="arithmatex">\(n\)</span>, which takes <span class="arithmatex">\(O(n)\)</span> time. <strong>Hence, the total time complexity is <span class="arithmatex">\(O(n!n)\)</span>.</strong></p>
+<p>The maximum recursion depth is <span class="arithmatex">\(n\)</span>, using <span class="arithmatex">\(O(n)\)</span> stack space. The <code>selected</code> array also requires <span class="arithmatex">\(O(n)\)</span> space. Because there can be up to <span class="arithmatex">\(n\)</span> separate <code>duplicated</code> sets at any one time, they collectively occupy <span class="arithmatex">\(O(n^2)\)</span> space. <strong>Therefore, the space complexity is <span class="arithmatex">\(O(n^2)\)</span>.</strong></p>
+<h3 id="comparing-the-two-pruning-methods">Comparing the two pruning methods<a class="headerlink" href="#comparing-the-two-pruning-methods" title="Permanent link">¶</a></h3>
+<p>Although both <code>selected</code> and <code>duplicated</code> serve as pruning mechanisms, they target different issues:</p>
 <ul>
-<li><strong>重复选择剪枝</strong>：整个搜索过程中只有一个 <code>selected</code> 。它记录的是当前状态中包含哪些元素，其作用是避免某个元素在 <code>state</code> 中重复出现。</li>
-<li><strong>相等元素剪枝</strong>：每轮选择（每个调用的 <code>backtrack</code> 函数）都包含一个 <code>duplicated</code> 。它记录的是在本轮遍历（<code>for</code> 循环）中哪些元素已被选择过，其作用是保证相等元素只被选择一次。</li>
+<li><strong>Repeated-choice pruning</strong>(via <code>selected</code>): There is a single <code>selected</code> array for the entire search, indicating which elements are already in the current state. This prevents the same element from appearing more than once in <code>state</code>.</li>
+<li><strong>Equal-element pruning</strong>(via <code>duplicated</code>): Each call to the <code>backtrack</code> function uses its own <code>duplicated</code> set, recording which elements have already been chosen in that specific iteration (<code>for</code> loop). This ensures that equal elements are selected only once per round of choices.</li>
 </ul>
-<p>下图展示了两个剪枝条件的生效范围。注意，树中的每个节点代表一个选择，从根节点到叶节点的路径上的各个节点构成一个排列。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_ii_pruning_summary.png" data-desc-position="bottom"><img alt="两种剪枝条件的作用范围" src="../permutations_problem.assets/permutations_ii_pruning_summary.png"></a></p>
+<p>The figure below shows the scope of these two pruning strategies. Each node in the tree represents a choice; the path from the root to any leaf corresponds to one complete permutation.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../permutations_problem.assets/permutations_ii_pruning_summary.png" data-desc-position="bottom"><img alt="Scope of the two pruning conditions" src="../permutations_problem.assets/permutations_ii_pruning_summary.png"></a></p>
 
 
 
@@ -3811,22 +3744,22 @@
 
 
 
-<nav class="md-footer__inner md-grid" aria-label="页脚">
+<nav class="md-footer__inner md-grid" aria-label="Chân trang">
 
 <!-- Link to previous page -->
 
   
-  <a href="../backtracking_algorithm/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 13.1 &amp;nbsp; 回溯算法" rel="prev">
+  <a href="../backtracking_algorithm/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 13.1 Backtracking algorithms" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
     </div>
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        上一页
+        Trước
       </span>
       <div class="md-ellipsis">
-        13.1 &nbsp; 回溯算法
+        13.1 Backtracking algorithms
       </div>
     </div>
   </a>
@@ -3835,13 +3768,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../subset_sum_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.3 &amp;nbsp; 子集和问题" rel="next">
+  <a href="../subset_sum_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.3 Subset sum problem" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        下一页
+        Sau
       </span>
       <div class="md-ellipsis">
-        13.3 &nbsp; 子集和问题
+        13.3 Subset sum problem
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3867,7 +3800,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-  回到页面顶部
+  Trở lại mục lục
 </button>
         
       </main>
@@ -3876,33 +3809,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚">
+      <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../backtracking_algorithm/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 13.1 &amp;nbsp; 回溯算法">
+          <a href="../backtracking_algorithm/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 13.1 Backtracking algorithms">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Trước
               </span>
               <div class="md-ellipsis">
-                13.1 &nbsp; 回溯算法
+                13.1 Backtracking algorithms
               </div>
             </div>
           </a>
         
         
           
-          <a href="../subset_sum_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.3 &amp;nbsp; 子集和问题">
+          <a href="../subset_sum_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.3 Subset sum problem">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Sau
               </span>
               <div class="md-ellipsis">
-                13.3 &nbsp; 子集和问题
+                13.3 Subset sum problem
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3972,7 +3905,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>

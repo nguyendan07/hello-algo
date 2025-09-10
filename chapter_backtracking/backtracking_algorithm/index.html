@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="zh" class="no-js"><head>
+<!DOCTYPE html><html lang="vi" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
+        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_backtracking/backtracking_algorithm/">
+        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_backtracking/backtracking_algorithm/">
       
       
         <link rel="prev" href="../">
@@ -23,7 +23,7 @@
     
     
       
-        <title>13.1 &nbsp; 回溯算法 - Hello 算法</title>
+        <title>13.1 Backtracking algorithms - Hello Algo</title>
       
     
     
@@ -44,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -87,8 +87,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
-          跳转至
+        <a href="#backtracking-algorithms" class="md-skip">
+          Bỏ qua
         </a>
       
     </div>
@@ -99,13 +99,11 @@
             
             
 
-    
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
         <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
     </svg>
-    <span>纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a></span>
+    <span></span>
 </div>
 
           </div>
@@ -120,8 +118,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
@@ -134,13 +132,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello 算法
+            Hello Algo
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13.1 &nbsp; 回溯算法
+              13.1 Backtracking algorithms
             
           </span>
         </div>
@@ -153,9 +151,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="深色模式" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,9 +161,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="浅色模式" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -180,7 +178,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
     </button>
     <div class="md-select__inner">
@@ -224,21 +222,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
         </button>
@@ -251,7 +249,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -262,7 +260,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -296,18 +294,18 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    Hello 算法
+    Hello Algo
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -353,7 +351,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    序
+    Before starting
   </span>
   
 
@@ -364,7 +362,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            序
+            Before starting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -414,7 +412,7 @@
               
   
   <span class="md-ellipsis">
-    第 0 章 &nbsp; 前言
+    Chapter 0. Preface
   </span>
   
 
@@ -430,7 +428,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            第 0 章 &nbsp; 前言
+            Chapter 0. Preface
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -447,7 +445,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 &nbsp; 关于本书
+    0.1 About this book
   </span>
   
 
@@ -468,7 +466,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 &nbsp; 如何使用本书
+    0.2 How to read
   </span>
   
 
@@ -489,7 +487,7 @@
         
   
   <span class="md-ellipsis">
-    0.3 &nbsp; 小结
+    0.3 Summary
   </span>
   
 
@@ -543,7 +541,7 @@
               
   
   <span class="md-ellipsis">
-    第 1 章 &nbsp; 初识算法
+    Chapter 1. Encounter with algorithms
   </span>
   
 
@@ -559,7 +557,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 1 章 &nbsp; 初识算法
+            Chapter 1. Encounter with algorithms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -576,7 +574,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 &nbsp; 算法无处不在
+    1.1 Algorithms are everywhere
   </span>
   
 
@@ -597,7 +595,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 &nbsp; 算法是什么
+    1.2 What is an algorithm
   </span>
   
 
@@ -618,7 +616,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 &nbsp; 小结
+    1.3 Summary
   </span>
   
 
@@ -676,7 +674,7 @@
               
   
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度分析
+    Chapter 2. Complexity analysis
   </span>
   
 
@@ -692,7 +690,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度分析
+            Chapter 2. Complexity analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -709,7 +707,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 &nbsp; 算法效率评估
+    2.1 Algorithm efficiency assessment
   </span>
   
 
@@ -730,7 +728,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 迭代与递归
+    2.2 Iteration and recursion
   </span>
   
 
@@ -751,7 +749,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 时间复杂度
+    2.3 Time complexity
   </span>
   
 
@@ -772,7 +770,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 空间复杂度
+    2.4 Space complexity
   </span>
   
 
@@ -793,7 +791,7 @@
         
   
   <span class="md-ellipsis">
-    2.5 &nbsp; 小结
+    2.5 Summary
   </span>
   
 
@@ -851,7 +849,7 @@
               
   
   <span class="md-ellipsis">
-    第 3 章 &nbsp; 数据结构
+    Chapter 3. Data structures
   </span>
   
 
@@ -867,7 +865,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            第 3 章 &nbsp; 数据结构
+            Chapter 3. Data structures
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -884,7 +882,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 &nbsp; 数据结构分类
+    3.1 Classification of data structures
   </span>
   
 
@@ -905,7 +903,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 &nbsp; 基本数据类型
+    3.2 Basic data types
   </span>
   
 
@@ -926,7 +924,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 &nbsp; 数字编码 *
+    3.3 Number encoding *
   </span>
   
 
@@ -947,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 &nbsp; 字符编码 *
+    3.4 Character encoding *
   </span>
   
 
@@ -968,7 +966,7 @@
         
   
   <span class="md-ellipsis">
-    3.5 &nbsp; 小结
+    3.5 Summary
   </span>
   
 
@@ -1026,7 +1024,7 @@
               
   
   <span class="md-ellipsis">
-    第 4 章 &nbsp; 数组与链表
+    Chapter 4. Array and linked list
   </span>
   
 
@@ -1042,7 +1040,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            第 4 章 &nbsp; 数组与链表
+            Chapter 4. Array and linked list
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1059,7 +1057,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 &nbsp; 数组
+    4.1 Array
   </span>
   
 
@@ -1080,7 +1078,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 &nbsp; 链表
+    4.2 Linked list
   </span>
   
 
@@ -1101,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    4.3 &nbsp; 列表
+    4.3 List
   </span>
   
 
@@ -1122,7 +1120,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 &nbsp; 内存与缓存 *
+    4.4 Memory and cache *
   </span>
   
 
@@ -1143,7 +1141,7 @@
         
   
   <span class="md-ellipsis">
-    4.5 &nbsp; 小结
+    4.5 Summary
   </span>
   
 
@@ -1199,7 +1197,7 @@
               
   
   <span class="md-ellipsis">
-    第 5 章 &nbsp; 栈与队列
+    Chapter 5. Stack and queue
   </span>
   
 
@@ -1215,7 +1213,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 5 章 &nbsp; 栈与队列
+            Chapter 5. Stack and queue
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1232,7 +1230,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 &nbsp; 栈
+    5.1 Stack
   </span>
   
 
@@ -1253,7 +1251,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 &nbsp; 队列
+    5.2 Queue
   </span>
   
 
@@ -1274,7 +1272,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 &nbsp; 双向队列
+    5.3 Double-ended queue
   </span>
   
 
@@ -1295,7 +1293,7 @@
         
   
   <span class="md-ellipsis">
-    5.4 &nbsp; 小结
+    5.4 Summary
   </span>
   
 
@@ -1351,7 +1349,7 @@
               
   
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 哈希表
+    Chapter 6. Hash table
   </span>
   
 
@@ -1367,7 +1365,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 哈希表
+            Chapter 6. Hash table
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1384,7 +1382,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 &nbsp; 哈希表
+    6.1 Hash table
   </span>
   
 
@@ -1405,7 +1403,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 &nbsp; 哈希冲突
+    6.2 Hash collision
   </span>
   
 
@@ -1426,7 +1424,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 &nbsp; 哈希算法
+    6.3 Hash algorithm
   </span>
   
 
@@ -1447,7 +1445,7 @@
         
   
   <span class="md-ellipsis">
-    6.4 &nbsp; 小结
+    6.4 Summary
   </span>
   
 
@@ -1507,7 +1505,7 @@
               
   
   <span class="md-ellipsis">
-    第 7 章 &nbsp; 树
+    Chapter 7. Tree
   </span>
   
 
@@ -1523,7 +1521,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            第 7 章 &nbsp; 树
+            Chapter 7. Tree
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1540,7 +1538,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 &nbsp; 二叉树
+    7.1 Binary tree
   </span>
   
 
@@ -1561,7 +1559,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 &nbsp; 二叉树遍历
+    7.2 Binary tree traversal
   </span>
   
 
@@ -1582,7 +1580,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 &nbsp; 二叉树数组表示
+    7.3 Array Representation of tree
   </span>
   
 
@@ -1603,7 +1601,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 &nbsp; 二叉搜索树
+    7.4 Binary Search tree
   </span>
   
 
@@ -1624,7 +1622,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 &nbsp; AVL 树 *
+    7.5 AVL tree *
   </span>
   
 
@@ -1645,7 +1643,7 @@
         
   
   <span class="md-ellipsis">
-    7.6 &nbsp; 小结
+    7.6 Summary
   </span>
   
 
@@ -1701,7 +1699,7 @@
               
   
   <span class="md-ellipsis">
-    第 8 章 &nbsp; 堆
+    Chapter 8. Heap
   </span>
   
 
@@ -1717,7 +1715,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            第 8 章 &nbsp; 堆
+            Chapter 8. Heap
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1734,7 +1732,7 @@
         
   
   <span class="md-ellipsis">
-    8.1 &nbsp; 堆
+    8.1 Heap
   </span>
   
 
@@ -1755,7 +1753,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 &nbsp; 建堆操作
+    8.2 Building a heap
   </span>
   
 
@@ -1776,7 +1774,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-k 问题
+    8.3 Top-k problem
   </span>
   
 
@@ -1797,7 +1795,7 @@
         
   
   <span class="md-ellipsis">
-    8.4 &nbsp; 小结
+    8.4 Summary
   </span>
   
 
@@ -1853,7 +1851,7 @@
               
   
   <span class="md-ellipsis">
-    第 9 章 &nbsp; 图
+    Chapter 9. Graph
   </span>
   
 
@@ -1869,7 +1867,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            第 9 章 &nbsp; 图
+            Chapter 9. Graph
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1886,7 +1884,7 @@
         
   
   <span class="md-ellipsis">
-    9.1 &nbsp; 图
+    9.1 Graph
   </span>
   
 
@@ -1907,7 +1905,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 &nbsp; 图基础操作
+    9.2 Basic graph operations
   </span>
   
 
@@ -1928,7 +1926,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 &nbsp; 图的遍历
+    9.3 Graph traversal
   </span>
   
 
@@ -1949,7 +1947,7 @@
         
   
   <span class="md-ellipsis">
-    9.4 &nbsp; 小结
+    9.4 Summary
   </span>
   
 
@@ -2009,7 +2007,7 @@
               
   
   <span class="md-ellipsis">
-    第 10 章 &nbsp; 搜索
+    Chapter 10. Searching
   </span>
   
 
@@ -2025,7 +2023,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            第 10 章 &nbsp; 搜索
+            Chapter 10. Searching
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2042,7 +2040,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 &nbsp; 二分查找
+    10.1 Binary search
   </span>
   
 
@@ -2063,7 +2061,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 &nbsp; 二分查找插入点
+    10.2 Binary search insertion
   </span>
   
 
@@ -2084,7 +2082,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 &nbsp; 二分查找边界
+    10.3 Binary search boundaries
   </span>
   
 
@@ -2105,7 +2103,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 &nbsp; 哈希优化策略
+    10.4 Hashing optimization strategies
   </span>
   
 
@@ -2126,7 +2124,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 &nbsp; 重识搜索算法
+    10.5 Search algorithms revisited
   </span>
   
 
@@ -2147,7 +2145,7 @@
         
   
   <span class="md-ellipsis">
-    10.6 &nbsp; 小结
+    10.6 Summary
   </span>
   
 
@@ -2217,7 +2215,7 @@
               
   
   <span class="md-ellipsis">
-    第 11 章 &nbsp; 排序
+    Chapter 11. Sorting
   </span>
   
 
@@ -2233,7 +2231,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            第 11 章 &nbsp; 排序
+            Chapter 11. Sorting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2250,7 +2248,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 &nbsp; 排序算法
+    11.1 Sorting algorithms
   </span>
   
 
@@ -2271,7 +2269,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 &nbsp; 选择排序
+    11.2 Selection sort
   </span>
   
 
@@ -2292,7 +2290,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 &nbsp; 冒泡排序
+    11.3 Bubble sort
   </span>
   
 
@@ -2313,7 +2311,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 &nbsp; 插入排序
+    11.4 Insertion sort
   </span>
   
 
@@ -2334,7 +2332,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 &nbsp; 快速排序
+    11.5 Quick sort
   </span>
   
 
@@ -2355,7 +2353,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 &nbsp; 归并排序
+    11.6 Merge sort
   </span>
   
 
@@ -2376,7 +2374,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 &nbsp; 堆排序
+    11.7 Heap sort
   </span>
   
 
@@ -2397,7 +2395,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 &nbsp; 桶排序
+    11.8 Bucket sort
   </span>
   
 
@@ -2418,7 +2416,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 &nbsp; 计数排序
+    11.9 Counting sort
   </span>
   
 
@@ -2439,7 +2437,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 &nbsp; 基数排序
+    11.10 Radix sort
   </span>
   
 
@@ -2460,7 +2458,7 @@
         
   
   <span class="md-ellipsis">
-    11.11 &nbsp; 小结
+    11.11 Summary
   </span>
   
 
@@ -2518,7 +2516,7 @@
               
   
   <span class="md-ellipsis">
-    第 12 章 &nbsp; 分治
+    Chapter 12. Divide and conquer
   </span>
   
 
@@ -2534,7 +2532,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            第 12 章 &nbsp; 分治
+            Chapter 12. Divide and conquer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2551,7 +2549,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 &nbsp; 分治算法
+    12.1 Divide and conquer algorithms
   </span>
   
 
@@ -2572,7 +2570,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 &nbsp; 分治搜索策略
+    12.2 Divide and conquer search strategy
   </span>
   
 
@@ -2593,7 +2591,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 &nbsp; 构建树问题
+    12.3 Building binary tree problem
   </span>
   
 
@@ -2614,7 +2612,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 &nbsp; 汉诺塔问题
+    12.4 Tower of Hanoi Problem
   </span>
   
 
@@ -2635,7 +2633,7 @@
         
   
   <span class="md-ellipsis">
-    12.5 &nbsp; 小结
+    12.5 Summary
   </span>
   
 
@@ -2695,7 +2693,7 @@
               
   
   <span class="md-ellipsis">
-    第 13 章 &nbsp; 回溯
+    Chapter 13. Backtracking
   </span>
   
 
@@ -2711,7 +2709,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
-            第 13 章 &nbsp; 回溯
+            Chapter 13. Backtracking
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2737,7 +2735,7 @@
           
   
   <span class="md-ellipsis">
-    13.1 &nbsp; 回溯算法
+    13.1 Backtracking algorithms
   </span>
   
 
@@ -2748,7 +2746,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 &nbsp; 回溯算法
+    13.1 Backtracking algorithms
   </span>
   
 
@@ -2756,7 +2754,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -2765,59 +2763,59 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#trial-and-retreat" class="md-nav__link">
     <span class="md-ellipsis">
-      尝试与回退
+      Trial and retreat
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#prune" class="md-nav__link">
     <span class="md-ellipsis">
-      剪枝
+      Prune
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#framework-code" class="md-nav__link">
     <span class="md-ellipsis">
-      框架代码
+      Framework code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#common-terminology" class="md-nav__link">
     <span class="md-ellipsis">
-      常用术语
+      Common terminology
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#advantages-and-limitations" class="md-nav__link">
     <span class="md-ellipsis">
-      优点与局限性
+      Advantages and limitations
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#typical-backtracking-problems" class="md-nav__link">
     <span class="md-ellipsis">
-      回溯典型例题
+      Typical backtracking problems
     </span>
   </a>
   
@@ -2843,7 +2841,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 &nbsp; 全排列问题
+    13.2 Permutation problem
   </span>
   
 
@@ -2864,7 +2862,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 &nbsp; 子集和问题
+    13.3 Subset sum problem
   </span>
   
 
@@ -2885,7 +2883,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 &nbsp; N 皇后问题
+    13.4 n queens problem
   </span>
   
 
@@ -2906,7 +2904,7 @@
         
   
   <span class="md-ellipsis">
-    13.5 &nbsp; 小结
+    13.5 Summary
   </span>
   
 
@@ -2968,7 +2966,7 @@
               
   
   <span class="md-ellipsis">
-    第 14 章 &nbsp; 动态规划
+    Chapter 14. Dynamic programming
   </span>
   
 
@@ -2984,7 +2982,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            第 14 章 &nbsp; 动态规划
+            Chapter 14. Dynamic programming
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3001,7 +2999,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 &nbsp; 初探动态规划
+    14.1 Introduction to dynamic programming
   </span>
   
 
@@ -3022,7 +3020,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 &nbsp; DP 问题特性
+    14.2 Characteristics of DP problems
   </span>
   
 
@@ -3043,7 +3041,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 &nbsp; DP 解题思路
+    14.3 DP problem-solving approach¶
   </span>
   
 
@@ -3064,7 +3062,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 &nbsp; 0-1 背包问题
+    14.4 0-1 Knapsack problem
   </span>
   
 
@@ -3085,7 +3083,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 &nbsp; 完全背包问题
+    14.5 Unbounded knapsack problem
   </span>
   
 
@@ -3106,7 +3104,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 &nbsp; 编辑距离问题
+    14.6 Edit distance problem
   </span>
   
 
@@ -3127,7 +3125,7 @@
         
   
   <span class="md-ellipsis">
-    14.7 &nbsp; 小结
+    14.7 Summary
   </span>
   
 
@@ -3185,7 +3183,7 @@
               
   
   <span class="md-ellipsis">
-    第 15 章 &nbsp; 贪心
+    Chapter 15. Greedy
   </span>
   
 
@@ -3201,7 +3199,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_17">
             <span class="md-nav__icon md-icon"></span>
-            第 15 章 &nbsp; 贪心
+            Chapter 15. Greedy
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3218,7 +3216,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 &nbsp; 贪心算法
+    15.1 Greedy algorithms
   </span>
   
 
@@ -3239,7 +3237,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 &nbsp; 分数背包问题
+    15.2 Fractional knapsack problem
   </span>
   
 
@@ -3260,7 +3258,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 &nbsp; 最大容量问题
+    15.3 Maximum capacity problem
   </span>
   
 
@@ -3281,7 +3279,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 &nbsp; 最大切分乘积问题
+    15.4 Maximum product cutting problem
   </span>
   
 
@@ -3302,7 +3300,7 @@
         
   
   <span class="md-ellipsis">
-    15.5 &nbsp; 小结
+    15.5 Summary
   </span>
   
 
@@ -3356,7 +3354,7 @@
               
   
   <span class="md-ellipsis">
-    第 16 章 &nbsp; 附录
+    Chapter 16. Appendix
   </span>
   
 
@@ -3372,7 +3370,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_18">
             <span class="md-nav__icon md-icon"></span>
-            第 16 章 &nbsp; 附录
+            Chapter 16. Appendix
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3389,7 +3387,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 &nbsp; 编程环境安装
+    16.1 Installation
   </span>
   
 
@@ -3410,7 +3408,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 &nbsp; 一起参与创作
+    16.2 Contributing
   </span>
   
 
@@ -3431,7 +3429,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 &nbsp; 术语表
+    16.3 Terminology
   </span>
   
 
@@ -3481,7 +3479,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"></path></svg>
   
   <span class="md-ellipsis">
-    参考文献
+    References
   </span>
   
 
@@ -3492,72 +3490,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            参考文献
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20">
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_paperbook/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"></path></svg>
-  
-  <span class="md-ellipsis">
-    纸质书
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_20">
-            <span class="md-nav__icon md-icon"></span>
-            纸质书
+            References
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3583,7 +3516,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -3592,59 +3525,59 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#trial-and-retreat" class="md-nav__link">
     <span class="md-ellipsis">
-      尝试与回退
+      Trial and retreat
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#prune" class="md-nav__link">
     <span class="md-ellipsis">
-      剪枝
+      Prune
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#framework-code" class="md-nav__link">
     <span class="md-ellipsis">
-      框架代码
+      Framework code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#common-terminology" class="md-nav__link">
     <span class="md-ellipsis">
-      常用术语
+      Common terminology
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#advantages-and-limitations" class="md-nav__link">
     <span class="md-ellipsis">
-      优点与局限性
+      Advantages and limitations
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#typical-backtracking-problems" class="md-nav__link">
     <span class="md-ellipsis">
-      回溯典型例题
+      Typical backtracking problems
     </span>
   </a>
   
@@ -3671,7 +3604,7 @@
 
   <!-- Edit button -->
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_backtracking/backtracking_algorithm.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/vi/docs/chapter_backtracking/backtracking_algorithm.md" title="Chỉnh sửa" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2 344 121.9l46.1 46.1-134.3 134.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25c-28.1-28.1-73.7-28.1-101.8 0zM88 64c-48.6 0-88 39.4-88 88v272c0 48.6 39.4 88 88 88h272c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24v112c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40h112c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"></path></svg>
     </a>
@@ -3682,34 +3615,34 @@
 
 
 <!-- Page content -->
-<h1 id="_1">回溯算法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p><u>回溯算法（backtracking algorithm）</u>是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。</p>
-<p>回溯算法通常采用“深度优先搜索”来遍历解空间。在“二叉树”章节中，我们提到前序、中序和后序遍历都属于深度优先搜索。接下来，我们利用前序遍历构造一个回溯问题，逐步了解回溯算法的工作原理。</p>
+<h1 id="backtracking-algorithms">Backtracking algorithms<a class="headerlink" href="#backtracking-algorithms" title="Permanent link">¶</a></h1>
+<p><u>Backtracking algorithm</u> is a method to solve problems by exhaustive search. Its core concept is to start from an initial state and brutally search for all possible solutions. The algorithm records the correct ones until a solution is found or all possible solutions have been tried but no solution can be found.</p>
+<p>Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary tree" chapter, we mentioned that pre-order, in-order, and post-order traversals are all depth-first searches. Next, we are going to use pre-order traversal to solve a backtracking problem. This helps us to understand how the algorithm works gradually.</p>
 <div class="admonition question">
-<p class="admonition-title">例题一</p>
-<p>给定一棵二叉树，搜索并记录所有值为 <span class="arithmatex">\(7\)</span> 的节点，请返回节点列表。</p>
+<p class="admonition-title">Example One</p>
+<p>Given a binary tree, search and record all nodes with a value of <span class="arithmatex">\(7\)</span> and return them in a list.</p>
 </div>
-<p>对于此题，我们前序遍历这棵树，并判断当前节点的值是否为 <span class="arithmatex">\(7\)</span> ，若是，则将该节点的值加入结果列表 <code>res</code> 之中。相关过程实现如下图和以下代码所示：</p>
+<p>To solve this problem, we traverse this tree in pre-order and check if the current node's value is <span class="arithmatex">\(7\)</span>. If it is, we add the node's value to the result list <code>res</code>. The process is shown in the figure below:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_nodes.png" data-desc-position="bottom"><img alt="在前序遍历中搜索节点" src="../backtracking_algorithm.assets/preorder_find_nodes.png"></a></p>
-<h2 id="_2">尝试与回退<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p><strong>之所以称之为回溯算法，是因为该算法在搜索解空间时会采用“尝试”与“回退”的策略</strong>。当算法在搜索过程中遇到某个状态无法继续前进或无法得到满足条件的解时，它会撤销上一步的选择，退回到之前的状态，并尝试其他可能的选择。</p>
-<p>对于例题一，访问每个节点都代表一次“尝试”，而越过叶节点或返回父节点的 <code>return</code> 则表示“回退”。</p>
-<p>值得说明的是，<strong>回退并不仅仅包括函数返回</strong>。为解释这一点，我们对例题一稍作拓展。</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_nodes.png" data-desc-position="bottom"><img alt="Searching nodes in pre-order traversal" src="../backtracking_algorithm.assets/preorder_find_nodes.png"></a></p>
+<h2 id="trial-and-retreat">Trial and retreat<a class="headerlink" href="#trial-and-retreat" title="Permanent link">¶</a></h2>
+<p><strong>It is called a backtracking algorithm because it uses a "trial" and "retreat" strategy when searching the solution space</strong>. During the search, whenever it encounters a state where it can no longer proceed to obtain a satisfying solution, it undoes the previous choice and reverts to the previous state so that other possible choices can be chosen for the next attempt.</p>
+<p>In Example One, visiting each node starts a "trial". And passing a leaf node or the <code>return</code> statement to going back to the parent node suggests "retreat".</p>
+<p>It's worth noting that <strong>retreat is not merely about function returns</strong>. We'll expand slightly on Example One question to explain what it means.</p>
 <div class="admonition question">
-<p class="admonition-title">例题二</p>
-<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，<strong>请返回根节点到这些节点的路径</strong>。</p>
+<p class="admonition-title">Example Two</p>
+<p>In a binary tree, search for all nodes with a value of <span class="arithmatex">\(7\)</span> and for all matching nodes, <strong>please return the paths from the root node to that node</strong>.</p>
 </div>
-<p>在例题一代码的基础上，我们需要借助一个列表 <code>path</code> 记录访问过的节点路径。当访问到值为 <span class="arithmatex">\(7\)</span> 的节点时，则复制 <code>path</code> 并添加进结果列表 <code>res</code> 。遍历完成后，<code>res</code> 中保存的就是所有的解。代码如下所示：</p>
+<p>Based on the code from Example One, we need to use a list called <code>path</code> to record the visited node paths. When a node with a value of <span class="arithmatex">\(7\)</span> is reached, we copy <code>path</code> and add it to the result list <code>res</code>. After the traversal, <code>res</code> holds all the solutions. The code is as shown:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}
 </code></pre></div>
-<p>在每次“尝试”中，我们通过将当前节点添加进 <code>path</code> 来记录路径；而在“回退”前，我们需要将该节点从 <code>path</code> 中弹出，<strong>以恢复本次尝试之前的状态</strong>。</p>
-<p>观察下图所示的过程，<strong>我们可以将尝试和回退理解为“前进”与“撤销”</strong>，两个操作互为逆向。</p>
+<p>In each "trial", we record the path by adding the current node to <code>path</code>. Whenever we need to "retreat", we pop the node from <code>path</code> <strong>to restore the state prior to this failed attempt</strong>.</p>
+<p>By observing the process shown in the figure below, <strong>the trial is like "advancing", and retreat is like "undoing"</strong>. The later pairs can be seen as a reverse operation to their counterpart.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_paths_step1.png" data-desc-position="bottom"><img alt="尝试与回退" src="../backtracking_algorithm.assets/preorder_find_paths_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_paths_step1.png" data-desc-position="bottom"><img alt="Trying and retreating" src="../backtracking_algorithm.assets/preorder_find_paths_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_paths_step2.png" data-desc-position="bottom"><img alt="preorder_find_paths_step2" src="../backtracking_algorithm.assets/preorder_find_paths_step2.png"></a></p>
@@ -3743,60 +3676,60 @@
 </div>
 </div>
 </div>
-<h2 id="_3">剪枝<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>复杂的回溯问题通常包含一个或多个约束条件，<strong>约束条件通常可用于“剪枝”</strong>。</p>
+<h2 id="prune">Prune<a class="headerlink" href="#prune" title="Permanent link">¶</a></h2>
+<p>Complex backtracking problems usually involve one or more constraints, <strong>which are often used for "pruning"</strong>.</p>
 <div class="admonition question">
-<p class="admonition-title">例题三</p>
-<p>在二叉树中搜索所有值为 <span class="arithmatex">\(7\)</span> 的节点，请返回根节点到这些节点的路径，<strong>并要求路径中不包含值为 <span class="arithmatex">\(3\)</span> 的节点</strong>。</p>
+<p class="admonition-title">Example Three</p>
+<p>In a binary tree, search for all nodes with a value of <span class="arithmatex">\(7\)</span> and return the paths from the root to these nodes, <strong>with restriction that the paths do not contain nodes with a value of <span class="arithmatex">\(3\)</span></strong>.</p>
 </div>
-<p>为了满足以上约束条件，<strong>我们需要添加剪枝操作</strong>：在搜索过程中，若遇到值为 <span class="arithmatex">\(3\)</span> 的节点，则提前返回，不再继续搜索。代码如下所示：</p>
+<p>To meet the above constraints, <strong>we need to add a pruning operation</strong>: during the search process, if a node with a value of <span class="arithmatex">\(3\)</span> is encountered, it aborts further searching down through the path immediately. The code is as shown:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[file]{preorder_traversal_iii_compact}-[class]{}-[func]{pre_order}
 </code></pre></div>
-<p>“剪枝”是一个非常形象的名词。如下图所示，在搜索过程中，<strong>我们“剪掉”了不满足约束条件的搜索分支</strong>，避免许多无意义的尝试，从而提高了搜索效率。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" data-desc-position="bottom"><img alt="根据约束条件剪枝" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png"></a></p>
-<h2 id="_4">框架代码<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>接下来，我们尝试将回溯的“尝试、回退、剪枝”的主体框架提炼出来，提升代码的通用性。</p>
-<p>在以下框架代码中，<code>state</code> 表示问题的当前状态，<code>choices</code> 表示当前状态下可以做出的选择：</p>
+<p>"Pruning" is a very vivid noun. As shown in the figure below, in the search process, <strong>we "cut off" the search branches that do not meet the constraints</strong>. It avoids further unnecessary attempts, thus enhances the search efficiency.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" data-desc-position="bottom"><img alt="Pruning based on constraints" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png"></a></p>
+<h2 id="framework-code">Framework code<a class="headerlink" href="#framework-code" title="Permanent link">¶</a></h2>
+<p>Now, let's try to distill the main framework of "trial, retreat, and prune" from backtracking to enhance the code's universality.</p>
+<p>In the following framework code, <code>state</code> represents the current state of the problem, <code>choices</code> represents the choices available under the current state:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><input id="__tabbed_2_14" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">choice</span><span class="p">],</span> <span class="n">res</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">state</span><span class="p">]):</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">"""回溯算法框架"""</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="c1"># 判断是否为解</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">"""Backtracking algorithm framework"""</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="c1"># Check if it's a solution</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">if</span> <span class="n">is_solution</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="c1"># 记录解</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="c1"># Record the solution</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="c1"># 不再继续搜索</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="c1"># Stop searching</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="k">return</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="c1"># 遍历所有选择</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="c1"># Iterate through all choices</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="c1"># 剪枝：判断选择是否合法</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="c1"># Prune: check if the choice is valid</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">if</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="c1"># 尝试：做出选择，更新状态</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="c1"># Trial: make a choice, update the state</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>            <span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="c1"># 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="c1"># Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Choice</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">State</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3804,23 +3737,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3828,23 +3761,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">void</span><span class="w"> </span><span class="nf">Backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">RecordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">            </span><span class="n">MakeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">            </span><span class="n">Backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">            </span><span class="n">UndoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3852,23 +3785,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">*</span><span class="nx">State</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="w"> </span><span class="p">[]</span><span class="nx">Choice</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">*</span><span class="p">[]</span><span class="nx">State</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">isSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="nx">recordSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">choices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">isValid</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">            </span><span class="nx">makeChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">)</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="nx">undoChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">)</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3876,23 +3809,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">Choice</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="n">State</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3900,23 +3833,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="nx">recordSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isValid</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">            </span><span class="nx">makeChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">            </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="nx">undoChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3924,23 +3857,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="kt">State</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="o">:</span><span class="w"> </span><span class="kt">Choice</span><span class="p">[],</span><span class="w"> </span><span class="nx">res</span><span class="o">:</span><span class="w"> </span><span class="kt">State</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nx">recordSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isValid</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="nx">makeChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">            </span><span class="nx">undoChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3948,23 +3881,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="c1">// 记录解</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">      </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">      </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">      </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">      </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">      </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">      </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">      </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">  </span><span class="p">}</span>
@@ -3972,23 +3905,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">            </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">            </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3996,23 +3929,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">Choice</span><span class="w"> </span><span class="o">*</span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numChoices</span><span class="p">,</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">*</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numRes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">numRes</span><span class="p">);</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numChoices</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">numChoices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">numRes</span><span class="p">);</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">    </span><span class="p">}</span>
@@ -4020,23 +3953,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* 回溯算法框架 */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State?,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice?&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State?&gt;</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">// 判断是否为解</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="c1">// 记录解</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="c1">// 不再继续搜索</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="c1">// 遍历所有选择</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="c1">// 剪枝：判断选择是否合法</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
 <a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">            </span><span class="c1">// 尝试：做出选择，更新状态</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
 <a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="c1">// 回退：撤销选择，恢复到之前的状态</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
 <a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">    </span><span class="p">}</span>
@@ -4044,27 +3977,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">### 回溯算法框架 ###</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1"># 判断是否为解</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution?</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="c1"># 记录解</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">        </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span><span class="k">return</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="k">end</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="c1"># 遍历所有选择</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="c1"># 剪枝：判断选择是否合法</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid?</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">            </span><span class="c1"># 尝试：做出选择，更新状态</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">            </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">            </span><span class="c1"># 回退：撤销选择，恢复到之前的状态</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">            </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">        </span><span class="k">end</span>
-<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">    </span><span class="k">end</span>
-<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="k">end</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4073,98 +3986,98 @@
 </div>
 </div>
 </div>
-<p>接下来，我们基于框架代码来解决例题三。状态 <code>state</code> 为节点遍历路径，选择 <code>choices</code> 为当前节点的左子节点和右子节点，结果 <code>res</code> 是路径列表：</p>
+<p>Now, we are able to solve Example Three using the framework code. The <code>state</code> is the node traversal path, <code>choices</code> are the current node's left and right children, and the result <code>res</code> is the list of paths:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>[file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
 </code></pre></div>
-<p>根据题意，我们在找到值为 <span class="arithmatex">\(7\)</span> 的节点后应该继续搜索，<strong>因此需要将记录解之后的 <code>return</code> 语句删除</strong>。下图对比了保留或删除 <code>return</code> 语句的搜索过程。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" data-desc-position="bottom"><img alt="保留与删除 return 的搜索过程对比" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png"></a></p>
-<p>相比基于前序遍历的代码实现，基于回溯算法框架的代码实现虽然显得啰唆，但通用性更好。实际上，<strong>许多回溯问题可以在该框架下解决</strong>。我们只需根据具体问题来定义 <code>state</code> 和 <code>choices</code> ，并实现框架中的各个方法即可。</p>
-<h2 id="_5">常用术语<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>为了更清晰地分析算法问题，我们总结一下回溯算法中常用术语的含义，并对照例题三给出对应示例，如下表所示。</p>
-<p align="center"> 表 <id> &nbsp; 常见的回溯算法术语 </id></p>
+<p>As per the requirements, after finding a node with a value of <span class="arithmatex">\(7\)</span>, the search should continue. <strong>As a result, the <code>return</code> statement after recording the solution should be removed</strong>. The figure below compares the search processes with and without retaining the <code>return</code> statement.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" data-desc-position="bottom"><img alt="Comparison of retaining and removing the return in the search process" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png"></a></p>
+<p>Compared to the implementation based on pre-order traversal, the code using the backtracking algorithm framework seems verbose. However, it has better universality. In fact, <strong>many backtracking problems can be solved within this framework</strong>. We just need to define <code>state</code> and <code>choices</code> according to the specific problem and implement the methods in the framework.</p>
+<h2 id="common-terminology">Common terminology<a class="headerlink" href="#common-terminology" title="Permanent link">¶</a></h2>
+<p>To analyze algorithmic problems more clearly, we summarize the meanings of commonly used terminology in backtracking algorithms and provide corresponding examples from Example Three as shown in the table below.</p>
+<p align="center"> Table <id> &nbsp; Common backtracking algorithm terminology </id></p>
 
 <table>
 <thead>
 <tr>
-<th>名词</th>
-<th>定义</th>
-<th>例题三</th>
+<th>Term</th>
+<th>Definition</th>
+<th>Example Three</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>解（solution）</td>
-<td>解是满足问题特定条件的答案，可能有一个或多个</td>
-<td>根节点到节点 <span class="arithmatex">\(7\)</span> 的满足约束条件的所有路径</td>
+<td>Solution</td>
+<td>A solution is an answer that satisfies specific conditions of the problem, which may have one or more</td>
+<td>All paths from the root node to node <span class="arithmatex">\(7\)</span> that meet the constraint</td>
 </tr>
 <tr>
-<td>约束条件（constraint）</td>
-<td>约束条件是问题中限制解的可行性的条件，通常用于剪枝</td>
-<td>路径中不包含节点 <span class="arithmatex">\(3\)</span></td>
+<td>Constraint</td>
+<td>Constraints are conditions in the problem that limit the feasibility of solutions, often used for pruning</td>
+<td>Paths do not contain node <span class="arithmatex">\(3\)</span></td>
 </tr>
 <tr>
-<td>状态（state）</td>
-<td>状态表示问题在某一时刻的情况，包括已经做出的选择</td>
-<td>当前已访问的节点路径，即 <code>path</code> 节点列表</td>
+<td>State</td>
+<td>State represents the situation of the problem at a certain moment, including choices made</td>
+<td>Current visited node path, i.e., <code>path</code> node list</td>
 </tr>
 <tr>
-<td>尝试（attempt）</td>
-<td>尝试是根据可用选择来探索解空间的过程，包括做出选择，更新状态，检查是否为解</td>
-<td>递归访问左（右）子节点，将节点添加进 <code>path</code> ，判断节点的值是否为 <span class="arithmatex">\(7\)</span></td>
+<td>Trial</td>
+<td>A trial is the process of exploring the solution space based on available choices, including making choices, updating the state, and checking if it's a solution</td>
+<td>Recursively visiting left (right) child nodes, adding nodes to <code>path</code>, checking if the node's value is <span class="arithmatex">\(7\)</span></td>
 </tr>
 <tr>
-<td>回退（backtracking）</td>
-<td>回退指遇到不满足约束条件的状态时，撤销前面做出的选择，回到上一个状态</td>
-<td>当越过叶节点、结束节点访问、遇到值为 <span class="arithmatex">\(3\)</span> 的节点时终止搜索，函数返回</td>
+<td>Retreat</td>
+<td>Retreat refers to the action of undoing previous choices and returning to the previous state when encountering states that do not meet the constraints</td>
+<td>When passing leaf nodes, ending node visits, encountering nodes with a value of <span class="arithmatex">\(3\)</span>, terminating the search, and the recursion function returns</td>
 </tr>
 <tr>
-<td>剪枝（pruning）</td>
-<td>剪枝是根据问题特性和约束条件避免无意义的搜索路径的方法，可提高搜索效率</td>
-<td>当遇到值为 <span class="arithmatex">\(3\)</span> 的节点时，则不再继续搜索</td>
+<td>Prune</td>
+<td>Prune is a method to avoid meaningless search paths based on the characteristics and constraints of the problem, which can enhance search efficiency</td>
+<td>When encountering a node with a value of <span class="arithmatex">\(3\)</span>, no further search is required</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>问题、解、状态等概念是通用的，在分治、回溯、动态规划、贪心等算法中都有涉及。</p>
+<p>Concepts like problems, solutions, states, etc., are universal, and are involved in divide and conquer, backtracking, dynamic programming, and greedy algorithms, among others.</p>
 </div>
-<h2 id="_6">优点与局限性<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>回溯算法本质上是一种深度优先搜索算法，它尝试所有可能的解决方案直到找到满足条件的解。这种方法的优点在于能够找到所有可能的解决方案，而且在合理的剪枝操作下，具有很高的效率。</p>
-<p>然而，在处理大规模或者复杂问题时，<strong>回溯算法的运行效率可能难以接受</strong>。</p>
+<h2 id="advantages-and-limitations">Advantages and limitations<a class="headerlink" href="#advantages-and-limitations" title="Permanent link">¶</a></h2>
+<p>The backtracking algorithm is essentially a depth-first search algorithm that attempts all possible solutions until a satisfying solution is found. The advantage of this method is that it can find all possible solutions, and with reasonable pruning operations, it can be highly efficient.</p>
+<p>However, when dealing with large-scale or complex problems, <strong>the running efficiency of backtracking algorithm may not be acceptable</strong>.</p>
 <ul>
-<li><strong>时间</strong>：回溯算法通常需要遍历状态空间的所有可能，时间复杂度可以达到指数阶或阶乘阶。</li>
-<li><strong>空间</strong>：在递归调用中需要保存当前的状态（例如路径、用于剪枝的辅助变量等），当深度很大时，空间需求可能会变得很大。</li>
+<li><strong>Time complexity</strong>: Backtracking algorithms usually need to traverse all possible states in the state space, which can reach exponential or factorial time complexity.</li>
+<li><strong>Space complexity</strong>: In recursive calls, it is necessary to save the current state (such as paths, auxiliary variables for pruning, etc.). When the depth is very large, the space need may become significantly bigger.</li>
 </ul>
-<p>即便如此，<strong>回溯算法仍然是某些搜索问题和约束满足问题的最佳解决方案</strong>。对于这些问题，由于无法预测哪些选择可生成有效的解，因此我们必须对所有可能的选择进行遍历。在这种情况下，<strong>关键是如何优化效率</strong>，常见的效率优化方法有两种。</p>
+<p>Even so, <strong>backtracking remains the best solution for certain search problems and constraint satisfaction problems</strong>. For these problems, there is no way to predict which choices can generate valid solutions. We have to traverse all possible choices. In this case, <strong>the key is about how to optimize the efficiency</strong>. There are two common efficiency optimization methods.</p>
 <ul>
-<li><strong>剪枝</strong>：避免搜索那些肯定不会产生解的路径，从而节省时间和空间。</li>
-<li><strong>启发式搜索</strong>：在搜索过程中引入一些策略或者估计值，从而优先搜索最有可能产生有效解的路径。</li>
+<li><strong>Prune</strong>: Avoid searching paths that definitely will not produce a solution, thus saving time and space.</li>
+<li><strong>Heuristic search</strong>: Introduce some strategies or estimates during the search process to prioritize the paths that are most likely to produce valid solutions.</li>
 </ul>
-<h2 id="_7">回溯典型例题<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>回溯算法可用于解决许多搜索问题、约束满足问题和组合优化问题。</p>
-<p><strong>搜索问题</strong>：这类问题的目标是找到满足特定条件的解决方案。</p>
+<h2 id="typical-backtracking-problems">Typical backtracking problems<a class="headerlink" href="#typical-backtracking-problems" title="Permanent link">¶</a></h2>
+<p>Backtracking algorithms can be used to solve many search problems, constraint satisfaction problems, and combinatorial optimization problems.</p>
+<p><strong>Search problems</strong>: The goal of these problems is to find solutions that meet specific conditions.</p>
 <ul>
-<li>全排列问题：给定一个集合，求出其所有可能的排列组合。</li>
-<li>子集和问题：给定一个集合和一个目标和，找到集合中所有和为目标和的子集。</li>
-<li>汉诺塔问题：给定三根柱子和一系列大小不同的圆盘，要求将所有圆盘从一根柱子移动到另一根柱子，每次只能移动一个圆盘，且不能将大圆盘放在小圆盘上。</li>
+<li>Full permutation problem: Given a set, find all possible permutations and combinations of it.</li>
+<li>Subset sum problem: Given a set and a target sum, find all subsets of the set that sum to the target.</li>
+<li>Tower of Hanoi problem: Given three rods and a series of different-sized discs, the goal is to move all the discs from one rod to another, moving only one disc at a time, and never placing a larger disc on a smaller one.</li>
 </ul>
-<p><strong>约束满足问题</strong>：这类问题的目标是找到满足所有约束条件的解。</p>
+<p><strong>Constraint satisfaction problems</strong>: The goal of these problems is to find solutions that satisfy all the constraints.</p>
 <ul>
-<li><span class="arithmatex">\(n\)</span> 皇后：在 <span class="arithmatex">\(n \times n\)</span> 的棋盘上放置 <span class="arithmatex">\(n\)</span> 个皇后，使得它们互不攻击。</li>
-<li>数独：在 <span class="arithmatex">\(9 \times 9\)</span> 的网格中填入数字 <span class="arithmatex">\(1\)</span> ~ <span class="arithmatex">\(9\)</span> ，使得每行、每列和每个 <span class="arithmatex">\(3 \times 3\)</span> 子网格中的数字不重复。</li>
-<li>图着色问题：给定一个无向图，用最少的颜色给图的每个顶点着色，使得相邻顶点颜色不同。</li>
+<li><span class="arithmatex">\(n\)</span> queens: Place <span class="arithmatex">\(n\)</span> queens on an <span class="arithmatex">\(n \times n\)</span> chessboard so that they do not attack each other.</li>
+<li>Sudoku: Fill a <span class="arithmatex">\(9 \times 9\)</span> grid with the numbers <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(9\)</span>, ensuring that the numbers do not repeat in each row, each column, and each <span class="arithmatex">\(3 \times 3\)</span> subgrid.</li>
+<li>Graph coloring problem: Given an undirected graph, color each vertex with the fewest possible colors so that adjacent vertices have different colors.</li>
 </ul>
-<p><strong>组合优化问题</strong>：这类问题的目标是在一个组合空间中找到满足某些条件的最优解。</p>
+<p><strong>Combinatorial optimization problems</strong>: The goal of these problems is to find the optimal solution within a combination space that meets certain conditions.</p>
 <ul>
-<li>0-1 背包问题：给定一组物品和一个背包，每个物品有一定的价值和重量，要求在背包容量限制内，选择物品使得总价值最大。</li>
-<li>旅行商问题：在一个图中，从一个点出发，访问所有其他点恰好一次后返回起点，求最短路径。</li>
-<li>最大团问题：给定一个无向图，找到最大的完全子图，即子图中的任意两个顶点之间都有边相连。</li>
+<li>0-1 knapsack problem: Given a set of items and a backpack, each item has a certain value and weight. The goal is to choose items to maximize the total value within the backpack's capacity limit.</li>
+<li>Traveling salesman problem: In a graph, starting from one point, visit all other points exactly once and then return to the starting point, seeking the shortest path.</li>
+<li>Maximum clique problem: Given an undirected graph, find the largest complete subgraph, i.e., a subgraph where any two vertices are connected by an edge.</li>
 </ul>
-<p>请注意，对于许多组合优化问题，回溯不是最优解决方案。</p>
+<p>Please note that for many combinatorial optimization problems, backtracking is not the optimal solution.</p>
 <ul>
-<li>0-1 背包问题通常使用动态规划解决，以达到更高的时间效率。</li>
-<li>旅行商是一个著名的 NP-Hard 问题，常用解法有遗传算法和蚁群算法等。</li>
-<li>最大团问题是图论中的一个经典问题，可用贪心算法等启发式算法来解决。</li>
+<li>The 0-1 knapsack problem is usually solved using dynamic programming to achieve higher time efficiency.</li>
+<li>The traveling salesman is a well-known NP-Hard problem, commonly solved using genetic algorithms and ant colony algorithms, among others.</li>
+<li>The maximum clique problem is a classic problem in graph theory, which can be solved using greedy algorithms and other heuristic methods.</li>
 </ul>
 
 
@@ -4176,22 +4089,22 @@
 
 
 
-<nav class="md-footer__inner md-grid" aria-label="页脚">
+<nav class="md-footer__inner md-grid" aria-label="Chân trang">
 
 <!-- Link to previous page -->
 
   
-  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 回溯" rel="prev">
+  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Backtracking" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
     </div>
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        上一页
+        Trước
       </span>
       <div class="md-ellipsis">
-        回溯
+        Backtracking
       </div>
     </div>
   </a>
@@ -4200,13 +4113,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.2 &amp;nbsp; 全排列问题" rel="next">
+  <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.2 Permutation problem" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        下一页
+        Sau
       </span>
       <div class="md-ellipsis">
-        13.2 &nbsp; 全排列问题
+        13.2 Permutation problem
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -4232,7 +4145,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-  回到页面顶部
+  Trở lại mục lục
 </button>
         
       </main>
@@ -4241,33 +4154,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚">
+      <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 回溯">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Backtracking">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Trước
               </span>
               <div class="md-ellipsis">
-                回溯
+                Backtracking
               </div>
             </div>
           </a>
         
         
           
-          <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="下一页: 13.2 &amp;nbsp; 全排列问题">
+          <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.2 Permutation problem">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Sau
               </span>
               <div class="md-ellipsis">
-                13.2 &nbsp; 全排列问题
+                13.2 Permutation problem
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4337,7 +4250,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
