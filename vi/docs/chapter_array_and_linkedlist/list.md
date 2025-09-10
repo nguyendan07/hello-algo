@@ -1,50 +1,50 @@
 # List
 
-A <u>list</u> is an abstract data structure concept that represents an ordered collection of elements, supporting operations such as element access, modification, addition, deletion, and traversal, without requiring users to consider capacity limitations. Lists can be implemented based on linked lists or arrays.
+<u>List</u> là một khái niệm cấu trúc dữ liệu trừu tượng, đại diện cho một tập hợp các phần tử có thứ tự, hỗ trợ các thao tác như truy cập phần tử, sửa đổi, thêm, xóa và duyệt, mà không yêu cầu người dùng phải xem xét giới hạn về dung lượng. List có thể được triển khai dựa trên linked list hoặc array.
 
-- A linked list inherently serves as a list, supporting operations for adding, deleting, searching, and modifying elements, with the flexibility to dynamically adjust its size.
-- Arrays also support these operations, but due to their immutable length, they can be considered as a list with a length limit.
+- Bản thân linked list đã là một list, hỗ trợ các thao tác thêm, xóa, tìm kiếm và sửa đổi phần tử, với sự linh hoạt để điều chỉnh kích thước một cách động.
+- Array cũng hỗ trợ các thao tác này, nhưng do độ dài cố định của chúng, chúng có thể được coi là một list có giới hạn về độ dài.
 
-When implementing lists using arrays, **the immutability of length reduces the practicality of the list**. This is because predicting the amount of data to be stored in advance is often challenging, making it difficult to choose an appropriate list length. If the length is too small, it may not meet the requirements; if too large, it may waste memory space.
+Khi triển khai list bằng array, **tính bất biến về độ dài làm giảm tính thực tế của list**. Điều này là do việc dự đoán lượng dữ liệu cần lưu trữ trước là rất khó, khiến cho việc chọn độ dài list phù hợp trở nên khó khăn. Nếu độ dài quá nhỏ, nó có thể không đáp ứng được yêu cầu; nếu quá lớn, nó có thể lãng phí không gian bộ nhớ.
 
-To solve this problem, we can implement lists using a <u>dynamic array</u>. It inherits the advantages of arrays and can dynamically expand during program execution.
+Để giải quyết vấn đề này, chúng ta có thể triển khai list bằng <u>dynamic array</u>. Nó kế thừa những ưu điểm của array và có thể mở rộng một cách động trong quá trình thực thi chương trình.
 
-In fact, **many programming languages' standard libraries implement lists using dynamic arrays**, such as Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the following discussion, we will consider "list" and "dynamic array" as synonymous concepts.
+Trên thực tế, **thư viện chuẩn của nhiều ngôn ngữ lập trình triển khai list bằng dynamic array**, chẳng hạn như `list` của Python, `ArrayList` của Java, `vector` của C++ và `List` của C#. Trong các thảo luận sau đây, chúng ta sẽ coi "list" và "dynamic array" là các khái niệm đồng nghĩa.
 
-## Common list operations
+## Các thao tác list phổ biến
 
-### Initializing a list
+### Khởi tạo list
 
-We typically use two initialization methods: "without initial values" and "with initial values".
+Chúng ta thường sử dụng hai phương pháp khởi tạo: "không có giá trị ban đầu" và "có giá trị ban đầu".
 
 === "Python"
 
     ```python title="list.py"
-    # Initialize list
-    # Without initial values
+    # Khởi tạo list
+    # Không có giá trị ban đầu
     nums1: list[int] = []
-    # With initial values
+    # Có giá trị ban đầu
     nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Initialize list */
-    // Note, in C++ the vector is the equivalent of nums described here
-    // Without initial values
+    /* Khởi tạo list */
+    // Lưu ý, trong C++ vector tương đương với nums được mô tả ở đây
+    // Không có giá trị ban đầu
     vector<int> nums1;
-    // With initial values
+    // Có giá trị ban đầu
     vector<int> nums = { 1, 3, 2, 5, 4 };
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     List<Integer> nums1 = new ArrayList<>();
-    // With initial values (note the element type should be the wrapper class Integer[] for int[])
+    // Có giá trị ban đầu (lưu ý kiểu phần tử phải là lớp wrapper Integer[] cho int[])
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -52,10 +52,10 @@ We typically use two initialization methods: "without initial values" and "with 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     List<int> nums1 = [];
-    // With initial values
+    // Có giá trị ban đầu
     int[] numbers = [1, 3, 2, 5, 4];
     List<int> nums = [.. numbers];
     ```
@@ -63,67 +63,67 @@ We typically use two initialization methods: "without initial values" and "with 
 === "Go"
 
     ```go title="list_test.go"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     nums1 := []int{}
-    // With initial values
+    // Có giá trị ban đầu
     nums := []int{1, 3, 2, 5, 4}
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     let nums1: [Int] = []
-    // With initial values
+    // Có giá trị ban đầu
     var nums = [1, 3, 2, 5, 4]
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     const nums1 = [];
-    // With initial values
+    // Có giá trị ban đầu
     const nums = [1, 3, 2, 5, 4];
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     const nums1: number[] = [];
-    // With initial values
+    // Có giá trị ban đầu
     const nums: number[] = [1, 3, 2, 5, 4];
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     List<int> nums1 = [];
-    // With initial values
+    // Có giá trị ban đầu
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Initialize list */
-    // Without initial values
+    /* Khởi tạo list */
+    // Không có giá trị ban đầu
     let nums1: Vec<i32> = Vec::new();
-    // With initial values
+    // Có giá trị ban đầu
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C không cung cấp dynamic array tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -135,119 +135,119 @@ We typically use two initialization methods: "without initial values" and "with 
 === "Zig"
 
     ```zig title="list.zig"
-    // Initialize list
+    // Khởi tạo list
     var nums = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums.deinit();
     try nums.appendSlice(&[_]i32{ 1, 3, 2, 5, 4 });
     ```
 
-### Accessing elements
+### Truy cập các phần tử
 
-Lists are essentially arrays, thus they can access and update elements in $O(1)$ time, which is very efficient.
+List về cơ bản là array, do đó chúng có thể truy cập và cập nhật các phần tử trong thời gian $O(1)$, rất hiệu quả.
 
 === "Python"
 
     ```python title="list.py"
-    # Access elements
-    num: int = nums[1]  # Access the element at index 1
+    # Truy cập các phần tử
+    num: int = nums[1]  # Truy cập phần tử tại chỉ số 1
 
-    # Update elements
-    nums[1] = 0    # Update the element at index 1 to 0
+    # Cập nhật các phần tử
+    nums[1] = 0    # Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Access elements */
-    int num = nums[1];  // Access the element at index 1
+    /* Truy cập các phần tử */
+    int num = nums[1];  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0;  // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0;  // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Access elements */
-    int num = nums.get(1);  // Access the element at index 1
+    /* Truy cập các phần tử */
+    int num = nums.get(1);  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums.set(1, 0);  // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums.set(1, 0);  // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Access elements */
-    int num = nums[1];  // Access the element at index 1
+    /* Truy cập các phần tử */
+    int num = nums[1];  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0;  // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0;  // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* Access elements */
-    num := nums[1]  // Access the element at index 1
+    /* Truy cập các phần tử */
+    num := nums[1]  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0     // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0     // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Access elements */
-    let num = nums[1] // Access the element at index 1
+    /* Truy cập các phần tử */
+    let num = nums[1] // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0 // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0 // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Access elements */
-    const num = nums[1];  // Access the element at index 1
+    /* Truy cập các phần tử */
+    const num = nums[1];  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0;  // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0;  // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Access elements */
-    const num: number = nums[1];  // Access the element at index 1
+    /* Truy cập các phần tử */
+    const num: number = nums[1];  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0;  // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0;  // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Access elements */
-    int num = nums[1];  // Access the element at index 1
+    /* Truy cập các phần tử */
+    int num = nums[1];  // Truy cập phần tử tại chỉ số 1
 
-    /* Update elements */
-    nums[1] = 0;  // Update the element at index 1 to 0
+    /* Cập nhật các phần tử */
+    nums[1] = 0;  // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Access elements */
-    let num: i32 = nums[1];  // Access the element at index 1
-    /* Update elements */
-    nums[1] = 0;             // Update the element at index 1 to 0
+    /* Truy cập các phần tử */
+    let num: i32 = nums[1];  // Truy cập phần tử tại chỉ số 1
+    /* Cập nhật các phần tử */
+    nums[1] = 0;             // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C không cung cấp dynamic array tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -259,221 +259,221 @@ Lists are essentially arrays, thus they can access and update elements in $O(1)$
 === "Zig"
 
     ```zig title="list.zig"
-    // Access elements
-    var num = nums.items[1]; // Access the element at index 1
+    // Truy cập các phần tử
+    var num = nums.items[1]; // Truy cập phần tử tại chỉ số 1
 
-    // Update elements
-    nums.items[1] = 0; // Update the element at index 1 to 0  
+    // Cập nhật các phần tử
+    nums.items[1] = 0; // Cập nhật phần tử tại chỉ số 1 thành 0  
     ```
 
-### Inserting and removing elements
+### Chèn và xóa các phần tử
 
-Compared to arrays, lists offer more flexibility in adding and removing elements. While adding elements to the end of a list is an $O(1)$ operation, the efficiency of inserting and removing elements elsewhere in the list remains the same as in arrays, with a time complexity of $O(n)$.
+So với array, list cung cấp sự linh hoạt hơn trong việc thêm và xóa các phần tử. Mặc dù việc thêm các phần tử vào cuối list là một thao tác $O(1)$, hiệu quả của việc chèn và xóa các phần tử ở những nơi khác trong list vẫn giống như trong array, với độ phức tạp thời gian là $O(n)$.
 
 === "Python"
 
     ```python title="list.py"
-    # Clear list
+    # Xóa list
     nums.clear()
 
-    # Append elements at the end
+    # Thêm các phần tử vào cuối
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    # Insert element in the middle
-    nums.insert(3, 6)  # Insert number 6 at index 3
+    # Chèn phần tử vào giữa
+    nums.insert(3, 6)  # Chèn số 6 vào chỉ số 3
 
-    # Remove elements
-    nums.pop(3)        # Remove the element at index 3
+    # Xóa các phần tử
+    nums.pop(3)        # Xóa phần tử tại chỉ số 3
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Clear list */
+    /* Xóa list */
     nums.clear();
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
 
-    /* Insert element in the middle */
-    nums.insert(nums.begin() + 3, 6);  // Insert number 6 at index 3
+    /* Chèn phần tử vào giữa */
+    nums.insert(nums.begin() + 3, 6);  // Chèn số 6 vào chỉ số 3
 
-    /* Remove elements */
-    nums.erase(nums.begin() + 3);      // Remove the element at index 3
+    /* Xóa các phần tử */
+    nums.erase(nums.begin() + 3);      // Xóa phần tử tại chỉ số 3
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Clear list */
+    /* Xóa list */
     nums.clear();
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* Insert element in the middle */
-    nums.add(3, 6);  // Insert number 6 at index 3
+    /* Chèn phần tử vào giữa */
+    nums.add(3, 6);  // Chèn số 6 vào chỉ số 3
 
-    /* Remove elements */
-    nums.remove(3);  // Remove the element at index 3
+    /* Xóa các phần tử */
+    nums.remove(3);  // Xóa phần tử tại chỉ số 3
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Clear list */
+    /* Xóa list */
     nums.Clear();
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
     nums.Add(5);
     nums.Add(4);
 
-    /* Insert element in the middle */
+    /* Chèn phần tử vào giữa */
     nums.Insert(3, 6);
 
-    /* Remove elements */
+    /* Xóa các phần tử */
     nums.RemoveAt(3);
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* Clear list */
+    /* Xóa list */
     nums = nil
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
     nums = append(nums, 5)
     nums = append(nums, 4)
 
-    /* Insert element in the middle */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert number 6 at index 3
+    /* Chèn phần tử vào giữa */
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Chèn số 6 vào chỉ số 3
 
-    /* Remove elements */
-    nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
+    /* Xóa các phần tử */
+    nums = append(nums[:3], nums[4:]...) // Xóa phần tử tại chỉ số 3
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Clear list */
+    /* Xóa list */
     nums.removeAll()
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.append(1)
     nums.append(3)
     nums.append(2)
     nums.append(5)
     nums.append(4)
 
-    /* Insert element in the middle */
-    nums.insert(6, at: 3) // Insert number 6 at index 3
+    /* Chèn phần tử vào giữa */
+    nums.insert(6, at: 3) // Chèn số 6 vào chỉ số 3
 
-    /* Remove elements */
-    nums.remove(at: 3) // Remove the element at index 3
+    /* Xóa các phần tử */
+    nums.remove(at: 3) // Xóa phần tử tại chỉ số 3
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Clear list */
+    /* Xóa list */
     nums.length = 0;
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* Insert element in the middle */
+    /* Chèn phần tử vào giữa */
     nums.splice(3, 0, 6);
 
-    /* Remove elements */
+    /* Xóa các phần tử */
     nums.splice(3, 1);
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Clear list */
+    /* Xóa list */
     nums.length = 0;
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* Insert element in the middle */
+    /* Chèn phần tử vào giữa */
     nums.splice(3, 0, 6);
 
-    /* Remove elements */
+    /* Xóa các phần tử */
     nums.splice(3, 1);
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Clear list */
+    /* Xóa list */
     nums.clear();
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
 
-    /* Insert element in the middle */
-    nums.insert(3, 6); // Insert number 6 at index 3
+    /* Chèn phần tử vào giữa */
+    nums.insert(3, 6); // Chèn số 6 vào chỉ số 3
 
-    /* Remove elements */
-    nums.removeAt(3); // Remove the element at index 3
+    /* Xóa các phần tử */
+    nums.removeAt(3); // Xóa phần tử tại chỉ số 3
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Clear list */
+    /* Xóa list */
     nums.clear();
 
-    /* Append elements at the end */
+    /* Thêm các phần tử vào cuối */
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* Insert element in the middle */
-    nums.insert(3, 6);  // Insert number 6 at index 3
+    /* Chèn phần tử vào giữa */
+    nums.insert(3, 6);  // Chèn số 6 vào chỉ số 3
 
-    /* Remove elements */
-    nums.remove(3);    // Remove the element at index 3
+    /* Xóa các phần tử */
+    nums.remove(3);    // Xóa phần tử tại chỉ số 3
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C không cung cấp dynamic array tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -485,36 +485,36 @@ Compared to arrays, lists offer more flexibility in adding and removing elements
 === "Zig"
 
     ```zig title="list.zig"
-    // Clear list
+    // Xóa list
     nums.clearRetainingCapacity();
 
-    // Append elements at the end
+    // Thêm các phần tử vào cuối
     try nums.append(1);
     try nums.append(3);
     try nums.append(2);
     try nums.append(5);
     try nums.append(4);
 
-    // Insert element in the middle
-    try nums.insert(3, 6); // Insert number 6 at index 3
+    // Chèn phần tử vào giữa
+    try nums.insert(3, 6); // Chèn số 6 vào chỉ số 3
 
-    // Remove elements
-    _ = nums.orderedRemove(3); // Remove the element at index 3
+    // Xóa các phần tử
+    _ = nums.orderedRemove(3); // Xóa phần tử tại chỉ số 3
     ```
 
-### Iterating the list
+### Duyệt list
 
-Similar to arrays, lists can be iterated either by using indices or by directly iterating through each element.
+Tương tự như array, list có thể được duyệt bằng cách sử dụng chỉ số hoặc bằng cách duyệt trực tiếp qua từng phần tử.
 
 === "Python"
 
     ```python title="list.py"
-    # Iterate through the list by index
+    # Duyệt list bằng chỉ số
     count = 0
     for i in range(len(nums)):
         count += nums[i]
 
-    # Iterate directly through list elements
+    # Duyệt trực tiếp qua các phần tử list
     for num in nums:
         count += num
     ```
@@ -522,13 +522,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0;
     for (int num : nums) {
         count += num;
@@ -538,13 +538,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "Java"
 
     ```java title="list.java"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums.get(i);
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     for (int num : nums) {
         count += num;
     }
@@ -553,13 +553,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
         count += nums[i];
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0;
     foreach (int num in nums) {
         count += num;
@@ -569,13 +569,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "Go"
 
     ```go title="list_test.go"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     count := 0
     for i := 0; i < len(nums); i++ {
         count += nums[i]
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0
     for _, num := range nums {
         count += num
@@ -585,13 +585,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     var count = 0
     for i in nums.indices {
         count += nums[i]
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0
     for num in nums {
         count += num
@@ -601,13 +601,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "JS"
 
     ```javascript title="list.js"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0;
     for (const num of nums) {
         count += num;
@@ -617,13 +617,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0;
     for (const num of nums) {
         count += num;
@@ -633,13 +633,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Iterate through the list by index */
+    /* Duyệt list bằng chỉ số */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
         count += nums[i];
     }
     
-    /* Iterate directly through list elements */
+    /* Duyệt trực tiếp qua các phần tử list */
     count = 0;
     for (var num in nums) {
         count += num;
@@ -649,13 +649,13 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "Rust"
 
     ```rust title="list.rs"
-    // Iterate through the list by index
+    // Duyệt list bằng chỉ số
     let mut _count = 0;
     for i in 0..nums.len() {
         _count += nums[i];
     }
 
-    // Iterate directly through list elements
+    // Duyệt trực tiếp qua các phần tử list
     _count = 0;
     for num in &nums {
         _count += num;
@@ -665,7 +665,7 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C không cung cấp dynamic array tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -677,101 +677,101 @@ Similar to arrays, lists can be iterated either by using indices or by directly 
 === "Zig"
 
     ```zig title="list.zig"
-    // Iterate through the list by index
+    // Duyệt list bằng chỉ số
     var count: i32 = 0;
     var i: i32 = 0;
     while (i < nums.items.len) : (i += 1) {
         count += nums[i];
     }
 
-    // Iterate directly through list elements
+    // Duyệt trực tiếp qua các phần tử list
     count = 0;
     for (nums.items) |num| {
         count += num;
     }
     ```
 
-### Concatenating lists
+### Nối các list
 
-Given a new list `nums1`, we can append it to the end of the original list.
+Cho một list mới `nums1`, chúng ta có thể nối nó vào cuối list ban đầu.
 
 === "Python"
 
     ```python title="list.py"
-    # Concatenate two lists
+    # Nối hai list
     nums1: list[int] = [6, 8, 7, 10, 9]
-    nums += nums1  # Concatenate nums1 to the end of nums
+    nums += nums1  # Nối nums1 vào cuối nums
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Concatenate two lists */
+    /* Nối hai list */
     vector<int> nums1 = { 6, 8, 7, 10, 9 };
-    // Concatenate nums1 to the end of nums
+    // Nối nums1 vào cuối nums
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Concatenate two lists */
+    /* Nối hai list */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // Concatenate nums1 to the end of nums
+    nums.addAll(nums1);  // Nối nums1 vào cuối nums
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Concatenate two lists */
+    /* Nối hai list */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // Concatenate nums1 to the end of nums
+    nums.AddRange(nums1);  // Nối nums1 vào cuối nums
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* Concatenate two lists */
+    /* Nối hai list */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // Concatenate nums1 to the end of nums
+    nums = append(nums, nums1...)  // Nối nums1 vào cuối nums
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Concatenate two lists */
+    /* Nối hai list */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // Concatenate nums1 to the end of nums
+    nums.append(contentsOf: nums1) // Nối nums1 vào cuối nums
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Concatenate two lists */
+    /* Nối hai list */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Concatenate nums1 to the end of nums
+    nums.push(...nums1);  // Nối nums1 vào cuối nums
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Concatenate two lists */
+    /* Nối hai list */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Concatenate nums1 to the end of nums
+    nums.push(...nums1);  // Nối nums1 vào cuối nums
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Concatenate two lists */
+    /* Nối hai list */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // Concatenate nums1 to the end of nums
+    nums.addAll(nums1);  // Nối nums1 vào cuối nums
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Concatenate two lists */
+    /* Nối hai list */
     let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
     nums.extend(nums1);
     ```
@@ -779,7 +779,7 @@ Given a new list `nums1`, we can append it to the end of the original list.
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C không cung cấp dynamic array tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -791,91 +791,91 @@ Given a new list `nums1`, we can append it to the end of the original list.
 === "Zig"
 
     ```zig title="list.zig"
-    // Concatenate two lists
+    // Nối hai list
     var nums1 = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nums1.deinit();
     try nums1.appendSlice(&[_]i32{ 6, 8, 7, 10, 9 });
-    try nums.insertSlice(nums.items.len, nums1.items); // Concatenate nums1 to the end of nums
+    try nums.insertSlice(nums.items.len, nums1.items); // Nối nums1 vào cuối nums
     ```
 
-### Sorting the list
+### Sắp xếp list
 
-Once the list is sorted, we can employ algorithms commonly used in array-related algorithm problems, such as "binary search" and "two-pointer" algorithms.
+Sau khi list được sắp xếp, chúng ta có thể sử dụng các thuật toán thường được sử dụng trong các bài toán thuật toán liên quan đến array, chẳng hạn như thuật toán "tìm kiếm nhị phân" và "two-pointer".
 
 === "Python"
 
     ```python title="list.py"
-    # Sort the list
-    nums.sort()  # After sorting, the list elements are in ascending order
+    # Sắp xếp list
+    nums.sort()  # Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Sort the list */
-    sort(nums.begin(), nums.end());  // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    sort(nums.begin(), nums.end());  // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Sort the list */
-    Collections.sort(nums);  // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    Collections.sort(nums);  // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* Sort the list */
-    nums.Sort(); // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    nums.Sort(); // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* Sort the list */
-    sort.Ints(nums)  // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    sort.Ints(nums)  // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* Sort the list */
-    nums.sort() // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    nums.sort() // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* Sort the list */  
-    nums.sort((a, b) => a - b);  // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */  
+    nums.sort((a, b) => a - b);  // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* Sort the list */
-    nums.sort((a, b) => a - b);  // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    nums.sort((a, b) => a - b);  // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* Sort the list */
-    nums.sort(); // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    nums.sort(); // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Sort the list */
-    nums.sort(); // After sorting, the list elements are in ascending order
+    /* Sắp xếp list */
+    nums.sort(); // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 
 === "C"
 
     ```c title="list.c"
-    // C does not provide built-in dynamic arrays
+    // C không cung cấp dynamic array tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -887,19 +887,19 @@ Once the list is sorted, we can employ algorithms commonly used in array-related
 === "Zig"
 
     ```zig title="list.zig"
-    // Sort the list
+    // Sắp xếp list
     std.sort.sort(i32, nums.items, {}, comptime std.sort.asc(i32));
     ```
 
-## List implementation
+## Triển khai list
 
-Many programming languages come with built-in lists, including Java, C++, Python, etc. Their implementations tend to be intricate, featuring carefully considered settings for various parameters, like initial capacity and expansion factors. Readers who are curious can delve into the source code for further learning.
+Nhiều ngôn ngữ lập trình đi kèm với list tích hợp sẵn, bao gồm Java, C++, Python, v.v. Việc triển khai của chúng có xu hướng phức tạp, có các cài đặt được cân nhắc cẩn thận cho các tham số khác nhau, như dung lượng ban đầu và hệ số mở rộng. Độc giả nào tò mò có thể đi sâu vào mã nguồn để tìm hiểu thêm.
 
-To enhance our understanding of how lists work, we will attempt to implement a simplified version of a list, focusing on three crucial design aspects:
+Để nâng cao hiểu biết của chúng ta về cách list hoạt động, chúng ta sẽ thử triển khai một phiên bản đơn giản của list, tập trung vào ba khía cạnh thiết kế quan trọng:
 
-- **Initial capacity**: Choose a reasonable initial capacity for the array. In this example, we choose 10 as the initial capacity.
-- **Size recording**: Declare a variable `size` to record the current number of elements in the list, updating in real-time with element insertion and deletion. With this variable, we can locate the end of the list and determine whether expansion is needed.
-- **Expansion mechanism**: If the list reaches full capacity upon an element insertion, an expansion process is required. This involves creating a larger array based on the expansion factor, and then transferring all elements from the current array to the new one. In this example, we stipulate that the array size should double with each expansion.
+- **Dung lượng ban đầu**: Chọn dung lượng ban đầu hợp lý cho array. Trong ví dụ này, chúng ta chọn 10 làm dung lượng ban đầu.
+- **Ghi lại kích thước**: Khai báo một biến `size` để ghi lại số lượng phần tử hiện tại trong list, cập nhật theo thời gian thực khi chèn và xóa phần tử. Với biến này, chúng ta có thể xác định vị trí cuối list và xác định xem có cần mở rộng hay không.
+- **Cơ chế mở rộng**: Nếu list đạt đến dung lượng tối đa khi chèn một phần tử, cần có một quy trình mở rộng. Điều này bao gồm việc tạo một array lớn hơn dựa trên hệ số mở rộng, và sau đó chuyển tất cả các phần tử từ array hiện tại sang array mới. Trong ví dụ này, chúng ta quy định rằng kích thước array sẽ tăng gấp đôi sau mỗi lần mở rộng.
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}
