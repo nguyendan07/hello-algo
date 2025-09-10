@@ -1,19 +1,19 @@
-# Array
+# Mảng (Array)
 
-An <u>array</u> is a linear data structure that operates as a lineup of similar items, stored together in a computer's memory in contiguous spaces. It's like a sequence that maintains organized storage. Each item in this lineup has its unique 'spot' known as an <u>index</u>. Please refer to the figure below to observe how arrays work and grasp these key terms.
+Một <u>mảng</u> là một cấu trúc dữ liệu tuyến tính hoạt động như một hàng các mục tương tự, được lưu trữ cùng nhau trong bộ nhớ của máy tính ở các vị trí liền kề. Nó giống như một chuỗi duy trì lưu trữ có tổ chức. Mỗi mục trong hàng này có 'vị trí' duy nhất của nó được gọi là <u>chỉ số</u> (index). Vui lòng tham khảo hình bên dưới để quan sát cách mảng hoạt động và nắm bắt các thuật ngữ chính này.
 
-![Array definition and storage method](array.assets/array_definition.png)
+![Định nghĩa mảng và phương pháp lưu trữ](array.assets/array_definition.png)
 
-## Common operations on arrays
+## Các thao tác phổ biến trên mảng
 
-### Initializing arrays
+### Khởi tạo mảng
 
-Arrays can be initialized in two ways depending on the needs: either without initial values or with specified initial values. When initial values are not specified, most programming languages will set the array elements to $0$:
+Mảng có thể được khởi tạo theo hai cách tùy thuộc vào nhu cầu: hoặc không có giá trị ban đầu hoặc với các giá trị ban đầu được chỉ định. Khi các giá trị ban đầu không được chỉ định, hầu hết các ngôn ngữ lập trình sẽ đặt các phần tử mảng thành $0$:
 
 === "Python"
 
     ```python title="array.py"
-    # Initialize array
+    # Khởi tạo mảng
     arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
     nums: list[int] = [1, 3, 2, 5, 4]
     ```
@@ -21,11 +21,11 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "C++"
 
     ```cpp title="array.cpp"
-    /* Initialize array */
-    // Stored on stack
+    /* Khởi tạo mảng */
+    // Lưu trữ trên stack
     int arr[5];
     int nums[5] = { 1, 3, 2, 5, 4 };
-    // Stored on heap (manual memory release needed)
+    // Lưu trữ trên heap (cần giải phóng bộ nhớ thủ công)
     int* arr1 = new int[5];
     int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
     ```
@@ -33,7 +33,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Java"
 
     ```java title="array.java"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
     int[] nums = { 1, 3, 2, 5, 4 };
     ```
@@ -41,7 +41,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "C#"
 
     ```csharp title="array.cs"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
     int[] nums = [1, 3, 2, 5, 4];
     ```
@@ -49,18 +49,18 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Go"
 
     ```go title="array.go"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     var arr [5]int
-    // In Go, specifying the length ([5]int) denotes an array, while not specifying it ([]int) denotes a slice.
-    // Since Go's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
-    // For convenience in implementing the extend() method, the Slice will be considered as an Array here.
+    // Trong Go, chỉ định độ dài ([5]int) biểu thị một mảng, trong khi không chỉ định nó ([]int) biểu thị một slice.
+    // Vì mảng của Go được thiết kế để có độ dài cố định tại thời điểm biên dịch, chỉ các hằng số mới có thể được sử dụng để chỉ định độ dài.
+    // Để thuận tiện cho việc triển khai phương thức extend(), Slice sẽ được coi là một Mảng ở đây.
     nums := []int{1, 3, 2, 5, 4}
     ```
 
 === "Swift"
 
     ```swift title="array.swift"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
     let nums = [1, 3, 2, 5, 4]
     ```
@@ -68,7 +68,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "JS"
 
     ```javascript title="array.js"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     var arr = new Array(5).fill(0);
     var nums = [1, 3, 2, 5, 4];
     ```
@@ -76,7 +76,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "TS"
 
     ```typescript title="array.ts"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     let arr: number[] = new Array(5).fill(0);
     let nums: number[] = [1, 3, 2, 5, 4];
     ```
@@ -84,7 +84,7 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Dart"
 
     ```dart title="array.dart"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
     List<int> nums = [1, 3, 2, 5, 4];
     ```
@@ -92,20 +92,20 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Rust"
 
     ```rust title="array.rs"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
     let slice: &[i32] = &[0; 5];
-    // In Rust, specifying the length ([i32; 5]) denotes an array, while not specifying it (&[i32]) denotes a slice.
-    // Since Rust's arrays are designed to have compile-time fixed length, only constants can be used to specify the length.
-    // Vectors are generally used as dynamic arrays in Rust.
-    // For convenience in implementing the extend() method, the vector will be considered as an array here.
+    // Trong Rust, chỉ định độ dài ([i32; 5]) biểu thị một mảng, trong khi không chỉ định nó (&[i32]) biểu thị một slice.
+    // Vì mảng của Rust được thiết kế để có độ dài cố định tại thời điểm biên dịch, chỉ các hằng số mới có thể được sử dụng để chỉ định độ dài.
+    // Vectors thường được sử dụng làm mảng động trong Rust.
+    // Để thuận tiện cho việc triển khai phương thức extend(), vector sẽ được coi là một mảng ở đây.
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
 === "C"
 
     ```c title="array.c"
-    /* Initialize array */
+    /* Khởi tạo mảng */
     int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
     int nums[5] = { 1, 3, 2, 5, 4 };
     ```
@@ -119,103 +119,103 @@ Arrays can be initialized in two ways depending on the needs: either without ini
 === "Zig"
 
     ```zig title="array.zig"
-    // Initialize array
+    // Khởi tạo mảng
     var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
     var nums = [_]i32{ 1, 3, 2, 5, 4 };
     ```
 
-### Accessing elements
+### Truy cập các phần tử
 
-Elements in an array are stored in contiguous memory spaces, making it simpler to compute each element's memory address. The formula shown in the Figure below aids in determining an element's memory address, utilizing the array's memory address (specifically, the first element's address) and the element's index. This computation streamlines direct access to the desired element.
+Các phần tử trong một mảng được lưu trữ trong các không gian bộ nhớ liền kề, giúp việc tính toán địa chỉ bộ nhớ của mỗi phần tử trở nên đơn giản hơn. Công thức được hiển thị trong Hình dưới đây hỗ trợ xác định địa chỉ bộ nhớ của một phần tử, sử dụng địa chỉ bộ nhớ của mảng (cụ thể là địa chỉ của phần tử đầu tiên) và chỉ số của phần tử. Tính toán này hợp lý hóa việc truy cập trực tiếp vào phần tử mong muốn.
 
-![Memory address calculation for array elements](array.assets/array_memory_location_calculation.png)
+![Tính toán địa chỉ bộ nhớ cho các phần tử mảng](array.assets/array_memory_location_calculation.png)
 
-As observed in the figure above, array indexing conventionally begins at $0$. While this might appear counterintuitive, considering counting usually starts at $1$, within the address calculation formula, **an index is essentially an offset from the memory address**. For the first element's address, this offset is $0$, validating its index as $0$.
+Như đã quan sát trong hình trên, lập chỉ mục mảng theo quy ước bắt đầu từ $0$. Mặc dù điều này có vẻ trái trực giác, vì việc đếm thường bắt đầu từ $1$, trong công thức tính địa chỉ, **một chỉ số về cơ bản là một độ lệch so với địa chỉ bộ nhớ**. Đối với địa chỉ của phần tử đầu tiên, độ lệch này là $0$, xác nhận chỉ số của nó là $0$.
 
-Accessing elements in an array is highly efficient, allowing us to randomly access any element in $O(1)$ time.
+Truy cập các phần tử trong một mảng là rất hiệu quả, cho phép chúng ta truy cập ngẫu nhiên bất kỳ phần tử nào trong thời gian $O(1)$.
 
 ```src
 [file]{array}-[class]{}-[func]{random_access}
 ```
 
-### Inserting elements
+### Chèn các phần tử
 
-Array elements are tightly packed in memory, with no space available to accommodate additional data between them. As illustrated in the figure below, inserting an element in the middle of an array requires shifting all subsequent elements back by one position to create room for the new element.
+Các phần tử mảng được đóng gói chặt chẽ trong bộ nhớ, không có không gian để chứa thêm dữ liệu giữa chúng. Như được minh họa trong hình dưới đây, việc chèn một phần tử vào giữa một mảng đòi hỏi phải dịch chuyển tất cả các phần tử tiếp theo lùi lại một vị trí để tạo chỗ cho phần tử mới.
 
-![Array element insertion example](array.assets/array_insert_element.png)
+![Ví dụ chèn phần tử mảng](array.assets/array_insert_element.png)
 
-It's important to note that due to the fixed length of an array, inserting an element will unavoidably result in the loss of the last element in the array. Solutions to address this issue will be explored in the "List" chapter.
+Điều quan trọng cần lưu ý là do độ dài cố định của một mảng, việc chèn một phần tử chắc chắn sẽ dẫn đến việc mất phần tử cuối cùng trong mảng. Các giải pháp để giải quyết vấn đề này sẽ được khám phá trong chương "Danh sách".
 
 ```src
 [file]{array}-[class]{}-[func]{insert}
 ```
 
-### Deleting elements
+### Xóa các phần tử
 
-Similarly, as depicted in the figure below, to delete an element at index $i$, all elements following index $i$ must be moved forward by one position.
+Tương tự, như được mô tả trong hình dưới đây, để xóa một phần tử tại chỉ số $i$, tất cả các phần tử sau chỉ số $i$ phải được di chuyển về phía trước một vị trí.
 
-![Array element deletion example](array.assets/array_remove_element.png)
+![Ví dụ xóa phần tử mảng](array.assets/array_remove_element.png)
 
-Please note that after deletion, the former last element becomes "meaningless," hence requiring no specific modification.
+Xin lưu ý rằng sau khi xóa, phần tử cuối cùng trước đây trở nên "vô nghĩa", do đó không yêu cầu sửa đổi cụ thể.
 
 ```src
 [file]{array}-[class]{}-[func]{remove}
 ```
 
-In summary, the insertion and deletion operations in arrays present the following disadvantages:
+Tóm lại, các thao tác chèn và xóa trong mảng có những nhược điểm sau:
 
-- **High time complexity**: Both insertion and deletion in an array have an average time complexity of $O(n)$, where $n$ is the length of the array.
-- **Loss of elements**: Due to the fixed length of arrays, elements that exceed the array's capacity are lost during insertion.
-- **Waste of memory**: Initializing a longer array and utilizing only the front part results in "meaningless" end elements during insertion, leading to some wasted memory space.
+- **Độ phức tạp thời gian cao**: Cả chèn và xóa trong một mảng đều có độ phức tạp thời gian trung bình là $O(n)$, trong đó $n$ là độ dài của mảng.
+- **Mất các phần tử**: Do độ dài cố định của mảng, các phần tử vượt quá dung lượng của mảng sẽ bị mất trong quá trình chèn.
+- **Lãng phí bộ nhớ**: Khởi tạo một mảng dài hơn và chỉ sử dụng phần đầu dẫn đến các phần tử cuối "vô nghĩa" trong quá trình chèn, dẫn đến lãng phí một số không gian bộ nhớ.
 
-### Traversing arrays
+### Duyệt mảng
 
-In most programming languages, we can traverse an array either by using indices or by directly iterating over each element:
+Trong hầu hết các ngôn ngữ lập trình, chúng ta có thể duyệt một mảng bằng cách sử dụng chỉ số hoặc bằng cách lặp trực tiếp qua từng phần tử:
 
 ```src
 [file]{array}-[class]{}-[func]{traverse}
 ```
 
-### Finding elements
+### Tìm kiếm các phần tử
 
-Locating a specific element within an array involves iterating through the array, checking each element to determine if it matches the desired value.
+Xác định vị trí một phần tử cụ thể trong một mảng bao gồm việc lặp qua mảng, kiểm tra từng phần tử để xác định xem nó có khớp với giá trị mong muốn hay không.
 
-Because arrays are linear data structures, this operation is commonly referred to as "linear search."
+Vì mảng là cấu trúc dữ liệu tuyến tính, thao tác này thường được gọi là "tìm kiếm tuyến tính".
 
 ```src
 [file]{array}-[class]{}-[func]{find}
 ```
 
-### Expanding arrays
+### Mở rộng mảng
 
-In complex system environments, ensuring the availability of memory space after an array for safe capacity extension becomes challenging. Consequently, in most programming languages, **the length of an array is immutable**.
+Trong môi trường hệ thống phức tạp, việc đảm bảo tính khả dụng của không gian bộ nhớ sau một mảng để mở rộng dung lượng an toàn trở nên khó khăn. Do đó, trong hầu hết các ngôn ngữ lập trình, **độ dài của một mảng là bất biến**.
 
-To expand an array,  it's necessary to create a larger array and then copy the elements from the original array. This operation has a time complexity of $O(n)$ and can be time-consuming for large arrays. The code are as follows:
+Để mở rộng một mảng, cần tạo một mảng lớn hơn và sau đó sao chép các phần tử từ mảng ban đầu. Thao tác này có độ phức tạp thời gian là $O(n)$ và có thể tốn thời gian đối với các mảng lớn. Mã như sau:
 
 ```src
 [file]{array}-[class]{}-[func]{extend}
 ```
 
-## Advantages and limitations of arrays
+## Ưu điểm và hạn chế của mảng
 
-Arrays are stored in contiguous memory spaces and consist of elements of the same type. This approach provides substantial prior information that systems can leverage to optimize the efficiency of data structure operations.
+Mảng được lưu trữ trong các không gian bộ nhớ liền kề và bao gồm các phần tử cùng loại. Cách tiếp cận này cung cấp thông tin trước đáng kể mà hệ thống có thể tận dụng để tối ưu hóa hiệu quả của các thao tác cấu trúc dữ liệu.
 
-- **High space efficiency**: Arrays allocate a contiguous block of memory for data, eliminating the need for additional structural overhead.
-- **Support for random access**: Arrays allow $O(1)$ time access to any element.
-- **Cache locality**: When accessing array elements, the computer not only loads them but also caches the surrounding data, utilizing high-speed cache to enchance subsequent operation speeds.
+- **Hiệu quả không gian cao**: Mảng phân bổ một khối bộ nhớ liền kề cho dữ liệu, loại bỏ nhu cầu về chi phí cấu trúc bổ sung.
+- **Hỗ trợ truy cập ngẫu nhiên**: Mảng cho phép truy cập thời gian $O(1)$ vào bất kỳ phần tử nào.
+- **Tính cục bộ của bộ nhớ cache**: Khi truy cập các phần tử mảng, máy tính không chỉ tải chúng mà còn lưu vào bộ nhớ cache dữ liệu xung quanh, sử dụng bộ nhớ cache tốc độ cao để nâng cao tốc độ hoạt động tiếp theo.
 
-However, continuous space storage is a double-edged sword, with the following limitations:
+Tuy nhiên, lưu trữ không gian liên tục là một con dao hai lưỡi, với những hạn chế sau:
 
-- **Low efficiency in insertion and deletion**: As arrays accumulate many elements, inserting or deleting elements requires shifting a large number of elements.
-- **Fixed length**: The length of an array is fixed after initialization. Expanding an array requires copying all data to a new array, incurring significant costs.
-- **Space wastage**: If the allocated array size exceeds the what is necessary, the extra space is wasted.
+- **Hiệu quả thấp trong chèn và xóa**: Khi mảng tích lũy nhiều phần tử, việc chèn hoặc xóa các phần tử đòi hỏi phải dịch chuyển một số lượng lớn các phần tử.
+- **Độ dài cố định**: Độ dài của một mảng được cố định sau khi khởi tạo. Mở rộng một mảng đòi hỏi phải sao chép tất cả dữ liệu sang một mảng mới, phát sinh chi phí đáng kể.
+- **Lãng phí không gian**: Nếu kích thước mảng được phân bổ vượt quá mức cần thiết, không gian thừa sẽ bị lãng phí.
 
-## Typical applications of arrays
+## Các ứng dụng điển hình của mảng
 
-Arrays are fundamental and widely used data structures. They find frequent application in various algorithms and serve in the implementation of complex data structures.
+Mảng là cấu trúc dữ liệu cơ bản và được sử dụng rộng rãi. Chúng được ứng dụng thường xuyên trong các thuật toán khác nhau và phục vụ trong việc triển khai các cấu trúc dữ liệu phức tạp.
 
-- **Random access**: Arrays are ideal for storing data when random sampling is required. By generating a random sequence based on indices, we can achieve random sampling efficiently.
-- **Sorting and searching**: Arrays are the most commonly used data structure for sorting and searching algorithms.  Techniques like quick sort, merge sort, binary search, etc., are primarily operate on arrays.
-- **Lookup tables**: Arrays serve as efficient lookup tables for quick element or relationship retrieval. For instance, mapping characters to ASCII codes becomes seamless by using the ASCII code values as indices and storing corresponding elements in the array.
-- **Machine learning**: Within the domain of neural networks, arrays play a pivotal role in executing crucial linear algebra operations involving vectors, matrices, and tensors. Arrays serve as the primary and most extensively used data structure in neural network programming.
-- **Data structure implementation**:  Arrays serve as the building blocks for implementing various data structures like stacks, queues, hash tables, heaps, graphs, etc. For instance, the adjacency matrix representation of a graph is essentially a two-dimensional array.
+- **Truy cập ngẫu nhiên**: Mảng là lý tưởng để lưu trữ dữ liệu khi cần lấy mẫu ngẫu nhiên. Bằng cách tạo một chuỗi ngẫu nhiên dựa trên các chỉ số, chúng ta có thể đạt được lấy mẫu ngẫu nhiên một cách hiệu quả.
+- **Sắp xếp và tìm kiếm**: Mảng là cấu trúc dữ liệu được sử dụng phổ biến nhất cho các thuật toán sắp xếp và tìm kiếm. Các kỹ thuật như sắp xếp nhanh, sắp xếp trộn, tìm kiếm nhị phân, v.v., chủ yếu hoạt động trên mảng.
+- **Bảng tra cứu**: Mảng đóng vai trò là bảng tra cứu hiệu quả để truy xuất nhanh các phần tử hoặc mối quan hệ. Ví dụ: ánh xạ các ký tự với mã ASCII trở nên liền mạch bằng cách sử dụng các giá trị mã ASCII làm chỉ số và lưu trữ các phần tử tương ứng trong mảng.
+- **Học máy**: Trong lĩnh vực mạng nơ-ron, mảng đóng một vai trò quan trọng trong việc thực hiện các phép toán đại số tuyến tính quan trọng liên quan đến vectơ, ma trận và tenxơ. Mảng đóng vai trò là cấu trúc dữ liệu chính và được sử dụng rộng rãi nhất trong lập trình mạng nơ-ron.
+- **Triển khai cấu trúc dữ liệu**: Mảng đóng vai trò là các khối xây dựng để triển khai các cấu trúc dữ liệu khác nhau như ngăn xếp, hàng đợi, bảng băm, heap, đồ thị, v.v. Ví dụ: biểu diễn ma trận kề của một đồ thị về cơ bản là một mảng hai chiều.

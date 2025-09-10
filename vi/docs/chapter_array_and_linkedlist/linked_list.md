@@ -1,73 +1,73 @@
-# Linked list
+# Danh sách liên kết
 
-Memory space is a shared resource among all programs. In a complex system environment, available memory can be dispersed throughout the memory space. We understand that the memory allocated for an array must be continuous. However, for very large arrays, finding a sufficiently large contiguous memory space might be challenging. This is where the flexible advantage of linked lists becomes evident.
+Không gian bộ nhớ là một tài nguyên được chia sẻ giữa tất cả các chương trình. Trong một môi trường hệ thống phức tạp, bộ nhớ khả dụng có thể bị phân tán khắp không gian bộ nhớ. Chúng ta hiểu rằng bộ nhớ được cấp phát cho một mảng phải liên tục. Tuy nhiên, đối với các mảng rất lớn, việc tìm một không gian bộ nhớ liền kề đủ lớn có thể là một thách thức. Đây là nơi ưu điểm linh hoạt của danh sách liên kết trở nên rõ ràng.
 
-A <u>linked list</u> is a linear data structure in which each element is a node object, and the nodes are interconnected through "references". These references hold the memory addresses of subsequent nodes, enabling navigation from one node to the next.
+Một <u>danh sách liên kết</u> là một cấu trúc dữ liệu tuyến tính trong đó mỗi phần tử là một đối tượng nút và các nút được kết nối với nhau thông qua "tham chiếu". Các tham chiếu này giữ địa chỉ bộ nhớ của các nút tiếp theo, cho phép điều hướng từ nút này sang nút khác.
 
-The design of linked lists allows for their nodes to be distributed across memory locations without requiring contiguous memory addresses.
+Thiết kế của danh sách liên kết cho phép các nút của chúng được phân phối trên các vị trí bộ nhớ mà không cần địa chỉ bộ nhớ liền kề.
 
-![Linked list definition and storage method](linked_list.assets/linkedlist_definition.png)
+![Định nghĩa và phương pháp lưu trữ danh sách liên kết](linked_list.assets/linkedlist_definition.png)
 
-As shown in the figure above, we see that the basic building block of a linked list is the <u>node</u> object. Each node comprises two key components: the node's "value" and a "reference" to the next node.
+Như trong hình trên, chúng ta thấy rằng khối xây dựng cơ bản của một danh sách liên kết là đối tượng <u>nút</u>. Mỗi nút bao gồm hai thành phần chính: "giá trị" của nút và một "tham chiếu" đến nút tiếp theo.
 
-- The first node in a linked list is the "head node", and the final one is the "tail node".
-- The tail node points to "null", designated as `null` in Java, `nullptr` in C++, and `None` in Python.
-- In languages that support pointers, like C, C++, Go, and Rust, this "reference" is typically implemented as a "pointer".
+- Nút đầu tiên trong một danh sách liên kết là "nút đầu", và nút cuối cùng là "nút đuôi".
+- Nút đuôi trỏ đến "null", được chỉ định là `null` trong Java, `nullptr` trong C++ và `None` trong Python.
+- Trong các ngôn ngữ hỗ trợ con trỏ, như C, C++, Go và Rust, "tham chiếu" này thường được triển khai như một "con trỏ".
 
-As the code below illustrates, a `ListNode` in a linked list, besides holding a value, must also maintain an additional reference (or pointer). Therefore, **a linked list occupies more memory space than an array when storing the same quantity of data.**.
+Như đoạn code dưới đây minh họa, một `ListNode` trong một danh sách liên kết, ngoài việc giữ một giá trị, cũng phải duy trì một tham chiếu (hoặc con trỏ) bổ sung. Do đó, **một danh sách liên kết chiếm nhiều không gian bộ nhớ hơn một mảng khi lưu trữ cùng một lượng dữ liệu**.
 
 === "Python"
 
     ```python title=""
     class ListNode:
-        """Linked list node class"""
+        """Lớp nút danh sách liên kết"""
         def __init__(self, val: int):
-            self.val: int = val               # Node value
-            self.next: ListNode | None = None # Reference to the next node
+            self.val: int = val               # Giá trị nút
+            self.next: ListNode | None = None # Tham chiếu đến nút tiếp theo
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Linked list node structure */
+    /* Cấu trúc nút danh sách liên kết */
     struct ListNode {
-        int val;         // Node value
-        ListNode *next;  // Pointer to the next node
-        ListNode(int x) : val(x), next(nullptr) {}  // Constructor
+        int val;         // Giá trị nút
+        ListNode *next;  // Con trỏ đến nút tiếp theo
+        ListNode(int x) : val(x), next(nullptr) {}  // Hàm tạo
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Linked list node class */
+    /* Lớp nút danh sách liên kết */
     class ListNode {
-        int val;        // Node value
-        ListNode next;  // Reference to the next node
-        ListNode(int x) { val = x; }  // Constructor
+        int val;        // Giá trị nút
+        ListNode next;  // Tham chiếu đến nút tiếp theo
+        ListNode(int x) { val = x; }  // Hàm tạo
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Linked list node class */
-    class ListNode(int x) {  // Constructor
-        int val = x;         // Node value
-        ListNode? next;      // Reference to the next node
+    /* Lớp nút danh sách liên kết */
+    class ListNode(int x) {  // Hàm tạo
+        int val = x;         // Giá trị nút
+        ListNode? next;      // Tham chiếu đến nút tiếp theo
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* Linked list node structure */
+    /* Cấu trúc nút danh sách liên kết */
     type ListNode struct {
-        Val  int       // Node value
-        Next *ListNode // Pointer to the next node
+        Val  int       // Giá trị nút
+        Next *ListNode // Con trỏ đến nút tiếp theo
     }
 
-    // NewListNode Constructor, creates a new linked list
+    // NewListNode Constructor, tạo một danh sách liên kết mới
     func NewListNode(val int) *ListNode {
         return &ListNode{
             Val:  val,
@@ -79,12 +79,12 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Swift"
 
     ```swift title=""
-    /* Linked list node class */
+    /* Lớp nút danh sách liên kết */
     class ListNode {
-        var val: Int // Node value
-        var next: ListNode? // Reference to the next node
+        var val: Int // Giá trị nút
+        var next: ListNode? // Tham chiếu đến nút tiếp theo
 
-        init(x: Int) { // Constructor
+        init(x: Int) { // Hàm tạo
             val = x
         }
     }
@@ -93,11 +93,11 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "JS"
 
     ```javascript title=""
-    /* Linked list node class */
+    /* Lớp nút danh sách liên kết */
     class ListNode {
         constructor(val, next) {
-            this.val = (val === undefined ? 0 : val);       // Node value
-            this.next = (next === undefined ? null : next); // Reference to the next node
+            this.val = (val === undefined ? 0 : val);       // Giá trị nút
+            this.next = (next === undefined ? null : next); // Tham chiếu đến nút tiếp theo
         }
     }
     ```
@@ -105,13 +105,13 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "TS"
 
     ```typescript title=""
-    /* Linked list node class */
+    /* Lớp nút danh sách liên kết */
     class ListNode {
         val: number;
         next: ListNode | null;
         constructor(val?: number, next?: ListNode | null) {
-            this.val = val === undefined ? 0 : val;        // Node value
-            this.next = next === undefined ? null : next;  // Reference to the next node
+            this.val = val === undefined ? 0 : val;        // Giá trị nút
+            this.next = next === undefined ? null : next;  // Tham chiếu đến nút tiếp theo
         }
     }
     ```
@@ -119,11 +119,11 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Dart"
 
     ```dart title=""
-    /* Linked list node class */
+    /* Lớp nút danh sách liên kết */
     class ListNode {
-      int val; // Node value
-      ListNode? next; // Reference to the next node
-      ListNode(this.val, [this.next]); // Constructor
+      int val; // Giá trị nút
+      ListNode? next; // Tham chiếu đến nút tiếp theo
+      ListNode(this.val, [this.next]); // Hàm tạo
     }
     ```
 
@@ -132,24 +132,24 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-    /* Linked list node class */
+    /* Lớp nút danh sách liên kết */
     #[derive(Debug)]
     struct ListNode {
-        val: i32, // Node value
-        next: Option<Rc<RefCell<ListNode>>>, // Pointer to the next node
+        val: i32, // Giá trị nút
+        next: Option<Rc<RefCell<ListNode>>>, // Con trỏ đến nút tiếp theo
     }
     ```
 
 === "C"
 
     ```c title=""
-    /* Linked list node structure */
+    /* Cấu trúc nút danh sách liên kết */
     typedef struct ListNode {
-        int val;               // Node value
-        struct ListNode *next; // Pointer to the next node
+        int val;               // Giá trị nút
+        struct ListNode *next; // Con trỏ đến nút tiếp theo
     } ListNode;
 
-    /* Constructor */
+    /* Hàm tạo */
     ListNode *newListNode(int val) {
         ListNode *node;
         node = (ListNode *) malloc(sizeof(ListNode));
@@ -168,15 +168,15 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
 === "Zig"
 
     ```zig title=""
-    // Linked list node class
+    // Lớp nút danh sách liên kết
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
 
-            val: T = 0, // Node value
-            next: ?*Self = null, // Pointer to the next node
+            val: T = 0, // Giá trị nút
+            next: ?*Self = null, // Con trỏ đến nút tiếp theo
 
-            // Constructor
+            // Hàm tạo
             pub fn init(self: *Self, x: i32) void {
                 self.val = x;
                 self.next = null;
@@ -185,23 +185,23 @@ As the code below illustrates, a `ListNode` in a linked list, besides holding a 
     }
     ```
 
-## Common operations on linked lists
+## Các thao tác phổ biến trên danh sách liên kết
 
-### Initializing a linked list
+### Khởi tạo một danh sách liên kết
 
-Constructing a linked list is a two-step process: first, initializing each node object, and second, forming the reference links between the nodes. After initialization, we can traverse all nodes sequentially from the head node by following the `next` reference.
+Xây dựng một danh sách liên kết là một quá trình hai bước: đầu tiên, khởi tạo mỗi đối tượng nút, và thứ hai, tạo các liên kết tham chiếu giữa các nút. Sau khi khởi tạo, chúng ta có thể duyệt qua tất cả các nút tuần tự từ nút đầu bằng cách theo tham chiếu `next`.
 
 === "Python"
 
     ```python title="linked_list.py"
-    # Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4
-    # Initialize each node
+    # Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4
+    # Khởi tạo mỗi nút
     n0 = ListNode(1)
     n1 = ListNode(3)
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # Build references between nodes
+    # Xây dựng tham chiếu giữa các nút
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -211,14 +211,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "C++"
 
     ```cpp title="linked_list.cpp"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     ListNode* n0 = new ListNode(1);
     ListNode* n1 = new ListNode(3);
     ListNode* n2 = new ListNode(2);
     ListNode* n3 = new ListNode(5);
     ListNode* n4 = new ListNode(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -228,14 +228,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Java"
 
     ```java title="linked_list.java"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     ListNode n0 = new ListNode(1);
     ListNode n1 = new ListNode(3);
     ListNode n2 = new ListNode(2);
     ListNode n3 = new ListNode(5);
     ListNode n4 = new ListNode(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -245,14 +245,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "C#"
 
     ```csharp title="linked_list.cs"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     ListNode n0 = new(1);
     ListNode n1 = new(3);
     ListNode n2 = new(2);
     ListNode n3 = new(5);
     ListNode n4 = new(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -262,14 +262,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Go"
 
     ```go title="linked_list.go"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     n0 := NewListNode(1)
     n1 := NewListNode(3)
     n2 := NewListNode(2)
     n3 := NewListNode(5)
     n4 := NewListNode(4)
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.Next = n1
     n1.Next = n2
     n2.Next = n3
@@ -279,14 +279,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Swift"
 
     ```swift title="linked_list.swift"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     let n0 = ListNode(x: 1)
     let n1 = ListNode(x: 3)
     let n2 = ListNode(x: 2)
     let n3 = ListNode(x: 5)
     let n4 = ListNode(x: 4)
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = n1
     n1.next = n2
     n2.next = n3
@@ -296,14 +296,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "JS"
 
     ```javascript title="linked_list.js"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -313,14 +313,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "TS"
 
     ```typescript title="linked_list.ts"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     const n0 = new ListNode(1);
     const n1 = new ListNode(3);
     const n2 = new ListNode(2);
     const n3 = new ListNode(5);
     const n4 = new ListNode(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -330,14 +330,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Dart"
 
     ```dart title="linked_list.dart"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     ListNode n0 = ListNode(1);
     ListNode n1 = ListNode(3);
     ListNode n2 = ListNode(2);
     ListNode n3 = ListNode(5);
     ListNode n4 = ListNode(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = n1;
     n1.next = n2;
     n2.next = n3;
@@ -347,15 +347,15 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Rust"
 
     ```rust title="linked_list.rs"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
     let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
     let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
     let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
     let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
 
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
@@ -365,14 +365,14 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "C"
 
     ```c title="linked_list.c"
-    /* Initialize linked list: 1 -> 3 -> 2 -> 5 -> 4 */
-    // Initialize each node
+    /* Khởi tạo danh sách liên kết: 1 -> 3 -> 2 -> 5 -> 4 */
+    // Khởi tạo mỗi nút
     ListNode* n0 = newListNode(1);
     ListNode* n1 = newListNode(3);
     ListNode* n2 = newListNode(2);
     ListNode* n3 = newListNode(5);
     ListNode* n4 = newListNode(4);
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -388,142 +388,142 @@ Constructing a linked list is a two-step process: first, initializing each node 
 === "Zig"
 
     ```zig title="linked_list.zig"
-    // Initialize linked list
-    // Initialize each node
+    // Khởi tạo danh sách liên kết
+    // Khởi tạo mỗi nút
     var n0 = inc.ListNode(i32){.val = 1};
     var n1 = inc.ListNode(i32){.val = 3};
     var n2 = inc.ListNode(i32){.val = 2};
     var n3 = inc.ListNode(i32){.val = 5};
     var n4 = inc.ListNode(i32){.val = 4};
-    // Build references between nodes
+    // Xây dựng tham chiếu giữa các nút
     n0.next = &n1;
     n1.next = &n2;
     n2.next = &n3;
     n3.next = &n4;
     ```
 
-The array as a whole is a variable, for instance, the array `nums` includes elements like `nums[0]`, `nums[1]`, and so on, whereas a linked list is made up of several distinct node objects. **We typically refer to a linked list by its head node**, for example, the linked list in the previous code snippet is referred to as `n0`.
+Mảng nói chung là một biến, ví dụ: mảng `nums` bao gồm các phần tử như `nums[0]`, `nums[1]`, v.v., trong khi một danh sách liên kết được tạo thành từ một số đối tượng nút riêng biệt. **Chúng ta thường tham chiếu đến một danh sách liên kết bằng nút đầu của nó**, ví dụ: danh sách liên kết trong đoạn code trước được gọi là `n0`.
 
-### Inserting nodes
+### Chèn nút
 
-Inserting a node into a linked list is very easy. As shown in the figure below, let's assume we aim to insert a new node `P` between two adjacent nodes `n0` and `n1`. **This can be achieved by simply modifying two node references (pointers)**, with a time complexity of $O(1)$.
+Chèn một nút vào một danh sách liên kết rất dễ dàng. Như trong hình dưới đây, giả sử chúng ta muốn chèn một nút mới `P` giữa hai nút liền kề `n0` và `n1`. **Điều này có thể đạt được bằng cách chỉ cần sửa đổi hai tham chiếu nút (con trỏ)**, với độ phức tạp thời gian là $O(1)$.
 
-By comparison, inserting an element into an array has a time complexity of $O(n)$, which becomes less efficient when dealing with large data volumes.
+So sánh, việc chèn một phần tử vào một mảng có độ phức tạp thời gian là $O(n)$, điều này trở nên kém hiệu quả hơn khi xử lý khối lượng dữ liệu lớn.
 
-![Linked list node insertion example](linked_list.assets/linkedlist_insert_node.png)
+![Ví dụ chèn nút danh sách liên kết](linked_list.assets/linkedlist_insert_node.png)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{insert}
 ```
 
-### Deleting nodes
+### Xóa nút
 
-As shown in the figure below, deleting a node from a linked list is also very easy, **involving only the modification of a single node's reference (pointer)**.
+Như trong hình dưới đây, việc xóa một nút khỏi một danh sách liên kết cũng rất dễ dàng, **chỉ liên quan đến việc sửa đổi tham chiếu (con trỏ) của một nút duy nhất**.
 
-It's important to note that even though node `P` continues to point to `n1` after being deleted, it becomes inaccessible during linked list traversal. This effectively means that `P` is no longer a part of the linked list.
+Điều quan trọng cần lưu ý là ngay cả khi nút `P` tiếp tục trỏ đến `n1` sau khi bị xóa, nó sẽ trở nên không thể truy cập được trong quá trình duyệt danh sách liên kết. Điều này có nghĩa là `P` không còn là một phần của danh sách liên kết.
 
-![Linked list node deletion](linked_list.assets/linkedlist_remove_node.png)
+![Xóa nút danh sách liên kết](linked_list.assets/linkedlist_remove_node.png)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
 ```
 
-### Accessing nodes
+### Truy cập nút
 
-**Accessing nodes in a linked list is less efficient**. As previously mentioned, any element in an array can be accessed in $O(1)$ time. In contrast, with a linked list, the program involves starting from the head node and sequentially traversing through the nodes until the desired node is found. In other words, to access the $i$-th node in a linked list, the program must iterate through $i - 1$ nodes, resulting in a time complexity of $O(n)$.
+**Truy cập các nút trong một danh sách liên kết kém hiệu quả hơn**. Như đã đề cập trước đó, bất kỳ phần tử nào trong một mảng có thể được truy cập trong thời gian $O(1)$. Ngược lại, với một danh sách liên kết, chương trình liên quan đến việc bắt đầu từ nút đầu và tuần tự duyệt qua các nút cho đến khi tìm thấy nút mong muốn. Nói cách khác, để truy cập nút thứ $i$ trong một danh sách liên kết, chương trình phải lặp qua $i - 1$ nút, dẫn đến độ phức tạp thời gian là $O(n)$.
 
 ```src
 [file]{linked_list}-[class]{}-[func]{access}
 ```
 
-### Finding nodes
+### Tìm kiếm nút
 
-Traverse the linked list to locate a node whose value matches `target`, and then output the index of that node within the linked list. This procedure is also an example of linear search. The corresponding code is provided below:
+Duyệt danh sách liên kết để định vị một nút có giá trị khớp với `target`, và sau đó xuất chỉ mục của nút đó trong danh sách liên kết. Thủ tục này cũng là một ví dụ về tìm kiếm tuyến tính. Code tương ứng được cung cấp dưới đây:
 
 ```src
 [file]{linked_list}-[class]{}-[func]{find}
 ```
 
-## Arrays vs. linked lists
+## Mảng so với danh sách liên kết
 
-The table below summarizes the characteristics of arrays and linked lists, and it also compares their efficiencies in various operations. Because they utilize opposing storage strategies, their respective properties and operational efficiencies exhibit distinct contrasts.
+Bảng dưới đây tóm tắt các đặc điểm của mảng và danh sách liên kết, và nó cũng so sánh hiệu quả của chúng trong các hoạt động khác nhau. Vì chúng sử dụng các chiến lược lưu trữ đối lập, các thuộc tính và hiệu quả hoạt động tương ứng của chúng thể hiện sự tương phản rõ rệt.
 
-<p align="center"> Table <id> &nbsp; Efficiency comparison of arrays and linked lists </p>
+<p align="center"> Bảng <id> &nbsp; So sánh hiệu quả của mảng và danh sách liên kết </p>
 
-|                    | Arrays                                           | Linked Lists            |
+|                    | Mảng                                           | Danh sách liên kết            |
 | ------------------ | ------------------------------------------------ | ----------------------- |
-| Storage            | Contiguous Memory Space                          | Dispersed Memory Space  |
-| Capacity Expansion | Fixed Length                                     | Flexible Expansion      |
-| Memory Efficiency  | Less Memory per Element, Potential Space Wastage | More Memory per Element |
-| Accessing Elements | $O(1)$                                           | $O(n)$                  |
-| Adding Elements    | $O(n)$                                           | $O(1)$                  |
-| Deleting Elements  | $O(n)$                                           | $O(1)$                  |
+| Lưu trữ            | Không gian bộ nhớ liền kề                          | Không gian bộ nhớ phân tán  |
+| Mở rộng dung lượng | Độ dài cố định                                     | Mở rộng linh hoạt      |
+| Hiệu quả bộ nhớ  | Ít bộ nhớ trên mỗi phần tử, lãng phí không gian tiềm năng | Nhiều bộ nhớ trên mỗi phần tử |
+| Truy cập phần tử | $O(1)$                                           | $O(n)$                  |
+| Thêm phần tử    | $O(n)$                                           | $O(1)$                  |
+| Xóa phần tử     | $O(n)$                                           | $O(1)$                  |
 
-## Common types of linked lists
+## Các loại danh sách liên kết phổ biến
 
-As shown in the figure below, there are three common types of linked lists.
+Như trong hình dưới đây, có ba loại danh sách liên kết phổ biến.
 
-- **Singly linked list**: This is the standard linked list described earlier. Nodes in a singly linked list include a value and a reference to the next node. The first node is known as the head node, and the last node, which points to null (`None`), is the tail node.
-- **Circular linked list**: This is formed when the tail node of a singly linked list points back to the head node, creating a loop. In a circular linked list, any node can function as the head node.
-- **Doubly linked list**: In contrast to a singly linked list, a doubly linked list maintains references in two directions. Each node contains references (pointer) to both its successor (the next node) and predecessor (the previous node). Although doubly linked lists offer more flexibility for traversing in either direction, they also consume more memory space.
+- **Danh sách liên kết đơn**: Đây là danh sách liên kết tiêu chuẩn được mô tả trước đó. Các nút trong một danh sách liên kết đơn bao gồm một giá trị và một tham chiếu đến nút tiếp theo. Nút đầu tiên được gọi là nút đầu và nút cuối cùng, trỏ đến null (`None`), là nút đuôi.
+- **Danh sách liên kết vòng**: Điều này được hình thành khi nút đuôi của một danh sách liên kết đơn trỏ ngược lại nút đầu, tạo ra một vòng lặp. Trong một danh sách liên kết vòng, bất kỳ nút nào cũng có thể hoạt động như nút đầu.
+- **Danh sách liên kết đôi**: Ngược lại với một danh sách liên kết đơn, một danh sách liên kết đôi duy trì các tham chiếu theo hai hướng. Mỗi nút chứa các tham chiếu (con trỏ) đến cả nút kế nhiệm (nút tiếp theo) và nút tiền nhiệm (nút trước đó). Mặc dù danh sách liên kết đôi cung cấp sự linh hoạt hơn để duyệt theo cả hai hướng, nhưng chúng cũng tiêu thụ nhiều không gian bộ nhớ hơn.
 
 === "Python"
 
     ```python title=""
     class ListNode:
-        """Bidirectional linked list node class"""
+        """Lớp nút danh sách liên kết hai chiều"""
         def __init__(self, val: int):
-            self.val: int = val                # Node value
-            self.next: ListNode | None = None  # Reference to the successor node
-            self.prev: ListNode | None = None  # Reference to a predecessor node
+            self.val: int = val                # Giá trị nút
+            self.next: ListNode | None = None  # Tham chiếu đến nút kế nhiệm
+            self.prev: ListNode | None = None  # Tham chiếu đến nút tiền nhiệm
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Bidirectional linked list node structure */
+    /* Cấu trúc nút danh sách liên kết hai chiều */
     struct ListNode {
-        int val;         // Node value
-        ListNode *next;  // Pointer to the successor node
-        ListNode *prev;  // Pointer to the predecessor node
-        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // Constructor
+        int val;         // Giá trị nút
+        ListNode *next;  // Con trỏ đến nút kế nhiệm
+        ListNode *prev;  // Con trỏ đến nút tiền nhiệm
+        ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // Hàm tạo
     };
     ```
 
 === "Java"
 
     ```java title=""
-    /* Bidirectional linked list node class */
+    /* Lớp nút danh sách liên kết hai chiều */
     class ListNode {
-        int val;        // Node value
-        ListNode next;  // Reference to the next node
-        ListNode prev;  // Reference to the predecessor node
-        ListNode(int x) { val = x; }  // Constructor
+        int val;        // Giá trị nút
+        ListNode next;  // Tham chiếu đến nút tiếp theo
+        ListNode prev;  // Tham chiếu đến nút tiền nhiệm
+        ListNode(int x) { val = x; }  // Hàm tạo
     }
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Bidirectional linked list node class */
-    class ListNode(int x) {  // Constructor
-        int val = x;    // Node value
-        ListNode next;  // Reference to the next node
-        ListNode prev;  // Reference to the predecessor node
+    /* Lớp nút danh sách liên kết hai chiều */
+    class ListNode(int x) {  // Hàm tạo
+        int val = x;    // Giá trị nút
+        ListNode next;  // Tham chiếu đến nút tiếp theo
+        ListNode prev;  // Tham chiếu đến nút tiền nhiệm
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* Bidirectional linked list node structure */
+    /* Cấu trúc nút danh sách liên kết hai chiều */
     type DoublyListNode struct {
-        Val  int             // Node value
-        Next *DoublyListNode // Pointer to the successor node
-        Prev *DoublyListNode // Pointer to the predecessor node
+        Val  int             // Giá trị nút
+        Next *DoublyListNode // Con trỏ đến nút kế nhiệm
+        Prev *DoublyListNode // Con trỏ đến nút tiền nhiệm
     }
 
-    // NewDoublyListNode initialization
+    // Khởi tạo NewDoublyListNode
     func NewDoublyListNode(val int) *DoublyListNode {
         return &DoublyListNode{
             Val:  val,
@@ -536,13 +536,13 @@ As shown in the figure below, there are three common types of linked lists.
 === "Swift"
 
     ```swift title=""
-    /* Bidirectional linked list node class */
+    /* Lớp nút danh sách liên kết hai chiều */
     class ListNode {
-        var val: Int // Node value
-        var next: ListNode? // Reference to the next node
-        var prev: ListNode? // Reference to the predecessor node
+        var val: Int // Giá trị nút
+        var next: ListNode? // Tham chiếu đến nút tiếp theo
+        var prev: ListNode? // Tham chiếu đến nút tiền nhiệm
 
-        init(x: Int) { // Constructor
+        init(x: Int) { // Hàm tạo
             val = x
         }
     }
@@ -551,12 +551,12 @@ As shown in the figure below, there are three common types of linked lists.
 === "JS"
 
     ```javascript title=""
-    /* Bidirectional linked list node class */
+    /* Lớp nút danh sách liên kết hai chiều */
     class ListNode {
         constructor(val, next, prev) {
-            this.val = val  ===  undefined ? 0 : val;        // Node value
-            this.next = next  ===  undefined ? null : next;  // Reference to the successor node
-            this.prev = prev  ===  undefined ? null : prev;  // Reference to the predecessor node
+            this.val = val  ===  undefined ? 0 : val;        // Giá trị nút
+            this.next = next  ===  undefined ? null : next;  // Tham chiếu đến nút kế nhiệm
+            this.prev = prev  ===  undefined ? null : prev;  // Tham chiếu đến nút tiền nhiệm
         }
     }
     ```
@@ -564,15 +564,15 @@ As shown in the figure below, there are three common types of linked lists.
 === "TS"
 
     ```typescript title=""
-    /* Bidirectional linked list node class */
+    /* Lớp nút danh sách liên kết hai chiều */
     class ListNode {
         val: number;
         next: ListNode | null;
         prev: ListNode | null;
         constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-            this.val = val  ===  undefined ? 0 : val;        // Node value
-            this.next = next  ===  undefined ? null : next;  // Reference to the successor node
-            this.prev = prev  ===  undefined ? null : prev;  // Reference to the predecessor node
+            this.val = val  ===  undefined ? 0 : val;        // Giá trị nút
+            this.next = next  ===  undefined ? null : next;  // Tham chiếu đến nút kế nhiệm
+            this.prev = prev  ===  undefined ? null : prev;  // Tham chiếu đến nút tiền nhiệm
         }
     }
     ```
@@ -580,12 +580,12 @@ As shown in the figure below, there are three common types of linked lists.
 === "Dart"
 
     ```dart title=""
-    /* Bidirectional linked list node class */
+    /* Lớp nút danh sách liên kết hai chiều */
     class ListNode {
-        int val;        // Node value
-        ListNode next;  // Reference to the next node
-        ListNode prev;  // Reference to the predecessor node
-        ListNode(this.val, [this.next, this.prev]);  // Constructor
+        int val;        // Giá trị nút
+        ListNode next;  // Tham chiếu đến nút tiếp theo
+        ListNode prev;  // Tham chiếu đến nút tiền nhiệm
+        ListNode(this.val, [this.next, this.prev]);  // Hàm tạo
     }
     ```
 
@@ -595,15 +595,15 @@ As shown in the figure below, there are three common types of linked lists.
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* Bidirectional linked list node type */
+    /* Kiểu nút danh sách liên kết hai chiều */
     #[derive(Debug)]
     struct ListNode {
-        val: i32, // Node value
-        next: Option<Rc<RefCell<ListNode>>>, // Pointer to successor node
-        prev: Option<Rc<RefCell<ListNode>>>, // Pointer to predecessor node
+        val: i32, // Giá trị nút
+        next: Option<Rc<RefCell<ListNode>>>, // Con trỏ đến nút kế nhiệm
+        prev: Option<Rc<RefCell<ListNode>>>, // Con trỏ đến nút tiền nhiệm
     }
 
-    /* Constructors */
+    /* Hàm tạo */
     impl ListNode {
         fn new(val: i32) -> Self {
             ListNode {
@@ -618,14 +618,14 @@ As shown in the figure below, there are three common types of linked lists.
 === "C"
 
     ```c title=""
-    /* Bidirectional linked list node structure */
+    /* Cấu trúc nút danh sách liên kết hai chiều */
     typedef struct ListNode {
-        int val;               // Node value
-        struct ListNode *next; // Pointer to the successor node
-        struct ListNode *prev; // Pointer to the predecessor node
+        int val;               // Giá trị nút
+        struct ListNode *next; // Con trỏ đến nút kế nhiệm
+        struct ListNode *prev; // Con trỏ đến nút tiền nhiệm
     } ListNode;
 
-    /* Constructors */
+    /* Hàm tạo */
     ListNode *newListNode(int val) {
         ListNode *node, *next;
         node = (ListNode *) malloc(sizeof(ListNode));
@@ -645,16 +645,16 @@ As shown in the figure below, there are three common types of linked lists.
 === "Zig"
 
     ```zig title=""
-    // Bidirectional linked list node class
+    // Lớp nút danh sách liên kết hai chiều
     pub fn ListNode(comptime T: type) type {
         return struct {
             const Self = @This();
 
-            val: T = 0, // Node value
-            next: ?*Self = null, // Pointer to the successor node
-            prev: ?*Self = null, // Pointer to the predecessor node
+            val: T = 0, // Giá trị nút
+            next: ?*Self = null, // Con trỏ đến nút kế nhiệm
+            prev: ?*Self = null, // Con trỏ đến nút tiền nhiệm
 
-            // Constructor
+            // Hàm tạo
             pub fn init(self: *Self, x: i32) void {
                 self.val = x;
                 self.next = null;
@@ -664,23 +664,23 @@ As shown in the figure below, there are three common types of linked lists.
     }
     ```
 
-![Common types of linked lists](linked_list.assets/linkedlist_common_types.png)
+![Các loại danh sách liên kết phổ biến](linked_list.assets/linkedlist_common_types.png)
 
-## Typical applications of linked lists
+## Các ứng dụng điển hình của danh sách liên kết
 
-Singly linked lists are frequently utilized in implementing stacks, queues, hash tables, and graphs.
+Danh sách liên kết đơn thường được sử dụng để triển khai ngăn xếp, hàng đợi, bảng băm và đồ thị.
 
-- **Stacks and queues**: In singly linked lists, if insertions and deletions occur at the same end, it behaves like a stack (last-in-first-out). Conversely, if insertions are at one end and deletions at the other, it functions like a queue (first-in-first-out).
-- **Hash tables**: Linked lists are used in chaining, a popular method for resolving hash collisions. Here, all collided elements are grouped into a linked list.
-- **Graphs**: Adjacency lists, a standard method for graph representation, associate each graph vertex with a linked list. This list contains elements that represent vertices connected to the corresponding vertex.
+- **Ngăn xếp và hàng đợi**: Trong danh sách liên kết đơn, nếu các thao tác chèn và xóa xảy ra ở cùng một đầu, nó hoạt động như một ngăn xếp (vào sau ra trước). Ngược lại, nếu các thao tác chèn ở một đầu và xóa ở đầu kia, nó hoạt động như một hàng đợi (vào trước ra trước).
+- **Bảng băm**: Danh sách liên kết được sử dụng trong phương pháp kết nối, một phương pháp phổ biến để giải quyết xung đột băm. Ở đây, tất cả các phần tử bị xung đột được nhóm vào một danh sách liên kết.
+- **Đồ thị**: Danh sách kề, một phương pháp tiêu chuẩn để biểu diễn đồ thị, liên kết mỗi đỉnh đồ thị với một danh sách liên kết. Danh sách này chứa các phần tử đại diện cho các đỉnh được kết nối với đỉnh tương ứng.
 
-Doubly linked lists are ideal for scenarios requiring rapid access to preceding and succeeding elements.
+Danh sách liên kết đôi là lý tưởng cho các tình huống yêu cầu truy cập nhanh vào các phần tử trước và sau.
 
-- **Advanced data structures**: In structures like red-black trees and B-trees, accessing a node's parent is essential. This is achieved by incorporating a reference to the parent node in each node, akin to a doubly linked list.
-- **Browser history**: In web browsers, doubly linked lists facilitate navigating the history of visited pages when users click forward or back.
-- **LRU algorithm**: Doubly linked lists are apt for Least Recently Used (LRU) cache eviction algorithms, enabling swift identification of the least recently used data and facilitating fast node addition and removal.
+- **Cấu trúc dữ liệu nâng cao**: Trong các cấu trúc như cây đỏ-đen và cây B, việc truy cập vào nút cha là rất cần thiết. Điều này đạt được bằng cách kết hợp một tham chiếu đến nút cha trong mỗi nút, tương tự như một danh sách liên kết đôi.
+- **Lịch sử trình duyệt**: Trong trình duyệt web, danh sách liên kết đôi tạo điều kiện điều hướng lịch sử các trang đã truy cập khi người dùng nhấp vào tiến hoặc lùi.
+- **Thuật toán LRU**: Danh sách liên kết đôi phù hợp với các thuật toán loại bỏ bộ nhớ cache Ít được sử dụng gần đây nhất (LRU), cho phép xác định nhanh chóng dữ liệu ít được sử dụng gần đây nhất và tạo điều kiện thêm và xóa nút nhanh chóng.
 
-Circular linked lists are ideal for applications that require periodic operations, such as resource scheduling in operating systems.
+Danh sách liên kết vòng là lý tưởng cho các ứng dụng yêu cầu các hoạt động định kỳ, chẳng hạn như lập lịch tài nguyên trong hệ điều hành.
 
-- **Round-robin scheduling algorithm**: In operating systems, the round-robin scheduling algorithm is a common CPU scheduling method, requiring cycling through a group of processes. Each process is assigned a time slice, and upon expiration, the CPU rotates to the next process. This cyclical operation can be efficiently realized using a circular linked list, allowing for a fair and time-shared system among all processes.
-- **Data buffers**: Circular linked lists are also used in data buffers, like in audio and video players, where the data stream is divided into multiple buffer blocks arranged in a circular fashion for seamless playback.
+- **Thuật toán lập lịch vòng tròn**: Trong hệ điều hành, thuật toán lập lịch vòng tròn là một phương pháp lập lịch CPU phổ biến, yêu cầu luân phiên qua một nhóm các tiến trình. Mỗi tiến trình được gán một lát thời gian và khi hết hạn, CPU sẽ xoay vòng sang tiến trình tiếp theo. Hoạt động tuần hoàn này có thể được thực hiện hiệu quả bằng cách sử dụng một danh sách liên kết vòng, cho phép một hệ thống công bằng và chia sẻ thời gian giữa tất cả các tiến trình.
+- **Bộ đệm dữ liệu**: Danh sách liên kết vòng cũng được sử dụng trong bộ đệm dữ liệu, như trong trình phát âm thanh và video, nơi luồng dữ liệu được chia thành nhiều khối bộ đệm được sắp xếp theo hình tròn để phát lại liền mạch.
