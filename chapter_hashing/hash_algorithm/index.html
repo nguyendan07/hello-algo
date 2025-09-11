@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hash-algorithms" class="md-skip">
+        <a href="#thuat-toan-bam-hash-algorithms" class="md-skip">
           Bỏ qua
         </a>
       
@@ -1468,27 +1468,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goals-of-hash-algorithms" class="md-nav__link">
+  <a href="#muc-tieu-cua-thuat-toan-bam" class="md-nav__link">
     <span class="md-ellipsis">
-      Goals of hash algorithms
+      Mục tiêu của thuật toán băm
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-of-hash-algorithms" class="md-nav__link">
+  <a href="#thiet-ke-thuat-toan-bam" class="md-nav__link">
     <span class="md-ellipsis">
-      Design of hash algorithms
+      Thiết kế thuật toán băm
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-hash-algorithms" class="md-nav__link">
+  <a href="#cac-thuat-toan-bam-pho-bien" class="md-nav__link">
     <span class="md-ellipsis">
-      Common hash algorithms
+      Các thuật toán băm phổ biến
     </span>
   </a>
   
@@ -3503,27 +3503,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goals-of-hash-algorithms" class="md-nav__link">
+  <a href="#muc-tieu-cua-thuat-toan-bam" class="md-nav__link">
     <span class="md-ellipsis">
-      Goals of hash algorithms
+      Mục tiêu của thuật toán băm
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-of-hash-algorithms" class="md-nav__link">
+  <a href="#thiet-ke-thuat-toan-bam" class="md-nav__link">
     <span class="md-ellipsis">
-      Design of hash algorithms
+      Thiết kế thuật toán băm
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-hash-algorithms" class="md-nav__link">
+  <a href="#cac-thuat-toan-bam-pho-bien" class="md-nav__link">
     <span class="md-ellipsis">
-      Common hash algorithms
+      Các thuật toán băm phổ biến
     </span>
   </a>
   
@@ -3561,47 +3561,47 @@
 
 
 <!-- Page content -->
-<h1 id="hash-algorithms">Hash algorithms<a class="headerlink" href="#hash-algorithms" title="Permanent link">¶</a></h1>
-<p>The previous two sections introduced the working principle of hash tables and the methods to handle hash collisions. However, both open addressing and chaining can <strong>only ensure that the hash table functions normally when collisions occur, but cannot reduce the frequency of hash collisions</strong>.</p>
-<p>If hash collisions occur too frequently, the performance of the hash table will deteriorate drastically. As shown in the figure below, for a chaining hash table, in the ideal case, the key-value pairs are evenly distributed across the buckets, achieving optimal query efficiency; in the worst case, all key-value pairs are stored in the same bucket, degrading the time complexity to <span class="arithmatex">\(O(n)\)</span>.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hash_algorithm.assets/hash_collision_best_worst_condition.png" data-desc-position="bottom"><img alt="Ideal and worst cases of hash collisions" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png"></a></p>
-<p><strong>The distribution of key-value pairs is determined by the hash function</strong>. Recalling the steps of calculating a hash function, first compute the hash value, then modulo it by the array length:</p>
+<h1 id="thuat-toan-bam-hash-algorithms">Thuật toán băm (Hash algorithms)<a class="headerlink" href="#thuat-toan-bam-hash-algorithms" title="Permanent link">¶</a></h1>
+<p>Hai phần trước đã giới thiệu nguyên lý hoạt động của bảng băm và các phương pháp xử lý va chạm băm. Tuy nhiên, cả phương pháp địa chỉ mở và phương pháp dây chuyền <strong>chỉ đảm bảo bảng băm hoạt động bình thường khi xảy ra va chạm, chứ không thể giảm tần suất va chạm băm</strong>.</p>
+<p>Nếu va chạm băm xảy ra quá thường xuyên, hiệu năng của bảng băm sẽ giảm mạnh. Như hình dưới đây, với bảng băm kiểu dây chuyền, trong trường hợp lý tưởng, các cặp khóa-giá trị được phân bố đều vào các bucket, đạt hiệu quả truy vấn tối ưu; trong trường hợp xấu nhất, tất cả cặp khóa-giá trị nằm trong cùng một bucket, khiến độ phức tạp thời gian tăng lên <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hash_algorithm.assets/hash_collision_best_worst_condition.png" data-desc-position="bottom"><img alt="Trường hợp lý tưởng và xấu nhất của va chạm băm" src="../hash_algorithm.assets/hash_collision_best_worst_condition.png"></a></p>
+<p><strong>Việc phân bố các cặp khóa-giá trị phụ thuộc vào hàm băm</strong>. Nhớ lại các bước tính hàm băm, đầu tiên tính giá trị băm, sau đó lấy phần dư cho độ dài mảng:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
-<p>Observing the above formula, when the hash table capacity <code>capacity</code> is fixed, <strong>the hash algorithm <code>hash()</code> determines the output value</strong>, thereby determining the distribution of key-value pairs in the hash table.</p>
-<p>This means that, to reduce the probability of hash collisions, we should focus on the design of the hash algorithm <code>hash()</code>.</p>
-<h2 id="goals-of-hash-algorithms">Goals of hash algorithms<a class="headerlink" href="#goals-of-hash-algorithms" title="Permanent link">¶</a></h2>
-<p>To achieve a "fast and stable" hash table data structure, hash algorithms should have the following characteristics:</p>
+<p>Quan sát công thức trên, khi kích thước bảng băm <code>capacity</code> cố định, <strong>thuật toán băm <code>hash()</code> quyết định giá trị đầu ra</strong>, từ đó quyết định cách phân bố các cặp khóa-giá trị trong bảng băm.</p>
+<p>Điều này có nghĩa là, để giảm xác suất va chạm băm, chúng ta nên tập trung vào việc thiết kế thuật toán băm <code>hash()</code>.</p>
+<h2 id="muc-tieu-cua-thuat-toan-bam">Mục tiêu của thuật toán băm<a class="headerlink" href="#muc-tieu-cua-thuat-toan-bam" title="Permanent link">¶</a></h2>
+<p>Để xây dựng cấu trúc dữ liệu bảng băm "nhanh và ổn định", thuật toán băm cần có các đặc điểm sau:</p>
 <ul>
-<li><strong>Determinism</strong>: For the same input, the hash algorithm should always produce the same output. Only then can the hash table be reliable.</li>
-<li><strong>High efficiency</strong>: The process of computing the hash value should be fast enough. The smaller the computational overhead, the more practical the hash table.</li>
-<li><strong>Uniform distribution</strong>: The hash algorithm should ensure that key-value pairs are evenly distributed in the hash table. The more uniform the distribution, the lower the probability of hash collisions.</li>
+<li><strong>Tính xác định</strong>: Với cùng một đầu vào, thuật toán băm phải luôn cho ra cùng một kết quả. Như vậy bảng băm mới đáng tin cậy.</li>
+<li><strong>Hiệu năng cao</strong>: Quá trình tính giá trị băm phải đủ nhanh. Chi phí tính toán càng nhỏ, bảng băm càng thực tế.</li>
+<li><strong>Phân bố đều</strong>: Thuật toán băm cần đảm bảo các cặp khóa-giá trị được phân bố đều trong bảng băm. Phân bố càng đều, xác suất va chạm càng thấp.</li>
 </ul>
-<p>In fact, hash algorithms are not only used to implement hash tables but are also widely applied in other fields.</p>
+<p>Thực tế, thuật toán băm không chỉ dùng để xây dựng bảng băm mà còn được ứng dụng rộng rãi ở nhiều lĩnh vực khác.</p>
 <ul>
-<li><strong>Password storage</strong>: To protect the security of user passwords, systems usually do not store the plaintext passwords but rather the hash values of the passwords. When a user enters a password, the system calculates the hash value of the input and compares it with the stored hash value. If they match, the password is considered correct.</li>
-<li><strong>Data integrity check</strong>: The data sender can calculate the hash value of the data and send it along; the receiver can recalculate the hash value of the received data and compare it with the received hash value. If they match, the data is considered intact.</li>
+<li><strong>Lưu trữ mật khẩu</strong>: Để bảo vệ mật khẩu người dùng, hệ thống thường không lưu mật khẩu gốc mà lưu giá trị băm của mật khẩu. Khi người dùng nhập mật khẩu, hệ thống tính giá trị băm của đầu vào và so sánh với giá trị đã lưu. Nếu trùng khớp, mật khẩu được xác nhận đúng.</li>
+<li><strong>Kiểm tra tính toàn vẹn dữ liệu</strong>: Người gửi dữ liệu có thể tính giá trị băm của dữ liệu và gửi kèm; người nhận tính lại giá trị băm của dữ liệu nhận được và so sánh với giá trị đã nhận. Nếu trùng khớp, dữ liệu được coi là nguyên vẹn.</li>
 </ul>
-<p>For cryptographic applications, to prevent reverse engineering such as deducing the original password from the hash value, hash algorithms need higher-level security features.</p>
+<p>Đối với các ứng dụng mật mã, để ngăn chặn việc đảo ngược như suy ra mật khẩu gốc từ giá trị băm, thuật toán băm cần có các đặc tính bảo mật cao hơn.</p>
 <ul>
-<li><strong>Unidirectionality</strong>: It should be impossible to deduce any information about the input data from the hash value.</li>
-<li><strong>Collision resistance</strong>: It should be extremely difficult to find two different inputs that produce the same hash value.</li>
-<li><strong>Avalanche effect</strong>: Minor changes in the input should lead to significant and unpredictable changes in the output.</li>
+<li><strong>Tính một chiều</strong>: Không thể suy ra thông tin đầu vào từ giá trị băm.</li>
+<li><strong>Chống va chạm</strong>: Rất khó để tìm hai đầu vào khác nhau cho ra cùng một giá trị băm.</li>
+<li><strong>Hiệu ứng thác lũ</strong>: Thay đổi nhỏ ở đầu vào phải dẫn đến thay đổi lớn và khó đoán ở đầu ra.</li>
 </ul>
-<p>Note that <strong>"Uniform Distribution" and "Collision Resistance" are two separate concepts</strong>. Satisfying uniform distribution does not necessarily mean collision resistance. For example, under random input <code>key</code>, the hash function <code>key % 100</code> can produce a uniformly distributed output. However, this hash algorithm is too simple, and all <code>key</code> with the same last two digits will have the same output, making it easy to deduce a usable <code>key</code> from the hash value, thereby cracking the password.</p>
-<h2 id="design-of-hash-algorithms">Design of hash algorithms<a class="headerlink" href="#design-of-hash-algorithms" title="Permanent link">¶</a></h2>
-<p>The design of hash algorithms is a complex issue that requires consideration of many factors. However, for some less demanding scenarios, we can also design some simple hash algorithms.</p>
+<p>Lưu ý rằng <strong>"Phân bố đều" và "Chống va chạm" là hai khái niệm khác nhau</strong>. Đạt được phân bố đều không đồng nghĩa với chống va chạm. Ví dụ, với đầu vào ngẫu nhiên <code>key</code>, hàm băm <code>key % 100</code> có thể cho kết quả phân bố đều. Tuy nhiên, thuật toán này quá đơn giản, tất cả các <code>key</code> có hai chữ số cuối giống nhau sẽ cho ra cùng một kết quả, dễ dàng suy ra <code>key</code> từ giá trị băm, dẫn đến nguy cơ bị phá mật khẩu.</p>
+<h2 id="thiet-ke-thuat-toan-bam">Thiết kế thuật toán băm<a class="headerlink" href="#thiet-ke-thuat-toan-bam" title="Permanent link">¶</a></h2>
+<p>Thiết kế thuật toán băm là vấn đề phức tạp, cần cân nhắc nhiều yếu tố. Tuy nhiên, với các trường hợp không yêu cầu cao, ta có thể thiết kế một số thuật toán băm đơn giản.</p>
 <ul>
-<li><strong>Additive hash</strong>: Add up the ASCII codes of each character in the input and use the total sum as the hash value.</li>
-<li><strong>Multiplicative hash</strong>: Utilize the non-correlation of multiplication, multiplying each round by a constant, accumulating the ASCII codes of each character into the hash value.</li>
-<li><strong>XOR hash</strong>: Accumulate the hash value by XORing each element of the input data.</li>
-<li><strong>Rotating hash</strong>: Accumulate the ASCII code of each character into a hash value, performing a rotation operation on the hash value before each accumulation.</li>
+<li><strong>Băm cộng</strong>: Cộng tất cả mã ASCII của từng ký tự trong đầu vào, dùng tổng đó làm giá trị băm.</li>
+<li><strong>Băm nhân</strong>: Dựa vào tính không liên quan của phép nhân, mỗi vòng nhân với một hằng số, cộng dồn mã ASCII của từng ký tự vào giá trị băm.</li>
+<li><strong>Băm XOR</strong>: Dùng phép XOR để cộng dồn giá trị băm của từng phần tử đầu vào.</li>
+<li><strong>Băm xoay</strong>: Cộng dồn mã ASCII của từng ký tự vào giá trị băm, trước mỗi lần cộng thực hiện phép xoay trên giá trị băm.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{simple_hash}-[class]{}-[func]{rot_hash}
 </code></pre></div>
-<p>It is observed that the last step of each hash algorithm is to take the modulus of the large prime number <span class="arithmatex">\(1000000007\)</span> to ensure that the hash value is within an appropriate range. It is worth pondering why emphasis is placed on modulo a prime number, or what are the disadvantages of modulo a composite number? This is an interesting question.</p>
-<p>To conclude: <strong>Using a large prime number as the modulus can maximize the uniform distribution of hash values</strong>. Since a prime number does not share common factors with other numbers, it can reduce the periodic patterns caused by the modulo operation, thus avoiding hash collisions.</p>
-<p>For example, suppose we choose the composite number <span class="arithmatex">\(9\)</span> as the modulus, which can be divided by <span class="arithmatex">\(3\)</span>, then all <code>key</code> divisible by <span class="arithmatex">\(3\)</span> will be mapped to hash values <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(6\)</span>.</p>
+<p>Ta thấy bước cuối của mỗi thuật toán băm là lấy phần dư cho số nguyên tố lớn <span class="arithmatex">\(1000000007\)</span> để đảm bảo giá trị băm nằm trong phạm vi hợp lý. Đáng để suy nghĩ tại sao lại nhấn mạnh lấy phần dư cho số nguyên tố, hoặc nhược điểm của việc lấy phần dư cho số hợp thành là gì? Đây là một câu hỏi thú vị.</p>
+<p>Kết luận: <strong>Dùng số nguyên tố lớn làm số chia dư giúp tối đa hóa sự phân bố đều của giá trị băm</strong>. Vì số nguyên tố không có ước chung với các số khác, nó giúp giảm các mẫu tuần hoàn do phép chia dư gây ra, từ đó tránh va chạm băm.</p>
+<p>Ví dụ, nếu chọn số hợp thành <span class="arithmatex">\(9\)</span> làm số chia dư, vì chia hết cho <span class="arithmatex">\(3\)</span>, tất cả các <code>key</code> chia hết cho <span class="arithmatex">\(3\)</span> sẽ cho ra giá trị băm <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(6\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 9 \newline
@@ -3609,7 +3609,7 @@
 \text{hash} &amp; = \{ 0, 3, 6, 0, 3, 6, 0, 3, 6, 0, 3, 6,\dots \}
 \end{aligned}
 \]</div>
-<p>If the input <code>key</code> happens to have this kind of arithmetic sequence distribution, then the hash values will cluster, thereby exacerbating hash collisions. Now, suppose we replace <code>modulus</code> with the prime number <span class="arithmatex">\(13\)</span>, since there are no common factors between <code>key</code> and <code>modulus</code>, the uniformity of the output hash values will be significantly improved.</p>
+<p>Nếu đầu vào <code>key</code> có phân bố kiểu cấp số cộng như vậy, giá trị băm sẽ bị dồn lại, làm tăng va chạm. Nếu thay <code>modulus</code> bằng số nguyên tố <span class="arithmatex">\(13\)</span>, vì không có ước chung giữa <code>key</code> và <code>modulus</code>, độ đều của giá trị băm sẽ được cải thiện rõ rệt.</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{modulus} &amp; = 13 \newline
@@ -3617,18 +3617,18 @@
 \text{hash} &amp; = \{ 0, 3, 6, 9, 12, 2, 5, 8, 11, 1, 4, 7, \dots \}
 \end{aligned}
 \]</div>
-<p>It is worth noting that if the <code>key</code> is guaranteed to be randomly and uniformly distributed, then choosing a prime number or a composite number as the modulus can both produce uniformly distributed hash values. However, when the distribution of <code>key</code> has some periodicity, modulo a composite number is more likely to result in clustering.</p>
-<p>In summary, we usually choose a prime number as the modulus, and this prime number should be large enough to eliminate periodic patterns as much as possible, enhancing the robustness of the hash algorithm.</p>
-<h2 id="common-hash-algorithms">Common hash algorithms<a class="headerlink" href="#common-hash-algorithms" title="Permanent link">¶</a></h2>
-<p>It is not hard to see that the simple hash algorithms mentioned above are quite "fragile" and far from reaching the design goals of hash algorithms. For example, since addition and XOR obey the commutative law, additive hash and XOR hash cannot distinguish strings with the same content but in different order, which may exacerbate hash collisions and cause security issues.</p>
-<p>In practice, we usually use some standard hash algorithms, such as MD5, SHA-1, SHA-2, and SHA-3. They can map input data of any length to a fixed-length hash value.</p>
-<p>Over the past century, hash algorithms have been in a continuous process of upgrading and optimization. Some researchers strive to improve the performance of hash algorithms, while others, including hackers, are dedicated to finding security issues in hash algorithms. The table below shows hash algorithms commonly used in practical applications.</p>
+<p>Lưu ý, nếu <code>key</code> đảm bảo phân bố ngẫu nhiên và đều, thì chọn số nguyên tố hay số hợp thành làm số chia dư đều cho ra giá trị băm phân bố đều. Tuy nhiên, khi phân bố của <code>key</code> có tính tuần hoàn, chia dư cho số hợp thành dễ gây dồn giá trị băm.</p>
+<p>Tóm lại, ta thường chọn số nguyên tố làm số chia dư, và số này nên đủ lớn để loại bỏ các mẫu tuần hoàn, tăng độ ổn định của thuật toán băm.</p>
+<h2 id="cac-thuat-toan-bam-pho-bien">Các thuật toán băm phổ biến<a class="headerlink" href="#cac-thuat-toan-bam-pho-bien" title="Permanent link">¶</a></h2>
+<p>Dễ thấy các thuật toán băm đơn giản ở trên khá "yếu" và chưa đạt được mục tiêu thiết kế của thuật toán băm. Ví dụ, phép cộng và XOR tuân theo tính giao hoán, nên băm cộng và băm XOR không phân biệt được các chuỗi có cùng nội dung nhưng thứ tự khác nhau, dễ gây va chạm và mất an toàn.</p>
+<p>Trong thực tế, ta thường dùng các thuật toán băm chuẩn như MD5, SHA-1, SHA-2, SHA-3. Chúng có thể ánh xạ dữ liệu đầu vào với độ dài bất kỳ thành giá trị băm có độ dài cố định.</p>
+<p>Trong thế kỷ qua, các thuật toán băm liên tục được nâng cấp và tối ưu. Một số nhà nghiên cứu cố gắng cải thiện hiệu năng, trong khi những người khác (bao gồm cả hacker) lại tìm cách phát hiện lỗ hổng bảo mật. Bảng dưới đây liệt kê các thuật toán băm thường dùng trong thực tế.</p>
 <ul>
-<li>MD5 and SHA-1 have been successfully attacked multiple times and are thus abandoned in various security applications.</li>
-<li>SHA-2 series, especially SHA-256, is one of the most secure hash algorithms to date, with no successful attacks reported, hence commonly used in various security applications and protocols.</li>
-<li>SHA-3 has lower implementation costs and higher computational efficiency compared to SHA-2, but its current usage coverage is not as extensive as the SHA-2 series.</li>
+<li>MD5 và SHA-1 đã bị tấn công thành công nhiều lần, nên bị loại bỏ khỏi các ứng dụng bảo mật.</li>
+<li>Dòng SHA-2, đặc biệt là SHA-256, là một trong những thuật toán băm an toàn nhất hiện nay, chưa bị tấn công thành công, nên được dùng phổ biến trong các ứng dụng và giao thức bảo mật.</li>
+<li>SHA-3 có chi phí triển khai thấp hơn và hiệu năng tính toán cao hơn SHA-2, nhưng hiện chưa được sử dụng rộng rãi như dòng SHA-2.</li>
 </ul>
-<p align="center"> Table <id> &nbsp; Common hash algorithms </id></p>
+<p align="center"> Bảng <id> &nbsp; Các thuật toán băm phổ biến </id></p>
 
 <table>
 <thead>
@@ -3642,217 +3642,217 @@
 </thead>
 <tbody>
 <tr>
-<td>Release Year</td>
+<td>Năm phát hành</td>
 <td>1992</td>
 <td>1995</td>
 <td>2002</td>
 <td>2008</td>
 </tr>
 <tr>
-<td>Output Length</td>
+<td>Độ dài đầu ra</td>
 <td>128 bit</td>
 <td>160 bit</td>
 <td>256/512 bit</td>
 <td>224/256/384/512 bit</td>
 </tr>
 <tr>
-<td>Hash Collisions</td>
-<td>Frequent</td>
-<td>Frequent</td>
-<td>Rare</td>
-<td>Rare</td>
+<td>Va chạm băm</td>
+<td>Thường xuyên</td>
+<td>Thường xuyên</td>
+<td>Hiếm</td>
+<td>Hiếm</td>
 </tr>
 <tr>
-<td>Security Level</td>
-<td>Low, has been successfully attacked</td>
-<td>Low, has been successfully attacked</td>
-<td>High</td>
-<td>High</td>
+<td>Mức độ bảo mật</td>
+<td>Thấp, đã bị tấn công thành công</td>
+<td>Thấp, đã bị tấn công thành công</td>
+<td>Cao</td>
+<td>Cao</td>
 </tr>
 <tr>
-<td>Applications</td>
-<td>Abandoned, still used for data integrity checks</td>
-<td>Abandoned</td>
-<td>Cryptocurrency transaction verification, digital signatures, etc.</td>
-<td>Can be used to replace SHA-2</td>
+<td>Ứng dụng</td>
+<td>Đã loại bỏ, vẫn dùng kiểm tra tính toàn vẹn dữ liệu</td>
+<td>Đã loại bỏ</td>
+<td>Xác minh giao dịch tiền mã hóa, chữ ký số, v.v.</td>
+<td>Có thể thay thế SHA-2</td>
 </tr>
 </tbody>
 </table>
-<h1 id="hash-values-in-data-structures">Hash values in data structures<a class="headerlink" href="#hash-values-in-data-structures" title="Permanent link">¶</a></h1>
-<p>We know that the keys in a hash table can be of various data types such as integers, decimals, or strings. Programming languages usually provide built-in hash algorithms for these data types to calculate the bucket indices in the hash table. Taking Python as an example, we can use the <code>hash()</code> function to compute the hash values for various data types.</p>
+<h1 id="gia-tri-bam-trong-cau-truc-du-lieu">Giá trị băm trong cấu trúc dữ liệu<a class="headerlink" href="#gia-tri-bam-trong-cau-truc-du-lieu" title="Permanent link">¶</a></h1>
+<p>Ta biết rằng khóa trong bảng băm có thể thuộc nhiều kiểu dữ liệu như số nguyên, số thực, hoặc chuỗi. Các ngôn ngữ lập trình thường cung cấp sẵn thuật toán băm cho các kiểu dữ liệu này để tính chỉ số bucket trong bảng băm. Ví dụ với Python, ta có thể dùng hàm <code>hash()</code> để tính giá trị băm cho nhiều kiểu dữ liệu.</p>
 <ul>
-<li>The hash values of integers and booleans are their own values.</li>
-<li>The calculation of hash values for floating-point numbers and strings is more complex, and interested readers are encouraged to study this on their own.</li>
-<li>The hash value of a tuple is a combination of the hash values of each of its elements, resulting in a single hash value.</li>
-<li>The hash value of an object is generated based on its memory address. By overriding the hash method of an object, hash values can be generated based on content.</li>
+<li>Giá trị băm của số nguyên và kiểu boolean chính là giá trị của nó.</li>
+<li>Việc tính giá trị băm cho số thực và chuỗi phức tạp hơn, bạn có thể tự tìm hiểu thêm.</li>
+<li>Giá trị băm của tuple là sự kết hợp giá trị băm của từng phần tử, cho ra một giá trị băm duy nhất.</li>
+<li>Giá trị băm của đối tượng được tạo dựa trên địa chỉ bộ nhớ. Nếu ghi đè phương thức băm của đối tượng, giá trị băm có thể dựa trên nội dung.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Be aware that the definition and methods of the built-in hash value calculation functions in different programming languages vary.</p>
+<p>Lưu ý rằng cách định nghĩa và phương pháp tính giá trị băm của hàm có sẵn ở các ngôn ngữ lập trình khác nhau là khác nhau.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">3</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">hash_num</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Hash value of integer 3 is 3</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Giá trị băm của số nguyên 3 là 3</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">bol</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">hash_bol</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">bol</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Hash value of boolean True is 1</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Giá trị băm của kiểu boolean True là 1</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">dec</span> <span class="o">=</span> <span class="mf">3.14159</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">hash_dec</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Hash value of decimal 3.14159 is 326484311674566659</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Giá trị băm của số thực 3.14159 là 326484311674566659</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">"Hello 算法"</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">hash_str</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># Hash value of string "Hello 算法" is 4617003410720528961</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># Giá trị băm của chuỗi "Hello 算法" là 4617003410720528961</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12836</span><span class="p">,</span> <span class="s2">"小哈"</span><span class="p">)</span>
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">hash_tup</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># Hash value of tuple (12836, '小哈') is 1029005403108185979</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># Giá trị băm của tuple (12836, '小哈') là 1029005403108185979</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="n">obj</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="n">hash_obj</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="c1"># Hash value of ListNode object at 0x1058fd810 is 274267521</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="c1"># Giá trị băm của đối tượng ListNode tại 0x1058fd810 là 274267521</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.cpp</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// Giá trị băm của số nguyên 3 là 3</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// Hash value of boolean 1 is 1</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// Giá trị băm của kiểu boolean 1 là 1</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">dec</span><span class="p">);</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1">// Hash value of decimal 3.14159 is 4614256650576692846</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1">// Giá trị băm của số thực 3.14159 là 4614256650576692846</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">str</span><span class="p">);</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1">// Hash value of string "Hello 算法" is 15466937326284535026</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1">// Giá trị băm của chuỗi "Hello 算法" là 15466937326284535026</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1">// In C++, built-in std::hash() only provides hash values for basic data types</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1">// Hash values for arrays and objects need to be implemented separately</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1">// Trong C++, std::hash() chỉ cung cấp giá trị băm cho kiểu dữ liệu cơ bản</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1">// Giá trị băm cho mảng và đối tượng cần tự cài đặt</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.java</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// Hash value of integer 3 is 3</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// Giá trị băm của số nguyên 3 là 3</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Boolean</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">bol</span><span class="p">);</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// Giá trị băm của kiểu boolean true là 1231</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">dec</span><span class="p">);</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">// Giá trị băm của số thực 3.14159 là -1340954729</span>
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1">// Hash value of string "Hello 算法" is -727081396</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1">// Giá trị băm của chuỗi "Hello 算法" là -727081396</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 1151158</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1">// Giá trị băm của mảng [12836, 小哈] là 1151158</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
 <a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode@7dc5e7b4 is 2110121908</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="c1">// Giá trị băm của đối tượng ListNode utils.ListNode@7dc5e7b4 là 2110121908</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.cs</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// Hash value of integer 3 is 3;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// Giá trị băm của số nguyên 3 là 3;</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// Hash value of boolean true is 1;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// Giá trị băm của kiểu boolean true là 1;</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">// Hash value of decimal 3.14159 is -1340954729;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">// Giá trị băm của số thực 3.14159 là -1340954729;</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kt">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// Hash value of string "Hello 算法" is -586107568;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// Giá trị băm của chuỗi "Hello 算法" là -586107568;</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="kt">object</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="s">"小哈"</span><span class="p">];</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashTup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 42931033;</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1">// Giá trị băm của mảng [12836, 小哈] là 42931033;</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
 <a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1">// Hash value of ListNode object 0 is 39053774;</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1">// Giá trị băm của đối tượng ListNode 0 là 39053774;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Go does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.go</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Go không cung cấp hàm tính giá trị băm sẵn</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.swift</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashNum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">// Hash value of integer 3 is 9047044699613009734</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">// Giá trị băm của số nguyên 3 là 9047044699613009734</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">let</span><span class="w"> </span><span class="nv">bol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashBol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">// Hash value of boolean true is -4431640247352757451</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">// Giá trị băm của kiểu boolean true là -4431640247352757451</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="kd">let</span><span class="w"> </span><span class="nv">dec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.14159</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashDec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">// Hash value of decimal 3.14159 is -2465384235396674631</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">// Giá trị băm của số thực 3.14159 là -2465384235396674631</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kd">let</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Hello 算法"</span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashStr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1">// Hash value of string "Hello 算法" is -7850626797806988787</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1">// Giá trị băm của chuỗi "Hello 算法" là -7850626797806988787</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="kd">let</span><span class="w"> </span><span class="nv">arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">AnyHashable</span><span class="p">(</span><span class="mi">12836</span><span class="p">),</span><span class="w"> </span><span class="n">AnyHashable</span><span class="p">(</span><span class="s">"小哈"</span><span class="p">)]</span>
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashTup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1">// Hash value of array [AnyHashable(12836), AnyHashable("小哈")] is -2308633508154532996</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1">// Giá trị băm của mảng [AnyHashable(12836), AnyHashable("小哈")] là -2308633508154532996</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
 <a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="kd">let</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="kd">let</span><span class="w"> </span><span class="nv">hashObj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashValue</span>
-<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="c1">// Hash value of ListNode object utils.ListNode is -2434780518035996159</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="c1">// Giá trị băm của đối tượng ListNode utils.ListNode là -2434780518035996159</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// JavaScript does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.js</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// JavaScript không cung cấp hàm tính giá trị băm sẵn</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// TypeScript does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.ts</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// TypeScript không cung cấp hàm tính giá trị băm sẵn</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">built_in_hash.dart</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">num</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">// Hash value of integer 3 is 34803</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">// Giá trị băm của số nguyên 3 là 34803</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashBol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// Hash value of boolean true is 1231</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// Giá trị băm của kiểu boolean true là 1231</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="kt">double</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span><span class="p">;</span>
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashDec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1">// Hash value of decimal 3.14159 is 2570631074981783</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1">// Giá trị băm của số thực 3.14159 là 2570631074981783</span>
 <a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="kt">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1">// Hash value of string "Hello 算法" is 468167534</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1">// Giá trị băm của chuỗi "Hello 算法" là 468167534</span>
 <a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
 <a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">List</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">12836</span><span class="p">,</span><span class="w"> </span><span class="s2">"小哈"</span><span class="p">];</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1">// Hash value of array [12836, 小哈] is 976512528</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1">// Giá trị băm của mảng [12836, 小哈] là 976512528</span>
 <a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
 <a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="n">ListNode</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
 <a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">hashObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">hashCode</span><span class="p">;</span>
-<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="c1">// Hash value of ListNode object Instance of 'ListNode' is 1033450432</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="c1">// Giá trị băm của đối tượng ListNode Instance of 'ListNode' là 1033450432</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3863,41 +3863,41 @@
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">num_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">num</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">num_hasher</span><span class="p">);</span>
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">// Hash value of integer 3 is 568126464209439262</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">// Giá trị băm của số nguyên 3 là 568126464209439262</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="kd">let</span><span class="w"> </span><span class="n">bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">bol</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">);</span>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_bol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bol_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c1">// Hash value of boolean true is 4952851536318644461</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c1">// Giá trị băm của kiểu boolean true là 4952851536318644461</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">dec</span><span class="p">:</span><span class="w"> </span><span class="kt">f32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="n">dec</span><span class="p">.</span><span class="n">to_bits</span><span class="p">().</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">);</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="c1">// Hash value of decimal 3.14159 is 2566941990314602357</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="c1">// Giá trị băm của số thực 3.14159 là 2566941990314602357</span>
 <a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
 <a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="kd">let</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello 算法"</span><span class="p">;</span>
 <a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="kt">str</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">);</span>
 <a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1">// Hash value of string "Hello 算法" is 16092673739211250988</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1">// Giá trị băm của chuỗi "Hello 算法" là 16092673739211250988</span>
 <a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>
 <a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="kd">let</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="mi">12836</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="s">"小哈"</span><span class="p">);</span>
 <a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="n">arr</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">);</span>
 <a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash_tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup_hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="c1">// Hash value of tuple (12836, "小哈") is 1885128010422702749</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="c1">// Giá trị băm của tuple (12836, "小哈") là 1885128010422702749</span>
 <a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>
 <a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="kd">let</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 <a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultHasher</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="n">node</span><span class="p">.</span><span class="n">borrow</span><span class="p">().</span><span class="n">val</span><span class="p">.</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">hasher</span><span class="p">);</span>
 <a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="kd">let</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasher</span><span class="p">.</span><span class="n">finish</span><span class="p">();</span>
-<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="c1">// Hash value of ListNode object RefCell { value: ListNode { val: 42, next: None } } is 15387811073369036852</span>
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="c1">// Giá trị băm của đối tượng ListNode RefCell { value: ListNode { val: 42, next: None } } là 15387811073369036852</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// C does not provide built-in hash code functions</span>
+<div class="highlight"><span class="filename">built_in_hash.c</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// C không cung cấp hàm tính giá trị băm sẵn</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3911,12 +3911,12 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Code Visualization</summary>
+<summary>Minh họa mã nguồn</summary>
 <p>https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&amp;cumulative=false&amp;curInstr=19&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false</p>
 </details>
-<p>In many programming languages, <strong>only immutable objects can serve as the <code>key</code> in a hash table</strong>. If we use a list (dynamic array) as a <code>key</code>, when the contents of the list change, its hash value also changes, and we would no longer be able to find the original <code>value</code> in the hash table.</p>
-<p>Although the member variables of a custom object (such as a linked list node) are mutable, it is hashable. <strong>This is because the hash value of an object is usually generated based on its memory address</strong>, and even if the contents of the object change, the memory address remains the same, so the hash value remains unchanged.</p>
-<p>You might have noticed that the hash values output in different consoles are different. <strong>This is because the Python interpreter adds a random salt to the string hash function each time it starts up</strong>. This approach effectively prevents HashDoS attacks and enhances the security of the hash algorithm.</p>
+<p>Ở nhiều ngôn ngữ lập trình, <strong>chỉ các đối tượng bất biến mới có thể làm <code>key</code> trong bảng băm</strong>. Nếu dùng danh sách (mảng động) làm <code>key</code>, khi nội dung danh sách thay đổi, giá trị băm cũng thay đổi, và ta sẽ không tìm được giá trị gốc trong bảng băm.</p>
+<p>Dù các biến thành viên của đối tượng tự định nghĩa (như nút danh sách liên kết) là có thể thay đổi, nó vẫn có thể băm được. <strong>Vì giá trị băm của đối tượng thường dựa trên địa chỉ bộ nhớ</strong>, nên dù nội dung thay đổi, địa chỉ bộ nhớ vẫn giữ nguyên, giá trị băm không đổi.</p>
+<p>Bạn có thể nhận thấy giá trị băm xuất ra ở các console khác nhau là khác nhau. <strong>Đó là vì trình thông dịch Python thêm một chuỗi ngẫu nhiên (salt) vào hàm băm chuỗi mỗi lần khởi động</strong>. Cách này giúp ngăn chặn tấn công HashDoS và tăng bảo mật cho thuật toán băm.</p>
 
 
 

@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#summary" class="md-skip">
+        <a href="#tom-tat" class="md-skip">
           Bỏ qua
         </a>
       
@@ -1337,18 +1337,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-review" class="md-nav__link">
+  <a href="#on-tap-kien-thuc-chinh" class="md-nav__link">
     <span class="md-ellipsis">
-      Key review
+      Ôn tập kiến thức chính
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q-a" class="md-nav__link">
+  <a href="#hoi-ap" class="md-nav__link">
     <span class="md-ellipsis">
-      Q &amp; A
+      Hỏi &amp; Đáp
     </span>
   </a>
   
@@ -3494,18 +3494,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-review" class="md-nav__link">
+  <a href="#on-tap-kien-thuc-chinh" class="md-nav__link">
     <span class="md-ellipsis">
-      Key review
+      Ôn tập kiến thức chính
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q-a" class="md-nav__link">
+  <a href="#hoi-ap" class="md-nav__link">
     <span class="md-ellipsis">
-      Q &amp; A
+      Hỏi &amp; Đáp
     </span>
   </a>
   
@@ -3543,28 +3543,28 @@
 
 
 <!-- Page content -->
-<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h1>
-<h3 id="key-review">Key review<a class="headerlink" href="#key-review" title="Permanent link">¶</a></h3>
+<h1 id="tom-tat">Tóm tắt<a class="headerlink" href="#tom-tat" title="Permanent link">¶</a></h1>
+<h3 id="on-tap-kien-thuc-chinh">Ôn tập kiến thức chính<a class="headerlink" href="#on-tap-kien-thuc-chinh" title="Permanent link">¶</a></h3>
 <ul>
-<li>Stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using arrays or linked lists.</li>
-<li>In terms of time efficiency, the array implementation of the stack has a higher average efficiency. However, during expansion, the time complexity for a single push operation can degrade to <span class="arithmatex">\(O(n)\)</span>. In contrast, the linked list implementation of a stack offers more stable efficiency.</li>
-<li>Regarding space efficiency, the array implementation of the stack may lead to a certain degree of space wastage. However, it's important to note that the memory space occupied by nodes in a linked list is generally larger than that for elements in an array.</li>
-<li>A queue is a data structure that follows the First-In-First-Out (FIFO) principle, and it can also be implemented using arrays or linked lists. The conclusions regarding time and space efficiency for queues are similar to those for stacks.</li>
-<li>A double-ended queue (deque) is a more flexible type of queue that allows adding and removing elements at both ends.</li>
+<li>Stack (Ngăn xếp) là một cấu trúc dữ liệu tuân theo nguyên tắc Last-In-First-Out (LIFO - Vào sau ra trước) và có thể được triển khai bằng mảng hoặc danh sách liên kết.</li>
+<li>Về hiệu quả thời gian, việc triển khai stack bằng mảng có hiệu quả trung bình cao hơn. Tuy nhiên, trong quá trình mở rộng, độ phức tạp thời gian cho một thao tác push có thể giảm xuống <span class="arithmatex">\(O(n)\)</span>. Ngược lại, việc triển khai stack bằng danh sách liên kết mang lại hiệu quả ổn định hơn.</li>
+<li>Về hiệu quả không gian, việc triển khai stack bằng mảng có thể dẫn đến một mức độ lãng phí không gian nhất định. Tuy nhiên, điều quan trọng cần lưu ý là không gian bộ nhớ chiếm bởi các node trong danh sách liên kết thường lớn hơn so với các phần tử trong một mảng.</li>
+<li>Queue (Hàng đợi) là một cấu trúc dữ liệu tuân theo nguyên tắc First-In-First-Out (FIFO - Vào trước ra trước), và nó cũng có thể được triển khai bằng mảng hoặc danh sách liên kết. Các kết luận về hiệu quả thời gian và không gian cho hàng đợi tương tự như đối với stack.</li>
+<li>Double-ended queue (deque - Hàng đợi hai đầu) là một loại hàng đợi linh hoạt hơn, cho phép thêm và xóa các phần tử ở cả hai đầu.</li>
 </ul>
-<h3 id="q-a">Q &amp; A<a class="headerlink" href="#q-a" title="Permanent link">¶</a></h3>
-<p><strong>Q</strong>: Is the browser's forward and backward functionality implemented with a doubly linked list?</p>
-<p>A browser's forward and backward navigation is essentially a manifestation of the "stack" concept. When a user visits a new page, the page is added to the top of the stack; when they click the back button, the page is popped from the top of the stack. A double-ended queue (deque) can conveniently implement some additional operations, as mentioned in the "Double-Ended Queue" section.</p>
-<p><strong>Q</strong>: After popping from a stack, is it necessary to free the memory of the popped node?</p>
-<p>If the popped node will still be used later, it's not necessary to free its memory. In languages like Java and Python that have automatic garbage collection, manual memory release is not necessary; in C and C++, manual memory release is required.</p>
-<p><strong>Q</strong>: A double-ended queue seems like two stacks joined together. What are its uses?</p>
-<p>A double-ended queue, which is a combination of a stack and a queue or two stacks joined together, exhibits both stack and queue logic. Thus, it can implement all applications of stacks and queues while offering more flexibility.</p>
-<p><strong>Q</strong>: How exactly are undo and redo implemented?</p>
-<p>Undo and redo operations are implemented using two stacks: Stack <code>A</code> for undo and Stack <code>B</code> for redo.</p>
+<h3 id="hoi-ap">Hỏi &amp; Đáp<a class="headerlink" href="#hoi-ap" title="Permanent link">¶</a></h3>
+<p><strong>H</strong>: Chức năng tiến và lùi của trình duyệt có được triển khai bằng danh sách liên kết đôi không?</p>
+<p>Việc điều hướng tiến và lùi của trình duyệt về cơ bản là một biểu hiện của khái niệm "stack". Khi người dùng truy cập một trang mới, trang đó được thêm vào đầu stack; khi họ nhấp vào nút quay lại, trang sẽ được lấy ra khỏi đầu stack. Một hàng đợi hai đầu (deque) có thể thuận tiện triển khai một số hoạt động bổ sung, như đã đề cập trong phần "Hàng đợi hai đầu".</p>
+<p><strong>H</strong>: Sau khi lấy một node ra khỏi stack, có cần giải phóng bộ nhớ của node đó không?</p>
+<p>Nếu node đã lấy ra vẫn sẽ được sử dụng sau này, thì không cần thiết phải giải phóng bộ nhớ của nó. Trong các ngôn ngữ như Java và Python có tính năng thu gom rác tự động, việc giải phóng bộ nhớ thủ công là không cần thiết; trong C và C++, cần phải giải phóng bộ nhớ thủ công.</p>
+<p><strong>H</strong>: Hàng đợi hai đầu có vẻ giống như hai stack được nối với nhau. Nó có những ứng dụng gì?</p>
+<p>Một hàng đợi hai đầu, là sự kết hợp của một stack và một queue hoặc hai stack được nối với nhau, thể hiện cả logic của stack và queue. Do đó, nó có thể triển khai tất cả các ứng dụng của stack và queue đồng thời mang lại sự linh hoạt hơn.</p>
+<p><strong>H</strong>: Chính xác thì undo và redo được triển khai như thế nào?</p>
+<p>Các thao tác undo và redo được triển khai bằng hai stack: Stack <code>A</code> cho undo và Stack <code>B</code> cho redo.</p>
 <ol>
-<li>Each time a user performs an operation, it is pushed onto Stack <code>A</code>, and Stack <code>B</code> is cleared.</li>
-<li>When the user executes an "undo", the most recent operation is popped from Stack <code>A</code> and pushed onto Stack <code>B</code>.</li>
-<li>When the user executes a "redo", the most recent operation is popped from Stack <code>B</code> and pushed back onto Stack <code>A</code>.</li>
+<li>Mỗi khi người dùng thực hiện một thao tác, nó sẽ được đẩy vào Stack <code>A</code> và Stack <code>B</code> sẽ bị xóa.</li>
+<li>Khi người dùng thực hiện một "undo", thao tác gần đây nhất sẽ được lấy ra khỏi Stack <code>A</code> và đẩy vào Stack <code>B</code>.</li>
+<li>Khi người dùng thực hiện một "redo", thao tác gần đây nhất sẽ được lấy ra khỏi Stack <code>B</code> và đẩy trở lại Stack <code>A</code>.</li>
 </ol>
 
 
@@ -3600,13 +3600,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../../chapter_hashing/" class="md-footer__link md-footer__link--next" aria-label="Sau: Hash table" rel="next">
+  <a href="../../chapter_hashing/" class="md-footer__link md-footer__link--next" aria-label="Sau: Bảng băm (Hash table)" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
         Sau
       </span>
       <div class="md-ellipsis">
-        Hash table
+        Bảng băm (Hash table)
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3661,13 +3661,13 @@
         
         
           
-          <a href="../../chapter_hashing/" class="md-footer__link md-footer__link--next" aria-label="Sau: Hash table">
+          <a href="../../chapter_hashing/" class="md-footer__link md-footer__link--next" aria-label="Sau: Bảng băm (Hash table)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Sau
               </span>
               <div class="md-ellipsis">
-                Hash table
+                Bảng băm (Hash table)
               </div>
             </div>
             <div class="md-footer__button md-icon">

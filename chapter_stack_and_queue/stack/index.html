@@ -1274,37 +1274,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#common-operations-on-stack" class="md-nav__link">
+  <a href="#cac-thao-tac-pho-bien-tren-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Common operations on stack
+      Các thao tác phổ biến trên stack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementing-a-stack" class="md-nav__link">
+  <a href="#trien-khai-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementing a stack
+      Triển khai Stack
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementing a stack">
+    <nav class="md-nav" aria-label="Triển khai Stack">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementation-based-on-a-linked-list" class="md-nav__link">
+  <a href="#trien-khai-dua-tren-danh-sach-lien-ket" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation based on a linked list
+      Triển khai dựa trên danh sách liên kết
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementation-based-on-an-array" class="md-nav__link">
+  <a href="#trien-khai-dua-tren-mang" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation based on an array
+      Triển khai dựa trên mảng
     </span>
   </a>
   
@@ -1316,18 +1316,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comparison-of-the-two-implementations" class="md-nav__link">
+  <a href="#so-sanh-hai-cach-trien-khai" class="md-nav__link">
     <span class="md-ellipsis">
-      Comparison of the two implementations
+      So sánh hai cách triển khai
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-applications-of-stack" class="md-nav__link">
+  <a href="#cac-ung-dung-ien-hinh-cua-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Typical applications of stack
+      Các ứng dụng điển hình của stack
     </span>
   </a>
   
@@ -3536,37 +3536,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#common-operations-on-stack" class="md-nav__link">
+  <a href="#cac-thao-tac-pho-bien-tren-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Common operations on stack
+      Các thao tác phổ biến trên stack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementing-a-stack" class="md-nav__link">
+  <a href="#trien-khai-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementing a stack
+      Triển khai Stack
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementing a stack">
+    <nav class="md-nav" aria-label="Triển khai Stack">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementation-based-on-a-linked-list" class="md-nav__link">
+  <a href="#trien-khai-dua-tren-danh-sach-lien-ket" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation based on a linked list
+      Triển khai dựa trên danh sách liên kết
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementation-based-on-an-array" class="md-nav__link">
+  <a href="#trien-khai-dua-tren-mang" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation based on an array
+      Triển khai dựa trên mảng
     </span>
   </a>
   
@@ -3578,18 +3578,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comparison-of-the-two-implementations" class="md-nav__link">
+  <a href="#so-sanh-hai-cach-trien-khai" class="md-nav__link">
     <span class="md-ellipsis">
-      Comparison of the two implementations
+      So sánh hai cách triển khai
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-applications-of-stack" class="md-nav__link">
+  <a href="#cac-ung-dung-ien-hinh-cua-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Typical applications of stack
+      Các ứng dụng điển hình của stack
     </span>
   </a>
   
@@ -3628,293 +3628,293 @@
 
 <!-- Page content -->
 <h1 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">¶</a></h1>
-<p>A <u>stack</u> is a linear data structure that follows the principle of Last-In-First-Out (LIFO).</p>
-<p>We can compare a stack to a pile of plates on a table. To access the bottom plate, one must first remove the plates on top. By replacing the plates with various types of elements (such as integers, characters, objects, etc.), we obtain the data structure known as a stack.</p>
-<p>As shown in the figure below, we refer to the top of the pile of elements as the "top of the stack" and the bottom as the "bottom of the stack." The operation of adding elements to the top of the stack is called "push," and the operation of removing the top element is called "pop."</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/stack_operations.png" data-desc-position="bottom"><img alt="Stack's last-in-first-out rule" src="../stack.assets/stack_operations.png"></a></p>
-<h2 id="common-operations-on-stack">Common operations on stack<a class="headerlink" href="#common-operations-on-stack" title="Permanent link">¶</a></h2>
-<p>The common operations on a stack are shown in the table below. The specific method names depend on the programming language used. Here, we use <code>push()</code>, <code>pop()</code>, and <code>peek()</code> as examples.</p>
-<p align="center"> Table <id> &nbsp; Efficiency of stack operations </id></p>
+<p><u>Stack</u> là một cấu trúc dữ liệu tuyến tính tuân theo nguyên tắc Last-In-First-Out (LIFO) - Vào Sau Ra Trước.</p>
+<p>Chúng ta có thể so sánh stack với một chồng đĩa trên bàn. Để lấy được chiếc đĩa dưới cùng, bạn phải lấy những chiếc đĩa ở trên ra trước. Bằng cách thay thế những chiếc đĩa bằng các loại phần tử khác nhau (ví dụ: số nguyên, ký tự, đối tượng, v.v.), chúng ta có cấu trúc dữ liệu được gọi là stack.</p>
+<p>Như hình dưới đây, chúng ta gọi đỉnh của chồng phần tử là "đỉnh stack" và đáy là "đáy stack". Thao tác thêm phần tử vào đỉnh stack được gọi là "push" (đẩy), và thao tác loại bỏ phần tử trên cùng được gọi là "pop" (lấy ra).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/stack_operations.png" data-desc-position="bottom"><img alt="Quy tắc vào sau ra trước của Stack" src="../stack.assets/stack_operations.png"></a></p>
+<h2 id="cac-thao-tac-pho-bien-tren-stack">Các thao tác phổ biến trên stack<a class="headerlink" href="#cac-thao-tac-pho-bien-tren-stack" title="Permanent link">¶</a></h2>
+<p>Các thao tác phổ biến trên một stack được hiển thị trong bảng dưới đây. Tên phương thức cụ thể phụ thuộc vào ngôn ngữ lập trình được sử dụng. Ở đây, chúng ta sử dụng <code>push()</code>, <code>pop()</code> và <code>peek()</code> làm ví dụ.</p>
+<p align="center"> Bảng <id> &nbsp; Hiệu quả của các thao tác stack </id></p>
 
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Time Complexity</th>
+<th>Phương thức</th>
+<th>Mô tả</th>
+<th>Độ phức tạp thời gian</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>push()</code></td>
-<td>Push an element onto the stack (add to the top)</td>
+<td>Đẩy một phần tử vào stack (thêm vào đỉnh)</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
 <td><code>pop()</code></td>
-<td>Pop the top element from the stack</td>
+<td>Lấy phần tử trên cùng ra khỏi stack</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
 <td><code>peek()</code></td>
-<td>Access the top element of the stack</td>
+<td>Truy cập phần tử trên cùng của stack</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Typically, we can directly use the stack class built into the programming language. However, some languages may not specifically provide a stack class. In these cases, we can use the language's "array" or "linked list" as a stack and ignore operations that are not related to stack logic in the program.</p>
+<p>Thông thường, chúng ta có thể sử dụng trực tiếp lớp stack được tích hợp sẵn trong ngôn ngữ lập trình. Tuy nhiên, một số ngôn ngữ có thể không cung cấp lớp stack cụ thể. Trong những trường hợp này, chúng ta có thể sử dụng "mảng" hoặc "danh sách liên kết" của ngôn ngữ đó làm stack và bỏ qua các thao tác không liên quan đến logic stack trong chương trình.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Initialize the stack</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Python does not have a built-in stack class, so a list can be used as a stack</span>
+<div class="highlight"><span class="filename">stack.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Khởi tạo stack</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Python không có lớp stack tích hợp sẵn, vì vậy có thể sử dụng list như một stack</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">stack</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Push elements onto the stack</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Đẩy các phần tử vào stack</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Access the top element of the stack</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Truy cập phần tử trên cùng của stack</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">peek</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Pop an element from the stack</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Lấy một phần tử ra khỏi stack</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">pop</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Get the length of the stack</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Lấy độ dài của stack</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># Check if the stack is empty</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># Kiểm tra xem stack có rỗng hay không</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">is_empty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Initialize the stack */</span>
+<div class="highlight"><span class="filename">stack.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Khởi tạo stack */</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="p">;</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="cm">/* Pop an element from the stack */</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">// No return value</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">// Không có giá trị trả về</span>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Initialize the stack */</span>
+<div class="highlight"><span class="filename">stack.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Khởi tạo stack */</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">isEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Initialize the stack */</span>
+<div class="highlight"><span class="filename">stack.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Khởi tạo stack */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">Peek</span><span class="p">();</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">Pop</span><span class="p">();</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="kt">bool</span><span class="w"> </span><span class="n">isEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack_test.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Initialize the stack */</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// In Go, it is recommended to use a Slice as a stack</span>
+<div class="highlight"><span class="filename">stack_test.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Khởi tạo stack */</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// Trong Go, nên sử dụng Slice như một stack</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">var</span><span class="w"> </span><span class="nx">stack</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nx">stack</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nx">stack</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nx">stack</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nx">stack</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nx">stack</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nx">peek</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">stack</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">stack</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="nx">pop</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">stack</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">stack</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nx">stack</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">stack</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="nx">size</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">stack</span><span class="p">)</span>
 <a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="nx">isEmpty</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">stack</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Initialize the stack */</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// Swift does not have a built-in stack class, so Array can be used as a stack</span>
+<div class="highlight"><span class="filename">stack.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Khởi tạo stack */</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// Swift không có lớp stack tích hợp sẵn, vì vậy Array có thể được sử dụng như một stack</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">var</span><span class="w"> </span><span class="nv">stack</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kd">let</span><span class="w"> </span><span class="nv">peek</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="bp">last</span><span class="p">!</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="kd">let</span><span class="w"> </span><span class="nv">pop</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="kd">let</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="bp">count</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="kd">let</span><span class="w"> </span><span class="nv">isEmpty</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="bp">isEmpty</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Initialize the stack */</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// JavaScript does not have a built-in stack class, so Array can be used as a stack</span>
+<div class="highlight"><span class="filename">stack.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Khởi tạo stack */</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// JavaScript không có lớp stack tích hợp sẵn, vì vậy Array có thể được sử dụng như một stack</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">[</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mf">1</span><span class="p">];</span>
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="kd">const</span><span class="w"> </span><span class="nx">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="kd">const</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="kd">const</span><span class="w"> </span><span class="nx">is_empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Initialize the stack */</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// TypeScript does not have a built-in stack class, so Array can be used as a stack</span>
+<div class="highlight"><span class="filename">stack.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Khởi tạo stack */</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// TypeScript không có lớp stack tích hợp sẵn, vì vậy Array có thể được sử dụng như một stack</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">stack</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">[</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">];</span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="kd">const</span><span class="w"> </span><span class="nx">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="kd">const</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="kd">const</span><span class="w"> </span><span class="nx">is_empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Initialize the stack */</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">// Dart does not have a built-in stack class, so List can be used as a stack</span>
+<div class="highlight"><span class="filename">stack.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Khởi tạo stack */</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">// Dart không có lớp stack tích hợp sẵn, vì vậy List có thể được sử dụng như một stack</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">stack</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">stack</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">stack</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">stack</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
 <a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">stack</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">last</span><span class="p">;</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">removeLast</span><span class="p">();</span>
 <a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="kt">bool</span><span class="w"> </span><span class="n">isEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Initialize the stack */</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">// Use Vec as a stack</span>
+<div class="highlight"><span class="filename">stack.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Khởi tạo stack */</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">// Sử dụng Vec như một stack</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">stack</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="cm">/* Push elements onto the stack */</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="cm">/* Đẩy các phần tử vào stack */</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="cm">/* Access the top element of the stack */</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="cm">/* Truy cập phần tử trên cùng của stack */</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="kd">let</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">last</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="cm">/* Pop an element from the stack */</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="cm">/* Lấy một phần tử ra khỏi stack */</span>
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">pop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
 <a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="cm">/* Get the length of the stack */</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="cm">/* Lấy độ dài của stack */</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="kd">let</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">len</span><span class="p">();</span>
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="cm">/* Check if the stack is empty */</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="cm">/* Kiểm tra xem stack có rỗng hay không */</span>
 <a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="kd">let</span><span class="w"> </span><span class="n">is_empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">();</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">stack.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// C does not provide a built-in stack</span>
+<div class="highlight"><span class="filename">stack.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// C không cung cấp stack tích hợp sẵn</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3931,16 +3931,16 @@
 <summary>Code Visualization</summary>
 <p>https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A0%88%0A%20%20%20%20%23%20Python%20%E6%B2%A1%E6%9C%89%E5%86%85%E7%BD%AE%E7%9A%84%E6%A0%88%E7%B1%BB%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%20list%20%E5%BD%93%E4%BD%9C%E6%A0%88%E6%9D%A5%E4%BD%BF%E7%94%A8%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E6%A0%88%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E6%A0%88%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E6%A0%88%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E6%A0%88%E5%90%8E%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E6%A0%88%E7%9A%84%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E6%A0%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&amp;cumulative=false&amp;curInstr=2&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false</p>
 </details>
-<h2 id="implementing-a-stack">Implementing a stack<a class="headerlink" href="#implementing-a-stack" title="Permanent link">¶</a></h2>
-<p>To gain a deeper understanding of how a stack operates, let's try implementing a stack class ourselves.</p>
-<p>A stack follows the principle of Last-In-First-Out, which means we can only add or remove elements at the top of the stack. However, both arrays and linked lists allow adding and removing elements at any position, <strong>therefore a stack can be seen as a restricted array or linked list</strong>. In other words, we can "shield" certain irrelevant operations of an array or linked list, aligning their external behavior with the characteristics of a stack.</p>
-<h3 id="implementation-based-on-a-linked-list">Implementation based on a linked list<a class="headerlink" href="#implementation-based-on-a-linked-list" title="Permanent link">¶</a></h3>
-<p>When implementing a stack using a linked list, we can consider the head node of the list as the top of the stack and the tail node as the bottom of the stack.</p>
-<p>As shown in the figure below, for the push operation, we simply insert elements at the head of the linked list. This method of node insertion is known as "head insertion." For the pop operation, we just need to remove the head node from the list.</p>
+<h2 id="trien-khai-stack">Triển khai Stack<a class="headerlink" href="#trien-khai-stack" title="Permanent link">¶</a></h2>
+<p>Để hiểu sâu hơn về cách stack hoạt động, hãy thử tự triển khai một lớp stack.</p>
+<p>Stack tuân theo nguyên tắc Last-In-First-Out, có nghĩa là chúng ta chỉ có thể thêm hoặc xóa các phần tử ở đỉnh stack. Tuy nhiên, cả mảng và danh sách liên kết đều cho phép thêm và xóa các phần tử ở bất kỳ vị trí nào, <strong>do đó, stack có thể được xem như một mảng hoặc danh sách liên kết bị hạn chế</strong>. Nói cách khác, chúng ta có thể "che chắn" một số thao tác không liên quan của mảng hoặc danh sách liên kết, điều chỉnh hành vi bên ngoài của chúng phù hợp với các đặc điểm của stack.</p>
+<h3 id="trien-khai-dua-tren-danh-sach-lien-ket">Triển khai dựa trên danh sách liên kết<a class="headerlink" href="#trien-khai-dua-tren-danh-sach-lien-ket" title="Permanent link">¶</a></h3>
+<p>Khi triển khai một stack bằng danh sách liên kết, chúng ta có thể coi nút đầu của danh sách là đỉnh của stack và nút cuối là đáy của stack.</p>
+<p>Như hình dưới đây, đối với thao tác push, chúng ta chỉ cần chèn các phần tử vào đầu danh sách liên kết. Phương pháp chèn nút này được gọi là "chèn đầu". Đối với thao tác pop, chúng ta chỉ cần loại bỏ nút đầu khỏi danh sách.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">LinkedListStack</label><label for="__tabbed_2_2">push()</label><label for="__tabbed_2_3">pop()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/linkedlist_stack_step1.png" data-desc-position="bottom"><img alt="Implementing Stack with Linked List for Push and Pop Operations" src="../stack.assets/linkedlist_stack_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/linkedlist_stack_step1.png" data-desc-position="bottom"><img alt="Triển khai Stack bằng Danh sách liên kết cho các thao tác Push và Pop" src="../stack.assets/linkedlist_stack_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/linkedlist_stack_step2_push.png" data-desc-position="bottom"><img alt="linkedlist_stack_push" src="../stack.assets/linkedlist_stack_step2_push.png"></a></p>
@@ -3950,15 +3950,15 @@
 </div>
 </div>
 </div>
-<p>Below is an example code for implementing a stack based on a linked list:</p>
+<p>Dưới đây là một ví dụ về code triển khai stack dựa trên danh sách liên kết:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[file]{linkedlist_stack}-[class]{linked_list_stack}-[func]{}
 </code></pre></div>
-<h3 id="implementation-based-on-an-array">Implementation based on an array<a class="headerlink" href="#implementation-based-on-an-array" title="Permanent link">¶</a></h3>
-<p>When implementing a stack using an array, we can consider the end of the array as the top of the stack. As shown in the figure below, push and pop operations correspond to adding and removing elements at the end of the array, respectively, both with a time complexity of <span class="arithmatex">\(O(1)\)</span>.</p>
+<h3 id="trien-khai-dua-tren-mang">Triển khai dựa trên mảng<a class="headerlink" href="#trien-khai-dua-tren-mang" title="Permanent link">¶</a></h3>
+<p>Khi triển khai một stack bằng mảng, chúng ta có thể coi cuối mảng là đỉnh của stack. Như hình dưới đây, các thao tác push và pop tương ứng với việc thêm và xóa các phần tử ở cuối mảng, với độ phức tạp thời gian là <span class="arithmatex">\(O(1)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">ArrayStack</label><label for="__tabbed_3_2">push()</label><label for="__tabbed_3_3">pop()</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/array_stack_step1.png" data-desc-position="bottom"><img alt="Implementing Stack with Array for Push and Pop Operations" src="../stack.assets/array_stack_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/array_stack_step1.png" data-desc-position="bottom"><img alt="Triển khai Stack bằng Mảng cho các thao tác Push và Pop" src="../stack.assets/array_stack_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../stack.assets/array_stack_step2_push.png" data-desc-position="bottom"><img alt="array_stack_push" src="../stack.assets/array_stack_step2_push.png"></a></p>
@@ -3968,28 +3968,28 @@
 </div>
 </div>
 </div>
-<p>Since the elements to be pushed onto the stack may continuously increase, we can use a dynamic array, thus avoiding the need to handle array expansion ourselves. Here is an example code:</p>
+<p>Vì các phần tử được đẩy vào stack có thể liên tục tăng lên, chúng ta có thể sử dụng một mảng động, do đó tránh được việc tự xử lý việc mở rộng mảng. Dưới đây là một ví dụ về code:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[file]{array_stack}-[class]{array_stack}-[func]{}
 </code></pre></div>
-<h2 id="comparison-of-the-two-implementations">Comparison of the two implementations<a class="headerlink" href="#comparison-of-the-two-implementations" title="Permanent link">¶</a></h2>
-<p><strong>Supported Operations</strong></p>
-<p>Both implementations support all the operations defined in a stack. The array implementation additionally supports random access, but this is beyond the scope of a stack definition and is generally not used.</p>
-<p><strong>Time Efficiency</strong></p>
-<p>In the array-based implementation, both push and pop operations occur in pre-allocated contiguous memory, which has good cache locality and therefore higher efficiency. However, if the push operation exceeds the array capacity, it triggers a resizing mechanism, making the time complexity of that push operation <span class="arithmatex">\(O(n)\)</span>.</p>
-<p>In the linked list implementation, list expansion is very flexible, and there is no efficiency decrease issue as in array expansion. However, the push operation requires initializing a node object and modifying pointers, so its efficiency is relatively lower. If the elements being pushed are already node objects, then the initialization step can be skipped, improving efficiency.</p>
-<p>Thus, when the elements for push and pop operations are basic data types like <code>int</code> or <code>double</code>, we can draw the following conclusions:</p>
+<h2 id="so-sanh-hai-cach-trien-khai">So sánh hai cách triển khai<a class="headerlink" href="#so-sanh-hai-cach-trien-khai" title="Permanent link">¶</a></h2>
+<p><strong>Các thao tác được hỗ trợ</strong></p>
+<p>Cả hai cách triển khai đều hỗ trợ tất cả các thao tác được định nghĩa trong một stack. Việc triển khai dựa trên mảng còn hỗ trợ thêm truy cập ngẫu nhiên, nhưng điều này nằm ngoài phạm vi định nghĩa của một stack và thường không được sử dụng.</p>
+<p><strong>Hiệu quả thời gian</strong></p>
+<p>Trong cách triển khai dựa trên mảng, cả hai thao tác push và pop đều xảy ra trong bộ nhớ liền kề được phân bổ trước, có tính cục bộ bộ nhớ cache tốt và do đó hiệu quả cao hơn. Tuy nhiên, nếu thao tác push vượt quá dung lượng mảng, nó sẽ kích hoạt cơ chế thay đổi kích thước, làm cho độ phức tạp thời gian của thao tác push đó là <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>Trong cách triển khai danh sách liên kết, việc mở rộng danh sách rất linh hoạt và không có vấn đề giảm hiệu quả như trong việc mở rộng mảng. Tuy nhiên, thao tác push yêu cầu khởi tạo một đối tượng nút và sửa đổi các con trỏ, vì vậy hiệu quả của nó tương đối thấp hơn. Nếu các phần tử được đẩy đã là các đối tượng nút, thì có thể bỏ qua bước khởi tạo, giúp cải thiện hiệu quả.</p>
+<p>Do đó, khi các phần tử cho các thao tác push và pop là các kiểu dữ liệu cơ bản như <code>int</code> hoặc <code>double</code>, chúng ta có thể đưa ra các kết luận sau:</p>
 <ul>
-<li>The array-based stack implementation's efficiency decreases during expansion, but since expansion is a low-frequency operation, its average efficiency is higher.</li>
-<li>The linked list-based stack implementation provides more stable efficiency performance.</li>
+<li>Hiệu quả của việc triển khai stack dựa trên mảng giảm trong quá trình mở rộng, nhưng vì việc mở rộng là một thao tác tần số thấp, nên hiệu quả trung bình của nó cao hơn.</li>
+<li>Việc triển khai stack dựa trên danh sách liên kết cung cấp hiệu suất hiệu quả ổn định hơn.</li>
 </ul>
-<p><strong>Space Efficiency</strong></p>
-<p>When initializing a list, the system allocates an "initial capacity," which might exceed the actual need; moreover, the expansion mechanism usually increases capacity by a specific factor (like doubling), which may also exceed the actual need. Therefore, <strong>the array-based stack might waste some space</strong>.</p>
-<p>However, since linked list nodes require extra space for storing pointers, <strong>the space occupied by linked list nodes is relatively larger</strong>.</p>
-<p>In summary, we cannot simply determine which implementation is more memory-efficient. It requires analysis based on specific circumstances.</p>
-<h2 id="typical-applications-of-stack">Typical applications of stack<a class="headerlink" href="#typical-applications-of-stack" title="Permanent link">¶</a></h2>
+<p><strong>Hiệu quả không gian</strong></p>
+<p>Khi khởi tạo một danh sách, hệ thống sẽ phân bổ một "dung lượng ban đầu", có thể vượt quá nhu cầu thực tế; hơn nữa, cơ chế mở rộng thường tăng dung lượng theo một hệ số cụ thể (chẳng hạn như tăng gấp đôi), điều này cũng có thể vượt quá nhu cầu thực tế. Do đó, <strong>stack dựa trên mảng có thể lãng phí một số không gian</strong>.</p>
+<p>Tuy nhiên, vì các nút danh sách liên kết yêu cầu thêm không gian để lưu trữ các con trỏ, <strong>không gian chiếm dụng bởi các nút danh sách liên kết tương đối lớn hơn</strong>.</p>
+<p>Tóm lại, chúng ta không thể đơn giản xác định cách triển khai nào tiết kiệm bộ nhớ hơn. Nó đòi hỏi phân tích dựa trên các tình huống cụ thể.</p>
+<h2 id="cac-ung-dung-ien-hinh-cua-stack">Các ứng dụng điển hình của stack<a class="headerlink" href="#cac-ung-dung-ien-hinh-cua-stack" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Back and forward in browsers, undo and redo in software</strong>. Every time we open a new webpage, the browser pushes the previous page onto the stack, allowing us to go back to the previous page through the back operation, which is essentially a pop operation. To support both back and forward, two stacks are needed to work together.</li>
-<li><strong>Memory management in programs</strong>. Each time a function is called, the system adds a stack frame at the top of the stack to record the function's context information. In recursive functions, the downward recursion phase keeps pushing onto the stack, while the upward backtracking phase keeps popping from the stack.</li>
+<li><strong>Quay lại và chuyển tiếp trong trình duyệt, hoàn tác và làm lại trong phần mềm</strong>. Mỗi khi chúng ta mở một trang web mới, trình duyệt sẽ đẩy trang trước đó vào stack, cho phép chúng ta quay lại trang trước đó thông qua thao tác quay lại, về cơ bản là một thao tác pop. Để hỗ trợ cả quay lại và chuyển tiếp, cần có hai stack để phối hợp với nhau.</li>
+<li><strong>Quản lý bộ nhớ trong chương trình</strong>. Mỗi khi một hàm được gọi, hệ thống sẽ thêm một khung stack ở trên cùng của stack để ghi lại thông tin ngữ cảnh của hàm. Trong các hàm đệ quy, giai đoạn đệ quy xuống tiếp tục đẩy vào stack, trong khi giai đoạn theo dõi ngược lên tiếp tục lấy ra khỏi stack.</li>
 </ul>
 
 
@@ -4006,7 +4006,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Stack and queue" rel="prev">
+  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Stack và queue" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4016,7 +4016,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        Stack and queue
+        Stack và queue
       </div>
     </div>
   </a>
@@ -4069,7 +4069,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Stack and queue">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Stack và queue">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4079,7 +4079,7 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                Stack and queue
+                Stack và queue
               </div>
             </div>
           </a>
