@@ -1,9 +1,9 @@
-# Stack and queue
+# Stack và queue
 
-![Stack and queue](../assets/covers/chapter_stack_and_queue.jpg)
+![Stack và queue](../assets/covers/chapter_stack_and_queue.jpg)
 
 !!! abstract
 
-    A stack is like cats placed on top of each other, while a queue is like cats lined up one by one.
+    Stack giống như những chú mèo được xếp chồng lên nhau, trong khi queue giống như những chú mèo xếp hàng lần lượt.
     
-    They represent the logical relationships of Last-In-First-Out (LIFO) and First-In-First-Out (FIFO), respectively.
+    Chúng đại diện cho mối quan hệ logic của Last-In-First-Out (LIFO) và First-In-First-Out (FIFO), tương ứng.

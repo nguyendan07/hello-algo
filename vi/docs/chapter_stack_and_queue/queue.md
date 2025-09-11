@@ -1,305 +1,305 @@
-# Queue
+# Hàng đợi (Queue)
 
-A <u>queue</u> is a linear data structure that follows the First-In-First-Out (FIFO) rule. As the name suggests, a queue simulates the phenomenon of lining up, where newcomers join the queue at the rear, and the person at the front leaves the queue first.
+<u>Hàng đợi (queue)</u> là một cấu trúc dữ liệu tuyến tính tuân theo nguyên tắc Nhập Trước Xuất Trước (FIFO). Như tên gọi của nó, hàng đợi mô phỏng hiện tượng xếp hàng, trong đó người mới đến sẽ tham gia vào hàng đợi ở phía sau và người ở phía trước sẽ rời khỏi hàng đợi trước.
 
-As shown in the figure below, we call the front of the queue the "head" and the back the "tail." The operation of adding elements to the rear of the queue is termed "enqueue," and the operation of removing elements from the front is termed "dequeue."
+Như trong hình dưới đây, chúng ta gọi đầu hàng đợi là "head" (đầu) và cuối hàng đợi là "tail" (đuôi). Thao tác thêm các phần tử vào cuối hàng đợi được gọi là "enqueue" (xếp hàng), và thao tác loại bỏ các phần tử từ đầu hàng đợi được gọi là "dequeue" (rời hàng).
 
-![Queue's first-in-first-out rule](queue.assets/queue_operations.png)
+![Quy tắc vào trước ra trước của hàng đợi](queue.assets/queue_operations.png)
 
-## Common operations on queue
+## Các thao tác phổ biến trên hàng đợi
 
-The common operations on a queue are shown in the table below. Note that method names may vary across different programming languages. Here, we use the same naming convention as that used for stacks.
+Các thao tác phổ biến trên một hàng đợi được hiển thị trong bảng dưới đây. Lưu ý rằng tên phương thức có thể khác nhau giữa các ngôn ngữ lập trình khác nhau. Ở đây, chúng ta sử dụng quy ước đặt tên tương tự như quy ước được sử dụng cho ngăn xếp.
 
-<p align="center"> Table <id> &nbsp; Efficiency of queue operations </p>
+<p align="center"> Bảng <id> &nbsp; Hiệu quả của các hoạt động trên hàng đợi </p>
 
-| Method Name | Description                            | Time Complexity |
-| ----------- | -------------------------------------- | --------------- |
-| `push()`    | Enqueue an element, add it to the tail | $O(1)$          |
-| `pop()`     | Dequeue the head element               | $O(1)$          |
-| `peek()`    | Access the head element                | $O(1)$          |
+| Tên phương thức | Mô tả                                          | Độ phức tạp thời gian |
+| --------------- | ---------------------------------------------- | --------------------  |
+| `push()`        | Xếp một phần tử vào hàng đợi, thêm nó vào đuôi | $O(1)$                |
+| `pop()`         | Lấy phần tử ở đầu hàng đợi ra khỏi hàng đợi    | $O(1)$                |
+| `peek()`        | Truy cập phần tử ở đầu hàng đợi                | $O(1)$                |
 
-We can directly use the ready-made queue classes in programming languages:
+Chúng ta có thể trực tiếp sử dụng các lớp hàng đợi dựng sẵn trong các ngôn ngữ lập trình:
 
 === "Python"
 
     ```python title="queue.py"
     from collections import deque
 
-    # Initialize the queue
-    # In Python, we generally use the deque class as a queue
-    # Although queue.Queue() is a pure queue class, it's not very user-friendly, so it's not recommended
+    # Khởi tạo hàng đợi
+    # Trong Python, chúng ta thường sử dụng lớp deque như một hàng đợi
+    # Mặc dù queue.Queue() là một lớp hàng đợi thuần túy, nó không thân thiện lắm với người dùng, vì vậy nó không được khuyến khích
     que: deque[int] = deque()
 
-    # Enqueue elements
+    # Xếp hàng các phần tử
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
 
-    # Access the first element
+    # Truy cập phần tử đầu tiên
     front: int = que[0]
 
-    # Dequeue an element
+    # Lấy một phần tử ra khỏi hàng đợi
     pop: int = que.popleft()
 
-    # Get the length of the queue
+    # Lấy độ dài của hàng đợi
     size: int = len(que)
 
-    # Check if the queue is empty
+    # Kiểm tra xem hàng đợi có trống hay không
     is_empty: bool = len(que) == 0
     ```
 
 === "C++"
 
     ```cpp title="queue.cpp"
-    /* Initialize the queue */
+    /* Khởi tạo hàng đợi */
     queue<int> queue;
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* Access the first element*/
+    /* Truy cập phần tử đầu tiên*/
     int front = queue.front();
 
-    /* Dequeue an element */
+    /* Lấy một phần tử ra khỏi hàng đợi */
     queue.pop();
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     int size = queue.size();
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     bool empty = queue.empty();
     ```
 
 === "Java"
 
     ```java title="queue.java"
-    /* Initialize the queue */
+    /* Khởi tạo hàng đợi */
     Queue<Integer> queue = new LinkedList<>();
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.offer(1);
     queue.offer(3);
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     int peek = queue.peek();
 
-    /* Dequeue an element */
+    /* Lấy một phần tử ra khỏi hàng đợi */
     int pop = queue.poll();
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     int size = queue.size();
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     boolean isEmpty = queue.isEmpty();
     ```
 
 === "C#"
 
     ```csharp title="queue.cs"
-    /* Initialize the queue */
+    /* Khởi tạo hàng đợi */
     Queue<int> queue = new();
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.Enqueue(1);
     queue.Enqueue(3);
     queue.Enqueue(2);
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     int peek = queue.Peek();
 
-    /* Dequeue an element */
+    /* Lấy một phần tử ra khỏi hàng đợi */
     int pop = queue.Dequeue();
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     int size = queue.Count;
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     bool isEmpty = queue.Count == 0;
     ```
 
 === "Go"
 
     ```go title="queue_test.go"
-    /* Initialize the queue */
-    // In Go, use list as a queue
+    /* Khởi tạo hàng đợi */
+    // Trong Go, sử dụng list như một hàng đợi
     queue := list.New()
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.PushBack(1)
     queue.PushBack(3)
     queue.PushBack(2)
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     peek := queue.Front()
 
-    /* Dequeue an element */
+    /* Lấy một phần tử ra khỏi hàng đợi */
     pop := queue.Front()
     queue.Remove(pop)
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     size := queue.Len()
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     isEmpty := queue.Len() == 0
     ```
 
 === "Swift"
 
     ```swift title="queue.swift"
-    /* Initialize the queue */
-    // Swift does not have a built-in queue class, so Array can be used as a queue
+    /* Khởi tạo hàng đợi */
+    // Swift không có lớp hàng đợi tích hợp, vì vậy Array có thể được sử dụng như một hàng đợi
     var queue: [Int] = []
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     let peek = queue.first!
 
-    /* Dequeue an element */
-    // Since it's an array, removeFirst has a complexity of O(n)
+    /* Lấy một phần tử ra khỏi hàng đợi */
+    // Vì nó là một mảng, removeFirst có độ phức tạp là O(n)
     let pool = queue.removeFirst()
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     let size = queue.count
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     let isEmpty = queue.isEmpty
     ```
 
 === "JS"
 
     ```javascript title="queue.js"
-    /* Initialize the queue */
-    // JavaScript does not have a built-in queue, so Array can be used as a queue
+    /* Khởi tạo hàng đợi */
+    // JavaScript không có hàng đợi tích hợp, vì vậy Array có thể được sử dụng như một hàng đợi
     const queue = [];
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     const peek = queue[0];
 
-    /* Dequeue an element */
-    // Since the underlying structure is an array, shift() method has a time complexity of O(n)
+    /* Lấy một phần tử ra khỏi hàng đợi */
+    // Vì cấu trúc bên dưới là một mảng, phương thức shift() có độ phức tạp thời gian là O(n)
     const pop = queue.shift();
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     const size = queue.length;
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     const empty = queue.length === 0;
     ```
 
 === "TS"
 
     ```typescript title="queue.ts"
-    /* Initialize the queue */
-    // TypeScript does not have a built-in queue, so Array can be used as a queue 
+    /* Khởi tạo hàng đợi */
+    // TypeScript không có hàng đợi tích hợp, vì vậy Array có thể được sử dụng như một hàng đợi 
     const queue: number[] = [];
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     const peek = queue[0];
 
-    /* Dequeue an element */
-    // Since the underlying structure is an array, shift() method has a time complexity of O(n)
+    /* Lấy một phần tử ra khỏi hàng đợi */
+    // Vì cấu trúc bên dưới là một mảng, phương thức shift() có độ phức tạp thời gian là O(n)
     const pop = queue.shift();
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     const size = queue.length;
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     const empty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
-    /* Initialize the queue */
-    // In Dart, the Queue class is a double-ended queue but can be used as a queue
+    /* Khởi tạo hàng đợi */
+    // Trong Dart, lớp Queue là một hàng đợi hai đầu nhưng có thể được sử dụng như một hàng đợi
     Queue<int> queue = Queue();
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     queue.add(1);
     queue.add(3);
     queue.add(2);
     queue.add(5);
     queue.add(4);
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     int peek = queue.first;
 
-    /* Dequeue an element */
+    /* Lấy một phần tử ra khỏi hàng đợi */
     int pop = queue.removeFirst();
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     int size = queue.length;
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="queue.rs"
-    /* Initialize the double-ended queue */
-    // In Rust, use a double-ended queue as a regular queue
+    /* Khởi tạo hàng đợi hai đầu */
+    // Trong Rust, sử dụng hàng đợi hai đầu như một hàng đợi thông thường
     let mut deque: VecDeque<u32> = VecDeque::new();
 
-    /* Enqueue elements */
+    /* Xếp hàng các phần tử */
     deque.push_back(1);
     deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
 
-    /* Access the first element */
+    /* Truy cập phần tử đầu tiên */
     if let Some(front) = deque.front() {
     }
 
-    /* Dequeue an element */
+    /* Lấy một phần tử ra khỏi hàng đợi */
     if let Some(pop) = deque.pop_front() {
     }
 
-    /* Get the length of the queue */
+    /* Lấy độ dài của hàng đợi */
     let size = deque.len();
 
-    /* Check if the queue is empty */
+    /* Kiểm tra xem hàng đợi có trống hay không */
     let is_empty = deque.is_empty();
     ```
 
 === "C"
 
     ```c title="queue.c"
-    // C does not provide a built-in queue
+    // C không cung cấp hàng đợi tích hợp sẵn
     ```
 
 === "Kotlin"
@@ -318,16 +318,16 @@ We can directly use the ready-made queue classes in programming languages:
 
     https://pythontutor.com/render.html#code=from%20collections%20import%20deque%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%9F%E5%88%97%0A%20%20%20%20%23%20%E5%9C%A8%20Python%20%E4%B8%AD%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E5%B0%86%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97%E7%B1%BB%20deque%20%E7%9C%8B%E4%BD%9C%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8%0A%20%20%20%20%23%20%E8%99%BD%E7%84%B6%20queue.Queue%28%29%20%E6%98%AF%E7%BA%AF%E6%AD%A3%E7%9A%84%E9%98%9F%E5%88%97%E7%B1%BB%EF%BC%8C%E4%BD%86%E4%B8%8D%E5%A4%AA%E5%A5%BD%E7%94%A8%0A%20%20%20%20que%20%3D%20deque%28%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%85%A5%E9%98%9F%0A%20%20%20%20que.append%281%29%0A%20%20%20%20que.append%283%29%0A%20%20%20%20que.append%282%29%0A%20%20%20%20que.append%285%29%0A%20%20%20%20que.append%284%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%AE%BF%E9%97%AE%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%0A%20%20%20%20front%20%3D%20que%5B0%5D%0A%20%20%20%20print%28%22%E9%98%9F%E9%A6%96%E5%85%83%E7%B4%A0%20front%20%3D%22,%20front%29%0A%0A%20%20%20%20%23%20%E5%85%83%E7%B4%A0%E5%87%BA%E9%98%9F%0A%20%20%20%20pop%20%3D%20que.popleft%28%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%85%83%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E5%87%BA%E9%98%9F%E5%90%8E%20que%20%3D%22,%20que%29%0A%0A%20%20%20%20%23%20%E8%8E%B7%E5%8F%96%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6%0A%20%20%20%20size%20%3D%20len%28que%29%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E9%95%BF%E5%BA%A6%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E5%88%A4%E6%96%AD%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%0A%20%20%20%20is_empty%20%3D%20len%28que%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E9%98%9F%E5%88%97%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%20%3D%22,%20is_empty%29&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-## Implementing a queue
+## Triển khai hàng đợi
 
-To implement a queue, we need a data structure that allows adding elements at one end and removing them at the other. Both linked lists and arrays meet this requirement.
+Để triển khai một hàng đợi, chúng ta cần một cấu trúc dữ liệu cho phép thêm các phần tử ở một đầu và loại bỏ chúng ở đầu kia. Cả danh sách liên kết và mảng đều đáp ứng yêu cầu này.
 
-### Implementation based on a linked list
+### Triển khai dựa trên danh sách liên kết
 
-As shown in the figure below, we can consider the "head node" and "tail node" of a linked list as the "front" and "rear" of the queue, respectively. It is stipulated that nodes can only be added at the rear and removed at the front.
+Như trong hình dưới đây, chúng ta có thể coi "nút đầu" và "nút cuối" của một danh sách liên kết là "đầu" và "đuôi" của hàng đợi, tương ứng. Quy định là các nút chỉ có thể được thêm vào phía sau và loại bỏ ở phía trước.
 
 === "LinkedListQueue"
-    ![Implementing Queue with Linked List for Enqueue and Dequeue Operations](queue.assets/linkedlist_queue_step1.png)
+    ![Triển khai hàng đợi bằng danh sách liên kết cho các thao tác xếp hàng và rời hàng](queue.assets/linkedlist_queue_step1.png)
 
 === "push()"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.png)
@@ -335,27 +335,27 @@ As shown in the figure below, we can consider the "head node" and "tail node" of
 === "pop()"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.png)
 
-Below is the code for implementing a queue using a linked list:
+Dưới đây là code để triển khai hàng đợi bằng danh sách liên kết:
 
 ```src
 [file]{linkedlist_queue}-[class]{linked_list_queue}-[func]{}
 ```
 
-### Implementation based on an array
+### Triển khai dựa trên mảng
 
-Deleting the first element in an array has a time complexity of $O(n)$, which would make the dequeue operation inefficient. However, this problem can be cleverly avoided as follows.
+Việc xóa phần tử đầu tiên trong một mảng có độ phức tạp thời gian là $O(n)$, điều này sẽ làm cho thao tác dequeue không hiệu quả. Tuy nhiên, vấn đề này có thể được tránh một cách khéo léo như sau.
 
-We use a variable `front` to indicate the index of the front element and maintain a variable `size` to record the queue's length. Define `rear = front + size`, which points to the position immediately following the tail element.
+Chúng ta sử dụng một biến `front` để chỉ ra chỉ số của phần tử đầu và duy trì một biến `size` để ghi lại độ dài của hàng đợi. Định nghĩa `rear = front + size`, trỏ đến vị trí ngay sau phần tử cuối.
 
-With this design, **the effective interval of elements in the array is `[front, rear - 1]`**. The implementation methods for various operations are shown in the figure below.
+Với thiết kế này, **khoảng hiệu quả của các phần tử trong mảng là `[front, rear - 1]`**. Các phương pháp triển khai cho các hoạt động khác nhau được hiển thị trong hình dưới đây.
 
-- Enqueue operation: Assign the input element to the `rear` index and increase `size` by 1.
-- Dequeue operation: Simply increase `front` by 1 and decrease `size` by 1.
+- Thao tác enqueue: Gán phần tử đầu vào cho chỉ số `rear` và tăng `size` lên 1.
+- Thao tác dequeue: Chỉ cần tăng `front` lên 1 và giảm `size` đi 1.
 
-Both enqueue and dequeue operations only require a single operation, each with a time complexity of $O(1)$.
+Cả hai thao tác enqueue và dequeue chỉ yêu cầu một thao tác duy nhất, mỗi thao tác có độ phức tạp thời gian là $O(1)$.
 
 === "ArrayQueue"
-    ![Implementing Queue with Array for Enqueue and Dequeue Operations](queue.assets/array_queue_step1.png)
+    ![Triển khai hàng đợi bằng mảng cho các thao tác xếp hàng và rời hàng](queue.assets/array_queue_step1.png)
 
 === "push()"
     ![array_queue_push](queue.assets/array_queue_step2_push.png)
@@ -363,19 +363,19 @@ Both enqueue and dequeue operations only require a single operation, each with a
 === "pop()"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.png)
 
-You might notice a problem: as enqueue and dequeue operations are continuously performed, both `front` and `rear` move to the right and **will eventually reach the end of the array and can't move further**. To resolve this, we can treat the array as a "circular array" where connecting the end of the array back to its beginning.
+Bạn có thể nhận thấy một vấn đề: khi các thao tác enqueue và dequeue được thực hiện liên tục, cả `front` và `rear` đều di chuyển sang phải và **cuối cùng sẽ đạt đến cuối mảng và không thể di chuyển thêm**. Để giải quyết vấn đề này, chúng ta có thể coi mảng như một "mảng vòng tròn", nơi kết nối phần cuối của mảng trở lại phần đầu của nó.
 
-In a circular array, `front` or `rear` needs to loop back to the start of the array upon reaching the end. This cyclical pattern can be achieved with a "modulo operation" as shown in the code below:
+Trong một mảng vòng tròn, `front` hoặc `rear` cần lặp lại về đầu mảng khi đạt đến cuối. Mẫu tuần hoàn này có thể đạt được với một "phép toán modulo" như trong code dưới đây:
 
 ```src
 [file]{array_queue}-[class]{array_queue}-[func]{}
 ```
 
-The above implementation of the queue still has its limitations: its length is fixed. However, this issue is not difficult to resolve. We can replace the array with a dynamic array that can expand itself if needed. Interested readers can try to implement this themselves.
+Việc triển khai hàng đợi ở trên vẫn có những hạn chế: độ dài của nó là cố định. Tuy nhiên, vấn đề này không khó để giải quyết. Chúng ta có thể thay thế mảng bằng một mảng động có thể tự mở rộng nếu cần. Độc giả quan tâm có thể tự mình thử triển khai điều này.
 
-The comparison of the two implementations is consistent with that of the stack and is not repeated here.
+So sánh hai cách triển khai nhất quán với ngăn xếp và không được lặp lại ở đây.
 
-## Typical applications of queue
+## Các ứng dụng điển hình của hàng đợi
 
-- **Amazon orders**: After shoppers place orders, these orders join a queue, and the system processes them in order. During events like Singles' Day, a massive number of orders are generated in a short time, making high concurrency a key challenge for engineers.
-- **Various to-do lists**: Any scenario requiring a "first-come, first-served" functionality, such as a printer's task queue or a restaurant's food delivery queue, can effectively maintain the order of processing with a queue.
+- **Đơn hàng Amazon**: Sau khi người mua sắm đặt hàng, các đơn hàng này sẽ tham gia vào một hàng đợi và hệ thống sẽ xử lý chúng theo thứ tự. Trong các sự kiện như Ngày Độc thân, một số lượng lớn đơn hàng được tạo ra trong một thời gian ngắn, khiến cho tính đồng thời cao trở thành một thách thức chính đối với các kỹ sư.
+- **Các danh sách việc cần làm khác nhau**: Bất kỳ tình huống nào yêu cầu chức năng "đến trước, phục vụ trước", chẳng hạn như hàng đợi tác vụ của máy in hoặc hàng đợi giao đồ ăn của nhà hàng, đều có thể duy trì hiệu quả thứ tự xử lý bằng một hàng đợi.
