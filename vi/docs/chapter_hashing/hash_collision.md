@@ -1,108 +1,108 @@
-# Hash collision
+# Va chạm băm (Hash collision)
 
-The previous section mentioned that, **in most cases, the input space of a hash function is much larger than the output space**, so theoretically, hash collisions are inevitable. For example, if the input space is all integers and the output space is the size of the array capacity, then multiple integers will inevitably be mapped to the same bucket index.
+Phần trước đã đề cập rằng, **trong hầu hết các trường hợp, không gian đầu vào của hàm băm lớn hơn rất nhiều so với không gian đầu ra**, nên về lý thuyết, va chạm băm là điều không thể tránh khỏi. Ví dụ, nếu không gian đầu vào là tất cả các số nguyên và không gian đầu ra là kích thước của mảng, thì nhiều số nguyên chắc chắn sẽ được ánh xạ vào cùng một vị trí trong mảng.
 
-Hash collisions can lead to incorrect query results, severely impacting the usability of the hash table. To address this issue, whenever a hash collision occurs, we perform hash table resizing until the collision disappears. This approach is pretty simple, straightforward, and working well. However, it appears to be pretty inefficient as the table expansion involves a lot of data migration as well as recalculation of hash code, which are expansive. To improve efficiency, we can adopt the following strategies:
+Va chạm băm có thể dẫn đến kết quả truy vấn sai, ảnh hưởng nghiêm trọng đến khả năng sử dụng của bảng băm. Để giải quyết vấn đề này, mỗi khi xảy ra va chạm băm, chúng ta thực hiện mở rộng bảng băm cho đến khi va chạm biến mất. Cách này khá đơn giản, dễ hiểu và hoạt động tốt. Tuy nhiên, nó lại kém hiệu quả vì việc mở rộng bảng đòi hỏi phải di chuyển nhiều dữ liệu và tính toán lại mã băm, rất tốn tài nguyên. Để cải thiện hiệu suất, ta có thể áp dụng các chiến lược sau:
 
-1. Improve the hash table data structure in a way that **locating target element is still functioning well in the event of a hash collision**.
-2. Expansion is the last resort before it becomes necessary, when severe collisions are observed.
+1. Cải tiến cấu trúc bảng băm để **vẫn có thể xác định đúng phần tử cần tìm khi xảy ra va chạm băm**.
+2. Chỉ mở rộng bảng khi thực sự cần thiết, tức là khi xuất hiện va chạm nghiêm trọng.
 
-There are mainly two methods for improving the structure of hash tables: "Separate Chaining" and "Open Addressing".
+Có hai phương pháp chính để cải thiện cấu trúc bảng băm: "Tách chuỗi" và "Địa chỉ mở".
 
-## Separate chaining
+## Tách chuỗi
 
-In the original hash table, each bucket can store only one key-value pair. <u>Separate chaining</u> converts a single element into a linked list, treating key-value pairs as list nodes, storing all colliding key-value pairs in the same linked list. The figure below shows an example of a hash table with separate chaining.
+Trong bảng băm gốc, mỗi vị trí chỉ lưu được một cặp khóa-giá trị. <u>Tách chuỗi</u> chuyển mỗi phần tử thành một danh sách liên kết, coi các cặp khóa-giá trị là các nút trong danh sách, lưu tất cả các cặp bị va chạm vào cùng một danh sách liên kết. Hình dưới minh họa bảng băm sử dụng tách chuỗi.
 
-![Separate chaining hash table](hash_collision.assets/hash_table_chaining.png)
+![Bảng băm tách chuỗi](hash_collision.assets/hash_table_chaining.png)
 
-The operations of a hash table implemented with separate chaining have changed as follows:
+Các thao tác trên bảng băm tách chuỗi thay đổi như sau:
 
-- **Querying Elements**: Input `key`, obtain the bucket index through the hash function, then access the head node of the linked list. Traverse the linked list and compare key to find the target key-value pair.
-- **Adding Elements**: Access the head node of the linked list via the hash function, then append the node (key-value pair) to the list.
-- **Deleting Elements**: Access the head of the linked list based on the result of the hash function, then traverse the linked list to find the target node and delete it.
+- **Truy vấn phần tử**: Nhập `key`, lấy vị trí trong mảng bằng hàm băm, sau đó truy cập nút đầu của danh sách liên kết. Duyệt danh sách và so sánh khóa để tìm cặp khóa-giá trị cần thiết.
+- **Thêm phần tử**: Truy cập nút đầu của danh sách liên kết qua hàm băm, sau đó thêm nút (cặp khóa-giá trị) vào danh sách.
+- **Xóa phần tử**: Truy cập nút đầu của danh sách liên kết dựa trên kết quả hàm băm, duyệt danh sách để tìm nút cần xóa và xóa nó.
 
-Separate chaining has the following limitations:
+Tách chuỗi có một số hạn chế:
 
-- **Increased Space Usage**: The linked list contains node pointers, which consume more memory space than arrays.
-- **Reduced Query Efficiency**: This is because linear traversal of the linked list is required to find the corresponding element.
+- **Tăng sử dụng bộ nhớ**: Danh sách liên kết chứa các con trỏ nút, tốn nhiều bộ nhớ hơn mảng.
+- **Giảm hiệu suất truy vấn**: Vì phải duyệt tuyến tính danh sách liên kết để tìm phần tử.
 
-The code below provides a simple implementation of a separate chaining hash table, with two things to note:
+Đoạn mã dưới đây là ví dụ đơn giản về bảng băm tách chuỗi, lưu ý hai điểm sau:
 
-- Lists (dynamic arrays) are used instead of linked lists for simplicity. In this setup, the hash table (array) contains multiple buckets, each of which is a list.
-- This implementation includes a hash table resizing method. When the load factor exceeds $\frac{2}{3}$, we expand the hash table to twice its original size.
+- Sử dụng danh sách (mảng động) thay cho danh sách liên kết để đơn giản hóa. Trong cách này, bảng băm (mảng) gồm nhiều vị trí, mỗi vị trí là một danh sách.
+- Có phương thức mở rộng bảng băm. Khi hệ số tải vượt quá $\frac{2}{3}$, bảng băm sẽ được mở rộng gấp đôi.
 
 ```src
 [file]{hash_map_chaining}-[class]{hash_map_chaining}-[func]{}
 ```
 
-It's worth noting that when the linked list is very long, the query efficiency $O(n)$ is poor. **In this case, the list can be converted to an "AVL tree" or "Red-Black tree"** to optimize the time complexity of the query operation to $O(\log n)$.
+Lưu ý rằng khi danh sách liên kết quá dài, hiệu suất truy vấn $O(n)$ sẽ kém. **Khi đó, có thể chuyển danh sách sang "cây AVL" hoặc "cây Đỏ-Đen"** để tối ưu hóa độ phức tạp truy vấn xuống $O(\log n)$.
 
-## Open addressing
+## Địa chỉ mở
 
-<u>Open addressing</u> does not introduce additional data structures but instead handles hash collisions through "multiple probing". The probing methods mainly include linear probing, quadratic probing, and double hashing.
+<u>Địa chỉ mở</u> không sử dụng thêm cấu trúc dữ liệu mà xử lý va chạm băm bằng "tìm kiếm nhiều lần". Các phương pháp tìm kiếm gồm tìm kiếm tuyến tính, tìm kiếm bậc hai và băm kép.
 
-Let's use linear probing as an example to introduce the mechanism of open addressing hash tables.
+Ta sẽ lấy tìm kiếm tuyến tính làm ví dụ để giới thiệu cơ chế của bảng băm địa chỉ mở.
 
-### Linear probing
+### Tìm kiếm tuyến tính
 
-Linear probing uses a fixed-step linear search for probing, differing from ordinary hash tables.
+Tìm kiếm tuyến tính sử dụng cách dò tìm theo bước cố định, khác với bảng băm thông thường.
 
-- **Inserting Elements**: Calculate the bucket index using the hash function. If the bucket already contains an element, linearly traverse forward from the conflict position (usually with a step size of $1$) until an empty bucket is found, then insert the element.
-- **Searching for Elements**: If a hash collision is encountered, use the same step size to linearly traverse forward until the corresponding element is found and return `value`; if an empty bucket is encountered, it means the target element is not in the hash table, so return `None`.
+- **Thêm phần tử**: Tính vị trí bằng hàm băm. Nếu vị trí đã có phần tử, duyệt tuyến tính từ vị trí bị va chạm (thường bước là $1$) cho đến khi gặp vị trí trống, rồi thêm phần tử vào đó.
+- **Tìm kiếm phần tử**: Nếu gặp va chạm, dùng cùng bước để duyệt tuyến tính cho đến khi tìm thấy phần tử cần thiết và trả về `value`; nếu gặp vị trí trống, nghĩa là phần tử không có trong bảng băm, trả về `None`.
 
-The figure below shows the distribution of key-value pairs in an open addressing (linear probing) hash table. According to this hash function, keys with the same last two digits will be mapped to the same bucket. Through linear probing, they are stored sequentially in that bucket and the buckets below it.
+Hình dưới minh họa cách phân bố cặp khóa-giá trị trong bảng băm địa chỉ mở (tìm kiếm tuyến tính). Theo hàm băm này, các khóa có cùng hai chữ số cuối sẽ được ánh xạ vào cùng một vị trí. Nhờ tìm kiếm tuyến tính, chúng được lưu liên tiếp ở vị trí đó và các vị trí tiếp theo.
 
-![Distribution of key-value pairs in open addressing (linear probing) hash table](hash_collision.assets/hash_table_linear_probing.png)
+![Phân bố cặp khóa-giá trị trong bảng băm địa chỉ mở (tìm kiếm tuyến tính)](hash_collision.assets/hash_table_linear_probing.png)
 
-However, **linear probing is prone to create "clustering"**. Specifically, the longer the continuously occupied positions in the array, the greater the probability of hash collisions occurring in these continuous positions, further promoting the growth of clustering at that position, forming a vicious cycle, and ultimately leading to degraded efficiency of insertion, deletion, query, and update operations.
+Tuy nhiên, **tìm kiếm tuyến tính dễ gây ra "hiện tượng kết cụm"**. Cụ thể, càng nhiều vị trí liên tiếp bị chiếm thì khả năng va chạm ở các vị trí đó càng lớn, làm cho kết cụm ngày càng tăng, gây hiệu suất kém cho các thao tác thêm, xóa, truy vấn, cập nhật.
 
-It's important to note that **we cannot directly delete elements in an open addressing hash table**. Deleting an element creates an empty bucket `None` in the array. When searching for elements, if linear probing encounters this empty bucket, it will return, making the elements below this bucket inaccessible. The program may incorrectly assume these elements do not exist, as shown in the figure below.
+Lưu ý rằng **không thể xóa trực tiếp phần tử trong bảng băm địa chỉ mở**. Xóa phần tử sẽ tạo ra vị trí trống `None` trong mảng. Khi tìm kiếm, nếu gặp vị trí trống này, quá trình dò tìm sẽ dừng lại, khiến các phần tử phía sau không thể truy cập được. Chương trình có thể hiểu sai là các phần tử đó không tồn tại, như hình dưới.
 
-![Query issues caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png)
+![Vấn đề truy vấn do xóa trong địa chỉ mở](hash_collision.assets/hash_table_open_addressing_deletion.png)
 
-To solve this problem, we can adopt the <u>lazy deletion</u> mechanism: instead of directly removing elements from the hash table, **use a constant `TOMBSTONE` to mark the bucket**. In this mechanism, both `None` and `TOMBSTONE` represent empty buckets and can hold key-value pairs. However, when linear probing encounters `TOMBSTONE`, it should continue traversing since there may still be key-value pairs below it.
+Để giải quyết, ta dùng cơ chế <u>xóa tạm thời</u>: thay vì xóa trực tiếp, **dùng hằng số `TOMBSTONE` để đánh dấu vị trí**. Khi dò tìm, nếu gặp `TOMBSTONE` thì tiếp tục duyệt vì có thể còn phần tử phía sau.
 
-However, **lazy deletion may accelerate the performance degradation of the hash table**. Every deletion operation produces a delete mark, and as `TOMBSTONE` increases, the search time will also increase because linear probing may need to skip multiple `TOMBSTONE` to find the target element.
+Tuy nhiên, **xóa tạm thời có thể làm hiệu suất bảng băm giảm nhanh**. Mỗi lần xóa tạo ra một dấu xóa, càng nhiều `TOMBSTONE` thì thời gian tìm kiếm càng tăng vì phải bỏ qua nhiều vị trí.
 
-To address this, consider recording the index of the first encountered `TOMBSTONE` during linear probing and swapping the positions of the searched target element with that `TOMBSTONE`. The benefit of doing this is that each time an element is queried or added, the element will be moved to a bucket closer to its ideal position (the starting point of probing), thereby optimizing query efficiency.
+Để khắc phục, có thể ghi lại vị trí đầu tiên gặp `TOMBSTONE` khi dò tìm và hoán đổi phần tử tìm thấy với vị trí đó. Nhờ vậy, mỗi lần truy vấn hoặc thêm, phần tử sẽ được đưa về gần vị trí lý tưởng hơn, giúp tối ưu hiệu suất truy vấn.
 
-The code below implements an open addressing (linear probing) hash table with lazy deletion. To make better use of the hash table space, we treat the hash table as a "circular array,". When going beyond the end of the array, we return to the beginning and continue traversing.
+Đoạn mã dưới đây là bảng băm địa chỉ mở (tìm kiếm tuyến tính) với xóa tạm thời. Để tận dụng không gian, bảng băm được coi là "mảng vòng", khi vượt quá cuối mảng sẽ quay lại đầu và tiếp tục duyệt.
 
 ```src
 [file]{hash_map_open_addressing}-[class]{hash_map_open_addressing}-[func]{}
 ```
 
-### Quadratic probing
+### Tìm kiếm bậc hai
 
-Quadratic probing is similar to linear probing and is one of the common strategies of open addressing. When a collision occurs, quadratic probing does not simply skip a fixed number of steps but skips a number of steps equal to the "square of the number of probes", i.e., $1, 4, 9, \dots$ steps.
+Tìm kiếm bậc hai giống với tìm kiếm tuyến tính và là một trong các chiến lược địa chỉ mở phổ biến. Khi va chạm, tìm kiếm bậc hai không chỉ nhảy một số bước cố định mà nhảy số bước bằng "bình phương số lần dò", tức là $1, 4, 9, \dots$ bước.
 
-Quadratic probing has the following advantages:
+Ưu điểm của tìm kiếm bậc hai:
 
-- Quadratic probing attempts to alleviate the clustering effect of linear probing by skipping the distance of the square of the number of probes.
-- Quadratic probing skips larger distances to find empty positions, which helps to distribute data more evenly.
+- Giảm hiện tượng kết cụm của tìm kiếm tuyến tính bằng cách nhảy xa hơn.
+- Nhảy xa hơn giúp phân bố dữ liệu đều hơn.
 
-However, quadratic probing is not perfect:
+Nhược điểm:
 
-- Clustering still exists, i.e., some positions are more likely to be occupied than others.
-- Due to the growth of squares, quadratic probing may not probe the entire hash table, meaning that even if there are empty buckets in the hash table, quadratic probing may not be able to access them.
+- Kết cụm vẫn tồn tại, một số vị trí vẫn dễ bị chiếm hơn.
+- Do bước nhảy tăng nhanh, tìm kiếm bậc hai có thể không duyệt hết bảng băm, tức là dù còn vị trí trống nhưng không thể truy cập tới.
 
-### Double hashing
+### Băm kép
 
-As the name suggests, the double hashing method uses multiple hash functions $f_1(x)$, $f_2(x)$, $f_3(x)$, $\dots$ for probing.
+Đúng như tên gọi, phương pháp băm kép dùng nhiều hàm băm $f_1(x)$, $f_2(x)$, $f_3(x)$, $\dots$ để dò tìm.
 
-- **Inserting Elements**: If hash function $f_1(x)$ encounters a conflict, it tries $f_2(x)$, and so on, until an empty position is found and the element is inserted.
-- **Searching for Elements**: Search in the same order of hash functions until the target element is found and returned; if an empty position is encountered or all hash functions have been tried, it indicates the element is not in the hash table, then return `None`.
+- **Thêm phần tử**: Nếu hàm băm $f_1(x)$ bị va chạm, thử $f_2(x)$, rồi tiếp tục cho đến khi tìm được vị trí trống để thêm phần tử.
+- **Tìm kiếm phần tử**: Tìm theo thứ tự các hàm băm cho đến khi tìm thấy phần tử cần thiết; nếu gặp vị trí trống hoặc thử hết các hàm băm mà không thấy, trả về `None`.
 
-Compared to linear probing, the double hashing method is less prone to clustering, but multiple hash functions introduce additional computational overhead.
+So với tìm kiếm tuyến tính, băm kép ít bị kết cụm hơn, nhưng dùng nhiều hàm băm sẽ tốn thêm thời gian tính toán.
 
 !!! tip
 
-    Please note that open addressing (linear probing, quadratic probing, and double hashing) hash tables all have the problem of "can not directly delete elements."
+    Lưu ý: bảng băm địa chỉ mở (tìm kiếm tuyến tính, bậc hai, băm kép) đều gặp vấn đề "không thể xóa trực tiếp phần tử".
 
-## Choice of programming languages
+## Lựa chọn ngôn ngữ lập trình
 
-Different programming languages adopt different hash table implementation strategies. Here are a few examples:
+Các ngôn ngữ lập trình khác nhau sử dụng chiến lược bảng băm khác nhau. Ví dụ:
 
-- Python uses open addressing. The `dict` dictionary uses pseudo-random numbers for probing.
-- Java uses separate chaining. Since JDK 1.8, when the array length in `HashMap` reaches 64 and the length of a linked list reaches 8, the linked list is converted to a red-black tree to improve search performance.
-- Go uses separate chaining. Go stipulates that each bucket can store up to 8 key-value pairs, and if the capacity is exceeded, an overflow bucket is linked; when there are too many overflow buckets, a special equal-capacity resizing operation is performed to ensure performance.
+- Python dùng địa chỉ mở. Từ điển `dict` sử dụng số giả ngẫu nhiên để dò tìm.
+- Java dùng tách chuỗi. Từ JDK 1.8, khi độ dài mảng trong `HashMap` đạt 64 và danh sách liên kết dài 8, danh sách sẽ chuyển thành cây đỏ-đen để tăng hiệu suất tìm kiếm.
+- Go dùng tách chuỗi. Go quy định mỗi vị trí lưu tối đa 8 cặp khóa-giá trị, nếu vượt quá sẽ liên kết thêm vị trí phụ; khi có quá nhiều vị trí phụ, sẽ thực hiện mở rộng đặc biệt để đảm bảo hiệu suất.

@@ -1,9 +1,9 @@
-# Hash table
+# Bảng băm (Hash table)
 
-![Hash table](../assets/covers/chapter_hashing.jpg)
+![Bảng băm](../assets/covers/chapter_hashing.jpg)
 
 !!! abstract
 
-    In the world of computing, a hash table is akin to an intelligent librarian.
+    Trong thế giới điện toán, bảng băm (hash table) giống như một người thủ thư thông minh.
     
-    It understands how to compute index numbers, enabling swift retrieval of the desired book.
+    Nó hiểu cách tính toán các số chỉ mục, cho phép truy xuất nhanh chóng cuốn sách mong muốn.
