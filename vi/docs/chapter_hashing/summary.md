@@ -1,47 +1,47 @@
-# Summary
+# Tóm tắt
 
-### Key review
+### Ôn tập kiến thức
 
-- Given an input `key`, a hash table can retrieve the corresponding `value` in $O(1)$ time, which is highly efficient.
-- Common hash table operations include querying, adding key-value pairs, deleting key-value pairs, and traversing the hash table.
-- The hash function maps a `key` to an array index, allowing access to the corresponding bucket and retrieval of the `value`.
-- Two different keys may end up with the same array index after hashing, leading to erroneous query results. This phenomenon is known as hash collision.
-- The larger the capacity of the hash table, the lower the probability of hash collisions. Therefore, hash table resizing can mitigate hash collisions. Similar to array resizing, hash table resizing is costly.
-- The load factor, defined as the number of elements divided by the number of buckets, reflects the severity of hash collisions and is often used as a condition to trigger hash table resizing.
-- Chaining addresses hash collisions by converting each element into a linked list, storing all colliding elements in the same list. However, excessively long lists can reduce query efficiency, which can be improved by converting the lists into red-black trees.
-- Open addressing handles hash collisions through multiple probes. Linear probing uses a fixed step size but it cannot delete elements and is prone to clustering. Multiple hashing uses several hash functions for probing which reduces clustering compared to linear probing but increases computational overhead.
-- Different programming languages adopt various hash table implementations. For example, Java's `HashMap` uses chaining, while Python's `dict` employs open addressing.
-- In hash tables, we desire hash algorithms with determinism, high efficiency, and uniform distribution. In cryptography, hash algorithms should also possess collision resistance and the avalanche effect.
-- Hash algorithms typically use large prime numbers as moduli to ensure uniform distribution of hash values and reduce hash collisions.
-- Common hash algorithms include MD5, SHA-1, SHA-2, and SHA-3. MD5 is often used for file integrity checks, while SHA-2 is commonly used in secure applications and protocols.
-- Programming languages usually provide built-in hash algorithms for data types to calculate bucket indices in hash tables. Generally, only immutable objects are hashable.
+- Với một `key` đầu vào, bảng băm có thể truy xuất `value` tương ứng trong thời gian $O(1)$, rất hiệu quả.
+- Các thao tác phổ biến trên bảng băm bao gồm truy vấn, thêm cặp key-value, xóa cặp key-value và duyệt bảng băm.
+- Hàm băm ánh xạ một `key` thành một chỉ mục mảng, cho phép truy cập vào bucket tương ứng và truy xuất `value`.
+- Hai key khác nhau có thể có cùng chỉ mục mảng sau khi băm, dẫn đến kết quả truy vấn sai lệch. Hiện tượng này được gọi là xung đột băm.
+- Dung lượng của bảng băm càng lớn thì xác suất xung đột băm càng thấp. Do đó, thay đổi kích thước bảng băm có thể giảm thiểu xung đột băm. Tương tự như thay đổi kích thước mảng, thay đổi kích thước bảng băm tốn kém.
+- Hệ số tải, được định nghĩa là số lượng phần tử chia cho số lượng bucket, phản ánh mức độ nghiêm trọng của xung đột băm và thường được sử dụng làm điều kiện để kích hoạt thay đổi kích thước bảng băm.
+- Chaining giải quyết xung đột băm bằng cách chuyển đổi mỗi phần tử thành một danh sách liên kết, lưu trữ tất cả các phần tử xung đột trong cùng một danh sách. Tuy nhiên, danh sách quá dài có thể làm giảm hiệu quả truy vấn, có thể được cải thiện bằng cách chuyển đổi danh sách thành cây đỏ-đen.
+- Open addressing xử lý xung đột băm thông qua nhiều lần thăm dò. Linear probing sử dụng kích thước bước cố định nhưng không thể xóa các phần tử và dễ bị clustering. Multiple hashing sử dụng một số hàm băm để thăm dò, giúp giảm clustering so với linear probing nhưng làm tăng chi phí tính toán.
+- Các ngôn ngữ lập trình khác nhau áp dụng các cách triển khai bảng băm khác nhau. Ví dụ: `HashMap` của Java sử dụng chaining, trong khi `dict` của Python sử dụng open addressing.
+- Trong bảng băm, chúng ta mong muốn các thuật toán băm có tính xác định, hiệu quả cao và phân phối đồng đều. Trong mật mã, các thuật toán băm cũng phải có khả năng chống xung đột và hiệu ứng thác lũ.
+- Các thuật toán băm thường sử dụng các số nguyên tố lớn làm moduli để đảm bảo phân phối đồng đều các giá trị băm và giảm xung đột băm.
+- Các thuật toán băm phổ biến bao gồm MD5, SHA-1, SHA-2 và SHA-3. MD5 thường được sử dụng để kiểm tra tính toàn vẹn của tệp, trong khi SHA-2 thường được sử dụng trong các ứng dụng và giao thức an toàn.
+- Các ngôn ngữ lập trình thường cung cấp các thuật toán băm tích hợp cho các kiểu dữ liệu để tính toán chỉ mục bucket trong bảng băm. Nói chung, chỉ các đối tượng bất biến mới có thể băm được.
 
-### Q & A
+### Hỏi & Đáp
 
-**Q**: When does the time complexity of a hash table degrade to $O(n)$?
+**H**: Khi nào độ phức tạp thời gian của bảng băm giảm xuống $O(n)$?
 
-The time complexity of a hash table can degrade to $O(n)$ when hash collisions are severe. When the hash function is well-designed, the capacity is set appropriately, and collisions are evenly distributed, the time complexity is $O(1)$. We usually consider the time complexity to be $O(1)$ when using built-in hash tables in programming languages.
+Độ phức tạp thời gian của bảng băm có thể giảm xuống $O(n)$ khi xung đột băm nghiêm trọng. Khi hàm băm được thiết kế tốt, dung lượng được đặt phù hợp và các xung đột được phân phối đều, độ phức tạp thời gian là $O(1)$. Chúng ta thường coi độ phức tạp thời gian là $O(1)$ khi sử dụng bảng băm tích hợp trong các ngôn ngữ lập trình.
 
-**Q**: Why not use the hash function $f(x) = x$? This would eliminate collisions.
+**H**: Tại sao không sử dụng hàm băm $f(x) = x$? Điều này sẽ loại bỏ các xung đột.
 
-Under the hash function $f(x) = x$, each element corresponds to a unique bucket index, which is equivalent to an array. However, the input space is usually much larger than the output space (array length), so the last step of a hash function is often to take the modulo of the array length. In other words, the goal of a hash table is to map a larger state space to a smaller one while providing $O(1)$ query efficiency.
+Với hàm băm $f(x) = x$, mỗi phần tử tương ứng với một chỉ mục bucket duy nhất, tương đương với một mảng. Tuy nhiên, không gian đầu vào thường lớn hơn nhiều so với không gian đầu ra (chiều dài mảng), vì vậy bước cuối cùng của hàm băm thường là lấy modulo của chiều dài mảng. Nói cách khác, mục tiêu của bảng băm là ánh xạ một không gian trạng thái lớn hơn sang một không gian nhỏ hơn trong khi cung cấp hiệu quả truy vấn $O(1)$.
 
-**Q**: Why can hash tables be more efficient than arrays, linked lists, or binary trees, even though hash tables are implemented using these structures?
+**H**: Tại sao bảng băm có thể hiệu quả hơn mảng, danh sách liên kết hoặc cây nhị phân, mặc dù bảng băm được triển khai bằng các cấu trúc này?
 
-Firstly, hash tables have higher time efficiency but lower space efficiency. A significant portion of memory in hash tables remains unused.
+Thứ nhất, bảng băm có hiệu quả thời gian cao hơn nhưng hiệu quả không gian thấp hơn. Một phần đáng kể bộ nhớ trong bảng băm vẫn không được sử dụng.
 
-Secondly, hash tables are only more time-efficient in specific use cases. If a feature can be implemented with the same time complexity using an array or a linked list, it's usually faster than using a hash table. This is because the computation of the hash function incurs overhead, making the constant factor in the time complexity larger.
+Thứ hai, bảng băm chỉ hiệu quả hơn về thời gian trong các trường hợp sử dụng cụ thể. Nếu một tính năng có thể được triển khai với cùng độ phức tạp thời gian bằng cách sử dụng một mảng hoặc một danh sách liên kết, thì thường nhanh hơn so với sử dụng một bảng băm. Điều này là do việc tính toán hàm băm phát sinh chi phí, làm cho hệ số không đổi trong độ phức tạp thời gian lớn hơn.
 
-Lastly, the time complexity of hash tables can degrade. For example, in chaining, we perform search operations in a linked list or red-black tree, which still risks degrading to $O(n)$ time.
+Cuối cùng, độ phức tạp thời gian của bảng băm có thể giảm xuống. Ví dụ: trong chaining, chúng ta thực hiện các thao tác tìm kiếm trong một danh sách liên kết hoặc cây đỏ-đen, điều này vẫn có nguy cơ giảm xuống thời gian $O(n)$.
 
-**Q**: Does multiple hashing also have the flaw of not being able to delete elements directly? Can space marked as deleted be reused?
+**H**: Multiple hashing có nhược điểm là không thể xóa trực tiếp các phần tử không? Không gian được đánh dấu là đã xóa có thể được sử dụng lại không?
 
-Multiple hashing is a form of open addressing, and all open addressing methods have the drawback of not being able to delete elements directly; they require marking elements as deleted. Marked spaces can be reused. When inserting new elements into the hash table, and the hash function points to a position marked as deleted, that position can be used by the new element. This maintains the probing sequence of the hash table while ensuring efficient use of space.
+Multiple hashing là một dạng của open addressing và tất cả các phương pháp open addressing đều có nhược điểm là không thể xóa trực tiếp các phần tử; chúng yêu cầu đánh dấu các phần tử là đã xóa. Các không gian được đánh dấu có thể được sử dụng lại. Khi chèn các phần tử mới vào bảng băm và hàm băm trỏ đến một vị trí được đánh dấu là đã xóa, vị trí đó có thể được sử dụng bởi phần tử mới. Điều này duy trì chuỗi thăm dò của bảng băm đồng thời đảm bảo sử dụng không gian hiệu quả.
 
-**Q**: Why do hash collisions occur during the search process in linear probing?
+**H**: Tại sao xung đột băm xảy ra trong quá trình tìm kiếm trong linear probing?
 
-During the search process, the hash function points to the corresponding bucket and key-value pair. If the `key` doesn't match, it indicates a hash collision. Therefore, linear probing will search downwards at a predetermined step size until the correct key-value pair is found or the search fails.
+Trong quá trình tìm kiếm, hàm băm trỏ đến bucket và cặp key-value tương ứng. Nếu `key` không khớp, điều đó cho thấy có xung đột băm. Do đó, linear probing sẽ tìm kiếm xuống dưới với một kích thước bước được xác định trước cho đến khi tìm thấy cặp key-value chính xác hoặc tìm kiếm không thành công.
 
-**Q**: Why can resizing a hash table alleviate hash collisions?
+**H**: Tại sao thay đổi kích thước bảng băm có thể giảm bớt xung đột băm?
 
-The last step of a hash function often involves taking the modulo of the array length $n$, to keep the output within the array index range. When resizing, the array length $n$ changes, and the indices corresponding to the keys may also change. Keys that were previously mapped to the same bucket might be distributed across multiple buckets after resizing, thereby mitigating hash collisions.
+Bước cuối cùng của hàm băm thường liên quan đến việc lấy modulo của chiều dài mảng $n$, để giữ cho đầu ra nằm trong phạm vi chỉ mục mảng. Khi thay đổi kích thước, chiều dài mảng $n$ thay đổi và các chỉ mục tương ứng với các key cũng có thể thay đổi. Các key trước đây được ánh xạ tới cùng một bucket có thể được phân phối trên nhiều bucket sau khi thay đổi kích thước, do đó giảm thiểu xung đột băm.
