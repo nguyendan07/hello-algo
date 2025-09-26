@@ -1,6 +1,10 @@
-# Tóm tắt
+---
+comments: true
+---
 
-### Ôn tập kiến thức
+# 6.4 &nbsp; Tóm tắt
+
+### 1 &nbsp; Ôn tập kiến thức
 
 - Với một `key` đầu vào, bảng băm có thể truy xuất `value` tương ứng trong thời gian $O(1)$, rất hiệu quả.
 - Các thao tác phổ biến trên bảng băm bao gồm truy vấn, thêm cặp key-value, xóa cặp key-value và duyệt bảng băm.
@@ -16,7 +20,7 @@
 - Các thuật toán băm phổ biến bao gồm MD5, SHA-1, SHA-2 và SHA-3. MD5 thường được sử dụng để kiểm tra tính toàn vẹn của tệp, trong khi SHA-2 thường được sử dụng trong các ứng dụng và giao thức an toàn.
 - Các ngôn ngữ lập trình thường cung cấp các thuật toán băm tích hợp cho các kiểu dữ liệu để tính toán chỉ mục bucket trong bảng băm. Nói chung, chỉ các đối tượng bất biến mới có thể băm được.
 
-### Hỏi & Đáp
+### 2 &nbsp; Hỏi & Đáp
 
 **H**: Khi nào độ phức tạp thời gian của bảng băm giảm xuống $O(n)$?
 
