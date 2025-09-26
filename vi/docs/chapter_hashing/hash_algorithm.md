@@ -1,10 +1,16 @@
-# Thuật toán băm (Hash algorithms)
+---
+comments: true
+---
+
+# 6.3 &nbsp; Thuật toán băm (Hash algorithms)
 
 Hai phần trước đã giới thiệu nguyên lý hoạt động của bảng băm và các phương pháp xử lý va chạm băm. Tuy nhiên, cả phương pháp địa chỉ mở và phương pháp dây chuyền **chỉ đảm bảo bảng băm hoạt động bình thường khi xảy ra va chạm, chứ không thể giảm tần suất va chạm băm**.
 
 Nếu va chạm băm xảy ra quá thường xuyên, hiệu năng của bảng băm sẽ giảm mạnh. Như hình dưới đây, với bảng băm kiểu dây chuyền, trong trường hợp lý tưởng, các cặp khóa-giá trị được phân bố đều vào các bucket, đạt hiệu quả truy vấn tối ưu; trong trường hợp xấu nhất, tất cả cặp khóa-giá trị nằm trong cùng một bucket, khiến độ phức tạp thời gian tăng lên $O(n)$.
 
-![Trường hợp lý tưởng và xấu nhất của va chạm băm](hash_algorithm.assets/hash_collision_best_worst_condition.png)
+![Trường hợp lý tưởng và xấu nhất của va chạm băm](hash_algorithm.assets/hash_collision_best_worst_condition.png){ class="animation-figure" }
+
+<p align="center"> Figure 6-8 &nbsp; Trường hợp lý tưởng và xấu nhất của va chạm băm </p>
 
 **Việc phân bố các cặp khóa-giá trị phụ thuộc vào hàm băm**. Nhớ lại các bước tính hàm băm, đầu tiên tính giá trị băm, sau đó lấy phần dư cho độ dài mảng:
 
@@ -16,7 +22,7 @@ Quan sát công thức trên, khi kích thước bảng băm `capacity` cố đ�
 
 Điều này có nghĩa là, để giảm xác suất va chạm băm, chúng ta nên tập trung vào việc thiết kế thuật toán băm `hash()`.
 
-## Mục tiêu của thuật toán băm
+## 6.3.1 &nbsp; Mục tiêu của thuật toán băm
 
 Để xây dựng cấu trúc dữ liệu bảng băm "nhanh và ổn định", thuật toán băm cần có các đặc điểm sau:
 
@@ -37,7 +43,7 @@ Thực tế, thuật toán băm không chỉ dùng để xây dựng bảng băm
 
 Lưu ý rằng **"Phân bố đều" và "Chống va chạm" là hai khái niệm khác nhau**. Đạt được phân bố đều không đồng nghĩa với chống va chạm. Ví dụ, với đầu vào ngẫu nhiên `key`, hàm băm `key % 100` có thể cho kết quả phân bố đều. Tuy nhiên, thuật toán này quá đơn giản, tất cả các `key` có hai chữ số cuối giống nhau sẽ cho ra cùng một kết quả, dễ dàng suy ra `key` từ giá trị băm, dẫn đến nguy cơ bị phá mật khẩu.
 
-## Thiết kế thuật toán băm
+## 6.3.2 &nbsp; Thiết kế thuật toán băm
 
 Thiết kế thuật toán băm là vấn đề phức tạp, cần cân nhắc nhiều yếu tố. Tuy nhiên, với các trường hợp không yêu cầu cao, ta có thể thiết kế một số thuật toán băm đơn giản.
 
@@ -46,9 +52,306 @@ Thiết kế thuật toán băm là vấn đề phức tạp, cần cân nhắc 
 - **Băm XOR**: Dùng phép XOR để cộng dồn giá trị băm của từng phần tử đầu vào.
 - **Băm xoay**: Cộng dồn mã ASCII của từng ký tự vào giá trị băm, trước mỗi lần cộng thực hiện phép xoay trên giá trị băm.
 
-```src
-[file]{simple_hash}-[class]{}-[func]{rot_hash}
-```
+=== "Python"
+
+    ```python title="simple_hash.py"
+    def add_hash(key: str) -> int:
+        """Additive hash"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash += ord(c)
+        return hash % modulus
+
+    def mul_hash(key: str) -> int:
+        """Multiplicative hash"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash = 31 * hash + ord(c)
+        return hash % modulus
+
+    def xor_hash(key: str) -> int:
+        """XOR hash"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash ^= ord(c)
+        return hash % modulus
+
+    def rot_hash(key: str) -> int:
+        """Rotational hash"""
+        hash = 0
+        modulus = 1000000007
+        for c in key:
+            hash = (hash << 4) ^ (hash >> 28) ^ ord(c)
+        return hash % modulus
+    ```
+
+=== "C++"
+
+    ```cpp title="simple_hash.cpp"
+    /* Additive hash */
+    int addHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = (hash + (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
+
+    /* Multiplicative hash */
+    int mulHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = (31 * hash + (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
+
+    /* XOR hash */
+    int xorHash(string key) {
+        int hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash ^= (int)c;
+        }
+        return hash & MODULUS;
+    }
+
+    /* Rotational hash */
+    int rotHash(string key) {
+        long long hash = 0;
+        const int MODULUS = 1000000007;
+        for (unsigned char c : key) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (int)c) % MODULUS;
+        }
+        return (int)hash;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="simple_hash.java"
+    /* Additive hash */
+    int addHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = (hash + (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
+
+    /* Multiplicative hash */
+    int mulHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = (31 * hash + (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
+
+    /* XOR hash */
+    int xorHash(String key) {
+        int hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash ^= (int) c;
+        }
+        return hash & MODULUS;
+    }
+
+    /* Rotational hash */
+    int rotHash(String key) {
+        long hash = 0;
+        final int MODULUS = 1000000007;
+        for (char c : key.toCharArray()) {
+            hash = ((hash << 4) ^ (hash >> 28) ^ (int) c) % MODULUS;
+        }
+        return (int) hash;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="simple_hash.cs"
+    [class]{simple_hash}-[func]{AddHash}
+
+    [class]{simple_hash}-[func]{MulHash}
+
+    [class]{simple_hash}-[func]{XorHash}
+
+    [class]{simple_hash}-[func]{RotHash}
+    ```
+
+=== "Go"
+
+    ```go title="simple_hash.go"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "Swift"
+
+    ```swift title="simple_hash.swift"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "JS"
+
+    ```javascript title="simple_hash.js"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "TS"
+
+    ```typescript title="simple_hash.ts"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "Dart"
+
+    ```dart title="simple_hash.dart"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "Rust"
+
+    ```rust title="simple_hash.rs"
+    // Băm cộng: cộng giá trị (mã Unicode) của từng ký tự.
+    // Đơn giản nhưng dễ va chạm nếu các chuỗi có cùng bộ ký tự nhưng khác thứ tự (ví dụ "abc" và "cba").
+    fn add_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = (hash + c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
+
+    // Băm nhân: một phương pháp phổ biến và hiệu quả hơn.
+    // Nhân giá trị băm hiện tại với một hằng số (thường là số nguyên tố như 31) trước khi cộng ký tự tiếp theo.
+    // Điều này làm cho giá trị băm phụ thuộc vào thứ tự của các ký tự.
+    fn mul_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = (31 * hash + c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
+
+    // Băm XOR: sử dụng phép toán XOR trên bit.
+    // Giống như băm cộng, nó không phân biệt được thứ tự ký tự.
+    fn xor_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash ^= c as i64;
+        }
+
+        (hash & MODULUS) as i32
+    }
+
+    // Băm xoay: một biến thể của băm nhân, kết hợp thêm các thao tác dịch chuyển bit.
+    // Việc "xoay" các bit giúp tạo ra sự phân bố giá trị băm tốt hơn.
+    fn rot_hash(key: &str) -> i32 {
+        let mut hash = 0_i64;
+        const MODULUS: i64 = 1000000007;
+
+        for c in key.chars() {
+            hash = ((hash << 4) ^ (hash >> 28) ^ c as i64) % MODULUS;
+        }
+
+        hash as i32
+    }
+    ```
+
+=== "C"
+
+    ```c title="simple_hash.c"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="simple_hash.kt"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="simple_hash.rb"
+    [class]{}-[func]{add_hash}
+
+    [class]{}-[func]{mul_hash}
+
+    [class]{}-[func]{xor_hash}
+
+    [class]{}-[func]{rot_hash}
+    ```
+
+=== "Zig"
+
+    ```zig title="simple_hash.zig"
+    [class]{}-[func]{addHash}
+
+    [class]{}-[func]{mulHash}
+
+    [class]{}-[func]{xorHash}
+
+    [class]{}-[func]{rotHash}
+    ```
 
 Ta thấy bước cuối của mỗi thuật toán băm là lấy phần dư cho số nguyên tố lớn $1000000007$ để đảm bảo giá trị băm nằm trong phạm vi hợp lý. Đáng để suy nghĩ tại sao lại nhấn mạnh lấy phần dư cho số nguyên tố, hoặc nhược điểm của việc lấy phần dư cho số hợp thành là gì? Đây là một câu hỏi thú vị.
 
@@ -78,7 +381,7 @@ Lưu ý, nếu `key` đảm bảo phân bố ngẫu nhiên và đều, thì ch�
 
 Tóm lại, ta thường chọn số nguyên tố làm số chia dư, và số này nên đủ lớn để loại bỏ các mẫu tuần hoàn, tăng độ ổn định của thuật toán băm.
 
-## Các thuật toán băm phổ biến
+## 6.3.3 &nbsp; Các thuật toán băm phổ biến
 
 Dễ thấy các thuật toán băm đơn giản ở trên khá "yếu" và chưa đạt được mục tiêu thiết kế của thuật toán băm. Ví dụ, phép cộng và XOR tuân theo tính giao hoán, nên băm cộng và băm XOR không phân biệt được các chuỗi có cùng nội dung nhưng thứ tự khác nhau, dễ gây va chạm và mất an toàn.
 
@@ -92,6 +395,8 @@ Trong thế kỷ qua, các thuật toán băm liên tục được nâng cấp v
 
 <p align="center"> Bảng <id> &nbsp; Các thuật toán băm phổ biến </p>
 
+<div class="center-table" markdown>
+
 |                 | MD5                                             | SHA-1                               | SHA-2                                                             | SHA-3                        |
 | --------------- | ----------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------- | ---------------------------- |
 | Năm phát hành   | 1992                                            | 1995                                | 2002                                                              | 2008                         |
@@ -99,6 +404,8 @@ Trong thế kỷ qua, các thuật toán băm liên tục được nâng cấp v
 | Va chạm băm     | Thường xuyên                                    | Thường xuyên                        | Hiếm                                                              | Hiếm                         |
 | Mức độ bảo mật  | Thấp, đã bị tấn công thành công                 | Thấp, đã bị tấn công thành công     | Cao                                                               | Cao                          |
 | Ứng dụng        | Đã loại bỏ, vẫn dùng kiểm tra tính toàn vẹn dữ liệu | Đã loại bỏ                       | Xác minh giao dịch tiền mã hóa, chữ ký số, v.v.                   | Có thể thay thế SHA-2        |
+
+</div>
 
 # Giá trị băm trong cấu trúc dữ liệu
 
@@ -355,9 +662,10 @@ Ta biết rằng khóa trong bảng băm có thể thuộc nhiều kiểu dữ l
 
     ```
 
-??? pythontutor "Minh họa mã nguồn"
+??? pythontutor "Code Visualization"
 
-    https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">Full Screen ></a></div>
 
 Ở nhiều ngôn ngữ lập trình, **chỉ các đối tượng bất biến mới có thể làm `key` trong bảng băm**. Nếu dùng danh sách (mảng động) làm `key`, khi nội dung danh sách thay đổi, giá trị băm cũng thay đổi, và ta sẽ không tìm được giá trị gốc trong bảng băm.
 
