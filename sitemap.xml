@@ -471,21 +471,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.hello-algo.com/en/chapter_stack_and_queue/deque/</loc>
-         <lastmod>2025-09-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.hello-algo.com/en/chapter_stack_and_queue/queue/</loc>
-         <lastmod>2025-09-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.hello-algo.com/en/chapter_stack_and_queue/stack/</loc>
-         <lastmod>2025-09-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.hello-algo.com/en/chapter_stack_and_queue/summary/</loc>
          <lastmod>2025-09-26</lastmod>
          <changefreq>daily</changefreq>
