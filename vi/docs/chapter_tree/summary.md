@@ -1,54 +1,54 @@
-# Summary
+# Tóm tắt
 
-### Key review
+### Ôn tập chính
 
-- A binary tree is a non-linear data structure that reflects the "divide and conquer" logic of splitting one into two. Each binary tree node contains a value and two pointers, which point to its left and right child nodes, respectively.
-- For a node in a binary tree, its left (right) child node and the tree formed below it are collectively called the node's left (right) subtree.
-- Terms related to binary trees include root node, leaf node, level, degree, edge, height, and depth.
-- The operations of initializing a binary tree, inserting nodes, and removing nodes are similar to those of linked list operations.
-- Common types of binary trees include perfect binary trees, complete binary trees, full binary trees, and balanced binary trees. The perfect binary tree represents the ideal state, while the linked list is the worst state after degradation.
-- A binary tree can be represented using an array by arranging the node values and empty slots in a level-order traversal sequence and implementing pointers based on the index mapping relationship between parent nodes and child nodes.
-- The level-order traversal of a binary tree is a breadth-first search method, which reflects a layer-by-layer traversal manner of "expanding circle by circle." It is usually implemented using a queue.
-- Pre-order, in-order, and post-order traversals are all depth-first search methods, reflecting the traversal manner of "going to the end first, then backtracking to continue." They are usually implemented using recursion.
-- A binary search tree is an efficient data structure for element searching, with the time complexity of search, insert, and remove operations all being $O(\log n)$. When a binary search tree degrades into a linked list, these time complexities deteriorate to $O(n)$.
-- An AVL tree, also known as a balanced binary search tree, ensures that the tree remains balanced after continuous node insertions and removals through rotation operations.
-- Rotation operations in an AVL tree include right rotation, left rotation, right-left rotation, and left-right rotation. After node insertion or removal, the AVL tree rebalances itself by performing these rotations in a bottom-up manner.
+- Cây nhị phân là một cấu trúc dữ liệu phi tuyến thể hiện tư duy "chia để trị" khi tách một phần tử thành hai. Mỗi nút của cây nhị phân chứa một giá trị và hai con trỏ, trỏ đến nút con bên trái và bên phải tương ứng.
+- Đối với một nút trong cây nhị phân, nút con bên trái (bên phải) và cây được tạo ra dưới nó được gọi chung là cây con bên trái (bên phải) của nút đó.
+- Các thuật ngữ liên quan đến cây nhị phân bao gồm nút gốc, nút lá, mức (level), bậc (degree), cạnh, chiều cao và độ sâu.
+- Các thao tác khởi tạo cây nhị phân, chèn nút và xóa nút tương tự như các thao tác trên danh sách liên kết.
+- Các loại cây nhị phân phổ biến bao gồm cây nhị phân hoàn hảo, cây nhị phân đầy đủ (complete), cây nhị phân đầy (full) và cây nhị phân cân bằng. Cây nhị phân hoàn hảo là trạng thái lý tưởng, trong khi danh sách liên kết là trạng thái tệ nhất khi suy thoái.
+- Cây nhị phân có thể được biểu diễn bằng mảng bằng cách sắp xếp các giá trị nút và các ô trống theo thứ tự duyệt theo tầng (level-order) và triển khai các con trỏ dựa trên quan hệ ánh xạ chỉ số giữa nút cha và nút con.
+- Duyệt theo tầng (level-order) của cây nhị phân là phương pháp tìm kiếm theo chiều rộng (breadth-first), thể hiện cách duyệt theo lớp "mở rộng vòng này sang vòng khác". Thường được triển khai bằng hàng đợi (queue).
+- Duyệt trước (pre-order), duyệt giữa (in-order) và duyệt sau (post-order) đều là các phương pháp tìm kiếm theo chiều sâu (depth-first), thể hiện cách duyệt "đi tới tận cùng trước, rồi quay lui để tiếp tục". Thường được triển khai bằng đệ quy.
+- Cây tìm kiếm nhị phân (binary search tree) là cấu trúc dữ liệu hiệu quả cho việc tìm kiếm phần tử, với độ phức tạp thời gian cho các thao tác tìm kiếm, chèn và xóa đều là $O(\log n)$. Khi cây tìm kiếm nhị phân suy thoái thành danh sách liên kết, các độ phức tạp này giảm xuống $O(n)$.
+- Cây AVL, còn gọi là cây tìm kiếm nhị phân cân bằng, đảm bảo cây luôn cân bằng sau nhiều lần chèn và xóa nút bằng các phép quay (rotation).
+- Các phép quay trong cây AVL bao gồm phép quay phải, phép quay trái, quay phải-trái và quay trái-phải. Sau khi chèn hoặc xóa nút, cây AVL cân bằng lại bằng cách thực hiện các phép quay này theo chiều từ dưới lên.
 
-### Q & A
+### Hỏi & Đáp
 
-**Q**: For a binary tree with only one node, are both the height of the tree and the depth of the root node $0$?
+**Q**: Với một cây nhị phân chỉ có một nút, cả chiều cao của cây và độ sâu của nút gốc có phải là $0$ không?
 
-Yes, because height and depth are typically defined as "the number of edges passed."
+Có, vì chiều cao và độ sâu thường được định nghĩa là "số cạnh đã đi qua."
 
-**Q**: The insertion and removal in a binary tree are generally accomplished by a set of operations. What does "a set of operations" refer to here? Does it imply releasing the resources of the child nodes?
+**Q**: Việc chèn và xóa trong cây nhị phân thường thực hiện bằng một tập hợp các thao tác. "Một tập hợp các thao tác" ở đây đề cập đến gì? Có hàm ý giải phóng tài nguyên của các nút con không?
 
-Taking the binary search tree as an example, the operation of removing a node needs to be handled in three different scenarios, each requiring multiple steps of node operations.
+Lấy cây tìm kiếm nhị phân làm ví dụ, thao tác xóa một nút cần xử lý ở ba trường hợp khác nhau, mỗi trường hợp cần thực hiện nhiều bước thao tác trên các nút.
 
-**Q**: Why are there three sequences: pre-order, in-order, and post-order for DFS traversal of a binary tree, and what are their uses?
+**Q**: Tại sao có ba thứ tự: pre-order, in-order và post-order cho việc duyệt DFS của cây nhị phân, và mục đích của chúng là gì?
 
-Similar to sequential and reverse traversal of arrays, pre-order, in-order, and post-order traversals are three methods of traversing a binary tree, allowing us to obtain a traversal result in a specific order. For example, in a binary search tree, since the node sizes satisfy `left child node value < root node value < right child node value`, we can obtain an ordered node sequence by traversing the tree in the "left $\rightarrow$ root $\rightarrow$ right" priority.
+Tương tự như duyệt tuần tự và duyệt ngược của mảng, pre-order, in-order và post-order là ba phương pháp duyệt cây nhị phân, cho phép ta thu được kết quả duyệt theo một thứ tự nhất định. Ví dụ, trong cây tìm kiếm nhị phân, vì kích thước các nút thỏa mãn `left child node value < root node value < right child node value`, ta có thể thu được một dãy các nút có thứ tự bằng cách duyệt cây theo ưu tiên "trái $\rightarrow$ gốc $\rightarrow$ phải".
 
-**Q**: In a right rotation operation that deals with the relationship between the imbalance nodes `node`, `child`, `grand_child`, isn't the connection between `node` and its parent node and the original link of `node` lost after the right rotation?
+**Q**: Trong phép quay phải xử lý mối quan hệ giữa các nút mất cân bằng `node`, `child`, `grand_child`, phải chăng sau khi quay phải sẽ làm mất mối liên kết giữa `node` và nút cha của nó cũng như liên kết gốc của `node`?
 
-We need to view this problem from a recursive perspective. The `right_rotate(root)` operation passes the root node of the subtree and eventually returns the root node of the rotated subtree with `return child`. The connection between the subtree's root node and its parent node is established after this function returns, which is outside the scope of the right rotation operation's maintenance.
+Cần nhìn vấn đề này dưới góc độ đệ quy. Thao tác `right_rotate(root)` nhận nút gốc của một cây con và cuối cùng trả về nút gốc của cây con sau khi quay bằng `return child`. Việc liên kết giữa nút gốc của cây con đó và nút cha của nó được thiết lập sau khi hàm này trả về, điều đó nằm ngoài phạm vi bảo trì của phép quay phải.
 
-**Q**: In C++, functions are divided into `private` and `public` sections. What considerations are there for this? Why are the `height()` function and the `updateHeight()` function placed in `public` and `private`, respectively?
+**Q**: Trong C++, các hàm được chia thành phần `private` và `public`. Cần cân nhắc gì cho việc này? Tại sao hàm `height()` và hàm `updateHeight()` lại được đặt lần lượt ở `public` và `private`?
 
-It depends on the scope of the method's use. If a method is only used within the class, then it is designed to be `private`. For example, it makes no sense for users to call `updateHeight()` on their own, as it is just a step in the insertion or removal operations. However, `height()` is for accessing node height, similar to `vector.size()`, thus it is set to `public` for use.
+Điều đó phụ thuộc vào phạm vi sử dụng của phương thức. Nếu một phương thức chỉ dùng trong lớp thì nên đặt là `private`. Ví dụ, người dùng không nên tự gọi `updateHeight()`, vì nó chỉ là một bước trong thao tác chèn hoặc xóa. Ngược lại, `height()` dùng để truy xuất chiều cao của nút, tương tự `vector.size()`, nên được đặt `public` để sử dụng.
 
-**Q**: How do you build a binary search tree from a set of input data? Is the choice of root node very important?
+**Q**: Làm thế nào để xây dựng một cây tìm kiếm nhị phân từ một tập dữ liệu đầu vào? Việc chọn nút gốc có quan trọng không?
 
-Yes, the method for building the tree is provided in the `build_tree()` method in the binary search tree code. As for the choice of the root node, we usually sort the input data and then select the middle element as the root node, recursively building the left and right subtrees. This approach maximizes the balance of the tree.
+Có, phương pháp xây dựng cây được cung cấp trong hàm `build_tree()` trong mã của cây tìm kiếm nhị phân. Về việc chọn nút gốc, ta thường sắp xếp dữ liệu đầu vào rồi chọn phần tử ở giữa làm gốc, sau đó đệ quy xây dựng các cây con trái và phải. Cách này giúp cây cân bằng tối đa.
 
-**Q**: In Java, do you always have to use the `equals()` method for string comparison?
+**Q**: Trong Java, có phải luôn luôn phải dùng phương thức `equals()` để so sánh chuỗi không?
 
-In Java, for primitive data types, `==` is used to compare whether the values of two variables are equal. For reference types, the working principles of the two symbols are different.
+Trong Java, với kiểu dữ liệu nguyên thủy (primitive), dùng `==` để so sánh xem giá trị của hai biến có bằng nhau không. Với kiểu tham chiếu, nguyên lý hoạt động của hai ký hiệu này khác nhau.
 
-- `==`: Used to compare whether two variables point to the same object, i.e., whether their positions in memory are the same.
-- `equals()`: Used to compare whether the values of two objects are equal.
+- `==`: Dùng để so sánh hai biến có cùng trỏ tới một đối tượng hay không, tức là vị trí trong bộ nhớ có giống nhau hay không.
+- `equals()`: Dùng để so sánh giá trị của hai đối tượng có bằng nhau hay không.
 
-Therefore, to compare values, we should use `equals()`. However, strings initialized with `String a = "hi"; String b = "hi";` are stored in the string constant pool and point to the same object, so `a == b` can also be used to compare the contents of two strings.
+Do đó, để so sánh giá trị, ta nên dùng `equals()`. Tuy nhiên, các chuỗi khởi tạo như `String a = "hi"; String b = "hi";` được lưu trong pool hằng chuỗi và trỏ tới cùng một đối tượng, nên `a == b` cũng có thể dùng để so sánh nội dung trong trường hợp đó.
 
-**Q**: Before reaching the bottom level, is the number of nodes in the queue $2^h$ in breadth-first traversal?
+**Q**: Trước khi tới tầng đáy, số nút trong hàng đợi có phải là $2^h$ trong duyệt theo chiều rộng không?
 
-Yes, for example, a full binary tree with height $h = 2$ has a total of $n = 7$ nodes, then the bottom level has $4 = 2^h = (n + 1) / 2$ nodes.
+Có, ví dụ một cây nhị phân đầy đủ với chiều cao $h = 2$ có tổng số nút $n = 7$, thì tầng đáy có $4 = 2^h = (n + 1) / 2$ nút.
