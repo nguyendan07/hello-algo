@@ -1,122 +1,130 @@
-# Array representation of binary trees
+---
+comments: true
+---
 
-Under the linked list representation, the storage unit of a binary tree is a node `TreeNode`, with nodes connected by pointers. The basic operations of binary trees under the linked list representation were introduced in the previous section.
+# 7.3 &nbsp; Biểu diễn cây nhị phân bằng mảng
 
-So, can we use an array to represent a binary tree? The answer is yes.
+Trong biểu diễn bằng danh sách liên kết, đơn vị lưu trữ của một cây nhị phân là một nút `TreeNode`, các nút được nối với nhau bằng các con trỏ. Các thao tác cơ bản của cây nhị phân dưới biểu diễn danh sách liên kết đã được giới thiệu trong phần trước.
 
-## Representing perfect binary trees
+Vậy, chúng ta có thể dùng mảng để biểu diễn một cây nhị phân không? Câu trả lời là có.
 
-Let's analyze a simple case first. Given a perfect binary tree, we store all nodes in an array according to the order of level-order traversal, where each node corresponds to a unique array index.
+## 7.3.1 &nbsp; Biểu diễn cây nhị phân hoàn chỉnh
 
-Based on the characteristics of level-order traversal, we can deduce a "mapping formula" between the index of a parent node and its children: **If a node's index is $i$, then the index of its left child is $2i + 1$ and the right child is $2i + 2$**. The figure below shows the mapping relationship between the indices of various nodes.
+Hãy phân tích một trường hợp đơn giản trước. Với một cây nhị phân hoàn chỉnh, ta lưu tất cả các nút vào một mảng theo thứ tự duyệt theo mức (level-order), mỗi nút tương ứng với một chỉ số mảng duy nhất.
 
-![Array representation of a perfect binary tree](array_representation_of_tree.assets/array_representation_binary_tree.png)
+Dựa vào đặc điểm của duyệt theo mức, ta có thể suy ra một "công thức ánh xạ" giữa chỉ số của nút cha và các con của nó: **Nếu chỉ số của một nút là $i$, thì chỉ số của con trái là $2i + 1$ và con phải là $2i + 2$**. Hình dưới đây cho thấy mối quan hệ ánh xạ giữa chỉ số của các nút.
 
-**The mapping formula plays a role similar to the node references (pointers) in linked lists**. Given any node in the array, we can access its left (right) child node using the mapping formula.
+![Biểu diễn bằng mảng của một cây nhị phân hoàn chỉnh](array_representation_of_tree.assets/array_representation_binary_tree.png){ class="animation-figure" }
 
-## Representing any binary tree
+<p align="center"> Figure 7-12 &nbsp; Biểu diễn bằng mảng của một cây nhị phân hoàn chỉnh </p>
 
-Perfect binary trees are a special case; there are often many `None` values in the middle levels of a binary tree. Since the sequence of level-order traversal does not include these `None` values, we cannot solely rely on this sequence to deduce the number and distribution of `None` values. **This means that multiple binary tree structures can match the same level-order traversal sequence**.
+**Công thức ánh xạ có vai trò tương tự như các tham chiếu nút (con trỏ) trong danh sách liên kết**. Khi biết một nút trong mảng, ta có thể truy cập con trái (con phải) của nó bằng công thức ánh xạ này.
 
-As shown in the figure below, given a non-perfect binary tree, the above method of array representation fails.
+## 7.3.2 &nbsp; Biểu diễn bất kỳ cây nhị phân nào
 
-![Level-order traversal sequence corresponds to multiple binary tree possibilities](array_representation_of_tree.assets/array_representation_without_empty.png)
+Cây nhị phân hoàn chỉnh là một trường hợp đặc biệt; thường có nhiều giá trị `None` xuất hiện ở các mức giữa của một cây nhị phân. Vì chuỗi duyệt theo mức không bao gồm các giá trị `None` này, ta không thể chỉ dựa vào chuỗi đó để suy ra số lượng và vị trí của các giá trị `None`. **Điều này có nghĩa là nhiều cấu trúc cây khác nhau có thể tương ứng với cùng một chuỗi duyệt theo mức**.
 
-To solve this problem, **we can consider explicitly writing out all `None` values in the level-order traversal sequence**. As shown in the figure below, after this treatment, the level-order traversal sequence can uniquely represent a binary tree. Example code is as follows:
+Như hình dưới đây cho thấy, với một cây nhị phân không hoàn chỉnh, phương pháp biểu diễn bằng mảng nêu trên sẽ bị sai.
+
+![Chuỗi duyệt theo mức có thể tương ứng với nhiều khả năng cấu trúc cây](array_representation_of_tree.assets/array_representation_without_empty.png){ class="animation-figure" }
+
+<p align="center"> Figure 7-13 &nbsp; Một chuỗi duyệt theo cấp có thể biểu diễn nhiều cây nhị phân khác nhau. </p>
+
+Để giải quyết vấn đề này, **chúng ta có thể ghi rõ tất cả các giá trị `None` trong chuỗi duyệt theo mức**. Như hình dưới đây, sau khi làm vậy, chuỗi duyệt theo mức có thể biểu diễn duy nhất một cây nhị phân. Ví dụ mã như sau:
 
 === "Python"
 
     ```python title=""
-    # Array representation of a binary tree
-    # Using None to represent empty slots
+    # Biểu diễn cây nhị phân bằng mảng
+    # Sử dụng None để biểu thị các ô trống
     tree = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Array representation of a binary tree */
-    // Using the maximum integer value INT_MAX to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng giá trị nguyên lớn nhất INT_MAX để đánh dấu ô trống
     vector<int> tree = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
 === "Java"
 
     ```java title=""
-    /* Array representation of a binary tree */
-    // Using the Integer wrapper class allows for using null to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng lớp wrapper Integer cho phép dùng null để đánh dấu ô trống
     Integer[] tree = { 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 };
     ```
 
 === "C#"
 
     ```csharp title=""
-    /* Array representation of a binary tree */
-    // Using nullable int (int?) allows for using null to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng int? (nullable int) cho phép dùng null để đánh dấu ô trống
     int?[] tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Go"
 
     ```go title=""
-    /* Array representation of a binary tree */
-    // Using an any type slice, allowing for nil to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng slice kiểu any, cho phép nil để đánh dấu ô trống
     tree := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
     ```
 
 === "Swift"
 
     ```swift title=""
-    /* Array representation of a binary tree */
-    // Using optional Int (Int?) allows for using nil to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng Int? (optional Int) cho phép dùng nil để đánh dấu ô trống
     let tree: [Int?] = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
     ```
 
 === "JS"
 
     ```javascript title=""
-    /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng null để biểu thị các ô trống
     let tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "TS"
 
     ```typescript title=""
-    /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng null để biểu thị các ô trống
     let tree: (number | null)[] = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Dart"
 
     ```dart title=""
-    /* Array representation of a binary tree */
-    // Using nullable int (int?) allows for using null to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng int? (nullable int) cho phép dùng null để đánh dấu ô trống
     List<int?> tree = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
     ```
 
 === "Rust"
 
     ```rust title=""
-    /* Array representation of a binary tree */
-    // Using None to mark empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng None để đánh dấu các ô trống
     let tree = [Some(1), Some(2), Some(3), Some(4), None, Some(6), Some(7), Some(8), Some(9), None, None, Some(12), None, None, Some(15)];
     ```
 
 === "C"
 
     ```c title=""
-    /* Array representation of a binary tree */
-    // Using the maximum int value to mark empty slots, therefore, node values must not be INT_MAX
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng giá trị int lớn nhất để đánh dấu ô trống, do đó giá trị nút không được bằng INT_MAX
     int tree[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     ```
 
 === "Kotlin"
 
     ```kotlin title=""
-    /* Array representation of a binary tree */
-    // Using null to represent empty slots
+    /* Biểu diễn cây nhị phân bằng mảng */
+    // Sử dụng null để biểu thị các ô trống
     val tree = mutableListOf( 1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15 )
     ```
 
@@ -132,33 +140,35 @@ To solve this problem, **we can consider explicitly writing out all `None` value
 
     ```
 
-![Array representation of any type of binary tree](array_representation_of_tree.assets/array_representation_with_empty.png)
+![Biểu diễn bằng mảng của một cây nhị phân bất kỳ](array_representation_of_tree.assets/array_representation_with_empty.png){ class="animation-figure" }
 
-It's worth noting that **complete binary trees are very suitable for array representation**. Recalling the definition of a complete binary tree, `None` appears only at the bottom level and towards the right, **meaning all `None` values definitely appear at the end of the level-order traversal sequence**.
+Cần lưu ý rằng **cây nhị phân hoàn chỉnh rất phù hợp để biểu diễn bằng mảng**. Nhớ lại định nghĩa của cây nhị phân hoàn chỉnh, `None` chỉ xuất hiện ở mức cuối cùng và về phía bên phải, **nghĩa là tất cả các giá trị `None` chắc chắn xuất hiện ở cuối chuỗi duyệt theo mức**.
 
-This means that when using an array to represent a complete binary tree, it's possible to omit storing all `None` values, which is very convenient. The figure below gives an example.
+Điều này có nghĩa là khi dùng mảng để biểu diễn một cây nhị phân hoàn chỉnh, có thể bỏ qua lưu trữ tất cả các giá trị `None`, điều này rất tiện lợi. Hình dưới đây đưa ra một ví dụ.
 
-![Array representation of a complete binary tree](array_representation_of_tree.assets/array_representation_complete_binary_tree.png)
+![Biểu diễn bằng mảng của một cây nhị phân hoàn chỉnh](array_representation_of_tree.assets/array_representation_complete_binary_tree.png){ class="animation-figure" }
 
-The following code implements a binary tree based on array representation, including the following operations:
+<p align="center"> Figure 7-14 &nbsp; Biểu diễn bằng mảng của một cây nhị phân hoàn chỉnh </p>
 
-- Given a node, obtain its value, left (right) child node, and parent node.
-- Obtain the pre-order, in-order, post-order, and level-order traversal sequences.
+Đoạn mã sau hiện thực một cây nhị phân dựa trên biểu diễn mảng, bao gồm các thao tác sau:
+
+- Với một nút cho trước, lấy được giá trị của nó, con trái (con phải) và nút cha của nó.
+- Lấy được các chuỗi duyệt tiền tự, trung tự, hậu tự và duyệt theo mức.
 
 ```src
 [file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}
 ```
 
-## Advantages and limitations
+## 7.3.3 &nbsp; Ưu điểm và hạn chế
 
-The array representation of binary trees has the following advantages:
+Biểu diễn cây bằng mảng có các ưu điểm sau:
 
-- Arrays are stored in contiguous memory spaces, which is cache-friendly and allows for faster access and traversal.
-- It does not require storing pointers, which saves space.
-- It allows random access to nodes.
+- Mảng được lưu trong vùng nhớ liên tiếp, thân thiện với cache và cho phép truy cập, duyệt nhanh hơn.
+- Không cần lưu các con trỏ, do đó tiết kiệm không gian.
+- Cho phép truy cập ngẫu nhiên tới các nút.
 
-However, the array representation also has some limitations:
+Tuy nhiên, biểu diễn bằng mảng cũng có một số hạn chế:
 
-- Array storage requires contiguous memory space, so it is not suitable for storing trees with a large amount of data.
-- Adding or deleting nodes requires array insertion and deletion operations, which are less efficient.
-- When there are many `None` values in the binary tree, the proportion of node data contained in the array is low, leading to lower space utilization.
+- Lưu trữ bằng mảng yêu cầu vùng nhớ liên tiếp, nên không phù hợp để lưu các cây có lượng dữ liệu lớn.
+- Thêm hoặc xóa nút cần các thao tác chèn và xóa trong mảng, kém hiệu quả hơn.
+- Khi có nhiều giá trị `None` trong cây nhị phân, tỷ lệ dữ liệu nút trong mảng thấp, dẫn đến hiệu suất sử dụng không gian kém.

@@ -1,26 +1,30 @@
-# Binary tree
+---
+comments: true
+---
 
-A <u>binary tree</u> is a non-linear data structure that represents the hierarchical relationship between ancestors and descendants and embodies the divide-and-conquer logic of "splitting into two". Similar to a linked list, the basic unit of a binary tree is a node, and each node contains a value, a reference to its left child node, and a reference to its right child node.
+# 7.1 &nbsp; Cây nhị phân
+
+Một <u>cây nhị phân</u> là một cấu trúc dữ liệu phi tuyến thể hiện mối quan hệ hệ thống giữa tổ tiên và hậu duệ và bao hàm tư duy chia để trị "tách thành hai". Tương tự như danh sách liên kết, đơn vị cơ bản của cây nhị phân là một nút, và mỗi nút chứa một giá trị, một tham chiếu tới nút con bên trái và một tham chiếu tới nút con bên phải.
 
 === "Python"
 
     ```python title=""
     class TreeNode:
-        """Binary tree node"""
+        """Nút cây nhị phân"""
         def __init__(self, val: int):
-            self.val: int = val                # Node value
-            self.left: TreeNode | None = None  # Reference to left child node
-            self.right: TreeNode | None = None # Reference to right child node
+            self.val: int = val                # Giá trị nút
+            self.left: TreeNode | None = None  # Tham chiếu tới nút con bên trái
+            self.right: TreeNode | None = None # Tham chiếu tới nút con bên phải
     ```
 
 === "C++"
 
     ```cpp title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     struct TreeNode {
-        int val;          // Node value
-        TreeNode *left;   // Pointer to left child node
-        TreeNode *right;  // Pointer to right child node
+        int val;          // Giá trị nút
+        TreeNode *left;   // Con trỏ tới nút con bên trái
+        TreeNode *right;  // Con trỏ tới nút con bên phải
         TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     };
     ```
@@ -28,11 +32,11 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "Java"
 
     ```java title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     class TreeNode {
-        int val;         // Node value
-        TreeNode left;   // Reference to left child node
-        TreeNode right;  // Reference to right child node
+        int val;         // Giá trị nút
+        TreeNode left;   // Tham chiếu tới nút con bên trái
+        TreeNode right;  // Tham chiếu tới nút con bên phải
         TreeNode(int x) { val = x; }
     }
     ```
@@ -40,29 +44,29 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "C#"
 
     ```csharp title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     class TreeNode(int? x) {
-        public int? val = x;    // Node value
-        public TreeNode? left;  // Reference to left child node
-        public TreeNode? right; // Reference to right child node
+        public int? val = x;    // Giá trị nút
+        public TreeNode? left;  // Tham chiếu tới nút con bên trái
+        public TreeNode? right; // Tham chiếu tới nút con bên phải
     }
     ```
 
 === "Go"
 
     ```go title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     type TreeNode struct {
         Val   int
         Left  *TreeNode
         Right *TreeNode
     }
-    /* Constructor */
+    /* Hàm khởi tạo */
     func NewTreeNode(v int) *TreeNode {
         return &TreeNode{
-            Left:  nil, // Pointer to left child node
-            Right: nil, // Pointer to right child node
-            Val:   v,   // Node value
+            Left:  nil, // Con trỏ tới nút con bên trái
+            Right: nil, // Con trỏ tới nút con bên phải
+            Val:   v,   // Giá trị nút
         }
     }
     ```
@@ -70,11 +74,11 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "Swift"
 
     ```swift title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     class TreeNode {
-        var val: Int // Node value
-        var left: TreeNode? // Reference to left child node
-        var right: TreeNode? // Reference to right child node
+        var val: Int // Giá trị nút
+        var left: TreeNode? // Tham chiếu tới nút con bên trái
+        var right: TreeNode? // Tham chiếu tới nút con bên phải
 
         init(x: Int) {
             val = x
@@ -85,11 +89,11 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "JS"
 
     ```javascript title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     class TreeNode {
-        val; // Node value
-        left; // Pointer to left child node
-        right; // Pointer to right child node
+        val; // Giá trị nút
+        left; // Con trỏ tới nút con bên trái
+        right; // Con trỏ tới nút con bên phải
         constructor(val, left, right) {
             this.val = val === undefined ? 0 : val;
             this.left = left === undefined ? null : left;
@@ -101,16 +105,16 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "TS"
 
     ```typescript title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     class TreeNode {
         val: number;
         left: TreeNode | null;
         right: TreeNode | null;
 
         constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
-            this.val = val === undefined ? 0 : val; // Node value
-            this.left = left === undefined ? null : left; // Reference to left child node
-            this.right = right === undefined ? null : right; // Reference to right child node
+            this.val = val === undefined ? 0 : val; // Giá trị nút
+            this.left = left === undefined ? null : left; // Tham chiếu tới nút con bên trái
+            this.right = right === undefined ? null : right; // Tham chiếu tới nút con bên phải
         }
     }
     ```
@@ -118,11 +122,11 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "Dart"
 
     ```dart title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     class TreeNode {
-      int val;         // Node value
-      TreeNode? left;  // Reference to left child node
-      TreeNode? right; // Reference to right child node
+      int val;         // Giá trị nút
+      TreeNode? left;  // Tham chiếu tới nút con bên trái
+      TreeNode? right; // Tham chiếu tới nút con bên phải
       TreeNode(this.val, [this.left, this.right]);
     }
     ```
@@ -133,15 +137,15 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
     use std::rc::Rc;
     use std::cell::RefCell;
 
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     struct TreeNode {
-        val: i32,                               // Node value
-        left: Option<Rc<RefCell<TreeNode>>>,    // Reference to left child node
-        right: Option<Rc<RefCell<TreeNode>>>,   // Reference to right child node
+        val: i32,                               // Giá trị nút
+        left: Option<Rc<RefCell<TreeNode>>>,    // Tham chiếu tới nút con bên trái
+        right: Option<Rc<RefCell<TreeNode>>>,   // Tham chiếu tới nút con bên phải
     }
 
     impl TreeNode {
-        /* Constructor */
+        /* Hàm tạo */
         fn new(val: i32) -> Rc<RefCell<Self>> {
             Rc::new(RefCell::new(Self {
                 val,
@@ -155,15 +159,15 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "C"
 
     ```c title=""
-    /* Binary tree node */
+    /* Nút cây nhị phân */
     typedef struct TreeNode {
-        int val;                // Node value
-        int height;             // Node height
-        struct TreeNode *left;  // Pointer to left child node
-        struct TreeNode *right; // Pointer to right child node
+        int val;                // Giá trị nút
+        int height;             // Chiều cao của nút
+        struct TreeNode *left;  // Con trỏ tới nút con bên trái
+        struct TreeNode *right; // Con trỏ tới nút con bên phải
     } TreeNode;
 
-    /* Constructor */
+    /* Hàm tạo */
     TreeNode *newTreeNode(int val) {
         TreeNode *node;
 
@@ -179,10 +183,10 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 === "Kotlin"
 
     ```kotlin title=""
-    /* Binary tree node */
-    class TreeNode(val _val: Int) {  // Node value
-        val left: TreeNode? = null   // Reference to left child node
-        val right: TreeNode? = null  // Reference to right child node
+    /* Nút cây nhị phân */
+    class TreeNode(val _val: Int) {  // Giá trị nút
+        val left: TreeNode? = null   // Tham chiếu tới nút con bên trái
+        val right: TreeNode? = null  // Tham chiếu tới nút con bên phải
     }
     ```
 
@@ -198,48 +202,52 @@ A <u>binary tree</u> is a non-linear data structure that represents the hierarch
 
     ```
 
-Each node has two references (pointers), pointing respectively to the <u>left-child node</u> and <u>right-child node</u>. This node is called the <u>parent node</u> of these two child nodes. When given a node of a binary tree, we call the tree formed by this node's left child and all nodes below it the <u>left subtree</u> of this node. Similarly, the <u>right subtree</u> can be defined.
+Mỗi nút có hai tham chiếu (con trỏ), lần lượt trỏ tới <u>nút con bên trái</u> và <u>nút con bên phải</u>. Nút này được gọi là <u>nút cha</u> của hai nút con đó. Khi xét một nút trong cây nhị phân, cây được tạo bởi nút con bên trái của nút đó và tất cả các nút bên dưới nó gọi là <u>cây con bên trái</u> của nút. Tương tự, ta có thể định nghĩa <u>cây con bên phải</u>.
 
-**In a binary tree, except leaf nodes, all other nodes contain child nodes and non-empty subtrees.** As shown in the figure below, if "Node 2" is regarded as a parent node, its left and right child nodes are "Node 4" and "Node 5" respectively. The left subtree is formed by "Node 4" and all nodes beneath it, while the right subtree is formed by "Node 5" and all nodes beneath it.
+**Trong một cây nhị phân, ngoại trừ các nút lá, tất cả các nút khác đều có các nút con và các cây con không rỗng.** Như trong hình bên dưới, nếu "Nút 2" được xem như một nút cha, thì nút con bên trái và bên phải của nó lần lượt là "Nút 4" và "Nút 5". Cây con bên trái được hình thành bởi "Nút 4" và tất cả các nút phía dưới nó, trong khi cây con bên phải được hình thành bởi "Nút 5" và tất cả các nút phía dưới nó.
 
-![Parent Node, child Node, subtree](binary_tree.assets/binary_tree_definition.png)
+![Nút cha, nút con, cây con](binary_tree.assets/binary_tree_definition.png){ class="animation-figure" }
 
-## Common terminology of binary trees
+<p align="center"> Figure 7-1 &nbsp; Node cha, node con, cây con</p>
 
-The commonly used terminology of binary trees is shown in the figure below.
+## 7.1.1 &nbsp; Thuật ngữ thường gặp trong cây nhị phân
 
-- <u>Root node</u>: The node at the top level of a binary tree, which does not have a parent node.
-- <u>Leaf node</u>: A node that does not have any child nodes, with both of its pointers pointing to `None`.
-- <u>Edge</u>: A line segment that connects two nodes, representing a reference (pointer) between the nodes.
-- The <u>level</u> of a node: It increases from top to bottom, with the root node being at level 1.
-- The <u>degree</u> of a node: The number of child nodes that a node has. In a binary tree, the degree can be 0, 1, or 2.
-- The <u>height</u> of a binary tree: The number of edges from the root node to the farthest leaf node.
-- The <u>depth</u> of a node: The number of edges from the root node to the node.
-- The <u>height</u> of a node: The number of edges from the farthest leaf node to the node.
+Thuật ngữ thường dùng cho cây nhị phân được trình bày trong hình dưới đây.
 
-![Common Terminology of Binary Trees](binary_tree.assets/binary_tree_terminology.png)
+- <u>Nút gốc</u>: Nút ở mức trên cùng của cây nhị phân, không có nút cha.
+- <u>Nút lá</u>: Nút không có nút con nào, với cả hai con trỏ đều trỏ tới `None`.
+- <u>Cạnh</u>: Đoạn thẳng nối hai nút, biểu thị một tham chiếu (con trỏ) giữa các nút.
+- <u>Cấp (mức)</u> của một nút: Tăng dần từ trên xuống dưới, với nút gốc ở cấp 1.
+- <u>Bậc</u> của một nút: Số lượng nút con mà một nút có. Trong cây nhị phân, bậc có thể là 0, 1 hoặc 2.
+- <u>Chiều cao</u> của một cây nhị phân: Số cạnh từ nút gốc đến nút lá xa nhất.
+- <u>Độ sâu</u> của một nút: Số cạnh từ nút gốc đến nút đó.
+- <u>Chiều cao</u> của một nút: Số cạnh từ nút đó đến lá xa nhất nằm dưới nó.
+
+![Thuật ngữ thường gặp trong cây nhị phân](binary_tree.assets/binary_tree_terminology.png){ class="animation-figure" }
+
+<p align="center"> Figure 7-2 &nbsp; Thuật ngữ thường gặp trong cây nhị phân</p>
 
 !!! tip
 
-    Please note that we usually define "height" and "depth" as "the number of edges traversed", but some questions or textbooks may define them as "the number of nodes traversed". In this case, both height and depth need to be incremented by 1.
+    Lưu ý rằng chúng ta thường định nghĩa "chiều cao" và "độ sâu" theo "số cạnh phải đi qua", nhưng một số bài toán hoặc sách giáo khoa có thể định nghĩa là "số nút phải đi qua". Trong trường hợp đó, cả chiều cao và độ sâu cần tăng thêm 1.
 
-## Basic operations of binary trees
+## 7.1.2 &nbsp; Các thao tác cơ bản trên cây nhị phân
 
-### Initializing a binary tree
+### 1. &nbsp; Khởi tạo một cây nhị phân
 
-Similar to a linked list, the initialization of a binary tree involves first creating the nodes and then establishing the references (pointers) between them.
+Tương tự như danh sách liên kết, việc khởi tạo cây nhị phân bao gồm tạo các nút trước, sau đó thiết lập các tham chiếu (con trỏ) giữa chúng.
 
 === "Python"
 
     ```python title="binary_tree.py"
-    # Initializing a binary tree
-    # Initializing nodes
+    # Khởi tạo một cây nhị phân
+    # Khởi tạo các nút
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # Linking references (pointers) between nodes
+    # Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -249,14 +257,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     TreeNode* n1 = new TreeNode(1);
     TreeNode* n2 = new TreeNode(2);
     TreeNode* n3 = new TreeNode(3);
     TreeNode* n4 = new TreeNode(4);
     TreeNode* n5 = new TreeNode(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -266,13 +274,13 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Java"
 
     ```java title="binary_tree.java"
-    // Initializing nodes
+    // Khởi tạo các nút
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -282,14 +290,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     TreeNode n1 = new(1);
     TreeNode n2 = new(2);
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -299,14 +307,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Go"
 
     ```go title="binary_tree.go"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     n1 := NewTreeNode(1)
     n2 := NewTreeNode(2)
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -316,13 +324,13 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    // Initializing nodes
+    // Khởi tạo các nút
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -332,14 +340,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -349,14 +357,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -366,14 +374,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -383,13 +391,13 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    // Initializing nodes
+    // Khởi tạo các nút
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.borrow_mut().left = Some(n2.clone());
     n1.borrow_mut().right = Some(n3);
     n2.borrow_mut().left = Some(n4);
@@ -399,14 +407,14 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "C"
 
     ```c title="binary_tree.c"
-    /* Initializing a binary tree */
-    // Initializing nodes
+    /* Khởi tạo một cây nhị phân */
+    // Khởi tạo các nút
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -416,13 +424,13 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    // Initializing nodes
+    // Khởi tạo các nút
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // Linking references (pointers) between nodes
+    // Liên kết tham chiếu (con trỏ) giữa các nút
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -445,33 +453,35 @@ Similar to a linked list, the initialization of a binary tree involves first cre
 
     https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-### Inserting and removing nodes
+### 2. &nbsp; Chèn và loại bỏ nút
 
-Similar to a linked list, inserting and removing nodes in a binary tree can be achieved by modifying pointers. The figure below provides an example.
+Tương tự như danh sách liên kết, chèn và xoá nút trong cây nhị phân có thể thực hiện bằng cách thay đổi các con trỏ. Hình dưới đây cho ví dụ minh họa.
 
-![Inserting and removing nodes in a binary tree](binary_tree.assets/binary_tree_add_remove.png)
+![Chèn và loại bỏ nút trong cây nhị phân](binary_tree.assets/binary_tree_add_remove.png){ class="animation-figure" }
+
+<p align="center"> Figure 7-3 &nbsp; Chèn và loại bỏ nút trong cây nhị phân</p>
 
 === "Python"
 
     ```python title="binary_tree.py"
-    # Inserting and removing nodes
+    # Chèn và loại bỏ nút
     p = TreeNode(0)
-    # Inserting node P between n1 -> n2
+    # Chèn nút P giữa n1 -> n2
     n1.left = p
     p.left = n2
-    # Removing node P
+    # Xóa nút P
     n1.left = n2
     ```
 
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* Inserting and removing nodes */
+    /* Chèn và loại bỏ nút */
     TreeNode* P = new TreeNode(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1->left = P;
     P->left = n2;
-    // Removing node P
+    // Xóa nút P
     n1->left = n2;
     ```
 
@@ -479,34 +489,34 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
     ```java title="binary_tree.java"
     TreeNode P = new TreeNode(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P;
     P.left = n2;
-    // Removing node P
+    // Xóa nút P
     n1.left = n2;
     ```
 
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* Inserting and removing nodes */
+    /* Chèn và loại bỏ nút */
     TreeNode P = new(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P;
     P.left = n2;
-    // Removing node P
+    // Xóa nút P
     n1.left = n2;
     ```
 
 === "Go"
 
     ```go title="binary_tree.go"
-    /* Inserting and removing nodes */
-    // Inserting node P between n1 and n2
+    /* Chèn và loại bỏ nút */
+    // Chèn nút P giữa n1 và n2
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // Removing node P
+    // Xóa nút P
     n1.Left = n2
     ```
 
@@ -514,46 +524,46 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
     ```swift title="binary_tree.swift"
     let P = TreeNode(x: 0)
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P
     P.left = n2
-    // Removing node P
+    // Xóa nút P
     n1.left = n2
     ```
 
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* Inserting and removing nodes */
+    /* Chèn và loại bỏ nút */
     let P = new TreeNode(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P;
     P.left = n2;
-    // Removing node P
+    // Xóa nút P
     n1.left = n2;
     ```
 
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* Inserting and removing nodes */
+    /* Chèn và loại bỏ nút */
     const P = new TreeNode(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P;
     P.left = n2;
-    // Removing node P
+    // Xóa nút P
     n1.left = n2;
     ```
 
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* Inserting and removing nodes */
+    /* Chèn và loại bỏ nút */
     TreeNode P = new TreeNode(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P;
     P.left = n2;
-    // Removing node P
+    // Xóa nút P
     n1.left = n2;
     ```
 
@@ -561,22 +571,22 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
     ```rust title="binary_tree.rs"
     let p = TreeNode::new(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.borrow_mut().left = Some(p.clone());
     p.borrow_mut().left = Some(n2.clone());
-    // Removing node P
+    // Xóa nút P
     n1.borrow_mut().left = Some(n2);
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
-    /* Inserting and removing nodes */
+    /* Chèn và loại bỏ nút */
     TreeNode *P = newTreeNode(0);
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1->left = P;
     P->left = n2;
-    // Removing node P
+    // Xóa nút P
     n1->left = n2;
     ```
 
@@ -584,10 +594,10 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
     ```kotlin title="binary_tree.kt"
     val P = TreeNode(0)
-    // Inserting node P between n1 and n2
+    // Chèn nút P giữa n1 và n2
     n1.left = P
     P.left = n2
-    // Removing node P
+    // Xóa nút P
     n1.left = n2
     ```
 
@@ -609,54 +619,68 @@ Similar to a linked list, inserting and removing nodes in a binary tree can be a
 
 !!! tip
 
-    It should be noted that inserting nodes may change the original logical structure of the binary tree, while removing nodes typically involves removing the node and all its subtrees. Therefore, in a binary tree, insertion and removal are usually performed through a set of operations to achieve meaningful outcomes.
+    Cần lưu ý rằng việc chèn nút có thể thay đổi cấu trúc logic ban đầu của cây nhị phân, trong khi việc xóa nút thường bao gồm xóa nút và toàn bộ cây con của nó. Do đó, trong cây nhị phân, chèn và xóa thường được thực hiện bằng một tập hợp các thao tác để đạt được kết quả có ý nghĩa.
 
-## Common types of binary trees
+## 7.1.3 &nbsp; Các loại cây nhị phân thường gặp
 
-### Perfect binary tree
+### 1. &nbsp; Cây nhị phân hoàn hảo
 
-As shown in the figure below, in a <u>perfect binary tree</u>, all levels are completely filled with nodes. In a perfect binary tree, leaf nodes have a degree of $0$, while all other nodes have a degree of $2$. The total number of nodes can be calculated as $2^{h+1} - 1$, where $h$ is the height of the tree. This exhibits a standard exponential relationship, reflecting the common phenomenon of cell division in nature.
+Như trong hình dưới đây, trong một <u>cây nhị phân hoàn hảo</u>, tất cả các mức đều được lấp đầy hoàn toàn. Trong cây nhị phân hoàn hảo, các nút lá có bậc 0, trong khi tất cả các nút khác đều có bậc 2. Tổng số nút có thể tính bằng $2^{h+1} - 1$, trong đó $h$ là chiều cao của cây. Điều này thể hiện quan hệ mũ chuẩn, phản ánh hiện tượng phân chia tế bào trong tự nhiên.
 
 !!! tip
 
-    Please note that in the Chinese community, a perfect binary tree is often referred to as a <u>full binary tree</u>.
+    Lưu ý rằng trong cộng đồng nói tiếng Trung, cây nhị phân hoàn hảo thường được gọi là <u>cây nhị phân đầy</u> (full binary tree).
 
-![Perfect binary tree](binary_tree.assets/perfect_binary_tree.png)
+![Cây nhị phân hoàn hảo](binary_tree.assets/perfect_binary_tree.png){ class="animation-figure" }
 
-### Complete binary tree
+<p align="center"> Figure 7-4 &nbsp; Cây nhị phân hoàn hảo</p>
 
-As shown in the figure below, a <u>complete binary tree</u> is a binary tree where only the bottom level is possibly not completely filled, and nodes at the bottom level must be filled continuously from left to right. Note that a perfect binary tree is also a complete binary tree.
+### 2. &nbsp; Cây nhị phân hoàn chỉnh
 
-![Complete binary tree](binary_tree.assets/complete_binary_tree.png)
+Như trong hình dưới đây, một <u>cây nhị phân hoàn chỉnh</u> là cây nhị phân mà chỉ mức dưới cùng có thể không đầy đủ hoàn toàn, và các nút ở mức dưới cùng phải được lấp đầy liên tiếp từ trái sang phải. Lưu ý rằng cây nhị phân hoàn hảo cũng là một cây nhị phân hoàn chỉnh.
 
-### Full binary tree
+![Cây nhị phân hoàn chỉnh](binary_tree.assets/complete_binary_tree.png){ class="animation-figure" }
 
-As shown in the figure below, a <u>full binary tree</u>, except for the leaf nodes, has two child nodes for all other nodes.
+<p align="center"> Figure 7-5 &nbsp; Cây nhị phân hoàn chỉnh</p>
 
-![Full binary tree](binary_tree.assets/full_binary_tree.png)
+### 3. &nbsp; Cây nhị phân đầy
 
-### Balanced binary tree
+Như trong hình dưới đây, một <u>cây nhị phân đầy</u> (full binary tree) là cây mà, ngoại trừ các nút lá, mọi nút khác đều có hai nút con.
 
-As shown in the figure below, in a <u>balanced binary tree</u>, the absolute difference between the height of the left and right subtrees of any node does not exceed 1.
+![Cây nhị phân đầy](binary_tree.assets/full_binary_tree.png){ class="animation-figure" }
 
-![Balanced binary tree](binary_tree.assets/balanced_binary_tree.png)
+<p align="center"> Figure 7-6 &nbsp; Cây nhị phân đầy</p>
 
-## Degeneration of binary trees
+### 4. &nbsp; Cây nhị phân cân bằng
 
-The figure below shows the ideal and degenerate structures of binary trees. A binary tree becomes a "perfect binary tree" when every level is filled; while it degenerates into a "linked list" when all nodes are biased toward one side.
+Như trong hình dưới đây, trong một <u>cây nhị phân cân bằng</u>, hiệu tuyệt đối giữa chiều cao của cây con trái và phải của bất kỳ nút nào không vượt quá 1.
 
-- A perfect binary tree is an ideal scenario where the "divide and conquer" advantage of a binary tree can be fully utilized.
-- On the other hand, a linked list represents another extreme where all operations become linear, resulting in a time complexity of $O(n)$.
+![Cây nhị phân cân bằng](binary_tree.assets/balanced_binary_tree.png){ class="animation-figure" }
 
-![The Best and Worst Structures of Binary Trees](binary_tree.assets/binary_tree_best_worst_cases.png)
+<p align="center"> Figure 7-7 &nbsp; Cây nhị phân cân bằng</p>
 
-As shown in the table below, in the best and worst structures, the binary tree achieves either maximum or minimum values for leaf node count, total number of nodes, and height.
+## 7.1.4 &nbsp; Suy biến của cây nhị phân
 
-<p align="center"> Table <id> &nbsp; The Best and Worst Structures of Binary Trees </p>
+Hình dưới đây cho thấy cấu trúc lý tưởng và suy biến của cây nhị phân. Một cây nhị phân trở thành "cây nhị phân hoàn hảo" khi mọi mức đều được lấp đầy; trong khi nó suy biến thành một "danh sách liên kết" khi tất cả các nút đều lệch về một phía.
 
-|                                                 | Perfect binary tree | Linked list |
-| ----------------------------------------------- | ------------------- | ----------- |
-| Number of nodes at level $i$                    | $2^{i-1}$           | $1$         |
-| Number of leaf nodes in a tree with height $h$  | $2^h$               | $1$         |
-| Total number of nodes in a tree with height $h$ | $2^{h+1} - 1$       | $h + 1$     |
-| Height of a tree with $n$ total nodes           | $\log_2 (n+1) - 1$  | $n - 1$     |
+- Một cây nhị phân hoàn hảo là kịch bản lý tưởng nơi lợi thế "chia để trị" của cây nhị phân được tận dụng tối đa.
+- Ngược lại, danh sách liên kết đại diện cho kịch bản cực đoan khác, nơi mọi thao tác trở thành tuyến tính, dẫn tới độ phức tạp thời gian là $O(n)$.
+
+![Cấu trúc tốt nhất và tồi nhất của cây nhị phân](binary_tree.assets/binary_tree_best_worst_cases.png){ class="animation-figure" }
+
+<p align="center"> Figure 7-8 &nbsp; Cấu trúc tốt nhất và tồi nhất của cây nhị phân</p>
+
+Như trong bảng dưới đây, ở cấu trúc tốt nhất và tồi nhất, cây nhị phân đạt giá trị tối đa hoặc tối thiểu cho số nút lá, tổng số nút và chiều cao.
+
+<p align="center"> Bảng <id> &nbsp; Cấu trúc tốt nhất và tồi nhất của cây nhị phân </p>
+
+<div class="center-table" markdown>
+
+|                                                 | Cây nhị phân hoàn hảo | Danh sách liên kết |
+| ----------------------------------------------- | --------------------- | ------------------ |
+| Số nút ở mức $i$                                | $2^{i-1}$             | $1$                |
+| Số nút lá trong cây có chiều cao $h$            | $2^h$                 | $1$                |
+| Tổng số nút trong cây có chiều cao $h$          | $2^{h+1} - 1$         | $h + 1$            |
+| Chiều cao của cây với tổng $n$ nút              | $\log_2 (n+1) - 1$    | $n - 1$            |
+
+</div>
