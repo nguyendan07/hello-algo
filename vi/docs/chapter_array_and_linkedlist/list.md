@@ -901,6 +901,366 @@ Nhiều ngôn ngữ lập trình đi kèm với list tích hợp sẵn, bao gồ
 - **Ghi lại kích thước**: Khai báo một biến `size` để ghi lại số lượng phần tử hiện tại trong list, cập nhật theo thời gian thực khi chèn và xóa phần tử. Với biến này, chúng ta có thể xác định vị trí cuối list và xác định xem có cần mở rộng hay không.
 - **Cơ chế mở rộng**: Nếu list đạt đến dung lượng tối đa khi chèn một phần tử, cần có một quy trình mở rộng. Điều này bao gồm việc tạo một array lớn hơn dựa trên hệ số mở rộng, và sau đó chuyển tất cả các phần tử từ array hiện tại sang array mới. Trong ví dụ này, chúng ta quy định rằng kích thước array sẽ tăng gấp đôi sau mỗi lần mở rộng.
 
-```src
-[file]{my_list}-[class]{my_list}-[func]{}
-```
+=== "Python"
+
+    ```python title="my_list.py"
+    class MyList:
+        """List class"""
+
+        def __init__(self):
+            """Constructor"""
+            self._capacity: int = 10  # List capacity
+            self._arr: list[int] = [0] * self._capacity  # Array (stores list elements)
+            self._size: int = 0  # List length (current number of elements)
+            self._extend_ratio: int = 2  # Multiple for each list expansion
+
+        def size(self) -> int:
+            """Get list length (current number of elements)"""
+            return self._size
+
+        def capacity(self) -> int:
+            """Get list capacity"""
+            return self._capacity
+
+        def get(self, index: int) -> int:
+            """Access element"""
+            # If the index is out of bounds, throw an exception, as below
+            if index < 0 or index >= self._size:
+                raise IndexError("Index out of bounds")
+            return self._arr[index]
+
+        def set(self, num: int, index: int):
+            """Update element"""
+            if index < 0 or index >= self._size:
+                raise IndexError("Index out of bounds")
+            self._arr[index] = num
+
+        def add(self, num: int):
+            """Add element at the end"""
+            # When the number of elements exceeds capacity, trigger the expansion mechanism
+            if self.size() == self.capacity():
+                self.extend_capacity()
+            self._arr[self._size] = num
+            self._size += 1
+
+        def insert(self, num: int, index: int):
+            """Insert element in the middle"""
+            if index < 0 or index >= self._size:
+                raise IndexError("Index out of bounds")
+            # When the number of elements exceeds capacity, trigger the expansion mechanism
+            if self._size == self.capacity():
+                self.extend_capacity()
+            # Move all elements after `index` one position backward
+            for j in range(self._size - 1, index - 1, -1):
+                self._arr[j + 1] = self._arr[j]
+            self._arr[index] = num
+            # Update the number of elements
+            self._size += 1
+
+        def remove(self, index: int) -> int:
+            """Remove element"""
+            if index < 0 or index >= self._size:
+                raise IndexError("Index out of bounds")
+            num = self._arr[index]
+            # Move all elements after `index` one position forward
+            for j in range(index, self._size - 1):
+                self._arr[j] = self._arr[j + 1]
+            # Update the number of elements
+            self._size -= 1
+            # Return the removed element
+            return num
+
+        def extend_capacity(self):
+            """Extend list"""
+            # Create a new array of _extend_ratio times the length of the original array and copy the original array to the new array
+            self._arr = self._arr + [0] * self.capacity() * (self._extend_ratio - 1)
+            # Update list capacity
+            self._capacity = len(self._arr)
+
+        def to_array(self) -> list[int]:
+            """Return a list of valid lengths"""
+            return self._arr[: self._size]
+    ```
+
+=== "C++"
+
+    ```cpp title="my_list.cpp"
+    /* List class */
+    class MyList {
+      private:
+        int *arr;             // Array (stores list elements)
+        int arrCapacity = 10; // List capacity
+        int arrSize = 0;      // List length (current number of elements)
+        int extendRatio = 2;   // Multiple for each list expansion
+
+      public:
+        /* Constructor */
+        MyList() {
+            arr = new int[arrCapacity];
+        }
+
+        /* Destructor */
+        ~MyList() {
+            delete[] arr;
+        }
+
+        /* Get list length (current number of elements)*/
+        int size() {
+            return arrSize;
+        }
+
+        /* Get list capacity */
+        int capacity() {
+            return arrCapacity;
+        }
+
+        /* Access element */
+        int get(int index) {
+            // If the index is out of bounds, throw an exception, as below
+            if (index < 0 || index >= size())
+                throw out_of_range("Index out of bounds");
+            return arr[index];
+        }
+
+        /* Update element */
+        void set(int index, int num) {
+            if (index < 0 || index >= size())
+                throw out_of_range("Index out of bounds");
+            arr[index] = num;
+        }
+
+        /* Add element at the end */
+        void add(int num) {
+            // When the number of elements exceeds capacity, trigger the expansion mechanism
+            if (size() == capacity())
+                extendCapacity();
+            arr[size()] = num;
+            // Update the number of elements
+            arrSize++;
+        }
+
+        /* Insert element in the middle */
+        void insert(int index, int num) {
+            if (index < 0 || index >= size())
+                throw out_of_range("Index out of bounds");
+            // When the number of elements exceeds capacity, trigger the expansion mechanism
+            if (size() == capacity())
+                extendCapacity();
+            // Move all elements after `index` one position backward
+            for (int j = size() - 1; j >= index; j--) {
+                arr[j + 1] = arr[j];
+            }
+            arr[index] = num;
+            // Update the number of elements
+            arrSize++;
+        }
+
+        /* Remove element */
+        int remove(int index) {
+            if (index < 0 || index >= size())
+                throw out_of_range("Index out of bounds");
+            int num = arr[index];
+            // Move all elements after `index` one position forward
+            for (int j = index; j < size() - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            // Update the number of elements
+            arrSize--;
+            // Return the removed element
+            return num;
+        }
+
+        /* Extend list */
+        void extendCapacity() {
+            // Create a new array with a length multiple of the original array by extendRatio
+            int newCapacity = capacity() * extendRatio;
+            int *tmp = arr;
+            arr = new int[newCapacity];
+            // Copy all elements from the original array to the new array
+            for (int i = 0; i < size(); i++) {
+                arr[i] = tmp[i];
+            }
+            // Free memory
+            delete[] tmp;
+            arrCapacity = newCapacity;
+        }
+
+        /* Convert the list to a Vector for printing */
+        vector<int> toVector() {
+            // Only convert elements within valid length range
+            vector<int> vec(size());
+            for (int i = 0; i < size(); i++) {
+                vec[i] = arr[i];
+            }
+            return vec;
+        }
+    };
+    ```
+
+=== "Java"
+
+    ```java title="my_list.java"
+    /* List class */
+    class MyList {
+        private int[] arr; // Array (stores list elements)
+        private int capacity = 10; // List capacity
+        private int size = 0; // List length (current number of elements)
+        private int extendRatio = 2; // Multiple for each list expansion
+
+        /* Constructor */
+        public MyList() {
+            arr = new int[capacity];
+        }
+
+        /* Get list length (current number of elements) */
+        public int size() {
+            return size;
+        }
+
+        /* Get list capacity */
+        public int capacity() {
+            return capacity;
+        }
+
+        /* Access element */
+        public int get(int index) {
+            // If the index is out of bounds, throw an exception, as below
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("Index out of bounds");
+            return arr[index];
+        }
+
+        /* Update element */
+        public void set(int index, int num) {
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("Index out of bounds");
+            arr[index] = num;
+        }
+
+        /* Add element at the end */
+        public void add(int num) {
+            // When the number of elements exceeds capacity, trigger the expansion mechanism
+            if (size == capacity())
+                extendCapacity();
+            arr[size] = num;
+            // Update the number of elements
+            size++;
+        }
+
+        /* Insert element in the middle */
+        public void insert(int index, int num) {
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("Index out of bounds");
+            // When the number of elements exceeds capacity, trigger the expansion mechanism
+            if (size == capacity())
+                extendCapacity();
+            // Move all elements after `index` one position backward
+            for (int j = size - 1; j >= index; j--) {
+                arr[j + 1] = arr[j];
+            }
+            arr[index] = num;
+            // Update the number of elements
+            size++;
+        }
+
+        /* Remove element */
+        public int remove(int index) {
+            if (index < 0 || index >= size)
+                throw new IndexOutOfBoundsException("Index out of bounds");
+            int num = arr[index];
+            // Move all elements after `index` one position forward
+            for (int j = index; j < size - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            // Update the number of elements
+            size--;
+            // Return the removed element
+            return num;
+        }
+
+        /* Extend list */
+        public void extendCapacity() {
+            // Create a new array with a length multiple of the original array by extendRatio, and copy the original array to the new array
+            arr = Arrays.copyOf(arr, capacity() * extendRatio);
+            // Update list capacity
+            capacity = arr.length;
+        }
+
+        /* Convert the list to an array */
+        public int[] toArray() {
+            int size = size();
+            // Only convert elements within valid length range
+            int[] arr = new int[size];
+            for (int i = 0; i < size; i++) {
+                arr[i] = get(i);
+            }
+            return arr;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="my_list.cs"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Go"
+
+    ```go title="my_list.go"
+    [class]{myList}-[func]{}
+    ```
+
+=== "Swift"
+
+    ```swift title="my_list.swift"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "JS"
+
+    ```javascript title="my_list.js"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "TS"
+
+    ```typescript title="my_list.ts"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Dart"
+
+    ```dart title="my_list.dart"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_list.rs"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "C"
+
+    ```c title="my_list.c"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="my_list.kt"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="my_list.rb"
+    [class]{MyList}-[func]{}
+    ```
+
+=== "Zig"
+
+    ```zig title="my_list.zig"
+    [class]{MyList}-[func]{}
+    ```

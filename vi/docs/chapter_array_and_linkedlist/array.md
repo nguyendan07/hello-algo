@@ -134,9 +134,109 @@ Như đã quan sát trong hình trên, lập chỉ mục mảng theo quy ước 
 
 Truy cập các phần tử trong một mảng là rất hiệu quả, cho phép chúng ta truy cập ngẫu nhiên bất kỳ phần tử nào trong thời gian $O(1)$.
 
-```src
-[file]{array}-[class]{}-[func]{random_access}
-```
+=== "Python"
+
+    ```python title="array.py"
+    def random_access(nums: list[int]) -> int:
+        """Random access to elements"""
+        # Randomly select a number from the interval [0, len(nums)-1]
+        random_index = random.randint(0, len(nums) - 1)
+        # Retrieve and return a random element
+        random_num = nums[random_index]
+        return random_num
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* Random access to elements */
+    int randomAccess(int *nums, int size) {
+        // Randomly select a number in the range [0, size)
+        int randomIndex = rand() % size;
+        // Retrieve and return a random element
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* Random access to elements */
+    int randomAccess(int[] nums) {
+        // Randomly select a number in the interval [0, nums.length)
+        int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
+        // Retrieve and return a random element
+        int randomNum = nums[randomIndex];
+        return randomNum;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{RandomAccess}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "JS"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "TS"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{random_access}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    [class]{}-[func]{randomAccess}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    [class]{}-[func]{random_access}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{randomAccess}
+    ```
 
 ### Chèn các phần tử
 
@@ -146,9 +246,111 @@ Các phần tử mảng được đóng gói chặt chẽ trong bộ nhớ, khô
 
 Điều quan trọng cần lưu ý là do độ dài cố định của một mảng, việc chèn một phần tử chắc chắn sẽ dẫn đến việc mất phần tử cuối cùng trong mảng. Các giải pháp để giải quyết vấn đề này sẽ được khám phá trong chương "Danh sách".
 
-```src
-[file]{array}-[class]{}-[func]{insert}
-```
+=== "Python"
+
+    ```python title="array.py"
+    def insert(nums: list[int], num: int, index: int):
+        """Insert element num at `index`"""
+        # Move all elements after `index` one position backward
+        for i in range(len(nums) - 1, index, -1):
+            nums[i] = nums[i - 1]
+        # Assign num to the element at index
+        nums[index] = num
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* Insert element num at `index` */
+    void insert(int *nums, int size, int num, int index) {
+        // Move all elements after `index` one position backward
+        for (int i = size - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index
+        nums[index] = num;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* Insert element num at `index` */
+    void insert(int[] nums, int num, int index) {
+        // Move all elements after `index` one position backward
+        for (int i = nums.length - 1; i > index; i--) {
+            nums[i] = nums[i - 1];
+        }
+        // Assign num to the element at index
+        nums[index] = num;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{Insert}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    [class]{}-[func]{insert}
+    ```
+
+=== "JS"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{insert}
+    ```
+
+=== "TS"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{insert}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{insert}
+    ```
 
 ### Xóa các phần tử
 
@@ -158,9 +360,105 @@ Tương tự, như được mô tả trong hình dưới đây, để xóa một
 
 Xin lưu ý rằng sau khi xóa, phần tử cuối cùng trước đây trở nên "vô nghĩa", do đó không yêu cầu sửa đổi cụ thể.
 
-```src
-[file]{array}-[class]{}-[func]{remove}
-```
+=== "Python"
+
+    ```python title="array.py"
+    def remove(nums: list[int], index: int):
+        """Remove the element at `index`"""
+        # Move all elements after `index` one position forward
+        for i in range(index, len(nums) - 1):
+            nums[i] = nums[i + 1]
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* Remove the element at `index` */
+    void remove(int *nums, int size, int index) {
+        // Move all elements after `index` one position forward
+        for (int i = index; i < size - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* Remove the element at `index` */
+    void remove(int[] nums, int index) {
+        // Move all elements after `index` one position forward
+        for (int i = index; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{Remove}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    [class]{}-[func]{remove}
+    ```
+
+=== "JS"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{remove}
+    ```
+
+=== "TS"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{removeItem}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{remove}
+    ```
 
 Tóm lại, các thao tác chèn và xóa trong mảng có những nhược điểm sau:
 
@@ -172,9 +470,119 @@ Tóm lại, các thao tác chèn và xóa trong mảng có những nhược đi�
 
 Trong hầu hết các ngôn ngữ lập trình, chúng ta có thể duyệt một mảng bằng cách sử dụng chỉ số hoặc bằng cách lặp trực tiếp qua từng phần tử:
 
-```src
-[file]{array}-[class]{}-[func]{traverse}
-```
+=== "Python"
+
+    ```python title="array.py"
+    def traverse(nums: list[int]):
+        """Traverse array"""
+        count = 0
+        # Traverse array by index
+        for i in range(len(nums)):
+            count += nums[i]
+        # Traverse array elements
+        for num in nums:
+            count += num
+        # Traverse both data index and elements
+        for i, num in enumerate(nums):
+            count += nums[i]
+            count += num
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* Traverse array */
+    void traverse(int *nums, int size) {
+        int count = 0;
+        // Traverse array by index
+        for (int i = 0; i < size; i++) {
+            count += nums[i];
+        }
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* Traverse array */
+    void traverse(int[] nums) {
+        int count = 0;
+        // Traverse array by index
+        for (int i = 0; i < nums.length; i++) {
+            count += nums[i];
+        }
+        // Traverse array elements
+        for (int num : nums) {
+            count += num;
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{Traverse}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "JS"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "TS"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    [class]{}-[func]{traverse}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{traverse}
+    ```
 
 ### Tìm kiếm các phần tử
 
@@ -182,9 +590,108 @@ Xác định vị trí một phần tử cụ thể trong một mảng bao gồm
 
 Vì mảng là cấu trúc dữ liệu tuyến tính, thao tác này thường được gọi là "tìm kiếm tuyến tính".
 
-```src
-[file]{array}-[class]{}-[func]{find}
-```
+=== "Python"
+
+    ```python title="array.py"
+    def find(nums: list[int], target: int) -> int:
+        """Search for a specified element in the array"""
+        for i in range(len(nums)):
+            if nums[i] == target:
+                return i
+        return -1
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* Search for a specified element in the array */
+    int find(int *nums, int size, int target) {
+        for (int i = 0; i < size; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* Search for a specified element in the array */
+    int find(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target)
+                return i;
+        }
+        return -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{Find}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{find}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    [class]{}-[func]{find}
+    ```
+
+=== "JS"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{find}
+    ```
+
+=== "TS"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{find}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{find}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{find}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{find}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    [class]{}-[func]{find}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    [class]{}-[func]{find}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{find}
+    ```
 
 ### Mở rộng mảng
 
@@ -192,9 +699,119 @@ Trong môi trường hệ thống phức tạp, việc đảm bảo tính khả 
 
 Để mở rộng một mảng, cần tạo một mảng lớn hơn và sau đó sao chép các phần tử từ mảng ban đầu. Thao tác này có độ phức tạp thời gian là $O(n)$ và có thể tốn thời gian đối với các mảng lớn. Mã như sau:
 
-```src
-[file]{array}-[class]{}-[func]{extend}
-```
+=== "Python"
+
+    ```python title="array.py"
+    def extend(nums: list[int], enlarge: int) -> list[int]:
+        """Extend array length"""
+        # Initialize an extended length array
+        res = [0] * (len(nums) + enlarge)
+        # Copy all elements from the original array to the new array
+        for i in range(len(nums)):
+            res[i] = nums[i]
+        # Return the new array after expansion
+        return res
+    ```
+
+=== "C++"
+
+    ```cpp title="array.cpp"
+    /* Extend array length */
+    int *extend(int *nums, int size, int enlarge) {
+        // Initialize an extended length array
+        int *res = new int[size + enlarge];
+        // Copy all elements from the original array to the new array
+        for (int i = 0; i < size; i++) {
+            res[i] = nums[i];
+        }
+        // Free memory
+        delete[] nums;
+        // Return the new array after expansion
+        return res;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="array.java"
+    /* Extend array length */
+    int[] extend(int[] nums, int enlarge) {
+        // Initialize an extended length array
+        int[] res = new int[nums.length + enlarge];
+        // Copy all elements from the original array to the new array
+        for (int i = 0; i < nums.length; i++) {
+            res[i] = nums[i];
+        }
+        // Return the new array after expansion
+        return res;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="array.cs"
+    [class]{array}-[func]{Extend}
+    ```
+
+=== "Go"
+
+    ```go title="array.go"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Swift"
+
+    ```swift title="array.swift"
+    [class]{}-[func]{extend}
+    ```
+
+=== "JS"
+
+    ```javascript title="array.js"
+    [class]{}-[func]{extend}
+    ```
+
+=== "TS"
+
+    ```typescript title="array.ts"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Dart"
+
+    ```dart title="array.dart"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Rust"
+
+    ```rust title="array.rs"
+    [class]{}-[func]{extend}
+    ```
+
+=== "C"
+
+    ```c title="array.c"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="array.kt"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="array.rb"
+    [class]{}-[func]{extend}
+    ```
+
+=== "Zig"
+
+    ```zig title="array.zig"
+    [class]{}-[func]{extend}
+    ```
 
 ## Ưu điểm và hạn chế của mảng
 

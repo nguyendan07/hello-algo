@@ -412,9 +412,103 @@ So sánh, việc chèn một phần tử vào một mảng có độ phức tạ
 
 ![Ví dụ chèn nút danh sách liên kết](linked_list.assets/linkedlist_insert_node.png)
 
-```src
-[file]{linked_list}-[class]{}-[func]{insert}
-```
+=== "Python"
+
+    ```python title="linked_list.py"
+    def insert(n0: ListNode, P: ListNode):
+        """Insert node P after node n0 in the linked list"""
+        n1 = n0.next
+        P.next = n1
+        n0.next = P
+    ```
+
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    /* Insert node P after node n0 in the linked list */
+    void insert(ListNode *n0, ListNode *P) {
+        ListNode *n1 = n0->next;
+        P->next = n1;
+        n0->next = P;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="linked_list.java"
+    /* Insert node P after node n0 in the linked list */
+    void insert(ListNode n0, ListNode P) {
+        ListNode n1 = n0.next;
+        P.next = n1;
+        n0.next = P;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{Insert}
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    [class]{}-[func]{insertNode}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{insert}
+    ```
+
+=== "JS"
+
+    ```javascript title="linked_list.js"
+    [class]{}-[func]{insert}
+    ```
+
+=== "TS"
+
+    ```typescript title="linked_list.ts"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{insert}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    [class]{}-[func]{insert}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    [class]{}-[func]{insert}
+    ```
 
 ### Xóa nút
 
@@ -424,25 +518,340 @@ Như trong hình dưới đây, việc xóa một nút khỏi một danh sách l
 
 ![Xóa nút danh sách liên kết](linked_list.assets/linkedlist_remove_node.png)
 
-```src
-[file]{linked_list}-[class]{}-[func]{remove}
-```
+=== "Python"
+
+    ```python title="linked_list.py"
+    def remove(n0: ListNode):
+        """Remove the first node after node n0 in the linked list"""
+        if not n0.next:
+            return
+        # n0 -> P -> n1
+        P = n0.next
+        n1 = P.next
+        n0.next = n1
+    ```
+
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    /* Remove the first node after node n0 in the linked list */
+    void remove(ListNode *n0) {
+        if (n0->next == nullptr)
+            return;
+        // n0 -> P -> n1
+        ListNode *P = n0->next;
+        ListNode *n1 = P->next;
+        n0->next = n1;
+        // Free memory
+        delete P;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="linked_list.java"
+    /* Remove the first node after node n0 in the linked list */
+    void remove(ListNode n0) {
+        if (n0.next == null)
+            return;
+        // n0 -> P -> n1
+        ListNode P = n0.next;
+        ListNode n1 = P.next;
+        n0.next = n1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{Remove}
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    [class]{}-[func]{removeItem}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{remove}
+    ```
+
+=== "JS"
+
+    ```javascript title="linked_list.js"
+    [class]{}-[func]{remove}
+    ```
+
+=== "TS"
+
+    ```typescript title="linked_list.ts"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{removeItem}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    [class]{}-[func]{remove}
+    ```
 
 ### Truy cập nút
 
 **Truy cập các nút trong một danh sách liên kết kém hiệu quả hơn**. Như đã đề cập trước đó, bất kỳ phần tử nào trong một mảng có thể được truy cập trong thời gian $O(1)$. Ngược lại, với một danh sách liên kết, chương trình liên quan đến việc bắt đầu từ nút đầu và tuần tự duyệt qua các nút cho đến khi tìm thấy nút mong muốn. Nói cách khác, để truy cập nút thứ $i$ trong một danh sách liên kết, chương trình phải lặp qua $i - 1$ nút, dẫn đến độ phức tạp thời gian là $O(n)$.
 
-```src
-[file]{linked_list}-[class]{}-[func]{access}
-```
+=== "Python"
+
+    ```python title="linked_list.py"
+    def access(head: ListNode, index: int) -> ListNode | None:
+        """Access the node at `index` in the linked list"""
+        for _ in range(index):
+            if not head:
+                return None
+            head = head.next
+        return head
+    ```
+
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    /* Access the node at `index` in the linked list */
+    ListNode *access(ListNode *head, int index) {
+        for (int i = 0; i < index; i++) {
+            if (head == nullptr)
+                return nullptr;
+            head = head->next;
+        }
+        return head;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="linked_list.java"
+    /* Access the node at `index` in the linked list */
+    ListNode access(ListNode head, int index) {
+        for (int i = 0; i < index; i++) {
+            if (head == null)
+                return null;
+            head = head.next;
+        }
+        return head;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{Access}
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    [class]{}-[func]{access}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{access}
+    ```
+
+=== "JS"
+
+    ```javascript title="linked_list.js"
+    [class]{}-[func]{access}
+    ```
+
+=== "TS"
+
+    ```typescript title="linked_list.ts"
+    [class]{}-[func]{access}
+    ```
+
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    [class]{}-[func]{access}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{access}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{access}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    [class]{}-[func]{access}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    [class]{}-[func]{access}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    [class]{}-[func]{access}
+    ```
 
 ### Tìm kiếm nút
 
 Duyệt danh sách liên kết để định vị một nút có giá trị khớp với `target`, và sau đó xuất chỉ mục của nút đó trong danh sách liên kết. Thủ tục này cũng là một ví dụ về tìm kiếm tuyến tính. Code tương ứng được cung cấp dưới đây:
 
-```src
-[file]{linked_list}-[class]{}-[func]{find}
-```
+=== "Python"
+
+    ```python title="linked_list.py"
+    def find(head: ListNode, target: int) -> int:
+        """Search for the first node with value target in the linked list"""
+        index = 0
+        while head:
+            if head.val == target:
+                return index
+            head = head.next
+            index += 1
+        return -1
+    ```
+
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    /* Search for the first node with value target in the linked list */
+    int find(ListNode *head, int target) {
+        int index = 0;
+        while (head != nullptr) {
+            if (head->val == target)
+                return index;
+            head = head->next;
+            index++;
+        }
+        return -1;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="linked_list.java"
+    /* Search for the first node with value target in the linked list */
+    int find(ListNode head, int target) {
+        int index = 0;
+        while (head != null) {
+            if (head.val == target)
+                return index;
+            head = head.next;
+            index++;
+        }
+        return -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{Find}
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    [class]{}-[func]{findNode}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{find}
+    ```
+
+=== "JS"
+
+    ```javascript title="linked_list.js"
+    [class]{}-[func]{find}
+    ```
+
+=== "TS"
+
+    ```typescript title="linked_list.ts"
+    [class]{}-[func]{find}
+    ```
+
+=== "Dart"
+
+    ```dart title="linked_list.dart"
+    [class]{}-[func]{find}
+    ```
+
+=== "Rust"
+
+    ```rust title="linked_list.rs"
+    [class]{}-[func]{find}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{find}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="linked_list.kt"
+    [class]{}-[func]{find}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="linked_list.rb"
+    [class]{}-[func]{find}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
+    [class]{}-[func]{find}
+    ```
 
 ## Mảng so với danh sách liên kết
 
