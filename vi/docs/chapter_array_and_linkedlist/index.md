@@ -1,3 +1,7 @@
+---
+icon: material/view-list-outline
+---
+
 # Mảng và danh sách liên kết
 
 ![Arrays and linked lists](../assets/covers/chapter_array_and_linkedlist.jpg)

@@ -1,3 +1,7 @@
+---
+icon: material/shape-outline
+---
+
 # Cấu trúc dữ liệu
 
 ![Data structures](../assets/covers/chapter_data_structure.jpg)

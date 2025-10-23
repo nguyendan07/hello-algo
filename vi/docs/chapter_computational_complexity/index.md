@@ -1,3 +1,7 @@
+---
+icon: material/timer-sand
+---
+
 # Phân tích độ phức tạp
 
 ![Complexity analysis](../assets/covers/chapter_complexity_analysis.jpg)

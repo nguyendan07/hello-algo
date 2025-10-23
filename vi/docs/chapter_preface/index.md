@@ -1,3 +1,7 @@
+---
+icon: material/book-open-outline
+---
+
 # Lời Mở Đầu
 
 ![Lời Mở Đầu](../assets/covers/chapter_preface.jpg)

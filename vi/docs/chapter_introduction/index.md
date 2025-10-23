@@ -1,3 +1,7 @@
+---
+icon: material/calculator-variant-outline
+---
+
 # Gặp gỡ thuật toán
 
 ![Gặp gỡ thuật toán](../assets/covers/chapter_introduction.jpg)
