@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#binary-search-boundaries" class="md-skip">
+        <a href="#103-binary-search-ranh-gioi" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2034,6 +2034,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 10. Searching
   </span>
@@ -2152,37 +2154,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#find-the-left-boundary" class="md-nav__link">
+  <a href="#1031-tim-bien-trai" class="md-nav__link">
     <span class="md-ellipsis">
-      Find the left boundary
+      10.3.1 &nbsp; Tìm biên trái
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#find-the-right-boundary" class="md-nav__link">
+  <a href="#1032-tim-bien-phai" class="md-nav__link">
     <span class="md-ellipsis">
-      Find the right boundary
+      10.3.2 &nbsp; Tìm biên phải
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Find the right boundary">
+    <nav class="md-nav" aria-label="10.3.2 &nbsp; Tìm biên phải">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reuse-the-left-boundary-search" class="md-nav__link">
+  <a href="#1-tai-su-dung-tim-kiem-bien-trai" class="md-nav__link">
     <span class="md-ellipsis">
-      Reuse the left boundary search
+      1. &nbsp; Tái sử dụng tìm kiếm biên trái
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#transform-into-an-element-search" class="md-nav__link">
+  <a href="#2-chuyen-oi-thanh-tim-kiem-phan-tu" class="md-nav__link">
     <span class="md-ellipsis">
-      Transform into an element search
+      2. &nbsp; Chuyển đổi thành tìm kiếm phần tử
     </span>
   </a>
   
@@ -3544,37 +3546,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#find-the-left-boundary" class="md-nav__link">
+  <a href="#1031-tim-bien-trai" class="md-nav__link">
     <span class="md-ellipsis">
-      Find the left boundary
+      10.3.1 &nbsp; Tìm biên trái
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#find-the-right-boundary" class="md-nav__link">
+  <a href="#1032-tim-bien-phai" class="md-nav__link">
     <span class="md-ellipsis">
-      Find the right boundary
+      10.3.2 &nbsp; Tìm biên phải
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Find the right boundary">
+    <nav class="md-nav" aria-label="10.3.2 &nbsp; Tìm biên phải">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reuse-the-left-boundary-search" class="md-nav__link">
+  <a href="#1-tai-su-dung-tim-kiem-bien-trai" class="md-nav__link">
     <span class="md-ellipsis">
-      Reuse the left boundary search
+      1. &nbsp; Tái sử dụng tìm kiếm biên trái
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#transform-into-an-element-search" class="md-nav__link">
+  <a href="#2-chuyen-oi-thanh-tim-kiem-phan-tu" class="md-nav__link">
     <span class="md-ellipsis">
-      Transform into an element search
+      2. &nbsp; Chuyển đổi thành tìm kiếm phần tử
     </span>
   </a>
   
@@ -3617,43 +3619,251 @@
 
 
 <!-- Page content -->
-<h1 id="binary-search-boundaries">Binary search boundaries<a class="headerlink" href="#binary-search-boundaries" title="Permanent link">¶</a></h1>
-<h2 id="find-the-left-boundary">Find the left boundary<a class="headerlink" href="#find-the-left-boundary" title="Permanent link">¶</a></h2>
+<h1 id="103-binary-search-ranh-gioi">10.3 &nbsp; Binary search ranh giới<a class="headerlink" href="#103-binary-search-ranh-gioi" title="Permanent link">¶</a></h1>
+<h2 id="1031-tim-bien-trai">10.3.1 &nbsp; Tìm biên trái<a class="headerlink" href="#1031-tim-bien-trai" title="Permanent link">¶</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given a sorted array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, which may contain duplicate elements, return the index of the leftmost element <code>target</code>. If the element is not present in the array, return <span class="arithmatex">\(-1\)</span>.</p>
+<p>Cho một array <code>nums</code> đã sắp xếp có độ dài <span class="arithmatex">\(n\)</span>, có thể chứa các
+phần tử trùng lặp, trả về chỉ số của phần tử <code>target</code> nằm ngoài
+cùng bên trái. Nếu phần tử không có trong array, trả về <span class="arithmatex">\(-1\)</span>.</p>
 </div>
-<p>Recalling the method of binary search for an insertion point, after the search is completed, the index <span class="arithmatex">\(i\)</span> will point to the leftmost occurrence of <code>target</code>. Therefore, <strong>searching for the insertion point is essentially the same as finding the index of the leftmost <code>target</code></strong>.</p>
-<p>We can use the function for finding an insertion point to find the left boundary of <code>target</code>. Note that the array might not contain <code>target</code>, which could lead to the following two results:</p>
+<p>Nhắc lại phương pháp binary search để tìm điểm chèn, sau khi quá
+trình tìm kiếm hoàn tất, chỉ số <span class="arithmatex">\(i\)</span> sẽ trỏ đến vị trí xuất hiện
+ngoài cùng bên trái của <code>target</code>. Do đó, <strong>tìm kiếm điểm chèn về
+cơ bản là tương tự với việc tìm chỉ số của <code>target</code> ngoài cùng
+bên trái</strong>.</p>
+<p>Chúng ta có thể sử dụng hàm tìm điểm chèn để tìm biên trái của
+<code>target</code>. Lưu ý rằng array có thể không chứa <code>target</code>, điều này
+có thể dẫn đến hai kết quả sau:</p>
 <ul>
-<li>The index <span class="arithmatex">\(i\)</span> of the insertion point is out of bounds.</li>
-<li>The element <code>nums[i]</code> is not equal to <code>target</code>.</li>
+<li>Chỉ số <span class="arithmatex">\(i\)</span> của điểm chèn nằm ngoài giới hạn.</li>
+<li>Phần tử <code>nums[i]</code> không bằng <code>target</code>.</li>
 </ul>
-<p>In these cases, simply return <span class="arithmatex">\(-1\)</span>. The code is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{binary_search_edge}-[class]{}-[func]{binary_search_left_edge}
+<p>Trong những trường hợp này, chỉ cần trả về <span class="arithmatex">\(-1\)</span>. Code như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><input id="__tabbed_1_14" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_left_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Binary search để tìm target ngoài cùng bên trái"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Tương đương với việc tìm điểm chèn của target</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="c1"># Không tìm thấy target, do đó trả về -1</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="ow">or</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="c1"># Tìm thấy target, trả về chỉ số i</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">return</span> <span class="n">i</span>
 </code></pre></div>
-<h2 id="find-the-right-boundary">Find the right boundary<a class="headerlink" href="#find-the-right-boundary" title="Permanent link">¶</a></h2>
-<p>How do we find the rightmost occurrence of <code>target</code>? The most straightforward way is to modify the traditional binary search logic by changing how we adjust the search boundaries in the case of <code>nums[m] == target</code>. The code is omitted here. If you are interested, try to implement the code on your own.</p>
-<p>Below we are going to introduce two more ingenious methods.</p>
-<h3 id="reuse-the-left-boundary-search">Reuse the left boundary search<a class="headerlink" href="#reuse-the-left-boundary-search" title="Permanent link">¶</a></h3>
-<p>To find the rightmost occurrence of <code>target</code>, we can reuse the function used for locating the leftmost <code>target</code>. Specifically, we transform the search for the rightmost target into a search for the leftmost target + 1.</p>
-<p>As shown in the figure below, after the search is complete, pointer <span class="arithmatex">\(i\)</span> will point to the leftmost <code>target + 1</code> (if exists), while pointer <span class="arithmatex">\(j\)</span> will point to the rightmost occurrence of <code>target</code>. Therefore, returning <span class="arithmatex">\(j\)</span> will give us the right boundary.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-desc-position="bottom"><img alt="Transforming the search for the right boundary into the search for the left boundary" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png"></a></p>
-<p>Note that the insertion point returned is <span class="arithmatex">\(i\)</span>, therefore, it should be subtracted by <span class="arithmatex">\(1\)</span> to obtain <span class="arithmatex">\(j\)</span>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{binary_search_edge}-[class]{}-[func]{binary_search_right_edge}
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Binary search để tìm target ngoài cùng bên trái */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Tương đương với việc tìm điểm chèn của target</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Không tìm thấy target, do đó trả về -1</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">// Tìm thấy target, trả về chỉ số i</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="transform-into-an-element-search">Transform into an element search<a class="headerlink" href="#transform-into-an-element-search" title="Permanent link">¶</a></h3>
-<p>When the array does not contain <code>target</code>, <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> will eventually point to the first element greater and smaller than <code>target</code> respectively.</p>
-<p>Thus, as shown in the figure below, we can construct an element that does not exist in the array, to search for the left and right boundaries.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Binary search để tìm target ngoài cùng bên trái */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Tương đương với việc tìm điểm chèn của target</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">.</span><span class="na">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Không tìm thấy target, do đó trả về -1</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Tìm thấy target, trả về chỉ số i</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search_edge</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BinarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binary_search_left_edge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binary_search_left_edge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.zig</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchLeftEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="1032-tim-bien-phai">10.3.2 &nbsp; Tìm biên phải<a class="headerlink" href="#1032-tim-bien-phai" title="Permanent link">¶</a></h2>
+<p>Làm thế nào để chúng ta tìm thấy lần xuất hiện <code>target</code> ở tận cùng bên phải?
+Cách đơn giản nhất là sửa đổi logic binary search truyền thống bằng cách thay
+đổi cách chúng ta điều chỉnh các biên tìm kiếm trong trường hợp
+<code>nums[m] == target</code>. Đoạn mã được bỏ qua ở đây. Nếu bạn quan tâm, hãy thử tự
+mình cài đặt đoạn mã đó.</p>
+<p>Dưới đây chúng ta sẽ giới thiệu hai phương pháp khéo léo hơn.</p>
+<h3 id="1-tai-su-dung-tim-kiem-bien-trai">1. &nbsp; Tái sử dụng tìm kiếm biên trái<a class="headerlink" href="#1-tai-su-dung-tim-kiem-bien-trai" title="Permanent link">¶</a></h3>
+<p>Để tìm lần xuất hiện <code>target</code> ở tận cùng bên phải, chúng ta có thể tái sử dụng
+hàm được dùng để định vị <code>target</code> ở tận cùng bên trái. Cụ thể, chúng ta biến đổi
+việc tìm kiếm <code>target</code> ở tận cùng bên phải thành việc tìm kiếm <code>target + 1</code> ở
+tận cùng bên trái.</p>
+<p>Như được minh họa trong Hình 10-7, sau khi tìm kiếm hoàn tất, con trỏ <span class="arithmatex">\(i\)</span> sẽ trỏ
+đến <code>target + 1</code> ở tận cùng bên trái (nếu tồn tại), trong khi con trỏ <span class="arithmatex">\(j\)</span> sẽ trỏ
+đến lần xuất hiện <code>target</code> ở tận cùng bên phải. Do đó, việc trả về <span class="arithmatex">\(j\)</span> sẽ cho
+chúng ta biên phải.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-desc-position="bottom"><img alt="Biến đổi tìm kiếm biên phải thành tìm kiếm biên trái" class="animation-figure" src="../binary_search_edge.assets/binary_search_right_edge_by_left_edge.png"></a></p>
+<p align="center"> Hình 10-7 &nbsp; Biến đổi tìm kiếm biên phải thành tìm kiếm biên trái </p>
+
+<p>Lưu ý rằng điểm chèn được trả về là <span class="arithmatex">\(i\)</span>, do đó, nó cần được trừ đi <span class="arithmatex">\(1\)</span> để có
+được <span class="arithmatex">\(j\)</span>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><input id="__tabbed_2_14" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_right_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">"""Binary search tìm target ở tận cùng bên phải"""</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="c1"># Chuyển đổi thành tìm target + 1 ở tận cùng bên trái</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="c1"># j trỏ đến target ở tận cùng bên phải, i trỏ đến phần tử đầu tiên lớn hơn target</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="c1"># Không tìm thấy target, trả về -1</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="c1"># Tìm thấy target, trả về chỉ số j</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="k">return</span> <span class="n">j</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.cpp</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Binary search tìm target ở tận cùng bên phải */</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1">// Chuyển đổi thành tìm target + 1 ở tận cùng bên trái</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="c1">// j trỏ đến target ở tận cùng bên phải, i trỏ đến phần tử đầu tiên lớn hơn target</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="c1">// Không tìm thấy target, trả về -1</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="c1">// Tìm thấy target, trả về chỉ số j</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.java</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Tìm kiếm nhị phân cho target ngoài cùng bên phải */</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">// Chuyển đổi thành việc tìm kiếm target ngoài cùng bên trái + 1</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">.</span><span class="na">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="c1">// j trỏ đến target ngoài cùng bên phải, i trỏ đến phần tử đầu tiên lớn hơn target</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="c1">// Không tìm thấy target, do đó trả về -1</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="c1">// Tìm thấy target, trả về chỉ số j</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search_edge</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BinarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.rs</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binary_search_right_edge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.kt</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binary_search_right_edge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_edge.zig</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchRightEdge</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="2-chuyen-oi-thanh-tim-kiem-phan-tu">2. &nbsp; Chuyển đổi thành tìm kiếm phần tử<a class="headerlink" href="#2-chuyen-oi-thanh-tim-kiem-phan-tu" title="Permanent link">¶</a></h3>
+<p>Khi array không chứa <code>target</code>, <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span> cuối cùng sẽ trỏ đến phần tử
+đầu tiên lớn hơn và nhỏ hơn <code>target</code> tương ứng.</p>
+<p>Do đó, như minh họa trong Hình 10-8, chúng ta có thể xây dựng một phần
+tử không tồn tại trong array, để tìm kiếm các ranh giới trái và phải.</p>
 <ul>
-<li>To find the leftmost <code>target</code>: it can be transformed into searching for <code>target - 0.5</code>, and return the pointer <span class="arithmatex">\(i\)</span>.</li>
-<li>To find the rightmost <code>target</code>: it can be transformed into searching for <code>target + 0.5</code>, and return the pointer <span class="arithmatex">\(j\)</span>.</li>
+<li>Để tìm <code>target</code> ngoài cùng bên trái: có thể chuyển đổi thành việc tìm
+    kiếm <code>target - 0.5</code>, và trả về con trỏ <span class="arithmatex">\(i\)</span>.</li>
+<li>Để tìm <code>target</code> ngoài cùng bên phải: có thể chuyển đổi thành việc tìm
+    kiếm <code>target + 0.5</code>, và trả về con trỏ <span class="arithmatex">\(j\)</span>.</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_edge.assets/binary_search_edge_by_element.png" data-desc-position="bottom"><img alt="Transforming the search for boundaries into the search for an element" src="../binary_search_edge.assets/binary_search_edge_by_element.png"></a></p>
-<p>The code is omitted here, but here are two important points to note about this approach.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_edge.assets/binary_search_edge_by_element.png" data-desc-position="bottom"><img alt="Chuyển đổi tìm kiếm ranh giới thành tìm kiếm phần tử" class="animation-figure" src="../binary_search_edge.assets/binary_search_edge_by_element.png"></a></p>
+<p align="center"> Hình 10-8 &nbsp; Chuyển đổi tìm kiếm ranh giới thành tìm kiếm phần tử </p>
+
+<p>Đoạn code được bỏ qua ở đây, nhưng có hai điểm quan trọng cần lưu ý về
+cách tiếp cận này.</p>
 <ul>
-<li>The given array <code>nums</code> does not contain decimal, so handling equal cases is not a concern.</li>
-<li>However, introducing decimals in this approach requires modifying the <code>target</code> variable to a floating-point type (no change needed in Python).</li>
+<li>array <code>nums</code> đã cho không chứa số thập phân, vì vậy việc xử lý các
+    trường hợp bằng nhau không phải là một vấn đề đáng lo ngại.</li>
+<li>Tuy nhiên, việc đưa số thập phân vào cách tiếp cận này yêu cầu sửa
+đổi biến <code>target</code> thành kiểu số thực (không cần thay đổi trong Python).</li>
 </ul>
 
 

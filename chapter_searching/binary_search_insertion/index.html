@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#binary-search-insertion" class="md-skip">
+        <a href="#102-binary-search-tim-vi-tri-chen" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2034,6 +2034,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 10. Searching
   </span>
@@ -2131,18 +2133,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#case-with-no-duplicate-elements" class="md-nav__link">
+  <a href="#1021-truong-hop-khong-co-phan-tu-trung-lap" class="md-nav__link">
     <span class="md-ellipsis">
-      Case with no duplicate elements
+      10.2.1 &nbsp; Trường hợp không có phần tử trùng lặp
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#case-with-duplicate-elements" class="md-nav__link">
+  <a href="#1022-truong-hop-co-cac-phan-tu-trung-lap" class="md-nav__link">
     <span class="md-ellipsis">
-      Case with duplicate elements
+      10.2.2 &nbsp; Trường hợp có các phần tử trùng lặp
     </span>
   </a>
   
@@ -3520,18 +3522,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#case-with-no-duplicate-elements" class="md-nav__link">
+  <a href="#1021-truong-hop-khong-co-phan-tu-trung-lap" class="md-nav__link">
     <span class="md-ellipsis">
-      Case with no duplicate elements
+      10.2.1 &nbsp; Trường hợp không có phần tử trùng lặp
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#case-with-duplicate-elements" class="md-nav__link">
+  <a href="#1022-truong-hop-co-cac-phan-tu-trung-lap" class="md-nav__link">
     <span class="md-ellipsis">
-      Case with duplicate elements
+      10.2.2 &nbsp; Trường hợp có các phần tử trùng lặp
     </span>
   </a>
   
@@ -3569,79 +3571,329 @@
 
 
 <!-- Page content -->
-<h1 id="binary-search-insertion">Binary search insertion<a class="headerlink" href="#binary-search-insertion" title="Permanent link">¶</a></h1>
-<p>Binary search is not only used to search for target elements but also to solve many variant problems, such as searching for the insertion position of target elements.</p>
-<h2 id="case-with-no-duplicate-elements">Case with no duplicate elements<a class="headerlink" href="#case-with-no-duplicate-elements" title="Permanent link">¶</a></h2>
+<h1 id="102-binary-search-tim-vi-tri-chen">10.2 &nbsp; Binary search: Tìm vị trí chèn<a class="headerlink" href="#102-binary-search-tim-vi-tri-chen" title="Permanent link">¶</a></h1>
+<p>Binary search không chỉ được sử dụng để tìm kiếm các phần tử mục tiêu mà còn để
+giải quyết nhiều bài toán biến thể, ví dụ như tìm kiếm vị trí chèn của các
+phần tử mục tiêu.</p>
+<h2 id="1021-truong-hop-khong-co-phan-tu-trung-lap">10.2.1 &nbsp; Trường hợp không có phần tử trùng lặp<a class="headerlink" href="#1021-truong-hop-khong-co-phan-tu-trung-lap" title="Permanent link">¶</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given a sorted array <code>nums</code> of length <span class="arithmatex">\(n\)</span> with unique elements and an element <code>target</code>, insert <code>target</code> into <code>nums</code> while maintaining its sorted order. If <code>target</code> already exists in the array, insert it to the left of the existing element. Return the index of <code>target</code> in the array after insertion. See the example shown in the figure below.</p>
+<p>Cho một array <code>nums</code> đã sắp xếp có độ dài <span class="arithmatex">\(n\)</span> với các phần tử duy nhất và một
+phần tử <code>target</code>, hãy chèn <code>target</code> vào <code>nums</code> trong khi vẫn duy trì thứ tự
+đã sắp xếp của nó. Nếu <code>target</code> đã tồn tại trong array, hãy chèn nó vào
+bên trái của phần tử hiện có. Trả về chỉ số của <code>target</code> trong array
+sau khi chèn. Xem ví dụ minh họa trong Hình 10-4.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_example.png" data-desc-position="bottom"><img alt="Example data for binary search insertion point" src="../binary_search_insertion.assets/binary_search_insertion_example.png"></a></p>
-<p>If you want to reuse the binary search code from the previous section, you need to answer the following two questions.</p>
-<p><strong>Question one</strong>: If the array already contains <code>target</code>, would the insertion point be the index of existing element?</p>
-<p>The requirement to insert <code>target</code> to the left of equal elements means that the newly inserted <code>target</code> will replace the original <code>target</code> position. In other words, <strong>when the array contains <code>target</code>, the insertion point is indeed the index of that <code>target</code></strong>.</p>
-<p><strong>Question two</strong>: When the array does not contain <code>target</code>, at which index would it be inserted?</p>
-<p>Let's further consider the binary search process: when <code>nums[m] &lt; target</code>, pointer <span class="arithmatex">\(i\)</span> moves, meaning that pointer <span class="arithmatex">\(i\)</span> is approaching an element greater than or equal to <code>target</code>. Similarly, pointer <span class="arithmatex">\(j\)</span> is always approaching an element less than or equal to <code>target</code>.</p>
-<p>Therefore, at the end of the binary, it is certain that: <span class="arithmatex">\(i\)</span> points to the first element greater than <code>target</code>, and <span class="arithmatex">\(j\)</span> points to the first element less than <code>target</code>. <strong>It is easy to see that when the array does not contain <code>target</code>, the insertion point is <span class="arithmatex">\(i\)</span></strong>. The code is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}
-</code></pre></div>
-<h2 id="case-with-duplicate-elements">Case with duplicate elements<a class="headerlink" href="#case-with-duplicate-elements" title="Permanent link">¶</a></h2>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Based on the previous question, assume the array may contain duplicate elements, all else remains the same.</p>
-</div>
-<p>When there are multiple occurrences of <code>target</code> in the array, a regular binary search can only return the index of one occurrence of <code>target</code>, <strong>and it cannot determine how many occurrences of <code>target</code> are to the left and right of that position</strong>.</p>
-<p>The problem requires inserting the target element at the leftmost position, <strong>so we need to find the index of the leftmost <code>target</code> in the array</strong>. Initially consider implementing this through the steps shown in the figure below.</p>
-<ol>
-<li>Perform a binary search to find any index of <code>target</code>, say <span class="arithmatex">\(k\)</span>.</li>
-<li>Starting from index <span class="arithmatex">\(k\)</span>, conduct a linear search to the left until the leftmost occurrence of <code>target</code> is found, then return this index.</li>
-</ol>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_naive.png" data-desc-position="bottom"><img alt="Linear search for the insertion point of duplicate elements" src="../binary_search_insertion.assets/binary_search_insertion_naive.png"></a></p>
-<p>Although this method is feasible, it includes linear search, so its time complexity is <span class="arithmatex">\(O(n)\)</span>. This method is inefficient when the array contains many duplicate <code>target</code>s.</p>
-<p>Now consider extending the binary search code. As shown in the figure below, the overall process remains the same. In each round, we first calculate the middle index <span class="arithmatex">\(m\)</span>, then compare the value of <code>target</code> with <code>nums[m]</code>, leading to the following cases.</p>
-<ul>
-<li>When <code>nums[m] &lt; target</code> or <code>nums[m] &gt; target</code>, it means <code>target</code> has not been found yet, thus use the normal binary search to narrow the search range, <strong>bringing pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> closer to <code>target</code></strong>.</li>
-<li>When <code>nums[m] == target</code>, it indicates that the elements less than <code>target</code> are in the range <span class="arithmatex">\([i, m - 1]\)</span>, therefore use <span class="arithmatex">\(j = m - 1\)</span> to narrow the range, <strong>thus bringing pointer <span class="arithmatex">\(j\)</span> closer to the elements less than <code>target</code></strong>.</li>
-</ul>
-<p>After the loop, <span class="arithmatex">\(i\)</span> points to the leftmost <code>target</code>, and <span class="arithmatex">\(j\)</span> points to the first element less than <code>target</code>, <strong>therefore index <span class="arithmatex">\(i\)</span> is the insertion point</strong>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_example.png" data-desc-position="bottom"><img alt="Example data for binary search insertion point" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_example.png"></a></p>
+<p align="center"> Hình 10-4 &nbsp; Dữ liệu ví dụ cho điểm chèn binary search </p>
+
+<p>Nếu bạn muốn tái sử dụng mã binary search từ phần trước, bạn cần trả lời hai
+câu hỏi sau.</p>
+<p><strong>Câu hỏi thứ nhất</strong>: Nếu array đã chứa <code>target</code>, thì điểm chèn có phải là
+chỉ số của phần tử hiện có không?</p>
+<p>Yêu cầu chèn <code>target</code> vào bên trái của các phần tử bằng nhau có nghĩa là
+<code>target</code> mới được chèn sẽ thay thế vị trí <code>target</code> ban đầu. Nói cách khác,
+<strong>khi array chứa <code>target</code>, điểm chèn chính là chỉ số của <code>target</code> đó</strong>.</p>
+<p><strong>Câu hỏi thứ hai</strong>: Khi array không chứa <code>target</code>, nó sẽ được chèn vào
+chỉ số nào?</p>
+<p>Chúng ta hãy xem xét sâu hơn quá trình binary search: khi <code>nums[m] &lt; target</code>,
+con trỏ <span class="arithmatex">\(i\)</span> di chuyển, có nghĩa là con trỏ <span class="arithmatex">\(i\)</span> đang tiến gần đến một phần tử
+lớn hơn hoặc bằng <code>target</code>. Tương tự, con trỏ <span class="arithmatex">\(j\)</span> luôn tiến gần đến một phần tử
+nhỏ hơn hoặc bằng <code>target</code>.</p>
+<p>Do đó, khi kết thúc quá trình binary search, chắc chắn rằng: <span class="arithmatex">\(i\)</span> trỏ đến phần tử
+đầu tiên lớn hơn <code>target</code>, và <span class="arithmatex">\(j\)</span> trỏ đến phần tử đầu tiên nhỏ hơn <code>target</code>.
+<strong>Dễ dàng thấy rằng khi array không chứa <code>target</code>, điểm chèn là <span class="arithmatex">\(i\)</span></strong>.
+Mã như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><input id="__tabbed_1_14" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step1.png" data-desc-position="bottom"><img alt="Steps for binary search insertion point of duplicate elements" src="../binary_search_insertion.assets/binary_search_insertion_step1.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step2.png" data-desc-position="bottom"><img alt="binary_search_insertion_step2" src="../binary_search_insertion.assets/binary_search_insertion_step2.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step3.png" data-desc-position="bottom"><img alt="binary_search_insertion_step3" src="../binary_search_insertion.assets/binary_search_insertion_step3.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step4.png" data-desc-position="bottom"><img alt="binary_search_insertion_step4" src="../binary_search_insertion.assets/binary_search_insertion_step4.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step5.png" data-desc-position="bottom"><img alt="binary_search_insertion_step5" src="../binary_search_insertion.assets/binary_search_insertion_step5.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step6.png" data-desc-position="bottom"><img alt="binary_search_insertion_step6" src="../binary_search_insertion.assets/binary_search_insertion_step6.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step7.png" data-desc-position="bottom"><img alt="binary_search_insertion_step7" src="../binary_search_insertion.assets/binary_search_insertion_step7.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step8.png" data-desc-position="bottom"><img alt="binary_search_insertion_step8" src="../binary_search_insertion.assets/binary_search_insertion_step8.png"></a></p>
-</div>
-</div>
-</div>
-<p>Observe the following code. The operations in the branches <code>nums[m] &gt; target</code> and <code>nums[m] == target</code> are the same, so these two branches can be merged.</p>
-<p>Even so, we can still keep the conditions expanded, as it makes the logic clearer and improves readability.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion}
+<div class="highlight"><span class="filename">binary_search_insertion.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_insertion_simple</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Binary search để tìm điểm chèn (không có phần tử trùng lặp)"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Khởi tạo khoảng đóng kép [0, n-1]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">m</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># Tính toán chỉ số giữa m</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            <span class="k">return</span> <span class="n">m</span>  <span class="c1"># Tìm thấy target, trả về điểm chèn m</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="c1"># Không tìm thấy target, trả về điểm chèn i</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">return</span> <span class="n">i</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Binary search để tìm điểm chèn (không có phần tử trùng lặp) */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchInsertionSimple</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Khởi tạo khoảng đóng kép [0, n-1]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tìm thấy target, trả về điểm chèn m</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="c1">// Không tìm thấy target, trả về điểm chèn i</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* binary search để tìm điểm chèn (không có phần tử trùng lặp) */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchInsertionSimple</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Khởi tạo khoảng đóng kép [0, n-1]</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tìm thấy target, trả về điểm chèn m</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="c1">// Không tìm thấy target, trả về điểm chèn i</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search_insertion</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BinarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binary_search_insertion_simple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binary_search_insertion_simple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.zig</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchInsertionSimple</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="1022-truong-hop-co-cac-phan-tu-trung-lap">10.2.2 &nbsp; Trường hợp có các phần tử trùng lặp<a class="headerlink" href="#1022-truong-hop-co-cac-phan-tu-trung-lap" title="Permanent link">¶</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Dựa trên câu hỏi trước đó, giả sử array có thể chứa các phần tử trùng lặp,
+mọi thứ khác vẫn giữ nguyên.</p>
+</div>
+<p>Khi có nhiều lần xuất hiện của <code>target</code> trong array, một binary search thông
+thường chỉ có thể trả về chỉ số của một lần xuất hiện của <code>target</code>,
+<strong>và nó không thể xác định có bao nhiêu lần xuất hiện của <code>target</code> ở bên trái và
+bên phải vị trí đó</strong>.</p>
+<p>Bài toán yêu cầu chèn phần tử <code>target</code> vào vị trí tận cùng bên trái,
+<strong>vì vậy chúng ta cần tìm chỉ số của <code>target</code> tận cùng bên trái trong array</strong>.
+Ban đầu, hãy xem xét việc triển khai điều này thông qua các bước được hiển thị
+trong Hình 10-5.</p>
+<ol>
+<li>Thực hiện một binary search để tìm bất kỳ chỉ số nào của <code>target</code>,
+    giả sử là <span class="arithmatex">\(k\)</span>.</li>
+<li>Bắt đầu từ chỉ số <span class="arithmatex">\(k\)</span>, tiến hành một linear search sang trái cho đến khi
+    tìm thấy lần xuất hiện tận cùng bên trái của <code>target</code>, sau đó trả về
+    chỉ số này.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_naive.png" data-desc-position="bottom"><img alt="Linear search để tìm điểm chèn của các phần tử trùng lặp" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_naive.png"></a></p>
+<p align="center"> Hình 10-5 &nbsp; Linear search để tìm điểm chèn của các phần tử trùng lặp </p>
+
+<p>Mặc dù phương pháp này khả thi, nhưng nó bao gồm linear search, vì vậy
+time complexity của nó là <span class="arithmatex">\(O(n)\)</span>. Phương pháp này không hiệu quả khi array chứa
+nhiều <code>target</code> trùng lặp.</p>
+<p>Bây giờ, chúng ta hãy xem xét việc mở rộng mã binary search. Như được hiển thị
+trong Hình 10-6, quá trình tổng thể vẫn giữ nguyên. Trong mỗi vòng, chúng ta
+đầu tiên tính toán chỉ số giữa <span class="arithmatex">\(m\)</span>, sau đó so sánh giá trị của <code>target</code>
+với <code>nums[m]</code>, dẫn đến các trường hợp sau.</p>
+<ul>
+<li>Khi <code>nums[m] &lt; target</code> hoặc <code>nums[m] &gt; target</code>, điều đó có nghĩa là
+    <code>target</code> chưa được tìm thấy, do đó sử dụng binary search thông thường để
+    thu hẹp phạm vi tìm kiếm, <strong>đưa các con trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span> gần hơn đến <code>target</code></strong>.</li>
+<li>Khi <code>nums[m] == target</code>, điều đó chỉ ra rằng các phần tử nhỏ hơn <code>target</code>
+    nằm trong phạm vi <span class="arithmatex">\([i, m - 1]\)</span>, do đó sử dụng <span class="arithmatex">\(j = m - 1\)</span> để thu hẹp
+    phạm vi, <strong>do đó đưa con trỏ <span class="arithmatex">\(j\)</span> gần hơn đến các phần tử nhỏ hơn <code>target</code></strong>.</li>
+</ul>
+<p>Sau vòng lặp, <span class="arithmatex">\(i\)</span> trỏ đến <code>target</code> tận cùng bên trái, và <span class="arithmatex">\(j\)</span> trỏ đến phần tử
+đầu tiên nhỏ hơn <code>target</code>, <strong>vì vậy chỉ số <span class="arithmatex">\(i\)</span> là điểm chèn</strong>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label><label for="__tabbed_2_7">&lt;7&gt;</label><label for="__tabbed_2_8">&lt;8&gt;</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step1.png" data-desc-position="bottom"><img alt="Các bước binary search điểm chèn của các phần tử trùng lặp" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step1.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step2.png" data-desc-position="bottom"><img alt="binary_search_insertion_step2" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step2.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step3.png" data-desc-position="bottom"><img alt="binary_search_insertion_step3" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step3.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step4.png" data-desc-position="bottom"><img alt="binary_search_insertion_step4" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step4.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step5.png" data-desc-position="bottom"><img alt="binary_search_insertion_step5" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step5.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step6.png" data-desc-position="bottom"><img alt="binary_search_insertion_step6" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step6.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step7.png" data-desc-position="bottom"><img alt="binary_search_insertion_step7" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step7.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_insertion.assets/binary_search_insertion_step8.png" data-desc-position="bottom"><img alt="binary_search_insertion_step8" class="animation-figure" src="../binary_search_insertion.assets/binary_search_insertion_step8.png"></a></p>
+</div>
+</div>
+</div>
+<p align="center"> Hình 10-6 &nbsp; Các bước tìm điểm chèn bằng binary search cho các phần tử trùng lặp </p>
+
+<p>Quan sát đoạn code sau. Các thao tác trong các nhánh <code>nums[m] &gt; target</code> và
+<code>nums[m] == target</code> là như nhau, vì vậy hai nhánh này có thể được gộp lại.</p>
+<p>Mặc dù vậy, chúng ta vẫn có thể giữ các điều kiện được mở rộng, vì điều này
+làm cho logic rõ ràng hơn và cải thiện khả năng đọc.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:14"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><input id="__tabbed_3_5" name="__tabbed_3" type="radio"><input id="__tabbed_3_6" name="__tabbed_3" type="radio"><input id="__tabbed_3_7" name="__tabbed_3" type="radio"><input id="__tabbed_3_8" name="__tabbed_3" type="radio"><input id="__tabbed_3_9" name="__tabbed_3" type="radio"><input id="__tabbed_3_10" name="__tabbed_3" type="radio"><input id="__tabbed_3_11" name="__tabbed_3" type="radio"><input id="__tabbed_3_12" name="__tabbed_3" type="radio"><input id="__tabbed_3_13" name="__tabbed_3" type="radio"><input id="__tabbed_3_14" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label><label for="__tabbed_3_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">"""binary search tìm điểm chèn (với các phần tử trùng lặp)"""</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Khởi tạo khoảng đóng kép [0, n-1]</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        <span class="n">m</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Phần tử đầu tiên nhỏ hơn target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Phần tử đầu tiên nhỏ hơn target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="c1"># Trả về điểm chèn i</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="k">return</span> <span class="n">i</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.cpp</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* binary search tìm điểm chèn (với các phần tử trùng lặp) */</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchInsertion</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Khởi tạo khoảng đóng kép [0, n-1]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Phần tử đầu tiên nhỏ hơn target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Phần tử đầu tiên nhỏ hơn target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="c1">// Trả về điểm chèn i</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.java</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* binary search để tìm điểm chèn (với các phần tử trùng lặp) */</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchInsertion</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Khởi tạo khoảng đóng kép [0, n-1]</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Phần tử đầu tiên nhỏ hơn target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="c1">// Trả về điểm chèn i</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search_insertion</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BinarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.rs</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binary_search_insertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.kt</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binary_search_insertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_insertion.zig</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchInsertion</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The code in this section uses "closed interval". If you are interested in "left-closed, right-open", try to implement the code on your own.</p>
+<p>Mã trong phần này sử dụng "khoảng đóng". Nếu bạn quan tâm đến "khoảng đóng bên
+trái, mở bên phải", hãy thử tự mình triển khai mã.</p>
 </div>
-<p>In summary, binary search essentially involves setting search targets for pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>. These targets could be a specific element (like <code>target</code>) or a range of elements (such as those smaller than <code>target</code>).</p>
-<p>In the continuous loop of binary search, pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> gradually approach the predefined target. Ultimately, they either find the answer or stop after crossing the boundary.</p>
+<p>Tóm lại, binary search về cơ bản là việc đặt các mục tiêu tìm kiếm cho các con
+trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span>. Các mục tiêu này có thể là một phần tử cụ thể (như <code>target</code>)
+hoặc một phạm vi các phần tử (chẳng hạn như những phần tử nhỏ hơn <code>target</code>).</p>
+<p>Trong vòng lặp liên tục của binary search, các con trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span> dần dần tiếp
+cận mục tiêu đã xác định trước. Cuối cùng, chúng hoặc tìm thấy câu trả lời hoặc
+dừng lại sau khi vượt qua ranh giới.</p>
 
 
 

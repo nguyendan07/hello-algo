@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#binary-search" class="md-skip">
+        <a href="#101-binary-search" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2034,6 +2034,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 10. Searching
   </span>
@@ -2110,18 +2112,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#interval-representation-methods" class="md-nav__link">
+  <a href="#1011-cac-phuong-phap-bieu-dien-khoang" class="md-nav__link">
     <span class="md-ellipsis">
-      Interval representation methods
+      10.1.1 &nbsp; Các phương pháp biểu diễn khoảng
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-and-limitations" class="md-nav__link">
+  <a href="#1012-uu-iem-va-han-che" class="md-nav__link">
     <span class="md-ellipsis">
-      Advantages and limitations
+      10.1.2 &nbsp; Ưu điểm và hạn chế
     </span>
   </a>
   
@@ -3520,18 +3522,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#interval-representation-methods" class="md-nav__link">
+  <a href="#1011-cac-phuong-phap-bieu-dien-khoang" class="md-nav__link">
     <span class="md-ellipsis">
-      Interval representation methods
+      10.1.1 &nbsp; Các phương pháp biểu diễn khoảng
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-and-limitations" class="md-nav__link">
+  <a href="#1012-uu-iem-va-han-che" class="md-nav__link">
     <span class="md-ellipsis">
-      Advantages and limitations
+      10.1.2 &nbsp; Ưu điểm và hạn chế
     </span>
   </a>
   
@@ -3569,75 +3571,345 @@
 
 
 <!-- Page content -->
-<h1 id="binary-search">Binary search<a class="headerlink" href="#binary-search" title="Permanent link">¶</a></h1>
-<p><u>Binary search</u> is an efficient search algorithm that uses a divide-and-conquer strategy. It takes advantage of the sorted order of elements in an array by reducing the search interval by half in each iteration, continuing until either the target element is found or the search interval becomes empty.</p>
+<h1 id="101-binary-search">10.1 &nbsp; Binary search<a class="headerlink" href="#101-binary-search" title="Permanent link">¶</a></h1>
+<p><u>Binary search</u> là một thuật toán tìm kiếm hiệu quả sử dụng chiến lược
+chia để trị. Nó tận dụng thứ tự đã sắp xếp của các phần tử trong một array
+(mảng) bằng cách giảm một nửa khoảng tìm kiếm trong mỗi iteration (vòng lặp),
+tiếp tục cho đến khi tìm thấy phần tử mục tiêu hoặc khoảng tìm kiếm trở nên rỗng.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given an array <code>nums</code> of length <span class="arithmatex">\(n\)</span>, where elements are arranged in ascending order without duplicates. Please find and return the index of element <code>target</code> in this array. If the array does not contain the element, return <span class="arithmatex">\(-1\)</span>. An example is shown in the figure below.</p>
+<p>Cho một array <code>nums</code> có độ dài <span class="arithmatex">\(n\)</span>, trong đó các phần tử được sắp xếp theo
+thứ tự tăng dần mà không có các phần tử trùng lặp. Hãy tìm và trả về chỉ số
+của phần tử <code>target</code> trong array này. Nếu array không chứa phần tử, hãy
+trả về <span class="arithmatex">\(-1\)</span>. Một ví dụ được thể hiện trong Hình 10-1.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_example.png" data-desc-position="bottom"><img alt="Binary search example data" src="../binary_search.assets/binary_search_example.png"></a></p>
-<p>As shown in the figure below, we firstly initialize pointers with <span class="arithmatex">\(i = 0\)</span> and <span class="arithmatex">\(j = n - 1\)</span>, pointing to the first and last element of the array respectively. They also represent the whole search interval <span class="arithmatex">\([0, n - 1]\)</span>. Please note that square brackets indicate a closed interval, which includes the boundary values themselves.</p>
-<p>And then the following two steps may be performed in a loop.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_example.png" data-desc-position="bottom"><img alt="Binary search example data" class="animation-figure" src="../binary_search.assets/binary_search_example.png"></a></p>
+<p align="center"> Hình 10-1 &nbsp; Dữ liệu ví dụ về Binary search </p>
+
+<p>Như được thể hiện trong Hình 10-2, đầu tiên chúng ta khởi tạo các con trỏ
+(pointer) với <span class="arithmatex">\(i = 0\)</span> và <span class="arithmatex">\(j = n - 1\)</span>, lần lượt trỏ đến phần tử đầu tiên và
+cuối cùng của array. Chúng cũng đại diện cho toàn bộ khoảng tìm kiếm <span class="arithmatex">\([0, n - 1]\)</span>.
+Bạn hãy lưu ý rằng dấu ngoặc vuông biểu thị một khoảng đóng, bao gồm cả các
+giá trị biên.</p>
+<p>Sau đó, hai bước sau đây có thể được thực hiện trong một loop (vòng lặp).</p>
 <ol>
-<li>Calculate the midpoint index <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span>, where <span class="arithmatex">\(\lfloor \: \rfloor\)</span> denotes the floor operation.</li>
-<li>Based on the comparison between the value of <code>nums[m]</code> and <code>target</code>, one of the following three cases will be chosen to execute.<ol>
-<li>If <code>nums[m] &lt; target</code>, it indicates that <code>target</code> is in the interval <span class="arithmatex">\([m + 1, j]\)</span>, thus set <span class="arithmatex">\(i = m + 1\)</span>.</li>
-<li>If <code>nums[m] &gt; target</code>, it indicates that <code>target</code> is in the interval <span class="arithmatex">\([i, m - 1]\)</span>, thus set <span class="arithmatex">\(j = m - 1\)</span>.</li>
-<li>If <code>nums[m] = target</code>, it indicates that <code>target</code> is found, thus return index <span class="arithmatex">\(m\)</span>.</li>
+<li>Tính chỉ số (index) điểm giữa <span class="arithmatex">\(m = \lfloor {(i + j) / 2} \rfloor\)</span>, trong
+    đó <span class="arithmatex">\(\lfloor \: \rfloor\)</span> biểu thị phép toán làm tròn xuống.</li>
+<li>Dựa trên sự so sánh giữa giá trị của <code>nums[m]</code> và <code>target</code>, một trong ba
+    trường hợp sau đây sẽ được chọn để thực thi.<ol>
+<li>Nếu <code>nums[m] &lt; target</code>, điều này cho thấy <code>target</code> nằm trong khoảng
+    <span class="arithmatex">\([m + 1, j]\)</span>, do đó đặt <span class="arithmatex">\(i = m + 1\)</span>.</li>
+<li>Nếu <code>nums[m] &gt; target</code>, điều này cho thấy <code>target</code> nằm trong khoảng
+    <span class="arithmatex">\([i, m - 1]\)</span>, do đó đặt <span class="arithmatex">\(j = m - 1\)</span>.</li>
+<li>Nếu <code>nums[m] = target</code>, điều này cho thấy <code>target</code> đã được tìm thấy,
+    do đó trả về chỉ số <span class="arithmatex">\(m\)</span>.</li>
 </ol>
 </li>
 </ol>
-<p>If the array does not contain the target element, the search interval will eventually reduce to empty, ending up returning <span class="arithmatex">\(-1\)</span>.</p>
+<p>Nếu array không chứa phần tử mục tiêu, khoảng tìm kiếm cuối cùng sẽ trở nên
+rỗng, kết thúc bằng việc trả về <span class="arithmatex">\(-1\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step1.png" data-desc-position="bottom"><img alt="Binary search process" src="../binary_search.assets/binary_search_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step1.png" data-desc-position="bottom"><img alt="Binary search process" class="animation-figure" src="../binary_search.assets/binary_search_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step2.png" data-desc-position="bottom"><img alt="binary_search_step2" src="../binary_search.assets/binary_search_step2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step2.png" data-desc-position="bottom"><img alt="binary_search_step2" class="animation-figure" src="../binary_search.assets/binary_search_step2.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step3.png" data-desc-position="bottom"><img alt="binary_search_step3" src="../binary_search.assets/binary_search_step3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step3.png" data-desc-position="bottom"><img alt="binary_search_step3" class="animation-figure" src="../binary_search.assets/binary_search_step3.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step4.png" data-desc-position="bottom"><img alt="binary_search_step4" src="../binary_search.assets/binary_search_step4.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step4.png" data-desc-position="bottom"><img alt="binary_search_step4" class="animation-figure" src="../binary_search.assets/binary_search_step4.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step5.png" data-desc-position="bottom"><img alt="binary_search_step5" src="../binary_search.assets/binary_search_step5.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step5.png" data-desc-position="bottom"><img alt="binary_search_step5" class="animation-figure" src="../binary_search.assets/binary_search_step5.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step6.png" data-desc-position="bottom"><img alt="binary_search_step6" src="../binary_search.assets/binary_search_step6.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step6.png" data-desc-position="bottom"><img alt="binary_search_step6" class="animation-figure" src="../binary_search.assets/binary_search_step6.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step7.png" data-desc-position="bottom"><img alt="binary_search_step7" src="../binary_search.assets/binary_search_step7.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_step7.png" data-desc-position="bottom"><img alt="binary_search_step7" class="animation-figure" src="../binary_search.assets/binary_search_step7.png"></a></p>
 </div>
 </div>
 </div>
-<p>It's worth noting that as <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are both of type <code>int</code>, <strong><span class="arithmatex">\(i + j\)</span> might exceed the range of <code>int</code> type</strong>. To avoid large number overflow, we usually use the formula <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> to calculate the midpoint.</p>
-<p>The code is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{binary_search}-[class]{}-[func]{binary_search}
+<p align="center"> Hình 10-2 &nbsp; Quá trình Binary search </p>
+
+<p>Điều đáng chú ý là vì <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span> đều có kiểu <code>int</code>, <strong><span class="arithmatex">\(i + j\)</span> có thể vượt
+quá phạm vi của kiểu <code>int</code></strong>. Để tránh tràn số lớn, chúng ta thường sử dụng
+công thức <span class="arithmatex">\(m = \lfloor {i + (j - i) / 2} \rfloor\)</span> để tính điểm giữa.</p>
+<p>Mã code như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><input id="__tabbed_2_14" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Binary search (khoảng đóng hai đầu)"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Khởi tạo khoảng đóng hai đầu [0, n-1], tức là i, j trỏ đến phần tử</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># đầu tiên và phần tử cuối cùng của array tương ứng</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Lặp cho đến khi khoảng tìm kiếm rỗng (khi i &gt; j thì rỗng)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="c1"># Về lý thuyết, các số trong Python có thể lớn vô hạn (tùy thuộc vào kích thước</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="c1"># bộ nhớ), nên không cần xem xét tràn số lớn</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="n">m</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Tình huống này cho thấy target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Tình huống này cho thấy target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>            <span class="k">return</span> <span class="n">m</span>  <span class="c1"># Tìm thấy phần tử target, trả về chỉ số của nó</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Không tìm thấy phần tử target, trả về -1</span>
 </code></pre></div>
-<p><strong>Time complexity is <span class="arithmatex">\(O(\log n)\)</span></strong> : In the binary loop, the interval decreases by half each round, hence the number of iterations is <span class="arithmatex">\(\log_2 n\)</span>.</p>
-<p><strong>Space complexity is <span class="arithmatex">\(O(1)\)</span></strong> : Pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> occupies constant size of space.</p>
-<h2 id="interval-representation-methods">Interval representation methods<a class="headerlink" href="#interval-representation-methods" title="Permanent link">¶</a></h2>
-<p>Besides the above closed interval, another common interval representation is the "left-closed right-open" interval, defined as <span class="arithmatex">\([0, n)\)</span>, where the left boundary includes itself, and the right boundary does not. In this representation, the interval <span class="arithmatex">\([i, j)\)</span> is empty when <span class="arithmatex">\(i = j\)</span>.</p>
-<p>We can implement a binary search algorithm with the same functionality based on this representation:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{binary_search}-[class]{}-[func]{binary_search_lcro}
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Binary search (khoảng đóng hai đầu) */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Khởi tạo khoảng đóng hai đầu [0, n-1], tức là i, j trỏ đến phần tử</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// đầu tiên và phần tử cuối cùng của array tương ứng</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Lặp cho đến khi khoảng tìm kiếm rỗng (khi i &gt; j thì rỗng)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w">    </span><span class="c1">// Tình huống này cho thấy target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="c1">// Tình huống này cho thấy target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="c1">// Tìm thấy phần tử target, trả về chỉ số của nó</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c1">// Không tìm thấy phần tử target, trả về -1</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
 </code></pre></div>
-<p>As shown in the figure below, under the two types of interval representations, the initialization, loop condition, and narrowing interval operation of the binary search algorithm differ.</p>
-<p>Since both boundaries in the "closed interval" representation are inclusive, the operations to narrow the interval through pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> are also symmetrical. This makes it less prone to errors, <strong>therefore, it is generally recommended to use the "closed interval" approach</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_ranges.png" data-desc-position="bottom"><img alt="Two types of interval definitions" src="../binary_search.assets/binary_search_ranges.png"></a></p>
-<h2 id="advantages-and-limitations">Advantages and limitations<a class="headerlink" href="#advantages-and-limitations" title="Permanent link">¶</a></h2>
-<p>Binary search performs well in both time and space aspects.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* binary search (khoảng đóng hai phía) */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Khởi tạo khoảng đóng hai phía [0, n-1], tức là i, j lần lượt trỏ đến phần tử</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// đầu tiên và phần tử cuối cùng của array.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Lặp cho đến khi khoảng tìm kiếm rỗng (khi i &gt; j, nó rỗng)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="c1">// Tình huống này cho thấy target nằm trong khoảng [m+1, j]</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="c1">// Tình huống này cho thấy target nằm trong khoảng [i, m-1]</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="c1">// Đã tìm thấy phần tử target, trả về chỉ số của nó</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">// Không tìm thấy phần tử target, trả về -1</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BinarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binary_search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binary_search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.zig</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearch</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><strong>time complexity là <span class="arithmatex">\(O(\log n)\)</span></strong> : Trong vòng lặp binary search, khoảng tìm kiếm
+giảm đi một nửa sau mỗi vòng, do đó số lần lặp là <span class="arithmatex">\(\log_2 n\)</span>.</p>
+<p><strong>space complexity là <span class="arithmatex">\(O(1)\)</span></strong> : Các con trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span> chiếm một lượng không gian
+hằng số.</p>
+<h2 id="1011-cac-phuong-phap-bieu-dien-khoang">10.1.1 &nbsp; Các phương pháp biểu diễn khoảng<a class="headerlink" href="#1011-cac-phuong-phap-bieu-dien-khoang" title="Permanent link">¶</a></h2>
+<p>Bên cạnh khoảng đóng ở trên, một cách biểu diễn khoảng phổ biến khác là
+khoảng "trái đóng phải mở", được định nghĩa là <span class="arithmatex">\([0, n)\)</span>, trong đó biên
+trái bao gồm chính nó, và biên phải không bao gồm chính nó. Trong cách
+biểu diễn này, khoảng <span class="arithmatex">\([i, j)\)</span> là rỗng khi <span class="arithmatex">\(i = j\)</span>.</p>
+<p>Chúng ta có thể triển khai một thuật toán binary search với chức năng
+tương tự dựa trên cách biểu diễn này:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:14"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><input id="__tabbed_3_5" name="__tabbed_3" type="radio"><input id="__tabbed_3_6" name="__tabbed_3" type="radio"><input id="__tabbed_3_7" name="__tabbed_3" type="radio"><input id="__tabbed_3_8" name="__tabbed_3" type="radio"><input id="__tabbed_3_9" name="__tabbed_3" type="radio"><input id="__tabbed_3_10" name="__tabbed_3" type="radio"><input id="__tabbed_3_11" name="__tabbed_3" type="radio"><input id="__tabbed_3_12" name="__tabbed_3" type="radio"><input id="__tabbed_3_13" name="__tabbed_3" type="radio"><input id="__tabbed_3_14" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label><label for="__tabbed_3_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_lcro</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">"""Binary search (khoảng trái đóng phải mở)"""</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="c1"># Khởi tạo khoảng trái đóng phải mở [0, n), tức là i, j lần lượt trỏ</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="c1"># tới phần tử đầu tiên và phần tử cuối cùng +1 của array</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="c1"># Lặp cho đến khi khoảng tìm kiếm rỗng (khi i = j thì nó rỗng)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="n">m</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Tình huống này cho thấy target nằm trong khoảng [m+1, j)</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>            <span class="n">j</span> <span class="o">=</span> <span class="n">m</span>  <span class="c1"># Tình huống này cho thấy target nằm trong khoảng [i, m)</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>            <span class="k">return</span> <span class="n">m</span>  <span class="c1"># Tìm thấy phần tử target, trả về chỉ số của nó</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Không tìm thấy phần tử target, trả về -1</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.cpp</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Binary search (khoảng trái đóng phải mở) */</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLCRO</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1">// Khởi tạo khoảng trái đóng phải mở [0, n), tức là i, j lần lượt trỏ</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="c1">// tới phần tử đầu tiên và phần tử cuối cùng +1 của array</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="c1">// Lặp cho đến khi khoảng tìm kiếm rỗng (khi i = j thì nó rỗng)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số điểm giữa m</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w">    </span><span class="c1">// Tình huống này cho thấy target nằm trong khoảng [m+1, j)</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="c1">// Tình huống này cho thấy target nằm trong khoảng [i, m)</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="c1">// Tìm thấy phần tử target, trả về chỉ số của nó</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="c1">// Không tìm thấy phần tử target, trả về -1</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.java</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Binary search (khoảng đóng bên trái, mở bên phải) */</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLCRO</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">// Khởi tạo khoảng đóng bên trái, mở bên phải [0, n), tức là i, j lần lượt trỏ đến</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="c1">// phần tử đầu tiên và phần tử cuối cùng +1 của array</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="c1">// Lặp cho đến khi khoảng tìm kiếm trống (khi i = j thì khoảng trống)</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tính chỉ số giữa m</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="c1">// Tình huống này cho biết target nằm trong khoảng [m+1, j)</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="c1">// Tình huống này cho biết target nằm trong khoảng [i, m)</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="c1">// Đã tìm thấy phần tử mục tiêu, trả về chỉ số của nó</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">    </span><span class="c1">// Không tìm thấy phần tử mục tiêu, trả về -1</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">binary_search</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BinarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.rs</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binary_search_lcro</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.kt</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">binary_search_lcro</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search.zig</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">binarySearchLCRO</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Như được minh họa trong Hình 10-3, với hai loại biểu diễn khoảng, các thao tác
+khởi tạo, điều kiện vòng lặp và thu hẹp khoảng của thuật toán binary search
+khác nhau.</p>
+<p>Vì cả hai biên trong biểu diễn "khoảng đóng" đều bao gồm các phần tử biên, các
+thao tác thu hẹp khoảng thông qua các con trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span> cũng đối xứng. Điều
+này làm cho nó ít dễ gây lỗi hơn, <strong>do đó, chúng ta thường khuyến nghị sử dụng
+cách tiếp cận "khoảng đóng"</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search.assets/binary_search_ranges.png" data-desc-position="bottom"><img alt="Two types of interval definitions" class="animation-figure" src="../binary_search.assets/binary_search_ranges.png"></a></p>
+<p align="center"> Hình 10-3 &nbsp; Hai loại định nghĩa khoảng </p>
+
+<h2 id="1012-uu-iem-va-han-che">10.1.2 &nbsp; Ưu điểm và hạn chế<a class="headerlink" href="#1012-uu-iem-va-han-che" title="Permanent link">¶</a></h2>
+<p>Binary search hoạt động tốt về cả khía cạnh thời gian và không gian.</p>
 <ul>
-<li>Binary search is time-efficient. With large dataset, the logarithmic time complexity offers a major advantage. For instance, given a dataset with size <span class="arithmatex">\(n = 2^{20}\)</span>, linear search requires <span class="arithmatex">\(2^{20} = 1048576\)</span> iterations, while binary search only demands <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> loops.</li>
-<li>Binary search does not need extra space. Compared to search algorithms that rely on additional space (like hash search), binary search is more space-efficient.</li>
+<li>Binary search tiết kiệm thời gian. Với tập dữ liệu lớn, độ phức tạp
+  thời gian logarit mang lại lợi thế lớn. Ví dụ, với một tập dữ liệu
+  có kích thước <span class="arithmatex">\(n = 2^{20}\)</span>, linear search yêu cầu <span class="arithmatex">\(2^{20} = 1048576\)</span>
+  lần lặp, trong khi binary search chỉ cần <span class="arithmatex">\(\log_2 2^{20} = 20\)</span> vòng lặp.</li>
+<li>Binary search không cần thêm không gian phụ. So với các thuật toán
+  tìm kiếm dựa vào không gian phụ trợ (như hash search), binary search
+  hiệu quả hơn về không gian.</li>
 </ul>
-<p>However, binary search may not be suitable for all scenarios due to the following concerns.</p>
+<p>Tuy nhiên, binary search có thể không phù hợp với tất cả các kịch bản
+do những lo ngại sau đây.</p>
 <ul>
-<li>Binary search can only be applied to sorted data. Unsorted data must be sorted before applying binary search, which may not be worthwhile as sorting algorithm typically has a time complexity of <span class="arithmatex">\(O(n \log n)\)</span>. Such cost is even higher than linear search, not to mention binary search itself. For scenarios with frequent insertion, the cost of remaining the array in order is pretty high as the time complexity of inserting new elements into specific positions is <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>Binary search may use array only. Binary search requires non-continuous (jumping) element access, which is inefficient in linked list. As a result, linked list or data structures based on linked list may not be suitable for this algorithm.</li>
-<li>Linear search performs better on small dataset. In linear search, only 1 decision operation is required for each iteration; whereas in binary search, it involves 1 addition, 1 division, 1 to 3 decision operations, 1 addition (subtraction), totaling 4 to 6 operations. Therefore, if data size <span class="arithmatex">\(n\)</span> is small, linear search is faster than binary search.</li>
+<li>Binary search chỉ có thể áp dụng cho dữ liệu đã sắp xếp. Dữ liệu chưa
+  sắp xếp phải được sắp xếp trước khi áp dụng binary search, điều này
+  có thể không đáng giá vì sorting algorithm thường có time complexity
+  là <span class="arithmatex">\(O(n \log n)\)</span>. Chi phí này thậm chí còn cao hơn linear search,
+  chưa kể đến bản thân binary search. Đối với các kịch bản có chèn
+  thường xuyên, chi phí để giữ cho array được sắp xếp là khá cao vì
+  time complexity của việc chèn các phần tử mới vào các vị trí cụ thể
+  là <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>Binary search có thể chỉ sử dụng array. Binary search yêu cầu truy cập
+  phần tử không liên tục (nhảy vọt), điều này không hiệu quả trong
+  linked list. Do đó, linked list hoặc các cấu trúc dữ liệu dựa trên
+  linked list có thể không phù hợp với thuật toán này.</li>
+<li>Linear search hoạt động tốt hơn trên tập dữ liệu nhỏ. Trong linear
+  search, chỉ cần 1 thao tác quyết định cho mỗi lần lặp; trong khi
+  trong binary search, nó bao gồm 1 phép cộng, 1 phép chia, 1 đến 3
+  thao tác quyết định, 1 phép cộng (trừ), tổng cộng từ 4 đến 6 thao tác.
+  Do đó, nếu kích thước dữ liệu <span class="arithmatex">\(n\)</span> nhỏ, linear search nhanh hơn
+  binary search.</li>
 </ul>
 
 
@@ -3654,7 +3926,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Searching" rel="prev">
+  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Chương 10. &amp;nbsp; Tìm kiếm" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3664,7 +3936,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        Searching
+        Chương 10. &nbsp; Tìm kiếm
       </div>
     </div>
   </a>
@@ -3717,7 +3989,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Searching">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Chương 10. &amp;nbsp; Tìm kiếm">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3727,7 +3999,7 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                Searching
+                Chương 10. &nbsp; Tìm kiếm
               </div>
             </div>
           </a>

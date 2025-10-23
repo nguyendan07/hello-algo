@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#summary" class="md-skip">
+        <a href="#106-tom-tat" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2034,6 +2034,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 10. Searching
   </span>
@@ -3495,14 +3497,34 @@
 
 
 <!-- Page content -->
-<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h1>
+<h1 id="106-tom-tat">10.6 &nbsp; Tóm tắt<a class="headerlink" href="#106-tom-tat" title="Permanent link">¶</a></h1>
 <ul>
-<li>Binary search depends on the order of data and performs the search by iteratively halving the search interval. It requires the input data to be sorted and is only applicable to arrays or array-based data structures.</li>
-<li>Brute force search may be required to locate an entry in an unordered dataset. Different search algorithms can be applied based on the data structure: Linear search is suitable for arrays and linked lists, while breadth-first search (BFS) and depth-first search (DFS) are suitable for graphs and trees. These algorithms are highly versatile, requiring no preprocessing of data, but they have a higher time complexity of <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>Hash search, tree search, and binary search are efficient search methods that can quickly locate target elements within specific data structures. These algorithms are highly efficient, with time complexities reaching <span class="arithmatex">\(O(\log n)\)</span> or even <span class="arithmatex">\(O(1)\)</span>, but they usually require extra space to accommodate additional data structures.</li>
-<li>In practice, we need to analyze factors such as data volume, search performance requirements, data query and update frequencies, etc., to choose an appropriate search method.</li>
-<li>Linear search is ideal for small or frequently updated (volatile) data. Binary search works well for large and sorted data. Hash search is suitable for data that requires high query efficiency and does not need range queries. Tree search is best suited for large dynamic data that require maintaining order and need to support range queries.</li>
-<li>Replacing linear search with hash search is a common strategy to optimize runtime performance, reducing the time complexity from <span class="arithmatex">\(O(n)\)</span> to <span class="arithmatex">\(O(1)\)</span>.</li>
+<li>Binary search phụ thuộc vào thứ tự của dữ liệu và thực hiện tìm kiếm bằng
+  cách lặp đi lặp lại chia đôi khoảng tìm kiếm. Nó yêu cầu dữ liệu đầu vào
+  phải được sắp xếp và chỉ áp dụng được cho arrays hoặc các cấu trúc dữ liệu
+  dựa trên array.</li>
+<li>Brute force search có thể cần thiết để định vị một phần tử trong một tập
+  dữ liệu chưa được sắp xếp. Các thuật toán tìm kiếm khác nhau có thể được
+  áp dụng tùy thuộc vào cấu trúc dữ liệu: Linear search phù hợp cho arrays
+  và linked lists, trong khi breadth-first search (BFS) và depth-first search
+  (DFS) phù hợp cho graphs và trees. Các thuật toán này rất linh hoạt,
+  không yêu cầu tiền xử lý dữ liệu, nhưng chúng có time complexity cao hơn
+  là <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>Hash search, tree search và binary search là các phương pháp tìm kiếm hiệu
+  quả có thể nhanh chóng định vị các phần tử mục tiêu trong các cấu trúc dữ
+  liệu cụ thể. Các thuật toán này rất hiệu quả, với time complexity đạt
+  <span class="arithmatex">\(O(\log n)\)</span> hoặc thậm chí <span class="arithmatex">\(O(1)\)</span>, nhưng chúng thường yêu cầu không gian
+  bổ sung để chứa các cấu trúc dữ liệu bổ sung.</li>
+<li>Trong thực tế, chúng ta cần phân tích các yếu tố như khối lượng dữ liệu,
+  yêu cầu hiệu suất tìm kiếm, tần suất truy vấn và cập nhật dữ liệu, v.v.,
+  để lựa chọn một phương pháp tìm kiếm phù hợp.</li>
+<li>Linear search lý tưởng cho dữ liệu nhỏ hoặc được cập nhật thường xuyên
+  (thay đổi liên tục). Binary search hoạt động tốt cho dữ liệu lớn và đã
+  được sắp xếp. Hash search phù hợp cho dữ liệu yêu cầu hiệu quả truy vấn
+  cao và không cần truy vấn theo phạm vi. Tree search phù hợp nhất cho dữ
+  liệu động lớn yêu cầu duy trì thứ tự và cần hỗ trợ truy vấn theo phạm vi.</li>
+<li>Thay thế linear search bằng hash search là một chiến lược phổ biến để tối
+  ưu hóa hiệu suất runtime, giảm time complexity từ <span class="arithmatex">\(O(n)\)</span> xuống <span class="arithmatex">\(O(1)\)</span>.</li>
 </ul>
 
 
