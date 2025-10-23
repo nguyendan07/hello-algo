@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#summary" class="md-skip">
+        <a href="#94-tom-tat" class="md-skip">
           Bỏ qua
         </a>
       
@@ -1876,6 +1876,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59-.44.06M6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43.43 0 .83.16 1.12.43l4.28-2.53H6.6M12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68.93 0 1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25 5.51-9.64m2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24-4.5-2.58Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 9. Graph
   </span>
@@ -2015,18 +2017,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-review" class="md-nav__link">
+  <a href="#1-tong-quan-chinh" class="md-nav__link">
     <span class="md-ellipsis">
-      Key review
+      1. &nbsp; Tổng quan chính
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q-a" class="md-nav__link">
+  <a href="#2-hoi-ap" class="md-nav__link">
     <span class="md-ellipsis">
-      Q &amp; A
+      2. &nbsp; Hỏi &amp; Đáp
     </span>
   </a>
   
@@ -3518,18 +3520,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-review" class="md-nav__link">
+  <a href="#1-tong-quan-chinh" class="md-nav__link">
     <span class="md-ellipsis">
-      Key review
+      1. &nbsp; Tổng quan chính
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q-a" class="md-nav__link">
+  <a href="#2-hoi-ap" class="md-nav__link">
     <span class="md-ellipsis">
-      Q &amp; A
+      2. &nbsp; Hỏi &amp; Đáp
     </span>
   </a>
   
@@ -3567,29 +3569,65 @@
 
 
 <!-- Page content -->
-<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h1>
-<h3 id="key-review">Key review<a class="headerlink" href="#key-review" title="Permanent link">¶</a></h3>
+<h1 id="94-tom-tat">9.4 &nbsp; Tóm tắt<a class="headerlink" href="#94-tom-tat" title="Permanent link">¶</a></h1>
+<h3 id="1-tong-quan-chinh">1. &nbsp; Tổng quan chính<a class="headerlink" href="#1-tong-quan-chinh" title="Permanent link">¶</a></h3>
 <ul>
-<li>A graph is made up of vertices and edges. It can be described as a set of vertices and a set of edges.</li>
-<li>Compared to linear relationships (like linked lists) and hierarchical relationships (like trees), network relationships (graphs) offer greater flexibility, making them more complex.</li>
-<li>In a directed graph, edges have directions. In a connected graph, any vertex can be reached from any other vertex. In a weighted graph, each edge has an associated weight variable.</li>
-<li>An adjacency matrix is a way to represent a graph using matrix (2D array). The rows and columns represent the vertices. The matrix element value indicates whether there is an edge between two vertices, using <span class="arithmatex">\(1\)</span> for an edge or <span class="arithmatex">\(0\)</span> for no edge. Adjacency matrices are highly efficient for operations like adding, deleting, or checking edges, but they require more space.</li>
-<li>An adjacency list is another common way to represent a graph using a collection of linked lists. Each vertex in the graph has a list that contains all its adjacent vertices. The <span class="arithmatex">\(i^{th}\)</span> list represents vertex <span class="arithmatex">\(i\)</span>. Adjacency lists use less space compared to adjacency matrices. However, since it requires traversing the list to find edges, the time efficiency is lower.</li>
-<li>When the linked lists in an adjacency list are long enough, they can be converted into red-black trees or hash tables to improve lookup efficiency.</li>
-<li>From the perspective of algorithmic design, an adjacency matrix reflects the concept of "trading space for time", whereas an adjacency list reflects "trading time for space".</li>
-<li>Graphs can be used to model various real-world systems, such as social networks, subway routes.</li>
-<li>A tree is a special case of a graph, and tree traversal is also a special case of graph traversal.</li>
-<li>Breadth-first traversal of a graph is a search method that expands layer by layer from near to far, typically using a queue.</li>
-<li>Depth-first traversal of a graph is a search method that prioritizes reaching the end before backtracking when no further path is available. It is often implemented using recursion.</li>
+<li>Một graph được tạo thành từ các đỉnh và các cạnh. Nó có thể được mô tả
+    như một tập hợp các đỉnh và một tập hợp các cạnh.</li>
+<li>So với các mối quan hệ tuyến tính (như linked lists) và mối quan hệ
+    phân cấp (như trees), mối quan hệ mạng (graphs) mang lại sự linh hoạt
+    lớn hơn, khiến chúng phức tạp hơn.</li>
+<li>Trong một directed graph, các cạnh có hướng. Trong một connected graph,
+    bất kỳ đỉnh nào cũng có thể được truy cập từ bất kỳ đỉnh nào khác.
+    Trong một weighted graph, mỗi cạnh có một biến trọng số liên kết.</li>
+<li>Một adjacency matrix là một cách để biểu diễn một graph bằng cách sử dụng
+    matrix (array 2D). Các hàng và cột đại diện cho các đỉnh. Giá trị
+    phần tử matrix cho biết liệu có một cạnh giữa hai đỉnh hay không,
+    sử dụng <span class="arithmatex">\(1\)</span> cho cạnh hoặc <span class="arithmatex">\(0\)</span> cho không có cạnh. Adjacency matrix
+    rất hiệu quả cho các thao tác như thêm, xóa hoặc kiểm tra cạnh,
+    nhưng chúng đòi hỏi nhiều không gian hơn.</li>
+<li>Một adjacency list là một cách phổ biến khác để biểu diễn một graph
+    bằng cách sử dụng một tập hợp các linked lists. Mỗi đỉnh trong graph
+    có một list chứa tất cả các đỉnh kề của nó. List thứ <span class="arithmatex">\(i\)</span> đại diện cho
+    đỉnh thứ <span class="arithmatex">\(i\)</span>. Adjacency lists sử dụng ít không gian hơn so với
+    adjacency matrices. Tuy nhiên, vì nó đòi hỏi duyệt list để tìm cạnh,
+    hiệu quả thời gian thấp hơn.</li>
+<li>Khi các linked lists trong một adjacency list đủ dài, chúng có thể
+    được chuyển đổi thành red-black trees hoặc hash tables để cải thiện
+    hiệu quả tìm kiếm.</li>
+<li>Từ góc độ thiết kế thuật toán, một adjacency matrix phản ánh khái niệm
+    "đánh đổi không gian lấy thời gian", trong khi một adjacency list phản
+    ánh "đánh đổi thời gian lấy không gian".</li>
+<li>Graphs có thể được sử dụng để mô hình hóa nhiều hệ thống thực tế,
+    chẳng hạn như social networks, subway routes.</li>
+<li>Một tree là một trường hợp đặc biệt của một graph, và tree traversal
+    cũng là một trường hợp đặc biệt của graph traversal.</li>
+<li>Breadth-first traversal của một graph là một phương pháp tìm kiếm
+    mở rộng từng lớp từ gần đến xa, thường sử dụng một queue.</li>
+<li>Depth-first traversal của một graph là một phương pháp tìm kiếm
+    ưu tiên đi đến cuối trước khi backtracking khi không có đường dẫn
+    nào tiếp theo. Nó thường được triển khai bằng cách sử dụng recursion.</li>
 </ul>
-<h3 id="q-a">Q &amp; A<a class="headerlink" href="#q-a" title="Permanent link">¶</a></h3>
-<p><strong>Q</strong>: Is a path defined as a sequence of vertices or a sequence of edges?</p>
-<p>In graph theory, a path in a graph is a finite or infinite sequence of edges which joins a sequence of vertices.</p>
-<p>In this document, a path is considered a sequence of edges, rather than a sequence of vertices. This is because there might be multiple edges connecting two vertices, in which case each edge corresponds to a path.</p>
-<p><strong>Q</strong>: In a disconnected graph, are there points that cannot be traversed?</p>
-<p>In a disconnected graph, there is at least one vertex that cannot be reached from a specific point. To traverse a disconnected graph, you need to set multiple starting points to traverse all the connected components of the graph.</p>
-<p><strong>Q</strong>: In an adjacency list, does the order of "all vertices connected to that vertex" matter?</p>
-<p>It can be in any order. However, in real-world applications, it might be necessary to sort them according to certain rules, such as the order in which vertices are added, or the order of vertex values. This can help find vertices quickly with certain extreme values.</p>
+<h3 id="2-hoi-ap">2. &nbsp; Hỏi &amp; Đáp<a class="headerlink" href="#2-hoi-ap" title="Permanent link">¶</a></h3>
+<p><strong>Q</strong>: Một path được định nghĩa là một chuỗi các đỉnh hay một chuỗi
+các cạnh?</p>
+<p>Trong graph theory, một path trong một graph là một chuỗi hữu hạn hoặc
+vô hạn các cạnh nối một chuỗi các đỉnh.</p>
+<p>Trong tài liệu này, một path được coi là một chuỗi các cạnh, hơn là
+một chuỗi các đỉnh. Điều này là do có thể có nhiều cạnh nối hai đỉnh,
+trong trường hợp đó mỗi cạnh tương ứng với một path.</p>
+<p><strong>Q</strong>: Trong một disconnected graph, có những đỉnh không thể được duyệt
+không?</p>
+<p>Trong một disconnected graph, có ít nhất một đỉnh không thể được truy cập
+từ một điểm cụ thể. Để duyệt một disconnected graph, bạn cần đặt nhiều
+điểm bắt đầu để duyệt tất cả các connected components của graph.</p>
+<p><strong>Q</strong>: Trong một adjacency list, thứ tự của "tất cả các đỉnh nối với
+đỉnh đó" có quan trọng không?</p>
+<p>Các đỉnh có thể được lưu trữ theo bất kỳ thứ tự nào. Tuy nhiên, trong các ứng dụng
+thực tế, có thể cần sắp xếp chúng theo những quy tắc nhất định, chẳng hạn
+như thứ tự các đỉnh được thêm vào hoặc thứ tự giá trị của các đỉnh. Điều này
+có thể giúp chúng ta tìm kiếm các đỉnh một cách nhanh chóng, đặc biệt là
+các đỉnh có giá trị cực trị nhất định.</p>
 
 
 
