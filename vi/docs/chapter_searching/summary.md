@@ -1,8 +1,32 @@
-# Summary
+---
+comments: true
+---
 
-- Binary search depends on the order of data and performs the search by iteratively halving the search interval. It requires the input data to be sorted and is only applicable to arrays or array-based data structures.
-- Brute force search may be required to locate an entry in an unordered dataset. Different search algorithms can be applied based on the data structure: Linear search is suitable for arrays and linked lists, while breadth-first search (BFS) and depth-first search (DFS) are suitable for graphs and trees. These algorithms are highly versatile, requiring no preprocessing of data, but they have a higher time complexity of $O(n)$.
-- Hash search, tree search, and binary search are efficient search methods that can quickly locate target elements within specific data structures. These algorithms are highly efficient, with time complexities reaching $O(\log n)$ or even $O(1)$, but they usually require extra space to accommodate additional data structures.
-- In practice, we need to analyze factors such as data volume, search performance requirements, data query and update frequencies, etc., to choose an appropriate search method.
-- Linear search is ideal for small or frequently updated (volatile) data. Binary search works well for large and sorted data. Hash search is suitable for data that requires high query efficiency and does not need range queries. Tree search is best suited for large dynamic data that require maintaining order and need to support range queries.
-- Replacing linear search with hash search is a common strategy to optimize runtime performance, reducing the time complexity from $O(n)$ to $O(1)$.
+# 10.6 &nbsp; Tóm tắt
+
+- Binary search phụ thuộc vào thứ tự của dữ liệu và thực hiện tìm kiếm bằng
+  cách lặp đi lặp lại chia đôi khoảng tìm kiếm. Nó yêu cầu dữ liệu đầu vào
+  phải được sắp xếp và chỉ áp dụng được cho arrays hoặc các cấu trúc dữ liệu
+  dựa trên array.
+- Brute force search có thể cần thiết để định vị một phần tử trong một tập
+  dữ liệu chưa được sắp xếp. Các thuật toán tìm kiếm khác nhau có thể được
+  áp dụng tùy thuộc vào cấu trúc dữ liệu: Linear search phù hợp cho arrays
+  và linked lists, trong khi breadth-first search (BFS) và depth-first search
+  (DFS) phù hợp cho graphs và trees. Các thuật toán này rất linh hoạt,
+  không yêu cầu tiền xử lý dữ liệu, nhưng chúng có time complexity cao hơn
+  là $O(n)$.
+- Hash search, tree search và binary search là các phương pháp tìm kiếm hiệu
+  quả có thể nhanh chóng định vị các phần tử mục tiêu trong các cấu trúc dữ
+  liệu cụ thể. Các thuật toán này rất hiệu quả, với time complexity đạt
+  $O(\log n)$ hoặc thậm chí $O(1)$, nhưng chúng thường yêu cầu không gian
+  bổ sung để chứa các cấu trúc dữ liệu bổ sung.
+- Trong thực tế, chúng ta cần phân tích các yếu tố như khối lượng dữ liệu,
+  yêu cầu hiệu suất tìm kiếm, tần suất truy vấn và cập nhật dữ liệu, v.v.,
+  để lựa chọn một phương pháp tìm kiếm phù hợp.
+- Linear search lý tưởng cho dữ liệu nhỏ hoặc được cập nhật thường xuyên
+  (thay đổi liên tục). Binary search hoạt động tốt cho dữ liệu lớn và đã
+  được sắp xếp. Hash search phù hợp cho dữ liệu yêu cầu hiệu quả truy vấn
+  cao và không cần truy vấn theo phạm vi. Tree search phù hợp nhất cho dữ
+  liệu động lớn yêu cầu duy trì thứ tự và cần hỗ trợ truy vấn theo phạm vi.
+- Thay thế linear search bằng hash search là một chiến lược phổ biến để tối
+  ưu hóa hiệu suất runtime, giảm time complexity từ $O(n)$ xuống $O(1)$.

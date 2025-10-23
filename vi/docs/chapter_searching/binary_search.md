@@ -1,83 +1,401 @@
-# Binary search
+---
+comments: true
+---
 
-<u>Binary search</u> is an efficient search algorithm that uses a divide-and-conquer strategy. It takes advantage of the sorted order of elements in an array by reducing the search interval by half in each iteration, continuing until either the target element is found or the search interval becomes empty.
+# 10.1 &nbsp; Binary search
+
+<u>Binary search</u> là một thuật toán tìm kiếm hiệu quả sử dụng chiến lược
+chia để trị. Nó tận dụng thứ tự đã sắp xếp của các phần tử trong một array
+(mảng) bằng cách giảm một nửa khoảng tìm kiếm trong mỗi iteration (vòng lặp),
+tiếp tục cho đến khi tìm thấy phần tử mục tiêu hoặc khoảng tìm kiếm trở nên rỗng.
 
 !!! question
 
-    Given an array `nums` of length $n$, where elements are arranged in ascending order without duplicates. Please find and return the index of element `target` in this array. If the array does not contain the element, return $-1$. An example is shown in the figure below.
+    Cho một array `nums` có độ dài $n$, trong đó các phần tử được sắp xếp theo
+    thứ tự tăng dần mà không có các phần tử trùng lặp. Hãy tìm và trả về chỉ số
+    của phần tử `target` trong array này. Nếu array không chứa phần tử, hãy
+    trả về $-1$. Một ví dụ được thể hiện trong Hình 10-1.
 
-![Binary search example data](binary_search.assets/binary_search_example.png)
+![Binary search example data](binary_search.assets/binary_search_example.png){ class="animation-figure" }
 
-As shown in the figure below, we firstly initialize pointers with $i = 0$ and $j = n - 1$, pointing to the first and last element of the array respectively. They also represent the whole search interval $[0, n - 1]$. Please note that square brackets indicate a closed interval, which includes the boundary values themselves.
+<p align="center"> Hình 10-1 &nbsp; Dữ liệu ví dụ về Binary search </p>
 
-And then the following two steps may be performed in a loop.
+Như được thể hiện trong Hình 10-2, đầu tiên chúng ta khởi tạo các con trỏ
+(pointer) với $i = 0$ và $j = n - 1$, lần lượt trỏ đến phần tử đầu tiên và
+cuối cùng của array. Chúng cũng đại diện cho toàn bộ khoảng tìm kiếm $[0, n - 1]$.
+Bạn hãy lưu ý rằng dấu ngoặc vuông biểu thị một khoảng đóng, bao gồm cả các
+giá trị biên.
 
-1. Calculate the midpoint index $m = \lfloor {(i + j) / 2} \rfloor$, where $\lfloor \: \rfloor$ denotes the floor operation.
-2. Based on the comparison between the value of `nums[m]` and `target`, one of the following three cases will be chosen to execute.
-    1. If `nums[m] < target`, it indicates that `target` is in the interval $[m + 1, j]$, thus set $i = m + 1$.
-    2. If `nums[m] > target`, it indicates that `target` is in the interval $[i, m - 1]$, thus set $j = m - 1$.
-    3. If `nums[m] = target`, it indicates that `target` is found, thus return index $m$.
+Sau đó, hai bước sau đây có thể được thực hiện trong một loop (vòng lặp).
 
-If the array does not contain the target element, the search interval will eventually reduce to empty, ending up returning $-1$.
+1. Tính chỉ số (index) điểm giữa $m = \lfloor {(i + j) / 2} \rfloor$, trong
+    đó $\lfloor \: \rfloor$ biểu thị phép toán làm tròn xuống.
+2. Dựa trên sự so sánh giữa giá trị của `nums[m]` và `target`, một trong ba
+    trường hợp sau đây sẽ được chọn để thực thi.
+    1. Nếu `nums[m] < target`, điều này cho thấy `target` nằm trong khoảng
+        $[m + 1, j]$, do đó đặt $i = m + 1$.
+    2. Nếu `nums[m] > target`, điều này cho thấy `target` nằm trong khoảng
+        $[i, m - 1]$, do đó đặt $j = m - 1$.
+    3. Nếu `nums[m] = target`, điều này cho thấy `target` đã được tìm thấy,
+        do đó trả về chỉ số $m$.
+
+Nếu array không chứa phần tử mục tiêu, khoảng tìm kiếm cuối cùng sẽ trở nên
+rỗng, kết thúc bằng việc trả về $-1$.
 
 === "<1>"
-    ![Binary search process](binary_search.assets/binary_search_step1.png)
+    ![Binary search process](binary_search.assets/binary_search_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png)
+    ![binary_search_step2](binary_search.assets/binary_search_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png)
+    ![binary_search_step3](binary_search.assets/binary_search_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png)
+    ![binary_search_step4](binary_search.assets/binary_search_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png)
+    ![binary_search_step5](binary_search.assets/binary_search_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png)
+    ![binary_search_step6](binary_search.assets/binary_search_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png)
+    ![binary_search_step7](binary_search.assets/binary_search_step7.png){ class="animation-figure" }
 
-It's worth noting that as $i$ and $j$ are both of type `int`, **$i + j$ might exceed the range of `int` type**. To avoid large number overflow, we usually use the formula $m = \lfloor {i + (j - i) / 2} \rfloor$ to calculate the midpoint.
+<p align="center"> Hình 10-2 &nbsp; Quá trình Binary search </p>
 
-The code is as follows:
+Điều đáng chú ý là vì $i$ và $j$ đều có kiểu `int`, **$i + j$ có thể vượt
+quá phạm vi của kiểu `int`**. Để tránh tràn số lớn, chúng ta thường sử dụng
+công thức $m = \lfloor {i + (j - i) / 2} \rfloor$ để tính điểm giữa.
 
-```src
-[file]{binary_search}-[class]{}-[func]{binary_search}
-```
+Mã code như sau:
 
-**Time complexity is $O(\log n)$** : In the binary loop, the interval decreases by half each round, hence the number of iterations is $\log_2 n$.
+=== "Python"
 
-**Space complexity is $O(1)$** : Pointers $i$ and $j$ occupies constant size of space.
+    ```python title="binary_search.py"
+    def binary_search(nums: list[int], target: int) -> int:
+        """Binary search (khoảng đóng hai đầu)"""
+        # Khởi tạo khoảng đóng hai đầu [0, n-1], tức là i, j trỏ đến phần tử
+        # đầu tiên và phần tử cuối cùng của array tương ứng
+        i, j = 0, len(nums) - 1
+        # Lặp cho đến khi khoảng tìm kiếm rỗng (khi i > j thì rỗng)
+        while i <= j:
+            # Về lý thuyết, các số trong Python có thể lớn vô hạn (tùy thuộc vào kích thước
+            # bộ nhớ), nên không cần xem xét tràn số lớn
+            m = i + (j - i) // 2  # Tính chỉ số điểm giữa m
+            if nums[m] < target:
+                i = m + 1  # Tình huống này cho thấy target nằm trong khoảng [m+1, j]
+            elif nums[m] > target:
+                j = m - 1  # Tình huống này cho thấy target nằm trong khoảng [i, m-1]
+            else:
+                return m  # Tìm thấy phần tử target, trả về chỉ số của nó
+        return -1  # Không tìm thấy phần tử target, trả về -1
+    ```
 
-## Interval representation methods
+=== "C++"
 
-Besides the above closed interval, another common interval representation is the "left-closed right-open" interval, defined as $[0, n)$, where the left boundary includes itself, and the right boundary does not. In this representation, the interval $[i, j)$ is empty when $i = j$.
+    ```cpp title="binary_search.cpp"
+    /* Binary search (khoảng đóng hai đầu) */
+    int binarySearch(vector<int> &nums, int target) {
+        // Khởi tạo khoảng đóng hai đầu [0, n-1], tức là i, j trỏ đến phần tử
+        // đầu tiên và phần tử cuối cùng của array tương ứng
+        int i = 0, j = nums.size() - 1;
+        // Lặp cho đến khi khoảng tìm kiếm rỗng (khi i > j thì rỗng)
+        while (i <= j) {
+            int m = i + (j - i) / 2; // Tính chỉ số điểm giữa m
+            if (nums[m] < target)    // Tình huống này cho thấy target nằm trong khoảng [m+1, j]
+                i = m + 1;
+            else if (nums[m] > target) // Tình huống này cho thấy target nằm trong khoảng [i, m-1]
+                j = m - 1;
+            else // Tìm thấy phần tử target, trả về chỉ số của nó
+                return m;
+        }
+        // Không tìm thấy phần tử target, trả về -1
+        return -1;
+    }
+    ```
 
-We can implement a binary search algorithm with the same functionality based on this representation:
+=== "Java"
 
-```src
-[file]{binary_search}-[class]{}-[func]{binary_search_lcro}
-```
+    ```java title="binary_search.java"
+    /* binary search (khoảng đóng hai phía) */
+    int binarySearch(int[] nums, int target) {
+        // Khởi tạo khoảng đóng hai phía [0, n-1], tức là i, j lần lượt trỏ đến phần tử
+        // đầu tiên và phần tử cuối cùng của array.
+        int i = 0, j = nums.length - 1;
+        // Lặp cho đến khi khoảng tìm kiếm rỗng (khi i > j, nó rỗng)
+        while (i <= j) {
+            int m = i + (j - i) / 2; // Tính chỉ số điểm giữa m
+            if (nums[m] < target) // Tình huống này cho thấy target nằm trong khoảng [m+1, j]
+                i = m + 1;
+            else if (nums[m] > target) // Tình huống này cho thấy target nằm trong khoảng [i, m-1]
+                j = m - 1;
+            else // Đã tìm thấy phần tử target, trả về chỉ số của nó
+                return m;
+        }
+        // Không tìm thấy phần tử target, trả về -1
+        return -1;
+    }
+    ```
 
-As shown in the figure below, under the two types of interval representations, the initialization, loop condition, and narrowing interval operation of the binary search algorithm differ.
+=== "C#"
 
-Since both boundaries in the "closed interval" representation are inclusive, the operations to narrow the interval through pointers $i$ and $j$ are also symmetrical. This makes it less prone to errors, **therefore, it is generally recommended to use the "closed interval" approach**.
+    ```csharp title="binary_search.cs"
+    [class]{binary_search}-[func]{BinarySearch}
+    ```
 
-![Two types of interval definitions](binary_search.assets/binary_search_ranges.png)
+=== "Go"
 
-## Advantages and limitations
+    ```go title="binary_search.go"
+    [class]{}-[func]{binarySearch}
+    ```
 
-Binary search performs well in both time and space aspects.
+=== "Swift"
 
-- Binary search is time-efficient. With large dataset, the logarithmic time complexity offers a major advantage. For instance, given a dataset with size $n = 2^{20}$, linear search requires $2^{20} = 1048576$ iterations, while binary search only demands $\log_2 2^{20} = 20$ loops.
-- Binary search does not need extra space. Compared to search algorithms that rely on additional space (like hash search), binary search is more space-efficient.
+    ```swift title="binary_search.swift"
+    [class]{}-[func]{binarySearch}
+    ```
 
-However, binary search may not be suitable for all scenarios due to the following concerns.
+=== "JS"
 
-- Binary search can only be applied to sorted data. Unsorted data must be sorted before applying binary search, which may not be worthwhile as sorting algorithm typically has a time complexity of $O(n \log n)$. Such cost is even higher than linear search, not to mention binary search itself. For scenarios with frequent insertion, the cost of remaining the array in order is pretty high as the time complexity of inserting new elements into specific positions is $O(n)$.
-- Binary search may use array only. Binary search requires non-continuous (jumping) element access, which is inefficient in linked list. As a result, linked list or data structures based on linked list may not be suitable for this algorithm.
-- Linear search performs better on small dataset. In linear search, only 1 decision operation is required for each iteration; whereas in binary search, it involves 1 addition, 1 division, 1 to 3 decision operations, 1 addition (subtraction), totaling 4 to 6 operations. Therefore, if data size $n$ is small, linear search is faster than binary search.
+    ```javascript title="binary_search.js"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "TS"
+
+    ```typescript title="binary_search.ts"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search.dart"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    [class]{}-[func]{binary_search}
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_search.kt"
+    [class]{}-[func]{binarySearch}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search.rb"
+    [class]{}-[func]{binary_search}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search.zig"
+    [class]{}-[func]{binarySearch}
+    ```
+
+**time complexity là $O(\log n)$** : Trong vòng lặp binary search, khoảng tìm kiếm
+giảm đi một nửa sau mỗi vòng, do đó số lần lặp là $\log_2 n$.
+
+**space complexity là $O(1)$** : Các con trỏ $i$ và $j$ chiếm một lượng không gian
+hằng số.
+
+## 10.1.1 &nbsp; Các phương pháp biểu diễn khoảng
+
+Bên cạnh khoảng đóng ở trên, một cách biểu diễn khoảng phổ biến khác là
+khoảng "trái đóng phải mở", được định nghĩa là $[0, n)$, trong đó biên
+trái bao gồm chính nó, và biên phải không bao gồm chính nó. Trong cách
+biểu diễn này, khoảng $[i, j)$ là rỗng khi $i = j$.
+
+Chúng ta có thể triển khai một thuật toán binary search với chức năng
+tương tự dựa trên cách biểu diễn này:
+
+=== "Python"
+
+    ```python title="binary_search.py"
+    def binary_search_lcro(nums: list[int], target: int) -> int:
+        """Binary search (khoảng trái đóng phải mở)"""
+        # Khởi tạo khoảng trái đóng phải mở [0, n), tức là i, j lần lượt trỏ
+        # tới phần tử đầu tiên và phần tử cuối cùng +1 của array
+        i, j = 0, len(nums)
+        # Lặp cho đến khi khoảng tìm kiếm rỗng (khi i = j thì nó rỗng)
+        while i < j:
+            m = i + (j - i) // 2  # Tính chỉ số điểm giữa m
+            if nums[m] < target:
+                i = m + 1  # Tình huống này cho thấy target nằm trong khoảng [m+1, j)
+            elif nums[m] > target:
+                j = m  # Tình huống này cho thấy target nằm trong khoảng [i, m)
+            else:
+                return m  # Tìm thấy phần tử target, trả về chỉ số của nó
+        return -1  # Không tìm thấy phần tử target, trả về -1
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_search.cpp"
+    /* Binary search (khoảng trái đóng phải mở) */
+    int binarySearchLCRO(vector<int> &nums, int target) {
+        // Khởi tạo khoảng trái đóng phải mở [0, n), tức là i, j lần lượt trỏ
+        // tới phần tử đầu tiên và phần tử cuối cùng +1 của array
+        int i = 0, j = nums.size();
+        // Lặp cho đến khi khoảng tìm kiếm rỗng (khi i = j thì nó rỗng)
+        while (i < j) {
+            int m = i + (j - i) / 2; // Tính chỉ số điểm giữa m
+            if (nums[m] < target)    // Tình huống này cho thấy target nằm trong khoảng [m+1, j)
+                i = m + 1;
+            else if (nums[m] > target) // Tình huống này cho thấy target nằm trong khoảng [i, m)
+                j = m;
+            else // Tìm thấy phần tử target, trả về chỉ số của nó
+                return m;
+        }
+        // Không tìm thấy phần tử target, trả về -1
+        return -1;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="binary_search.java"
+    /* Binary search (khoảng đóng bên trái, mở bên phải) */
+    int binarySearchLCRO(int[] nums, int target) {
+        // Khởi tạo khoảng đóng bên trái, mở bên phải [0, n), tức là i, j lần lượt trỏ đến
+        // phần tử đầu tiên và phần tử cuối cùng +1 của array
+        int i = 0, j = nums.length;
+        // Lặp cho đến khi khoảng tìm kiếm trống (khi i = j thì khoảng trống)
+        while (i < j) {
+            int m = i + (j - i) / 2; // Tính chỉ số giữa m
+            if (nums[m] < target) // Tình huống này cho biết target nằm trong khoảng [m+1, j)
+                i = m + 1;
+            else if (nums[m] > target) // Tình huống này cho biết target nằm trong khoảng [i, m)
+                j = m;
+            else // Đã tìm thấy phần tử mục tiêu, trả về chỉ số của nó
+                return m;
+        }
+        // Không tìm thấy phần tử mục tiêu, trả về -1
+        return -1;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search.cs"
+    [class]{binary_search}-[func]{BinarySearchLCRO}
+    ```
+
+=== "Go"
+
+    ```go title="binary_search.go"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search.swift"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "JS"
+
+    ```javascript title="binary_search.js"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "TS"
+
+    ```typescript title="binary_search.ts"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search.dart"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search.rs"
+    [class]{}-[func]{binary_search_lcro}
+    ```
+
+=== "C"
+
+    ```c title="binary_search.c"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_search.kt"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search.rb"
+    [class]{}-[func]{binary_search_lcro}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search.zig"
+    [class]{}-[func]{binarySearchLCRO}
+    ```
+
+Như được minh họa trong Hình 10-3, với hai loại biểu diễn khoảng, các thao tác
+khởi tạo, điều kiện vòng lặp và thu hẹp khoảng của thuật toán binary search
+khác nhau.
+
+Vì cả hai biên trong biểu diễn "khoảng đóng" đều bao gồm các phần tử biên, các
+thao tác thu hẹp khoảng thông qua các con trỏ $i$ và $j$ cũng đối xứng. Điều
+này làm cho nó ít dễ gây lỗi hơn, **do đó, chúng ta thường khuyến nghị sử dụng
+cách tiếp cận "khoảng đóng"**.
+
+![Two types of interval definitions](binary_search.assets/binary_search_ranges.png){ class="animation-figure" }
+
+<p align="center"> Hình 10-3 &nbsp; Hai loại định nghĩa khoảng </p>
+
+## 10.1.2 &nbsp; Ưu điểm và hạn chế
+
+Binary search hoạt động tốt về cả khía cạnh thời gian và không gian.
+
+- Binary search tiết kiệm thời gian. Với tập dữ liệu lớn, độ phức tạp
+  thời gian logarit mang lại lợi thế lớn. Ví dụ, với một tập dữ liệu
+  có kích thước $n = 2^{20}$, linear search yêu cầu $2^{20} = 1048576$
+  lần lặp, trong khi binary search chỉ cần $\log_2 2^{20} = 20$ vòng lặp.
+- Binary search không cần thêm không gian phụ. So với các thuật toán
+  tìm kiếm dựa vào không gian phụ trợ (như hash search), binary search
+  hiệu quả hơn về không gian.
+
+Tuy nhiên, binary search có thể không phù hợp với tất cả các kịch bản
+do những lo ngại sau đây.
+
+- Binary search chỉ có thể áp dụng cho dữ liệu đã sắp xếp. Dữ liệu chưa
+  sắp xếp phải được sắp xếp trước khi áp dụng binary search, điều này
+  có thể không đáng giá vì sorting algorithm thường có time complexity
+  là $O(n \log n)$. Chi phí này thậm chí còn cao hơn linear search,
+  chưa kể đến bản thân binary search. Đối với các kịch bản có chèn
+  thường xuyên, chi phí để giữ cho array được sắp xếp là khá cao vì
+  time complexity của việc chèn các phần tử mới vào các vị trí cụ thể
+  là $O(n)$.
+- Binary search có thể chỉ sử dụng array. Binary search yêu cầu truy cập
+  phần tử không liên tục (nhảy vọt), điều này không hiệu quả trong
+  linked list. Do đó, linked list hoặc các cấu trúc dữ liệu dựa trên
+  linked list có thể không phù hợp với thuật toán này.
+- Linear search hoạt động tốt hơn trên tập dữ liệu nhỏ. Trong linear
+  search, chỉ cần 1 thao tác quyết định cho mỗi lần lặp; trong khi
+  trong binary search, nó bao gồm 1 phép cộng, 1 phép chia, 1 đến 3
+  thao tác quyết định, 1 phép cộng (trừ), tổng cộng từ 4 đến 6 thao tác.
+  Do đó, nếu kích thước dữ liệu $n$ nhỏ, linear search nhanh hơn
+  binary search.

@@ -1,56 +1,312 @@
-# Binary search boundaries
+---
+comments: true
+---
 
-## Find the left boundary
+# 10.3 &nbsp; Binary search ranh giới
+
+## 10.3.1 &nbsp; Tìm biên trái
 
 !!! question
 
-    Given a sorted array `nums` of length $n$, which may contain duplicate elements, return the index of the leftmost element `target`. If the element is not present in the array, return $-1$.
+    Cho một array `nums` đã sắp xếp có độ dài $n$, có thể chứa các
+    phần tử trùng lặp, trả về chỉ số của phần tử `target` nằm ngoài
+    cùng bên trái. Nếu phần tử không có trong array, trả về $-1$.
 
-Recalling the method of binary search for an insertion point, after the search is completed, the index $i$ will point to the leftmost occurrence of `target`. Therefore, **searching for the insertion point is essentially the same as finding the index of the leftmost `target`**.
+Nhắc lại phương pháp binary search để tìm điểm chèn, sau khi quá
+trình tìm kiếm hoàn tất, chỉ số $i$ sẽ trỏ đến vị trí xuất hiện
+ngoài cùng bên trái của `target`. Do đó, **tìm kiếm điểm chèn về
+cơ bản là tương tự với việc tìm chỉ số của `target` ngoài cùng
+bên trái**.
 
-We can use the function for finding an insertion point to find the left boundary of `target`. Note that the array might not contain `target`, which could lead to the following two results:
+Chúng ta có thể sử dụng hàm tìm điểm chèn để tìm biên trái của
+`target`. Lưu ý rằng array có thể không chứa `target`, điều này
+có thể dẫn đến hai kết quả sau:
 
-- The index $i$ of the insertion point is out of bounds.
-- The element `nums[i]` is not equal to `target`.
+- Chỉ số $i$ của điểm chèn nằm ngoài giới hạn.
+- Phần tử `nums[i]` không bằng `target`.
 
-In these cases, simply return $-1$. The code is as follows:
+Trong những trường hợp này, chỉ cần trả về $-1$. Code như sau:
 
-```src
-[file]{binary_search_edge}-[class]{}-[func]{binary_search_left_edge}
-```
+=== "Python"
 
-## Find the right boundary
+    ```python title="binary_search_edge.py"
+    def binary_search_left_edge(nums: list[int], target: int) -> int:
+        """Binary search để tìm target ngoài cùng bên trái"""
+        # Tương đương với việc tìm điểm chèn của target
+        i = binary_search_insertion(nums, target)
+        # Không tìm thấy target, do đó trả về -1
+        if i == len(nums) or nums[i] != target:
+            return -1
+        # Tìm thấy target, trả về chỉ số i
+        return i
+    ```
 
-How do we find the rightmost occurrence of `target`? The most straightforward way is to modify the traditional binary search logic by changing how we adjust the search boundaries in the case of `nums[m] == target`. The code is omitted here. If you are interested, try to implement the code on your own.
+=== "C++"
 
-Below we are going to introduce two more ingenious methods.
+    ```cpp title="binary_search_edge.cpp"
+    /* Binary search để tìm target ngoài cùng bên trái */
+    int binarySearchLeftEdge(vector<int> &nums, int target) {
+        // Tương đương với việc tìm điểm chèn của target
+        int i = binarySearchInsertion(nums, target);
+        // Không tìm thấy target, do đó trả về -1
+        if (i == nums.size() || nums[i] != target) {
+            return -1;
+        }
+        // Tìm thấy target, trả về chỉ số i
+        return i;
+    }
+    ```
 
-### Reuse the left boundary search
+=== "Java"
 
-To find the rightmost occurrence of `target`, we can reuse the function used for locating the leftmost `target`. Specifically, we transform the search for the rightmost target into a search for the leftmost target + 1.
+    ```java title="binary_search_edge.java"
+    /* Binary search để tìm target ngoài cùng bên trái */
+    int binarySearchLeftEdge(int[] nums, int target) {
+        // Tương đương với việc tìm điểm chèn của target
+        int i = binary_search_insertion.binarySearchInsertion(nums, target);
+        // Không tìm thấy target, do đó trả về -1
+        if (i == nums.length || nums[i] != target) {
+            return -1;
+        }
+        // Tìm thấy target, trả về chỉ số i
+        return i;
+    }
+    ```
 
-As shown in the figure below, after the search is complete, pointer $i$ will point to the leftmost `target + 1` (if exists), while pointer $j$ will point to the rightmost occurrence of `target`. Therefore, returning $j$ will give us the right boundary.
+=== "C#"
 
-![Transforming the search for the right boundary into the search for the left boundary](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
+    ```csharp title="binary_search_edge.cs"
+    [class]{binary_search_edge}-[func]{BinarySearchLeftEdge}
+    ```
 
-Note that the insertion point returned is $i$, therefore, it should be subtracted by $1$ to obtain $j$:
+=== "Go"
 
-```src
-[file]{binary_search_edge}-[class]{}-[func]{binary_search_right_edge}
-```
+    ```go title="binary_search_edge.go"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
 
-### Transform into an element search
+=== "Swift"
 
-When the array does not contain `target`, $i$ and $j$ will eventually point to the first element greater and smaller than `target` respectively.
+    ```swift title="binary_search_edge.swift"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
 
-Thus, as shown in the figure below, we can construct an element that does not exist in the array, to search for the left and right boundaries.
+=== "JS"
 
-- To find the leftmost `target`: it can be transformed into searching for `target - 0.5`, and return the pointer $i$.
-- To find the rightmost `target`: it can be transformed into searching for `target + 0.5`, and return the pointer $j$.
+    ```javascript title="binary_search_edge.js"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
 
-![Transforming the search for boundaries into the search for an element](binary_search_edge.assets/binary_search_edge_by_element.png)
+=== "TS"
 
-The code is omitted here, but here are two important points to note about this approach.
+    ```typescript title="binary_search_edge.ts"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
 
-- The given array `nums` does not contain decimal, so handling equal cases is not a concern.
-- However, introducing decimals in this approach requires modifying the `target` variable to a floating-point type (no change needed in Python).
+=== "Dart"
+
+    ```dart title="binary_search_edge.dart"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    [class]{}-[func]{binary_search_left_edge}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_edge.c"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_search_edge.kt"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search_edge.rb"
+    [class]{}-[func]{binary_search_left_edge}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_edge.zig"
+    [class]{}-[func]{binarySearchLeftEdge}
+    ```
+
+## 10.3.2 &nbsp; Tìm biên phải
+
+Làm thế nào để chúng ta tìm thấy lần xuất hiện `target` ở tận cùng bên phải?
+Cách đơn giản nhất là sửa đổi logic binary search truyền thống bằng cách thay
+đổi cách chúng ta điều chỉnh các biên tìm kiếm trong trường hợp
+`nums[m] == target`. Đoạn mã được bỏ qua ở đây. Nếu bạn quan tâm, hãy thử tự
+mình cài đặt đoạn mã đó.
+
+Dưới đây chúng ta sẽ giới thiệu hai phương pháp khéo léo hơn.
+
+### 1. &nbsp; Tái sử dụng tìm kiếm biên trái
+
+Để tìm lần xuất hiện `target` ở tận cùng bên phải, chúng ta có thể tái sử dụng
+hàm được dùng để định vị `target` ở tận cùng bên trái. Cụ thể, chúng ta biến đổi
+việc tìm kiếm `target` ở tận cùng bên phải thành việc tìm kiếm `target + 1` ở
+tận cùng bên trái.
+
+Như được minh họa trong Hình 10-7, sau khi tìm kiếm hoàn tất, con trỏ $i$ sẽ trỏ
+đến `target + 1` ở tận cùng bên trái (nếu tồn tại), trong khi con trỏ $j$ sẽ trỏ
+đến lần xuất hiện `target` ở tận cùng bên phải. Do đó, việc trả về $j$ sẽ cho
+chúng ta biên phải.
+
+![Biến đổi tìm kiếm biên phải thành tìm kiếm biên trái](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png){ class="animation-figure" }
+
+<p align="center"> Hình 10-7 &nbsp; Biến đổi tìm kiếm biên phải thành tìm kiếm biên trái </p>
+
+Lưu ý rằng điểm chèn được trả về là $i$, do đó, nó cần được trừ đi $1$ để có
+được $j$:
+
+=== "Python"
+
+    ```python title="binary_search_edge.py"
+    def binary_search_right_edge(nums: list[int], target: int) -> int:
+        """Binary search tìm target ở tận cùng bên phải"""
+        # Chuyển đổi thành tìm target + 1 ở tận cùng bên trái
+        i = binary_search_insertion(nums, target + 1)
+        # j trỏ đến target ở tận cùng bên phải, i trỏ đến phần tử đầu tiên lớn hơn target
+        j = i - 1
+        # Không tìm thấy target, trả về -1
+        if j == -1 or nums[j] != target:
+            return -1
+        # Tìm thấy target, trả về chỉ số j
+        return j
+    ```
+
+=== "C++"
+
+    ```cpp title="binary_search_edge.cpp"
+    /* Binary search tìm target ở tận cùng bên phải */
+    int binarySearchRightEdge(vector<int> &nums, int target) {
+        // Chuyển đổi thành tìm target + 1 ở tận cùng bên trái
+        int i = binarySearchInsertion(nums, target + 1);
+        // j trỏ đến target ở tận cùng bên phải, i trỏ đến phần tử đầu tiên lớn hơn target
+        int j = i - 1;
+        // Không tìm thấy target, trả về -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // Tìm thấy target, trả về chỉ số j
+        return j;
+    }
+    ```
+
+=== "Java"
+
+    ```java title="binary_search_edge.java"
+    /* Tìm kiếm nhị phân cho target ngoài cùng bên phải */
+    int binarySearchRightEdge(int[] nums, int target) {
+        // Chuyển đổi thành việc tìm kiếm target ngoài cùng bên trái + 1
+        int i = binary_search_insertion.binarySearchInsertion(nums, target + 1);
+        // j trỏ đến target ngoài cùng bên phải, i trỏ đến phần tử đầu tiên lớn hơn target
+        int j = i - 1;
+        // Không tìm thấy target, do đó trả về -1
+        if (j == -1 || nums[j] != target) {
+            return -1;
+        }
+        // Tìm thấy target, trả về chỉ số j
+        return j;
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="binary_search_edge.cs"
+    [class]{binary_search_edge}-[func]{BinarySearchRightEdge}
+    ```
+
+=== "Go"
+
+    ```go title="binary_search_edge.go"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Swift"
+
+    ```swift title="binary_search_edge.swift"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "JS"
+
+    ```javascript title="binary_search_edge.js"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "TS"
+
+    ```typescript title="binary_search_edge.ts"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Dart"
+
+    ```dart title="binary_search_edge.dart"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Rust"
+
+    ```rust title="binary_search_edge.rs"
+    [class]{}-[func]{binary_search_right_edge}
+    ```
+
+=== "C"
+
+    ```c title="binary_search_edge.c"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="binary_search_edge.kt"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="binary_search_edge.rb"
+    [class]{}-[func]{binary_search_right_edge}
+    ```
+
+=== "Zig"
+
+    ```zig title="binary_search_edge.zig"
+    [class]{}-[func]{binarySearchRightEdge}
+    ```
+
+### 2. &nbsp; Chuyển đổi thành tìm kiếm phần tử
+
+Khi array không chứa `target`, $i$ và $j$ cuối cùng sẽ trỏ đến phần tử
+đầu tiên lớn hơn và nhỏ hơn `target` tương ứng.
+
+Do đó, như minh họa trong Hình 10-8, chúng ta có thể xây dựng một phần
+tử không tồn tại trong array, để tìm kiếm các ranh giới trái và phải.
+
+- Để tìm `target` ngoài cùng bên trái: có thể chuyển đổi thành việc tìm
+    kiếm `target - 0.5`, và trả về con trỏ $i$.
+- Để tìm `target` ngoài cùng bên phải: có thể chuyển đổi thành việc tìm
+    kiếm `target + 0.5`, và trả về con trỏ $j$.
+
+![Chuyển đổi tìm kiếm ranh giới thành tìm kiếm phần tử](binary_search_edge.assets/binary_search_edge_by_element.png){ class="animation-figure" }
+
+<p align="center"> Hình 10-8 &nbsp; Chuyển đổi tìm kiếm ranh giới thành tìm kiếm phần tử </p>
+
+Đoạn code được bỏ qua ở đây, nhưng có hai điểm quan trọng cần lưu ý về
+cách tiếp cận này.
+
+- array `nums` đã cho không chứa số thập phân, vì vậy việc xử lý các
+    trường hợp bằng nhau không phải là một vấn đề đáng lo ngại.
+- Tuy nhiên, việc đưa số thập phân vào cách tiếp cận này yêu cầu sửa
+đổi biến `target` thành kiểu số thực (không cần thay đổi trong Python).

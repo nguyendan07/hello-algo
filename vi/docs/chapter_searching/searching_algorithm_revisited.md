@@ -1,84 +1,146 @@
-# Search algorithms revisited
+---
+comments: true
+---
 
-<u>Searching algorithms (search algorithms)</u> are used to retrieve one or more elements that meet specific criteria within data structures such as arrays, linked lists, trees, or graphs.
+# 10.5 &nbsp; Thuật toán tìm kiếm được xem xét lại
 
-Searching algorithms can be divided into the following two categories based on their approach.
+<u>Thuật toán tìm kiếm (search algorithms)</u> được sử dụng để truy xuất
+một hoặc nhiều phần tử đáp ứng các tiêu chí cụ thể trong các cấu trúc
+dữ liệu như array, linked list, tree hoặc graph.
 
-- **Locating the target element by traversing the data structure**, such as traversals of arrays, linked lists, trees, and graphs, etc.
-- **Using the organizational structure of the data or existing data to achieve efficient element searches**, such as binary search, hash search, binary search tree search, etc.
+Các thuật toán tìm kiếm có thể được chia thành hai loại sau dựa trên
+phương pháp tiếp cận của chúng.
 
-These topics were introduced in previous chapters, so they are not unfamiliar to us. In this section, we will revisit searching algorithms from a more systematic perspective.
+- **Định vị phần tử mục tiêu bằng cách duyệt qua cấu trúc dữ liệu**,
+  chẳng hạn như duyệt array, linked list, tree và graph, v.v.
+- **Sử dụng cấu trúc tổ chức của dữ liệu hoặc dữ liệu hiện có để đạt được
+  tìm kiếm phần tử hiệu quả**, chẳng hạn như binary search, hash search,
+  binary search tree search, v.v.
 
-## Brute-force search
+Những chủ đề này đã được giới thiệu trong các chương trước, vì vậy chúng
+không xa lạ với chúng ta. Trong phần này, chúng ta sẽ xem xét lại các thuật
+toán tìm kiếm từ một góc độ hệ thống hơn.
 
-A Brute-force search locates the target element by traversing every element of the data structure.
+## 10.5.1 &nbsp; Brute-force search
 
-- "Linear search" is suitable for linear data structures such as arrays and linked lists. It starts from one end of the data structure and accesses each element one by one until the target element is found or the other end is reached without finding the target element.
-- "Breadth-first search" and "Depth-first search" are two traversal strategies for graphs and trees. Breadth-first search starts from the initial node and searches layer by layer (left to right), accessing nodes from near to far. Depth-first search starts from the initial node, follows a path until the end (top to bottom), then backtracks and tries other paths until the entire data structure is traversed.
+Một Brute-force search xác định phần tử mục tiêu bằng cách duyệt qua mọi phần tử
+của data structure.
 
-The advantage of brute-force search is its simplicity and versatility, **no need for data preprocessing or the help of additional data structures**.
+- "Linear search" phù hợp với các linear data structure như array và linked list.
+  Nó bắt đầu từ một đầu của data structure và truy cập từng phần tử một cho đến
+  khi phần tử mục tiêu được tìm thấy hoặc đến đầu kia mà không tìm thấy phần tử
+  mục tiêu.
+- "Breadth-first search" và "Depth-first search" là hai chiến lược duyệt cho
+  graph và tree. Breadth-first search bắt đầu từ node ban đầu và tìm kiếm từng
+  lớp (từ trái sang phải), truy cập các node từ gần đến xa. Depth-first search
+  bắt đầu từ node ban đầu, đi theo một đường dẫn cho đến cuối (từ trên xuống
+  dưới), sau đó quay lui và thử các đường dẫn khác cho đến khi toàn bộ data
+  structure được duyệt qua.
 
-However, **the time complexity of this type of algorithm is $O(n)$**, where $n$ is the number of elements, so the performance is poor with large data sets.
+Lợi thế của Brute-force search là sự đơn giản và linh hoạt của nó,
+**không cần tiền xử lý dữ liệu hoặc sự trợ giúp của các data structure bổ sung**.
 
-## Adaptive search
+Tuy nhiên, **time complexity của loại thuật toán này là $O(n)$**, trong đó $n$
+là số lượng phần tử, vì vậy hiệu suất kém với các tập dữ liệu lớn.
 
-An Adaptive search uses the unique properties of data (such as order) to optimize the search process, thereby locating the target element more efficiently.
+## 10.5.2 &nbsp; Tìm kiếm thích ứng
 
-- "Binary search" uses the orderliness of data to achieve efficient searching, only suitable for arrays.
-- "Hash search" uses a hash table to establish a key-value mapping between search data and target data, thus implementing the query operation.
-- "Tree search" in a specific tree structure (such as a binary search tree), quickly eliminates nodes based on node value comparisons, thus locating the target element.
+Một tìm kiếm thích ứng sử dụng các thuộc tính độc đáo của dữ liệu (chẳng hạn
+như thứ tự) để tối ưu hóa quá trình tìm kiếm, qua đó xác định vị trí
+phần tử mục tiêu một cách hiệu quả hơn.
 
-The advantage of these algorithms is high efficiency, **with time complexities reaching $O(\log n)$ or even $O(1)$**.
+- "Binary search" sử dụng tính có thứ tự của dữ liệu để đạt được tìm kiếm
+    hiệu quả, chỉ phù hợp với array.
+- "Hash search" sử dụng một hash table để thiết lập ánh xạ khóa-giá trị
+    giữa dữ liệu tìm kiếm và dữ liệu mục tiêu, qua đó thực hiện thao tác
+    truy vấn.
+- "Tree search" trong một cấu trúc tree cụ thể (chẳng hạn như binary search
+    tree), nhanh chóng loại bỏ các node dựa trên so sánh giá trị node, qua đó
+    xác định vị trí phần tử mục tiêu.
 
-However, **using these algorithms often requires data preprocessing**. For example, binary search requires sorting the array in advance, and hash search and tree search both require the help of additional data structures. Maintaining these structures also requires more overhead in terms of time and space.
+Ưu điểm của các thuật toán này là hiệu quả cao, **với time complexity
+đạt $O(\log n)$ hoặc thậm chí $O(1)$**.
+
+Tuy nhiên, **việc sử dụng các thuật toán này thường yêu cầu tiền xử lý dữ liệu**.
+Ví dụ, binary search yêu cầu sắp xếp array trước, và hash search cùng tree
+search đều yêu cầu sự trợ giúp của các cấu trúc dữ liệu bổ sung. Việc duy trì
+các cấu trúc này cũng đòi hỏi nhiều overhead hơn về time và space.
 
 !!! tip
 
-    Adaptive search algorithms are often referred to as search algorithms, **mainly used for quickly retrieving target elements in specific data structures**.
+    Các thuật toán tìm kiếm thích ứng thường được gọi là thuật toán tìm kiếm,
+    **chủ yếu được sử dụng để nhanh chóng truy xuất các phần tử mục tiêu
+    trong các cấu trúc dữ liệu cụ thể**.
 
-## Choosing a search method
+## 10.5.3 &nbsp; Lựa chọn phương pháp tìm kiếm
 
-Given a set of data of size $n$, we can use a linear search, binary search, tree search, hash search, or other methods to retrieve the target element. The working principles of these methods are shown in the figure below.
+Với một tập hợp dữ liệu có kích thước $n$, chúng ta có thể sử dụng linear search,
+binary search, tree search, hash search, hoặc các phương pháp khác để truy xuất
+phần tử mục tiêu. Nguyên lý hoạt động của các phương pháp này được thể hiện
+trong Hình 10-11.
 
-![Various search strategies](searching_algorithm_revisited.assets/searching_algorithms.png)
+![Various search strategies](searching_algorithm_revisited.assets/searching_algorithms.png){ class="animation-figure" }
 
-The characteristics and operational efficiency of the aforementioned methods are shown in the following table.
+<p align="center"> Hình 10-11 &nbsp; Các chiến lược tìm kiếm khác nhau </p>
 
-<p align="center"> Table <id> &nbsp; Comparison of search algorithm efficiency </p>
+Các đặc điểm và hiệu suất hoạt động của các phương pháp đã đề cập được thể hiện
+trong bảng sau.
 
-|                    | Linear search | Binary search         | Tree search                 | Hash search                |
-| ------------------ | ------------- | --------------------- | --------------------------- | -------------------------- |
-| Search element     | $O(n)$        | $O(\log n)$           | $O(\log n)$                 | $O(1)$                     |
-| Insert element     | $O(1)$        | $O(n)$                | $O(\log n)$                 | $O(1)$                     |
-| Delete element     | $O(n)$        | $O(n)$                | $O(\log n)$                 | $O(1)$                     |
-| Extra space        | $O(1)$        | $O(1)$                | $O(n)$                      | $O(n)$                     |
-| Data preprocessing | /             | Sorting $O(n \log n)$ | Building tree $O(n \log n)$ | Building hash table $O(n)$ |
-| Data orderliness   | Unordered     | Ordered               | Ordered                     | Unordered                  |
+<p align="center"> Bảng 10-1 &nbsp; So sánh hiệu quả của các thuật toán tìm kiếm </p>
 
-The choice of search algorithm also depends on the volume of data, search performance requirements, frequency of data queries and updates, etc.
+<div class="center-table" markdown>
+
+|                          | Linear search | Binary search         | Tree search                 | Hash search                |
+| ------------------------ | ------------- | --------------------- | --------------------------- | -------------------------- |
+| Tìm kiếm phần tử         | $O(n)$        | $O(\log n)$           | $O(\log n)$                 | $O(1)$                     |
+| Chèn phần tử             | $O(1)$        | $O(n)$                | $O(\log n)$                 | $O(1)$                     |
+| Xóa phần tử              | $O(n)$        | $O(n)$                | $O(\log n)$                 | $O(1)$                     |
+| Bộ nhớ bổ sung           | $O(1)$        | $O(1)$                | $O(n)$                      | $O(n)$                     |
+| Tiền xử lý dữ liệu       | /             | Sắp xếp $O(n \log n)$ | Xây dựng tree $O(n \log n)$ | Xây dựng hash table $O(n)$ |
+| Tính sắp xếp của dữ liệu | Không sắp xếp | Đã sắp xếp            | Đã sắp xếp                  | Không sắp xếp              |
+
+</div>
+
+Việc lựa chọn thuật toán tìm kiếm cũng phụ thuộc vào khối lượng dữ liệu, yêu
+cầu hiệu suất tìm kiếm, tần suất truy vấn và cập nhật dữ liệu, v.v.
 
 **Linear search**
 
-- Good versatility, no need for any data preprocessing operations. If we only need to query the data once, then the time for data preprocessing in the other three methods would be longer than the time for a linear search.
-- Suitable for small volumes of data, where time complexity has a smaller impact on efficiency.
-- Suitable for scenarios with very frequent data updates, because this method does not require any additional maintenance of the data.
+- Tính linh hoạt tốt, không cần bất kỳ thao tác tiền xử lý dữ liệu nào. Nếu
+  chúng ta chỉ cần truy vấn dữ liệu một lần, thì thời gian tiền xử lý dữ liệu
+  của ba phương pháp còn lại sẽ dài hơn thời gian của một linear search.
+- Phù hợp với khối lượng dữ liệu nhỏ, nơi time complexity có ít tác động hơn
+  đến hiệu suất.
+- Phù hợp cho các tình huống cập nhật dữ liệu rất thường xuyên, vì phương pháp
+  này không yêu cầu bất kỳ bảo trì dữ liệu bổ sung nào.
 
 **Binary search**
 
-- Suitable for larger data volumes, with stable performance and a worst-case time complexity of $O(\log n)$.
-- However, the data volume cannot be too large, because storing arrays requires contiguous memory space.
-- Not suitable for scenarios with frequent additions and deletions, because maintaining an ordered array incurs a lot of overhead.
+- Thích hợp cho khối lượng dữ liệu lớn hơn, với hiệu suất ổn định và worst-case
+  time complexity là $O(\log n)$.
+- Tuy nhiên, khối lượng dữ liệu không thể quá lớn, vì việc lưu trữ các array
+  yêu cầu không gian bộ nhớ liền kề.
+- Không phù hợp cho các tình huống thêm và xóa thường xuyên, vì việc duy trì
+  một array đã sắp xếp gây ra nhiều overhead.
 
 **Hash search**
 
-- Suitable for scenarios where fast query performance is essential, with an average time complexity of $O(1)$.
-- Not suitable for scenarios needing ordered data or range searches, because hash tables cannot maintain data orderliness.
-- High dependency on hash functions and hash collision handling strategies, with significant performance degradation risks.
-- Not suitable for overly large data volumes, because hash tables need extra space to minimize collisions and provide good query performance.
+- Thích hợp cho các trường hợp hiệu suất truy vấn nhanh là cần thiết,
+  với time complexity trung bình là $O(1)$.
+- Không thích hợp cho các trường hợp cần dữ liệu có thứ tự hoặc tìm kiếm
+  trong một khoảng, vì hash tables không thể duy trì thứ tự dữ liệu.
+- Phụ thuộc nhiều vào các hash function và chiến lược xử lý va chạm hash,
+  với rủi ro hiệu suất suy giảm đáng kể.
+- Không thích hợp cho các tập dữ liệu quá lớn, vì hash tables cần không gian
+  bổ sung để giảm thiểu va chạm và cung cấp hiệu suất truy vấn tốt.
 
-**Tree search**
+**Tìm kiếm trên tree**
 
-- Suitable for massive data, because tree nodes are stored scattered in memory.
-- Suitable for maintaining ordered data or range searches.
-- With the continuous addition and deletion of nodes, the binary search tree may become skewed, degrading the time complexity to $O(n)$.
-- If using AVL trees or red-black trees, operations can run stably at $O(\log n)$ efficiency, but the operation to maintain tree balance adds extra overhead.
+- Thích hợp cho dữ liệu lớn, vì các node của tree được lưu trữ rải rác
+  trong bộ nhớ.
+- Thích hợp để duy trì dữ liệu có thứ tự hoặc tìm kiếm trong một khoảng.
+- Với việc thêm và xóa node liên tục, binary search tree có thể bị lệch
+  (skewed), làm giảm time complexity xuống $O(n)$.
+- Nếu sử dụng AVL trees hoặc red-black trees, các thao tác có thể chạy
+  ổn định với hiệu suất $O(\log n)$, nhưng thao tác duy trì sự cân bằng
+  của tree làm tăng thêm overhead.
