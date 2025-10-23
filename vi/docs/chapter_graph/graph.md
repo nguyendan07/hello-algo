@@ -1,6 +1,13 @@
-# Graph
+---
+comments: true
+---
 
-A <u>graph</u> is a type of nonlinear data structure, consisting of <u>vertices</u> and <u>edges</u>. A graph $G$ can be abstractly represented as a collection of a set of vertices $V$ and a set of edges $E$. The following example shows a graph containing 5 vertices and 7 edges.
+# 9.1 &nbsp; Graph
+
+Một <u>graph</u> (đồ thị) là một loại cấu trúc dữ liệu phi tuyến tính, bao gồm các <u>vertices</u>
+(đỉnh) và <u>edges</u> (cạnh). Một `graph` $G$ có thể được biểu diễn một cách trừu tượng
+dưới dạng một tập hợp các `vertices` $V$ và một tập hợp các `edges` $E$. Ví dụ sau
+đây minh họa một `graph` chứa 5 `vertices` và 7 `edges`.
 
 $$
 \begin{aligned}
@@ -10,74 +17,143 @@ G & = \{ V, E \} \newline
 \end{aligned}
 $$
 
-If vertices are viewed as nodes and edges as references (pointers) connecting the nodes, graphs can be seen as a data structure that extends from linked lists. As shown in the figure below, **compared to linear relationships (linked lists) and divide-and-conquer relationships (trees), network relationships (graphs) are more complex due to their higher degree of freedom**.
+Nếu các `vertices` được xem là `node` và các `edges` là các `tham chiếu` (`con trỏ`)
+kết nối các `node`, thì các `graph` có thể được xem là một `cấu trúc dữ liệu` mở rộng
+từ `linked list`. Như được minh họa trong Hình 9-1, **so với các quan hệ tuyến tính
+(`linked list`) và các quan hệ phân cấp (`tree`), thì các quan hệ mạng (`graph`)
+phức tạp hơn do mức độ tự do cao hơn của chúng**.
 
-![Relationship between linked lists, trees, and graphs](graph.assets/linkedlist_tree_graph.png)
+![Mối quan hệ giữa linked list, tree và graph](graph.assets/linkedlist_tree_graph.png){ class="animation-figure" }
 
-## Common types and terminologies of graphs
+<p align="center"> Hình 9-1 &nbsp; Mối quan hệ giữa linked list, tree và graph </p>
 
-Graphs can be divided into  <u>undirected graphs</u> and <u>directed graphs</u> depending on whether edges have direction, as shown in the figure below.
+## 9.1.1 &nbsp; Các loại và thuật ngữ phổ biến của graph
 
-- In undirected graphs, edges represent a "bidirectional" connection between two vertices, for example, the "friends" in Facebook.
-- In directed graphs, edges have directionality, that is, the edges $A \rightarrow B$ and $A \leftarrow B$ are independent of each other. For example, the "follow" and "followed" relationship on Instagram or TikTok.
+Graph có thể được chia thành <u>undirected graphs (graph vô hướng)</u> và
+<u>directed graphs (graph có hướng)</u> tùy thuộc vào việc các cạnh có hướng
+hay không, như được minh họa trong Hình 9-2.
 
-![Directed and undirected graphs](graph.assets/directed_graph.png)
+- Trong undirected graphs, các cạnh đại diện cho một kết nối "hai chiều"
+giữa hai đỉnh, ví dụ, "bạn bè" trên Facebook.
+- Trong directed graphs, các cạnh có tính định hướng, nghĩa là các cạnh
+$A \rightarrow B$ và $A \leftarrow B$ độc lập với nhau. Ví dụ, mối quan hệ
+"follow" và "followed" trên Instagram hoặc TikTok.
 
-Depending on whether all vertices are connected, graphs can be divided into <u>connected graphs</u> and <u>disconnected graphs</u>, as shown in the figure below.
+![Directed and undirected graphs](graph.assets/directed_graph.png){ class="animation-figure" }
 
-- For connected graphs, it is possible to reach any other vertex starting from an arbitrary vertex.
-- For disconnected graphs, there is at least one vertex that cannot be reached from an arbitrary starting vertex.
+<p align="center"> Hình 9-2 &nbsp; Directed graphs và undirected graphs </p>
 
-![Connected and disconnected graphs](graph.assets/connected_graph.png)
+Tùy thuộc vào việc tất cả các đỉnh có được kết nối hay không, graph có thể
+được chia thành <u>connected graphs (graph liên thông)</u> và
+<u>disconnected graphs (graph không liên thông)</u>, như được minh họa trong
+Hình 9-3.
 
-We can also add a weight variable to edges, resulting in <u>weighted graphs</u> as shown in the figure below. For example, in Instagram, the system sorts your follower and following list by the level of interaction between you and other users (likes, views, comments, etc.). Such an interaction network can be represented by a weighted graph.
+- Đối với connected graphs, có thể đi tới bất kỳ đỉnh nào khác bắt đầu từ
+một đỉnh bất kỳ.
+- Đối với disconnected graphs, có ít nhất một đỉnh mà không thể đi tới
+được từ một đỉnh xuất phát bất kỳ.
 
-![Weighted and unweighted graphs](graph.assets/weighted_graph.png)
+![Connected and disconnected graphs](graph.assets/connected_graph.png){ class="animation-figure" }
 
-Graph data structures include the following commonly used terms.
+<p align="center"> Hình 9-3 &nbsp; Connected graphs và disconnected graphs </p>
 
-- <u>Adjacency</u>: When there is an edge connecting two vertices, these two vertices are said to be "adjacent". In the figure above, the adjacent vertices of vertex 1 are vertices 2, 3, and 5.
-- <u>Path</u>: The sequence of edges passed from vertex A to vertex B is called a path from A to B. In the figure above, the edge sequence 1-5-2-4 is a path from vertex 1 to vertex 4.
-- <u>Degree</u>: The number of edges a vertex has. For directed graphs, <u>in-degree</u> refers to how many edges point to the vertex, and <u>out-degree</u> refers to how many edges point out from the vertex.
+Chúng ta cũng có thể thêm một biến trọng số vào các cạnh, tạo ra
+<u>weighted graphs (graph có trọng số)</u> như được minh họa trong Hình 9-4.
+Ví dụ, trên Instagram, hệ thống sắp xếp danh sách người theo dõi và đang theo dõi
+của bạn theo mức độ tương tác giữa bạn và những người dùng khác (likes, views,
+comments, v.v.). Một mạng lưới tương tác như vậy có thể được biểu diễn bằng
+một weighted graph.
 
-## Representation of graphs
+![Weighted and unweighted graphs](graph.assets/weighted_graph.png){ class="animation-figure" }
 
-Common representations of graphs include "adjacency matrix" and "adjacency list". The following examples use undirected graphs.
+<p align="center"> Hình 9-4 &nbsp; Weighted graphs và unweighted graphs </p>
 
-### Adjacency matrix
+Cấu trúc dữ liệu graph bao gồm các thuật ngữ thường dùng sau đây.
 
-Let the number of vertices in the graph be $n$, the <u>adjacency matrix</u> uses an $n \times n$ matrix to represent the graph, where each row (column) represents a vertex, and the matrix elements represent edges, with $1$ or $0$ indicating whether there is an edge between two vertices.
+- <u>Kề nhau (Adjacency)</u>: Khi có một cạnh kết nối hai đỉnh, hai đỉnh này
+được gọi là "kề nhau". Trong Hình 9-4, các đỉnh kề nhau của đỉnh 1 là
+đỉnh 2, 3 và 5.
+- <u>Đường đi (Path)</u>: Dãy các cạnh đi qua từ đỉnh A đến đỉnh B được gọi
+là một đường đi từ A đến B. Trong Hình 9-4, dãy cạnh 1-5-2-4 là một
+đường đi từ đỉnh 1 đến đỉnh 4.
+- <u>Bậc (Degree)</u>: Số lượng cạnh mà một đỉnh có. Đối với directed graphs,
+<u>bậc vào (in-degree)</u> chỉ số lượng cạnh đi vào đỉnh, và
+<u>bậc ra (out-degree)</u> chỉ số lượng cạnh đi ra từ đỉnh.
 
-As shown in the figure below, let the adjacency matrix be $M$, and the list of vertices be $V$, then the matrix element $M[i, j] = 1$ indicates there is an edge between vertex $V[i]$ and vertex $V[j]$, conversely $M[i, j] = 0$ indicates there is no edge between the two vertices.
+## 9.1.2 &nbsp; Biểu diễn graph
 
-![Representation of a graph with an adjacency matrix](graph.assets/adjacency_matrix.png)
+Các cách biểu diễn graph phổ biến bao gồm "adjacency matrix" và "adjacency list".
+Các ví dụ sau đây sử dụng undirected graph.
 
-Adjacency matrices have the following characteristics.
+### 1. &nbsp; Adjacency matrix (Ma trận kề)
 
-- A vertex cannot be connected to itself, so the elements on the main diagonal of the adjacency matrix are meaningless.
-- For undirected graphs, edges in both directions are equivalent, thus the adjacency matrix is symmetric with regard to the main diagonal.
-- By replacing the elements of the adjacency matrix from $1$ and $0$ to weights, we can represent weighted graphs.
+Giả sử số lượng đỉnh trong graph là $n$, `adjacency matrix` (ma trận kề)
+sử dụng một ma trận $n \times n$ để biểu diễn graph, trong đó mỗi hàng (cột)
+đại diện cho một đỉnh, và các phần tử của ma trận đại diện cho các cạnh,
+với $1$ hoặc $0$ cho biết liệu có một cạnh giữa hai đỉnh hay không.
 
-When representing graphs with adjacency matrices, it is possible to directly access matrix elements to obtain edges, resulting in efficient operations of addition, deletion, lookup, and modification, all with a time complexity of $O(1)$. However, the space complexity of the matrix is $O(n^2)$, which consumes more memory.
+Như được thể hiện trong Hình 9-5, gọi adjacency matrix là $M$, và danh sách
+các đỉnh là $V$, thì phần tử ma trận $M[i, j] = 1$ cho biết có một cạnh
+giữa đỉnh $V[i]$ và đỉnh $V[j]$, ngược lại $M[i, j] = 0$ cho biết không
+có cạnh giữa hai đỉnh đó.
 
-### Adjacency list
+![Representation of a graph with an adjacency matrix](graph.assets/adjacency_matrix.png){ class="animation-figure" }
 
-The <u>adjacency list</u> uses $n$ linked lists to represent the graph, with each linked list node representing a vertex. The $i$-th linked list corresponds to vertex $i$ and contains all adjacent vertices (vertices connected to that vertex). The figure below shows an example of a graph stored using an adjacency list.
+<p align="center"> Hình 9-5 &nbsp; Biểu diễn một graph bằng adjacency matrix </p>
 
-![Representation of a graph with an adjacency list](graph.assets/adjacency_list.png)
+Adjacency matrix có các đặc điểm sau.
 
-The adjacency list only stores actual edges, and the total number of edges is often much less than $n^2$, making it more space-efficient. However, finding edges in the adjacency list requires traversing the linked list, so its time efficiency is not as good as that of the adjacency matrix.
+- Một đỉnh không thể tự kết nối với chính nó, do đó các phần tử trên đường chéo
+chính của adjacency matrix là vô nghĩa.
+- Đối với undirected graph, các cạnh theo cả hai hướng là tương đương, do đó
+adjacency matrix là đối xứng qua đường chéo chính.
+- Bằng cách thay thế các phần tử của adjacency matrix từ $1$ và $0$ bằng
+trọng số, chúng ta có thể biểu diễn weighted graph.
 
-Observing the figure above, **the structure of the adjacency list is very similar to the "chaining" in hash tables, hence we can use similar methods to optimize efficiency**. For example, when the linked list is long, it can be transformed into an AVL tree or red-black tree, thus optimizing the time efficiency from $O(n)$ to $O(\log n)$; the linked list can also be transformed into a hash table, thus reducing the time complexity to $O(1)$.
+Khi biểu diễn graph bằng adjacency matrix, chúng ta có thể truy cập trực
+tiếp các phần tử ma trận để lấy các cạnh, dẫn đến các thao tác thêm, xóa,
+tra cứu và sửa đổi hiệu quả, tất cả đều có time complexity là $O(1)$.
+Tuy nhiên, space complexity của ma trận là $O(n^2)$, điều này tiêu tốn
+nhiều bộ nhớ hơn.
 
-## Common applications of graphs
+### 2. &nbsp; Adjacency list (Danh sách kề)
 
-As shown in the table below, many real-world systems can be modeled with graphs, and corresponding problems can be reduced to graph computing problems.
+`Adjacency list` (danh sách kề) sử dụng $n$ linked list để biểu diễn graph,
+với mỗi node của linked list đại diện cho một đỉnh. Linked list thứ $i$
+tương ứng với đỉnh $i$ và chứa tất cả các đỉnh kề (các đỉnh được kết nối
+với đỉnh đó). Hình 9-6 cho thấy một ví dụ về một graph được lưu trữ bằng
+cách sử dụng adjacency list.
 
-<p align="center"> Table <id> &nbsp; Common graphs in real life </p>
+![Representation of a graph with an adjacency list](graph.assets/adjacency_list.png){ class="animation-figure" }
 
-|                 | Vertices         | Edges                                         | Graph Computing Problem          |
-| --------------- | ---------------- | --------------------------------------------- | -------------------------------- |
-| Social Networks | Users            | Follow / Followed                                   | Potential Following Recommendations |
-| Subway Lines    | Stations         | Connectivity Between Stations                 | Shortest Route Recommendations   |
-| Solar System    | Celestial Bodies | Gravitational Forces Between Celestial Bodies | Planetary Orbit Calculations     |
+<p align="center"> Hình 9-6 &nbsp; Biểu diễn một graph bằng adjacency list </p>
+
+Adjacency list chỉ lưu trữ các cạnh thực tế, và tổng số cạnh thường ít hơn
+nhiều so với $n^2$, giúp nó tiết kiệm space hơn. Tuy nhiên, việc tìm kiếm
+các cạnh trong adjacency list yêu cầu duyệt qua linked list, do đó hiệu quả
+về time của nó không tốt bằng của adjacency matrix.
+
+Quan sát Hình 9-6, **cấu trúc của adjacency list rất giống với cơ chế**
+**"chaining" trong hash table, do đó chúng ta có thể sử dụng các phương pháp**
+**tương tự để tối ưu hóa hiệu suất**. Ví dụ, khi linked list dài, nó có thể
+được chuyển đổi thành AVL tree hoặc red-black tree, do đó tối ưu hóa hiệu suất
+thời gian từ $O(n)$ xuống $O(\log n)$; linked list cũng có thể được chuyển đổi
+thành một hash table, do đó giảm time complexity xuống $O(1)$.
+
+## 9.1.3 &nbsp; Ứng dụng phổ biến của graph
+
+Như được thể hiện trong Bảng 9-1, nhiều hệ thống trong thế giới thực có thể được
+mô hình hóa bằng graph, và các bài toán tương ứng có thể được quy về các bài
+toán tính toán trên graph.
+
+<p align="center"> Bảng 9-1 &nbsp; Các graph phổ biến trong đời sống thực </p>
+
+<div class="center-table" markdown>
+
+|                     | Đỉnh             | Cạnh                                          | Bài toán tính toán trên graph    |
+| ------------------- | ---------------- | --------------------------------------------- | -------------------------------- |
+| Mạng xã hội         | Người dùng       | Theo dõi / Được theo dõi                      | Đề xuất theo dõi tiềm năng       |
+| Tuyến tàu điện ngầm | Nhà ga           | Kết nối giữa các nhà ga                       | Đề xuất tuyến đường ngắn nhất    |
+| Hệ mặt trời         | Thiên thể        | Lực hấp dẫn giữa các thiên thể                | Tính toán quỹ đạo hành tinh      |
+
+</div>
