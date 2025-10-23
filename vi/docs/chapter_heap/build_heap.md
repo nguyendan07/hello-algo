@@ -1,52 +1,189 @@
-# Heap construction operation
+---
+comments: true
+---
 
-In some cases, we want to build a heap using all elements of a list, and this process is known as "heap construction operation."
+# 8.2 &nbsp; Thao tác xây dựng heap
 
-## Implementing with heap insertion operation
+Trong một số trường hợp, chúng ta muốn xây dựng một heap sử dụng tất cả các phần tử
+của một list, và quá trình này được gọi là "thao tác xây dựng heap".
 
-First, we create an empty heap and then iterate through the list, performing the "heap insertion operation" on each element in turn. This means adding the element to the end of the heap and then "heapifying" it from bottom to top.
+## 8.2.1 &nbsp; Triển khai bằng thao tác chèn vào heap
 
-Each time an element is added to the heap, the length of the heap increases by one. Since nodes are added to the binary tree from top to bottom, the heap is constructed "from top to bottom."
+Đầu tiên, chúng ta tạo một heap rỗng và sau đó duyệt qua list,
+thực hiện "thao tác chèn vào heap" cho từng phần tử một. Điều này có
+nghĩa là thêm phần tử vào cuối heap và sau đó "heapify" nó từ dưới
+lên trên.
 
-Let the number of elements be $n$, and each element's insertion operation takes $O(\log{n})$ time, thus the time complexity of this heap construction method is $O(n \log n)$.
+Mỗi khi một phần tử được thêm vào heap, độ dài của heap tăng lên một.
+Vì các node được thêm vào binary tree từ trên xuống dưới, heap được
+xây dựng "từ trên xuống dưới."
 
-## Implementing by heapifying through traversal
+Giả sử số lượng phần tử là $n$, và thao tác chèn mỗi phần tử mất
+thời gian $O(\log{n})$, do đó time complexity của phương pháp xây
+dựng heap này là $O(n \log n)$.
 
-In fact, we can implement a more efficient method of heap construction in two steps.
+## 8.2.2 &nbsp; Triển khai bằng cách heapify thông qua duyệt
 
-1. Add all elements of the list as they are into the heap, at this point the properties of the heap are not yet satisfied.
-2. Traverse the heap in reverse order (reverse of level-order traversal), and perform "top to bottom heapify" on each non-leaf node.
+Trên thực tế, chúng ta có thể triển khai một phương pháp xây dựng heap
+hiệu quả hơn theo hai bước.
 
-**After heapifying a node, the subtree with that node as the root becomes a valid sub-heap**. Since the traversal is in reverse order, the heap is built "from bottom to top."
+1. Thêm tất cả các phần tử của list như chúng vốn có vào heap, tại thời điểm này
+    các thuộc tính của heap chưa được thỏa mãn.
+2. Duyệt heap theo thứ tự ngược (ngược lại với duyệt theo thứ tự cấp độ), và
+    thực hiện "heapify từ trên xuống dưới" trên mỗi node không phải node lá.
 
-The reason for choosing reverse traversal is that it ensures the subtree below the current node is already a valid sub-heap, making the heapification of the current node effective.
+**Sau khi heapify một node, subtree với node đó làm root trở thành một sub-heap
+hợp lệ**. Vì việc duyệt là theo thứ tự ngược, heap được xây dựng "từ dưới lên trên".
 
-It's worth mentioning that **since leaf nodes have no children, they naturally form valid sub-heaps and do not need to be heapified**. As shown in the following code, the last non-leaf node is the parent of the last node; we start from it and traverse in reverse order to perform heapification:
+Lý do chọn duyệt ngược là vì nó đảm bảo rằng subtree bên dưới node hiện tại
+đã là một sub-heap hợp lệ, khiến việc heapify node hiện tại trở nên hiệu quả.
 
-```src
-[file]{my_heap}-[class]{max_heap}-[func]{__init__}
-```
+Điều đáng nói là **vì các leaf node không có node con, chúng tự nhiên tạo thành
+các sub-heap hợp lệ và không cần phải heapify**. Như được hiển thị trong đoạn code sau,
+node không phải node lá cuối cùng là parent của node cuối cùng; chúng ta bắt đầu
+từ nó và duyệt theo thứ tự ngược để thực hiện việc heapify:
 
-## Complexity analysis
+=== "Python"
 
-Next, let's attempt to calculate the time complexity of this second method of heap construction.
+    ```python title="my_heap.py"
+    def __init__(self, nums: list[int]):
+        """Hàm khởi tạo, xây dựng heap dựa trên list đầu vào"""
+        # Thêm tất cả các phần tử của list vào heap
+        self.max_heap = nums
+        # Heapify tất cả các node ngoại trừ node lá
+        for i in range(self.parent(self.size() - 1), -1, -1):
+            self.sift_down(i)
+    ```
 
-- Assuming the number of nodes in the complete binary tree is $n$, then the number of leaf nodes is $(n + 1) / 2$, where $/$ is integer division. Therefore, the number of nodes that need to be heapified is $(n - 1) / 2$.
-- In the process of "top to bottom heapification," each node is heapified to the leaf nodes at most, so the maximum number of iterations is the height of the binary tree $\log n$.
+=== "C++"
 
-Multiplying the two, we get the time complexity of the heap construction process as $O(n \log n)$. **But this estimate is not accurate, because it does not take into account the nature of the binary tree having far more nodes at the lower levels than at the top.**
+    ```cpp title="my_heap.cpp"
+    /* Hàm khởi tạo, xây dựng heap dựa trên list đầu vào */
+    MaxHeap(vector<int> nums) {
+        // Thêm tất cả các phần tử của list vào heap
+        maxHeap = nums;
+        // Heapify tất cả các node ngoại trừ node lá
+        for (int i = parent(size() - 1); i >= 0; i--) {
+            siftDown(i);
+        }
+    }
+    ```
 
-Let's perform a more accurate calculation. To simplify the calculation, assume a "perfect binary tree" with $n$ nodes and height $h$; this assumption does not affect the correctness of the result.
+=== "Java"
 
-![Node counts at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.png)
+    ```java title="my_heap.java"
+    /* Hàm khởi tạo, xây dựng heap dựa trên list đầu vào */
+    MaxHeap(List<Integer> nums) {
+        // Thêm tất cả các phần tử của list vào heap
+        maxHeap = new ArrayList<>(nums);
+        // Heapify tất cả các node ngoại trừ node lá
+        for (int i = parent(size() - 1); i >= 0; i--) {
+            siftDown(i);
+        }
+    }
+    ```
 
-As shown in the figure above, the maximum number of iterations for a node "to be heapified from top to bottom" is equal to the distance from that node to the leaf nodes, which is precisely "node height." Therefore, we can sum the "number of nodes $\times$ node height" at each level, **to get the total number of heapification iterations for all nodes**.
+=== "C#"
+
+    ```csharp title="my_heap.cs"
+    [class]{MaxHeap}-[func]{MaxHeap}
+    ```
+
+=== "Go"
+
+    ```go title="my_heap.go"
+    [class]{maxHeap}-[func]{newMaxHeap}
+    ```
+
+=== "Swift"
+
+    ```swift title="my_heap.swift"
+    [class]{MaxHeap}-[func]{init}
+    ```
+
+=== "JS"
+
+    ```javascript title="my_heap.js"
+    [class]{MaxHeap}-[func]{constructor}
+    ```
+
+=== "TS"
+
+    ```typescript title="my_heap.ts"
+    [class]{MaxHeap}-[func]{constructor}
+    ```
+
+=== "Dart"
+
+    ```dart title="my_heap.dart"
+    [class]{MaxHeap}-[func]{MaxHeap}
+    ```
+
+=== "Rust"
+
+    ```rust title="my_heap.rs"
+    [class]{MaxHeap}-[func]{new}
+    ```
+
+=== "C"
+
+    ```c title="my_heap.c"
+    [class]{MaxHeap}-[func]{newMaxHeap}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="my_heap.kt"
+    [class]{MaxHeap}-[func]{}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="my_heap.rb"
+    [class]{MaxHeap}-[func]{initialize}
+    ```
+
+=== "Zig"
+
+    ```zig title="my_heap.zig"
+    [class]{MaxHeap}-[func]{init}
+    ```
+
+## 8.2.3 &nbsp; Phân tích độ phức tạp
+
+Tiếp theo, chúng ta hãy thử tính time complexity (độ phức tạp thời gian) của phương
+pháp xây dựng heap thứ hai này.
+
+- Giả sử số lượng node trong complete binary tree là $n$, thì số lượng node lá
+    là $(n + 1) / 2$, trong đó $/$ là phép chia số nguyên. Do đó, số lượng node
+    cần được heapify là $(n - 1) / 2$.
+- Trong quá trình "heapify từ trên xuống", mỗi node được heapify tối đa đến
+    các node lá, vì vậy số lần lặp tối đa là chiều cao của binary tree $\log n$.
+
+Nhân hai giá trị này, chúng ta có time complexity của quá trình xây dựng heap
+là $O(n \log n)$. **Tuy nhiên, ước tính này không chính xác, vì nó không tính
+đến đặc điểm của binary tree là có nhiều node ở các cấp thấp hơn so với các
+cấp trên.**
+
+Chúng ta hãy thực hiện một phép tính chính xác hơn. Để đơn giản hóa phép tính,
+giả sử có một "perfect binary tree" với $n$ node và chiều cao $h$; giả định này
+không ảnh hưởng đến tính đúng đắn của kết quả.
+
+![Node counts at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.png){ class="animation-figure" }
+
+<p align="center"> Hình 8-5 &nbsp; Số lượng node ở mỗi cấp của perfect binary tree </p>
+
+Như thể hiện trong Hình 8-5, số lần lặp tối đa để một node "được heapify từ trên
+xuống" bằng với khoảng cách từ node đó đến các node lá, đây chính xác là "chiều
+cao node". Do đó, chúng ta có thể cộng tổng "số lượng node $\times$ chiều cao
+node" ở mỗi cấp, **để có được tổng số lần lặp heapify cho tất cả các node**.
 
 $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
 $$
 
-To simplify the above equation, we need to use knowledge of sequences from high school, first multiply $T(h)$ by $2$, to get:
+Để đơn giản hóa phương trình trên, chúng ta cần sử dụng kiến thức về dãy số từ
+cấp ba, trước tiên nhân $T(h)$ với $2$, để được:
 
 $$
 \begin{aligned}
@@ -55,13 +192,14 @@ T(h) & = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{h-1}\times1 \newline
 \end{aligned}
 $$
 
-By subtracting $T(h)$ from $2T(h)$ using the method of displacement, we get:
+Bằng cách trừ $T(h)$ từ $2T(h)$ sử dụng phương pháp dịch chuyển, chúng ta có:
 
 $$
 2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \dots + 2^{h-1} + 2^h
 $$
 
-Observing the equation, $T(h)$ is an geometric series, which can be directly calculated using the sum formula, resulting in a time complexity of:
+Quan sát phương trình, $T(h)$ là một cấp số nhân (geometric series), có thể được
+tính trực tiếp bằng công thức tổng, cho ra một time complexity là:
 
 $$
 \begin{aligned}
@@ -71,4 +209,7 @@ T(h) & = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 \end{aligned}
 $$
 
-Further, a perfect binary tree with height $h$ has $n = 2^{h+1} - 1$ nodes, thus the complexity is $O(2^h) = O(n)$. This calculation shows that **the time complexity of inputting a list and constructing a heap is $O(n)$, which is very efficient**.
+Hơn nữa, một perfect binary tree với chiều cao $h$ có $n = 2^{h+1} - 1$ node,
+do đó độ phức tạp là $O(2^h) = O(n)$. Phép tính này cho thấy rằng **time
+complexity của việc nhập một list và xây dựng một heap là $O(n)$, điều này
+rất hiệu quả**.
