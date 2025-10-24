@@ -1,23 +1,45 @@
-# Sorting algorithms
+---
+comments: true
+---
 
-<u>Sorting algorithms</u> are used to arrange a set of data in a specific order. Sorting algorithms have a wide range of applications because ordered data can usually be searched, analyzed, and processed more efficiently.
+# 11.1 &nbsp; Thuật toán sắp xếp
 
-As shown in the figure below, the data types in sorting algorithms can be integers, floating point numbers, characters, or strings, etc. Sorting criterion can be set according to needs, such as numerical size, character ASCII order, or custom criterion.
+<u>Thuật toán sắp xếp</u> được sử dụng để sắp xếp một tập hợp dữ liệu theo
+một thứ tự cụ thể. Các thuật toán sắp xếp có nhiều ứng dụng rộng rãi vì
+dữ liệu đã được sắp xếp thường có thể được tìm kiếm, phân tích và xử lý
+hiệu quả hơn.
 
-![Data types and comparator examples](sorting_algorithm.assets/sorting_examples.png)
+Như được hiển thị trong Hình 11-1, các kiểu dữ liệu trong các thuật toán
+sắp xếp có thể là số nguyên, số thực, ký tự hoặc chuỗi, v.v. Tiêu chí
+sắp xếp có thể được đặt theo nhu cầu, chẳng hạn như kích thước số, thứ
+tự ASCII của ký tự hoặc tiêu chí tùy chỉnh.
 
-## Evaluation dimensions
+![Data types and comparator examples](sorting_algorithm.assets/sorting_examples.png){ class="animation-figure" }
 
-**Execution efficiency**: We expect the time complexity of sorting algorithms to be as low as possible, as well as a lower number of overall operations (lowering the constant term of time complexity). For large data volumes, execution efficiency is particularly important.
+<p align="center"> Hình 11-1 &nbsp; Ví dụ về kiểu dữ liệu và bộ so sánh </p>
 
-**In-place property**: As the name implies, <u>in-place sorting</u> is achieved by directly manipulating the original array, without the need for additional helper arrays, thus saving memory. Generally, in-place sorting involves fewer data moving operations and is faster.
+## 11.1.1 &nbsp; Tiêu chí đánh giá
 
-**Stability**: <u>Stable sorting</u> ensures that the relative order of equal elements in the array does not change after sorting.
+**Hiệu suất thực thi**: Chúng ta mong muốn time complexity của các sorting algorithm
+càng thấp càng tốt, cũng như tổng số thao tác ít hơn (giảm hệ số hằng số
+của time complexity). Đối với khối lượng dữ liệu lớn, hiệu suất thực thi đặc
+biệt quan trọng.
 
-Stable sorting is a necessary condition for multi-key sorting scenarios. Suppose we have a table storing student information, with the first and second columns being name and age, respectively. In this case, <u>unstable sorting</u> might lead to a loss of order in the input data:
+**Thuộc tính tại chỗ**: Đúng như tên gọi, <u>in-place sorting</u> (sắp xếp tại chỗ)
+được thực hiện bằng cách thao tác trực tiếp trên array gốc, không cần đến
+các array hỗ trợ bổ sung, do đó tiết kiệm bộ nhớ. Nhìn chung, in-place sorting
+liên quan đến ít thao tác di chuyển dữ liệu hơn và nhanh hơn.
+
+**Tính ổn định**: <u>Stable sorting</u> (sắp xếp ổn định) đảm bảo rằng thứ tự
+tương đối của các phần tử bằng nhau trong array không thay đổi sau khi sắp xếp.
+
+Stable sorting là một điều kiện cần thiết cho các kịch bản sắp xếp đa khóa.
+Giả sử chúng ta có một bảng lưu trữ thông tin sinh viên, với cột thứ nhất
+và thứ hai lần lượt là tên và tuổi. Trong trường hợp này, <u>unstable sorting</u>
+(sắp xếp không ổn định) có thể dẫn đến việc mất trật tự trong dữ liệu đầu vào:
 
 ```shell
-# Input data is sorted by name
+# Dữ liệu đầu vào đã được sắp xếp theo tên
 # (name, age)
   ('A', 19)
   ('B', 18)
@@ -25,9 +47,9 @@ Stable sorting is a necessary condition for multi-key sorting scenarios. Suppose
   ('D', 19)
   ('E', 23)
 
-# Assuming an unstable sorting algorithm is used to sort the list by age,
-# the result changes the relative position of ('D', 19) and ('A', 19),
-# and the property of the input data being sorted by name is lost
+# Giả sử một thuật toán sắp xếp không ổn định được sử dụng để sắp xếp danh sách theo tuổi,
+# kết quả thay đổi vị trí tương đối của ('D', 19) và ('A', 19),
+# và thuộc tính dữ liệu đầu vào được sắp xếp theo tên bị mất
   ('B', 18)
   ('D', 19)
   ('A', 19)
@@ -35,12 +57,26 @@ Stable sorting is a necessary condition for multi-key sorting scenarios. Suppose
   ('E', 23)
 ```
 
-**Adaptability**: <u>Adaptive sorting</u> leverages existing order information within the input data to reduce computational effort, achieving more optimal time efficiency. The best-case time complexity of adaptive sorting algorithms is typically better than their average-case time complexity.
+**Tính thích nghi**: <u>Adaptive sorting</u> (sắp xếp thích nghi) tận dụng
+thông tin thứ tự hiện có trong dữ liệu đầu vào để giảm công sức tính toán,
+đạt được hiệu suất thời gian tối ưu hơn. Time complexity worst-case
+của các adaptive sorting algorithm thường tốt hơn time complexity average-case
+của chúng.
 
-**Comparison or non-comparison-based**: <u>Comparison-based sorting</u> relies on comparison operators ($<$, $=$, $>$) to determine the relative order of elements and thus sort the entire array, with the theoretical optimal time complexity being $O(n \log n)$. Meanwhile, <u>non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of $O(n)$, but its versatility is relatively poor.
+**Dựa trên so sánh hay không dựa trên so sánh**: <u>Comparison-based sorting</u>
+(sắp xếp dựa trên so sánh) dựa vào các toán tử so sánh ($<$, $=$, $>$) để
+xác định thứ tự tương đối của các phần tử và từ đó sắp xếp toàn bộ array,
+với time complexity tối ưu về mặt lý thuyết là $O(n \log n)$. Trong khi đó,
+<u>non-comparison sorting</u> (sắp xếp không dựa trên so sánh) không sử dụng
+các toán tử so sánh và có thể đạt được time complexity $O(n)$, nhưng tính
+linh hoạt của nó tương đối kém.
 
-## Ideal sorting algorithm
+## 11.1.2 &nbsp; Thuật toán sắp xếp lý tưởng
 
-**Fast execution, in-place, stable, adaptive, and versatile**. Clearly, no sorting algorithm that combines all these features has been found to date. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.
+**Thực thi nhanh, tại chỗ, ổn định, linh hoạt và đa năng**. Rõ ràng là, cho đến nay
+vẫn chưa có thuật toán sắp xếp nào kết hợp được tất cả các đặc điểm này.
+Do đó, khi chọn một thuật toán sắp xếp, cần phải quyết định dựa trên các đặc điểm
+cụ thể của dữ liệu và yêu cầu của bài toán.
 
-Next, we will learn about various sorting algorithms together and analyze the advantages and disadvantages of each based on the above evaluation dimensions.
+Tiếp theo, chúng ta sẽ cùng tìm hiểu về các thuật toán sắp xếp khác nhau và phân tích
+ưu nhược điểm của từng thuật toán dựa trên các tiêu chí đánh giá nêu trên.

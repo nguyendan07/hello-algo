@@ -1,46 +1,205 @@
-# Insertion sort
+---
+comments: true
+---
 
-<u>Insertion sort</u> is a simple sorting algorithm that works very much like the process of manually sorting a deck of cards.
+# 11.4 &nbsp; Insertion sort
 
-Specifically, we select a base element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.
+<u>Insertion sort</u> là một thuật toán sắp xếp đơn giản, hoạt động rất giống
+với quá trình sắp xếp thủ công một bộ bài.
 
-The figure below illustrates how an element is inserted into the array. Assuming the base element is `base`, we need to shift all elements from the target index up to `base` one position to the right, then assign `base` to the target index.
+Cụ thể, chúng ta chọn một phần tử cơ sở từ khoảng chưa sắp xếp, so sánh
+nó với các phần tử trong khoảng đã sắp xếp ở bên trái nó, và chèn phần tử
+vào vị trí chính xác.
 
-![Single insertion operation](insertion_sort.assets/insertion_operation.png)
+Hình 11-6 minh họa cách một phần tử được chèn vào array. Giả sử phần tử
+cơ sở là `base`, chúng ta cần dịch chuyển tất cả các phần tử từ chỉ số
+mục tiêu cho đến `base` sang phải một vị trí, sau đó gán `base` vào chỉ
+số mục tiêu.
 
-## Algorithm process
+![Single insertion operation](insertion_sort.assets/insertion_operation.png){ class="animation-figure" }
 
-The overall process of insertion sort is shown in the figure below.
+<p align="center"> Hình 11-6 &nbsp; Thao tác chèn đơn lẻ </p>
 
-1. Consider the first element of the array as sorted.
-2. Select the second element as `base`, insert it into its correct position, **leaving the first two elements sorted**.
-3. Select the third element as `base`, insert it into its correct position, **leaving the first three elements sorted**.
-4. Continuing in this manner, in the final iteration, the last element is taken as `base`, and after inserting it into the correct position, **all elements are sorted**.
+```markdown
+## 11.4.1 &nbsp; Quy trình thuật toán
 
-![Insertion sort process](insertion_sort.assets/insertion_sort_overview.png)
+Quy trình tổng thể của insertion sort được thể hiện trong Hình 11-7.
 
-Example code is as follows:
+1. Coi phần tử đầu tiên của array là đã sắp xếp.
+2. Chọn phần tử thứ hai làm `base`, chèn nó vào vị trí đúng, **khiến hai phần tử
+   đầu tiên được sắp xếp**.
+3. Chọn phần tử thứ ba làm `base`, chèn nó vào vị trí đúng, **khiến ba phần tử
+   đầu tiên được sắp xếp**.
+4. Tiếp tục theo cách này, trong lần lặp cuối cùng, phần tử cuối cùng được lấy
+   làm `base`, và sau khi chèn nó vào vị trí đúng, **tất cả các phần tử được
+   sắp xếp**.
 
-```src
-[file]{insertion_sort}-[class]{}-[func]{insertion_sort}
-```
+![Insertion sort process](insertion_sort.assets/insertion_sort_overview.png){ class="animation-figure" }
 
-## Algorithm characteristics
+<p align="center"> Hình 11-7 &nbsp; Quy trình Insertion sort </p>
 
-- **Time complexity is $O(n^2)$, adaptive sorting**: In the worst case, each insertion operation requires $n - 1$, $n-2$, ..., $2$, $1$ loops, summing up to $(n - 1) n / 2$, thus the time complexity is $O(n^2)$. In the case of ordered data, the insertion operation will terminate early. When the input array is completely ordered, insertion sort achieves the best time complexity of $O(n)$.
-- **Space complexity is $O(1)$, in-place sorting**: Pointers $i$ and $j$ use a constant amount of extra space.
-- **Stable sorting**: During the insertion operation, we insert elements to the right of equal elements, not changing their order.
+Ví dụ code như sau:
 
-## Advantages of insertion sort
+=== "Python"
 
-The time complexity of insertion sort is $O(n^2)$, while the time complexity of quicksort, which we will study next, is $O(n \log n)$. Although insertion sort has a higher time complexity, **it is usually faster in small input sizes**.
+    ```python title="insertion_sort.py"
+    def insertion_sort(nums: list[int]):
+        """Insertion sort"""
+        # Vòng lặp ngoài: khoảng đã sắp xếp là [0, i-1]
+        for i in range(1, len(nums)):
+            base = nums[i]
+            j = i - 1
+            # Vòng lặp trong: chèn base vào vị trí đúng trong khoảng đã sắp xếp [0, i-1]
+            while j >= 0 and nums[j] > base:
+                nums[j + 1] = nums[j]  # Di chuyển nums[j] sang phải một vị trí
+                j -= 1
+            nums[j + 1] = base  # Gán base vào vị trí đúng
+    ```
 
-This conclusion is similar to that for linear and binary search. Algorithms like quicksort that have a time complexity of $O(n \log n)$ and are based on the divide-and-conquer strategy often involve more unit operations. For small input sizes, the numerical values of $n^2$ and $n \log n$ are close, and complexity does not dominate, with the number of unit operations per round playing a decisive role.
+=== "C++"
 
-In fact, many programming languages (such as Java) use insertion sort within their built-in sorting functions. The general approach is: for long arrays, use sorting algorithms based on divide-and-conquer strategies, such as quicksort; for short arrays, use insertion sort directly.
+    ```cpp title="insertion_sort.cpp"
+    /* Insertion sort */
+    void insertionSort(vector<int> &nums) {
+        // Vòng lặp ngoài: khoảng đã sắp xếp là [0, i-1]
+        for (int i = 1; i < nums.size(); i++) {
+            int base = nums[i], j = i - 1;
+            // Vòng lặp trong: chèn base vào vị trí đúng trong khoảng đã sắp xếp [0, i-1]
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // Di chuyển nums[j] sang phải một vị trí
+                j--;
+            }
+            nums[j + 1] = base; // Gán base vào vị trí đúng
+        }
+    }
+    ```
 
-Although bubble sort, selection sort, and insertion sort all have a time complexity of $O(n^2)$, in practice, **insertion sort is commonly used than bubble sort and selection sort**, mainly for the following reasons.
+=== "Java"
 
-- Bubble sort is based on element swapping, which requires the use of a temporary variable, involving 3 unit operations; insertion sort is based on element assignment, requiring only 1 unit operation. Therefore, **the computational overhead of bubble sort is generally higher than that of insertion sort**.
-- The time complexity of selection sort is always $O(n^2)$. **Given a set of partially ordered data, insertion sort is usually more efficient than selection sort**.
-- Selection sort is unstable and cannot be applied to multi-level sorting.
+    ```java title="insertion_sort.java"
+    /* Insertion sort */
+    void insertionSort(int[] nums) {
+        // Vòng lặp ngoài: khoảng đã sắp xếp là [0, i-1]
+        for (int i = 1; i < nums.length; i++) {
+            int base = nums[i], j = i - 1;
+            // Vòng lặp trong: chèn base vào vị trí đúng trong khoảng đã sắp xếp [0, i-1]
+            while (j >= 0 && nums[j] > base) {
+                nums[j + 1] = nums[j]; // Di chuyển nums[j] sang phải một vị trí
+                j--;
+            }
+            nums[j + 1] = base;        // Gán base vào vị trí đúng
+        }
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="insertion_sort.cs"
+    [class]{insertion_sort}-[func]{InsertionSort}
+    ```
+
+=== "Go"
+
+    ```go title="insertion_sort.go"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="insertion_sort.swift"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "JS"
+
+    ```javascript title="insertion_sort.js"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "TS"
+
+    ```typescript title="insertion_sort.ts"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Dart"
+
+    ```dart title="insertion_sort.dart"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="insertion_sort.rs"
+    [class]{}-[func]{insertion_sort}
+    ```
+
+=== "C"
+
+    ```c title="insertion_sort.c"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="insertion_sort.kt"
+    [class]{}-[func]{insertionSort}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="insertion_sort.rb"
+    [class]{}-[func]{insertion_sort}
+    ```
+
+=== "Zig"
+
+    ```zig title="insertion_sort.zig"
+    [class]{}-[func]{insertionSort}
+    ```
+
+## 11.4.2 &nbsp; Đặc điểm thuật toán
+
+- **Time complexity là $O(n^2)$, sắp xếp thích nghi**: Trong trường hợp worst case,
+  mỗi thao tác chèn yêu cầu $n - 1$, $n-2$, ..., $2$, $1$ vòng lặp,
+  tổng cộng là $(n - 1) n / 2$, do đó, time complexity là $O(n^2)$.
+  Trong trường hợp dữ liệu đã được sắp xếp, thao tác chèn sẽ kết thúc sớm.
+  Khi input array được sắp xếp hoàn toàn, insertion sort đạt được best
+  time complexity là $O(n)$.
+- **Space complexity là $O(1)$, sắp xếp tại chỗ**: Các con trỏ $i$ và $j$
+  sử dụng một lượng không gian bổ sung cố định.
+- **Sắp xếp ổn định**: Trong quá trình thao tác chèn, chúng ta chèn các
+  phần tử vào bên phải của các phần tử bằng nhau, mà không thay đổi thứ tự của chúng.
+
+## 11.4.3 &nbsp; Ưu điểm của insertion sort
+
+Time complexity của insertion sort là $O(n^2)$, trong khi time complexity
+của quicksort, mà chúng ta sẽ nghiên cứu tiếp theo, là $O(n \log n)$.
+Mặc dù insertion sort có time complexity cao hơn, **nó thường nhanh hơn
+với các kích thước đầu vào nhỏ**.
+
+Kết luận này tương tự như đối với linear search và binary search. Các thuật
+toán như quicksort có time complexity là $O(n \log n)$ và dựa trên chiến
+lược divide-and-conquer thường liên quan đến nhiều thao tác đơn vị hơn.
+Đối với các kích thước đầu vào nhỏ, các giá trị số học của $n^2$ và
+$n \log n$ gần nhau, và complexity không chiếm ưu thế, với số lượng thao tác
+đơn vị mỗi vòng đóng vai trò quyết định.
+
+Trên thực tế, nhiều ngôn ngữ lập trình (như Java) sử dụng insertion sort
+trong các hàm sắp xếp tích hợp của chúng. Cách tiếp cận chung là: đối với
+các array dài, sử dụng các thuật toán sắp xếp dựa trên chiến lược
+divide-and-conquer, chẳng hạn như quicksort; đối với các array ngắn, sử dụng
+insertion sort trực tiếp.
+
+Mặc dù bubble sort, selection sort và insertion sort đều có time complexity
+là $O(n^2)$, trên thực tế, **insertion sort được sử dụng phổ biến hơn
+bubble sort và selection sort**, chủ yếu vì những lý do sau.
+
+- Bubble sort dựa trên việc hoán đổi phần tử, đòi hỏi sử dụng một biến
+  tạm thời, liên quan đến 3 thao tác đơn vị; insertion sort dựa trên việc
+  gán phần tử, chỉ cần 1 thao tác đơn vị. Do đó, **overhead tính toán của
+  bubble sort nói chung cao hơn insertion sort**.
+- Time complexity của selection sort luôn là $O(n^2)$. **Với một tập hợp
+  dữ liệu được sắp xếp một phần, insertion sort thường hiệu quả hơn
+  selection sort**.
+- Selection sort không ổn định và không thể áp dụng cho việc sắp xếp đa cấp.

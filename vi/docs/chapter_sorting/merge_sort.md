@@ -1,73 +1,337 @@
-# Merge sort
+---
+comments: true
+---
 
-<u>Merge sort</u> is a sorting algorithm based on the divide-and-conquer strategy, involving the "divide" and "merge" phases shown in the figure below.
+# 11.6 &nbsp; Merge sort
 
-1. **Divide phase**: Recursively split the array from the midpoint, transforming the sorting problem of a long array into shorter arrays.
-2. **Merge phase**: Stop dividing when the length of the sub-array is 1, and then begin merging. The two shorter sorted arrays are continuously merged into a longer sorted array until the process is complete.
+<u>Merge sort</u> là một thuật toán sắp xếp dựa trên chiến lược divide-and-conquer,
+bao gồm các giai đoạn "divide" và "merge" được minh họa trong Hình 11-10.
 
-![The divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png)
+1. **Giai đoạn divide**: Chia array một cách đệ quy từ điểm giữa, biến đổi bài
+   toán sắp xếp của một array dài thành các array ngắn hơn.
+2. **Giai đoạn merge**: Ngừng việc chia khi độ dài của sub-array là 1, và sau đó
+   bắt đầu merge. Hai sorted array ngắn hơn liên tục được merge thành một
+   sorted array dài hơn cho đến khi quá trình hoàn tất.
 
-## Algorithm workflow
+![Các giai đoạn divide và merge của merge sort](merge_sort.assets/merge_sort_overview.png){ class="animation-figure" }
 
-As shown in the figure below, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.
+<p align="center"> Hình 11-10 &nbsp; Các giai đoạn divide và merge của merge sort </p>
 
-1. Calculate the midpoint `mid`, recursively divide the left sub-array (interval `[left, mid]`) and the right sub-array (interval `[mid + 1, right]`).
-2. Continue with step `1.` recursively until sub-array length becomes 1, then stops.
+## 11.6.1 &nbsp; Quy trình hoạt động của thuật toán
 
-The "merge phase" combines the left and right sub-arrays into a sorted array from bottom to top. It is important to note that, merging starts with sub-arrays of length 1, and each sub-array is sorted during the merge phase.
+Như minh họa trong Hình 11-11, "divide phase" (giai đoạn chia) sẽ đệ quy chia array
+từ điểm giữa thành hai sub-array từ trên xuống dưới.
+
+1. Tính điểm giữa `mid`, đệ quy chia sub-array bên trái (khoảng `[left, mid]`)
+    và sub-array bên phải (khoảng `[mid + 1, right]`).
+2. Tiếp tục bước `1.` một cách đệ quy cho đến khi độ dài của sub-array
+    trở thành 1, sau đó dừng lại.
+
+"Merge phase" (giai đoạn trộn) sẽ kết hợp các sub-array bên trái và bên phải
+thành một mảng đã sắp xếp từ dưới lên trên. Điều quan trọng cần lưu ý là,
+quá trình trộn bắt đầu với các sub-array có độ dài 1, và mỗi sub-array sẽ được
+sắp xếp trong suốt giai đoạn trộn.
 
 === "<1>"
-    ![Merge sort process](merge_sort.assets/merge_sort_step1.png)
+    ![Quy trình merge sort](merge_sort.assets/merge_sort_step1.png){ class="animation-figure" }
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png){ class="animation-figure" }
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png)
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png){ class="animation-figure" }
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png)
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png){ class="animation-figure" }
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png)
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png){ class="animation-figure" }
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png)
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png){ class="animation-figure" }
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png)
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png){ class="animation-figure" }
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png)
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png){ class="animation-figure" }
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png)
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png){ class="animation-figure" }
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png){ class="animation-figure" }
 
-It can be observed that the order of recursion in merge sort is consistent with the post-order traversal of a binary tree.
+<p align="center"> Hình 11-11 &nbsp; Quy trình merge sort </p>
 
-- **Post-order traversal**: First recursively traverse the left subtree, then the right subtree, and finally process the root node.
-- **Merge sort**: First recursively process the left sub-array, then the right sub-array, and finally perform the merge.
+Chúng ta có thể quan sát thấy rằng thứ tự recursion trong merge sort nhất quán với
+post-order traversal của một binary tree.
 
-The implementation of merge sort is shown in the following code. Note that the interval to be merged in `nums` is `[left, right]`, while the corresponding interval in `tmp` is `[0, right - left]`.
+- **Post-order traversal**: Đầu tiên đệ quy duyệt cây con bên trái, sau đó là
+cây con bên phải, và cuối cùng xử lý node gốc.
+- **Merge sort**: Đầu tiên đệ quy xử lý sub-array bên trái, sau đó là
+ sub-array bên phải, và cuối cùng thực hiện thao tác trộn.
 
-```src
-[file]{merge_sort}-[class]{}-[func]{merge_sort}
-```
+Việc triển khai merge sort được thể hiện trong đoạn code sau. Lưu ý rằng khoảng
+cần trộn trong `nums` là `[left, right]`, trong khi khoảng tương ứng trong `tmp`
+là `[0, right - left]`.
 
-## Algorithm characteristics
+=== "Python"
 
-- **Time complexity of $O(n \log n)$, non-adaptive sort**: The division creates a recursion tree of height $\log n$, with each layer merging a total of $n$ operations, resulting in an overall time complexity of $O(n \log n)$.
-- **Space complexity of $O(n)$, non-in-place sort**: The recursion depth is $\log n$, using $O(\log n)$ stack frame space. The merging operation requires auxiliary arrays, using an additional space of $O(n)$.
-- **Stable sort**: During the merging process, the order of equal elements remains unchanged.
+    ```python title="merge_sort.py"
+    def merge(nums: list[int], left: int, mid: int, right: int):
+        """Trộn mảng con bên trái và mảng con bên phải"""
+        # Khoảng của mảng con bên trái là [left, mid], khoảng của mảng con bên phải là [mid+1, right]
+        # Tạo một array tạm thời tmp để lưu trữ kết quả trộn
+        tmp = [0] * (right - left + 1)
+        # Khởi tạo các chỉ số bắt đầu của mảng con bên trái và bên phải
+        i, j, k = left, mid + 1, 0
+        # Trong khi cả hai mảng con vẫn còn phần tử, so sánh và sao chép
+        # phần tử nhỏ hơn vào array tạm thời
+        while i <= mid and j <= right:
+            if nums[i] <= nums[j]:
+                tmp[k] = nums[i]
+                i += 1
+            else:
+                tmp[k] = nums[j]
+                j += 1
+            k += 1
+        # Sao chép các phần tử còn lại của mảng con bên trái và bên phải
+        # vào array tạm thời
+        while i <= mid:
+            tmp[k] = nums[i]
+            i += 1
+            k += 1
+        while j <= right:
+            tmp[k] = nums[j]
+            j += 1
+            k += 1
+        # Sao chép các phần tử từ array tạm thời tmp trở lại array gốc nums
+        # tại khoảng tương ứng
+        for k in range(0, len(tmp)):
+            nums[left + k] = tmp[k]
 
-## Linked List sorting
+    def merge_sort(nums: list[int], left: int, right: int):
+        """Thuật toán merge sort"""
+        # Điều kiện dừng
+        if left >= right:
+            return  # Dừng đệ quy khi độ dài mảng con là 1
+        # Giai đoạn phân hoạch
+        mid = left + (right - left) // 2  # Tính điểm giữa
+        merge_sort(nums, left, mid)  # Xử lý đệ quy mảng con bên trái
+        merge_sort(nums, mid + 1, right)  # Xử lý đệ quy mảng con bên phải
+        # Giai đoạn trộn
+        merge(nums, left, mid, right)
+    ```
 
-For linked lists, merge sort has significant advantages over other sorting algorithms. **It can optimize the space complexity of the linked list sorting task to $O(1)$**.
+=== "C++"
 
-- **Divide phase**: "Iteration" can be used instead of "recursion" to perform the linked list division work, thus saving the stack frame space used by recursion.
-- **Merge phase**: In linked lists, node insertion and deletion operations can be achieved by changing references (pointers), so no extra lists need to be created during the merge phase (combining two short ordered lists into one long ordered list).
+    ```cpp title="merge_sort.cpp"
+    /* Trộn array con bên trái và array con bên phải */
+    void merge(vector<int> &nums, int left, int mid, int right) {
+        // Khoảng của array con bên trái là [left, mid], khoảng của array con bên phải là [mid+1, right]
+        // Tạo một array tạm thời tmp để lưu trữ kết quả trộn
+        vector<int> tmp(right - left + 1);
+        // Khởi tạo các chỉ số bắt đầu của array con bên trái và bên phải
+        int i = left, j = mid + 1, k = 0;
+        // Chừng nào cả hai array con vẫn còn phần tử, so sánh và sao chép
+        // phần tử nhỏ hơn vào array tạm thời
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j])
+                tmp[k++] = nums[i++];
+            else
+                tmp[k++] = nums[j++];
+        }
+        // Sao chép các phần tử còn lại của array con bên trái và array con bên phải
+        // vào array tạm thời
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // Sao chép các phần tử từ array tạm thời tmp trở lại array ban đầu nums
+        // tại khoảng tương ứng
+        for (k = 0; k < tmp.size(); k++) {
+            nums[left + k] = tmp[k];
+        }
+    }
 
-The implementation details are relatively complex, and interested readers can consult related materials for learning.
+    /* Thuật toán merge sort */
+    void mergeSort(vector<int> &nums, int left, int right) {
+        // Điều kiện dừng
+        if (left >= right)
+            return; // Dừng đệ quy khi độ dài array con là 1
+        // Giai đoạn phân hoạch
+        int mid = left + (right - left) / 2;    // Tính điểm giữa
+        mergeSort(nums, left, mid);      // Xử lý đệ quy array con bên trái
+        mergeSort(nums, mid + 1, right); // Xử lý đệ quy array con bên phải
+        // Giai đoạn trộn
+        merge(nums, left, mid, right);
+    }
+    ```
+
+=== "Java"
+
+    ```java title="merge_sort.java"
+    /* Trộn array con bên trái và array con bên phải */
+    void merge(int[] nums, int left, int mid, int right) {
+        // Khoảng của array con bên trái là [left, mid], khoảng của array con bên phải là [mid+1, right]
+        // Tạo một array tạm thời tmp để lưu trữ kết quả trộn
+        int[] tmp = new int[right - left + 1];
+        // Khởi tạo các chỉ số bắt đầu của array con bên trái và bên phải
+        int i = left, j = mid + 1, k = 0;
+        // Chừng nào cả hai array con vẫn còn phần tử, so sánh và sao chép
+        // phần tử nhỏ hơn vào array tạm thời
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j])
+                tmp[k++] = nums[i++];
+            else
+                tmp[k++] = nums[j++];
+        }
+        // Sao chép các phần tử còn lại của array con bên trái và array con bên phải
+        // vào array tạm thời
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        // Sao chép các phần tử từ array tạm thời tmp trở lại array ban đầu nums
+        // tại khoảng tương ứng
+        for (k = 0; k < tmp.length; k++) {
+            nums[left + k] = tmp[k];
+        }
+    }
+
+    /* Merge sort */
+    void mergeSort(int[] nums, int left, int right) {
+        // Điều kiện dừng
+        if (left >= right)
+            return; // Dừng đệ quy khi độ dài mảng con là 1
+        // Giai đoạn phân hoạch
+        int mid = left + (right - left) / 2; // Tính điểm giữa
+        mergeSort(nums, left, mid); // Xử lý đệ quy mảng con bên trái
+        mergeSort(nums, mid + 1, right); // Xử lý đệ quy mảng con bên phải
+        // Giai đoạn trộn
+        merge(nums, left, mid, right);
+    }
+    ```
+
+=== "C#"
+
+    ```csharp title="merge_sort.cs"
+    [class]{merge_sort}-[func]{Merge}
+
+    [class]{merge_sort}-[func]{MergeSort}
+    ```
+
+=== "Go"
+
+    ```go title="merge_sort.go"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Swift"
+
+    ```swift title="merge_sort.swift"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "JS"
+
+    ```javascript title="merge_sort.js"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "TS"
+
+    ```typescript title="merge_sort.ts"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Dart"
+
+    ```dart title="merge_sort.dart"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Rust"
+
+    ```rust title="merge_sort.rs"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{merge_sort}
+    ```
+
+=== "C"
+
+    ```c title="merge_sort.c"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Kotlin"
+
+    ```kotlin title="merge_sort.kt"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+=== "Ruby"
+
+    ```ruby title="merge_sort.rb"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{merge_sort}
+    ```
+
+=== "Zig"
+
+    ```zig title="merge_sort.zig"
+    [class]{}-[func]{merge}
+
+    [class]{}-[func]{mergeSort}
+    ```
+
+## 11.6.2 &nbsp; Đặc điểm của thuật toán
+
+- **Time complexity là $O(n \log n)$, thuật toán sắp xếp không thích ứng**:
+  Việc chia tạo ra một cây đệ quy có chiều cao $\log n$, với mỗi tầng
+  trộn tổng cộng $n$ phép toán, dẫn đến time complexity tổng thể là
+  $O(n \log n)$.
+- **Space complexity là $O(n)$, thuật toán sắp xếp không tại chỗ**:
+  Độ sâu đệ quy là $\log n$, sử dụng $O(\log n)$ không gian khung stack.
+  Thao tác trộn yêu cầu array phụ trợ, sử dụng thêm $O(n)$ không gian.
+- **Thuật toán sắp xếp ổn định**:
+  Trong quá trình trộn, thứ tự của các phần tử bằng nhau vẫn được giữ
+  nguyên.
+
+## 11.6.3 &nbsp; Sắp xếp Linked List
+
+Đối với linked lists, merge sort có những lợi thế đáng kể so với các
+thuật toán sắp xếp khác. **Nó có thể tối ưu hóa space complexity của
+tác vụ sắp xếp linked list xuống $O(1)$**.
+
+- **Giai đoạn chia**: "Iteration" có thể được sử dụng thay vì "recursion"
+  để thực hiện công việc chia linked list, do đó tiết kiệm không gian
+  stack frame được sử dụng bởi recursion.
+- **Giai đoạn trộn**: Trong linked lists, các thao tác chèn và xóa node
+  có thể được thực hiện bằng cách thay đổi các tham chiếu (con trỏ),
+  vì vậy không cần tạo các lists bổ sung trong giai đoạn trộn (kết hợp
+  hai danh sách đã sắp xếp ngắn thành một danh sách đã sắp xếp dài).
+
+Các chi tiết triển khai tương đối phức tạp, và những độc giả
+quan tâm có thể tham khảo các tài liệu liên quan để tìm hiểu.
