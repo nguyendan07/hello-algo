@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#insertion-sort" class="md-skip">
+        <a href="#114-insertion-sort" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2244,6 +2244,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 11. Sorting
   </span>
@@ -2383,27 +2385,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#algorithm-process" class="md-nav__link">
+  <a href="#1141-quy-trinh-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm process
+      11.4.1 &nbsp; Quy trình thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm-characteristics" class="md-nav__link">
+  <a href="#1142-ac-iem-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm characteristics
+      11.4.2 &nbsp; Đặc điểm thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-of-insertion-sort" class="md-nav__link">
+  <a href="#1143-uu-iem-cua-insertion-sort" class="md-nav__link">
     <span class="md-ellipsis">
-      Advantages of insertion sort
+      11.4.3 &nbsp; Ưu điểm của insertion sort
     </span>
   </a>
   
@@ -3531,27 +3533,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#algorithm-process" class="md-nav__link">
+  <a href="#1141-quy-trinh-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm process
+      11.4.1 &nbsp; Quy trình thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm-characteristics" class="md-nav__link">
+  <a href="#1142-ac-iem-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm characteristics
+      11.4.2 &nbsp; Đặc điểm thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-of-insertion-sort" class="md-nav__link">
+  <a href="#1143-uu-iem-cua-insertion-sort" class="md-nav__link">
     <span class="md-ellipsis">
-      Advantages of insertion sort
+      11.4.3 &nbsp; Ưu điểm của insertion sort
     </span>
   </a>
   
@@ -3589,38 +3591,171 @@
 
 
 <!-- Page content -->
-<h1 id="insertion-sort">Insertion sort<a class="headerlink" href="#insertion-sort" title="Permanent link">¶</a></h1>
-<p><u>Insertion sort</u> is a simple sorting algorithm that works very much like the process of manually sorting a deck of cards.</p>
-<p>Specifically, we select a base element from the unsorted interval, compare it with the elements in the sorted interval to its left, and insert the element into the correct position.</p>
-<p>The figure below illustrates how an element is inserted into the array. Assuming the base element is <code>base</code>, we need to shift all elements from the target index up to <code>base</code> one position to the right, then assign <code>base</code> to the target index.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../insertion_sort.assets/insertion_operation.png" data-desc-position="bottom"><img alt="Single insertion operation" src="../insertion_sort.assets/insertion_operation.png"></a></p>
-<h2 id="algorithm-process">Algorithm process<a class="headerlink" href="#algorithm-process" title="Permanent link">¶</a></h2>
-<p>The overall process of insertion sort is shown in the figure below.</p>
+<h1 id="114-insertion-sort">11.4 &nbsp; Insertion sort<a class="headerlink" href="#114-insertion-sort" title="Permanent link">¶</a></h1>
+<p><u>Insertion sort</u> là một thuật toán sắp xếp đơn giản, hoạt động rất giống
+với quá trình sắp xếp thủ công một bộ bài.</p>
+<p>Cụ thể, chúng ta chọn một phần tử cơ sở từ khoảng chưa sắp xếp, so sánh
+nó với các phần tử trong khoảng đã sắp xếp ở bên trái nó, và chèn phần tử
+vào vị trí chính xác.</p>
+<p>Hình 11-6 minh họa cách một phần tử được chèn vào array. Giả sử phần tử
+cơ sở là <code>base</code>, chúng ta cần dịch chuyển tất cả các phần tử từ chỉ số
+mục tiêu cho đến <code>base</code> sang phải một vị trí, sau đó gán <code>base</code> vào chỉ
+số mục tiêu.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../insertion_sort.assets/insertion_operation.png" data-desc-position="bottom"><img alt="Single insertion operation" class="animation-figure" src="../insertion_sort.assets/insertion_operation.png"></a></p>
+<p align="center"> Hình 11-6 &nbsp; Thao tác chèn đơn lẻ </p>
+
+<p>```markdown</p>
+<h2 id="1141-quy-trinh-thuat-toan">11.4.1 &nbsp; Quy trình thuật toán<a class="headerlink" href="#1141-quy-trinh-thuat-toan" title="Permanent link">¶</a></h2>
+<p>Quy trình tổng thể của insertion sort được thể hiện trong Hình 11-7.</p>
 <ol>
-<li>Consider the first element of the array as sorted.</li>
-<li>Select the second element as <code>base</code>, insert it into its correct position, <strong>leaving the first two elements sorted</strong>.</li>
-<li>Select the third element as <code>base</code>, insert it into its correct position, <strong>leaving the first three elements sorted</strong>.</li>
-<li>Continuing in this manner, in the final iteration, the last element is taken as <code>base</code>, and after inserting it into the correct position, <strong>all elements are sorted</strong>.</li>
+<li>Coi phần tử đầu tiên của array là đã sắp xếp.</li>
+<li>Chọn phần tử thứ hai làm <code>base</code>, chèn nó vào vị trí đúng, <strong>khiến hai phần tử
+   đầu tiên được sắp xếp</strong>.</li>
+<li>Chọn phần tử thứ ba làm <code>base</code>, chèn nó vào vị trí đúng, <strong>khiến ba phần tử
+   đầu tiên được sắp xếp</strong>.</li>
+<li>Tiếp tục theo cách này, trong lần lặp cuối cùng, phần tử cuối cùng được lấy
+   làm <code>base</code>, và sau khi chèn nó vào vị trí đúng, <strong>tất cả các phần tử được
+   sắp xếp</strong>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../insertion_sort.assets/insertion_sort_overview.png" data-desc-position="bottom"><img alt="Insertion sort process" src="../insertion_sort.assets/insertion_sort_overview.png"></a></p>
-<p>Example code is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{insertion_sort}-[class]{}-[func]{insertion_sort}
-</code></pre></div>
-<h2 id="algorithm-characteristics">Algorithm characteristics<a class="headerlink" href="#algorithm-characteristics" title="Permanent link">¶</a></h2>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../insertion_sort.assets/insertion_sort_overview.png" data-desc-position="bottom"><img alt="Insertion sort process" class="animation-figure" src="../insertion_sort.assets/insertion_sort_overview.png"></a></p>
+<p align="center"> Hình 11-7 &nbsp; Quy trình Insertion sort </p>
+
+<p>Ví dụ code như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><input id="__tabbed_1_14" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><code>python title="insertion_sort.py"
+def insertion_sort(nums: list[int]):
+    """Insertion sort"""
+    # Vòng lặp ngoài: khoảng đã sắp xếp là [0, i-1]
+    for i in range(1, len(nums)):
+        base = nums[i]
+        j = i - 1
+        # Vòng lặp trong: chèn base vào vị trí đúng trong khoảng đã sắp xếp [0, i-1]
+        while j &gt;= 0 and nums[j] &gt; base:
+            nums[j + 1] = nums[j]  # Di chuyển nums[j] sang phải một vị trí
+            j -= 1
+        nums[j + 1] = base  # Gán base vào vị trí đúng</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>cpp title="insertion_sort.cpp"
+/* Insertion sort */
+void insertionSort(vector&lt;int&gt; &amp;nums) {
+    // Vòng lặp ngoài: khoảng đã sắp xếp là [0, i-1]
+    for (int i = 1; i &lt; nums.size(); i++) {
+        int base = nums[i], j = i - 1;
+        // Vòng lặp trong: chèn base vào vị trí đúng trong khoảng đã sắp xếp [0, i-1]
+        while (j &gt;= 0 &amp;&amp; nums[j] &gt; base) {
+            nums[j + 1] = nums[j]; // Di chuyển nums[j] sang phải một vị trí
+            j--;
+        }
+        nums[j + 1] = base; // Gán base vào vị trí đúng
+    }
+}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>java title="insertion_sort.java"
+/* Insertion sort */
+void insertionSort(int[] nums) {
+    // Vòng lặp ngoài: khoảng đã sắp xếp là [0, i-1]
+    for (int i = 1; i &lt; nums.length; i++) {
+        int base = nums[i], j = i - 1;
+        // Vòng lặp trong: chèn base vào vị trí đúng trong khoảng đã sắp xếp [0, i-1]
+        while (j &gt;= 0 &amp;&amp; nums[j] &gt; base) {
+            nums[j + 1] = nums[j]; // Di chuyển nums[j] sang phải một vị trí
+            j--;
+        }
+        nums[j + 1] = base;        // Gán base vào vị trí đúng
+    }
+}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>csharp title="insertion_sort.cs"
+[class]{insertion_sort}-[func]{InsertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>go title="insertion_sort.go"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>swift title="insertion_sort.swift"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>javascript title="insertion_sort.js"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>typescript title="insertion_sort.ts"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>dart title="insertion_sort.dart"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>rust title="insertion_sort.rs"
+[class]{}-[func]{insertion_sort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>c title="insertion_sort.c"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>kotlin title="insertion_sort.kt"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>ruby title="insertion_sort.rb"
+[class]{}-[func]{insertion_sort}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>zig title="insertion_sort.zig"
+[class]{}-[func]{insertionSort}</code></p>
+</div>
+</div>
+</div>
+<h2 id="1142-ac-iem-thuat-toan">11.4.2 &nbsp; Đặc điểm thuật toán<a class="headerlink" href="#1142-ac-iem-thuat-toan" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Time complexity is <span class="arithmatex">\(O(n^2)\)</span>, adaptive sorting</strong>: In the worst case, each insertion operation requires <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(n-2\)</span>, ..., <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span> loops, summing up to <span class="arithmatex">\((n - 1) n / 2\)</span>, thus the time complexity is <span class="arithmatex">\(O(n^2)\)</span>. In the case of ordered data, the insertion operation will terminate early. When the input array is completely ordered, insertion sort achieves the best time complexity of <span class="arithmatex">\(O(n)\)</span>.</li>
-<li><strong>Space complexity is <span class="arithmatex">\(O(1)\)</span>, in-place sorting</strong>: Pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> use a constant amount of extra space.</li>
-<li><strong>Stable sorting</strong>: During the insertion operation, we insert elements to the right of equal elements, not changing their order.</li>
+<li><strong>Time complexity là <span class="arithmatex">\(O(n^2)\)</span>, sắp xếp thích nghi</strong>: Trong trường hợp worst case,
+  mỗi thao tác chèn yêu cầu <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(n-2\)</span>, ..., <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span> vòng lặp,
+  tổng cộng là <span class="arithmatex">\((n - 1) n / 2\)</span>, do đó, time complexity là <span class="arithmatex">\(O(n^2)\)</span>.
+  Trong trường hợp dữ liệu đã được sắp xếp, thao tác chèn sẽ kết thúc sớm.
+  Khi input array được sắp xếp hoàn toàn, insertion sort đạt được best
+  time complexity là <span class="arithmatex">\(O(n)\)</span>.</li>
+<li><strong>Space complexity là <span class="arithmatex">\(O(1)\)</span>, sắp xếp tại chỗ</strong>: Các con trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span>
+  sử dụng một lượng không gian bổ sung cố định.</li>
+<li><strong>Sắp xếp ổn định</strong>: Trong quá trình thao tác chèn, chúng ta chèn các
+  phần tử vào bên phải của các phần tử bằng nhau, mà không thay đổi thứ tự của chúng.</li>
 </ul>
-<h2 id="advantages-of-insertion-sort">Advantages of insertion sort<a class="headerlink" href="#advantages-of-insertion-sort" title="Permanent link">¶</a></h2>
-<p>The time complexity of insertion sort is <span class="arithmatex">\(O(n^2)\)</span>, while the time complexity of quicksort, which we will study next, is <span class="arithmatex">\(O(n \log n)\)</span>. Although insertion sort has a higher time complexity, <strong>it is usually faster in small input sizes</strong>.</p>
-<p>This conclusion is similar to that for linear and binary search. Algorithms like quicksort that have a time complexity of <span class="arithmatex">\(O(n \log n)\)</span> and are based on the divide-and-conquer strategy often involve more unit operations. For small input sizes, the numerical values of <span class="arithmatex">\(n^2\)</span> and <span class="arithmatex">\(n \log n\)</span> are close, and complexity does not dominate, with the number of unit operations per round playing a decisive role.</p>
-<p>In fact, many programming languages (such as Java) use insertion sort within their built-in sorting functions. The general approach is: for long arrays, use sorting algorithms based on divide-and-conquer strategies, such as quicksort; for short arrays, use insertion sort directly.</p>
-<p>Although bubble sort, selection sort, and insertion sort all have a time complexity of <span class="arithmatex">\(O(n^2)\)</span>, in practice, <strong>insertion sort is commonly used than bubble sort and selection sort</strong>, mainly for the following reasons.</p>
+<h2 id="1143-uu-iem-cua-insertion-sort">11.4.3 &nbsp; Ưu điểm của insertion sort<a class="headerlink" href="#1143-uu-iem-cua-insertion-sort" title="Permanent link">¶</a></h2>
+<p>Time complexity của insertion sort là <span class="arithmatex">\(O(n^2)\)</span>, trong khi time complexity
+của quicksort, mà chúng ta sẽ nghiên cứu tiếp theo, là <span class="arithmatex">\(O(n \log n)\)</span>.
+Mặc dù insertion sort có time complexity cao hơn, <strong>nó thường nhanh hơn
+với các kích thước đầu vào nhỏ</strong>.</p>
+<p>Kết luận này tương tự như đối với linear search và binary search. Các thuật
+toán như quicksort có time complexity là <span class="arithmatex">\(O(n \log n)\)</span> và dựa trên chiến
+lược divide-and-conquer thường liên quan đến nhiều thao tác đơn vị hơn.
+Đối với các kích thước đầu vào nhỏ, các giá trị số học của <span class="arithmatex">\(n^2\)</span> và
+<span class="arithmatex">\(n \log n\)</span> gần nhau, và complexity không chiếm ưu thế, với số lượng thao tác
+đơn vị mỗi vòng đóng vai trò quyết định.</p>
+<p>Trên thực tế, nhiều ngôn ngữ lập trình (như Java) sử dụng insertion sort
+trong các hàm sắp xếp tích hợp của chúng. Cách tiếp cận chung là: đối với
+các array dài, sử dụng các thuật toán sắp xếp dựa trên chiến lược
+divide-and-conquer, chẳng hạn như quicksort; đối với các array ngắn, sử dụng
+insertion sort trực tiếp.</p>
+<p>Mặc dù bubble sort, selection sort và insertion sort đều có time complexity
+là <span class="arithmatex">\(O(n^2)\)</span>, trên thực tế, <strong>insertion sort được sử dụng phổ biến hơn
+bubble sort và selection sort</strong>, chủ yếu vì những lý do sau.</p>
 <ul>
-<li>Bubble sort is based on element swapping, which requires the use of a temporary variable, involving 3 unit operations; insertion sort is based on element assignment, requiring only 1 unit operation. Therefore, <strong>the computational overhead of bubble sort is generally higher than that of insertion sort</strong>.</li>
-<li>The time complexity of selection sort is always <span class="arithmatex">\(O(n^2)\)</span>. <strong>Given a set of partially ordered data, insertion sort is usually more efficient than selection sort</strong>.</li>
-<li>Selection sort is unstable and cannot be applied to multi-level sorting.</li>
+<li>Bubble sort dựa trên việc hoán đổi phần tử, đòi hỏi sử dụng một biến
+  tạm thời, liên quan đến 3 thao tác đơn vị; insertion sort dựa trên việc
+  gán phần tử, chỉ cần 1 thao tác đơn vị. Do đó, <strong>overhead tính toán của
+  bubble sort nói chung cao hơn insertion sort</strong>.</li>
+<li>Time complexity của selection sort luôn là <span class="arithmatex">\(O(n^2)\)</span>. <strong>Với một tập hợp
+  dữ liệu được sắp xếp một phần, insertion sort thường hiệu quả hơn
+  selection sort</strong>.</li>
+<li>Selection sort không ổn định và không thể áp dụng cho việc sắp xếp đa cấp.</li>
 </ul>
 
 

@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#summary" class="md-skip">
+        <a href="#1111-tom-tat" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2244,6 +2244,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 11. Sorting
   </span>
@@ -2530,18 +2532,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-review" class="md-nav__link">
+  <a href="#1-tong-quan-chinh" class="md-nav__link">
     <span class="md-ellipsis">
-      Key review
+      1. &nbsp; Tổng quan chính
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q-a" class="md-nav__link">
+  <a href="#2-hoi-ap" class="md-nav__link">
     <span class="md-ellipsis">
-      Q &amp; A
+      2. &nbsp; Hỏi &amp; Đáp
     </span>
   </a>
   
@@ -3522,18 +3524,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-review" class="md-nav__link">
+  <a href="#1-tong-quan-chinh" class="md-nav__link">
     <span class="md-ellipsis">
-      Key review
+      1. &nbsp; Tổng quan chính
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#q-a" class="md-nav__link">
+  <a href="#2-hoi-ap" class="md-nav__link">
     <span class="md-ellipsis">
-      Q &amp; A
+      2. &nbsp; Hỏi &amp; Đáp
     </span>
   </a>
   
@@ -3571,36 +3573,97 @@
 
 
 <!-- Page content -->
-<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h1>
-<h3 id="key-review">Key review<a class="headerlink" href="#key-review" title="Permanent link">¶</a></h3>
+<h1 id="1111-tom-tat">11.11 &nbsp; Tóm tắt<a class="headerlink" href="#1111-tom-tat" title="Permanent link">¶</a></h1>
+<h3 id="1-tong-quan-chinh">1. &nbsp; Tổng quan chính<a class="headerlink" href="#1-tong-quan-chinh" title="Permanent link">¶</a></h3>
 <ul>
-<li>Bubble sort works by swapping adjacent elements. By adding a flag to enable early return, we can optimize the best-case time complexity of bubble sort to <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>Insertion sort sorts each round by inserting elements from the unsorted interval into the correct position in the sorted interval. Although the time complexity of insertion sort is <span class="arithmatex">\(O(n^2)\)</span>, it is very popular in sorting small amounts of data due to relatively fewer operations per unit.</li>
-<li>Quick sort is based on sentinel partitioning operations. In sentinel partitioning, it's possible to always pick the worst pivot, leading to a time complexity degradation to <span class="arithmatex">\(O(n^2)\)</span>. Introducing median or random pivots can reduce the probability of such degradation. Tail recursion effectively reduce the recursion depth, optimizing the space complexity to <span class="arithmatex">\(O(\log n)\)</span>.</li>
-<li>Merge sort includes dividing and merging two phases, typically embodying the divide-and-conquer strategy. In merge sort, sorting an array requires creating auxiliary arrays, resulting in a space complexity of <span class="arithmatex">\(O(n)\)</span>; however, the space complexity for sorting a list can be optimized to <span class="arithmatex">\(O(1)\)</span>.</li>
-<li>Bucket sort consists of three steps: distributing data into buckets, sorting within each bucket, and merging results in bucket order. It also embodies the divide-and-conquer strategy, suitable for very large datasets. The key to bucket sort is the even distribution of data.</li>
-<li>Counting sort is a variant of bucket sort, which sorts by counting the occurrences of each data point. Counting sort is suitable for large datasets with a limited range of data and requires data conversion to positive integers.</li>
-<li>Radix sort processes data by sorting it digit by digit, requiring data to be represented as fixed-length numbers.</li>
-<li>Overall, we seek sorting algorithm that has high efficiency, stability, in-place operation, and adaptability. However, like other data structures and algorithms, no sorting algorithm can meet all these conditions simultaneously. In practical applications, we need to choose the appropriate sorting algorithm based on the characteristics of the data.</li>
-<li>The figure below compares mainstream sorting algorithms in terms of efficiency, stability, in-place nature, and adaptability.</li>
+<li>Bubble sort hoạt động bằng cách hoán đổi các phần tử liền kề. Bằng cách thêm một
+cờ để bật tính năng trả về sớm, chúng ta có thể tối ưu hóa time complexity
+trường hợp tốt nhất của bubble sort thành <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>Insertion sort sắp xếp mỗi vòng bằng cách chèn các phần tử từ khoảng chưa sắp
+xếp vào vị trí chính xác trong khoảng đã sắp xếp. Mặc dù time complexity
+của insertion sort là <span class="arithmatex">\(O(n^2)\)</span>, nó rất phổ biến trong việc sắp xếp lượng
+dữ liệu nhỏ do số lượng thao tác tương đối ít hơn trên mỗi đơn vị.</li>
+<li>Quick sort dựa trên các thao tác sentinel partitioning. Trong sentinel
+partitioning, có thể luôn chọn pivot tồi tệ nhất, dẫn đến sự suy giảm
+time complexity thành <span class="arithmatex">\(O(n^2)\)</span>. Việc giới thiệu median hoặc random pivot
+có thể giảm khả năng xảy ra sự suy giảm này. Tail recursion giảm độ sâu
+recursion một cách hiệu quả, tối ưu hóa space complexity thành <span class="arithmatex">\(O(\log n)\)</span>.</li>
+<li>Merge sort bao gồm hai giai đoạn chia và trộn, thường thể hiện chiến lược
+divide-and-conquer. Trong merge sort, việc sắp xếp một array yêu cầu tạo
+các array phụ trợ, dẫn đến space complexity là <span class="arithmatex">\(O(n)\)</span>; tuy nhiên, space
+complexity để sắp xếp một list có thể được tối ưu hóa thành <span class="arithmatex">\(O(1)\)</span>.</li>
+<li>Bucket sort gồm ba bước: phân phối dữ liệu vào các bucket, sắp xếp trong
+từng bucket, và trộn các kết quả theo thứ tự bucket. Nó cũng thể hiện chiến
+lược divide-and-conquer, phù hợp cho các tập dữ liệu rất lớn. Chìa khóa
+của bucket sort là sự phân bố dữ liệu đồng đều.</li>
+<li>Counting sort là một biến thể của bucket sort, sắp xếp bằng cách đếm số
+lần xuất hiện của mỗi điểm dữ liệu. Counting sort phù hợp cho các tập dữ
+liệu lớn với một phạm vi dữ liệu giới hạn và yêu cầu chuyển đổi dữ liệu
+thành số nguyên dương.</li>
+<li>Radix sort xử lý dữ liệu bằng cách sắp xếp từng chữ số, yêu cầu dữ liệu
+được biểu diễn dưới dạng các số có độ dài cố định.</li>
+<li>Nhìn chung, chúng ta tìm kiếm các thuật toán sắp xếp có hiệu suất cao, ổn
+định, hoạt động tại chỗ (in-place) và khả năng thích ứng. Tuy nhiên, giống
+như các cấu trúc dữ liệu và thuật toán khác, không có thuật toán sắp xếp
+nào có thể đáp ứng tất cả các điều kiện này cùng một lúc. Trong các ứng
+dụng thực tế, chúng ta cần chọn thuật toán sắp xếp phù hợp dựa trên đặc
+điểm của dữ liệu.</li>
+<li>Hình 11-19 so sánh các thuật toán sắp xếp chính về hiệu suất, tính ổn định,
+tính chất tại chỗ (in-place) và khả năng thích ứng.</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../summary.assets/sorting_algorithms_comparison.png" data-desc-position="bottom"><img alt="Sorting Algorithm Comparison" src="../summary.assets/sorting_algorithms_comparison.png"></a></p>
-<h3 id="q-a">Q &amp; A<a class="headerlink" href="#q-a" title="Permanent link">¶</a></h3>
-<p><strong>Q</strong>: When is the stability of sorting algorithms necessary?</p>
-<p>In reality, we might sort based on one attribute of an object. For example, students have names and heights as attributes, and we aim to implement multi-level sorting: first by name to get <code>(A, 180) (B, 185) (C, 170) (D, 170)</code>; then by height. Because the sorting algorithm is unstable, we might end up with <code>(D, 170) (C, 170) (A, 180) (B, 185)</code>.</p>
-<p>It can be seen that the positions of students D and C have been swapped, disrupting the orderliness of the names, which is undesirable.</p>
-<p><strong>Q</strong>: Can the order of "searching from right to left" and "searching from left to right" in sentinel partitioning be swapped?</p>
-<p>No, when using the leftmost element as the pivot, we must first "search from right to left" then "search from left to right". This conclusion is somewhat counterintuitive, so let's analyze the reason.</p>
-<p>The last step of the sentinel partition <code>partition()</code> is to swap <code>nums[left]</code> and <code>nums[i]</code>. After the swap, the elements to the left of the pivot are all <code>&lt;=</code> the pivot, <strong>which requires that <code>nums[left] &gt;= nums[i]</code> must hold before the last swap</strong>. Suppose we "search from left to right" first, and if no element larger than the pivot is found, <strong>we will exit the loop when <code>i == j</code>, possibly with <code>nums[j] == nums[i] &gt; nums[left]</code></strong>. In other words, the final swap operation will exchange an element larger than the pivot to the left end of the array, causing the sentinel partition to fail.</p>
-<p>For example, given the array <code>[0, 0, 0, 0, 1]</code>, if we first "search from left to right", the array after the sentinel partition is <code>[1, 0, 0, 0, 0]</code>, which is incorrect.</p>
-<p>Upon further consideration, if we choose <code>nums[right]</code> as the pivot, then exactly the opposite, we must first "search from left to right".</p>
-<p><strong>Q</strong>: Regarding tail recursion optimization, why does choosing the shorter array ensure that the recursion depth does not exceed <span class="arithmatex">\(\log n\)</span>?</p>
-<p>The recursion depth is the number of currently unreturned recursive methods. Each round of sentinel partition divides the original array into two subarrays. With tail recursion optimization, the length of the subarray to be recursively followed is at most half of the original array length. Assuming the worst case always halves the length, the final recursion depth will be <span class="arithmatex">\(\log n\)</span>.</p>
-<p>Reviewing the original quicksort, we might continuously recursively process larger arrays, in the worst case from <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, ..., <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>, with a recursion depth of <span class="arithmatex">\(n\)</span>. Tail recursion optimization can avoid this scenario.</p>
-<p><strong>Q</strong>: When all elements in the array are equal, is the time complexity of quicksort <span class="arithmatex">\(O(n^2)\)</span>? How should this degenerate case be handled?</p>
-<p>Yes. For this situation, consider using sentinel partitioning to divide the array into three parts: less than, equal to, and greater than the pivot. Only recursively proceed with the less than and greater than parts. In this method, an array where all input elements are equal can be sorted in just one round of sentinel partitioning.</p>
-<p><strong>Q</strong>: Why is the worst-case time complexity of bucket sort <span class="arithmatex">\(O(n^2)\)</span>?</p>
-<p>In the worst case, all elements are placed in the same bucket. If we use an <span class="arithmatex">\(O(n^2)\)</span> algorithm to sort these elements, the time complexity will be <span class="arithmatex">\(O(n^2)\)</span>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../summary.assets/sorting_algorithms_comparison.png" data-desc-position="bottom"><img alt="Sorting Algorithm Comparison" class="animation-figure" src="../summary.assets/sorting_algorithms_comparison.png"></a></p>
+<p align="center"> Hình 11-19 &nbsp; So sánh các thuật toán sắp xếp </p>
+
+<h3 id="2-hoi-ap">2. &nbsp; Hỏi &amp; Đáp<a class="headerlink" href="#2-hoi-ap" title="Permanent link">¶</a></h3>
+<p><strong>Hỏi</strong>: Khi nào thì tính ổn định của các thuật toán sắp xếp là cần thiết?</p>
+<p>Trong thực tế, chúng ta có thể sắp xếp dựa trên một thuộc tính của một đối
+tượng. Ví dụ, sinh viên có tên và chiều cao làm thuộc tính, và chúng ta muốn
+triển khai sắp xếp đa cấp: đầu tiên theo tên để có
+<code>(A, 180) (B, 185) (C, 170) (D, 170)</code>; sau đó theo chiều cao. Bởi vì thuật toán
+sắp xếp không ổn định, chúng ta có thể kết thúc với
+<code>(D, 170) (C, 170) (A, 180) (B, 185)</code>.</p>
+<p>Có thể thấy rằng vị trí của học sinh D và C đã bị hoán đổi, làm phá vỡ tính
+trật tự của các tên, điều này là không mong muốn.</p>
+<p><strong>Hỏi</strong>: Thứ tự "tìm kiếm từ phải sang trái" và "tìm kiếm từ trái sang phải"
+trong sentinel partitioning có thể hoán đổi được không?</p>
+<p>Không, khi sử dụng phần tử ngoài cùng bên trái làm pivot, chúng ta phải
+"tìm kiếm từ phải sang trái" trước, sau đó mới "tìm kiếm từ trái sang phải".
+Kết luận này có vẻ hơi phản trực giác, vì vậy hãy cùng phân tích lý do.</p>
+<p>Bước cuối cùng của sentinel partition <code>partition()</code> là hoán đổi <code>nums[left]</code>
+và <code>nums[i]</code>. Sau khi hoán đổi, các phần tử bên trái pivot đều <code>&lt;=</code> pivot,
+<strong>điều này yêu cầu <code>nums[left] &gt;= nums[i]</code> phải đúng trước khi hoán đổi cuối cùng</strong>.
+Giả sử chúng ta "tìm kiếm từ trái sang phải" trước, và nếu không tìm thấy phần tử
+nào lớn hơn pivot, <strong>chúng ta sẽ thoát vòng lặp khi <code>i == j</code>, có thể với
+<code>nums[j] == nums[i] &gt; nums[left]</code></strong>. Nói cách khác, thao tác hoán đổi cuối cùng
+sẽ trao đổi một phần tử lớn hơn pivot sang đầu bên trái của array, khiến cho
+sentinel partition thất bại.</p>
+<p>Ví dụ, với array <code>[0, 0, 0, 0, 1]</code>, nếu chúng ta "tìm kiếm từ trái sang phải"
+trước, thì array sau sentinel partition là <code>[1, 0, 0, 0, 0]</code>, điều này là không
+chính xác.</p>
+<p>Khi xem xét thêm, nếu chúng ta chọn <code>nums[right]</code> làm pivot, thì ngược lại
+hoàn toàn, chúng ta phải "tìm kiếm từ trái sang phải" trước.</p>
+<p><strong>Hỏi</strong>: Về tối ưu hóa tail recursion, tại sao việc chọn array ngắn hơn
+đảm bảo độ sâu đệ quy không vượt quá <span class="arithmatex">\(\log n\)</span>?</p>
+<p>Độ sâu đệ quy là số lượng phương thức đệ quy hiện tại chưa được trả về.
+Mỗi vòng sentinel partition chia array ban đầu thành hai subarrays. Với tối
+ưu hóa tail recursion, độ dài của subarray được tiếp tục đệ quy tối đa bằng
+một nửa độ dài array ban đầu. Giả sử trường hợp worst case luôn giảm một nửa
+độ dài, thì độ sâu đệ quy cuối cùng sẽ là <span class="arithmatex">\(\log n\)</span>.</p>
+<p>Khi xem xét lại quicksort ban đầu, chúng ta có thể liên tục đệ quy xử lý
+các array lớn hơn, trong trường hợp worst case từ <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, ..., <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(1\)</span>,
+với độ sâu đệ quy là <span class="arithmatex">\(n\)</span>. Tối ưu hóa tail recursion có thể tránh được kịch bản này.</p>
+<p><strong>Hỏi</strong>: Khi tất cả các phần tử trong array bằng nhau, time complexity của
+quicksort có phải là <span class="arithmatex">\(O(n^2)\)</span> không? Trường hợp suy biến này nên được xử lý
+như thế nào?</p>
+<p>Có. Đối với tình huống này, hãy xem xét sử dụng sentinel partitioning để
+chia array thành ba phần: nhỏ hơn pivot, bằng pivot và lớn hơn pivot. Chỉ đệ
+quy tiếp tục với các phần nhỏ hơn và lớn hơn. Bằng phương pháp này, một array
+mà tất cả các phần tử đầu vào bằng nhau có thể được sắp xếp chỉ trong một vòng
+sentinel partitioning.</p>
+<p><strong>Hỏi</strong>: Tại sao worst-case time complexity của bucket sort lại là <span class="arithmatex">\(O(n^2)\)</span>?</p>
+<p>Trong trường hợp worst case, tất cả các phần tử được đặt vào cùng một bucket.
+Nếu chúng ta sử dụng một thuật toán <span class="arithmatex">\(O(n^2)\)</span> để sắp xếp các phần tử này,
+time complexity sẽ là <span class="arithmatex">\(O(n^2)\)</span>.</p>
 
 
 

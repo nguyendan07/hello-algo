@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sorting-algorithms" class="md-skip">
+        <a href="#111-thuat-toan-sap-xep" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2244,6 +2244,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 11. Sorting
   </span>
@@ -2320,18 +2322,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#evaluation-dimensions" class="md-nav__link">
+  <a href="#1111-tieu-chi-anh-gia" class="md-nav__link">
     <span class="md-ellipsis">
-      Evaluation dimensions
+      11.1.1 &nbsp; Tiêu chí đánh giá
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ideal-sorting-algorithm" class="md-nav__link">
+  <a href="#1112-thuat-toan-sap-xep-ly-tuong" class="md-nav__link">
     <span class="md-ellipsis">
-      Ideal sorting algorithm
+      11.1.2 &nbsp; Thuật toán sắp xếp lý tưởng
     </span>
   </a>
   
@@ -3522,18 +3524,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#evaluation-dimensions" class="md-nav__link">
+  <a href="#1111-tieu-chi-anh-gia" class="md-nav__link">
     <span class="md-ellipsis">
-      Evaluation dimensions
+      11.1.1 &nbsp; Tiêu chí đánh giá
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ideal-sorting-algorithm" class="md-nav__link">
+  <a href="#1112-thuat-toan-sap-xep-ly-tuong" class="md-nav__link">
     <span class="md-ellipsis">
-      Ideal sorting algorithm
+      11.1.2 &nbsp; Thuật toán sắp xếp lý tưởng
     </span>
   </a>
   
@@ -3571,16 +3573,34 @@
 
 
 <!-- Page content -->
-<h1 id="sorting-algorithms">Sorting algorithms<a class="headerlink" href="#sorting-algorithms" title="Permanent link">¶</a></h1>
-<p><u>Sorting algorithms</u> are used to arrange a set of data in a specific order. Sorting algorithms have a wide range of applications because ordered data can usually be searched, analyzed, and processed more efficiently.</p>
-<p>As shown in the figure below, the data types in sorting algorithms can be integers, floating point numbers, characters, or strings, etc. Sorting criterion can be set according to needs, such as numerical size, character ASCII order, or custom criterion.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../sorting_algorithm.assets/sorting_examples.png" data-desc-position="bottom"><img alt="Data types and comparator examples" src="../sorting_algorithm.assets/sorting_examples.png"></a></p>
-<h2 id="evaluation-dimensions">Evaluation dimensions<a class="headerlink" href="#evaluation-dimensions" title="Permanent link">¶</a></h2>
-<p><strong>Execution efficiency</strong>: We expect the time complexity of sorting algorithms to be as low as possible, as well as a lower number of overall operations (lowering the constant term of time complexity). For large data volumes, execution efficiency is particularly important.</p>
-<p><strong>In-place property</strong>: As the name implies, <u>in-place sorting</u> is achieved by directly manipulating the original array, without the need for additional helper arrays, thus saving memory. Generally, in-place sorting involves fewer data moving operations and is faster.</p>
-<p><strong>Stability</strong>: <u>Stable sorting</u> ensures that the relative order of equal elements in the array does not change after sorting.</p>
-<p>Stable sorting is a necessary condition for multi-key sorting scenarios. Suppose we have a table storing student information, with the first and second columns being name and age, respectively. In this case, <u>unstable sorting</u> might lead to a loss of order in the input data:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Input data is sorted by name</span>
+<h1 id="111-thuat-toan-sap-xep">11.1 &nbsp; Thuật toán sắp xếp<a class="headerlink" href="#111-thuat-toan-sap-xep" title="Permanent link">¶</a></h1>
+<p><u>Thuật toán sắp xếp</u> được sử dụng để sắp xếp một tập hợp dữ liệu theo
+một thứ tự cụ thể. Các thuật toán sắp xếp có nhiều ứng dụng rộng rãi vì
+dữ liệu đã được sắp xếp thường có thể được tìm kiếm, phân tích và xử lý
+hiệu quả hơn.</p>
+<p>Như được hiển thị trong Hình 11-1, các kiểu dữ liệu trong các thuật toán
+sắp xếp có thể là số nguyên, số thực, ký tự hoặc chuỗi, v.v. Tiêu chí
+sắp xếp có thể được đặt theo nhu cầu, chẳng hạn như kích thước số, thứ
+tự ASCII của ký tự hoặc tiêu chí tùy chỉnh.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../sorting_algorithm.assets/sorting_examples.png" data-desc-position="bottom"><img alt="Data types and comparator examples" class="animation-figure" src="../sorting_algorithm.assets/sorting_examples.png"></a></p>
+<p align="center"> Hình 11-1 &nbsp; Ví dụ về kiểu dữ liệu và bộ so sánh </p>
+
+<h2 id="1111-tieu-chi-anh-gia">11.1.1 &nbsp; Tiêu chí đánh giá<a class="headerlink" href="#1111-tieu-chi-anh-gia" title="Permanent link">¶</a></h2>
+<p><strong>Hiệu suất thực thi</strong>: Chúng ta mong muốn time complexity của các sorting algorithm
+càng thấp càng tốt, cũng như tổng số thao tác ít hơn (giảm hệ số hằng số
+của time complexity). Đối với khối lượng dữ liệu lớn, hiệu suất thực thi đặc
+biệt quan trọng.</p>
+<p><strong>Thuộc tính tại chỗ</strong>: Đúng như tên gọi, <u>in-place sorting</u> (sắp xếp tại chỗ)
+được thực hiện bằng cách thao tác trực tiếp trên array gốc, không cần đến
+các array hỗ trợ bổ sung, do đó tiết kiệm bộ nhớ. Nhìn chung, in-place sorting
+liên quan đến ít thao tác di chuyển dữ liệu hơn và nhanh hơn.</p>
+<p><strong>Tính ổn định</strong>: <u>Stable sorting</u> (sắp xếp ổn định) đảm bảo rằng thứ tự
+tương đối của các phần tử bằng nhau trong array không thay đổi sau khi sắp xếp.</p>
+<p>Stable sorting là một điều kiện cần thiết cho các kịch bản sắp xếp đa khóa.
+Giả sử chúng ta có một bảng lưu trữ thông tin sinh viên, với cột thứ nhất
+và thứ hai lần lượt là tên và tuổi. Trong trường hợp này, <u>unstable sorting</u>
+(sắp xếp không ổn định) có thể dẫn đến việc mất trật tự trong dữ liệu đầu vào:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Dữ liệu đầu vào đã được sắp xếp theo tên</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (name, age)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="o">(</span><span class="s1">'A'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="o">(</span><span class="s1">'B'</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
@@ -3588,20 +3608,34 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="o">(</span><span class="s1">'D'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="o">(</span><span class="s1">'E'</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Assuming an unstable sorting algorithm is used to sort the list by age,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># the result changes the relative position of ('D', 19) and ('A', 19),</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># and the property of the input data being sorted by name is lost</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Giả sử một thuật toán sắp xếp không ổn định được sử dụng để sắp xếp danh sách theo tuổi,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># kết quả thay đổi vị trí tương đối của ('D', 19) và ('A', 19),</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># và thuộc tính dữ liệu đầu vào được sắp xếp theo tên bị mất</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="o">(</span><span class="s1">'B'</span>,<span class="w"> </span><span class="m">18</span><span class="o">)</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="o">(</span><span class="s1">'D'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="o">(</span><span class="s1">'A'</span>,<span class="w"> </span><span class="m">19</span><span class="o">)</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="o">(</span><span class="s1">'C'</span>,<span class="w"> </span><span class="m">21</span><span class="o">)</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="o">(</span><span class="s1">'E'</span>,<span class="w"> </span><span class="m">23</span><span class="o">)</span>
 </code></pre></div>
-<p><strong>Adaptability</strong>: <u>Adaptive sorting</u> leverages existing order information within the input data to reduce computational effort, achieving more optimal time efficiency. The best-case time complexity of adaptive sorting algorithms is typically better than their average-case time complexity.</p>
-<p><strong>Comparison or non-comparison-based</strong>: <u>Comparison-based sorting</u> relies on comparison operators (<span class="arithmatex">\(&lt;\)</span>, <span class="arithmatex">\(=\)</span>, <span class="arithmatex">\(&gt;\)</span>) to determine the relative order of elements and thus sort the entire array, with the theoretical optimal time complexity being <span class="arithmatex">\(O(n \log n)\)</span>. Meanwhile, <u>non-comparison sorting</u> does not use comparison operators and can achieve a time complexity of <span class="arithmatex">\(O(n)\)</span>, but its versatility is relatively poor.</p>
-<h2 id="ideal-sorting-algorithm">Ideal sorting algorithm<a class="headerlink" href="#ideal-sorting-algorithm" title="Permanent link">¶</a></h2>
-<p><strong>Fast execution, in-place, stable, adaptive, and versatile</strong>. Clearly, no sorting algorithm that combines all these features has been found to date. Therefore, when selecting a sorting algorithm, it is necessary to decide based on the specific characteristics of the data and the requirements of the problem.</p>
-<p>Next, we will learn about various sorting algorithms together and analyze the advantages and disadvantages of each based on the above evaluation dimensions.</p>
+<p><strong>Tính thích nghi</strong>: <u>Adaptive sorting</u> (sắp xếp thích nghi) tận dụng
+thông tin thứ tự hiện có trong dữ liệu đầu vào để giảm công sức tính toán,
+đạt được hiệu suất thời gian tối ưu hơn. Time complexity worst-case
+của các adaptive sorting algorithm thường tốt hơn time complexity average-case
+của chúng.</p>
+<p><strong>Dựa trên so sánh hay không dựa trên so sánh</strong>: <u>Comparison-based sorting</u>
+(sắp xếp dựa trên so sánh) dựa vào các toán tử so sánh (<span class="arithmatex">\(&lt;\)</span>, <span class="arithmatex">\(=\)</span>, <span class="arithmatex">\(&gt;\)</span>) để
+xác định thứ tự tương đối của các phần tử và từ đó sắp xếp toàn bộ array,
+với time complexity tối ưu về mặt lý thuyết là <span class="arithmatex">\(O(n \log n)\)</span>. Trong khi đó,
+<u>non-comparison sorting</u> (sắp xếp không dựa trên so sánh) không sử dụng
+các toán tử so sánh và có thể đạt được time complexity <span class="arithmatex">\(O(n)\)</span>, nhưng tính
+linh hoạt của nó tương đối kém.</p>
+<h2 id="1112-thuat-toan-sap-xep-ly-tuong">11.1.2 &nbsp; Thuật toán sắp xếp lý tưởng<a class="headerlink" href="#1112-thuat-toan-sap-xep-ly-tuong" title="Permanent link">¶</a></h2>
+<p><strong>Thực thi nhanh, tại chỗ, ổn định, linh hoạt và đa năng</strong>. Rõ ràng là, cho đến nay
+vẫn chưa có thuật toán sắp xếp nào kết hợp được tất cả các đặc điểm này.
+Do đó, khi chọn một thuật toán sắp xếp, cần phải quyết định dựa trên các đặc điểm
+cụ thể của dữ liệu và yêu cầu của bài toán.</p>
+<p>Tiếp theo, chúng ta sẽ cùng tìm hiểu về các thuật toán sắp xếp khác nhau và phân tích
+ưu nhược điểm của từng thuật toán dựa trên các tiêu chí đánh giá nêu trên.</p>
 
 
 
@@ -3617,7 +3651,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Sorting" rel="prev">
+  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Chương 11. &amp;nbsp; Sắp xếp" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3627,7 +3661,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        Sorting
+        Chương 11. &nbsp; Sắp xếp
       </div>
     </div>
   </a>
@@ -3680,7 +3714,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Sorting">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Chương 11. &amp;nbsp; Sắp xếp">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3690,7 +3724,7 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                Sorting
+                Chương 11. &nbsp; Sắp xếp
               </div>
             </div>
           </a>

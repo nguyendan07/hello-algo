@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#selection-sort" class="md-skip">
+        <a href="#112-selection-sort" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2244,6 +2244,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 11. Sorting
   </span>
@@ -2341,9 +2343,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#algorithm-characteristics" class="md-nav__link">
+  <a href="#1121-ac-iem-cua-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm characteristics
+      11.2.1 &nbsp; Đặc điểm của thuật toán
     </span>
   </a>
   
@@ -3513,9 +3515,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#algorithm-characteristics" class="md-nav__link">
+  <a href="#1121-ac-iem-cua-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm characteristics
+      11.2.1 &nbsp; Đặc điểm của thuật toán
     </span>
   </a>
   
@@ -3553,63 +3555,183 @@
 
 
 <!-- Page content -->
-<h1 id="selection-sort">Selection sort<a class="headerlink" href="#selection-sort" title="Permanent link">¶</a></h1>
-<p><u>Selection sort</u> works on a very simple principle: it uses a loop where each iteration selects the smallest element from the unsorted interval and moves it to the end of the sorted section.</p>
-<p>Suppose the length of the array is <span class="arithmatex">\(n\)</span>, the steps of selection sort is shown in the figure below.</p>
+<h1 id="112-selection-sort">11.2 &nbsp; Selection sort<a class="headerlink" href="#112-selection-sort" title="Permanent link">¶</a></h1>
+<p><u>Selection sort</u> hoạt động dựa trên một nguyên tắc rất đơn giản:
+nó sử dụng một vòng lặp, trong đó mỗi lần lặp sẽ chọn phần tử nhỏ nhất
+từ khoảng chưa sắp xếp và di chuyển nó đến cuối phần đã sắp xếp.</p>
+<p>Giả sử độ dài của array là <span class="arithmatex">\(n\)</span>, các bước của selection sort được minh
+họa trong Hình 11-2.</p>
 <ol>
-<li>Initially, all elements are unsorted, i.e., the unsorted (index) interval is <span class="arithmatex">\([0, n-1]\)</span>.</li>
-<li>Select the smallest element in the interval <span class="arithmatex">\([0, n-1]\)</span> and swap it with the element at index <span class="arithmatex">\(0\)</span>. After this, the first element of the array is sorted.</li>
-<li>Select the smallest element in the interval <span class="arithmatex">\([1, n-1]\)</span> and swap it with the element at index <span class="arithmatex">\(1\)</span>. After this, the first two elements of the array are sorted.</li>
-<li>Continue in this manner. After <span class="arithmatex">\(n - 1\)</span> rounds of selection and swapping, the first <span class="arithmatex">\(n - 1\)</span> elements are sorted.</li>
-<li>The only remaining element is subsequently the largest element and does not need sorting, thus the array is sorted.</li>
+<li>Ban đầu, tất cả các phần tử đều chưa được sắp xếp, tức là, khoảng
+chỉ số chưa sắp xếp là <span class="arithmatex">\([0, n-1]\)</span>.</li>
+<li>Chọn phần tử nhỏ nhất trong khoảng <span class="arithmatex">\([0, n-1]\)</span> và hoán đổi nó với
+phần tử tại index <span class="arithmatex">\(0\)</span>. Sau bước này, phần tử đầu tiên của array
+đã được sắp xếp.</li>
+<li>Chọn phần tử nhỏ nhất trong khoảng <span class="arithmatex">\([1, n-1]\)</span> và hoán đổi nó với
+phần tử tại index <span class="arithmatex">\(1\)</span>. Sau bước này, hai phần tử đầu tiên của array
+đã được sắp xếp.</li>
+<li>Tiếp tục theo cách này. Sau <span class="arithmatex">\(n - 1\)</span> vòng chọn và hoán đổi, <span class="arithmatex">\(n - 1\)</span>
+phần tử đầu tiên đã được sắp xếp.</li>
+<li>Phần tử duy nhất còn lại sau đó là phần tử lớn nhất và không cần
+sắp xếp, do đó array đã được sắp xếp.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step1.png" data-desc-position="bottom"><img alt="Selection sort process" src="../selection_sort.assets/selection_sort_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step1.png" data-desc-position="bottom"><img alt="Selection sort process" class="animation-figure" src="../selection_sort.assets/selection_sort_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step2.png" data-desc-position="bottom"><img alt="selection_sort_step2" src="../selection_sort.assets/selection_sort_step2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step2.png" data-desc-position="bottom"><img alt="selection_sort_step2" class="animation-figure" src="../selection_sort.assets/selection_sort_step2.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step3.png" data-desc-position="bottom"><img alt="selection_sort_step3" src="../selection_sort.assets/selection_sort_step3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step3.png" data-desc-position="bottom"><img alt="selection_sort_step3" class="animation-figure" src="../selection_sort.assets/selection_sort_step3.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step4.png" data-desc-position="bottom"><img alt="selection_sort_step4" src="../selection_sort.assets/selection_sort_step4.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step4.png" data-desc-position="bottom"><img alt="selection_sort_step4" class="animation-figure" src="../selection_sort.assets/selection_sort_step4.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step5.png" data-desc-position="bottom"><img alt="selection_sort_step5" src="../selection_sort.assets/selection_sort_step5.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step5.png" data-desc-position="bottom"><img alt="selection_sort_step5" class="animation-figure" src="../selection_sort.assets/selection_sort_step5.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step6.png" data-desc-position="bottom"><img alt="selection_sort_step6" src="../selection_sort.assets/selection_sort_step6.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step6.png" data-desc-position="bottom"><img alt="selection_sort_step6" class="animation-figure" src="../selection_sort.assets/selection_sort_step6.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step7.png" data-desc-position="bottom"><img alt="selection_sort_step7" src="../selection_sort.assets/selection_sort_step7.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step7.png" data-desc-position="bottom"><img alt="selection_sort_step7" class="animation-figure" src="../selection_sort.assets/selection_sort_step7.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step8.png" data-desc-position="bottom"><img alt="selection_sort_step8" src="../selection_sort.assets/selection_sort_step8.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step8.png" data-desc-position="bottom"><img alt="selection_sort_step8" class="animation-figure" src="../selection_sort.assets/selection_sort_step8.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step9.png" data-desc-position="bottom"><img alt="selection_sort_step9" src="../selection_sort.assets/selection_sort_step9.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step9.png" data-desc-position="bottom"><img alt="selection_sort_step9" class="animation-figure" src="../selection_sort.assets/selection_sort_step9.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step10.png" data-desc-position="bottom"><img alt="selection_sort_step10" src="../selection_sort.assets/selection_sort_step10.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step10.png" data-desc-position="bottom"><img alt="selection_sort_step10" class="animation-figure" src="../selection_sort.assets/selection_sort_step10.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step11.png" data-desc-position="bottom"><img alt="selection_sort_step11" src="../selection_sort.assets/selection_sort_step11.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_step11.png" data-desc-position="bottom"><img alt="selection_sort_step11" class="animation-figure" src="../selection_sort.assets/selection_sort_step11.png"></a></p>
 </div>
 </div>
 </div>
-<p>In the code, we use <span class="arithmatex">\(k\)</span> to record the smallest element within the unsorted interval:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{selection_sort}-[class]{}-[func]{selection_sort}
+<p align="center"> Hình 11-2 &nbsp; Quá trình selection sort </p>
+
+<p>Trong code, chúng ta sử dụng <span class="arithmatex">\(k\)</span> để ghi lại phần tử nhỏ nhất trong
+khoảng chưa sắp xếp:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><input id="__tabbed_2_14" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">selection_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Selection sort"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># Vòng lặp ngoài: phạm vi chưa sắp xếp là [i, n-1]</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="c1"># Vòng lặp trong: tìm phần tử nhỏ nhất trong phạm vi chưa sắp xếp</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">k</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                <span class="n">k</span> <span class="o">=</span> <span class="n">j</span>  <span class="c1"># Ghi lại chỉ số của phần tử nhỏ nhất</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="c1"># Hoán đổi phần tử nhỏ nhất với phần tử đầu tiên của phạm vi chưa sắp xếp</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </code></pre></div>
-<h2 id="algorithm-characteristics">Algorithm characteristics<a class="headerlink" href="#algorithm-characteristics" title="Permanent link">¶</a></h2>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Selection sort */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">selectionSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// Vòng lặp ngoài: phạm vi chưa sắp xếp là [i, n-1]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="c1">// Vòng lặp trong: tìm phần tử nhỏ nhất trong phạm vi chưa sắp xếp</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">                </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ghi lại chỉ số của phần tử nhỏ nhất</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Hoán đổi phần tử nhỏ nhất với phần tử đầu tiên của phạm vi chưa sắp xếp</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Selection sort */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">selectionSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// Vòng lặp ngoài: phạm vi chưa sắp xếp là [i, n-1]</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="c1">// Vòng lặp trong: tìm phần tử nhỏ nhất trong phạm vi chưa sắp xếp</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">                </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ghi lại chỉ số của phần tử nhỏ nhất</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Hoán đổi phần tử nhỏ nhất với phần tử đầu tiên của phạm vi chưa sắp xếp</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">selection_sort</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">SelectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">selection_sort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">selection_sort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">selection_sort.zig</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">selectionSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="1121-ac-iem-cua-thuat-toan">11.2.1 &nbsp; Đặc điểm của thuật toán<a class="headerlink" href="#1121-ac-iem-cua-thuat-toan" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Time complexity of <span class="arithmatex">\(O(n^2)\)</span>, non-adaptive sort</strong>: There are <span class="arithmatex">\(n - 1\)</span> iterations in the outer loop, with the length of the unsorted section starting at <span class="arithmatex">\(n\)</span> in the first iteration and decreasing to <span class="arithmatex">\(2\)</span> in the last iteration, i.e., each outer loop iterations contain <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(2\)</span> inner loop iterations respectively, summing up to <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span>.</li>
-<li><strong>Space complexity of <span class="arithmatex">\(O(1)\)</span>, in-place sort</strong>: Uses constant extra space with pointers <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>.</li>
-<li><strong>Non-stable sort</strong>: As shown in the figure below, an element <code>nums[i]</code> may be swapped to the right of an equal element, causing their relative order to change.</li>
+<li><strong>Time complexity là <span class="arithmatex">\(O(n^2)\)</span>, sắp xếp không thích ứng</strong>: Có <span class="arithmatex">\(n - 1\)</span> lần lặp ở
+  vòng lặp ngoài, với độ dài của phần chưa sắp xếp bắt đầu từ <span class="arithmatex">\(n\)</span> ở lần lặp
+  đầu tiên và giảm xuống <span class="arithmatex">\(2\)</span> ở lần lặp cuối cùng. Tức là, mỗi lần lặp của
+  vòng lặp ngoài chứa lần lượt <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(n - 1\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(2\)</span> lần lặp của
+  vòng lặp trong, tổng cộng là <span class="arithmatex">\(\frac{(n - 1)(n + 2)}{2}\)</span>.</li>
+<li><strong>Space complexity là <span class="arithmatex">\(O(1)\)</span>, sắp xếp tại chỗ</strong>: Sử dụng không gian bổ sung
+  hằng số với các con trỏ <span class="arithmatex">\(i\)</span> và <span class="arithmatex">\(j\)</span>.</li>
+<li><strong>Sắp xếp không ổn định</strong>: Như được minh họa trong Hình 11-3, một phần tử
+  <code>nums[i]</code> có thể bị hoán đổi sang bên phải của một phần tử bằng nó, khiến
+  thứ tự tương đối của chúng bị thay đổi.</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_instability.png" data-desc-position="bottom"><img alt="Selection sort instability example" src="../selection_sort.assets/selection_sort_instability.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../selection_sort.assets/selection_sort_instability.png" data-desc-position="bottom"><img alt="Ví dụ về tính không ổn định của Selection sort" class="animation-figure" src="../selection_sort.assets/selection_sort_instability.png"></a></p>
+<p align="center"> Hình 11-3 &nbsp; Ví dụ về tính không ổn định của Selection sort </p>
 
 
 

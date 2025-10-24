@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bucket-sort" class="md-skip">
+        <a href="#118-bucket-sort" class="md-skip">
           Bỏ qua
         </a>
       
@@ -2244,6 +2244,8 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
+  
   <span class="md-ellipsis">
     Chapter 11. Sorting
   </span>
@@ -2467,27 +2469,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#algorithm-process" class="md-nav__link">
+  <a href="#1181-quy-trinh-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm process
+      11.8.1 &nbsp; Quy trình thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm-characteristics" class="md-nav__link">
+  <a href="#1182-ac-iem-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm characteristics
+      11.8.2 &nbsp; Đặc điểm thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-achieve-even-distribution" class="md-nav__link">
+  <a href="#1183-lam-the-nao-e-at-uoc-phan-phoi-eu" class="md-nav__link">
     <span class="md-ellipsis">
-      How to achieve even distribution
+      11.8.3 &nbsp; Làm thế nào để đạt được phân phối đều
     </span>
   </a>
   
@@ -3531,27 +3533,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#algorithm-process" class="md-nav__link">
+  <a href="#1181-quy-trinh-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm process
+      11.8.1 &nbsp; Quy trình thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm-characteristics" class="md-nav__link">
+  <a href="#1182-ac-iem-thuat-toan" class="md-nav__link">
     <span class="md-ellipsis">
-      Algorithm characteristics
+      11.8.2 &nbsp; Đặc điểm thuật toán
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-achieve-even-distribution" class="md-nav__link">
+  <a href="#1183-lam-the-nao-e-at-uoc-phan-phoi-eu" class="md-nav__link">
     <span class="md-ellipsis">
-      How to achieve even distribution
+      11.8.3 &nbsp; Làm thế nào để đạt được phân phối đều
     </span>
   </a>
   
@@ -3589,35 +3591,213 @@
 
 
 <!-- Page content -->
-<h1 id="bucket-sort">Bucket sort<a class="headerlink" href="#bucket-sort" title="Permanent link">¶</a></h1>
-<p>The previously mentioned sorting algorithms are all "comparison-based sorting algorithms," which sort elements by comparing their values. Such sorting algorithms cannot have better time complexity of <span class="arithmatex">\(O(n \log n)\)</span>. Next, we will discuss several "non-comparison sorting algorithms" that could achieve linear time complexity.</p>
-<p><u>Bucket sort</u> is a typical application of the divide-and-conquer strategy. It works by setting up a series of ordered buckets, each containing a range of data, and distributing the input data evenly across these buckets. And then, the data in each bucket is sorted individually. Finally, the sorted data from all the buckets is merged in sequence to produce the final result.</p>
-<h2 id="algorithm-process">Algorithm process<a class="headerlink" href="#algorithm-process" title="Permanent link">¶</a></h2>
-<p>Consider an array of length <span class="arithmatex">\(n\)</span>, with float numbers in the range <span class="arithmatex">\([0, 1)\)</span>. The bucket sort process is illustrated in the figure below.</p>
+<h1 id="118-bucket-sort">11.8 &nbsp; Bucket sort<a class="headerlink" href="#118-bucket-sort" title="Permanent link">¶</a></h1>
+<p>Các thuật toán sắp xếp đã được đề cập trước đây đều là các "thuật toán sắp xếp
+dựa trên so sánh", sắp xếp các phần tử bằng cách so sánh giá trị của chúng.
+Các thuật toán sắp xếp như vậy không thể có time complexity tốt hơn
+<span class="arithmatex">\(O(n \log n)\)</span>. Tiếp theo, chúng ta sẽ thảo luận về một số "thuật toán sắp
+xếp không dựa trên so sánh" có thể đạt được time complexity tuyến tính.</p>
+<p><u>Bucket sort (sắp xếp theo thùng)</u> là một ứng dụng điển hình của chiến
+lược chia để trị. Nó hoạt động bằng cách thiết lập một loạt các thùng có
+thứ tự, mỗi thùng chứa một phạm vi dữ liệu, và phân phối dữ liệu đầu vào
+đều khắp các thùng này. Sau đó, dữ liệu trong mỗi thùng được sắp xếp riêng
+lẻ. Cuối cùng, dữ liệu đã sắp xếp từ tất cả các thùng được trộn theo trình
+tự để tạo ra kết quả cuối cùng.</p>
+<h2 id="1181-quy-trinh-thuat-toan">11.8.1 &nbsp; Quy trình thuật toán<a class="headerlink" href="#1181-quy-trinh-thuat-toan" title="Permanent link">¶</a></h2>
+<p>Xét một array có độ dài <span class="arithmatex">\(n\)</span>, với các số float trong phạm vi <span class="arithmatex">\([0, 1)\)</span>.
+Quy trình bucket sort được minh họa trong Hình 11-13.</p>
 <ol>
-<li>Initialize <span class="arithmatex">\(k\)</span> buckets and distribute <span class="arithmatex">\(n\)</span> elements into these <span class="arithmatex">\(k\)</span> buckets.</li>
-<li>Sort each bucket individually (using the built-in sorting function of the programming language).</li>
-<li>Merge the results in the order from the smallest to the largest bucket.</li>
+<li>Khởi tạo <span class="arithmatex">\(k\)</span> bucket và phân phối <span class="arithmatex">\(n\)</span> phần tử vào <span class="arithmatex">\(k\)</span> bucket này.</li>
+<li>Sắp xếp từng bucket riêng lẻ (sử dụng hàm sắp xếp tích hợp sẵn của
+ngôn ngữ lập trình).</li>
+<li>Trộn các kết quả theo thứ tự từ bucket nhỏ nhất đến lớn nhất.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../bucket_sort.assets/bucket_sort_overview.png" data-desc-position="bottom"><img alt="Bucket sort algorithm process" src="../bucket_sort.assets/bucket_sort_overview.png"></a></p>
-<p>The code is shown as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{bucket_sort}-[class]{}-[func]{bucket_sort}
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../bucket_sort.assets/bucket_sort_overview.png" data-desc-position="bottom"><img alt="Bucket sort algorithm process" class="animation-figure" src="../bucket_sort.assets/bucket_sort_overview.png"></a></p>
+<p align="center"> Hình 11-13 &nbsp; Quy trình thuật toán bucket sort </p>
+
+<p>Code được hiển thị như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><input id="__tabbed_1_14" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label><label for="__tabbed_1_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">bucket_sort</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Bucket sort"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># Khởi tạo k = n/2 bucket, dự kiến phân bổ 2 phần tử mỗi bucket</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">buckets</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># 1. Phân phối các phần tử array vào các bucket khác nhau</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="c1"># Phạm vi dữ liệu đầu vào là [0, 1), sử dụng num * k để ánh xạ tới phạm vi index [0, k-1]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="c1"># Thêm num vào bucket i</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="c1"># 2. Sắp xếp từng bucket</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">buckets</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="c1"># Sử dụng hàm sắp xếp tích hợp sẵn, cũng có thể thay thế bằng các thuật toán sắp xếp khác</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="n">bucket</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># 3. Duyệt các bucket để trộn kết quả</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">buckets</span><span class="p">:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
-<h2 id="algorithm-characteristics">Algorithm characteristics<a class="headerlink" href="#algorithm-characteristics" title="Permanent link">¶</a></h2>
-<p>Bucket sort is suitable for handling very large data sets. For example, if the input data includes 1 million elements, and system memory limitations prevent loading all the data at the same time, you can divide the data into 1,000 buckets and sort each bucket separately before merging the results.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Bucket sort */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Khởi tạo k = n/2 bucket, dự kiến phân bổ 2 phần tử mỗi bucket</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">// 1. Phân phối các phần tử array vào các bucket khác nhau</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="c1">// Phạm vi dữ liệu đầu vào là [0, 1), sử dụng num * k để ánh xạ tới phạm vi index [0, k-1]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="c1">// Thêm số vào bucket_idx</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="n">buckets</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="c1">// 2. Sắp xếp từng bucket</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="c1">// Sử dụng hàm sắp xếp tích hợp sẵn, cũng có thể thay thế bằng các thuật toán sắp xếp khác</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">bucket</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 3. Duyệt các bucket để trộn kết quả</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bucket</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Bucket sort */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Khởi tạo k = n/2 bucket, dự kiến phân bổ 2 phần tử mỗi bucket</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// 1. Phân phối các phần tử array vào các bucket khác nhau</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="c1">// Phạm vi dữ liệu đầu vào là [0, 1), sử dụng num * k để ánh xạ</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="c1">// tới phạm vi chỉ số [0, k-1]</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="c1">// Thêm num vào bucket i</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">buckets</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="c1">// 2. Sắp xếp từng bucket</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="c1">// Sử dụng hàm sắp xếp có sẵn, cũng có thể thay thế bằng các</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="c1">// thuật toán sắp xếp khác</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">);</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="c1">// 3. Duyệt các bucket để trộn kết quả</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">            </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">bucket_sort</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">BucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">bucket_sort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">bucket_sort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">bucket_sort.zig</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">bucketSort</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="1182-ac-iem-thuat-toan">11.8.2 &nbsp; Đặc điểm thuật toán<a class="headerlink" href="#1182-ac-iem-thuat-toan" title="Permanent link">¶</a></h2>
+<p>Bucket sort phù hợp để xử lý các tập dữ liệu rất lớn. Ví dụ, nếu dữ liệu
+đầu vào bao gồm 1 triệu phần tử và các hạn chế về bộ nhớ hệ thống ngăn
+không cho tải tất cả dữ liệu cùng một lúc, bạn có thể chia dữ liệu thành
+1.000 bucket và sắp xếp từng bucket riêng biệt trước khi trộn các kết quả.</p>
 <ul>
-<li><strong>Time complexity is <span class="arithmatex">\(O(n + k)\)</span></strong>: Assuming the elements are evenly distributed across the buckets, the number of elements in each bucket is <span class="arithmatex">\(n/k\)</span>. Assuming sorting a single bucket takes <span class="arithmatex">\(O(n/k \log(n/k))\)</span> time, sorting all buckets takes <span class="arithmatex">\(O(n \log(n/k))\)</span> time. <strong>When the number of buckets <span class="arithmatex">\(k\)</span> is relatively large, the time complexity approaches <span class="arithmatex">\(O(n)\)</span></strong>. Merging the results requires traversing all buckets and elements, taking <span class="arithmatex">\(O(n + k)\)</span> time. In the worst case, all data is distributed into a single bucket, and sorting that bucket takes <span class="arithmatex">\(O(n^2)\)</span> time.</li>
-<li><strong>Space complexity is <span class="arithmatex">\(O(n + k)\)</span>, non-in-place sorting</strong>: It requires additional space for <span class="arithmatex">\(k\)</span> buckets and a total of <span class="arithmatex">\(n\)</span> elements.</li>
-<li>Whether bucket sort is stable depends on whether the sorting algorithm used within each bucket is stable.</li>
+<li><strong>Time complexity là <span class="arithmatex">\(O(n + k)\)</span></strong>: Giả sử các phần tử được phân bố
+    đều qua các bucket, số lượng phần tử trong mỗi bucket là <span class="arithmatex">\(n/k\)</span>. Giả
+    sử việc sắp xếp một bucket mất <span class="arithmatex">\(O(n/k \log(n/k))\)</span> time, thì việc sắp
+    xếp tất cả các bucket mất <span class="arithmatex">\(O(n \log(n/k))\)</span> time. <strong>Khi số lượng
+    bucket <span class="arithmatex">\(k\)</span> tương đối lớn, time complexity tiến gần đến <span class="arithmatex">\(O(n)\)</span></strong>.
+    Việc trộn các kết quả yêu cầu duyệt qua tất cả các bucket và phần tử,
+    mất <span class="arithmatex">\(O(n + k)\)</span> time. Trong worst case, tất cả dữ liệu được phân phối
+    vào một bucket duy nhất, và việc sắp xếp bucket đó mất <span class="arithmatex">\(O(n^2)\)</span> time.</li>
+<li><strong>Space complexity là <span class="arithmatex">\(O(n + k)\)</span>, sắp xếp không tại chỗ</strong>: Nó yêu
+    cầu không gian bổ sung cho <span class="arithmatex">\(k\)</span> bucket và tổng cộng <span class="arithmatex">\(n\)</span> phần tử.</li>
+<li>Việc bucket sort có ổn định hay không phụ thuộc vào việc thuật toán
+    sắp xếp được sử dụng trong mỗi bucket có ổn định hay không.</li>
 </ul>
-<h2 id="how-to-achieve-even-distribution">How to achieve even distribution<a class="headerlink" href="#how-to-achieve-even-distribution" title="Permanent link">¶</a></h2>
-<p>The theoretical time complexity of bucket sort can reach <span class="arithmatex">\(O(n)\)</span>. <strong>The key is to evenly distribute the elements across all buckets</strong> as real-world data is often not uniformly distributed. For example, we may want to evenly distribute all products on eBay by price range into 10 buckets. However, the distribution of product prices may not be even, with many under $100 and few over $500. If the price range is evenly divided into 10, the difference in the number of products in each bucket will be significant.</p>
-<p>To achieve even distribution, we can initially set an approximate boundary to roughly divide the data into 3 buckets. <strong>After the distribution is complete, the buckets with more items can be further divided into 3 buckets, until the number of elements in all buckets is roughly equal</strong>.</p>
-<p>As shown in the figure below, this method essentially constructs a recursive tree, aiming to ensure the element counts in leaf nodes are as even as possible. Of course, you don't have to divide the data into 3 buckets each round - the partitioning strategy can be adaptively tailored to the data's unique characteristics.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../bucket_sort.assets/scatter_in_buckets_recursively.png" data-desc-position="bottom"><img alt="Recursive division of buckets" src="../bucket_sort.assets/scatter_in_buckets_recursively.png"></a></p>
-<p>If we know the probability distribution of product prices in advance, <strong>we can set the price boundaries for each bucket based on the data probability distribution</strong>. It is worth noting that it is not necessarily required to specifically calculate the data distribution; instead, it can be approximated based on data characteristics using a probability model.</p>
-<p>As shown in the figure below, assuming that product prices follow a normal distribution, we can define reasonable price intervals to balance the distribution of items across the buckets.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../bucket_sort.assets/scatter_in_buckets_distribution.png" data-desc-position="bottom"><img alt="Dividing buckets based on probability distribution" src="../bucket_sort.assets/scatter_in_buckets_distribution.png"></a></p>
+<h2 id="1183-lam-the-nao-e-at-uoc-phan-phoi-eu">11.8.3 &nbsp; Làm thế nào để đạt được phân phối đều<a class="headerlink" href="#1183-lam-the-nao-e-at-uoc-phan-phoi-eu" title="Permanent link">¶</a></h2>
+<p>Độ phức tạp thời gian theo lý thuyết của thuật toán bucket sort có thể đạt tới <span class="arithmatex">\(O(n)\)</span>.
+<strong>Chìa khóa là phân phối các phần tử đều khắp các bucket</strong> vì dữ liệu thực tế
+thường không được phân phối đều. Ví dụ, chúng ta có thể muốn phân phối đều
+tất cả các sản phẩm trên eBay theo khoảng giá vào 10 bucket. Tuy nhiên,
+sự phân phối giá sản phẩm có thể không đều, với nhiều sản phẩm dưới $100
+và ít sản phẩm trên $500. Nếu khoảng giá được chia đều thành 10, sự khác biệt
+về số lượng sản phẩm trong mỗi bucket sẽ rất đáng kể.</p>
+<p>Để đạt được phân phối đều, chúng ta có thể ban đầu đặt một ranh giới gần đúng
+để chia dữ liệu thành khoảng 3 bucket. <strong>Sau khi quá trình phân phối hoàn tất,
+các bucket có nhiều mục hơn có thể được chia nhỏ thêm thành 3 bucket, cho đến
+khi số lượng phần tử trong tất cả các bucket gần bằng nhau</strong>.</p>
+<p>Như được minh họa trong Hình 11-14, phương pháp này về cơ bản xây dựng một
+recursive tree, nhằm mục đích đảm bảo số lượng phần tử trong leaf node là đều
+nhất có thể. Tất nhiên, bạn không nhất thiết phải chia dữ liệu thành 3 bucket
+mỗi vòng lặp - chiến lược phân hoạch có thể được điều chỉnh linh hoạt theo
+các đặc điểm riêng của dữ liệu.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../bucket_sort.assets/scatter_in_buckets_recursively.png" data-desc-position="bottom"><img alt="Recursive division of buckets" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_recursively.png"></a></p>
+<p align="center"> Hình 11-14 &nbsp; Phân chia bucket đệ quy </p>
+
+<p>Nếu chúng ta biết trước probability distribution của giá sản phẩm,
+<strong>chúng ta có thể đặt các ranh giới giá cho mỗi bucket dựa trên probability
+distribution của dữ liệu</strong>. Cần lưu ý rằng không nhất thiết phải tính toán
+cụ thể sự phân phối dữ liệu; thay vào đó, nó có thể được ước tính dựa trên
+các đặc điểm dữ liệu bằng cách sử dụng một mô hình xác suất.</p>
+<p>Như được minh họa trong Hình 11-15, giả sử rằng giá sản phẩm tuân theo một
+normal distribution, chúng ta có thể định nghĩa các khoảng giá hợp lý để
+cân bằng sự phân phối các mục trên các bucket.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../bucket_sort.assets/scatter_in_buckets_distribution.png" data-desc-position="bottom"><img alt="Dividing buckets based on probability distribution" class="animation-figure" src="../bucket_sort.assets/scatter_in_buckets_distribution.png"></a></p>
+<p align="center"> Hình 11-15 &nbsp; Chia bucket dựa trên probability distribution </p>
 
 
 
