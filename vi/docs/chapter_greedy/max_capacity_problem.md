@@ -1,52 +1,52 @@
-# Maximum capacity problem
+# Bài toán Dung tích Tối đa (Max Capacity)
 
 !!! question
 
-    Input an array $ht$, where each element represents the height of a vertical partition. Any two partitions in the array, along with the space between them, can form a container.
-    
-    The capacity of the container is the product of the height and the width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.
-    
-    Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in the figure below.
+    Cho một mảng $ht$, trong đó mỗi phần tử đại diện cho chiều cao của một tấm vách ngăn thẳng đứng. Hai tấm vách ngăn bất kỳ trong mảng, cùng với khoảng không gian giữa chúng, có thể tạo thành một thùng chứa.
 
-![Example data for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.png)
+    Dung tích của thùng chứa bằng tích của chiều cao và chiều rộng của nó (tức là diện tích của nó), trong đó chiều cao được quyết định bởi tấm vách ngăn ngắn hơn và chiều rộng là hiệu giữa các chỉ số mảng của hai tấm vách ngăn.
 
-The container is formed by any two partitions, **therefore the state of this problem is represented by the indices of the two partitions, denoted as $[i, j]$**.
+    Hãy chọn hai tấm vách ngăn trong mảng sao cho dung tích của thùng chứa thu được là lớn nhất, và trả về dung tích tối đa đó. Một ví dụ được hiển thị trong hình bên dưới.
 
-According to the problem statement, the capacity equals the product of height and width, where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions. The formula for capacity $cap[i, j]$ is:
+![Dữ liệu ví dụ cho bài toán dung tích tối đa](max_capacity_problem.assets/max_capacity_example.png)
+
+Thùng chứa được tạo thành bởi hai tấm vách ngăn bất kỳ, **vì vậy trạng thái của bài toán này là chỉ số của hai tấm vách ngăn, ký hiệu là $[i, j]$**.
+
+Theo mô tả đề bài, dung tích bằng chiều cao nhân với chiều rộng, trong đó chiều cao được quyết định bởi tấm vách ngăn ngắn hơn và chiều rộng là hiệu giữa các chỉ số mảng của hai tấm vách ngăn. Giả sử dung tích là $cap[i, j]$; khi đó chúng ta thu được công thức sau:
 
 $$
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 $$
 
-Assuming the length of the array is $n$, the number of combinations of two partitions (total number of states) is $C_n^2 = \frac{n(n - 1)}{2}$. The most straightforward approach is to **enumerate all possible states**, resulting in a time complexity of $O(n^2)$.
+Giả sử độ dài mảng là $n$. Khi đó số cách chọn hai tấm vách ngăn (tức là tổng số trạng thái) là $C_n^2 = \frac{n(n - 1)}{2}$. Cách tiếp cận trực tiếp nhất là **liệt kê vét cạn tất cả các trạng thái** để tìm dung tích tối đa, có độ phức tạp thời gian là $O(n^2)$.
 
-### Determination of a greedy strategy
+### Xác định Chiến lược Tham ăn
 
-There is a more efficient solution to this problem. As shown in the figure below, we select a state $[i, j]$ where the indices $i < j$ and the height $ht[i] < ht[j]$, meaning $i$ is the shorter partition, and $j$ is the taller one.
+Bài toán này có một giải pháp hiệu quả hơn. Như hiển thị trong hình bên dưới, xét một trạng thái $[i, j]$ trong đó $i < j$ và $ht[i] < ht[j]$. Trong trường hợp này, $i$ là tấm vách ngăn ngắn hơn và $j$ là tấm vách ngăn dài hơn.
 
-![Initial state](max_capacity_problem.assets/max_capacity_initial_state.png)
+![Trạng thái ban đầu](max_capacity_problem.assets/max_capacity_initial_state.png)
 
-As shown in the figure below, **if we move the taller partition $j$ closer to the shorter partition $i$, the capacity will definitely decrease**.
+Như hiển thị trong hình bên dưới, **nếu bây giờ chúng ta dịch chuyển tấm vách ngăn dài hơn $j$ vào trong về phía tấm vách ngăn ngắn hơn $i$, dung tích chắc chắn sẽ giảm**.
 
-This is because when moving the taller partition $j$, the width $j-i$ definitely decreases; and since the height is determined by the shorter partition, the height can only remain the same (if $i$ remains the shorter partition) or decrease (if the moved $j$ becomes the shorter partition).
+Điều này là do sau khi dịch chuyển tấm vách ngăn dài hơn $j$, chiều rộng $j-i$ chắc chắn giảm. Vì chiều cao được quyết định bởi tấm vách ngăn ngắn hơn, chiều cao chỉ có thể giữ nguyên ($i$ vẫn là tấm vách ngăn ngắn hơn) hoặc giảm ($j$ trở thành tấm vách ngăn ngắn hơn sau khi bị dịch chuyển).
 
-![State after moving the taller partition inward](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![Trạng thái sau khi dịch chuyển vách ngăn dài vào trong](max_capacity_problem.assets/max_capacity_moving_long_board.png)
 
-Conversely, **we can only possibly increase the capacity by moving the shorter partition $i$ inward**. Although the width will definitely decrease, **the height may increase** (if the moved shorter partition $i$ becomes taller). For example, in the figure below, the area increases after moving the shorter partition.
+Ngược lại, **chỉ bằng cách dịch chuyển tấm vách ngăn ngắn hơn $i$ vào trong thì dung tích mới có thể tăng lên**. Mặc dù chiều rộng chắc chắn sẽ giảm, **chiều cao có thể tăng lên** (tấm vách ngăn được dịch chuyển tại $i$ có thể cao hơn). Ví dụ, trong hình bên dưới, diện tích tăng lên sau khi dịch chuyển tấm vách ngăn ngắn hơn.
 
-![State after moving the shorter partition inward](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![Trạng thái sau khi dịch chuyển vách ngăn ngắn vào trong](max_capacity_problem.assets/max_capacity_moving_short_board.png)
 
-This leads us to the greedy strategy for this problem: initialize two pointers at the ends of the container, and in each round, move the pointer corresponding to the shorter partition inward until the two pointers meet.
+Từ đây, chúng ta có thể rút ra chiến lược tham ăn cho bài toán này: khởi tạo hai con trỏ ở hai đầu, và trong mỗi vòng dịch chuyển con trỏ tương ứng với tấm vách ngăn ngắn hơn vào trong cho đến khi hai con trỏ gặp nhau.
 
-The figure below illustrate the execution of the greedy strategy.
+Hình bên dưới hiển thị quá trình thực thi của chiến lược tham ăn.
 
-1. Initially, the pointers $i$ and $j$ are positioned at the ends of the array.
-2. Calculate the current state's capacity $cap[i, j]$ and update the maximum capacity.
-3. Compare the heights of partitions $i$ and $j$, and move the shorter partition inward by one step.
-4. Repeat steps `2.` and `3.` until $i$ and $j$ meet.
+1. Ở trạng thái ban đầu, các con trỏ $i$ và $j$ nằm ở hai đầu của mảng.
+2. Tính dung tích của trạng thái hiện tại $cap[i, j]$, và cập nhật dung tích tối đa.
+3. So sánh chiều cao của các vách ngăn $i$ và $j$, và dịch chuyển con trỏ tương ứng với tấm vách ngăn ngắn hơn vào trong một vị trí.
+4. Lặp lại các bước `2.` và `3.` cho đến khi $i$ và $j$ gặp nhau.
 
 === "<1>"
-    ![The greedy process for maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![Quá trình tham ăn cho bài toán dung tích tối đa](max_capacity_problem.assets/max_capacity_greedy_step1.png)
 
 === "<2>"
     ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png)
@@ -72,28 +72,28 @@ The figure below illustrate the execution of the greedy strategy.
 === "<9>"
     ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
 
-### Implementation
+### Triển khai Mã nguồn
 
-The code loops at most $n$ times, **thus the time complexity is $O(n)$**.
+Mã nguồn chạy tối đa $n$ vòng, **vì vậy độ phức tạp thời gian là $O(n)$**.
 
-The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus the space complexity is $O(1)$**.
+Các biến $i$, $j$, và $res$ chỉ sử dụng một lượng không gian phụ trợ hằng số, **vì vậy độ phức tạp không gian là $O(1)$**.
 
 ```src
 [file]{max_capacity}-[class]{}-[func]{max_capacity}
 ```
 
-### Proof of correctness
+### Chứng minh Tính đúng đắn
 
-The reason why the greedy method is faster than enumeration is that each round of greedy selection "skips" some states.
+Lý do tham ăn nhanh hơn liệt kê vét cạn là vì mỗi vòng lựa chọn tham ăn đã "bỏ qua" một số trạng thái.
 
-For example, under the state $cap[i, j]$ where $i$ is the shorter partition and $j$ is the taller partition, greedily moving the shorter partition $i$ inward by one step leads to the "skipped" states shown in the figure below. **This means that these states' capacities cannot be verified later**.
+Ví dụ, ở trạng thái $cap[i, j]$, giả sử $i$ là tấm vách ngăn ngắn hơn và $j$ là tấm vách ngăn dài hơn. Nếu chúng ta tham ăn dịch chuyển tấm vách ngăn ngắn hơn $i$ vào trong một vị trí, các trạng thái được hiển thị trong hình bên dưới sẽ bị "bỏ qua". **Điều này có nghĩa là dung tích của chúng không còn có thể được kiểm tra sau đó nữa**.
 
 $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![States skipped by moving the shorter partition](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![Các trạng thái bị bỏ qua khi dịch chuyển vách ngăn ngắn](max_capacity_problem.assets/max_capacity_skipped_states.png)
 
-It is observed that **these skipped states are actually all states where the taller partition $j$ is moved inward**. We have already proven that moving the taller partition inward will definitely decrease the capacity. Therefore, the skipped states cannot possibly be the optimal solution, **and skipping them does not lead to missing the optimal solution**.
+Nhìn kỹ hơn cho thấy **các trạng thái bị bỏ qua này chính là các trạng thái thu được bằng cách dịch chuyển tấm vách ngăn dài hơn $j$ vào trong**. Chúng ta đã chứng minh rằng việc dịch chuyển tấm vách ngăn dài hơn vào trong chắc chắn sẽ làm giảm dung tích. Do đó, không có trạng thái nào bị bỏ qua có thể là lời giải tối ưu, **vì vậy việc bỏ qua chúng không làm chúng ta bỏ lỡ điểm tối ưu**.
 
-The analysis shows that the operation of moving the shorter partition is "safe", and the greedy strategy is effective.
+Phân tích trên cho thấy việc dịch chuyển tấm vách ngăn ngắn hơn là một thao tác "an toàn", và chiến lược tham ăn là hiệu quả.

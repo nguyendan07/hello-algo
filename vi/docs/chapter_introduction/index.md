@@ -9,5 +9,5 @@ icon: material/calculator-variant-outline
 !!! abstract
 
     Một thiếu nữ duyên dáng nhảy múa, đan xen với dữ liệu, váy của cô ấy lay động theo giai điệu của thuật toán.
-   
+
     Cô ấy mời bạn nhảy múa, hãy theo bước chân của cô ấy, và bước vào thế giới thuật toán đầy logic và vẻ đẹp.

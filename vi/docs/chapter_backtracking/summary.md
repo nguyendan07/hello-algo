@@ -1,23 +1,23 @@
-# Summary
+# Tóm tắt
 
-### Key review
+### Ôn tập trọng tâm
 
-- The essence of the backtracking algorithm is exhaustive search. It seeks solutions that meet the conditions by performing a depth-first traversal of the solution space. During the search, if a satisfying solution is found, it is recorded, until all solutions are found or the traversal is completed.
-- The search process of the backtracking algorithm includes trying and backtracking. It uses depth-first search to explore various choices, and when a choice does not meet the constraints, the previous choice is undone. Then it reverts to the previous state and continues to try other options. Trying and backtracking are operations in opposite directions.
-- Backtracking problems usually contain multiple constraints. These constraints can be used to perform pruning operations. Pruning can terminate unnecessary search branches in advance, greatly enhancing search efficiency.
-- The backtracking algorithm is mainly used to solve search problems and constraint satisfaction problems. Although combinatorial optimization problems can be solved using backtracking, there are often more efficient or effective solutions available.
-- The permutation problem aims to search for all possible permutations of the elements in a given set. We use an array to record whether each element has been chosen, avoiding repeated selection of the same element. This ensures that each element is chosen only once.
-- In permutation problems, if the set contains duplicate elements, the final result will include duplicate permutations. We need to restrict that identical elements can only be selected once in each round, which is usually implemented using a hash set.
-- The subset-sum problem aims to find all subsets in a given set that sum to a target value. The set does not distinguish the order of elements, but the search process may generate duplicate subsets. This occurs because the algorithm explores different element orders as unique paths. Before backtracking, we sort the data and set a variable to indicate the starting point of the traversal for each round. This allows us to prune the search branches that generate duplicate subsets.
-- For the subset-sum problem, equal elements in the array can produce duplicate sets. Using the precondition that the array is already sorted, we prune by determining if adjacent elements are equal. This ensures that equal elements are only selected once per round.
-- The $n$ queens problem aims to find schemes to place $n$ queens on an $n \times n$ chessboard such that no two queens can attack each other. The constraints of the problem include row constraints, column constraints, and constraints on the main and secondary diagonals. To meet the row constraint, we adopt a strategy of placing one queen per row, ensuring each row has one queen placed.
-- The handling of column constraints and diagonal constraints is similar. For column constraints, we use an array to record whether there is a queen in each column, thereby indicating whether the selected cell is legal. For diagonal constraints, we use two arrays to respectively record the presence of queens on the main and secondary diagonals. The challenge is to determine the relationship between row and column indices for cells on the same main or secondary diagonal.
+- Thuật toán quay lui về bản chất là một phương pháp tìm kiếm vét cạn. Nó tìm kiếm các lời giải đáp ứng các điều kiện chỉ định bằng cách thực hiện duyệt theo chiều sâu không gian lời giải. Trong quá trình tìm kiếm, khi tìm thấy một lời giải thỏa mãn các điều kiện, nó sẽ được ghi nhận. Quá trình tìm kiếm kết thúc sau khi tìm thấy tất cả các lời giải hoặc khi quá trình duyệt hoàn tất.
+- Quá trình tìm kiếm của thuật toán quay lui bao gồm hai phần: thử nghiệm và quay lui. Nó thử các lựa chọn khác nhau thông qua tìm kiếm theo chiều sâu. Khi gặp các tình huống vi phạm các ràng buộc, nó hoàn tác lựa chọn trước đó, quay trở lại trạng thái trước và tiếp tục khám phá các tùy chọn khác. Thử nghiệm và quay lui là các thao tác theo các hướng ngược nhau.
+- Các bài toán quay lui thường chứa nhiều ràng buộc, những ràng buộc này có thể được tận dụng để triển khai các thao tác cắt tỉa. Cắt tỉa có thể chấm dứt sớm các nhánh tìm kiếm không cần thiết, giúp cải thiện đáng kể hiệu suất tìm kiếm.
+- Thuật toán quay lui chủ yếu được sử dụng để giải quyết các bài toán tìm kiếm và các bài toán thỏa mãn ràng buộc. Mặc dù các bài toán tối ưu hóa tổ hợp có thể được giải bằng quay lui, thường có sẵn các giải pháp hiệu quả hơn hoặc cho hiệu suất tốt hơn.
+- Bài toán hoán vị nhằm mục đích tìm tất cả các hoán vị có thể có của các phần tử trong một tập hợp cho trước. Chúng ta sử dụng một mảng để ghi lại xem mỗi phần tử đã được chọn hay chưa, từ đó cắt tỉa các nhánh tìm kiếm cố gắng chọn lặp lại cùng một phần tử, đảm bảo mỗi phần tử được chọn đúng một lần.
+- Trong bài toán hoán vị, nếu tập hợp chứa các phần tử trùng lặp, kết quả cuối cùng sẽ chứa các hoán vị trùng lặp. Chúng ta cần áp đặt một ràng buộc sao cho các phần tử bằng nhau chỉ có thể được chọn một lần trong mỗi vòng, điều này thường đạt được bằng cách sử dụng một tập hợp băm (hash set).
+- Bài toán tổng tập con nhằm mục đích tìm tất cả các tập con của một tập hợp cho trước có tổng bằng một giá trị mục tiêu. Vì tập hợp không có thứ tự nhưng quá trình tìm kiếm xuất kết quả theo mọi thứ tự, các tập con trùng lặp sẽ được tạo ra. Chúng ta sắp xếp dữ liệu trước khi quay lui và sử dụng một biến để chỉ ra điểm bắt đầu duyệt của mỗi vòng, từ đó cắt tỉa các nhánh tìm kiếm tạo ra các tập con trùng lặp.
+- Đối với bài toán tổng tập con, các phần tử bằng nhau trong mảng tạo ra các tập con trùng lặp. Chúng ta tận dụng điều kiện tiên quyết là mảng đã được sắp xếp bằng cách kiểm tra xem các phần tử kề nhau có bằng nhau hay không để triển khai cắt tỉa, đảm bảo rằng các phần tử bằng nhau chỉ có thể được chọn một lần trong mỗi vòng.
+- Bài toán $n$ quân hậu nhằm mục đích tìm các cách đặt $n$ quân hậu trên bàn cờ $n \times n$ sao cho không có hai quân hậu nào có thể tấn công lẫn nhau. Các ràng buộc của bài toán này bao gồm ràng buộc hàng, ràng buộc cột, và các ràng buộc đường chéo chính và phụ. Để thỏa mãn các ràng buộc hàng, chúng ta áp dụng chiến lược đặt theo từng hàng, đảm bảo chính xác một quân hậu được đặt ở mỗi hàng.
+- Việc xử lý các ràng buộc cột và ràng buộc đường chéo là tương tự nhau. Đối với các ràng buộc cột, chúng ta sử dụng một mảng để ghi lại xem mỗi cột đã có quân hậu hay chưa, từ đó chỉ ra xem một ô được chọn có hợp lệ hay không. Đối với các ràng buộc đường chéo, chúng ta sử dụng hai mảng để ghi lại riêng biệt xem các quân hậu có tồn tại trên từng đường chéo chính hoặc phụ hay không. Thử thách nằm ở việc tìm ra quy luật chỉ số hàng-cột đặc trưng cho các ô trên cùng một đường chéo chính (phụ).
 
-### Q & A
+### Hỏi & Đáp
 
-**Q**: How can we understand the relationship between backtracking and recursion?
+**Hỏi**: Làm thế nào chúng ta có thể hiểu mối quan hệ giữa quay lui và đệ quy?
 
-Overall, backtracking is an "algorithmic strategy," while recursion is more of a "tool."
+Nói một cách tổng thể, quay lui là một chiến lược thuật toán, trong khi đệ quy tốt hơn nên được xem như một công cụ.
 
-- Backtracking algorithms are typically based on recursion. However, backtracking is one of the application scenarios of recursion, specifically in search problems.
-- The structure of recursion reflects the problem-solving paradigm of "sub-problem decomposition." It is commonly used in solving problems involving divide and conquer, backtracking, and dynamic programming (memoized recursion).
+- Quay lui thường được triển khai bằng đệ quy. Tuy nhiên, quay lui chỉ là một ứng dụng của đệ quy, cụ thể là việc sử dụng nó trong các bài toán tìm kiếm.
+- Cấu trúc của đệ quy phản ánh một mô hình giải quyết bài toán dựa trên việc phân rã một bài toán thành các bài toán con, và nó thường được sử dụng trong chia để trị, quay lui và quy hoạch động (đệ quy có ghi nhớ).

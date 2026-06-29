@@ -162,12 +162,12 @@ Tóm tắt lại, bảng sau đây cho thấy sự khác biệt giữa lặp và
 
 <p align="center"> Bảng: So sánh đặc điểm của lặp và đệ quy </p>
 
-|                    | Lặp                                                        | Đệ quy                                                                                                                          |
-| ------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Cách tiếp cận      | Loop structure                                             | Function calls nó                                                                                                               |
-| Hiệu năng thời gian| Thường hiệu quả hơn, không có chi phí gọi hàm              | Mỗi lần gọi hàm tạo ra chi phí                                                                                                  |
-| Sử dụng bộ nhớ     | Thường dùng bộ nhớ cố định                                 | Các lần gọi hàm tích lũy có thể dùng nhiều bộ nhớ ngăn xếp                                                                      |
-| Bài toán phù hợp   | Phù hợp với tác vụ lặp đơn giản, mã dễ đọc                 | Phù hợp với bài toán chia nhỏ, như cây, đồ thị, chia để trị, quay lui, v.v., mã ngắn gọn và rõ ràng                             |
+| ------------------- | Lặp                                           | Đệ quy                                                                                              |
+| ------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Cách tiếp cận       | Loop structure                                | Function calls nó                                                                                   |
+| Hiệu năng thời gian | Thường hiệu quả hơn, không có chi phí gọi hàm | Mỗi lần gọi hàm tạo ra chi phí                                                                      |
+| Sử dụng bộ nhớ      | Thường dùng bộ nhớ cố định                    | Các lần gọi hàm tích lũy có thể dùng nhiều bộ nhớ ngăn xếp                                          |
+| Bài toán phù hợp    | Phù hợp với tác vụ lặp đơn giản, mã dễ đọc    | Phù hợp với bài toán chia nhỏ, như cây, đồ thị, chia để trị, quay lui, v.v., mã ngắn gọn và rõ ràng |
 
 !!! tip
 

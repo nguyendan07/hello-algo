@@ -1,9 +1,9 @@
-# Dynamic programming
+# Quy hoạch động
 
-![Dynamic programming](../assets/covers/chapter_dynamic_programming.jpg)
+![Quy hoạch động](../assets/covers/chapter_dynamic_programming.jpg)
 
 !!! abstract
 
-    Streams merge into rivers, and rivers merge into the sea.
-    
-    Dynamic programming weaves smaller problems’ solutions into larger ones, guiding us step by step toward the far shore—where the ultimate answer awaits.
+    Suối nhỏ chảy thành sông, sông lớn chảy ra biển.
+
+    Quy hoạch động kết hợp lời giải của các bài toán nhỏ thành đáp án cho bài toán lớn, từng bước dẫn dắt chúng ta đến bờ bên kia của việc giải quyết bài toán.

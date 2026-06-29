@@ -139,11 +139,11 @@ Như bảng dưới, bit số mũ $\mathrm{E} = 0$ và $\mathrm{E} = 255$ có ý
 
 <p align="center"> Bảng <id> &nbsp; Ý nghĩa của bit số mũ </p>
 
-| Bit số mũ E        | Bit phần thập phân $\mathrm{N} = 0$ | Bit phần thập phân $\mathrm{N} \ne 0$ | Công thức tính                                                        |
+| Bit số mũ E        | Bit phần thập phân $\mathrm{N} = 0$ | Bit phần thập phân $\mathrm{N} \ne 0$ | Công thức tính                                                         |
 | ------------------ | ----------------------------------- | ------------------------------------- | ---------------------------------------------------------------------- |
 | $0$                | $\pm 0$                             | Số phụ (subnormal)                    | $(-1)^{\mathrm{S}} \times 2^{-126} \times (0.\mathrm{N})$              |
 | $1, 2, \dots, 254$ | Số bình thường                      | Số bình thường                        | $(-1)^{\mathrm{S}} \times 2^{(\mathrm{E} -127)} \times (1.\mathrm{N})$ |
-| $255$              | $\pm \infty$                        | $\mathrm{NaN}$                        |                                                                        |
+| $255$              | $\pm \infty$                        | $\mathrm{NaN}$                        | ---------------------------------------------------------------------- |
 
 Lưu ý rằng số phụ giúp tăng độ chính xác của số thực. Số dương nhỏ nhất kiểu bình thường là $2^{-126}$, số dương nhỏ nhất kiểu phụ là $2^{-126} \times 2^{-23}$.
 

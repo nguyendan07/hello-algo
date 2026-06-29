@@ -632,7 +632,7 @@ Xét một hàm với kích thước đầu vào $n$:
         for (int i = 0; i < n; i++) {   // +1 (mỗi lần thực hiện i ++)
             printf("%d", 0);            // +1
         }
-    } 
+    }
     ```
 
 === "Kotlin"
@@ -941,13 +941,13 @@ Bảng dưới đây minh họa ví dụ về các số phép toán khác nhau v
 
 <p align="center"> Bảng: Độ phức tạp thời gian cho các số phép toán khác nhau </p>
 
-| Số phép toán $T(n)$ | Độ phức tạp $O(f(n))$ |
-| ---------------------- | ------------------------- |
-| $100000$               | $O(1)$                    |
-| $3n + 2$               | $O(n)$                    |
-| $2n^2 + 3n + 2$        | $O(n^2)$                  |
-| $n^3 + 10000n^2$       | $O(n^3)$                  |
-| $2^n + 10000n^{10000}$ | $O(2^n)$                  |
+| Số phép toán $T(n)$    | Độ phức tạp $O(f(n))$ |
+| ---------------------- | --------------------- |
+| $100000$               | $O(1)$                |
+| $3n + 2$               | $O(n)$                |
+| $2n^2 + 3n + 2$        | $O(n^2)$              |
+| $n^3 + 10000n^2$       | $O(n^3)$              |
+| $2^n + 10000n^{10000}$ | $O(2^n)$              |
 
 ## Các loại độ phức tạp thời gian phổ biến
 

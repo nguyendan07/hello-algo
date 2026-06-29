@@ -80,13 +80,13 @@ Mã liên quan như sau:
         Node next;
         Node(int x) { val = x; }
     }
-   
+
     /* Hàm */
     int function() {
         // Thực hiện một số thao tác...
         return 0;
     }
-   
+
     int algorithm(int n) {          // dữ liệu đầu vào
         final int a = 0;            // dữ liệu tạm thời (hằng)
         int b = 0;                  // dữ liệu tạm thời (biến)
@@ -134,7 +134,7 @@ Mã liên quan như sau:
     func newNode(val int) *node {
         return &node{val: val}
     }
-   
+
     /* Hàm */
     func function() int {
         // Thực hiện một số thao tác...
@@ -264,7 +264,7 @@ Mã liên quan như sau:
     ```rust title=""
     use std::rc::Rc;
     use std::cell::RefCell;
-   
+
     /* Cấu trúc */
     struct Node {
         val: i32,
@@ -279,7 +279,7 @@ Mã liên quan như sau:
     }
 
     /* Hàm */
-    fn function() -> i32 {     
+    fn function() -> i32 {
         // Thực hiện một số thao tác...
         return 0;
     }
@@ -562,14 +562,14 @@ Xem xét đoạn mã sau, thuật ngữ "tệ nhất" trong độ phức tạp k
         // Thực hiện một số thao tác
         return 0
     }
-   
+
     /* Vòng lặp O(1) */
     func loop(n int) {
         for i := 0; i < n; i++ {
             function()
         }
     }
-   
+
     /* Đệ quy O(n) */
     func recur(n int) {
         if n == 1 {

@@ -1,68 +1,68 @@
-# Installation
+# Cài đặt môi trường lập trình
 
-## Install IDE
+## Cài đặt IDE
 
-We recommend using the open-source, lightweight VS Code as your local Integrated Development Environment (IDE). Visit the [VS Code official website](https://code.visualstudio.com/) and choose the version of VS Code appropriate for your operating system to download and install.
+Chúng tôi khuyên bạn nên sử dụng VS Code mã nguồn mở và nhẹ làm môi trường phát triển tích hợp (IDE) tại địa phương. Truy cập [trang web chính thức của VS Code](https://code.visualstudio.com/), tải xuống và cài đặt phiên bản VS Code phù hợp với hệ điều hành của bạn.
 
-![Download VS Code from the official website](installation.assets/vscode_installation.png)
+![Tải xuống VS Code từ trang web chính thức](installation.assets/vscode_installation.png)
 
-VS Code has a powerful extension ecosystem, supporting the execution and debugging of most programming languages. For example, after installing the "Python Extension Pack," you can debug Python code. The installation steps are shown in the figure below.
+VS Code sở hữu hệ sinh thái tiện ích mở rộng (extension) mạnh mẽ, hỗ trợ chạy và tinh chỉnh (debug) hầu hết các ngôn ngữ lập trình. Ví dụ, sau khi cài đặt tiện ích mở rộng "Python Extension Pack", bạn có thể tinh chỉnh mã nguồn Python. Các bước cài đặt được hiển thị trong hình bên dưới.
 
-![Install VS Code Extension Pack](installation.assets/vscode_extension_installation.png)
+![Cài đặt tiện ích mở rộng VS Code](installation.assets/vscode_extension_installation.png)
 
-## Install language environments
+## Cài đặt môi trường ngôn ngữ
 
-### Python environment
+### Môi trường Python
 
-1. Download and install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html), requiring Python 3.10 or newer.
-2. In the VS Code extension marketplace, search for `python` and install the Python Extension Pack.
-3. (Optional) Enter `pip install black` in the command line to install the code formatting tool.
+1. Tải xuống và cài đặt [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) với Python 3.10 hoặc mới hơn.
+2. Tìm kiếm `python` trên chợ tiện ích mở rộng của VS Code và cài đặt Python Extension Pack.
+3. (Tùy chọn) Nhập `pip install black` trên dòng lệnh để cài đặt công cụ định dạng mã nguồn.
 
-### C/C++ environment
+### Môi trường C/C++
 
-1. Windows systems need to install [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([Configuration tutorial](https://blog.csdn.net/qq_33698226/article/details/129031241)); MacOS comes with Clang, so no installation is necessary.
-2. In the VS Code extension marketplace, search for `c++` and install the C/C++ Extension Pack.
-3. (Optional) Open the Settings page, search for the `Clang_format_fallback Style` code formatting option, and set it to `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }`.
+1. Hệ điều hành Windows cần cài đặt [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([hướng dẫn cấu hình](https://blog.csdn.net/qq_33698226/article/details/129031241)); macOS đã tích hợp sẵn Clang nên không cần cài đặt thêm.
+2. Tìm kiếm `c++` trên chợ tiện ích mở rộng của VS Code và cài đặt C/C++ Extension Pack.
+3. (Tùy chọn) Mở trang Cài đặt (Settings), tìm kiếm tùy chọn định dạng mã nguồn `Clang_format_fallback Style` và thiết lập thành `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }`.
 
-### Java environment
+### Môi trường Java
 
-1. Download and install [OpenJDK](https://jdk.java.net/18/) (version must be > JDK 9).
-2. In the VS Code extension marketplace, search for `java` and install the Extension Pack for Java.
+1. Tải xuống và cài đặt [OpenJDK](https://jdk.java.net/18/) (phiên bản 10 hoặc mới hơn).
+2. Tìm kiếm `java` trên chợ tiện ích mở rộng của VS Code và cài đặt Extension Pack for Java.
 
-### C# environment
+### Môi trường C#
 
-1. Download and install [.Net 8.0](https://dotnet.microsoft.com/en-us/download).
-2. In the VS Code extension marketplace, search for `C# Dev Kit` and install the C# Dev Kit ([Configuration tutorial](https://code.visualstudio.com/docs/csharp/get-started)).
-3. You can also use Visual Studio ([Installation tutorial](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)).
+1. Tải xuống và cài đặt [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
+2. Tìm kiếm `C# Dev Kit` trên chợ tiện ích mở rộng của VS Code và cài đặt C# Dev Kit ([hướng dẫn cấu hình](https://code.visualstudio.com/docs/csharp/get-started)).
+3. Bạn cũng có thể sử dụng Visual Studio ([hướng dẫn cài đặt](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)).
 
-### Go environment
+### Môi trường Go
 
-1. Download and install [go](https://go.dev/dl/).
-2. In the VS Code extension marketplace, search for `go` and install Go.
-3. Press `Ctrl + Shift + P` to call up the command bar, enter go, choose `Go: Install/Update Tools`, select all and install.
+1. Tải xuống và cài đặt [Go](https://go.dev/dl/).
+2. Tìm kiếm `go` trên chợ tiện ích mở rộng của VS Code và cài đặt Go.
+3. Nhấn `Ctrl + Shift + P` để mở bảng điều khiển lệnh (command palette), nhập `go`, chọn `Go: Install/Update Tools`, đánh dấu chọn tất cả các tùy chọn và cài đặt.
 
-### Swift environment
+### Môi trường Swift
 
-1. Download and install [Swift](https://www.swift.org/download/).
-2. In the VS Code extension marketplace, search for `swift` and install [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang).
+1. Tải xuống và cài đặt [Swift](https://www.swift.org/download/).
+2. Tìm kiếm `swift` trên chợ tiện ích mở rộng của VS Code và cài đặt [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang).
 
-### JavaScript environment
+### Môi trường JavaScript
 
-1. Download and install [Node.js](https://nodejs.org/en/).
-2. (Optional) In the VS Code extension marketplace, search for `Prettier` and install the code formatting tool.
+1. Tải xuống và cài đặt [Node.js](https://nodejs.org/en/).
+2. (Tùy chọn) Tìm kiếm `Prettier` trên chợ tiện ích mở rộng của VS Code và cài đặt công cụ định dạng mã nguồn.
 
-### TypeScript environment
+### Môi trường TypeScript
 
-1. Follow the same installation steps as the JavaScript environment.
-2. Install [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation).
-3. In the VS Code extension marketplace, search for `typescript` and install [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors).
+1. Thực hiện các bước cài đặt tương tự như môi trường JavaScript.
+2. Cài đặt [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation).
+3. Tìm kiếm `typescript` trên chợ tiện ích mở rộng của VS Code và cài đặt [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors).
 
-### Dart environment
+### Môi trường Dart
 
-1. Download and install [Dart](https://dart.dev/get-dart).
-2. In the VS Code extension marketplace, search for `dart` and install [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code).
+1. Tải xuống và cài đặt [Dart](https://dart.dev/get-dart).
+2. Tìm kiếm `dart` trên chợ tiện ích mở rộng của VS Code và cài đặt [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code).
 
-### Rust environment
+### Môi trường Rust
 
-1. Download and install [Rust](https://www.rust-lang.org/tools/install).
-2. In the VS Code extension marketplace, search for `rust` and install [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+1. Tải xuống và cài đặt [Rust](https://www.rust-lang.org/tools/install).
+2. Tìm kiếm `rust` trên chợ tiện ích mở rộng của VS Code và cài đặt [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).

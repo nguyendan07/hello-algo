@@ -1,9 +1,9 @@
-# Backtracking
+# Thuật toán Quay lui
 
-![Backtracking](../assets/covers/chapter_backtracking.jpg)
+![Thuật toán quay lui](../assets/covers/chapter_backtracking.jpg)
 
 !!! abstract
 
-    Like explorers in a maze, we may encounter obstacles on our path forward.
+    Chúng ta giống như những nhà thám hiểm trong mê cung, và có thể gặp phải những khó khăn trên con đường phía trước.
 
-    The power of backtracking lets us begin anew, keep trying, and eventually find the exit leading to the light.
+    Sức mạnh của thuật toán quay lui cho phép chúng ta bắt đầu lại, tiếp tục thử nghiệm và cuối cùng tìm thấy lối ra dẫn đến ánh sáng.

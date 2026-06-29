@@ -263,7 +263,7 @@ List về cơ bản là array, do đó chúng có thể truy cập và cập nh�
     var num = nums.items[1]; // Truy cập phần tử tại chỉ số 1
 
     // Cập nhật các phần tử
-    nums.items[1] = 0; // Cập nhật phần tử tại chỉ số 1 thành 0  
+    nums.items[1] = 0; // Cập nhật phần tử tại chỉ số 1 thành 0
     ```
 
 ### Chèn và xóa các phần tử
@@ -638,7 +638,7 @@ Tương tự như array, list có thể được duyệt bằng cách sử dụn
     for (var i = 0; i < nums.length; i++) {
         count += nums[i];
     }
-    
+
     /* Duyệt trực tiếp qua các phần tử list */
     count = 0;
     for (var num in nums) {
@@ -847,7 +847,7 @@ Sau khi list được sắp xếp, chúng ta có thể sử dụng các thuật 
 === "JS"
 
     ```javascript title="list.js"
-    /* Sắp xếp list */  
+    /* Sắp xếp list */
     nums.sort((a, b) => a - b);  // Sau khi sắp xếp, các phần tử list theo thứ tự tăng dần
     ```
 

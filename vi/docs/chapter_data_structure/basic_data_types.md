@@ -20,16 +20,16 @@ Bảng sau liệt kê kích thước bộ nhớ, phạm vi giá trị và giá t
 
 <p align="center"> Bảng <id> &nbsp; Kích thước bộ nhớ và phạm vi giá trị của các kiểu dữ liệu cơ bản </p>
 
-| Kiểu     | Ký hiệu   | Kích thước     | Giá trị nhỏ nhất         | Giá trị lớn nhất         | Giá trị mặc định |
-| -------- | --------- | -------------- | ------------------------ | ------------------------ | --------------- |
-| Số nguyên| `byte`    | 1 byte         | $-2^7$ ($-128$)          | $2^7 - 1$ ($127$)        | 0               |
-|          | `short`   | 2 byte         | $-2^{15}$                | $2^{15} - 1$             | 0               |
-|          | `int`     | 4 byte         | $-2^{31}$                | $2^{31} - 1$             | 0               |
-|          | `long`    | 8 byte         | $-2^{63}$                | $2^{63} - 1$             | 0               |
-| Số thực  | `float`   | 4 byte         | $1.175 \times 10^{-38}$  | $3.403 \times 10^{38}$   | $0.0\text{f}$   |
-|          | `double`  | 8 byte         | $2.225 \times 10^{-308}$ | $1.798 \times 10^{308}$  | 0.0             |
-| Ký tự    | `char`    | 2 byte         | 0                        | $2^{16} - 1$             | 0               |
-| Boolean  | `bool`    | 1 byte         | $\text{false}$           | $\text{true}$            | $\text{false}$  |
+| Kiểu      | Ký hiệu  | Kích thước | Giá trị nhỏ nhất         | Giá trị lớn nhất        | Giá trị mặc định |
+| --------- | -------- | ---------- | ------------------------ | ----------------------- | ---------------- |
+| Số nguyên | `byte`   | 1 byte     | $-2^7$ ($-128$)          | $2^7 - 1$ ($127$)       | 0                |
+| --------- | `short`  | 2 byte     | $-2^{15}$                | $2^{15} - 1$            | 0                |
+| --------- | `int`    | 4 byte     | $-2^{31}$                | $2^{31} - 1$            | 0                |
+| --------- | `long`   | 8 byte     | $-2^{63}$                | $2^{63} - 1$            | 0                |
+| Số thực   | `float`  | 4 byte     | $1.175 \times 10^{-38}$  | $3.403 \times 10^{38}$  | $0.0\text{f}$    |
+| --------- | `double` | 8 byte     | $2.225 \times 10^{-308}$ | $1.798 \times 10^{308}$ | 0.0              |
+| Ký tự     | `char`   | 2 byte     | 0                        | $2^{16} - 1$            | 0                |
+| Boolean   | `bool`   | 1 byte     | $\text{false}$           | $\text{true}$           | $\text{false}$   |
 
 Lưu ý rằng bảng trên chỉ áp dụng cho các kiểu dữ liệu cơ bản của Java. Mỗi ngôn ngữ lập trình đều có định nghĩa kiểu dữ liệu riêng, có thể khác về kích thước, phạm vi giá trị và giá trị mặc định.
 

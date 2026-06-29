@@ -1,46 +1,46 @@
-# Contributing
+# Cùng nhau đóng góp
 
-Due to the limited abilities of the author, some omissions and errors are inevitable in this book. Please understand. If you discover any typos, broken links, missing content, textual ambiguities, unclear explanations, or unreasonable text structures, please assist us in making corrections to provide readers with better quality learning resources.
+Do năng lực và thời gian có hạn, cuốn sách này khó tránh khỏi những thiếu sót và sai sót. Chúng tôi rất mong nhận được sự thông cảm và vô cùng biết ơn sự giúp đỡ của bạn trong việc chỉnh sửa. Nếu bạn phát hiện ra lỗi chính tả, liên kết hỏng, nội dung còn thiếu, cách diễn đạt mơ hồ, giải thích chưa rõ ràng hoặc các vấn đề về cấu trúc, xin hãy giúp chúng tôi điều chỉnh để mang lại nguồn tài liệu học tập chất lượng cao hơn cho độc giả.
 
-The GitHub IDs of all [contributors](https://github.com/krahets/hello-algo/graphs/contributors) will be displayed on the repository, web, and PDF versions of the homepage of this book to thank them for their selfless contributions to the open-source community.
+ID GitHub của tất cả những người [đóng góp (contributors)](https://github.com/krahets/hello-algo/graphs/contributors) sẽ được hiển thị trên trang chủ của kho lưu trữ sách, phiên bản web và phiên bản PDF nhằm ghi nhận những đóng góp vô tư của họ cho cộng đồng mã nguồn mở.
 
-!!! success "The charm of open source"
+!!! success "Sức hút của Mã nguồn mở"
 
-    The interval between two printings of a paper book is often long, making content updates very inconvenient.
-    
-    In this open-source book, however, the content update cycle is shortened to just a few days or even hours.
+    Khoảng thời gian giữa hai lần in của một cuốn sách giấy thường khá dài, khiến việc cập nhật nội dung trở nên rất bất tiện.
 
-### Content fine-tuning
+    Trong cuốn sách mã nguồn mở này, thời gian cập nhật nội dung đã được rút ngắn chỉ còn vài ngày, thậm chí vài giờ.
 
-As shown in the figure below, there is an "edit icon" in the upper right corner of each page. You can follow these steps to modify text or code.
+### Điều chỉnh nội dung nhỏ
 
-1. Click the "edit icon". If prompted to "fork this repository", please agree to do so.
-2. Modify the Markdown source file content, check the accuracy of the content, and try to keep the formatting consistent.
-3. Fill in the modification description at the bottom of the page, then click the "Propose file change" button. After the page redirects, click the "Create pull request" button to initiate the pull request.
+Như được hiển thị trong hình bên dưới, có một "biểu tượng chỉnh sửa" ở góc trên bên phải của mỗi trang. Bạn có thể sửa đổi văn bản hoặc mã nguồn theo các bước sau.
 
-![Edit page button](contribution.assets/edit_markdown.png)
+1. Nhấp vào "biểu tượng chỉnh sửa". Nếu bạn gặp thông báo yêu cầu "Fork this repository", vui lòng chấp nhận thao tác này.
+2. Sửa đổi nội dung của tập tin nguồn Markdown, xác minh tính đúng đắn của nội dung và giữ nguyên định dạng nhất quán nhất có thể.
+3. Điền mô tả về các thay đổi của bạn ở cuối trang, sau đó nhấp vào nút "Propose file change". Sau khi trang mới tải xong, nhấp vào nút "Create pull request" để gửi yêu cầu kéo (pull request).
 
-Figures cannot be directly modified and require the creation of a new [Issue](https://github.com/krahets/hello-algo/issues) or a comment to describe the problem. We will redraw and replace the figures as soon as possible.
+![Nút chỉnh sửa trang](contribution.assets/edit_markdown.png)
 
-### Content creation
+Hình ảnh không thể sửa đổi trực tiếp. Vui lòng mô tả vấn đề bằng cách tạo một [Issue](https://github.com/krahets/hello-algo/issues) mới hoặc để lại bình luận. Chúng tôi sẽ nhanh chóng vẽ lại và thay thế hình ảnh.
 
-If you are interested in participating in this open-source project, including translating code into other programming languages or expanding article content, then the following Pull Request workflow needs to be implemented.
+### Sáng tạo nội dung
 
-1. Log in to GitHub and Fork the [code repository](https://github.com/krahets/hello-algo) of this book to your personal account.
-2. Go to your Forked repository web page and use the `git clone` command to clone the repository to your local machine.
-3. Create content locally and perform complete tests to verify the correctness of the code.
-4. Commit the changes made locally, then push them to the remote repository.
-5. Refresh the repository webpage and click the "Create pull request" button to initiate the pull request.
+Nếu bạn quan tâm đến việc đóng góp cho dự án mã nguồn mở này, bao gồm dịch mã nguồn sang các ngôn ngữ lập trình khác hoặc mở rộng nội dung bài viết, bạn sẽ cần tuân theo quy trình Pull Request bên dưới.
 
-### Docker deployment
+1. Đăng nhập vào GitHub và Fork [kho lưu trữ mã nguồn](https://github.com/krahets/hello-algo) của sách về tài khoản cá nhân của bạn.
+2. Truy cập trang kho lưu trữ đã fork của bạn và sử dụng lệnh `git clone` để sao chép kho lưu trữ về máy cục bộ.
+3. Tạo nội dung cục bộ và tiến hành kiểm thử toàn diện để xác minh tính đúng đắn của mã nguồn.
+4. Cam kết (commit) các thay đổi cục bộ của bạn và đẩy (push) chúng lên kho lưu trữ từ xa.
+5. Làm mới trang web kho lưu trữ và nhấp vào nút "Create pull request" để gửi yêu cầu kéo.
 
-In the `hello-algo` root directory, execute the following Docker script to access the project at `http://localhost:8000`:
+### Triển khai Docker
+
+Từ thư mục gốc của `hello-algo`, chạy lệnh Docker sau để truy cập dự án tại địa chỉ `http://localhost:8000`:
 
 ```shell
 docker-compose up -d
 ```
 
-Use the following command to remove the deployment:
+Sử dụng lệnh sau để gỡ bỏ triển khai:
 
 ```shell
 docker-compose down

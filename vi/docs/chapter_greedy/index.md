@@ -1,9 +1,9 @@
-# Greedy
+# Thuật toán Tham ăn
 
-![Greedy](../assets/covers/chapter_greedy.jpg)
+![Thuật toán tham ăn](../assets/covers/chapter_greedy.jpg)
 
 !!! abstract
 
-    Sunflowers turn towards the sun, always seeking the greatest possible growth for themselves.
+    Hoa hướng dương luôn hướng về phía mặt trời, luôn tìm kiếm sự phát triển trọn vẹn nhất có thể.
 
-    Greedy strategy guides to the best answer step by step through rounds of simple choices.
+    Thông qua các lựa chọn đơn giản nối tiếp nhau, chiến lược tham ăn dần dần dẫn đến giải pháp tối ưu.

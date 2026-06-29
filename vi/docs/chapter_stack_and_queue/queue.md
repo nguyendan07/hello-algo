@@ -21,7 +21,7 @@ Các thao tác phổ biến trên một hàng đợi được hiển thị trong
 <div class="center-table" markdown>
 
 | Tên phương thức | Mô tả                                          | Độ phức tạp thời gian |
-| --------------- | ---------------------------------------------- | --------------------  |
+| --------------- | ---------------------------------------------- | --------------------- |
 | `push()`        | Xếp một phần tử vào hàng đợi, thêm nó vào đuôi | $O(1)$                |
 | `pop()`         | Lấy phần tử ở đầu hàng đợi ra khỏi hàng đợi    | $O(1)$                |
 | `peek()`        | Truy cập phần tử ở đầu hàng đợi                | $O(1)$                |
@@ -226,7 +226,7 @@ Chúng ta có thể trực tiếp sử dụng các lớp hàng đợi dựng s�
 
     ```typescript title="queue.ts"
     /* Khởi tạo hàng đợi */
-    // TypeScript không có hàng đợi tích hợp, vì vậy Array có thể được sử dụng như một hàng đợi 
+    // TypeScript không có hàng đợi tích hợp, vì vậy Array có thể được sử dụng như một hàng đợi
     const queue: number[] = [];
 
     /* Xếp hàng các phần tử */

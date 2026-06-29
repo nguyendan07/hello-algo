@@ -90,7 +90,7 @@ trong bảng sau.
 
 <div class="center-table" markdown>
 
-|                          | Linear search | Binary search         | Tree search                 | Hash search                |
+| ------------------------ | Linear search | Binary search         | Tree search                 | Hash search                |
 | ------------------------ | ------------- | --------------------- | --------------------------- | -------------------------- |
 | Tìm kiếm phần tử         | $O(n)$        | $O(\log n)$           | $O(\log n)$                 | $O(1)$                     |
 | Chèn phần tử             | $O(1)$        | $O(n)$                | $O(\log n)$                 | $O(1)$                     |

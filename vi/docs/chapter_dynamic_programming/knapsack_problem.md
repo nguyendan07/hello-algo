@@ -1,97 +1,97 @@
-# 0-1 Knapsack problem
+# Bài toán Cái túi 0-1 (0-1 Knapsack)
 
-The knapsack problem is an excellent introductory problem for dynamic programming and is the most common type of problem in dynamic programming. It has many variants, such as the 0-1 knapsack problem, the unbounded knapsack problem, and the multiple knapsack problem, etc.
+Bài toán cái túi là một bài toán nhập môn tuyệt vời cho quy hoạch động và là một trong những dạng bài toán phổ biến nhất trong quy hoạch động. Nó có nhiều biến thể, chẳng hạn như bài toán cái túi 0-1, bài toán cái túi hoàn toàn (unbounded knapsack), và bài toán đa cái túi (multiple knapsack).
 
-In this section, we will first solve the most common 0-1 knapsack problem.
+Trong phần này, trước tiên chúng ta sẽ giải quyết bài toán cái túi 0-1 phổ biến nhất.
 
 !!! question
 
-    Given $n$ items, the weight of the $i$-th item is $wgt[i-1]$ and its value is $val[i-1]$, and a knapsack with a capacity of $cap$. Each item can be chosen only once. What is the maximum value of items that can be placed in the knapsack under the capacity limit?
+    Cho $n$ đồ vật và một cái túi có sức chứa $cap$, trong đó trọng lượng và giá trị của đồ vật thứ $i$ lần lượt là $wgt[i-1]$ và $val[i-1]$. Mỗi đồ vật chỉ có thể được chọn tối đa một lần. Giá trị tối đa có thể cho vào cái túi dưới giới hạn sức chứa là bao nhiêu?
 
-Observe the figure below, since the item number $i$ starts counting from 1, and the array index starts from 0, thus the weight of item $i$ corresponds to $wgt[i-1]$ and the value corresponds to $val[i-1]$.
+Quan sát hình bên dưới. Vì số thứ tự đồ vật $i$ bắt đầu đếm từ $1$ và các chỉ số mảng bắt đầu từ $0$, đồ vật $i$ tương ứng với trọng lượng $wgt[i-1]$ và giá trị $val[i-1]$.
 
-![Example data of the 0-1 knapsack](knapsack_problem.assets/knapsack_example.png)
+![Dữ liệu ví dụ cho cái túi 0-1](knapsack_problem.assets/knapsack_example.png)
 
-We can consider the 0-1 knapsack problem as a process consisting of $n$ rounds of decisions, where for each item there are two decisions: not to put it in or to put it in, thus the problem fits the decision tree model.
+Chúng ta có thể xem bài toán cái túi 0-1 như một quá trình bao gồm $n$ vòng quyết định, trong đó đối với mỗi đồ vật có hai quyết định: không cho vào và cho vào, do đó bài toán thỏa mãn mô hình cây quyết định.
 
-The objective of this problem is to "maximize the value of the items that can be put in the knapsack under the limited capacity," thus it is more likely a dynamic programming problem.
+Mục tiêu của bài toán này là tìm "giá trị tối đa có thể cho vào cái túi trong giới hạn sức chứa", vì vậy nó nhiều khả năng là một bài toán quy hoạch động.
 
-**First step: Think about each round of decisions, define states, thereby obtaining the $dp$ table**
+**Bước 1: Suy nghĩ về các quyết định trong mỗi vòng, định nghĩa trạng thái, và từ đó thu được bảng $dp$**
 
-For each item, if not put into the knapsack, the capacity remains unchanged; if put in, the capacity is reduced. From this, the state definition can be obtained: the current item number $i$ and knapsack capacity $c$, denoted as $[i, c]$.
+Đối với mỗi đồ vật, nếu không cho vào cái túi, sức chứa cái túi giữ nguyên; nếu cho vào, sức chứa cái túi giảm đi. Từ đây, chúng ta có thể rút ra định nghĩa trạng thái: số thứ tự đồ vật hiện tại $i$ và sức chứa cái túi $c$, ký hiệu là $[i, c]$.
 
-State $[i, c]$ corresponds to the sub-problem: **the maximum value of the first $i$ items in a knapsack of capacity $c$**, denoted as $dp[i, c]$.
+Trạng thái $[i, c]$ tương ứng với bài toán con: **giá trị tối đa trong số $i$ đồ vật đầu tiên trong một cái túi có sức chứa $c$**, ký hiệu là $dp[i, c]$.
 
-The solution we are looking for is $dp[n, cap]$, so we need a two-dimensional $dp$ table of size $(n+1) \times (cap+1)$.
+Những gì chúng ta cần tìm là $dp[n, cap]$, vì vậy chúng ta cần một bảng $dp$ hai chiều kích thước $(n+1) \times (cap+1)$.
 
-**Second step: Identify the optimal substructure, then derive the state transition equation**
+**Bước 2: Xác định cấu trúc con tối ưu, và sau đó rút ra phương trình chuyển trạng thái**
 
-After making the decision for item $i$, what remains is the sub-problem of decisions for the first $i-1$ items, which can be divided into two cases.
+Sau khi đưa ra quyết định cho đồ vật $i$, những gì còn lại là bài toán con của $i-1$ đồ vật đầu tiên, có thể chia thành hai trường hợp sau.
 
-- **Not putting item $i$**: The knapsack capacity remains unchanged, state changes to $[i-1, c]$.
-- **Putting item $i$**: The knapsack capacity decreases by $wgt[i-1]$, and the value increases by $val[i-1]$, state changes to $[i-1, c-wgt[i-1]]$.
+- **Không cho đồ vật $i$ vào**: Sức chứa cái túi giữ nguyên, và trạng thái chuyển thành $[i-1, c]$.
+- **Cho đồ vật $i$ vào**: Sức chứa cái túi giảm đi $wgt[i-1]$, giá trị tăng thêm $val[i-1]$, và trạng thái chuyển thành $[i-1, c-wgt[i-1]]$.
 
-The above analysis reveals the optimal substructure of this problem: **the maximum value $dp[i, c]$ is equal to the larger value of the two schemes of not putting item $i$ and putting item $i$**. From this, the state transition equation can be derived:
+Phân tích trên tiết lộ cấu trúc con tối ưu của bài toán này: **giá trị tối đa $dp[i, c]$ bằng giá trị lớn hơn trong các giá trị thu được bằng cách không cho đồ vật $i$ vào cái túi và cho nó vào cái túi**. Từ đây, phương trình chuyển trạng thái có thể được rút ra:
 
 $$
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 $$
 
-It is important to note that if the current item's weight $wgt[i - 1]$ exceeds the remaining knapsack capacity $c$, then the only option is not to put it in the knapsack.
+Lưu ý rằng nếu trọng lượng của đồ vật hiện tại $wgt[i - 1]$ vượt quá sức chứa còn lại của cái túi $c$, thì lựa chọn duy nhất là không cho nó vào cái túi.
 
-**Third step: Determine the boundary conditions and the order of state transitions**
+**Bước 3: Xác định các điều kiện biên và thứ tự chuyển trạng thái**
 
-When there are no items or the knapsack capacity is $0$, the maximum value is $0$, i.e., the first column $dp[i, 0]$ and the first row $dp[0, c]$ are both equal to $0$.
+Khi không có đồ vật nào hoặc sức chứa cái túi là $0$, giá trị tối đa là $0$, tức là cột đầu tiên $dp[i, 0]$ và hàng đầu tiên $dp[0, c]$ đều bằng $0$.
 
-The current state $[i, c]$ transitions from the state directly above $[i-1, c]$ and the state to the upper left $[i-1, c-wgt[i-1]]$, thus, the entire $dp$ table is traversed in order through two layers of loops.
+Trạng thái hiện tại $[i, c]$ chuyển trạng thái từ trạng thái phía trên $[i-1, c]$ và trạng thái phía trên bên trái $[i-1, c-wgt[i-1]]$, vì vậy chúng ta có thể duyệt qua toàn bộ bảng $dp$ theo thứ tự xuôi bằng hai vòng lặp lồng nhau.
 
-Following the above analysis, we will next implement the solutions in the order of brute force search, memoized search, and dynamic programming.
+Dựa trên phân tích trên, tiếp theo chúng ta sẽ lần lượt triển khai các giải pháp tìm kiếm vét cạn, ghi nhớ và quy hoạch động.
 
-### Method one: Brute force search
+### Phương pháp 1: Tìm kiếm Vét cạn
 
-The search code includes the following elements.
+Mã nguồn tìm kiếm bao gồm các yếu tố sau.
 
-- **Recursive parameters**: State $[i, c]$.
-- **Return value**: Solution to the sub-problem $dp[i, c]$.
-- **Termination condition**: When the item number is out of bounds $i = 0$ or the remaining capacity of the knapsack is $0$, terminate the recursion and return the value $0$.
-- **Pruning**: If the current item's weight exceeds the remaining capacity of the knapsack, the only option is not to put it in the knapsack.
+- **Các tham số đệ quy**: trạng thái $[i, c]$.
+- **Giá trị trả về**: lời giải cho bài toán con $dp[i, c]$.
+- **Điều kiện dừng**: khi không còn đồ vật nào ($i = 0$) hoặc sức chứa còn lại của cái túi là $0$, chấm dứt đệ quy và trả về giá trị $0$.
+- **Cắt tỉa**: nếu trọng lượng của đồ vật hiện tại vượt quá sức chứa còn lại của cái túi, chỉ có tùy chọn không cho vào là khả thi.
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dfs}
 ```
 
-As shown in the figure below, since each item generates two search branches of not selecting and selecting, the time complexity is $O(2^n)$.
+Như hiển thị trong hình bên dưới, vì mỗi đồ vật tạo ra hai nhánh tìm kiếm, không loại trừ và bao gồm nó, nên độ phức tạp thời gian là $O(2^n)$.
 
-Observing the recursive tree, it is easy to see that there are overlapping sub-problems, such as $dp[1, 10]$, etc. When there are many items and the knapsack capacity is large, especially when there are many items of the same weight, the number of overlapping sub-problems will increase significantly.
+Quan sát cây đệ quy, dễ dàng thấy được các bài toán con chồng chéo, chẳng hạn như $dp[1, 10]$. Khi có nhiều đồ vật, sức chứa cái túi lớn, và đặc biệt là nhiều đồ vật có cùng trọng lượng, số lượng các bài toán con chồng chéo sẽ tăng lên đáng kể.
 
-![The brute force search recursive tree of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dfs.png)
+![Cây đệ quy tìm kiếm vét cạn cho bài toán cái túi 0-1](knapsack_problem.assets/knapsack_dfs.png)
 
-### Method two: Memoized search
+### Phương pháp 2: Ghi nhớ (Memoization)
 
-To ensure that overlapping sub-problems are only calculated once, we use a memoization list `mem` to record the solutions to sub-problems, where `mem[i][c]` corresponds to $dp[i, c]$.
+Để đảm bảo rằng các bài toán con chồng chéo chỉ được tính toán một lần, chúng ta sử dụng một danh sách ghi nhớ `mem` để ghi lại lời giải cho các bài toán con, trong đó `mem[i][c]` tương ứng với $dp[i, c]$.
 
-After introducing memoization, **the time complexity depends on the number of sub-problems**, which is $O(n \times cap)$. The implementation code is as follows:
+Sau khi đưa vào ghi nhớ, **độ phức tạp thời gian phụ thuộc vào số lượng bài toán con**, chính là $O(n \times cap)$. Mã nguồn triển khai như sau:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}
 ```
 
-The figure below shows the search branches that are pruned in memoized search.
+Hình bên dưới hiển thị các nhánh tìm kiếm bị cắt tỉa trong phương pháp ghi nhớ.
 
-![The memoized search recursive tree of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dfs_mem.png)
+![Cây đệ quy có ghi nhớ cho bài toán cái túi 0-1](knapsack_problem.assets/knapsack_dfs_mem.png)
 
-### Method three: Dynamic programming
+### Phương pháp 3: Quy hoạch động
 
-Dynamic programming essentially involves filling the $dp$ table during the state transition, the code is shown in the figure below:
+Quy hoạch động về bản chất là quá trình điền vào bảng $dp$ trong quá trình chuyển trạng thái. Mã nguồn như sau:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dp}
 ```
 
-As shown in the figure below, both the time complexity and space complexity are determined by the size of the array `dp`, i.e., $O(n \times cap)$.
+Như hiển thị trong hình bên dưới, cả độ phức tạp thời gian và độ phức tạp không gian đều được quyết định bởi kích thước của mảng `dp`, đó là $O(n \times cap)$.
 
 === "<1>"
-    ![The dynamic programming process of the 0-1 knapsack problem](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![Quá trình quy hoạch động cho bài toán cái túi 0-1](knapsack_problem.assets/knapsack_dp_step1.png)
 
 === "<2>"
     ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png)
@@ -132,19 +132,19 @@ As shown in the figure below, both the time complexity and space complexity are 
 === "<14>"
     ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
 
-### Space optimization
+### Tối ưu hóa Không gian
 
-Since each state is only related to the state in the row above it, we can use two arrays to roll forward, reducing the space complexity from $O(n^2)$ to $O(n)$.
+Vì mỗi trạng thái chỉ liên quan đến trạng thái ở hàng phía trên nó, chúng ta có thể sử dụng hai mảng cuốn chiếu lũy tiến để giảm độ phức tạp không gian từ $O(n^2)$ xuống $O(n)$.
 
-Further thinking, can we use just one array to achieve space optimization? It can be observed that each state is transferred from the cell directly above or from the upper left cell. If there is only one array, when starting to traverse the $i$-th row, that array still stores the state of row $i-1$.
+Suy nghĩ xa hơn, liệu chúng ta có thể đạt được tối ưu hóa không gian chỉ bằng một mảng? Quan sát kỹ, chúng ta có thể thấy rằng mỗi trạng thái được chuyển từ ô trực tiếp phía trên hoặc ô ở phía trên bên trái. Nếu chỉ có một mảng, khi chúng ta bắt đầu duyệt hàng $i$, mảng đó vẫn lưu trữ trạng thái của hàng $i-1$.
 
-- If using normal order traversal, then when traversing to $dp[i, j]$, the values from the upper left $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ may have already been overwritten, thus the correct state transition result cannot be obtained.
-- If using reverse order traversal, there will be no overwriting problem, and the state transition can be conducted correctly.
+- Nếu sử dụng duyệt xuôi, khi duyệt đến $dp[i, j]$, các giá trị ở phía trên bên trái $dp[i-1, 1]$ ~ $dp[i-1, j-1]$ có thể đã bị ghi đè, từ đó ngăn cản việc chuyển trạng thái chính xác.
+- Nếu sử dụng duyệt ngược, sẽ không có vấn đề ghi đè, và việc chuyển trạng thái có thể tiến hành chính xác.
 
-The figures below show the transition process from row $i = 1$ to row $i = 2$ in a single array. Please think about the differences between normal order traversal and reverse order traversal.
+Hình bên dưới hiển thị quá trình chuyển trạng thái từ hàng $i = 1$ sang hàng $i = 2$ bằng cách sử dụng một mảng duy nhất. Xin hãy cân nhắc sự khác biệt giữa duyệt xuôi và duyệt ngược.
 
 === "<1>"
-    ![The space-optimized dynamic programming process of the 0-1 knapsack](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![Quá trình quy hoạch động tối ưu không gian cho cái túi 0-1](knapsack_problem.assets/knapsack_dp_comp_step1.png)
 
 === "<2>"
     ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
@@ -161,7 +161,7 @@ The figures below show the transition process from row $i = 1$ to row $i = 2$ in
 === "<6>"
     ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
 
-In the code implementation, we only need to delete the first dimension $i$ of the array `dp` and change the inner loop to reverse traversal:
+Trong triển khai mã nguồn, chúng ta đơn giản chỉ cần xóa chiều đầu tiên $i$ của mảng `dp` và thay đổi vòng lặp bên trong thành duyệt ngược:
 
 ```src
 [file]{knapsack}-[class]{}-[func]{knapsack_dp_comp}

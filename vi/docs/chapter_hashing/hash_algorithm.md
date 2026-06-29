@@ -397,13 +397,13 @@ Trong thế kỷ qua, các thuật toán băm liên tục được nâng cấp v
 
 <div class="center-table" markdown>
 
-|                 | MD5                                             | SHA-1                               | SHA-2                                                             | SHA-3                        |
-| --------------- | ----------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------- | ---------------------------- |
-| Năm phát hành   | 1992                                            | 1995                                | 2002                                                              | 2008                         |
-| Độ dài đầu ra   | 128 bit                                         | 160 bit                             | 256/512 bit                                                       | 224/256/384/512 bit          |
-| Va chạm băm     | Thường xuyên                                    | Thường xuyên                        | Hiếm                                                              | Hiếm                         |
-| Mức độ bảo mật  | Thấp, đã bị tấn công thành công                 | Thấp, đã bị tấn công thành công     | Cao                                                               | Cao                          |
-| Ứng dụng        | Đã loại bỏ, vẫn dùng kiểm tra tính toàn vẹn dữ liệu | Đã loại bỏ                       | Xác minh giao dịch tiền mã hóa, chữ ký số, v.v.                   | Có thể thay thế SHA-2        |
+| -------------- | MD5                                                 | SHA-1                           | SHA-2                                           | SHA-3                 |
+| -------------- | --------------------------------------------------- | ------------------------------- | ----------------------------------------------- | --------------------- |
+| Năm phát hành  | 1992                                                | 1995                            | 2002                                            | 2008                  |
+| Độ dài đầu ra  | 128 bit                                             | 160 bit                         | 256/512 bit                                     | 224/256/384/512 bit   |
+| Va chạm băm    | Thường xuyên                                        | Thường xuyên                    | Hiếm                                            | Hiếm                  |
+| Mức độ bảo mật | Thấp, đã bị tấn công thành công                     | Thấp, đã bị tấn công thành công | Cao                                             | Cao                   |
+| Ứng dụng       | Đã loại bỏ, vẫn dùng kiểm tra tính toàn vẹn dữ liệu | Đã loại bỏ                      | Xác minh giao dịch tiền mã hóa, chữ ký số, v.v. | Có thể thay thế SHA-2 |
 
 </div>
 

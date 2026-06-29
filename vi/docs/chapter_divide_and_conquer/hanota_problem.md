@@ -1,37 +1,37 @@
-# Tower of Hanoi Problem
+# Bài toán Tháp Hà Nội (Hanota)
 
-In both merge sort and binary tree construction, we break the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi, we adopt a different decomposition strategy.
+Trong sắp xếp trộn và dựng cây nhị phân, chúng ta phân rã bài toán ban đầu thành hai bài toán con, mỗi bài toán con có kích thước bằng một nửa bài toán ban đầu. Tuy nhiên, đối với bài toán tháp Hà Nội (Hanota), chúng ta áp dụng một chiến lược phân rã khác.
 
 !!! question
 
-    We are given three pillars, denoted as `A`, `B`, and `C`. Initially, pillar `A` has $n$ discs, arranged from top to bottom in ascending size. Our task is to move these $n$ discs to pillar `C`, maintaining their original order (as shown in the figure below). The following rules apply during the movement:
-    
-    1. A disc can be removed only from the top of a pillar and must be placed on the top of another pillar.
-    2. Only one disc can be moved at a time.
-    3. A smaller disc must always be on top of a larger disc.
+    Cho ba cọc, ký hiệu là `A`, `B`, và `C`. Ban đầu, cọc `A` có $n$ đĩa được xếp chồng lên nhau, sắp xếp từ trên xuống dưới theo thứ tự kích thước tăng dần. Nhiệm vụ của chúng ta là chuyển $n$ đĩa này sang cọc `C` trong khi vẫn giữ nguyên thứ tự ban đầu của chúng (như hiển thị trong hình bên dưới). Các quy tắc sau phải được tuân thủ khi di chuyển các đĩa.
 
-![Example of the Tower of Hanoi](hanota_problem.assets/hanota_example.png)
+    1. Mỗi lần chỉ có thể lấy một đĩa từ trên cùng của một cọc và đặt lên trên cùng của một cọc khác.
+    2. Chỉ được di chuyển một đĩa tại một thời điểm.
+    3. Đĩa nhỏ hơn phải luôn nằm trên đĩa lớn hơn.
 
-**We denote the Tower of Hanoi problem of size $i$ as $f(i)$**. For example, $f(3)$ represents moving $3$ discs from pillar `A` to pillar `C`.
+![Ví dụ về bài toán tháp Hà Nội](hanota_problem.assets/hanota_example.png)
 
-### Consider the base cases
+**Chúng ta ký hiệu bài toán tháp Hà Nội có kích thước $i$ là $f(i)$**. Ví dụ, $f(3)$ đại diện cho việc di chuyển $3$ đĩa từ `A` sang `C`.
 
-As shown in the figure below, for the problem $f(1)$—which has only one disc—we can directly move it from `A` to `C`.
+### Xem xét các Trường hợp cơ sở
+
+Như hiển thị trong hình bên dưới, đối với bài toán $f(1)$, khi chỉ có một đĩa, chúng ta có thể di chuyển trực tiếp từ `A` sang `C`.
 
 === "<1>"
-    ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.png)
+    ![Lời giải cho bài toán kích thước 1](hanota_problem.assets/hanota_f1_step1.png)
 
 === "<2>"
     ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
 
-For $f(2)$—which has two discs—**we rely on pillar `B` to help keep the smaller disc above the larger disc**, as illustrated in the following figure:
+Như hiển thị trong hình bên dưới, đối với bài toán $f(2)$, khi có hai đĩa, **vì chúng ta phải luôn giữ đĩa nhỏ hơn ở trên đĩa lớn hơn, chúng ta cần sử dụng `B` để hỗ trợ việc di chuyển**.
 
-1. First, move the smaller disc from `A` to `B`.
-2. Then move the larger disc from `A` to `C`.
-3. Finally, move the smaller disc from `B` to `C`.
+1. Đầu tiên, di chuyển đĩa nhỏ hơn từ `A` sang `B`.
+2. Sau đó di chuyển đĩa lớn hơn từ `A` sang `C`.
+3. Cuối cùng, di chuyển đĩa nhỏ hơn từ `B` sang `C`.
 
 === "<1>"
-    ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.png)
+    ![Lời giải cho bài toán kích thước 2](hanota_problem.assets/hanota_f2_step1.png)
 
 === "<2>"
     ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png)
@@ -42,20 +42,20 @@ For $f(2)$—which has two discs—**we rely on pillar `B` to help keep the smal
 === "<4>"
     ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png)
 
-The process of solving $f(2)$ can be summarized as: **moving two discs from `A` to `C` with the help of `B`**. Here, `C` is called the target pillar, and `B` is called the buffer pillar.
+Quá trình giải bài toán $f(2)$ có thể tóm tắt là: **di chuyển hai đĩa từ `A` sang `C` với sự trợ giúp của `B`**. Ở đây, `C` được gọi là cọc mục tiêu, và `B` được gọi là cọc đệm (trung gian).
 
-### Decomposition of subproblems
+### Phân rã Bài toán con
 
-For the problem $f(3)$—that is, when there are three discs—the situation becomes slightly more complicated.
+Đối với bài toán $f(3)$, khi có ba đĩa, tình hình trở nên phức tạp hơn một chút.
 
-Since we already know the solutions to $f(1)$ and $f(2)$, we can adopt a divide-and-conquer perspective and **treat the top two discs on `A` as a single unit**, performing the steps shown in the figure below. This allows the three discs to be successfully moved from `A` to `C`.
+Vì chúng ta đã biết lời giải cho $f(1)$ và $f(2)$, chúng ta có thể tư duy từ góc độ chia để trị, **coi hai đĩa trên cùng trên cọc `A` như một khối thống nhất**, và thực hiện các bước như hiển thị trong hình bên dưới. Thao tác này di chuyển thành công ba đĩa từ `A` sang `C`.
 
-1. Let `B` be the target pillar and `C` the buffer pillar, then move the two discs from `A` to `B`.
-2. Move the remaining disc from `A` directly to `C`.
-3. Let `C` be the target pillar and `A` the buffer pillar, then move the two discs from `B` to `C`.
+1. Chọn `B` làm cọc mục tiêu và `C` làm cọc đệm, di chuyển hai đĩa từ `A` sang `B`.
+2. Di chuyển đĩa còn lại từ `A` trực tiếp sang `C`.
+3. Chọn `C` làm cọc mục tiêu và `A` làm cọc đệm, di chuyển hai đĩa từ `B` sang `C`.
 
 === "<1>"
-    ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.png)
+    ![Lời giải cho bài toán kích thước 3](hanota_problem.assets/hanota_f3_step1.png)
 
 === "<2>"
     ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png)
@@ -66,32 +66,32 @@ Since we already know the solutions to $f(1)$ and $f(2)$, we can adopt a divide-
 === "<4>"
     ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png)
 
-Essentially, **we decompose $f(3)$ into two $f(2)$ subproblems and one $f(1)$ subproblem**. By solving these three subproblems in sequence, the original problem is solved, indicating that the subproblems are independent and their solutions can be merged.
+Về bản chất, **chúng ta chia bài toán $f(3)$ thành hai bài toán con $f(2)$ và một bài toán con $f(1)$**. Bằng cách giải ba bài toán con này theo thứ tự, bài toán ban đầu được giải quyết. Điều này cho thấy các bài toán con độc lập với nhau và lời giải của chúng có thể hợp nhất.
 
-From this, we can summarize the divide-and-conquer strategy for the Tower of Hanoi, illustrated in the figure below. We divide the original problem $f(n)$ into two subproblems $f(n-1)$ and one subproblem $f(1)$, and solve these three subproblems in the following order:
+Từ đây, chúng ta có thể tóm tắt chiến lược chia để trị giải bài toán tháp Hà Nội hiển thị trong hình bên dưới: chia bài toán ban đầu $f(n)$ thành hai bài toán con $f(n-1)$ và một bài toán con $f(1)$, và giải ba bài toán con này theo thứ tự sau.
 
-1. Move $n-1$ discs from `A` to `B`, using `C` as a buffer. 
-2. Move the remaining disc directly from `A` to `C`.
-3. Move $n-1$ discs from `B` to `C`, using `A` as a buffer. 
+1. Di chuyển $n-1$ đĩa từ `A` sang `B` với sự hỗ trợ của `C`.
+2. Di chuyển $1$ đĩa còn lại trực tiếp từ `A` sang `C`.
+3. Di chuyển $n-1$ đĩa từ `B` sang `C` với sự hỗ trợ của `A`.
 
-For each $f(n-1)$ subproblem, **we can apply the same recursive partition** until we reach the smallest subproblem $f(1)$. Because $f(1)$ is already known to require just a single move, it is trivial to solve.
+Đối với hai bài toán con $f(n-1)$ này, **chúng ta có thể chia đệ quy chúng theo cùng một cách** cho đến khi đạt được bài toán con nhỏ nhất $f(1)$. Lời giải cho $f(1)$ đã biết và chỉ cần một thao tác di chuyển.
 
-![Divide-and-conquer strategy for solving the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.png)
+![Chiến lược chia để trị giải bài toán tháp Hà Nội](hanota_problem.assets/hanota_divide_and_conquer.png)
 
-### Code implementation
+### Triển khai Mã nguồn
 
-In the code, we define a recursive function `dfs(i, src, buf, tar)` which moves the top $i$ discs from pillar `src` to pillar `tar`, using pillar `buf` as a buffer:
+Trong mã nguồn, chúng ta khai báo một hàm đệ quy `dfs(i, src, buf, tar)`, có mục đích là di chuyển $i$ đĩa trên cùng từ cọc nguồn `src` sang cọc mục tiêu `tar` với sự hỗ trợ của cọc đệm `buf`:
 
 ```src
 [file]{hanota}-[class]{}-[func]{solve_hanota}
 ```
 
-As shown in the figure below, the Tower of Hanoi problem can be visualized as a recursive tree of height $n$. Each node represents a subproblem, corresponding to a call to `dfs()`, **Hence, the time complexity is $O(2^n)$, and the space complexity is $O(n)$.**
+Như hiển thị trong hình bên dưới, bài toán tháp Hà Nội tạo thành một cây đệ quy có chiều cao $n$, trong đó mỗi nút đại diện cho một bài toán con tương ứng với một lần gọi hàm `dfs()`, **do đó độ phức tạp thời gian là $O(2^n)$ và độ phức tạp không gian là $O(n)$**.
 
-![Recursive tree of the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.png)
+![Cây đệ quy của bài toán tháp Hà Nội](hanota_problem.assets/hanota_recursive_tree.png)
 
 !!! quote
 
-    The Tower of Hanoi originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and $64$ differently sized golden discs. They believed that when the last disc was correctly placed, the world would end.
+    Bài toán tháp Hà Nội có nguồn gốc từ một truyền thuyết cổ xưa. Trong một ngôi đền ở Ấn Độ cổ đại, các nhà sư có ba cọc kim cương cao và $64$ đĩa bằng vàng có kích thước khác nhau. Các nhà sư liên tục di chuyển các đĩa, tin rằng khi đĩa cuối cùng được đặt đúng vị trí, thế giới sẽ đi đến hồi kết.
 
-    However, even if the monks moved one disc every second, it would take about $2^{64} \approx 1.84×10^{19}$ —approximately 585 billion years—far exceeding current estimates of the age of the universe. Thus, if the legend is true, we probably do not need to worry about the world ending.
+    Tuy nhiên, ngay cả khi các nhà sư di chuyển một đĩa mỗi giây, sẽ mất khoảng $2^{64} \approx 1.84×10^{19}$ giây, tương đương với khoảng $585$ tỷ năm, vượt xa ước tính hiện tại về tuổi của vũ trụ. Do đó, nếu truyền thuyết này là có thật, chúng ta không cần phải lo lắng về ngày tận thế.

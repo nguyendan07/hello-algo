@@ -22,11 +22,11 @@ Ngoài bảng băm, mảng và danh sách liên kết cũng có thể được s
 
 <div class="center-table" markdown>
 
-|                | Mảng   | Danh sách liên kết | Bảng băm |
-| -------------- | ------ | ----------- | ---------- |
-| Tìm kiếm phần tử  | $O(n)$ | $O(n)$      | $O(1)$     |
-| Chèn phần tử   | $O(1)$ | $O(1)$      | $O(1)$     |
-| Xóa phần tử  | $O(n)$ | $O(n)$      | $O(1)$     |
+| ---------------- | Mảng   | Danh sách liên kết | Bảng băm |
+| ---------------- | ------ | ------------------ | -------- |
+| Tìm kiếm phần tử | $O(n)$ | $O(n)$             | $O(1)$   |
+| Chèn phần tử     | $O(1)$ | $O(1)$             | $O(1)$   |
+| Xóa phần tử      | $O(n)$ | $O(n)$             | $O(1)$   |
 
 </div>
 
@@ -90,9 +90,9 @@ Các thao tác phổ biến của bảng băm bao gồm: khởi tạo, truy vấ
 
     /* Thao tác thêm */
     // Thêm cặp key-value (key, value) vào bảng băm
-    map.put(12836, "Xiao Ha");   
-    map.put(15937, "Xiao Luo");   
-    map.put(16750, "Xiao Suan");   
+    map.put(12836, "Xiao Ha");
+    map.put(15937, "Xiao Luo");
+    map.put(16750, "Xiao Suan");
     map.put(13276, "Xiao Fa");
     map.put(10583, "Xiao Ya");
 
@@ -464,7 +464,7 @@ Có ba cách phổ biến để duyệt một bảng băm: duyệt các cặp ke
 
     // Chỉ duyệt các key Key
     for key in map.keys() {
-        println!("{key}"); 
+        println!("{key}");
     }
 
     // Chỉ duyệt các value Value

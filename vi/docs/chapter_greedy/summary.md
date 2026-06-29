@@ -1,12 +1,14 @@
-# Summary
+# Tóm tắt
 
-- Greedy algorithms are often used to solve optimization problems, where the principle is to make locally optimal decisions at each decision stage in order to achieve a globally optimal solution.
-- Greedy algorithms iteratively make one greedy choice after another, transforming the problem into a smaller sub-problem with each round, until the problem is resolved.
-- Greedy algorithms are not only simple to implement but also have high problem-solving efficiency. Compared to dynamic programming, greedy algorithms generally have a lower time complexity.
-- In the problem of coin change, greedy algorithms can guarantee the optimal solution for certain combinations of coins; for others, however, the greedy algorithm might find a very poor solution.
-- Problems suitable for greedy algorithm solutions possess two main properties: greedy-choice property and optimal substructure. The greedy-choice property represents the effectiveness of the greedy strategy.
-- For some complex problems, proving the greedy-choice property is not straightforward. Contrarily, proving the invalidity is often easier, such as with the coin change problem.
-- Solving greedy problems mainly consists of three steps: problem analysis, determining the greedy strategy, and proving correctness. Among these, determining the greedy strategy is the key step, while proving correctness often poses the challenge.
-- The fractional knapsack problem builds on the 0-1 knapsack problem by allowing the selection of a part of the items, hence it can be solved using a greedy algorithm. The correctness of the greedy strategy can be proved by contradiction.
-- The maximum capacity problem can be solved using the exhaustive method, with a time complexity of $O(n^2)$. By designing a greedy strategy, each round moves inwardly shortening the board, optimizing the time complexity to $O(n)$.
-- In the problem of maximum product after cutting, we deduce two greedy strategies: integers $\geq 4$ should continue to be cut, with the optimal cutting factor being $3$. The code includes power operations, and the time complexity depends on the method of implementing power operations, generally being $O(1)$ or $O(\log n)$.
+### Ôn tập trọng tâm
+
+- Thuật toán tham ăn thường được sử dụng để giải quyết các bài toán tối ưu hóa. Nguyên tắc là đưa ra các quyết định tối ưu cục bộ ở mỗi giai đoạn quyết định với hy vọng thu được lời giải tối ưu toàn cục.
+- Thuật toán tham ăn thực hiện lặp đi lặp lại từng lựa chọn tham ăn một, chuyển đổi bài toán thành một bài toán con nhỏ hơn trong mỗi vòng, cho đến khi bài toán được giải quyết.
+- Thuật toán tham ăn không chỉ đơn giản trong việc triển khai mà còn có hiệu suất giải quyết bài toán cao. So với quy hoạch động, thuật toán tham ăn thường có độ phức tạp thời gian thấp hơn.
+- Trong bài toán đổi tiền lẻ, đối với một số tổ hợp đồng xu nhất định, thuật toán tham ăn có thể đảm bảo tìm ra lời giải tối ưu; tuy nhiên đối với các tổ hợp đồng xu khác, thuật toán tham ăn có thể tìm ra các lời giải rất kém.
+- Các bài toán phù hợp để giải bằng thuật toán tham ăn có hai tính chất lớn: tính chất lựa chọn tham ăn và cấu trúc con tối ưu. Tính chất lựa chọn tham ăn thể hiện hiệu quả của chiến lược tham ăn.
+- Đối với một số bài toán phức tạp, việc chứng minh tính chất lựa chọn tham ăn không hề đơn giản. Tương đối mà nói, việc bác bỏ nó dễ dàng hơn, chẳng hạn như trong bài toán đổi tiền lẻ.
+- Việc giải các bài toán tham ăn chủ yếu bao gồm ba bước: phân tích bài toán, xác định chiến lược tham ăn và chứng minh tính đúng đắn. Trong số đó, xác định chiến lược tham ăn là bước cốt lõi, và chứng minh tính đúng đắn thường là khó khăn chính.
+- Bài toán cái túi phân số, dựa trên bài toán cái túi 0-1, cho phép chọn các phần nhỏ của đồ vật, và do đó có thể được giải bằng thuật toán tham ăn. Tính đúng đắn của chiến lược tham ăn có thể được chứng minh bằng phương pháp chứng minh phản chứng.
+- Bài toán dung tích tối đa có thể được giải bằng liệt kê vét cạn với độ phức tạp thời gian $O(n^2)$. Bằng cách thiết kế một chiến lược tham ăn dịch chuyển cạnh ngắn hơn vào trong ở mỗi vòng, độ phức tạp thời gian có thể được tối ưu hóa thành $O(n)$.
+- Trong bài toán tích lớn nhất khi cắt đoạn, chúng ta liên tiếp rút ra hai chiến lược tham ăn: các số nguyên $\geq 4$ đều nên tiếp tục được tách ra, và thừa số tách tối ưu là $3$. Mã nguồn bao gồm các thao tác tính lũy thừa, và độ phức tạp thời gian phụ thuộc vào phương pháp triển khai lũy thừa, thường là $O(1)$ hoặc $O(\log n)$.

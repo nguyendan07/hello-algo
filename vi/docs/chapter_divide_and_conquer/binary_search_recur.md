@@ -1,44 +1,44 @@
-# Divide and conquer search strategy
+# Chiến lược tìm kiếm Chia để trị
 
-We have learned that search algorithms fall into two main categories.
+Chúng ta đã biết rằng các thuật toán tìm kiếm được chia thành hai nhóm lớn.
 
-- **Brute-force search**: It is implemented by traversing the data structure, with a time complexity of $O(n)$.
-- **Adaptive search**: It utilizes a unique data organization form or prior information, and its time complexity can reach $O(\log n)$ or even $O(1)$.
+- **Tìm kiếm vét cạn**: Triển khai bằng cách duyệt qua cấu trúc dữ liệu, với độ phức tạp thời gian là $O(n)$.
+- **Tìm kiếm thích ứng**: Tận dụng cách tổ chức dữ liệu cụ thể hoặc thông tin có sẵn, với độ phức tạp thời gian đạt $O(\log n)$ hoặc thậm chí $O(1)$.
 
-In fact, **search algorithms with a time complexity of $O(\log n)$ are usually based on the divide-and-conquer strategy**, such as binary search and trees.
+Trên thực tế, **các thuật toán tìm kiếm có độ phức tạp thời gian $O(\log n)$ thường được triển khai dựa trên chiến lược chia để trị**, chẳng hạn như tìm kiếm nhị phân và các loại cây.
 
-- Each step of binary search divides the problem (searching for a target element in an array) into a smaller problem (searching for the target element in half of the array), continuing until the array is empty or the target element is found.
-- Trees represent the divide-and-conquer idea, where in data structures like binary search trees, AVL trees, and heaps, the time complexity of various operations is $O(\log n)$.
+- Mỗi bước của tìm kiếm nhị phân chia bài toán (tìm kiếm phần tử mục tiêu trong mảng) thành một bài toán nhỏ hơn (tìm kiếm phần tử mục tiêu trong một nửa mảng), tiếp tục cho đến khi mảng rỗng hoặc tìm thấy phần tử mục tiêu.
+- Cây là đại diện tiêu biểu cho tư tưởng chia để trị. Trong các cấu trúc dữ liệu như cây tìm kiếm nhị phân, cây AVL và đống, độ phức tạp thời gian của các thao tác khác nhau là $O(\log n)$.
 
-The divide-and-conquer strategy of binary search is as follows.
+Chiến lược chia để trị của tìm kiếm nhị phân như sau.
 
-- **The problem can be divided**: Binary search recursively divides the original problem (searching in an array) into subproblems (searching in half of the array), achieved by comparing the middle element with the target element.
-- **Subproblems are independent**: In binary search, each round handles one subproblem, unaffected by other subproblems.
-- **The solutions of subproblems do not need to be merged**: Binary search aims to find a specific element, so there is no need to merge the solutions of subproblems. When a subproblem is solved, the original problem is also solved.
+- **Bài toán có thể phân rã**: Tìm kiếm nhị phân phân rã đệ quy bài toán ban đầu (tìm kiếm trong mảng) thành các bài toán con (tìm kiếm trong một nửa mảng), đạt được bằng cách so sánh phần tử ở giữa với phần tử mục tiêu.
+- **Các bài toán con độc lập**: Trong tìm kiếm nhị phân, mỗi vòng chỉ xử lý một bài toán con, bài toán con này không bị ảnh hưởng bởi các bài toán con khác.
+- **Lời giải của các bài toán con không cần hợp nhất**: Tìm kiếm nhị phân nhằm mục đích tìm kiếm một phần tử cụ thể, vì vậy không cần hợp nhất lời giải của các bài toán con. Khi một bài toán con được giải quyết, bài toán ban đầu cũng được giải quyết.
 
-Divide-and-conquer can enhance search efficiency because brute-force search can only eliminate one option per round, **whereas divide-and-conquer can eliminate half of the options**.
+Chia để trị có thể cải thiện hiệu suất tìm kiếm vì tìm kiếm vét cạn chỉ có thể loại bỏ một lựa chọn mỗi vòng, **trong khi tìm kiếm chia để trị có thể loại bỏ một nửa số lựa chọn mỗi vòng**.
 
-### Implementing binary search based on divide-and-conquer
+### Triển khai Tìm kiếm nhị phân dựa trên Chia để trị
 
-In previous chapters, binary search was implemented based on iteration. Now, we implement it based on divide-and-conquer (recursion).
+Trong các phần trước, tìm kiếm nhị phân được triển khai dựa trên phép lặp (vòng lặp). Bây giờ chúng ta triển khai nó dựa trên chia để trị (đệ quy).
 
 !!! question
 
-    Given an ordered array `nums` of length $n$, where all elements are unique, please find the element `target`.
+    Cho một mảng đã sắp xếp `nums` có độ dài $n$, trong đó tất cả các phần tử là duy nhất, hãy tìm `target`.
 
-From a divide-and-conquer perspective, we denote the subproblem corresponding to the search interval $[i, j]$ as $f(i, j)$.
+Từ góc độ chia để trị, chúng ta ký hiệu bài toán con tương ứng với khoảng tìm kiếm $[i, j]$ là $f(i, j)$.
 
-Starting from the original problem $f(0, n-1)$, perform the binary search through the following steps.
+Bắt đầu từ bài toán ban đầu $f(0, n-1)$, thực hiện tìm kiếm nhị phân thông qua các bước sau.
 
-1. Calculate the midpoint $m$ of the search interval $[i, j]$, and use it to eliminate half of the search interval.
-2. Recursively solve the subproblem reduced by half in size, which could be $f(i, m-1)$ or $f(m+1, j)$.
-3. Repeat steps `1.` and `2.`, until `target` is found or the interval is empty and returns.
+1. Tính điểm trung tâm $m$ của khoảng tìm kiếm $[i, j]$, và sử dụng nó để loại bỏ một nửa khoảng tìm kiếm.
+2. Giải đệ quy bài toán con đã giảm một nửa kích thước, có thể là $f(i, m-1)$ hoặc $f(m+1, j)$.
+3. Lặp lại các bước `1.` và `2.` cho đến khi tìm thấy `target`, hoặc trả về kết quả khi khoảng tìm kiếm rỗng.
 
-The figure below shows the divide-and-conquer process of binary search for element $6$ in an array.
+Hình bên dưới hiển thị quá trình chia để trị của tìm kiếm nhị phân cho phần tử $6$ trong một mảng.
 
-![The divide-and-conquer process of binary search](binary_search_recur.assets/binary_search_recur.png)
+![Quá trình chia để trị của tìm kiếm nhị phân](binary_search_recur.assets/binary_search_recur.png)
 
-In the implementation code, we declare a recursive function `dfs()` to solve the problem $f(i, j)$:
+Trong mã nguồn triển khai, chúng ta khai báo một hàm đệ quy `dfs()` để giải bài toán $f(i, j)$:
 
 ```src
 [file]{binary_search_recur}-[class]{}-[func]{binary_search}

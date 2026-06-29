@@ -20,4 +20,3 @@ Tôi cho rằng ý nghĩa của việc học thuật toán (và các môn nền 
 - Tuy nhiên, nếu đã học thuật toán, chúng ta biết rằng độ phức tạp thời gian của hàm sắp xếp có sẵn thường là $O(n \log n)$. Hơn nữa, nếu dữ liệu là các số nguyên có số chữ số cố định (như mã số sinh viên), ta có thể dùng cách hiệu quả hơn như sắp xếp theo cơ số (radix sort), giảm độ phức tạp xuống O(nk), với k là số chữ số. Khi xử lý lượng dữ liệu lớn, thời gian tiết kiệm được sẽ mang lại giá trị lớn — giảm chi phí, nâng cao trải nghiệm người dùng và hiệu suất hệ thống.
 
 Trong kỹ thuật, nhiều vấn đề rất khó giải quyết tối ưu; đa số được xử lý bằng giải pháp "gần tối ưu". Độ khó của một vấn đề không chỉ phụ thuộc vào bản chất của nó mà còn vào kiến thức và kinh nghiệm của người giải quyết. Càng hiểu sâu và có nhiều kinh nghiệm, chúng ta càng phân tích kỹ và giải quyết vấn đề một cách hiệu quả, sáng tạo hơn.
-

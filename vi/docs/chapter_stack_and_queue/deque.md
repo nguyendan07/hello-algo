@@ -17,7 +17,7 @@ Các thao tác phổ biến trong hàng đợi hai đầu được liệt kê d�
 <p align="center"> Bảng <id> &nbsp; Hiệu suất của các thao tác hàng đợi hai đầu </p>
 
 | Tên phương thức | Mô tả                      | Độ phức tạp thời gian |
-| --------------- | -------------------------- | ---------------       |
+| --------------- | -------------------------- | --------------------- |
 | `pushFirst()`   | Thêm một phần tử vào đầu   | $O(1)$                |
 | `pushLast()`    | Thêm một phần tử vào cuối  | $O(1)$                |
 | `popFirst()`    | Xóa phần tử đầu tiên       | $O(1)$                |

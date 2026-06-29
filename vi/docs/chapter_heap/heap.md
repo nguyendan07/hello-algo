@@ -151,17 +151,17 @@ sau:
     Queue<Integer> minHeap = new PriorityQueue<>();
     // Khởi tạo một max heap (Chỉ cần sửa đổi Comparator bằng biểu thức lambda)
     Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
-    
+
     /* Thêm phần tử vào heap */
     maxHeap.offer(1);
     maxHeap.offer(3);
     maxHeap.offer(2);
     maxHeap.offer(5);
     maxHeap.offer(4);
-    
+
     /* Lấy phần tử trên cùng của heap */
     int peek = maxHeap.peek(); // 5
-    
+
     /* Xóa phần tử trên cùng của heap */
     // Các phần tử bị xóa sẽ tạo thành một chuỗi theo thứ tự giảm dần
     peek = maxHeap.poll(); // 5
@@ -169,13 +169,13 @@ sau:
     peek = maxHeap.poll(); // 3
     peek = maxHeap.poll(); // 2
     peek = maxHeap.poll(); // 1
-    
+
     /* Lấy kích thước của heap */
     int size = maxHeap.size();
-    
+
     /* Kiểm tra xem heap có rỗng không */
     boolean isEmpty = maxHeap.isEmpty();
-    
+
     /* Tạo một heap từ một list */
     minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
     ```
@@ -371,7 +371,7 @@ sau:
     max_heap.push(2);
     max_heap.push(5);
     max_heap.push(4);
-    
+
     /* Lấy phần tử trên cùng của heap */
     let peek = max_heap.peek().unwrap();  // 5
 
@@ -407,17 +407,17 @@ sau:
     var minHeap = PriorityQueue<Int>()
     // Khởi tạo một max heap (Chỉ cần sửa đổi Comparator bằng biểu biểu thức lambda）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
-    
+
     /* Đẩy các phần tử vào heap */
     maxHeap.offer(1)
     maxHeap.offer(3)
     maxHeap.offer(2)
     maxHeap.offer(5)
     maxHeap.offer(4)
-    
+
     /* Lấy phần tử trên cùng của heap */
     var peek = maxHeap.peek() // 5
-    
+
     /* Xóa phần tử trên cùng của heap */
     // Các phần tử bị xóa sẽ tạo thành một dãy theo thứ tự giảm dần
     peek = maxHeap.poll() // 5
@@ -425,13 +425,13 @@ sau:
     peek = maxHeap.poll() // 3
     peek = maxHeap.poll() // 2
     peek = maxHeap.poll() // 1
-    
+
     /* Lấy kích thước của heap */
     val size = maxHeap.size
-    
+
     /* Kiểm tra xem heap có trống không */
     val isEmpty = maxHeap.isEmpty()
-    
+
     /* Tạo một heap từ một list */
     minHeap = PriorityQueue(mutableListOf(1, 3, 2, 5, 4))
     ```

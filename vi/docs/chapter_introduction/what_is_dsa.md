@@ -39,7 +39,7 @@ Bảng dưới đây cho thấy sự tương ứng chi tiết giữa hai khái n
 
 <p align="center"> Bảng <id> &nbsp; So sánh cấu trúc dữ liệu và thuật toán với bộ xếp hình </p>
 
-| Cấu trúc dữ liệu và thuật toán | Bộ xếp hình                                                      |
+| Cấu trúc dữ liệu và thuật toán | Bộ xếp hình                                                       |
 | ------------------------------ | ----------------------------------------------------------------- |
 | Dữ liệu đầu vào                | Các mảnh ghép chưa lắp ráp                                        |
 | Cấu trúc dữ liệu               | Cách tổ chức các mảnh ghép, gồm hình dạng, kích thước, kết nối... |
@@ -51,4 +51,3 @@ Lưu ý rằng cấu trúc dữ liệu và thuật toán không phụ thuộc v�
 !!! tip "Viết tắt thông dụng"
 
     Trong thực tế, chúng ta thường gọi "Cấu trúc dữ liệu và Thuật toán" đơn giản là "Thuật toán". Ví dụ, các bài toán thuật toán nổi tiếng trên LeetCode thực chất kiểm tra cả kiến thức về cấu trúc dữ liệu lẫn thuật toán.
-

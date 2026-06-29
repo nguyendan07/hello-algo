@@ -10,7 +10,7 @@ icon: material/graph-outline
 !!! abstract
 
     Cây cao tỏa ra một sinh khí rực rỡ, tự hào với những rễ sâu và tán lá phong phú, nhưng các cành lại thưa thớt, tạo nên một vẻ huyền ảo.
-    
+
     Nó cho chúng ta thấy hình thức sống động của phương pháp chia để trị trong dữ liệu.
 
 ## Chapter contents

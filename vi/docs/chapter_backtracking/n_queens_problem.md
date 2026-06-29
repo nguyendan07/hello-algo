@@ -1,53 +1,53 @@
-# n queens problem
+# Bài toán N Quân hậu (N-Queens)
 
 !!! question
 
-    According to the rules of chess, a queen can attack pieces in the same row, column, or diagonal line. Given $n$ queens and an $n \times n$ chessboard, find arrangements where no two queens can attack each other.
+    Theo quy tắc của cờ vua, một quân hậu có thể tấn công bất kỳ quân cờ nào nằm trên cùng một hàng, cùng một cột hoặc cùng một đường chéo. Cho $n$ quân hậu và một bàn cờ kích thước $n \times n$, hãy tìm một cách sắp xếp sao cho không có hai quân hậu nào có thể tấn công lẫn nhau.
 
-As shown in the figure below, there are two solutions when $n = 4$. From the perspective of the backtracking algorithm, an $n \times n$ chessboard has $n^2$ squares, presenting all possible choices `choices`. The state of the chessboard `state` changes continuously as each queen is placed.
+Như hiển thị trong hình bên dưới, khi $n = 4$, có thể tìm thấy hai lời giải. Từ góc độ của thuật toán quay lui, bàn cờ $n \times n$ có $n^2$ ô cờ, cung cấp tất cả các lựa chọn `choices`. Trong quá trình đặt từng quân hậu một, trạng thái bàn cờ liên tục thay đổi, và bàn cờ tại mỗi thời điểm đại diện cho trạng thái `state`.
 
-![Solution to the 4 queens problem](n_queens_problem.assets/solution_4_queens.png)
+![Lời giải cho bài toán 4 quân hậu](n_queens_problem.assets/solution_4_queens.png)
 
-The figure below shows the three constraints of this problem: **multiple queens cannot occupy the same row, column, or diagonal**. It is important to note that diagonals are divided into the main diagonal `\` and the secondary diagonal `/`.
+Hình bên dưới minh họa ba ràng buộc của bài toán này: **nhieu quân hậu không thể nằm trên cùng một hàng, cùng một cột, hoặc trên cùng một đường chéo**. Đáng chú ý là các đường chéo được chia thành hai loại: đường chéo chính `\` và đường chéo phụ `/`.
 
-![Constraints of the n queens problem](n_queens_problem.assets/n_queens_constraints.png)
+![Các ràng buộc của bài toán n quân hậu](n_queens_problem.assets/n_queens_constraints.png)
 
-### Row-by-row placing strategy
+### Chiến lược Đặt theo từng Hàng
 
-As the number of queens equals the number of rows on the chessboard, both being $n$, it is easy to conclude that **each row on the chessboard allows and only allows one queen to be placed**.
+Vì cả số lượng quân hậu và số lượng hàng trên bàn cờ đều là $n$, chúng ta có thể dễ dàng rút ra một kết luận: **mỗi hàng của bàn cờ chỉ cho phép đặt một và chỉ một quân hậu**.
 
-This means that we can adopt a row-by-row placing strategy: starting from the first row, place one queen per row until the last row is reached.
+Điều này có nghĩa là chúng ta có thể áp dụng chiến lược đặt theo từng hàng: bắt đầu từ hàng đầu tiên, đặt một quân hậu ở mỗi hàng cho đến khi hoàn thành hàng cuối cùng.
 
-The figure below shows the row-by-row placing process for the 4 queens problem. Due to space limitations, the figure only expands one search branch of the first row, and prunes any placements that do not meet the column and diagonal constraints.
+Hình bên dưới hiển thị quá trình đặt theo từng hàng cho bài toán 4 quân hậu. Do giới hạn về không gian, hình ảnh chỉ mở rộng một nhánh tìm kiếm của hàng đầu tiên, và tất cả các phương án vi phạm ràng buộc cột hoặc đường chéo đều bị cắt tỉa.
 
-![Row-by-row placing strategy](n_queens_problem.assets/n_queens_placing.png)
+![Chiến lược đặt theo từng hàng](n_queens_problem.assets/n_queens_placing.png)
 
-Essentially, **the row-by-row placing strategy serves as a pruning function**, eliminating all search branches that would place multiple queens in the same row.
+Về bản chất, **chiến lược đặt theo từng hàng đóng vai trò như một chức năng cắt tỉa**, vì nó tránh được tất cả các nhánh tìm kiếm mà nhiều quân hậu xuất hiện trên cùng một hàng.
 
-### Column and diagonal pruning
+### Cắt tỉa Cột và Đường chéo
 
-To satisfy column constraints, we can use a boolean array `cols` of length $n$ to track whether a queen occupies each column. Before each placement decision, `cols` is used to prune the columns that already have queens, and it is dynamically updated during backtracking.
+Để thỏa mãn ràng buộc cột, chúng ta có thể sử dụng một mảng boolean `cols` có độ dài $n$ để ghi lại xem mỗi cột đã có quân hậu hay chưa. Trước mỗi quyết định đặt quân hậu, chúng ta sử dụng `cols` để cắt tỉa các cột đã có quân hậu, và cập nhật động trạng thái của `cols` trong quá trình quay lui.
 
 !!! tip
 
-    Note that the origin of the matrix is located in the upper left corner, where the row index increases from top to bottom, and the column index increases from left to right.
+    Xin lưu ý rằng gốc tọa độ của ma trận nằm ở góc trên bên trái, trong đó chỉ số hàng tăng từ trên xuống dưới, và chỉ số cột tăng từ trái sang phải.
 
-How about the diagonal constraints? Let the row and column indices of a certain cell on the chessboard be $(row, col)$. By selecting a specific main diagonal, we notice that the difference $row - col$ is the same for all cells on that diagonal, **meaning that $row - col$ is a constant value on the main diagonal**.
+Vậy làm thế nào để xử lý các ràng buộc đường chéo? Xét một ô trên bàn cờ có chỉ số hàng và cột là $(row, col)$. Nếu chúng ta chọn một đường chéo chính cụ thể trong ma trận, chúng ta thấy rằng tất cả các ô trên đường chéo chính đó đều có cùng hiệu giữa chỉ số hàng và chỉ số cột của chúng, **nghĩa là $row - col$ là một giá trị hằng số cho tất cả các ô trên đường chéo chính**.
 
-In other words, if two cells satisfy $row_1 - col_1 = row_2 - col_2$, they are definitely on the same main diagonal. Using this pattern, we can utilize the array `diags1` shown in the figure below to track whether a queen is on any main diagonal.
+Nói cách khác, nếu hai ô thỏa mãn $row_1 - col_1 = row_2 - col_2$, chúng phải nằm trên cùng một đường chéo chính. Sử dụng quy luật này, chúng ta có thể sử dụng mảng `diags1` được hiển thị trong hình bên dưới để ghi lại xem có quân hậu trên mỗi đường chéo chính hay không.
 
-Similarly, **the sum of $row + col$ is a constant value for all cells on the secondary diagonal**. We can also use the array `diags2` to handle secondary diagonal constraints.
+Tương tự, **đối với tất cả các ô trên một đường chéo phụ, tổng $row + col$ là một giá trị hằng số**. Chúng ta cũng có thể sử dụng mảng `diags2` tương tự để xử lý các ràng buộc đường chéo phụ.
 
-![Handling column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.png)
+![Xử lý các ràng buộc cột và đường chéo](n_queens_problem.assets/n_queens_cols_diagonals.png)
 
-### Code implementation
+### Triển khai Mã nguồn
 
-Please note, in an $n$-dimensional square matrix, the range of $row - col$ is $[-n + 1, n - 1]$, and the range of $row + col$ is $[0, 2n - 2]$. Consequently, the number of both main and secondary diagonals is $2n - 1$, meaning the length of the arrays `diags1` and `diags2` is $2n - 1$.
+Xin lưu ý rằng trong ma trận vuông $n \times n$, phạm vi của $row - col$ là $[-n + 1, n - 1]$, và phạm vi của $row + col$ là $[0, 2n - 2]$. Do đó, số lượng cả đường chéo chính và đường chéo phụ đều là $2n - 1$, nghĩa là độ dài của cả hai mảng `diags1` và `diags2` đều là $2n - 1$.
 
 ```src
 [file]{n_queens}-[class]{}-[func]{n_queens}
 ```
 
-Placing $n$ queens row-by-row, considering column constraints, from the first row to the last row, there are $n$, $n-1$, $\dots$, $2$, $1$ choices, using $O(n!)$ time. When recording a solution, it is necessary to copy the matrix `state` and add it to `res`, with the copying operation using $O(n^2)$ time. Therefore, **the overall time complexity is $O(n! \cdot n^2)$**. In practice, pruning based on diagonal constraints can significantly reduce the search space, thus often the search efficiency is better than the aforementioned time complexity.
+Đặt $n$ quân hậu theo từng hàng, xét đến ràng buộc cột, từ hàng đầu tiên đến hàng cuối cùng có $n$, $n-1$, $\dots$, $2$, $1$ lựa chọn, tốn thời gian $O(n!)$. Khi ghi nhận một lời giải, cần phải sao chép ma trận `state` và thêm nó vào `res`, và thao tác sao chép tốn thời gian $O(n^2)$. Do đó, **độ phức tạp thời gian tổng thể là $O(n! \cdot n^2)$**. Trên thực tế, việc cắt tỉa dựa trên các ràng buộc đường chéo cũng có thể làm giảm đáng kể không gian tìm kiếm, vì vậy hiệu suất tìm kiếm thường tốt hơn độ phức tạp thời gian đề cập ở trên.
 
-Array `state` uses $O(n^2)$ space, and arrays `cols`, `diags1`, and `diags2` each use $O(n)$ space as well. The maximum recursion depth is $n$, using $O(n)$ stack frame space. Therefore, **the space complexity is $O(n^2)$**.
+Mảng `state` sử dụng không gian $O(n^2)$, và các mảng `cols`, `diags1`, và `diags2` mỗi mảng sử dụng không gian $O(n)$. Độ sâu đệ quy tối đa là $n$, sử dụng không gian khung ngữ cảnh $O(n)$. Do đó, **độ phức tạp không gian là $O(n^2)$**.

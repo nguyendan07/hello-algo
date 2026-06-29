@@ -1,94 +1,94 @@
-# Greedy algorithms
+# Thuật toán Tham ăn
 
-<u>Greedy algorithm</u> is a common algorithm for solving optimization problems, which fundamentally involves making the seemingly best choice at each decision-making stage of the problem, i.e., greedily making locally optimal decisions in hopes of finding a globally optimal solution. Greedy algorithms are concise and efficient, and are widely used in many practical problems.
+<u>Thuật toán tham ăn</u> (Greedy algorithm) là một cách tiếp cận phổ biến để giải quyết các bài toán tối ưu hóa. Ý tưởng cơ bản của nó là chọn tùy chọn có vẻ tốt nhất ở mỗi giai đoạn quyết định, tức là tham ăn đưa ra các quyết định tối ưu cục bộ với hy vọng thu được lời giải tối ưu toàn cục. Thuật toán tham ăn đơn giản và hiệu quả, được ứng dụng rộng rãi trong nhiều bài toán thực tế.
 
-Greedy algorithms and dynamic programming are both commonly used to solve optimization problems. They share some similarities, such as relying on the property of optimal substructure, but they operate differently.
+Thuật toán tham ăn và quy hoạch động đều thường được sử dụng để giải quyết các bài toán tối ưu hóa. Chúng chia sẻ một số điểm tương đồng, chẳng hạn như cả hai đều phụ thuộc vào tính chất cấu trúc con tối ưu (optimal substructure), nhưng chúng hoạt động khác nhau.
 
-- Dynamic programming considers all previous decisions at the current decision stage and uses solutions to past subproblems to construct solutions for the current subproblem.
-- Greedy algorithms do not consider past decisions; instead, they proceed with greedy choices, continually narrowing the scope of the problem until it is solved.
+- Quy hoạch động xem xét tất cả các quyết định trước đó khi đưa ra quyết định hiện tại, và sử dụng lời giải cho các bài toán con trong quá khứ để xây dựng lời giải cho bài toán con hiện tại.
+- Thuật toán tham ăn không xem xét các quyết định trong quá khứ, mà thay vào đó đưa ra các lựa chọn tham ăn tiến về phía trước, liên tục giảm kích thước bài toán cho đến khi bài toán được giải quyết.
 
-Let's first understand the working principle of the greedy algorithm through the example of "coin change," which has been introduced in the "Complete Knapsack Problem" chapter. I believe you are already familiar with it.
+Trước tiên, chúng ta sẽ hiểu cách hoạt động của thuật toán tham ăn thông qua bài toán ví dụ "đổi tiền lẻ". Bài toán này đã được giới thiệu trong chương "Bài toán Cái túi Hoàn toàn", vì vậy nó chắc chắn đã quen thuộc với bạn.
 
 !!! question
 
-    Given $n$ types of coins, where the denomination of the $i$th type of coin is $coins[i - 1]$, and the target amount is $amt$, with each type of coin available indefinitely, what is the minimum number of coins needed to make up the target amount? If it is not possible to make up the target amount, return $-1$.
+    Cho $n$ loại tiền xu, trong đó mệnh giá của loại thứ $i$ là $coins[i - 1]$, một số tiền mục tiêu $amt$, và số lượng tiền xu không giới hạn cho mỗi loại, số lượng tiền xu tối thiểu cần thiết để tạo thành số tiền mục tiêu là bao nhiêu? Nếu không thể tạo thành số tiền mục tiêu, hãy trả về $-1$.
 
-The greedy strategy adopted in this problem is shown in the figure below. Given the target amount, **we greedily choose the coin that is closest to and not greater than it**, repeatedly following this step until the target amount is met.
+Chiến lược tham ăn cho bài toán này được hiển thị trong hình bên dưới. Cho một số tiền mục tiêu, **chúng ta tham ăn chọn đồng xu không vượt quá số tiền đó và gần với nó nhất**, lặp lại bước này cho đến khi tạo đủ số tiền mục tiêu.
 
-![Greedy strategy for coin change](greedy_algorithm.assets/coin_change_greedy_strategy.png)
+![Chiến lược tham ăn cho bài toán đổi tiền lẻ](greedy_algorithm.assets/coin_change_greedy_strategy.png)
 
-The implementation code is as follows:
+Mã nguồn triển khai như sau:
 
 ```src
 [file]{coin_change_greedy}-[class]{}-[func]{coin_change_greedy}
 ```
 
-You might exclaim: So clean! The greedy algorithm solves the coin change problem in about ten lines of code.
+Bạn có thể sẽ phải thốt lên rằng: "Thật là ngắn gọn!" Thuật toán tham ăn giải quyết bài toán đổi tiền lẻ chỉ trong khoảng mười dòng mã nguồn.
 
-## Advantages and limitations of greedy algorithms
+## Ưu điểm và Hạn chế của Thuật toán Tham ăn
 
-**Greedy algorithms are not only straightforward and simple to implement, but they are also usually very efficient**. In the code above, if the smallest coin denomination is $\min(coins)$, the greedy choice loops at most $amt / \min(coins)$ times, giving a time complexity of $O(amt / \min(coins))$. This is an order of magnitude smaller than the time complexity of the dynamic programming solution, which is $O(n \times amt)$.
+**Thuật toán tham ăn không chỉ trực tiếp áp dụng và dễ triển khai mà còn thường rất hiệu quả**. Trong mã nguồn trên, nếu mệnh giá đồng xu nhỏ nhất là $\min(coins)$, vòng lặp lựa chọn tham ăn chạy tối đa $amt / \min(coins)$ lần, mang lại độ phức tạp thời gian là $O(amt / \min(coins))$. Độ phức tạp này thấp hơn một cấp so với độ phức tạp thời gian của giải pháp quy hoạch động là $O(n \times amt)$.
 
-However, **for some combinations of coin denominations, greedy algorithms cannot find the optimal solution**. The figure below provides two examples.
+Tuy nhiên, **đối với một số tập hợp mệnh giá đồng xu, thuật toán tham ăn không thể tìm ra lời giải tối ưu**. Hình bên dưới hiển thị hai ví dụ.
 
-- **Positive example $coins = [1, 5, 10, 20, 50, 100]$**: In this coin combination, given any $amt$, the greedy algorithm can find the optimal solution.
-- **Negative example $coins = [1, 20, 50]$**: Suppose $amt = 60$, the greedy algorithm can only find the combination $50 + 1 \times 10$, totaling 11 coins, but dynamic programming can find the optimal solution of $20 + 20 + 20$, needing only 3 coins.
-- **Negative example $coins = [1, 49, 50]$**: Suppose $amt = 98$, the greedy algorithm can only find the combination $50 + 1 \times 48$, totaling 49 coins, but dynamic programming can find the optimal solution of $49 + 49$, needing only 2 coins.
+- **Ví dụ thuận $coins = [1, 5, 10, 20, 50, 100]$**: Với tập hợp đồng xu này, thuật toán tham ăn có thể tìm ra lời giải tối ưu cho bất kỳ $amt$ nào.
+- **Phản ví dụ $coins = [1, 20, 50]$**: Giả sử $amt = 60$. Thuật toán tham ăn chỉ có thể tìm thấy tổ hợp $50 + 1 \times 10$, sử dụng tổng cộng $11$ đồng xu, trong khi quy hoạch động có thể tìm ra lời giải tối ưu $20 + 20 + 20$ chỉ sử dụng $3$ đồng xu.
+- **Phản ví dụ $coins = [1, 49, 50]$**: Giả sử $amt = 98$. Thuật toán tham ăn chỉ có thể tìm thấy tổ hợp $50 + 1 \times 48$, sử dụng tổng cộng $49$ đồng xu, trong khi quy hoạch động có thể tìm ra lời giải tối ưu $49 + 49$ chỉ sử dụng $2$ đồng xu.
 
-![Examples where greedy algorithms do not find the optimal solution](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
+![Các ví dụ mà thuật toán tham ăn không thể tìm ra lời giải tối ưu](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
 
-This means that for the coin change problem, greedy algorithms cannot guarantee finding the globally optimal solution, and they might find a very poor solution. They are better suited for dynamic programming.
+Nói cách khác, đối với bài toán đổi tiền lẻ, thuật toán tham ăn không thể đảm bảo một lời giải tối ưu toàn cục và thậm chí có thể tạo ra kết quả rất kém. Bài toán này được giải quyết tốt hơn bằng quy hoạch động.
 
-Generally, the suitability of greedy algorithms falls into two categories.
+Nói chung, thuật toán tham ăn có thể áp dụng trong hai tình huống sau.
 
-1. **Guaranteed to find the optimal solution**: In these cases, greedy algorithms are often the best choice, as they tend to be more efficient than backtracking or dynamic programming.
-2. **Can find a near-optimal solution**: Greedy algorithms are also applicable here. For many complex problems, finding the global optimal solution is very challenging, and being able to find a high-efficiency suboptimal solution is also very commendable.
+1. **Lời giải tối ưu có thể được đảm bảo**: Trong trường hợp này, thuật toán tham ăn thường là lựa chọn tốt nhất vì chúng có xu hướng hiệu quả hơn quay lui và quy hoạch động.
+2. **Một lời giải xấp xỉ tối ưu có thể được tìm thấy**: Thuật toán tham ăn cũng hữu ích trong trường hợp này. Đối với nhiều bài toán phức tạp, việc tìm ra lời giải tối ưu toàn cục là rất khó khăn, vì vậy việc tìm ra một lời giải dưới tối ưu một cách hiệu quả đã là một kết quả rất tốt.
 
-## Characteristics of greedy algorithms
+## Đặc điểm của Thuật toán Tham ăn
 
-So, what kind of problems are suitable for solving with greedy algorithms? Or rather, under what conditions can greedy algorithms guarantee to find the optimal solution?
+Vậy câu hỏi đặt ra là: loại bài toán nào phù hợp để giải bằng thuật toán tham ăn? Hay nói cách khác, dưới những điều kiện nào thì thuật toán tham ăn có thể đảm bảo tìm ra lời giải tối ưu?
 
-Compared to dynamic programming, greedy algorithms have stricter usage conditions, focusing mainly on two properties of the problem.
+So với quy hoạch động, các điều kiện sử dụng thuật toán tham ăn nghiêm ngặt hơn, chủ yếu tập trung vào hai tính chất của bài toán.
 
-- **Greedy choice property**: Only when the locally optimal choice can always lead to a globally optimal solution can greedy algorithms guarantee to obtain the optimal solution.
-- **Optimal substructure**: The optimal solution to the original problem contains the optimal solutions to its subproblems.
+- **Tính chất lựa chọn tham ăn (Greedy choice property)**: Chỉ khi các lựa chọn tối ưu cục bộ luôn có thể dẫn đến lời giải tối ưu toàn cục thì thuật toán tham ăn mới đảm bảo thu được lời giải tối ưu.
+- **Cấu trúc con tối ưu (Optimal substructure)**: Lời giải tối ưu cho bài toán ban đầu chứa lời giải tối ưu cho các bài toán con.
 
-Optimal substructure has already been introduced in the "Dynamic Programming" chapter, so it is not discussed further here. It's important to note that some problems do not have an obvious optimal substructure, but can still be solved using greedy algorithms.
+Cấu trúc con tối ưu đã được giới thiệu trong chương "Quy hoạch động", vì vậy chúng ta sẽ không đi sâu vào ở đây. Đáng chú ý là cấu trúc con tối ưu của một số bài toán không rõ ràng, nhưng chúng vẫn có thể được giải bằng cách sử dụng thuật toán tham ăn.
 
-We mainly explore the method for determining the greedy choice property. Although its description seems simple, **in practice, proving the greedy choice property for many problems is not easy**.
+Chúng ta chủ yếu khám phá các phương pháp để xác định tính chất lựa chọn tham ăn. Mặc dù mô tả của nó có vẻ tương đối đơn giản, **trên thực tế, đối với nhiều bài toán, việc chứng minh tính chất lựa chọn tham ăn là không hề dễ dàng**.
 
-For example, in the coin change problem, although we can easily cite counterexamples to disprove the greedy choice property, proving it is much more challenging. If asked, **what conditions must a coin combination meet to be solvable using a greedy algorithm**? We often have to rely on intuition or examples to provide an ambiguous answer, as it is difficult to provide a rigorous mathematical proof.
+Ví dụ, trong bài toán đổi tiền lẻ, mặc dù chúng ta có thể dễ dàng đưa ra các phản ví dụ để bác bỏ tính chất lựa chọn tham ăn, nhưng việc chứng minh nó đúng thì khó hơn nhiều. Nếu được hỏi **dưới những điều kiện nào thì một tập hợp đồng xu có thể được giải bằng thuật toán tham ăn**? Chúng ta thường chỉ có thể dựa vào trực giác hoặc các ví dụ để đưa ra một câu trả lời mơ hồ, và rất khó để cung cấp một chứng minh toán học nghiêm ngặt.
 
 !!! quote
 
-    A paper presents an algorithm with a time complexity of $O(n^3)$ for determining whether a coin combination can use a greedy algorithm to find the optimal solution for any amount.
+    Có một bài báo trình bày một thuật toán $O(n^3)$ để xác định xem một tập hợp đồng xu có thể được giải tối ưu bằng thuật toán tham ăn cho bất kỳ số tiền nào hay không.
 
     Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.
 
-## Steps for solving problems with greedy algorithms
+## Các bước Giải quyết Bài toán bằng Thuật toán Tham ăn
 
-The problem-solving process for greedy problems can generally be divided into the following three steps.
+Quy trình chung để giải các bài toán tham ăn có thể chia thành ba bước sau.
 
-1. **Problem analysis**: Sort out and understand the characteristics of the problem, including state definition, optimization objectives, and constraints, etc. This step is also involved in backtracking and dynamic programming.
-2. **Determine the greedy strategy**: Determine how to make a greedy choice at each step. This strategy can reduce the scale of the problem at each step and eventually solve the entire problem.
-3. **Proof of correctness**: It is usually necessary to prove that the problem has both a greedy choice property and optimal substructure. This step may require mathematical proofs, such as induction or reductio ad absurdum.
+1. **Phân tích bài toán**: Sắp xếp và hiểu rõ các đặc điểm của bài toán, bao gồm định nghĩa trạng thái, mục tiêu tối ưu hóa và các ràng buộc. Bước này cũng xuất hiện trong quay lui và quy hoạch động.
+2. **Xác định chiến lược tham ăn**: Quyết định cách thực hiện lựa chọn tham ăn ở mỗi bước. Chiến lược này nên làm giảm từng bước kích thước bài toán và cuối cùng giải quyết toàn bộ bài toán.
+3. **Chứng minh tính đúng đắn**: Thường cần phải chứng minh rằng bài toán có cả tính chất lựa chọn tham ăn và cấu trúc con tối ưu. Bước này có thể yêu cầu các công cụ toán học như quy nạp hoặc chứng minh phản chứng.
 
-Determining the greedy strategy is the core step in solving the problem, but it may not be easy to implement, mainly for the following reasons.
+Xác định chiến lược tham ăn là bước cốt lõi trong việc giải quyết các bài toán như vậy, nhưng nó có thể không dễ dàng trong thực tế, chủ yếu vì những lý do sau.
 
-- **Greedy strategies vary greatly between different problems**. For many problems, the greedy strategy is fairly straightforward, and we can come up with it through some general thinking and attempts. However, for some complex problems, the greedy strategy may be very elusive, which is a real test of individual problem-solving experience and algorithmic capability.
-- **Some greedy strategies are quite misleading**. When we confidently design a greedy strategy, write the code, and submit it for testing, it is quite possible that some test cases will not pass. This is because the designed greedy strategy is only "partially correct," as described above with the coin change example.
+- **Các chiến lược tham ăn rất khác nhau tùy thuộc vào từng bài toán**. Đối với nhiều bài toán, chiến lược tham ăn khá trực quan và có thể suy ra thông qua lập luận thô và thử nghiệm. Tuy nhiên, đối với một số bài toán phức tạp, chiến lược tham ăn có thể bị ẩn sâu, điều này thử thách mạnh mẽ kinh nghiệm giải quyết bài toán và khả năng thuật toán của một người.
+- **Một số chiến lược tham ăn có tính lừa đảo cao**. Chúng ta có thể tự tin thiết kế một chiến lược tham ăn, viết mã nguồn giải pháp và gửi đi, chỉ để thấy rằng một số trường hợp kiểm thử bị thất bại. Điều này là do chiến lược tham ăn được thiết kế chỉ "đúng một phần", như được minh họa bởi bài toán đổi tiền lẻ đã thảo luận ở trên.
 
-To ensure accuracy, we should provide rigorous mathematical proofs for the greedy strategy, **usually involving reductio ad absurdum or mathematical induction**.
+Để đảm bảo tính đúng đắn, chúng ta nên đưa ra một chứng minh toán học nghiêm ngặt cho chiến lược tham ăn, **thường sử dụng chứng minh phản chứng hoặc quy nạp toán học**.
 
-However, proving correctness may not be an easy task. If we are at a loss, we usually choose to debug the code based on test cases, modifying and verifying the greedy strategy step by step.
+Tuy nhiên, việc chứng minh tính đúng đắn cũng có thể khó khăn. Nếu chúng ta không có hướng đi rõ ràng, chúng ta thường tìm đến việc gỡ lỗi dựa trên các trường hợp kiểm thử, sửa đổi và xác minh chiến lược tham ăn từng bước một.
 
-## Typical problems solved by greedy algorithms
+## Các bài toán điển hình Giải bằng Thuật toán Tham ăn
 
-Greedy algorithms are often applied to optimization problems that satisfy the properties of greedy choice and optimal substructure. Below are some typical greedy algorithm problems.
+Thuật toán tham ăn thường được áp dụng cho các bài toán tối ưu hóa thỏa mãn tính chất lựa chọn tham ăn và cấu trúc con tối ưu. Dưới đây là một số bài toán thuật toán tham ăn điển hình.
 
-- **Coin change problem**: In some coin combinations, the greedy algorithm always provides the optimal solution.
-- **Interval scheduling problem**: Suppose you have several tasks, each of which takes place over a period of time. Your goal is to complete as many tasks as possible. If you always choose the task that ends the earliest, then the greedy algorithm can achieve the optimal solution.
-- **Fractional knapsack problem**: Given a set of items and a carrying capacity, your goal is to select a set of items such that the total weight does not exceed the carrying capacity and the total value is maximized. If you always choose the item with the highest value-to-weight ratio (value / weight), the greedy algorithm can achieve the optimal solution in some cases.
-- **Stock trading problem**: Given a set of historical stock prices, you can make multiple trades, but you cannot buy again until after you have sold if you already own stocks. The goal is to achieve the maximum profit.
-- **Huffman coding**: Huffman coding is a greedy algorithm used for lossless data compression. By constructing a Huffman tree, it always merges the two nodes with the lowest frequency, resulting in a Huffman tree with the minimum weighted path length (coding length).
-- **Dijkstra's algorithm**: It is a greedy algorithm for solving the shortest path problem from a given source vertex to all other vertices.
+- **Bài toán đổi tiền lẻ**: Với một số tổ hợp đồng xu nhất định, thuật toán tham ăn luôn có thể thu được lời giải tối ưu.
+- **Bài toán lập lịch khoảng thời gian (Interval scheduling)**: Giả sử bạn có một số tác vụ, mỗi tác vụ diễn ra trong một khoảng thời gian, và mục tiêu của bạn là hoàn thành càng nhiều tác vụ càng tốt. Nếu bạn luôn chọn tác vụ kết thúc sớm nhất, thì thuật toán tham ăn có thể thu được lời giải tối ưu.
+- **Bài toán Cái túi Phân số (Fractional knapsack)**: Cho một tập hợp các đồ vật và một sức chứa của cái túi, mục tiêu của bạn là chọn một tập hợp các đồ vật sao cho tổng trọng lượng không vượt quá sức chứa và tổng giá trị được tối đa hóa. Nếu bạn luôn chọn đồ vật có tỷ lệ giá trị trên trọng lượng (giá trị / trọng lượng) cao nhất, thì thuật toán tham ăn có thể thu được lời giải tối ưu trong một số trường hợp.
+- **Bài toán giao dịch chứng khoán**: Cho một tập hợp giá cổ phiếu trong lịch sử, bạn có thể thực hiện nhiều giao dịch, nhưng nếu bạn đã nắm giữ cổ phiếu, bạn không thể mua lại trước khi bán, và mục tiêu là thu được lợi nhuận tối đa.
+- **Mã hóa Huffman**: Mã hóa Huffman là một thuật toán tham ăn được sử dụng để nén dữ liệu không mất thông tin. Bằng cách xây dựng một cây Huffman và luôn hợp nhất hai nút có tần số thấp nhất, cây Huffman thu được sẽ có độ dài đường đi có trọng số tối thiểu (độ dài mã hóa).
+- **Thuật toán Dijkstra**: Đây là một thuật toán tham ăn để giải bài toán đường đi ngắn nhất từ một đỉnh nguồn cho trước đến tất cả các đỉnh khác.

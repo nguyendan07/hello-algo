@@ -641,11 +641,11 @@ Với một tập dữ liệu, ta cân nhắc dùng mảng hoặc cây tìm ki�
 
 <div class="center-table" markdown>
 
-|                | Mảng không sắp xếp | Cây tìm kiếm nhị phân |
-| -------------- | ------------------ | --------------------- |
-| Tìm phần tử    | $O(n)$             | $O(\log n)$           |
-| Chèn phần tử   | $O(1)$             | $O(\log n)$           |
-| Xóa phần tử    | $O(n)$             | $O(\log n)$           |
+| ------------ | Mảng không sắp xếp | Cây tìm kiếm nhị phân |
+| ------------ | ------------------ | --------------------- |
+| Tìm phần tử  | $O(n)$             | $O(\log n)$           |
+| Chèn phần tử | $O(1)$             | $O(\log n)$           |
+| Xóa phần tử  | $O(n)$             | $O(\log n)$           |
 
 </div>
 

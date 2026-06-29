@@ -10,13 +10,13 @@ Có ba loại thiết bị lưu trữ trong máy tính: <u>ổ cứng</u>, <u>b�
 
 <p align="center"> Bảng <id> &nbsp; Thiết bị lưu trữ máy tính </p>
 
-|               | Ổ cứng                                                              | Bộ nhớ                                                                   | Cache                                                                                             |
-| ------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| Sử dụng       | Lưu trữ dữ liệu dài hạn, bao gồm HĐH, chương trình, tệp, v.v.       | Lưu trữ tạm thời các chương trình đang chạy và dữ liệu đang được xử lý   | Lưu trữ dữ liệu và lệnh thường xuyên được truy cập, giảm số lần CPU truy cập vào bộ nhớ           |
-| Tính khả biến | Dữ liệu không bị mất sau khi tắt nguồn                              | Dữ liệu bị mất sau khi tắt nguồn                                         | Dữ liệu bị mất sau khi tắt nguồn                                                                  |
-| Dung lượng    | Lớn hơn, mức TB                                                     | Nhỏ hơn, mức GB                                                          | Rất nhỏ, mức MB                                                                                   |
-| Tốc độ        | Chậm hơn, vài trăm đến hàng nghìn MB/s                              | Nhanh hơn, vài chục GB/s                                                 | Rất nhanh, vài chục đến hàng trăm GB/s                                                            |
-| Giá (USD)     | Rẻ hơn, vài xu / GB                                                 | Đắt hơn, vài đô la / GB                                                  | Rất đắt, được định giá cùng với CPU                                                               |
+| ------------- | Ổ cứng                                                        | Bộ nhớ                                                                 | Cache                                                                                   |
+| ------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Sử dụng       | Lưu trữ dữ liệu dài hạn, bao gồm HĐH, chương trình, tệp, v.v. | Lưu trữ tạm thời các chương trình đang chạy và dữ liệu đang được xử lý | Lưu trữ dữ liệu và lệnh thường xuyên được truy cập, giảm số lần CPU truy cập vào bộ nhớ |
+| Tính khả biến | Dữ liệu không bị mất sau khi tắt nguồn                        | Dữ liệu bị mất sau khi tắt nguồn                                       | Dữ liệu bị mất sau khi tắt nguồn                                                        |
+| Dung lượng    | Lớn hơn, mức TB                                               | Nhỏ hơn, mức GB                                                        | Rất nhỏ, mức MB                                                                         |
+| Tốc độ        | Chậm hơn, vài trăm đến hàng nghìn MB/s                        | Nhanh hơn, vài chục GB/s                                               | Rất nhanh, vài chục đến hàng trăm GB/s                                                  |
+| Giá (USD)     | Rẻ hơn, vài xu / GB                                           | Đắt hơn, vài đô la / GB                                                | Rất đắt, được định giá cùng với CPU                                                     |
 
 Hệ thống lưu trữ máy tính có thể được hình dung như một kim tự tháp, như trong hình bên dưới. Các thiết bị lưu trữ ở đỉnh kim tự tháp nhanh hơn, có dung lượng nhỏ hơn và đắt hơn. Thiết kế đa cấp này không phải là ngẫu nhiên, mà là kết quả có chủ ý từ sự cân nhắc cẩn thận của các nhà khoa học máy tính và kỹ sư.
 
@@ -47,14 +47,14 @@ Mặt khác, trong quá trình thực thi chương trình, **việc phân bổ v
 
 Mặc dù bộ nhớ cache có dung lượng nhỏ hơn nhiều so với bộ nhớ, nhưng chúng nhanh hơn nhiều và đóng một vai trò quan trọng trong tốc độ thực thi chương trình. Do dung lượng hạn chế, bộ nhớ cache chỉ có thể lưu trữ một tập hợp con dữ liệu thường xuyên được truy cập. Khi CPU cố gắng truy cập dữ liệu không có trong bộ nhớ cache, sẽ xảy ra <u>lỗi cache</u>, yêu cầu CPU truy xuất dữ liệu cần thiết từ bộ nhớ chậm hơn, điều này có thể ảnh hưởng đến hiệu suất.
 
-Rõ ràng, **càng ít lỗi cache, hiệu quả đọc-ghi dữ liệu của CPU càng cao** và hiệu suất chương trình càng tốt. Tỷ lệ truy xuất dữ liệu thành công từ bộ nhớ cache của CPU được gọi là <u>tỷ lệ命中cache</u>, một số liệu thường được sử dụng để đo lường hiệu quả của bộ nhớ cache.
+Rõ ràng, **càng ít lỗi cache, hiệu quả đọc-ghi dữ liệu của CPU càng cao** và hiệu suất chương trình càng tốt. Tỷ lệ truy xuất dữ liệu thành công từ bộ nhớ cache của CPU được gọi là <u>tỷ lệ cache hit</u>, một số liệu thường được sử dụng để đo lường hiệu quả của bộ nhớ cache.
 
 Để đạt được hiệu quả cao hơn, bộ nhớ cache áp dụng các cơ chế tải dữ liệu sau.
 
 - **Cache lines**: Bộ nhớ cache hoạt động bằng cách lưu trữ và tải dữ liệu theo các đơn vị gọi là cache lines, thay vì các byte riêng lẻ. Cách tiếp cận này cải thiện hiệu quả bằng cách truyền các khối dữ liệu lớn hơn cùng một lúc.
-- **Cơ chế tìm nạp trước**: Bộ xử lý dự đoán các mẫu truy cập dữ liệu (ví dụ: truy cập tuần tự hoặc bước cố định) và tải trước dữ liệu vào bộ nhớ cache dựa trên các mẫu này để tăng tỷ lệ命中cache.
-- **Tính cục bộ không gian**: Khi một phần dữ liệu cụ thể được truy cập, dữ liệu lân cận có khả năng được truy cập sớm. Để tận dụng điều này, bộ nhớ cache tải dữ liệu liền kề cùng với dữ liệu được yêu cầu, cải thiện tỷ lệ命中.
-- **Tính cục bộ thời gian**: Nếu dữ liệu được truy cập, nó có khả năng được truy cập lại trong tương lai gần. Bộ nhớ cache sử dụng nguyên tắc này để giữ lại dữ liệu được truy cập gần đây để cải thiện tỷ lệ命中.
+- **Cơ chế tìm nạp trước**: Bộ xử lý dự đoán các mẫu truy cập dữ liệu (ví dụ: truy cập tuần tự hoặc bước cố định) và tải trước dữ liệu vào bộ nhớ cache dựa trên các mẫu này để tăng tỷ lệ cache hit.
+- **Tính cục bộ không gian**: Khi một phần dữ liệu cụ thể được truy cập, dữ liệu lân cận có khả năng được truy cập sớm. Để tận dụng điều này, bộ nhớ cache tải dữ liệu liền kề cùng với dữ liệu được yêu cầu, cải thiện tỷ lệ cache hit.
+- **Tính cục bộ thời gian**: Nếu dữ liệu được truy cập, nó có khả năng được truy cập lại trong tương lai gần. Bộ nhớ cache sử dụng nguyên tắc này để giữ lại dữ liệu được truy cập gần đây để cải thiện tỷ lệ cache hit.
 
 Trên thực tế, **mảng và danh sách liên kết có hiệu quả sử dụng bộ nhớ cache khác nhau**, điều này chủ yếu được phản ánh trong các khía cạnh sau.
 
@@ -63,7 +63,7 @@ Trên thực tế, **mảng và danh sách liên kết có hiệu quả sử d�
 - **Cơ chế tìm nạp trước**: Mẫu truy cập dữ liệu của mảng "dễ đoán" hơn so với danh sách liên kết, tức là hệ thống dễ dàng đoán dữ liệu sắp được tải hơn.
 - **Tính cục bộ không gian**: Mảng được lưu trữ trong một không gian bộ nhớ liên tục, vì vậy dữ liệu gần dữ liệu đang được tải có nhiều khả năng được truy cập sớm.
 
-Nhìn chung, **mảng có tỷ lệ命中cache cao hơn và thường hiệu quả hơn trong hoạt động so với danh sách liên kết**. Điều này làm cho các cấu trúc dữ liệu dựa trên mảng trở nên phổ biến hơn trong việc giải quyết các bài toán thuật toán.
+Nhìn chung, **mảng có tỷ lệ cache hit cao hơn và thường hiệu quả hơn trong hoạt động so với danh sách liên kết**. Điều này làm cho các cấu trúc dữ liệu dựa trên mảng trở nên phổ biến hơn trong việc giải quyết các bài toán thuật toán.
 
 Cần lưu ý rằng **hiệu quả cache cao không có nghĩa là mảng luôn tốt hơn danh sách liên kết**. Việc lựa chọn cấu trúc dữ liệu nên phụ thuộc vào các yêu cầu ứng dụng cụ thể. Ví dụ: cả mảng và danh sách liên kết đều có thể triển khai cấu trúc dữ liệu "stack" (sẽ được trình bày chi tiết trong chương tiếp theo), nhưng chúng phù hợp với các tình huống khác nhau.
 

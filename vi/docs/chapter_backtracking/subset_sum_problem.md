@@ -1,95 +1,95 @@
-# Subset sum problem
+# Bài toán Tổng tập con (Subset-Sum)
 
-## Case without duplicate elements
+## Trường hợp không có các phần tử Trùng lặp
 
 !!! question
 
-    Given an array of positive integers `nums` and a target positive integer `target`, find all possible combinations such that the sum of the elements in the combination equals `target`. The given array has no duplicate elements, and each element can be chosen multiple times. Please return these combinations as a list, which should not contain duplicate combinations.
+    Cho một mảng các số nguyên dương `nums` và một số nguyên dương mục tiêu `target`, hãy tìm tất cả các tổ hợp có thể có mà tổng các phần tử trong tổ hợp bằng `target`. Mảng đã cho không chứa các phần tử trùng lặp và mỗi phần tử có thể được chọn nhiều lần. Trả về các tổ hợp này dưới dạng danh sách, trong đó danh sách không được chứa các tổ hợp trùng lặp.
 
-For example, for the input set $\{3, 4, 5\}$ and target integer $9$, the solutions are $\{3, 3, 3\}, \{4, 5\}$. Note the following two points.
+Ví dụ, cho tập hợp $\{3, 4, 5\}$ và số nguyên mục tiêu $9$, các lời giải là $\{3, 3, 3\}, \{4, 5\}$. Lưu ý hai điểm sau:
 
-- Elements in the input set can be chosen an unlimited number of times.
-- Subsets do not distinguish the order of elements, for example $\{4, 5\}$ and $\{5, 4\}$ are the same subset.
+- Các phần tử trong tập hợp đầu vào có thể được chọn lặp lại không giới hạn số lần.
+- Các tập con không phân biệt thứ tự phần tử; ví dụ, $\{4, 5\}$ và $\{5, 4\}$ là cùng một tập con.
 
-### Reference permutation solution
+### Sử dụng Lời giải Hoán vị làm Tham chiếu
 
-Similar to the permutation problem, we can imagine the generation of subsets as a series of choices, updating the "element sum" in real-time during the choice process. When the element sum equals `target`, the subset is recorded in the result list.
+Tương tự như bài toán hoán vị, chúng ta có thể xem quá trình tạo ra các tập con như kết quả của một chuỗi các lựa chọn và cập nhật tổng đang tính trong quá trình lựa chọn. Khi tổng bằng `target`, chúng ta ghi nhận tập con vào danh sách kết quả.
 
-Unlike the permutation problem, **elements in this problem can be chosen an unlimited number of times**, thus there is no need to use a `selected` boolean list to record whether an element has been chosen. We can make minor modifications to the permutation code to initially solve the problem:
+Khác với bài toán hoán vị, **các phần tử trong bài toán này có thể được chọn với số lần bất kỳ**, vì vậy chúng ta không cần sử dụng danh sách boolean `selected` để theo dõi xem một phần tử đã được chọn hay chưa. Với một vài thay đổi nhỏ đối với mã nguồn hoán vị, chúng ta thu được một lời giải ban đầu:
 
 ```src
 [file]{subset_sum_i_naive}-[class]{}-[func]{subset_sum_i_naive}
 ```
 
-Inputting the array $[3, 4, 5]$ and target element $9$ into the above code yields the results $[3, 3, 3], [4, 5], [5, 4]$. **Although it successfully finds all subsets with a sum of $9$, it includes the duplicate subset $[4, 5]$ and $[5, 4]$**.
+Chạy mã nguồn trên với mảng $[3, 4, 5]$ và giá trị mục tiêu $9$ sẽ tạo ra $[3, 3, 3], [4, 5], [5, 4]$. **Mặc dù chúng ta đã tìm thấy thành công tất cả các tập con có tổng bằng $9$, nhưng lại xuất hiện các tập con trùng lặp $[4, 5]$ và $[5, 4]$**.
 
-This is because the search process distinguishes the order of choices, however, subsets do not distinguish the choice order. As shown in the figure below, choosing $4$ before $5$ and choosing $5$ before $4$ are different branches, but correspond to the same subset.
+Điều này là do quá trình tìm kiếm phân biệt thứ tự lựa chọn, nhưng các tập con thì không phân biệt thứ tự lựa chọn. Như hiển thị trong hình bên dưới, chọn 4 trước rồi chọn 5 so với chọn 5 trước rồi chọn 4 là các nhánh khác nhau, nhưng chúng lại tương ứng với cùng một tập con.
 
-![Subset search and pruning out of bounds](subset_sum_problem.assets/subset_sum_i_naive.png)
+![Tìm kiếm tập con và cắt tỉa biên](subset_sum_problem.assets/subset_sum_i_naive.png)
 
-To eliminate duplicate subsets, **a straightforward idea is to deduplicate the result list**. However, this method is very inefficient for two reasons.
+Để loại bỏ các tập con trùng lặp, **một ý tưởng trực tiếp là khử trùng lặp danh sách kết quả**. Tuy nhiên, cách tiếp cận này rất kém hiệu quả vì hai lý do:
 
-- When there are many array elements, especially when `target` is large, the search process produces a large number of duplicate subsets.
-- Comparing subsets (arrays) for differences is very time-consuming, requiring arrays to be sorted first, then comparing the differences of each element in the arrays.
+- Khi các phần tử trong mảng nhiều, đặc biệt là khi `target` lớn, quá trình tìm kiếm sẽ tạo ra rất nhiều tập con trùng lặp.
+- Việc so sánh các tập con (mảng) rất tốn thời gian, đòi hỏi phải sắp xếp các mảng trước, sau đó so sánh từng phần tử trong chúng.
 
-### Duplicate subset pruning
+### Cắt tỉa các Tập con Trùng lặp
 
-**We consider deduplication during the search process through pruning**. Observing the figure below, duplicate subsets are generated when choosing array elements in different orders, for example in the following situations.
+**Chúng ta cân nhắc việc khử trùng lặp thông qua cắt tỉa trong quá trình tìm kiếm**. Quan sát hình bên dưới, các tập con trùng lặp xảy ra khi các phần tử trong mảng được chọn theo các thứ tự khác nhau, như trong các trường hợp sau:
 
-1. When choosing $3$ in the first round and $4$ in the second round, all subsets containing these two elements are generated, denoted as $[3, 4, \dots]$.
-2. Later, when $4$ is chosen in the first round, **the second round should skip $3$** because the subset $[4, 3, \dots]$ generated by this choice completely duplicates the subset from step `1.`.
+1. Khi vòng một và vòng hai lần lượt chọn $3$ và $4$, tất cả các tập con chứa hai phần tử này được tạo ra, ký hiệu là $[3, 4, \dots]$.
+2. Sau đó, khi vòng một chọn $4$, **vòng thứ hai nên bỏ qua $3$**, vì tập con $[4, 3, \dots]$ được tạo ra bởi lựa chọn này trùng lặp hoàn toàn với tập con được tạo ra ở bước `1.`
 
-In the search process, each layer's choices are tried one by one from left to right, so the more to the right a branch is, the more it is pruned.
+Trong quá trình tìm kiếm, các lựa chọn ở mỗi tầng được thử từ trái sang phải, do đó các nhánh bên phải sẽ bị cắt tỉa nhiều hơn.
 
-1. First two rounds choose $3$ and $5$, generating subset $[3, 5, \dots]$.
-2. First two rounds choose $4$ and $5$, generating subset $[4, 5, \dots]$.
-3. If $5$ is chosen in the first round, **then the second round should skip $3$ and $4$** as the subsets $[5, 3, \dots]$ and $[5, 4, \dots]$ completely duplicate the subsets described in steps `1.` and `2.`.
+1. Hai vòng đầu tiên chọn $3$ và $5$, tạo ra tập con $[3, 5, \dots]$.
+2. Hai vòng đầu tiên chọn $4$ và $5$, tạo ra tập con $[4, 5, \dots]$.
+3. Nếu vòng đầu tiên chọn $5$, **vòng thứ hai nên bỏ qua $3$ và $4$**, vì các tập con $[5, 3, \dots]$ và $[5, 4, \dots]$ trùng lặp hoàn toàn với các tập con đã mô tả ở các bước `1.` và `2.`
 
-![Different choice orders leading to duplicate subsets](subset_sum_problem.assets/subset_sum_i_pruning.png)
+![Các thứ tự lựa chọn khác nhau dẫn đến các tập con trùng lặp](subset_sum_problem.assets/subset_sum_i_pruning.png)
 
-In summary, given the input array $[x_1, x_2, \dots, x_n]$, the choice sequence in the search process should be $[x_{i_1}, x_{i_2}, \dots, x_{i_m}]$, which needs to satisfy $i_1 \leq i_2 \leq \dots \leq i_m$. **Any choice sequence that does not meet this condition will cause duplicates and should be pruned**.
+Tóm lại, cho một mảng đầu vào $[x_1, x_2, \dots, x_n]$, giả sử chuỗi lựa chọn trong quá trình tìm kiếm là $[x_{i_1}, x_{i_2}, \dots, x_{i_m}]$. Chuỗi lựa chọn này phải thỏa mãn $i_1 \leq i_2 \leq \dots \leq i_m$; **bất kỳ chuỗi lựa chọn nào không thỏa mãn điều kiện này đều sẽ gây ra trùng lặp và nên được cắt tỉa**.
 
-### Code implementation
+### Triển khai Mã nguồn
 
-To implement this pruning, we initialize the variable `start`, which indicates the starting point for traversal. **After making the choice $x_{i}$, set the next round to start from index $i$**. This will ensure the choice sequence satisfies $i_1 \leq i_2 \leq \dots \leq i_m$, thereby ensuring the uniqueness of the subsets.
+Để triển khai sự cắt tỉa này, chúng ta khởi tạo một biến `start` để chỉ ra điểm bắt đầu duyệt. **Sau khi thực hiện lựa chọn $x_{i}$, đặt vòng tiếp theo bắt đầu duyệt từ chỉ số $i$**. Điều này đảm bảo chuỗi lựa chọn thỏa mãn $i_1 \leq i_2 \leq \dots \leq i_m$, bảo đảm tính duy nhất của các tập con.
 
-Besides, we have made the following two optimizations to the code.
+Ngoài ra, chúng ta đã thực hiện hai tối ưu hóa sau đối với mã nguồn:
 
-- Before starting the search, sort the array `nums`. In the traversal of all choices, **end the loop directly when the subset sum exceeds `target`** as subsequent elements are larger and their subset sum will definitely exceed `target`.
-- Eliminate the element sum variable `total`, **by performing subtraction on `target` to count the element sum**. When `target` equals $0$, record the solution.
+- Trước khi bắt đầu tìm kiếm, trước tiên sắp xếp mảng `nums`. Khi duyệt qua tất cả các lựa chọn, **kết thúc vòng lặp ngay lập tức khi tổng tập con vượt quá `target`**, vì các phần tử tiếp theo lớn hơn và tổng tập con của chúng chắc chắn sẽ vượt quá `target`.
+- Bỏ qua biến tổng phần tử `total` và **sử dụng phép trừ trên `target` để theo dõi tổng các phần tử**. Ghi nhận lời giải khi `target` bằng $0$.
 
 ```src
 [file]{subset_sum_i}-[class]{}-[func]{subset_sum_i}
 ```
 
-The figure below shows the overall backtracking process after inputting the array $[3, 4, 5]$ and target element $9$ into the above code.
+Hình bên dưới hiển thị quá trình quay lui hoàn chỉnh tạo ra bởi việc chạy mã nguồn trên với mảng $[3, 4, 5]$ và giá trị mục tiêu $9$.
 
-![Subset sum I backtracking process](subset_sum_problem.assets/subset_sum_i.png)
+![Quá trình quay lui của Bài toán Tổng tập con I](subset_sum_problem.assets/subset_sum_i.png)
 
-## Considering cases with duplicate elements
+## Trường hợp mảng có các phần tử Trùng lặp
 
 !!! question
 
-    Given an array of positive integers `nums` and a target positive integer `target`, find all possible combinations such that the sum of the elements in the combination equals `target`. **The given array may contain duplicate elements, and each element can only be chosen once**. Please return these combinations as a list, which should not contain duplicate combinations.
+    Cho một mảng số nguyên dương `nums` và một số nguyên dương mục tiêu `target`, hãy tìm tất cả các tổ hợp có thể có mà tổng các phần tử trong tổ hợp bằng `target`. **Mảng đã cho có thể chứa các phần tử trùng lặp và mỗi phần tử chỉ có thể được chọn tối đa một lần**. Trả về các tổ hợp này dưới dạng danh sách, trong đó danh sách không được chứa các tổ hợp trùng lặp.
 
-Compared to the previous question, **this question's input array may contain duplicate elements**, introducing new problems. For example, given the array $[4, \hat{4}, 5]$ and target element $9$, the existing code's output results in $[4, 5], [\hat{4}, 5]$, resulting in duplicate subsets.
+So với bài toán trước, **mảng đầu vào trong bài toán này có thể chứa các phần tử trùng lặp**, điều này tạo ra một vấn đề mới. Ví dụ, cho mảng $[4, \hat{4}, 5]$ và giá trị mục tiêu $9$, đầu ra của mã nguồn hiện tại là $[4, 5], [\hat{4}, 5]$, chứa các tập con trùng lặp.
 
-**The reason for this duplication is that equal elements are chosen multiple times in a certain round**. In the figure below, the first round has three choices, two of which are $4$, generating two duplicate search branches, thus outputting duplicate subsets; similarly, the two $4$s in the second round also produce duplicate subsets.
+**Lý do cho sự trùng lặp này là các phần tử bằng nhau được chọn nhiều lần trong một vòng nhất định**. Trong hình bên dưới, vòng đầu tiên có ba lựa chọn, hai trong số đó là $4$, tạo ra hai nhánh tìm kiếm trùng lặp và xuất ra các tập con trùng lặp. Tương tự, hai số $4$ trong vòng thứ hai cũng tạo ra các tập con trùng lặp.
 
-![Duplicate subsets caused by equal elements](subset_sum_problem.assets/subset_sum_ii_repeat.png)
+![Các tập con trùng lặp do các phần tử bằng nhau gây ra](subset_sum_problem.assets/subset_sum_ii_repeat.png)
 
-### Equal element pruning
+### Cắt tỉa các Phần tử Bằng nhau
 
-To solve this issue, **we need to limit equal elements to being chosen only once per round**. The implementation is quite clever: since the array is sorted, equal elements are adjacent. This means that in a certain round of choices, if the current element is equal to its left-hand element, it means it has already been chosen, so skip the current element directly.
+Để giải quyết bài toán này, **chúng ta cần giới hạn các phần tử bằng nhau chỉ được chọn một lần trong mỗi vòng**. Việc triển khai rất khéo léo: vì mảng đã được sắp xếp, các phần tử bằng nhau nằm kề nhau. Điều này có nghĩa là trong một vòng lựa chọn nhất định, nếu phần tử hiện tại bằng phần tử bên trái của nó, thì giá trị đó đã được chọn trong vòng này rồi, vì vậy chúng ta bỏ qua phần tử hiện tại trực tiếp.
 
-At the same time, **this question stipulates that each array element can only be chosen once**. Fortunately, we can also use the variable `start` to meet this constraint: after making the choice $x_{i}$, set the next round to start from index $i + 1$ going forward. This not only eliminates duplicate subsets but also avoids repeated selection of elements.
+Đồng thời, **bài toán này chỉ định rằng mỗi phần tử trong mảng chỉ có thể được chọn một lần**. May mắn thay, chúng ta cũng có thể sử dụng biến `start` để thỏa mãn ràng buộc này: sau khi thực hiện lựa chọn $x_{i}$, đặt vòng tiếp theo bắt đầu duyệt từ chỉ số $i + 1$ trở đi. Điều này vừa loại bỏ các tập con trùng lặp vừa tránh việc chọn các phần tử nhiều lần.
 
-### Code implementation
+### Triển khai Mã nguồn
 
 ```src
 [file]{subset_sum_ii}-[class]{}-[func]{subset_sum_ii}
 ```
 
-The figure below shows the backtracking process for the array $[4, 4, 5]$ and target element $9$, including four types of pruning operations. Please combine the illustration with the code comments to understand the entire search process and how each type of pruning operation works.
+Hình bên dưới hiển thị quá trình quay lui cho mảng $[4, 4, 5]$ với giá trị mục tiêu $9$, bao gồm bốn loại thao tác cắt tỉa. Hãy kết hợp hình minh họa với các chú thích mã nguồn để hiểu toàn bộ quá trình tìm kiếm và cách thức hoạt động của từng thao tác cắt tỉa.
 
-![Subset sum II backtracking process](subset_sum_problem.assets/subset_sum_ii.png)
+![Quá trình quay lui của Bài toán Tổng tập con II](subset_sum_problem.assets/subset_sum_ii.png)

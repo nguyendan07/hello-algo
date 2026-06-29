@@ -10,7 +10,7 @@
 - Sự ra đời của danh sách đã cải thiện đáng kể tính thực tế của mảng nhưng có thể dẫn đến lãng phí một số không gian bộ nhớ.
 - Trong quá trình thực thi chương trình, dữ liệu chủ yếu được lưu trữ trong bộ nhớ. Mảng cung cấp hiệu quả không gian bộ nhớ cao hơn, trong khi danh sách liên kết linh hoạt hơn trong việc sử dụng bộ nhớ.
 - Bộ nhớ cache (Cache) cung cấp khả năng truy cập dữ liệu nhanh chóng cho CPU thông qua các cơ chế như dòng cache, tìm nạp trước, tính cục bộ không gian và tính cục bộ thời gian, giúp tăng cường đáng kể hiệu quả thực thi chương trình.
-- Do tỷ lệ命中cache cao hơn, mảng thường hiệu quả hơn danh sách liên kết. Khi chọn cấu trúc dữ liệu, nên đưa ra lựa chọn phù hợp dựa trên nhu cầu và tình huống cụ thể.
+- Do tỷ lệ cache hit cao hơn, mảng thường hiệu quả hơn danh sách liên kết. Khi chọn cấu trúc dữ liệu, nên đưa ra lựa chọn phù hợp dựa trên nhu cầu và tình huống cụ thể.
 
 ### Hỏi & Đáp
 

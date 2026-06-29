@@ -150,10 +150,10 @@ toán tính toán trên graph.
 
 <div class="center-table" markdown>
 
-|                     | Đỉnh             | Cạnh                                          | Bài toán tính toán trên graph    |
-| ------------------- | ---------------- | --------------------------------------------- | -------------------------------- |
-| Mạng xã hội         | Người dùng       | Theo dõi / Được theo dõi                      | Đề xuất theo dõi tiềm năng       |
-| Tuyến tàu điện ngầm | Nhà ga           | Kết nối giữa các nhà ga                       | Đề xuất tuyến đường ngắn nhất    |
-| Hệ mặt trời         | Thiên thể        | Lực hấp dẫn giữa các thiên thể                | Tính toán quỹ đạo hành tinh      |
+| ------------------- | Đỉnh       | Cạnh                           | Bài toán tính toán trên graph |
+| ------------------- | ---------- | ------------------------------ | ----------------------------- |
+| Mạng xã hội         | Người dùng | Theo dõi / Được theo dõi       | Đề xuất theo dõi tiềm năng    |
+| Tuyến tàu điện ngầm | Nhà ga     | Kết nối giữa các nhà ga        | Đề xuất tuyến đường ngắn nhất |
+| Hệ mặt trời         | Thiên thể  | Lực hấp dẫn giữa các thiên thể | Tính toán quỹ đạo hành tinh   |
 
 </div>

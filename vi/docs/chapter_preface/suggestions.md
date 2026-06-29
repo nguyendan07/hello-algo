@@ -17,9 +17,9 @@
 
     ```python title=""
     """Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v."""
-   
+
     # Chú thích giải thích chi tiết
-   
+
     """
     Chú thích
     nhiều dòng
@@ -30,9 +30,9 @@
 
     ```cpp title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -43,9 +43,9 @@
 
     ```java title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -56,9 +56,9 @@
 
     ```csharp title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -69,9 +69,9 @@
 
     ```go title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -82,9 +82,9 @@
 
     ```swift title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -95,9 +95,9 @@
 
     ```javascript title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -108,9 +108,9 @@
 
     ```typescript title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -121,9 +121,9 @@
 
     ```dart title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -136,7 +136,7 @@
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
 
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -147,9 +147,9 @@
 
     ```c title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -160,9 +160,9 @@
 
     ```kotlin title=""
     /* Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v. */
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     /**
      * Chú thích
      * nhiều dòng
@@ -173,9 +173,9 @@
 
     ```zig title=""
     // Chú thích tiêu đề để ghi chú hàm, lớp, ví dụ kiểm thử, v.v.
-   
+
     // Chú thích giải thích chi tiết.
-   
+
     // Chú thích
     // nhiều dòng
     ```
@@ -237,4 +237,3 @@ Nhìn chung, quá trình làm chủ cấu trúc dữ liệu và thuật toán c�
 Như hình dưới, sách này chủ yếu bao quát “Giai đoạn 1”, giúp bạn bắt đầu hiệu quả hơn cho Giai đoạn 2 và 3.
 
 ![Lộ trình học thuật toán](suggestions.assets/learning_route.png)
-

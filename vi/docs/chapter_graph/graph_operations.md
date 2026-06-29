@@ -718,14 +718,14 @@ matrix và adjacency list.
 
 <div class="center-table" markdown>
 
-|                            | Adjacency matrix | Adjacency list (Linked list) | Adjacency list (Hash table) |
-| -------------------------- | ---------------- | ---------------------------- | --------------------------- |
-| Xác định tính liền kề      | $O(1)$           | $O(m)$                       | $O(1)$                      |
-| Thêm một cạnh              | $O(1)$           | $O(1)$                       | $O(1)$                      |
-| Xóa một cạnh               | $O(1)$           | $O(m)$                       | $O(1)$                      |
-| Thêm một đỉnh              | $O(n)$           | $O(1)$                       | $O(1)$                      |
-| Xóa một đỉnh               | $O(n^2)$         | $O(n + m)$                   | $O(n)$                      |
-| Sử dụng không gian bộ nhớ  | $O(n^2)$         | $O(n + m)$                   | $O(n + m)$                  |
+| ------------------------- | Adjacency matrix | Adjacency list (Linked list) | Adjacency list (Hash table) |
+| ------------------------- | ---------------- | ---------------------------- | --------------------------- |
+| Xác định tính liền kề     | $O(1)$           | $O(m)$                       | $O(1)$                      |
+| Thêm một cạnh             | $O(1)$           | $O(1)$                       | $O(1)$                      |
+| Xóa một cạnh              | $O(1)$           | $O(m)$                       | $O(1)$                      |
+| Thêm một đỉnh             | $O(n)$           | $O(1)$                       | $O(1)$                      |
+| Xóa một đỉnh              | $O(n^2)$         | $O(n + m)$                   | $O(n)$                      |
+| Sử dụng không gian bộ nhớ | $O(n^2)$         | $O(n + m)$                   | $O(n + m)$                  |
 
 </div>
 

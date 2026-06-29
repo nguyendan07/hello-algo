@@ -859,14 +859,14 @@ Bảng dưới đây tóm tắt các đặc điểm của mảng và danh sách 
 
 <p align="center"> Bảng <id> &nbsp; So sánh hiệu quả của mảng và danh sách liên kết </p>
 
-|                    | Mảng                                           | Danh sách liên kết            |
-| ------------------ | ------------------------------------------------ | ----------------------- |
-| Lưu trữ            | Không gian bộ nhớ liền kề                          | Không gian bộ nhớ phân tán  |
-| Mở rộng dung lượng | Độ dài cố định                                     | Mở rộng linh hoạt      |
-| Hiệu quả bộ nhớ  | Ít bộ nhớ trên mỗi phần tử, lãng phí không gian tiềm năng | Nhiều bộ nhớ trên mỗi phần tử |
-| Truy cập phần tử | $O(1)$                                           | $O(n)$                  |
-| Thêm phần tử    | $O(n)$                                           | $O(1)$                  |
-| Xóa phần tử     | $O(n)$                                           | $O(1)$                  |
+| ------------------ | Mảng                                                      | Danh sách liên kết            |
+| ------------------ | --------------------------------------------------------- | ----------------------------- |
+| Lưu trữ            | Không gian bộ nhớ liền kề                                 | Không gian bộ nhớ phân tán    |
+| Mở rộng dung lượng | Độ dài cố định                                            | Mở rộng linh hoạt             |
+| Hiệu quả bộ nhớ    | Ít bộ nhớ trên mỗi phần tử, lãng phí không gian tiềm năng | Nhiều bộ nhớ trên mỗi phần tử |
+| Truy cập phần tử   | $O(1)$                                                    | $O(n)$                        |
+| Thêm phần tử       | $O(n)$                                                    | $O(1)$                        |
+| Xóa phần tử        | $O(n)$                                                    | $O(1)$                        |
 
 ## Các loại danh sách liên kết phổ biến
 

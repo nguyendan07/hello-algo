@@ -54,4 +54,3 @@ Từ nấu ăn cho đến du hành vũ trụ, hầu như mọi vấn đề cần
 !!! tip
 
     Nếu bạn vẫn còn bối rối về các khái niệm như cấu trúc dữ liệu, thuật toán, mảng, hay tìm kiếm nhị phân, hãy tiếp tục đọc. Cuốn sách này sẽ nhẹ nhàng dẫn dắt bạn vào thế giới của cấu trúc dữ liệu và thuật toán.
-

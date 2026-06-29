@@ -22,11 +22,11 @@ Các thao tác phổ biến trên một stack được hiển thị trong bảng
 
 <div class="center-table" markdown>
 
-| Phương thức | Mô tả                                       | Độ phức tạp thời gian |
-| ----------- | ------------------------------------------- | --------------------- |
-| `push()`    | Đẩy một phần tử vào stack (thêm vào đỉnh)   | $O(1)$                |
-| `pop()`     | Lấy phần tử trên cùng ra khỏi stack         | $O(1)$                |
-| `peek()`    | Truy cập phần tử trên cùng của stack        | $O(1)$                |
+| Phương thức | Mô tả                                     | Độ phức tạp thời gian |
+| ----------- | ----------------------------------------- | --------------------- |
+| `push()`    | Đẩy một phần tử vào stack (thêm vào đỉnh) | $O(1)$                |
+| `pop()`     | Lấy phần tử trên cùng ra khỏi stack       | $O(1)$                |
+| `peek()`    | Truy cập phần tử trên cùng của stack      | $O(1)$                |
 
 </div>
 

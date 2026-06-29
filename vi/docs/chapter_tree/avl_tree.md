@@ -137,9 +137,9 @@ Vì các phép toán liên quan đến cây AVL cần lấy chiều cao của n�
         right: TreeNode | null; // Con phải
         constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
             this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height; 
-            this.left = left === undefined ? null : left; 
-            this.right = right === undefined ? null : right; 
+            this.height = height === undefined ? 0 : height;
+            this.left = left === undefined ? null : left;
+            this.right = right === undefined ? null : right;
         }
     }
     ```
@@ -797,12 +797,12 @@ Như trong bảng dưới đây, ta xác định nút mất cân bằng thuộc 
 
 <div class="center-table" markdown>
 
-| Hệ số cân bằng của nút mất cân bằng | Hệ số cân bằng của nút con | Phương pháp quay cần dùng            |
-| --------------------------------- | ---------------------------- | --------------------------------- |
-| $> 1$ (Nghiêng trái)         | $\geq 0$                     | Quay phải                    |
-| $> 1$ (Nghiêng trái)         | $<0$                         | Quay trái rồi quay phải |
-| $< -1$ (Nghiêng phải)       | $\leq 0$                     | Quay trái                     |
-| $<div -1$ (Nghiêng phải)       | $>0$                         | Quay phải rồi quay trái |
+| Hệ số cân bằng của nút mất cân bằng | Hệ số cân bằng của nút con | Phương pháp quay cần dùng |
+| ----------------------------------- | -------------------------- | ------------------------- |
+| $> 1$ (Nghiêng trái)                | $\geq 0$                   | Quay phải                 |
+| $> 1$ (Nghiêng trái)                | $<0$                       | Quay trái rồi quay phải   |
+| $< -1$ (Nghiêng phải)               | $\leq 0$                   | Quay trái                 |
+| $<div -1$ (Nghiêng phải)            | $>0$                       | Quay phải rồi quay trái   |
 
 </div>
 

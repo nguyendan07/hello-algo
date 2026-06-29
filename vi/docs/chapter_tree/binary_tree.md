@@ -676,11 +676,11 @@ Như trong bảng dưới đây, ở cấu trúc tốt nhất và tồi nhất, 
 
 <div class="center-table" markdown>
 
-|                                                 | Cây nhị phân hoàn hảo | Danh sách liên kết |
-| ----------------------------------------------- | --------------------- | ------------------ |
-| Số nút ở mức $i$                                | $2^{i-1}$             | $1$                |
-| Số nút lá trong cây có chiều cao $h$            | $2^h$                 | $1$                |
-| Tổng số nút trong cây có chiều cao $h$          | $2^{h+1} - 1$         | $h + 1$            |
-| Chiều cao của cây với tổng $n$ nút              | $\log_2 (n+1) - 1$    | $n - 1$            |
+| -------------------------------------- | Cây nhị phân hoàn hảo | Danh sách liên kết |
+| -------------------------------------- | --------------------- | ------------------ |
+| Số nút ở mức $i$                       | $2^{i-1}$             | $1$                |
+| Số nút lá trong cây có chiều cao $h$   | $2^h$                 | $1$                |
+| Tổng số nút trong cây có chiều cao $h$ | $2^{h+1} - 1$         | $h + 1$            |
+| Chiều cao của cây với tổng $n$ nút     | $\log_2 (n+1) - 1$    | $n - 1$            |
 
 </div>

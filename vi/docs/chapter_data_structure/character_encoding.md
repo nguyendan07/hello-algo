@@ -24,7 +24,7 @@ Với sự phát triển nhanh chóng của công nghệ máy tính và vô số
 
 Các nhà nghiên cứu thời đó nghĩ: **Nếu chúng ta phát triển một bộ ký tự toàn diện bao gồm tất cả ngôn ngữ và ký hiệu toàn cầu thì sao? Điều này có giải quyết các vấn đề liên quan đến môi trường đa ngôn ngữ và văn bản bị lỗi không?** Lấy cảm hứng từ ý tưởng này, bộ ký tự rộng lớn, Unicode, đã ra đời.
 
-<u>Unicode</u> được gọi là "统一码" (Unified Code) bằng tiếng Trung, về lý thuyết có thể chứa hơn một triệu ký tự. Nó nhằm mục đích kết hợp các ký tự từ khắp nơi trên thế giới vào một bộ duy nhất, cung cấp bộ ký tự phổ quát để xử lý và hiển thị các ngôn ngữ khác nhau, giảm thiểu các vấn đề về văn bản bị lỗi do các tiêu chuẩn mã hóa khác nhau.
+<u>Unicode</u> hay Unified Code, về lý thuyết có thể chứa hơn một triệu ký tự. Nó nhằm mục đích kết hợp các ký tự từ khắp nơi trên thế giới vào một bộ duy nhất, cung cấp bộ ký tự phổ quát để xử lý và hiển thị các ngôn ngữ khác nhau, giảm thiểu các vấn đề về văn bản bị lỗi do các tiêu chuẩn mã hóa khác nhau.
 
 Kể từ khi phát hành năm 1991, Unicode đã liên tục mở rộng để bao gồm các ngôn ngữ và ký tự mới. Tính đến tháng 9 năm 2022, Unicode chứa 149.186 ký tự, bao gồm ký tự, ký hiệu, và thậm chí cả emoji từ các ngôn ngữ khác nhau. Trong bộ ký tự Unicode rộng lớn, các ký tự thường dùng chiếm 2 byte, trong khi một số ký tự hiếm có thể chiếm 3 hoặc thậm chí 4 byte.
 
