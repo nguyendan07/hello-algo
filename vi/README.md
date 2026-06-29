@@ -6,12 +6,14 @@
 <p align="center">
   <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Roboto&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo!" alt="hello-algo-typing-svg" />
   </br>
-  Data structures and algorithms crash course with animated illustrations and off-the-shelf code
+  Data structures and algorithms tutorial with animated illustrations and ready-to-run code
 </p>
 
 <p align="center">
   <a href="https://www.hello-algo.com/en/">
-    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" width="120"></a>
+    <img src="https://www.hello-algo.com/en/index.assets/btn_read_online_dark.svg" height="45"></a>
+  <a href="https://github.com/krahets/hello-algo/releases">
+    <img src="https://www.hello-algo.com/en/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
@@ -41,6 +43,10 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
   ｜
   English
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ru/README.md">Русский</a>
 </p>
 
 ## The book
@@ -82,6 +88,7 @@ This open-source book is continuously being updated, and we welcome your partici
 
 - [Content Correction](https://www.hello-algo.com/en/chapter_appendix/contribution/): Please help us correct or point out mistakes in the comments section such as grammatical errors, missing content, ambiguities, invalid links, or code bugs.
 - [Code Transpilation](https://github.com/krahets/hello-algo/issues/15): We look forward to your contributions in various programming languages. We currently support 12 languages including Python, Java, C++, Go, and JavaScript.
+- Translation Review: Welcome to contribute to multilingual translation and review work, helping more readers learn data structures and algorithms in their native languages.
 
 We welcome your valuable suggestions and feedback. If you have any questions, please submit Issues or reach out via WeChat: `krahets-jyd`.
 
