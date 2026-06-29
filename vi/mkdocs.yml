@@ -9,7 +9,6 @@ docs_dir: ../build/vi/docs
 site_dir: ../site/vi
 # Repository
 edit_uri: tree/main/vi/docs
-version: 1.3.0
 
 # Configuration
 theme:
@@ -33,6 +32,7 @@ theme:
         name: Light mode
 
 extra:
+  version: 1.3.0
   status:
     new: Recently Added
 
