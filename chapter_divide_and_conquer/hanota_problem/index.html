@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_divide_and_conquer/hanota_problem/">
+        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_divide_and_conquer/hanota_problem/">
       
       
         <link rel="prev" href="../build_binary_tree_problem/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>12.4 Tower of Hanoi Problem - Hello Algo</title>
+        <title>12.4 Hanota Problem - Hello Algo</title>
       
     
     
@@ -43,9 +43,9 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tower-of-hanoi-problem" class="md-skip">
+        <a href="#bai-toan-thap-ha-noi-hanota" class="md-skip">
           Bỏ qua
         </a>
       
@@ -111,6 +111,10 @@
         </aside>
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+      </div>
     
     
       
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12.4 Tower of Hanoi Problem
+              12.4 Hanota Problem
             
           </span>
         </div>
@@ -153,7 +157,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,7 +167,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -209,8 +213,14 @@
           </li>
         
           <li class="md-select__item">
+            <a href="/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
             <a href="/vi/" hreflang="vi" class="md-select__link">
-              Tiếng Việt
+              Vietnamese
             </a>
           </li>
         
@@ -228,7 +238,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
@@ -237,7 +247,7 @@
       </label>
       <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
@@ -252,7 +262,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -322,7 +332,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -357,7 +367,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    Before starting
+    Before Starting
   </span>
   
 
@@ -368,9 +378,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before starting
+            Before Starting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -438,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 0. Preface
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -453,7 +463,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 About this book
+    0.1 About This Book
   </span>
   
 
@@ -474,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 How to read
+    0.2 How to Use This Book
   </span>
   
 
@@ -551,7 +561,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 1. Encounter with algorithms
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -567,9 +577,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with algorithms
+            Chapter 1. Encounter with Algorithms
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -584,7 +594,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms are everywhere
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -605,7 +615,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 What is an algorithm
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -686,7 +696,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 2. Complexity analysis
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -702,9 +712,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity analysis
+            Chapter 2. Complexity Analysis
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -719,7 +729,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm efficiency assessment
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -740,7 +750,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and recursion
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -761,7 +771,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 Time complexity
+    2.3 Time Complexity
   </span>
   
 
@@ -782,7 +792,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 Space complexity
+    2.4 Space Complexity
   </span>
   
 
@@ -863,7 +873,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 3. Data structures
+    Chapter 3. Data Structures
   </span>
   
 
@@ -879,9 +889,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data structures
+            Chapter 3. Data Structures
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -896,7 +906,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 Classification of data structures
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -917,7 +927,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 Basic data types
+    3.2 Basic Data Types
   </span>
   
 
@@ -938,7 +948,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 Number encoding *
+    3.3 Number Encoding *
   </span>
   
 
@@ -959,7 +969,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 Character encoding *
+    3.4 Character Encoding *
   </span>
   
 
@@ -1040,7 +1050,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 4. Array and linked list
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1056,9 +1066,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Array and linked list
+            Chapter 4. Arrays and Linked Lists
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1094,7 +1104,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 Linked list
+    4.2 Linked List
   </span>
   
 
@@ -1136,7 +1146,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 Memory and cache *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1215,7 +1225,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 5. Stack and queue
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1231,9 +1241,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stack and queue
+            Chapter 5. Stacks and Queues
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1290,7 +1300,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 Double-ended queue
+    5.3 Deque
   </span>
   
 
@@ -1369,7 +1379,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 6. Hash table
+    Chapter 6. Hashing
   </span>
   
 
@@ -1385,9 +1395,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hash table
+            Chapter 6. Hashing
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1402,7 +1412,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 Hash table
+    6.1 Hash Table
   </span>
   
 
@@ -1423,7 +1433,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1444,7 +1454,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 Hash algorithm
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1545,7 +1555,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 7. Tree
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1560,7 +1570,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 Binary tree
+    7.1 Binary Tree
   </span>
   
 
@@ -1581,7 +1591,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Binary tree traversal
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1602,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of tree
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1623,7 +1633,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search tree
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1644,7 +1654,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1741,7 +1751,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 8. Heap
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1777,7 +1787,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 Building a heap
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1798,7 +1808,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 Top-k problem
+    8.3 Top-k Problem
   </span>
   
 
@@ -1895,7 +1905,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 9. Graph
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1931,7 +1941,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 Basic graph operations
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -1952,7 +1962,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 Graph traversal
+    9.3 Graph Traversal
   </span>
   
 
@@ -2053,7 +2063,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 10. Searching
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2068,7 +2078,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 Binary search
+    10.1 Binary Search
   </span>
   
 
@@ -2089,7 +2099,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 Binary search insertion
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2110,7 +2120,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 Binary search boundaries
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2131,7 +2141,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 Hashing optimization strategies
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2152,7 +2162,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 Search algorithms revisited
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2263,7 +2273,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 11. Sorting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2278,7 +2288,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 Sorting algorithms
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2299,7 +2309,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 Selection sort
+    11.2 Selection Sort
   </span>
   
 
@@ -2320,7 +2330,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 Bubble sort
+    11.3 Bubble Sort
   </span>
   
 
@@ -2341,7 +2351,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 Insertion sort
+    11.4 Insertion Sort
   </span>
   
 
@@ -2362,7 +2372,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 Quick sort
+    11.5 Quick Sort
   </span>
   
 
@@ -2383,7 +2393,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 Merge sort
+    11.6 Merge Sort
   </span>
   
 
@@ -2404,7 +2414,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 Heap sort
+    11.7 Heap Sort
   </span>
   
 
@@ -2425,7 +2435,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 Bucket sort
+    11.8 Bucket Sort
   </span>
   
 
@@ -2446,7 +2456,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 Counting sort
+    11.9 Counting Sort
   </span>
   
 
@@ -2467,7 +2477,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 Radix sort
+    11.10 Radix Sort
   </span>
   
 
@@ -2539,7 +2549,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked="">
         
           
           
@@ -2548,7 +2558,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and conquer
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2564,9 +2574,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and conquer
+            Chapter 12. Divide and Conquer
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2581,7 +2591,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 Divide and conquer algorithms
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2602,7 +2612,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 Divide and conquer search strategy
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2623,7 +2633,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 Building binary tree problem
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2653,7 +2663,7 @@
           
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2664,7 +2674,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2683,30 +2693,30 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#consider-the-base-cases" class="md-nav__link">
+  <a href="#xem-xet-cac-truong-hop-co-so" class="md-nav__link">
     <span class="md-ellipsis">
-      Consider the base cases
+      Xem xét các Trường hợp cơ sở
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decomposition-of-subproblems" class="md-nav__link">
+  <a href="#phan-ra-bai-toan-con" class="md-nav__link">
     <span class="md-ellipsis">
-      Decomposition of subproblems
+      Phân rã Bài toán con
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-implementation" class="md-nav__link">
+  <a href="#trien-khai-ma-nguon" class="md-nav__link">
     <span class="md-ellipsis">
-      Code implementation
+      Triển khai Mã nguồn
     </span>
   </a>
   
@@ -2808,7 +2818,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 13. Backtracking
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2823,7 +2833,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2844,7 +2854,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 Permutation problem
+    13.2 Permutations Problem
   </span>
   
 
@@ -2865,7 +2875,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 Subset sum problem
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2886,7 +2896,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 n queens problem
+    13.4 N-Queens Problem
   </span>
   
 
@@ -2969,7 +2979,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic programming
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -2985,9 +2995,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic programming
+            Chapter 14. Dynamic Programming
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3002,7 +3012,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to dynamic programming
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -3023,7 +3033,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of DP problems
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -3044,7 +3054,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 DP problem-solving approach¶
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -3065,7 +3075,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3086,7 +3096,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded knapsack problem
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3107,7 +3117,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 Edit distance problem
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3204,7 +3214,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 15. Greedy
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3219,7 +3229,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 Greedy algorithms
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3240,7 +3250,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 Fractional knapsack problem
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3261,7 +3271,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 Maximum capacity problem
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3282,7 +3292,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 Maximum product cutting problem
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3375,7 +3385,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 16. Appendix
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3390,7 +3400,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 Installation
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3411,7 +3421,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 Contributing
+    16.2 Contributing Together
   </span>
   
 
@@ -3432,7 +3442,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 Terminology
+    16.3 Glossary
   </span>
   
 
@@ -3495,7 +3505,7 @@
             <span class="md-nav__icon md-icon"></span>
             References
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3530,30 +3540,30 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#consider-the-base-cases" class="md-nav__link">
+  <a href="#xem-xet-cac-truong-hop-co-so" class="md-nav__link">
     <span class="md-ellipsis">
-      Consider the base cases
+      Xem xét các Trường hợp cơ sở
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decomposition-of-subproblems" class="md-nav__link">
+  <a href="#phan-ra-bai-toan-con" class="md-nav__link">
     <span class="md-ellipsis">
-      Decomposition of subproblems
+      Phân rã Bài toán con
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-implementation" class="md-nav__link">
+  <a href="#trien-khai-ma-nguon" class="md-nav__link">
     <span class="md-ellipsis">
-      Code implementation
+      Triển khai Mã nguồn
     </span>
   </a>
   
@@ -3591,41 +3601,41 @@
 
 
 <!-- Page content -->
-<h1 id="tower-of-hanoi-problem">Tower of Hanoi Problem<a class="headerlink" href="#tower-of-hanoi-problem" title="Permanent link">¶</a></h1>
-<p>In both merge sort and binary tree construction, we break the original problem into two subproblems, each half the size of the original problem. However, for the Tower of Hanoi, we adopt a different decomposition strategy.</p>
+<h1 id="bai-toan-thap-ha-noi-hanota">Bài toán Tháp Hà Nội (Hanota)<a class="headerlink" href="#bai-toan-thap-ha-noi-hanota" title="Permanent link">¶</a></h1>
+<p>Trong sắp xếp trộn và dựng cây nhị phân, chúng ta phân rã bài toán ban đầu thành hai bài toán con, mỗi bài toán con có kích thước bằng một nửa bài toán ban đầu. Tuy nhiên, đối với bài toán tháp Hà Nội (Hanota), chúng ta áp dụng một chiến lược phân rã khác.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>We are given three pillars, denoted as <code>A</code>, <code>B</code>, and <code>C</code>. Initially, pillar <code>A</code> has <span class="arithmatex">\(n\)</span> discs, arranged from top to bottom in ascending size. Our task is to move these <span class="arithmatex">\(n\)</span> discs to pillar <code>C</code>, maintaining their original order (as shown in the figure below). The following rules apply during the movement:</p>
+<p>Cho ba cọc, ký hiệu là <code>A</code>, <code>B</code>, và <code>C</code>. Ban đầu, cọc <code>A</code> có <span class="arithmatex">\(n\)</span> đĩa được xếp chồng lên nhau, sắp xếp từ trên xuống dưới theo thứ tự kích thước tăng dần. Nhiệm vụ của chúng ta là chuyển <span class="arithmatex">\(n\)</span> đĩa này sang cọc <code>C</code> trong khi vẫn giữ nguyên thứ tự ban đầu của chúng (như hiển thị trong hình bên dưới). Các quy tắc sau phải được tuân thủ khi di chuyển các đĩa.</p>
 <ol>
-<li>A disc can be removed only from the top of a pillar and must be placed on the top of another pillar.</li>
-<li>Only one disc can be moved at a time.</li>
-<li>A smaller disc must always be on top of a larger disc.</li>
+<li>Mỗi lần chỉ có thể lấy một đĩa từ trên cùng của một cọc và đặt lên trên cùng của một cọc khác.</li>
+<li>Chỉ được di chuyển một đĩa tại một thời điểm.</li>
+<li>Đĩa nhỏ hơn phải luôn nằm trên đĩa lớn hơn.</li>
 </ol>
 </div>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_example.png" data-desc-position="bottom"><img alt="Example of the Tower of Hanoi" src="../hanota_problem.assets/hanota_example.png"></a></p>
-<p><strong>We denote the Tower of Hanoi problem of size <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(f(i)\)</span></strong>. For example, <span class="arithmatex">\(f(3)\)</span> represents moving <span class="arithmatex">\(3\)</span> discs from pillar <code>A</code> to pillar <code>C</code>.</p>
-<h3 id="consider-the-base-cases">Consider the base cases<a class="headerlink" href="#consider-the-base-cases" title="Permanent link">¶</a></h3>
-<p>As shown in the figure below, for the problem <span class="arithmatex">\(f(1)\)</span>—which has only one disc—we can directly move it from <code>A</code> to <code>C</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_example.png" data-desc-position="bottom"><img alt="Ví dụ về bài toán tháp Hà Nội" src="../hanota_problem.assets/hanota_example.png"></a></p>
+<p><strong>Chúng ta ký hiệu bài toán tháp Hà Nội có kích thước <span class="arithmatex">\(i\)</span> là <span class="arithmatex">\(f(i)\)</span></strong>. Ví dụ, <span class="arithmatex">\(f(3)\)</span> đại diện cho việc di chuyển <span class="arithmatex">\(3\)</span> đĩa từ <code>A</code> sang <code>C</code>.</p>
+<h3 id="xem-xet-cac-truong-hop-co-so">Xem xét các Trường hợp cơ sở<a class="headerlink" href="#xem-xet-cac-truong-hop-co-so" title="Permanent link">¶</a></h3>
+<p>Như hiển thị trong hình bên dưới, đối với bài toán <span class="arithmatex">\(f(1)\)</span>, khi chỉ có một đĩa, chúng ta có thể di chuyển trực tiếp từ <code>A</code> sang <code>C</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f1_step1.png" data-desc-position="bottom"><img alt="Solution for a problem of size 1" src="../hanota_problem.assets/hanota_f1_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f1_step1.png" data-desc-position="bottom"><img alt="Lời giải cho bài toán kích thước 1" src="../hanota_problem.assets/hanota_f1_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f1_step2.png" data-desc-position="bottom"><img alt="hanota_f1_step2" src="../hanota_problem.assets/hanota_f1_step2.png"></a></p>
 </div>
 </div>
 </div>
-<p>For <span class="arithmatex">\(f(2)\)</span>—which has two discs—<strong>we rely on pillar <code>B</code> to help keep the smaller disc above the larger disc</strong>, as illustrated in the following figure:</p>
+<p>Như hiển thị trong hình bên dưới, đối với bài toán <span class="arithmatex">\(f(2)\)</span>, khi có hai đĩa, <strong>vì chúng ta phải luôn giữ đĩa nhỏ hơn ở trên đĩa lớn hơn, chúng ta cần sử dụng <code>B</code> để hỗ trợ việc di chuyển</strong>.</p>
 <ol>
-<li>First, move the smaller disc from <code>A</code> to <code>B</code>.</li>
-<li>Then move the larger disc from <code>A</code> to <code>C</code>.</li>
-<li>Finally, move the smaller disc from <code>B</code> to <code>C</code>.</li>
+<li>Đầu tiên, di chuyển đĩa nhỏ hơn từ <code>A</code> sang <code>B</code>.</li>
+<li>Sau đó di chuyển đĩa lớn hơn từ <code>A</code> sang <code>C</code>.</li>
+<li>Cuối cùng, di chuyển đĩa nhỏ hơn từ <code>B</code> sang <code>C</code>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f2_step1.png" data-desc-position="bottom"><img alt="Solution for a problem of size 2" src="../hanota_problem.assets/hanota_f2_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f2_step1.png" data-desc-position="bottom"><img alt="Lời giải cho bài toán kích thước 2" src="../hanota_problem.assets/hanota_f2_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f2_step2.png" data-desc-position="bottom"><img alt="hanota_f2_step2" src="../hanota_problem.assets/hanota_f2_step2.png"></a></p>
@@ -3638,19 +3648,19 @@
 </div>
 </div>
 </div>
-<p>The process of solving <span class="arithmatex">\(f(2)\)</span> can be summarized as: <strong>moving two discs from <code>A</code> to <code>C</code> with the help of <code>B</code></strong>. Here, <code>C</code> is called the target pillar, and <code>B</code> is called the buffer pillar.</p>
-<h3 id="decomposition-of-subproblems">Decomposition of subproblems<a class="headerlink" href="#decomposition-of-subproblems" title="Permanent link">¶</a></h3>
-<p>For the problem <span class="arithmatex">\(f(3)\)</span>—that is, when there are three discs—the situation becomes slightly more complicated.</p>
-<p>Since we already know the solutions to <span class="arithmatex">\(f(1)\)</span> and <span class="arithmatex">\(f(2)\)</span>, we can adopt a divide-and-conquer perspective and <strong>treat the top two discs on <code>A</code> as a single unit</strong>, performing the steps shown in the figure below. This allows the three discs to be successfully moved from <code>A</code> to <code>C</code>.</p>
+<p>Quá trình giải bài toán <span class="arithmatex">\(f(2)\)</span> có thể tóm tắt là: <strong>di chuyển hai đĩa từ <code>A</code> sang <code>C</code> với sự trợ giúp của <code>B</code></strong>. Ở đây, <code>C</code> được gọi là cọc mục tiêu, và <code>B</code> được gọi là cọc đệm (trung gian).</p>
+<h3 id="phan-ra-bai-toan-con">Phân rã Bài toán con<a class="headerlink" href="#phan-ra-bai-toan-con" title="Permanent link">¶</a></h3>
+<p>Đối với bài toán <span class="arithmatex">\(f(3)\)</span>, khi có ba đĩa, tình hình trở nên phức tạp hơn một chút.</p>
+<p>Vì chúng ta đã biết lời giải cho <span class="arithmatex">\(f(1)\)</span> và <span class="arithmatex">\(f(2)\)</span>, chúng ta có thể tư duy từ góc độ chia để trị, <strong>coi hai đĩa trên cùng trên cọc <code>A</code> như một khối thống nhất</strong>, và thực hiện các bước như hiển thị trong hình bên dưới. Thao tác này di chuyển thành công ba đĩa từ <code>A</code> sang <code>C</code>.</p>
 <ol>
-<li>Let <code>B</code> be the target pillar and <code>C</code> the buffer pillar, then move the two discs from <code>A</code> to <code>B</code>.</li>
-<li>Move the remaining disc from <code>A</code> directly to <code>C</code>.</li>
-<li>Let <code>C</code> be the target pillar and <code>A</code> the buffer pillar, then move the two discs from <code>B</code> to <code>C</code>.</li>
+<li>Chọn <code>B</code> làm cọc mục tiêu và <code>C</code> làm cọc đệm, di chuyển hai đĩa từ <code>A</code> sang <code>B</code>.</li>
+<li>Di chuyển đĩa còn lại từ <code>A</code> trực tiếp sang <code>C</code>.</li>
+<li>Chọn <code>C</code> làm cọc mục tiêu và <code>A</code> làm cọc đệm, di chuyển hai đĩa từ <code>B</code> sang <code>C</code>.</li>
 </ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">&lt;1&gt;</label><label for="__tabbed_3_2">&lt;2&gt;</label><label for="__tabbed_3_3">&lt;3&gt;</label><label for="__tabbed_3_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f3_step1.png" data-desc-position="bottom"><img alt="Solution for a problem of size 3" src="../hanota_problem.assets/hanota_f3_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f3_step1.png" data-desc-position="bottom"><img alt="Lời giải cho bài toán kích thước 3" src="../hanota_problem.assets/hanota_f3_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_f3_step2.png" data-desc-position="bottom"><img alt="hanota_f3_step2" src="../hanota_problem.assets/hanota_f3_step2.png"></a></p>
@@ -3663,25 +3673,25 @@
 </div>
 </div>
 </div>
-<p>Essentially, <strong>we decompose <span class="arithmatex">\(f(3)\)</span> into two <span class="arithmatex">\(f(2)\)</span> subproblems and one <span class="arithmatex">\(f(1)\)</span> subproblem</strong>. By solving these three subproblems in sequence, the original problem is solved, indicating that the subproblems are independent and their solutions can be merged.</p>
-<p>From this, we can summarize the divide-and-conquer strategy for the Tower of Hanoi, illustrated in the figure below. We divide the original problem <span class="arithmatex">\(f(n)\)</span> into two subproblems <span class="arithmatex">\(f(n-1)\)</span> and one subproblem <span class="arithmatex">\(f(1)\)</span>, and solve these three subproblems in the following order:</p>
+<p>Về bản chất, <strong>chúng ta chia bài toán <span class="arithmatex">\(f(3)\)</span> thành hai bài toán con <span class="arithmatex">\(f(2)\)</span> và một bài toán con <span class="arithmatex">\(f(1)\)</span></strong>. Bằng cách giải ba bài toán con này theo thứ tự, bài toán ban đầu được giải quyết. Điều này cho thấy các bài toán con độc lập với nhau và lời giải của chúng có thể hợp nhất.</p>
+<p>Từ đây, chúng ta có thể tóm tắt chiến lược chia để trị giải bài toán tháp Hà Nội hiển thị trong hình bên dưới: chia bài toán ban đầu <span class="arithmatex">\(f(n)\)</span> thành hai bài toán con <span class="arithmatex">\(f(n-1)\)</span> và một bài toán con <span class="arithmatex">\(f(1)\)</span>, và giải ba bài toán con này theo thứ tự sau.</p>
 <ol>
-<li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>A</code> to <code>B</code>, using <code>C</code> as a buffer. </li>
-<li>Move the remaining disc directly from <code>A</code> to <code>C</code>.</li>
-<li>Move <span class="arithmatex">\(n-1\)</span> discs from <code>B</code> to <code>C</code>, using <code>A</code> as a buffer. </li>
+<li>Di chuyển <span class="arithmatex">\(n-1\)</span> đĩa từ <code>A</code> sang <code>B</code> với sự hỗ trợ của <code>C</code>.</li>
+<li>Di chuyển <span class="arithmatex">\(1\)</span> đĩa còn lại trực tiếp từ <code>A</code> sang <code>C</code>.</li>
+<li>Di chuyển <span class="arithmatex">\(n-1\)</span> đĩa từ <code>B</code> sang <code>C</code> với sự hỗ trợ của <code>A</code>.</li>
 </ol>
-<p>For each <span class="arithmatex">\(f(n-1)\)</span> subproblem, <strong>we can apply the same recursive partition</strong> until we reach the smallest subproblem <span class="arithmatex">\(f(1)\)</span>. Because <span class="arithmatex">\(f(1)\)</span> is already known to require just a single move, it is trivial to solve.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_divide_and_conquer.png" data-desc-position="bottom"><img alt="Divide-and-conquer strategy for solving the Tower of Hanoi" src="../hanota_problem.assets/hanota_divide_and_conquer.png"></a></p>
-<h3 id="code-implementation">Code implementation<a class="headerlink" href="#code-implementation" title="Permanent link">¶</a></h3>
-<p>In the code, we define a recursive function <code>dfs(i, src, buf, tar)</code> which moves the top <span class="arithmatex">\(i\)</span> discs from pillar <code>src</code> to pillar <code>tar</code>, using pillar <code>buf</code> as a buffer:</p>
+<p>Đối với hai bài toán con <span class="arithmatex">\(f(n-1)\)</span> này, <strong>chúng ta có thể chia đệ quy chúng theo cùng một cách</strong> cho đến khi đạt được bài toán con nhỏ nhất <span class="arithmatex">\(f(1)\)</span>. Lời giải cho <span class="arithmatex">\(f(1)\)</span> đã biết và chỉ cần một thao tác di chuyển.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_divide_and_conquer.png" data-desc-position="bottom"><img alt="Chiến lược chia để trị giải bài toán tháp Hà Nội" src="../hanota_problem.assets/hanota_divide_and_conquer.png"></a></p>
+<h3 id="trien-khai-ma-nguon">Triển khai Mã nguồn<a class="headerlink" href="#trien-khai-ma-nguon" title="Permanent link">¶</a></h3>
+<p>Trong mã nguồn, chúng ta khai báo một hàm đệ quy <code>dfs(i, src, buf, tar)</code>, có mục đích là di chuyển <span class="arithmatex">\(i\)</span> đĩa trên cùng từ cọc nguồn <code>src</code> sang cọc mục tiêu <code>tar</code> với sự hỗ trợ của cọc đệm <code>buf</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{hanota}-[class]{}-[func]{solve_hanota}
 </code></pre></div>
-<p>As shown in the figure below, the Tower of Hanoi problem can be visualized as a recursive tree of height <span class="arithmatex">\(n\)</span>. Each node represents a subproblem, corresponding to a call to <code>dfs()</code>, <strong>Hence, the time complexity is <span class="arithmatex">\(O(2^n)\)</span>, and the space complexity is <span class="arithmatex">\(O(n)\)</span>.</strong></p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_recursive_tree.png" data-desc-position="bottom"><img alt="Recursive tree of the Tower of Hanoi" src="../hanota_problem.assets/hanota_recursive_tree.png"></a></p>
+<p>Như hiển thị trong hình bên dưới, bài toán tháp Hà Nội tạo thành một cây đệ quy có chiều cao <span class="arithmatex">\(n\)</span>, trong đó mỗi nút đại diện cho một bài toán con tương ứng với một lần gọi hàm <code>dfs()</code>, <strong>do đó độ phức tạp thời gian là <span class="arithmatex">\(O(2^n)\)</span> và độ phức tạp không gian là <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../hanota_problem.assets/hanota_recursive_tree.png" data-desc-position="bottom"><img alt="Cây đệ quy của bài toán tháp Hà Nội" src="../hanota_problem.assets/hanota_recursive_tree.png"></a></p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>The Tower of Hanoi originates from an ancient legend. In a temple in ancient India, monks had three tall diamond pillars and <span class="arithmatex">\(64\)</span> differently sized golden discs. They believed that when the last disc was correctly placed, the world would end.</p>
-<p>However, even if the monks moved one disc every second, it would take about <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> —approximately 585 billion years—far exceeding current estimates of the age of the universe. Thus, if the legend is true, we probably do not need to worry about the world ending.</p>
+<p>Bài toán tháp Hà Nội có nguồn gốc từ một truyền thuyết cổ xưa. Trong một ngôi đền ở Ấn Độ cổ đại, các nhà sư có ba cọc kim cương cao và <span class="arithmatex">\(64\)</span> đĩa bằng vàng có kích thước khác nhau. Các nhà sư liên tục di chuyển các đĩa, tin rằng khi đĩa cuối cùng được đặt đúng vị trí, thế giới sẽ đi đến hồi kết.</p>
+<p>Tuy nhiên, ngay cả khi các nhà sư di chuyển một đĩa mỗi giây, sẽ mất khoảng <span class="arithmatex">\(2^{64} \approx 1.84×10^{19}\)</span> giây, tương đương với khoảng <span class="arithmatex">\(585\)</span> tỷ năm, vượt xa ước tính hiện tại về tuổi của vũ trụ. Do đó, nếu truyền thuyết này là có thật, chúng ta không cần phải lo lắng về ngày tận thế.</p>
 </div>
 
 
@@ -3698,7 +3708,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../build_binary_tree_problem/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 12.3 Building binary tree problem" rel="prev">
+  <a href="../build_binary_tree_problem/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 12.3 Building a Binary Tree Problem" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3708,7 +3718,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        12.3 Building binary tree problem
+        12.3 Building a Binary Tree Problem
       </div>
     </div>
   </a>
@@ -3746,7 +3756,7 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
   Trở lại mục lục
@@ -3761,7 +3771,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../build_binary_tree_problem/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 12.3 Building binary tree problem">
+          <a href="../build_binary_tree_problem/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 12.3 Building a Binary Tree Problem">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3771,7 +3781,7 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                12.3 Building binary tree problem
+                12.3 Building a Binary Tree Problem
               </div>
             </div>
           </a>
@@ -3801,7 +3811,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright © 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
@@ -3854,7 +3864,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>

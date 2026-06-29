@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
@@ -15,7 +15,7 @@
       
       
       
-      <link rel="icon" href="/en/assets/images/favicon.png">
+      <link rel="icon" href="/hello-algo/assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.5">
     
     
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="/en/assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="/hello-algo/assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="/en/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="/hello-algo/assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -41,14 +41,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="/en/stylesheets/extra.css">
+      <link rel="stylesheet" href="/hello-algo/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/en/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/hello-algo/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -96,6 +96,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
@@ -103,9 +107,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Đầu trang">
-    <a href="/en/." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
+    <a href="/hello-algo/." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
-  <img src="/en/assets/images/logo.svg" alt="logo">
+  <img src="/hello-algo/assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -193,8 +197,14 @@
           </li>
         
           <li class="md-select__item">
+            <a href="/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
             <a href="/vi/" hreflang="vi" class="md-select__link">
-              Tiếng Việt
+              Vietnamese
             </a>
           </li>
         
@@ -286,9 +296,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/en/." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
+    <a href="/hello-algo/." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
-  <img src="/en/assets/images/logo.svg" alt="logo">
+  <img src="/hello-algo/assets/images/logo.svg" alt="logo">
 
     </a>
     Hello Algo
@@ -335,13 +345,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_hello_algo/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_hello_algo/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"/></svg>
   
   <span class="md-ellipsis">
-    Before starting
+    Before Starting
   </span>
   
 
@@ -352,7 +362,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before starting
+            Before Starting
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -398,7 +408,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_preface/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_preface/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 4H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 19V6h8v13H3m18 0h-8V6h8v13m-7-9.5h6V11h-6V9.5m0 2.5h6v1.5h-6V12m0 2.5h6V16h-6v-1.5Z"/></svg>
@@ -433,11 +443,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_preface/about_the_book/" class="md-nav__link">
+      <a href="/hello-algo/chapter_preface/about_the_book/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    0.1 About this book
+    0.1 About This Book
   </span>
   
 
@@ -454,11 +464,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_preface/suggestions/" class="md-nav__link">
+      <a href="/hello-algo/chapter_preface/suggestions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    0.2 How to read
+    0.2 How to Use This Book
   </span>
   
 
@@ -475,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_preface/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_preface/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,13 +539,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_introduction/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_introduction/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"/></svg>
   
   <span class="md-ellipsis">
-    Chapter 1. Encounter with algorithms
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -551,7 +561,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with algorithms
+            Chapter 1. Encounter with Algorithms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -564,11 +574,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_introduction/algorithms_are_everywhere/" class="md-nav__link">
+      <a href="/hello-algo/chapter_introduction/algorithms_are_everywhere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms are everywhere
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -585,11 +595,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_introduction/what_is_dsa/" class="md-nav__link">
+      <a href="/hello-algo/chapter_introduction/what_is_dsa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1.2 What is an algorithm
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -606,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_introduction/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_introduction/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -664,13 +674,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_computational_complexity/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_computational_complexity/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"/></svg>
   
   <span class="md-ellipsis">
-    Chapter 2. Complexity analysis
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -686,7 +696,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity analysis
+            Chapter 2. Complexity Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -699,11 +709,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_computational_complexity/performance_evaluation/" class="md-nav__link">
+      <a href="/hello-algo/chapter_computational_complexity/performance_evaluation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm efficiency assessment
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -720,11 +730,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_computational_complexity/iteration_and_recursion/" class="md-nav__link">
+      <a href="/hello-algo/chapter_computational_complexity/iteration_and_recursion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and recursion
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -741,11 +751,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_computational_complexity/time_complexity/" class="md-nav__link">
+      <a href="/hello-algo/chapter_computational_complexity/time_complexity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2.3 Time complexity
+    2.3 Time Complexity
   </span>
   
 
@@ -762,11 +772,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_computational_complexity/space_complexity/" class="md-nav__link">
+      <a href="/hello-algo/chapter_computational_complexity/space_complexity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2.4 Space complexity
+    2.4 Space Complexity
   </span>
   
 
@@ -783,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_computational_complexity/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_computational_complexity/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -841,13 +851,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_data_structure/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_data_structure/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"/></svg>
   
   <span class="md-ellipsis">
-    Chapter 3. Data structures
+    Chapter 3. Data Structures
   </span>
   
 
@@ -863,7 +873,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data structures
+            Chapter 3. Data Structures
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -876,11 +886,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_data_structure/classification_of_data_structure/" class="md-nav__link">
+      <a href="/hello-algo/chapter_data_structure/classification_of_data_structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1 Classification of data structures
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -897,11 +907,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_data_structure/basic_data_types/" class="md-nav__link">
+      <a href="/hello-algo/chapter_data_structure/basic_data_types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.2 Basic data types
+    3.2 Basic Data Types
   </span>
   
 
@@ -918,11 +928,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_data_structure/number_encoding/" class="md-nav__link">
+      <a href="/hello-algo/chapter_data_structure/number_encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.3 Number encoding *
+    3.3 Number Encoding *
   </span>
   
 
@@ -939,11 +949,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_data_structure/character_encoding/" class="md-nav__link">
+      <a href="/hello-algo/chapter_data_structure/character_encoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.4 Character encoding *
+    3.4 Character Encoding *
   </span>
   
 
@@ -960,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_data_structure/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_data_structure/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,13 +1028,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_array_and_linkedlist/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_array_and_linkedlist/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"/></svg>
   
   <span class="md-ellipsis">
-    Chapter 4. Array and linked list
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1040,7 +1050,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Array and linked list
+            Chapter 4. Arrays and Linked Lists
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1053,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_array_and_linkedlist/array/" class="md-nav__link">
+      <a href="/hello-algo/chapter_array_and_linkedlist/array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,11 +1084,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_array_and_linkedlist/linked_list/" class="md-nav__link">
+      <a href="/hello-algo/chapter_array_and_linkedlist/linked_list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4.2 Linked list
+    4.2 Linked List
   </span>
   
 
@@ -1095,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_array_and_linkedlist/list/" class="md-nav__link">
+      <a href="/hello-algo/chapter_array_and_linkedlist/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,11 +1126,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_array_and_linkedlist/ram_and_cache/" class="md-nav__link">
+      <a href="/hello-algo/chapter_array_and_linkedlist/ram_and_cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4.4 Memory and cache *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1137,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_array_and_linkedlist/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_array_and_linkedlist/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1193,13 +1203,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_stack_and_queue/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_stack_and_queue/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"/></svg>
   
   <span class="md-ellipsis">
-    Chapter 5. Stack and queue
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1215,7 +1225,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stack and queue
+            Chapter 5. Stacks and Queues
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1228,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_stack_and_queue/stack/" class="md-nav__link">
+      <a href="/hello-algo/chapter_stack_and_queue/stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1249,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_stack_and_queue/queue/" class="md-nav__link">
+      <a href="/hello-algo/chapter_stack_and_queue/queue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1270,11 +1280,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_stack_and_queue/deque/" class="md-nav__link">
+      <a href="/hello-algo/chapter_stack_and_queue/deque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5.3 Double-ended queue
+    5.3 Deque
   </span>
   
 
@@ -1291,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_stack_and_queue/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_stack_and_queue/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1347,13 +1357,13 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_hashing/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_hashing/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"/></svg>
   
   <span class="md-ellipsis">
-    Chapter 6. Hash table
+    Chapter 6. Hashing
   </span>
   
 
@@ -1369,7 +1379,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hash table
+            Chapter 6. Hashing
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1382,11 +1392,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_hashing/hash_map/" class="md-nav__link">
+      <a href="/hello-algo/chapter_hashing/hash_map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6.1 Hash table
+    6.1 Hash Table
   </span>
   
 
@@ -1403,11 +1413,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_hashing/hash_collision/" class="md-nav__link">
+      <a href="/hello-algo/chapter_hashing/hash_collision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1424,11 +1434,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_hashing/hash_algorithm/" class="md-nav__link">
+      <a href="/hello-algo/chapter_hashing/hash_algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6.3 Hash algorithm
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1445,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_hashing/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_hashing/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1505,7 +1515,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_tree/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_tree/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1Z"/></svg>
@@ -1540,11 +1550,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_tree/binary_tree/" class="md-nav__link">
+      <a href="/hello-algo/chapter_tree/binary_tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7.1 Binary tree
+    7.1 Binary Tree
   </span>
   
 
@@ -1561,11 +1571,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_tree/binary_tree_traversal/" class="md-nav__link">
+      <a href="/hello-algo/chapter_tree/binary_tree_traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7.2 Binary tree traversal
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1582,11 +1592,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_tree/array_representation_of_tree/" class="md-nav__link">
+      <a href="/hello-algo/chapter_tree/array_representation_of_tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of tree
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1603,11 +1613,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_tree/binary_search_tree/" class="md-nav__link">
+      <a href="/hello-algo/chapter_tree/binary_search_tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search tree
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1624,11 +1634,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_tree/avl_tree/" class="md-nav__link">
+      <a href="/hello-algo/chapter_tree/avl_tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1645,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_tree/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_tree/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1701,7 +1711,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_heap/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_heap/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 11 5.79V7H7a2 2 0 0 0-2 2v.71A2.5 2.5 0 0 0 3.5 12 2.5 2.5 0 0 0 5 14.29V15H4a2 2 0 0 0-2 2v1.21A2.5 2.5 0 0 0 .5 20.5 2.5 2.5 0 0 0 3 23a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 4 18.21V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 9 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2H7v-.71A2.5 2.5 0 0 0 8.5 12 2.5 2.5 0 0 0 7 9.71V9h10v.71A2.5 2.5 0 0 0 15.5 12a2.5 2.5 0 0 0 1.5 2.29V15h-1a2 2 0 0 0-2 2v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 15 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 21 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2h-1v-.71A2.5 2.5 0 0 0 20.5 12 2.5 2.5 0 0 0 19 9.71V9a2 2 0 0 0-2-2h-4V5.79a2.5 2.5 0 0 0 1.5-2.29A2.5 2.5 0 0 0 12 1m0 1.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M6 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m12 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M3 19.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1Z"/></svg>
@@ -1736,7 +1746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_heap/heap/" class="md-nav__link">
+      <a href="/hello-algo/chapter_heap/heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1757,11 +1767,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_heap/build_heap/" class="md-nav__link">
+      <a href="/hello-algo/chapter_heap/build_heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    8.2 Building a heap
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1778,11 +1788,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_heap/top_k/" class="md-nav__link">
+      <a href="/hello-algo/chapter_heap/top_k/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    8.3 Top-k problem
+    8.3 Top-k Problem
   </span>
   
 
@@ -1799,7 +1809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_heap/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_heap/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1855,7 +1865,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_graph/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_graph/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59-.44.06M6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43.43 0 .83.16 1.12.43l4.28-2.53H6.6M12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68.93 0 1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25 5.51-9.64m2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24-4.5-2.58Z"/></svg>
@@ -1890,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_graph/graph/" class="md-nav__link">
+      <a href="/hello-algo/chapter_graph/graph/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1911,11 +1921,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_graph/graph_operations/" class="md-nav__link">
+      <a href="/hello-algo/chapter_graph/graph_operations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    9.2 Basic graph operations
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -1932,11 +1942,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_graph/graph_traversal/" class="md-nav__link">
+      <a href="/hello-algo/chapter_graph/graph_traversal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    9.3 Graph traversal
+    9.3 Graph Traversal
   </span>
   
 
@@ -1953,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_graph/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_graph/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2013,7 +2023,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_searching/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_searching/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
@@ -2048,11 +2058,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_searching/binary_search/" class="md-nav__link">
+      <a href="/hello-algo/chapter_searching/binary_search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.1 Binary search
+    10.1 Binary Search
   </span>
   
 
@@ -2069,11 +2079,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_searching/binary_search_insertion/" class="md-nav__link">
+      <a href="/hello-algo/chapter_searching/binary_search_insertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.2 Binary search insertion
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2090,11 +2100,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_searching/binary_search_edge/" class="md-nav__link">
+      <a href="/hello-algo/chapter_searching/binary_search_edge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.3 Binary search boundaries
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2111,11 +2121,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_searching/replace_linear_by_hashing/" class="md-nav__link">
+      <a href="/hello-algo/chapter_searching/replace_linear_by_hashing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.4 Hashing optimization strategies
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2132,11 +2142,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_searching/searching_algorithm_revisited/" class="md-nav__link">
+      <a href="/hello-algo/chapter_searching/searching_algorithm_revisited/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10.5 Search algorithms revisited
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2153,7 +2163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_searching/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_searching/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2223,7 +2233,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_sorting/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_sorting/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"/></svg>
@@ -2258,11 +2268,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/sorting_algorithm/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/sorting_algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.1 Sorting algorithms
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2279,11 +2289,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/selection_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/selection_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.2 Selection sort
+    11.2 Selection Sort
   </span>
   
 
@@ -2300,11 +2310,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/bubble_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/bubble_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.3 Bubble sort
+    11.3 Bubble Sort
   </span>
   
 
@@ -2321,11 +2331,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/insertion_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/insertion_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.4 Insertion sort
+    11.4 Insertion Sort
   </span>
   
 
@@ -2342,11 +2352,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/quick_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/quick_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.5 Quick sort
+    11.5 Quick Sort
   </span>
   
 
@@ -2363,11 +2373,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/merge_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/merge_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.6 Merge sort
+    11.6 Merge Sort
   </span>
   
 
@@ -2384,11 +2394,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/heap_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/heap_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.7 Heap sort
+    11.7 Heap Sort
   </span>
   
 
@@ -2405,11 +2415,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/bucket_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/bucket_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.8 Bucket sort
+    11.8 Bucket Sort
   </span>
   
 
@@ -2426,11 +2436,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/counting_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/counting_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.9 Counting sort
+    11.9 Counting Sort
   </span>
   
 
@@ -2447,11 +2457,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/radix_sort/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/radix_sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    11.10 Radix sort
+    11.10 Radix Sort
   </span>
   
 
@@ -2468,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_sorting/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_sorting/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2526,11 +2536,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_divide_and_conquer/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_divide_and_conquer/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and conquer
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2546,7 +2556,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and conquer
+            Chapter 12. Divide and Conquer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2559,11 +2569,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_divide_and_conquer/divide_and_conquer/" class="md-nav__link">
+      <a href="/hello-algo/chapter_divide_and_conquer/divide_and_conquer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    12.1 Divide and conquer algorithms
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2580,11 +2590,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_divide_and_conquer/binary_search_recur/" class="md-nav__link">
+      <a href="/hello-algo/chapter_divide_and_conquer/binary_search_recur/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    12.2 Divide and conquer search strategy
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2601,11 +2611,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_divide_and_conquer/build_binary_tree_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_divide_and_conquer/build_binary_tree_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    12.3 Building binary tree problem
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2622,11 +2632,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_divide_and_conquer/hanota_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_divide_and_conquer/hanota_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2643,7 +2653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_divide_and_conquer/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_divide_and_conquer/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2701,7 +2711,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_backtracking/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_backtracking/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2734,11 +2744,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_backtracking/backtracking_algorithm/" class="md-nav__link">
+      <a href="/hello-algo/chapter_backtracking/backtracking_algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2755,11 +2765,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_backtracking/permutations_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_backtracking/permutations_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    13.2 Permutation problem
+    13.2 Permutations Problem
   </span>
   
 
@@ -2776,11 +2786,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_backtracking/subset_sum_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_backtracking/subset_sum_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    13.3 Subset sum problem
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2797,11 +2807,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_backtracking/n_queens_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_backtracking/n_queens_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    13.4 n queens problem
+    13.4 N-Queens Problem
   </span>
   
 
@@ -2818,7 +2828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_backtracking/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_backtracking/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2880,11 +2890,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_dynamic_programming/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_dynamic_programming/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic programming
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -2900,7 +2910,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic programming
+            Chapter 14. Dynamic Programming
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2913,11 +2923,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/intro_to_dynamic_programming/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/intro_to_dynamic_programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to dynamic programming
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -2934,11 +2944,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/dp_problem_features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of DP problems
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -2955,11 +2965,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/dp_solution_pipeline/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/dp_solution_pipeline/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    14.3 DP problem-solving approach¶
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -2976,11 +2986,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/knapsack_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -2997,11 +3007,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/unbounded_knapsack_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/unbounded_knapsack_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded knapsack problem
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3018,11 +3028,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/edit_distance_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/edit_distance_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    14.6 Edit distance problem
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3039,7 +3049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_dynamic_programming/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_dynamic_programming/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3097,7 +3107,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_greedy/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_greedy/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3130,11 +3140,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_greedy/greedy_algorithm/" class="md-nav__link">
+      <a href="/hello-algo/chapter_greedy/greedy_algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    15.1 Greedy algorithms
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3151,11 +3161,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_greedy/fractional_knapsack_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_greedy/fractional_knapsack_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    15.2 Fractional knapsack problem
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3172,11 +3182,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_greedy/max_capacity_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_greedy/max_capacity_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    15.3 Maximum capacity problem
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3193,11 +3203,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
+      <a href="/hello-algo/chapter_greedy/max_product_cutting_problem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    15.4 Maximum product cutting problem
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3214,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_greedy/summary/" class="md-nav__link">
+      <a href="/hello-algo/chapter_greedy/summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3268,7 +3278,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_appendix/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_appendix/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3301,11 +3311,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_appendix/installation/" class="md-nav__link">
+      <a href="/hello-algo/chapter_appendix/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    16.1 Installation
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3322,11 +3332,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_appendix/contribution/" class="md-nav__link">
+      <a href="/hello-algo/chapter_appendix/contribution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    16.2 Contributing
+    16.2 Contributing Together
   </span>
   
 
@@ -3343,11 +3353,11 @@
   
   
     <li class="md-nav__item">
-      <a href="/en/chapter_appendix/terminology/" class="md-nav__link">
+      <a href="/hello-algo/chapter_appendix/terminology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    16.3 Terminology
+    16.3 Glossary
   </span>
   
 
@@ -3391,7 +3401,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="/en/chapter_reference/" class="md-nav__link ">
+            <a href="/hello-algo/chapter_reference/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
@@ -3477,7 +3487,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright &copy; 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
@@ -3530,12 +3540,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/en/", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "/en/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    <script id="__config" type="application/json">{"base": "/hello-algo/", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "/hello-algo/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
     
     
-      <script src="/en/assets/javascripts/bundle.c18c5fb9.min.js"></script>
+      <script src="/hello-algo/assets/javascripts/bundle.c18c5fb9.min.js"></script>
       
-        <script src="/en/javascripts/mathjax.js"></script>
+        <script src="/hello-algo/javascripts/mathjax.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
       

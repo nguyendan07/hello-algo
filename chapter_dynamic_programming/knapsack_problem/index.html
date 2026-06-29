@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_dynamic_programming/knapsack_problem/">
+        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_dynamic_programming/knapsack_problem/">
       
       
         <link rel="prev" href="../dp_solution_pipeline/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>14.4 0-1 Knapsack problem - Hello Algo</title>
+        <title>14.4 0-1 Knapsack Problem - Hello Algo</title>
       
     
     
@@ -43,9 +43,9 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#0-1-knapsack-problem" class="md-skip">
+        <a href="#bai-toan-cai-tui-0-1-0-1-knapsack" class="md-skip">
           Bỏ qua
         </a>
       
@@ -111,6 +111,10 @@
         </aside>
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+      </div>
     
     
       
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              14.4 0-1 Knapsack problem
+              14.4 0-1 Knapsack Problem
             
           </span>
         </div>
@@ -153,7 +157,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,7 +167,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -209,8 +213,14 @@
           </li>
         
           <li class="md-select__item">
+            <a href="/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
             <a href="/vi/" hreflang="vi" class="md-select__link">
-              Tiếng Việt
+              Vietnamese
             </a>
           </li>
         
@@ -228,7 +238,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
@@ -237,7 +247,7 @@
       </label>
       <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
@@ -252,7 +262,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -322,7 +332,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -357,7 +367,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    Before starting
+    Before Starting
   </span>
   
 
@@ -368,9 +378,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before starting
+            Before Starting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -438,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 0. Preface
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -453,7 +463,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 About this book
+    0.1 About This Book
   </span>
   
 
@@ -474,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 How to read
+    0.2 How to Use This Book
   </span>
   
 
@@ -551,7 +561,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 1. Encounter with algorithms
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -567,9 +577,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with algorithms
+            Chapter 1. Encounter with Algorithms
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -584,7 +594,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms are everywhere
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -605,7 +615,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 What is an algorithm
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -686,7 +696,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 2. Complexity analysis
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -702,9 +712,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity analysis
+            Chapter 2. Complexity Analysis
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -719,7 +729,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm efficiency assessment
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -740,7 +750,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and recursion
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -761,7 +771,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 Time complexity
+    2.3 Time Complexity
   </span>
   
 
@@ -782,7 +792,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 Space complexity
+    2.4 Space Complexity
   </span>
   
 
@@ -863,7 +873,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 3. Data structures
+    Chapter 3. Data Structures
   </span>
   
 
@@ -879,9 +889,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data structures
+            Chapter 3. Data Structures
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -896,7 +906,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 Classification of data structures
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -917,7 +927,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 Basic data types
+    3.2 Basic Data Types
   </span>
   
 
@@ -938,7 +948,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 Number encoding *
+    3.3 Number Encoding *
   </span>
   
 
@@ -959,7 +969,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 Character encoding *
+    3.4 Character Encoding *
   </span>
   
 
@@ -1040,7 +1050,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 4. Array and linked list
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1056,9 +1066,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Array and linked list
+            Chapter 4. Arrays and Linked Lists
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1094,7 +1104,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 Linked list
+    4.2 Linked List
   </span>
   
 
@@ -1136,7 +1146,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 Memory and cache *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1215,7 +1225,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 5. Stack and queue
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1231,9 +1241,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stack and queue
+            Chapter 5. Stacks and Queues
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1290,7 +1300,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 Double-ended queue
+    5.3 Deque
   </span>
   
 
@@ -1369,7 +1379,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 6. Hash table
+    Chapter 6. Hashing
   </span>
   
 
@@ -1385,9 +1395,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hash table
+            Chapter 6. Hashing
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1402,7 +1412,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 Hash table
+    6.1 Hash Table
   </span>
   
 
@@ -1423,7 +1433,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1444,7 +1454,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 Hash algorithm
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1545,7 +1555,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 7. Tree
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1560,7 +1570,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 Binary tree
+    7.1 Binary Tree
   </span>
   
 
@@ -1581,7 +1591,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Binary tree traversal
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1602,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of tree
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1623,7 +1633,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search tree
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1644,7 +1654,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1741,7 +1751,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 8. Heap
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1777,7 +1787,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 Building a heap
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1798,7 +1808,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 Top-k problem
+    8.3 Top-k Problem
   </span>
   
 
@@ -1895,7 +1905,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 9. Graph
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1931,7 +1941,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 Basic graph operations
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -1952,7 +1962,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 Graph traversal
+    9.3 Graph Traversal
   </span>
   
 
@@ -2053,7 +2063,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 10. Searching
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2068,7 +2078,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 Binary search
+    10.1 Binary Search
   </span>
   
 
@@ -2089,7 +2099,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 Binary search insertion
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2110,7 +2120,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 Binary search boundaries
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2131,7 +2141,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 Hashing optimization strategies
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2152,7 +2162,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 Search algorithms revisited
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2263,7 +2273,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 11. Sorting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2278,7 +2288,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 Sorting algorithms
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2299,7 +2309,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 Selection sort
+    11.2 Selection Sort
   </span>
   
 
@@ -2320,7 +2330,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 Bubble sort
+    11.3 Bubble Sort
   </span>
   
 
@@ -2341,7 +2351,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 Insertion sort
+    11.4 Insertion Sort
   </span>
   
 
@@ -2362,7 +2372,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 Quick sort
+    11.5 Quick Sort
   </span>
   
 
@@ -2383,7 +2393,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 Merge sort
+    11.6 Merge Sort
   </span>
   
 
@@ -2404,7 +2414,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 Heap sort
+    11.7 Heap Sort
   </span>
   
 
@@ -2425,7 +2435,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 Bucket sort
+    11.8 Bucket Sort
   </span>
   
 
@@ -2446,7 +2456,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 Counting sort
+    11.9 Counting Sort
   </span>
   
 
@@ -2467,7 +2477,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 Radix sort
+    11.10 Radix Sort
   </span>
   
 
@@ -2546,7 +2556,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and conquer
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2562,9 +2572,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and conquer
+            Chapter 12. Divide and Conquer
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2579,7 +2589,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 Divide and conquer algorithms
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2600,7 +2610,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 Divide and conquer search strategy
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2621,7 +2631,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 Building binary tree problem
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2642,7 +2652,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2739,7 +2749,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 13. Backtracking
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2754,7 +2764,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2775,7 +2785,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 Permutation problem
+    13.2 Permutations Problem
   </span>
   
 
@@ -2796,7 +2806,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 Subset sum problem
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2817,7 +2827,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 n queens problem
+    13.4 N-Queens Problem
   </span>
   
 
@@ -2893,7 +2903,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" checked="">
         
           
           
@@ -2902,7 +2912,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic programming
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -2918,9 +2928,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic programming
+            Chapter 14. Dynamic Programming
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2935,7 +2945,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to dynamic programming
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -2956,7 +2966,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of DP problems
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -2977,7 +2987,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 DP problem-solving approach¶
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -3007,7 +3017,7 @@
           
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3018,7 +3028,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3037,39 +3047,39 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#method-one-brute-force-search" class="md-nav__link">
+  <a href="#phuong-phap-1-tim-kiem-vet-can" class="md-nav__link">
     <span class="md-ellipsis">
-      Method one: Brute force search
+      Phương pháp 1: Tìm kiếm Vét cạn
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-two-memoized-search" class="md-nav__link">
+  <a href="#phuong-phap-2-ghi-nho-memoization" class="md-nav__link">
     <span class="md-ellipsis">
-      Method two: Memoized search
+      Phương pháp 2: Ghi nhớ (Memoization)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-three-dynamic-programming" class="md-nav__link">
+  <a href="#phuong-phap-3-quy-hoach-ong" class="md-nav__link">
     <span class="md-ellipsis">
-      Method three: Dynamic programming
+      Phương pháp 3: Quy hoạch động
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#space-optimization" class="md-nav__link">
+  <a href="#toi-uu-hoa-khong-gian" class="md-nav__link">
     <span class="md-ellipsis">
-      Space optimization
+      Tối ưu hóa Không gian
     </span>
   </a>
   
@@ -3095,7 +3105,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded knapsack problem
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3116,7 +3126,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 Edit distance problem
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3213,7 +3223,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 15. Greedy
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3228,7 +3238,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 Greedy algorithms
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3249,7 +3259,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 Fractional knapsack problem
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3270,7 +3280,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 Maximum capacity problem
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3291,7 +3301,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 Maximum product cutting problem
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3384,7 +3394,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 16. Appendix
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3399,7 +3409,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 Installation
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3420,7 +3430,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 Contributing
+    16.2 Contributing Together
   </span>
   
 
@@ -3441,7 +3451,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 Terminology
+    16.3 Glossary
   </span>
   
 
@@ -3504,7 +3514,7 @@
             <span class="md-nav__icon md-icon"></span>
             References
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3539,39 +3549,39 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#method-one-brute-force-search" class="md-nav__link">
+  <a href="#phuong-phap-1-tim-kiem-vet-can" class="md-nav__link">
     <span class="md-ellipsis">
-      Method one: Brute force search
+      Phương pháp 1: Tìm kiếm Vét cạn
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-two-memoized-search" class="md-nav__link">
+  <a href="#phuong-phap-2-ghi-nho-memoization" class="md-nav__link">
     <span class="md-ellipsis">
-      Method two: Memoized search
+      Phương pháp 2: Ghi nhớ (Memoization)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-three-dynamic-programming" class="md-nav__link">
+  <a href="#phuong-phap-3-quy-hoach-ong" class="md-nav__link">
     <span class="md-ellipsis">
-      Method three: Dynamic programming
+      Phương pháp 3: Quy hoạch động
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#space-optimization" class="md-nav__link">
+  <a href="#toi-uu-hoa-khong-gian" class="md-nav__link">
     <span class="md-ellipsis">
-      Space optimization
+      Tối ưu hóa Không gian
     </span>
   </a>
   
@@ -3609,65 +3619,65 @@
 
 
 <!-- Page content -->
-<h1 id="0-1-knapsack-problem">0-1 Knapsack problem<a class="headerlink" href="#0-1-knapsack-problem" title="Permanent link">¶</a></h1>
-<p>The knapsack problem is an excellent introductory problem for dynamic programming and is the most common type of problem in dynamic programming. It has many variants, such as the 0-1 knapsack problem, the unbounded knapsack problem, and the multiple knapsack problem, etc.</p>
-<p>In this section, we will first solve the most common 0-1 knapsack problem.</p>
+<h1 id="bai-toan-cai-tui-0-1-0-1-knapsack">Bài toán Cái túi 0-1 (0-1 Knapsack)<a class="headerlink" href="#bai-toan-cai-tui-0-1-0-1-knapsack" title="Permanent link">¶</a></h1>
+<p>Bài toán cái túi là một bài toán nhập môn tuyệt vời cho quy hoạch động và là một trong những dạng bài toán phổ biến nhất trong quy hoạch động. Nó có nhiều biến thể, chẳng hạn như bài toán cái túi 0-1, bài toán cái túi hoàn toàn (unbounded knapsack), và bài toán đa cái túi (multiple knapsack).</p>
+<p>Trong phần này, trước tiên chúng ta sẽ giải quyết bài toán cái túi 0-1 phổ biến nhất.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Given <span class="arithmatex">\(n\)</span> items, the weight of the <span class="arithmatex">\(i\)</span>-th item is <span class="arithmatex">\(wgt[i-1]\)</span> and its value is <span class="arithmatex">\(val[i-1]\)</span>, and a knapsack with a capacity of <span class="arithmatex">\(cap\)</span>. Each item can be chosen only once. What is the maximum value of items that can be placed in the knapsack under the capacity limit?</p>
+<p>Cho <span class="arithmatex">\(n\)</span> đồ vật và một cái túi có sức chứa <span class="arithmatex">\(cap\)</span>, trong đó trọng lượng và giá trị của đồ vật thứ <span class="arithmatex">\(i\)</span> lần lượt là <span class="arithmatex">\(wgt[i-1]\)</span> và <span class="arithmatex">\(val[i-1]\)</span>. Mỗi đồ vật chỉ có thể được chọn tối đa một lần. Giá trị tối đa có thể cho vào cái túi dưới giới hạn sức chứa là bao nhiêu?</p>
 </div>
-<p>Observe the figure below, since the item number <span class="arithmatex">\(i\)</span> starts counting from 1, and the array index starts from 0, thus the weight of item <span class="arithmatex">\(i\)</span> corresponds to <span class="arithmatex">\(wgt[i-1]\)</span> and the value corresponds to <span class="arithmatex">\(val[i-1]\)</span>.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_example.png" data-desc-position="bottom"><img alt="Example data of the 0-1 knapsack" src="../knapsack_problem.assets/knapsack_example.png"></a></p>
-<p>We can consider the 0-1 knapsack problem as a process consisting of <span class="arithmatex">\(n\)</span> rounds of decisions, where for each item there are two decisions: not to put it in or to put it in, thus the problem fits the decision tree model.</p>
-<p>The objective of this problem is to "maximize the value of the items that can be put in the knapsack under the limited capacity," thus it is more likely a dynamic programming problem.</p>
-<p><strong>First step: Think about each round of decisions, define states, thereby obtaining the <span class="arithmatex">\(dp\)</span> table</strong></p>
-<p>For each item, if not put into the knapsack, the capacity remains unchanged; if put in, the capacity is reduced. From this, the state definition can be obtained: the current item number <span class="arithmatex">\(i\)</span> and knapsack capacity <span class="arithmatex">\(c\)</span>, denoted as <span class="arithmatex">\([i, c]\)</span>.</p>
-<p>State <span class="arithmatex">\([i, c]\)</span> corresponds to the sub-problem: <strong>the maximum value of the first <span class="arithmatex">\(i\)</span> items in a knapsack of capacity <span class="arithmatex">\(c\)</span></strong>, denoted as <span class="arithmatex">\(dp[i, c]\)</span>.</p>
-<p>The solution we are looking for is <span class="arithmatex">\(dp[n, cap]\)</span>, so we need a two-dimensional <span class="arithmatex">\(dp\)</span> table of size <span class="arithmatex">\((n+1) \times (cap+1)\)</span>.</p>
-<p><strong>Second step: Identify the optimal substructure, then derive the state transition equation</strong></p>
-<p>After making the decision for item <span class="arithmatex">\(i\)</span>, what remains is the sub-problem of decisions for the first <span class="arithmatex">\(i-1\)</span> items, which can be divided into two cases.</p>
+<p>Quan sát hình bên dưới. Vì số thứ tự đồ vật <span class="arithmatex">\(i\)</span> bắt đầu đếm từ <span class="arithmatex">\(1\)</span> và các chỉ số mảng bắt đầu từ <span class="arithmatex">\(0\)</span>, đồ vật <span class="arithmatex">\(i\)</span> tương ứng với trọng lượng <span class="arithmatex">\(wgt[i-1]\)</span> và giá trị <span class="arithmatex">\(val[i-1]\)</span>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_example.png" data-desc-position="bottom"><img alt="Dữ liệu ví dụ cho cái túi 0-1" src="../knapsack_problem.assets/knapsack_example.png"></a></p>
+<p>Chúng ta có thể xem bài toán cái túi 0-1 như một quá trình bao gồm <span class="arithmatex">\(n\)</span> vòng quyết định, trong đó đối với mỗi đồ vật có hai quyết định: không cho vào và cho vào, do đó bài toán thỏa mãn mô hình cây quyết định.</p>
+<p>Mục tiêu của bài toán này là tìm "giá trị tối đa có thể cho vào cái túi trong giới hạn sức chứa", vì vậy nó nhiều khả năng là một bài toán quy hoạch động.</p>
+<p><strong>Bước 1: Suy nghĩ về các quyết định trong mỗi vòng, định nghĩa trạng thái, và từ đó thu được bảng <span class="arithmatex">\(dp\)</span></strong></p>
+<p>Đối với mỗi đồ vật, nếu không cho vào cái túi, sức chứa cái túi giữ nguyên; nếu cho vào, sức chứa cái túi giảm đi. Từ đây, chúng ta có thể rút ra định nghĩa trạng thái: số thứ tự đồ vật hiện tại <span class="arithmatex">\(i\)</span> và sức chứa cái túi <span class="arithmatex">\(c\)</span>, ký hiệu là <span class="arithmatex">\([i, c]\)</span>.</p>
+<p>Trạng thái <span class="arithmatex">\([i, c]\)</span> tương ứng với bài toán con: <strong>giá trị tối đa trong số <span class="arithmatex">\(i\)</span> đồ vật đầu tiên trong một cái túi có sức chứa <span class="arithmatex">\(c\)</span></strong>, ký hiệu là <span class="arithmatex">\(dp[i, c]\)</span>.</p>
+<p>Những gì chúng ta cần tìm là <span class="arithmatex">\(dp[n, cap]\)</span>, vì vậy chúng ta cần một bảng <span class="arithmatex">\(dp\)</span> hai chiều kích thước <span class="arithmatex">\((n+1) \times (cap+1)\)</span>.</p>
+<p><strong>Bước 2: Xác định cấu trúc con tối ưu, và sau đó rút ra phương trình chuyển trạng thái</strong></p>
+<p>Sau khi đưa ra quyết định cho đồ vật <span class="arithmatex">\(i\)</span>, những gì còn lại là bài toán con của <span class="arithmatex">\(i-1\)</span> đồ vật đầu tiên, có thể chia thành hai trường hợp sau.</p>
 <ul>
-<li><strong>Not putting item <span class="arithmatex">\(i\)</span></strong>: The knapsack capacity remains unchanged, state changes to <span class="arithmatex">\([i-1, c]\)</span>.</li>
-<li><strong>Putting item <span class="arithmatex">\(i\)</span></strong>: The knapsack capacity decreases by <span class="arithmatex">\(wgt[i-1]\)</span>, and the value increases by <span class="arithmatex">\(val[i-1]\)</span>, state changes to <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>.</li>
+<li><strong>Không cho đồ vật <span class="arithmatex">\(i\)</span> vào</strong>: Sức chứa cái túi giữ nguyên, và trạng thái chuyển thành <span class="arithmatex">\([i-1, c]\)</span>.</li>
+<li><strong>Cho đồ vật <span class="arithmatex">\(i\)</span> vào</strong>: Sức chứa cái túi giảm đi <span class="arithmatex">\(wgt[i-1]\)</span>, giá trị tăng thêm <span class="arithmatex">\(val[i-1]\)</span>, và trạng thái chuyển thành <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>.</li>
 </ul>
-<p>The above analysis reveals the optimal substructure of this problem: <strong>the maximum value <span class="arithmatex">\(dp[i, c]\)</span> is equal to the larger value of the two schemes of not putting item <span class="arithmatex">\(i\)</span> and putting item <span class="arithmatex">\(i\)</span></strong>. From this, the state transition equation can be derived:</p>
+<p>Phân tích trên tiết lộ cấu trúc con tối ưu của bài toán này: <strong>giá trị tối đa <span class="arithmatex">\(dp[i, c]\)</span> bằng giá trị lớn hơn trong các giá trị thu được bằng cách không cho đồ vật <span class="arithmatex">\(i\)</span> vào cái túi và cho nó vào cái túi</strong>. Từ đây, phương trình chuyển trạng thái có thể được rút ra:</p>
 <div class="arithmatex">\[
 dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 \]</div>
-<p>It is important to note that if the current item's weight <span class="arithmatex">\(wgt[i - 1]\)</span> exceeds the remaining knapsack capacity <span class="arithmatex">\(c\)</span>, then the only option is not to put it in the knapsack.</p>
-<p><strong>Third step: Determine the boundary conditions and the order of state transitions</strong></p>
-<p>When there are no items or the knapsack capacity is <span class="arithmatex">\(0\)</span>, the maximum value is <span class="arithmatex">\(0\)</span>, i.e., the first column <span class="arithmatex">\(dp[i, 0]\)</span> and the first row <span class="arithmatex">\(dp[0, c]\)</span> are both equal to <span class="arithmatex">\(0\)</span>.</p>
-<p>The current state <span class="arithmatex">\([i, c]\)</span> transitions from the state directly above <span class="arithmatex">\([i-1, c]\)</span> and the state to the upper left <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>, thus, the entire <span class="arithmatex">\(dp\)</span> table is traversed in order through two layers of loops.</p>
-<p>Following the above analysis, we will next implement the solutions in the order of brute force search, memoized search, and dynamic programming.</p>
-<h3 id="method-one-brute-force-search">Method one: Brute force search<a class="headerlink" href="#method-one-brute-force-search" title="Permanent link">¶</a></h3>
-<p>The search code includes the following elements.</p>
+<p>Lưu ý rằng nếu trọng lượng của đồ vật hiện tại <span class="arithmatex">\(wgt[i - 1]\)</span> vượt quá sức chứa còn lại của cái túi <span class="arithmatex">\(c\)</span>, thì lựa chọn duy nhất là không cho nó vào cái túi.</p>
+<p><strong>Bước 3: Xác định các điều kiện biên và thứ tự chuyển trạng thái</strong></p>
+<p>Khi không có đồ vật nào hoặc sức chứa cái túi là <span class="arithmatex">\(0\)</span>, giá trị tối đa là <span class="arithmatex">\(0\)</span>, tức là cột đầu tiên <span class="arithmatex">\(dp[i, 0]\)</span> và hàng đầu tiên <span class="arithmatex">\(dp[0, c]\)</span> đều bằng <span class="arithmatex">\(0\)</span>.</p>
+<p>Trạng thái hiện tại <span class="arithmatex">\([i, c]\)</span> chuyển trạng thái từ trạng thái phía trên <span class="arithmatex">\([i-1, c]\)</span> và trạng thái phía trên bên trái <span class="arithmatex">\([i-1, c-wgt[i-1]]\)</span>, vì vậy chúng ta có thể duyệt qua toàn bộ bảng <span class="arithmatex">\(dp\)</span> theo thứ tự xuôi bằng hai vòng lặp lồng nhau.</p>
+<p>Dựa trên phân tích trên, tiếp theo chúng ta sẽ lần lượt triển khai các giải pháp tìm kiếm vét cạn, ghi nhớ và quy hoạch động.</p>
+<h3 id="phuong-phap-1-tim-kiem-vet-can">Phương pháp 1: Tìm kiếm Vét cạn<a class="headerlink" href="#phuong-phap-1-tim-kiem-vet-can" title="Permanent link">¶</a></h3>
+<p>Mã nguồn tìm kiếm bao gồm các yếu tố sau.</p>
 <ul>
-<li><strong>Recursive parameters</strong>: State <span class="arithmatex">\([i, c]\)</span>.</li>
-<li><strong>Return value</strong>: Solution to the sub-problem <span class="arithmatex">\(dp[i, c]\)</span>.</li>
-<li><strong>Termination condition</strong>: When the item number is out of bounds <span class="arithmatex">\(i = 0\)</span> or the remaining capacity of the knapsack is <span class="arithmatex">\(0\)</span>, terminate the recursion and return the value <span class="arithmatex">\(0\)</span>.</li>
-<li><strong>Pruning</strong>: If the current item's weight exceeds the remaining capacity of the knapsack, the only option is not to put it in the knapsack.</li>
+<li><strong>Các tham số đệ quy</strong>: trạng thái <span class="arithmatex">\([i, c]\)</span>.</li>
+<li><strong>Giá trị trả về</strong>: lời giải cho bài toán con <span class="arithmatex">\(dp[i, c]\)</span>.</li>
+<li><strong>Điều kiện dừng</strong>: khi không còn đồ vật nào (<span class="arithmatex">\(i = 0\)</span>) hoặc sức chứa còn lại của cái túi là <span class="arithmatex">\(0\)</span>, chấm dứt đệ quy và trả về giá trị <span class="arithmatex">\(0\)</span>.</li>
+<li><strong>Cắt tỉa</strong>: nếu trọng lượng của đồ vật hiện tại vượt quá sức chứa còn lại của cái túi, chỉ có tùy chọn không cho vào là khả thi.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{knapsack}-[class]{}-[func]{knapsack_dfs}
 </code></pre></div>
-<p>As shown in the figure below, since each item generates two search branches of not selecting and selecting, the time complexity is <span class="arithmatex">\(O(2^n)\)</span>.</p>
-<p>Observing the recursive tree, it is easy to see that there are overlapping sub-problems, such as <span class="arithmatex">\(dp[1, 10]\)</span>, etc. When there are many items and the knapsack capacity is large, especially when there are many items of the same weight, the number of overlapping sub-problems will increase significantly.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dfs.png" data-desc-position="bottom"><img alt="The brute force search recursive tree of the 0-1 knapsack problem" src="../knapsack_problem.assets/knapsack_dfs.png"></a></p>
-<h3 id="method-two-memoized-search">Method two: Memoized search<a class="headerlink" href="#method-two-memoized-search" title="Permanent link">¶</a></h3>
-<p>To ensure that overlapping sub-problems are only calculated once, we use a memoization list <code>mem</code> to record the solutions to sub-problems, where <code>mem[i][c]</code> corresponds to <span class="arithmatex">\(dp[i, c]\)</span>.</p>
-<p>After introducing memoization, <strong>the time complexity depends on the number of sub-problems</strong>, which is <span class="arithmatex">\(O(n \times cap)\)</span>. The implementation code is as follows:</p>
+<p>Như hiển thị trong hình bên dưới, vì mỗi đồ vật tạo ra hai nhánh tìm kiếm, không loại trừ và bao gồm nó, nên độ phức tạp thời gian là <span class="arithmatex">\(O(2^n)\)</span>.</p>
+<p>Quan sát cây đệ quy, dễ dàng thấy được các bài toán con chồng chéo, chẳng hạn như <span class="arithmatex">\(dp[1, 10]\)</span>. Khi có nhiều đồ vật, sức chứa cái túi lớn, và đặc biệt là nhiều đồ vật có cùng trọng lượng, số lượng các bài toán con chồng chéo sẽ tăng lên đáng kể.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dfs.png" data-desc-position="bottom"><img alt="Cây đệ quy tìm kiếm vét cạn cho bài toán cái túi 0-1" src="../knapsack_problem.assets/knapsack_dfs.png"></a></p>
+<h3 id="phuong-phap-2-ghi-nho-memoization">Phương pháp 2: Ghi nhớ (Memoization)<a class="headerlink" href="#phuong-phap-2-ghi-nho-memoization" title="Permanent link">¶</a></h3>
+<p>Để đảm bảo rằng các bài toán con chồng chéo chỉ được tính toán một lần, chúng ta sử dụng một danh sách ghi nhớ <code>mem</code> để ghi lại lời giải cho các bài toán con, trong đó <code>mem[i][c]</code> tương ứng với <span class="arithmatex">\(dp[i, c]\)</span>.</p>
+<p>Sau khi đưa vào ghi nhớ, <strong>độ phức tạp thời gian phụ thuộc vào số lượng bài toán con</strong>, chính là <span class="arithmatex">\(O(n \times cap)\)</span>. Mã nguồn triển khai như sau:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}
 </code></pre></div>
-<p>The figure below shows the search branches that are pruned in memoized search.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dfs_mem.png" data-desc-position="bottom"><img alt="The memoized search recursive tree of the 0-1 knapsack problem" src="../knapsack_problem.assets/knapsack_dfs_mem.png"></a></p>
-<h3 id="method-three-dynamic-programming">Method three: Dynamic programming<a class="headerlink" href="#method-three-dynamic-programming" title="Permanent link">¶</a></h3>
-<p>Dynamic programming essentially involves filling the <span class="arithmatex">\(dp\)</span> table during the state transition, the code is shown in the figure below:</p>
+<p>Hình bên dưới hiển thị các nhánh tìm kiếm bị cắt tỉa trong phương pháp ghi nhớ.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dfs_mem.png" data-desc-position="bottom"><img alt="Cây đệ quy có ghi nhớ cho bài toán cái túi 0-1" src="../knapsack_problem.assets/knapsack_dfs_mem.png"></a></p>
+<h3 id="phuong-phap-3-quy-hoach-ong">Phương pháp 3: Quy hoạch động<a class="headerlink" href="#phuong-phap-3-quy-hoach-ong" title="Permanent link">¶</a></h3>
+<p>Quy hoạch động về bản chất là quá trình điền vào bảng <span class="arithmatex">\(dp\)</span> trong quá trình chuyển trạng thái. Mã nguồn như sau:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[file]{knapsack}-[class]{}-[func]{knapsack_dp}
 </code></pre></div>
-<p>As shown in the figure below, both the time complexity and space complexity are determined by the size of the array <code>dp</code>, i.e., <span class="arithmatex">\(O(n \times cap)\)</span>.</p>
+<p>Như hiển thị trong hình bên dưới, cả độ phức tạp thời gian và độ phức tạp không gian đều được quyết định bởi kích thước của mảng <code>dp</code>, đó là <span class="arithmatex">\(O(n \times cap)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:14"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><input id="__tabbed_1_12" name="__tabbed_1" type="radio"><input id="__tabbed_1_13" name="__tabbed_1" type="radio"><input id="__tabbed_1_14" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label><label for="__tabbed_1_12">&lt;12&gt;</label><label for="__tabbed_1_13">&lt;13&gt;</label><label for="__tabbed_1_14">&lt;14&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dp_step1.png" data-desc-position="bottom"><img alt="The dynamic programming process of the 0-1 knapsack problem" src="../knapsack_problem.assets/knapsack_dp_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dp_step1.png" data-desc-position="bottom"><img alt="Quá trình quy hoạch động cho bài toán cái túi 0-1" src="../knapsack_problem.assets/knapsack_dp_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dp_step2.png" data-desc-position="bottom"><img alt="knapsack_dp_step2" src="../knapsack_problem.assets/knapsack_dp_step2.png"></a></p>
@@ -3710,18 +3720,18 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<h3 id="space-optimization">Space optimization<a class="headerlink" href="#space-optimization" title="Permanent link">¶</a></h3>
-<p>Since each state is only related to the state in the row above it, we can use two arrays to roll forward, reducing the space complexity from <span class="arithmatex">\(O(n^2)\)</span> to <span class="arithmatex">\(O(n)\)</span>.</p>
-<p>Further thinking, can we use just one array to achieve space optimization? It can be observed that each state is transferred from the cell directly above or from the upper left cell. If there is only one array, when starting to traverse the <span class="arithmatex">\(i\)</span>-th row, that array still stores the state of row <span class="arithmatex">\(i-1\)</span>.</p>
+<h3 id="toi-uu-hoa-khong-gian">Tối ưu hóa Không gian<a class="headerlink" href="#toi-uu-hoa-khong-gian" title="Permanent link">¶</a></h3>
+<p>Vì mỗi trạng thái chỉ liên quan đến trạng thái ở hàng phía trên nó, chúng ta có thể sử dụng hai mảng cuốn chiếu lũy tiến để giảm độ phức tạp không gian từ <span class="arithmatex">\(O(n^2)\)</span> xuống <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>Suy nghĩ xa hơn, liệu chúng ta có thể đạt được tối ưu hóa không gian chỉ bằng một mảng? Quan sát kỹ, chúng ta có thể thấy rằng mỗi trạng thái được chuyển từ ô trực tiếp phía trên hoặc ô ở phía trên bên trái. Nếu chỉ có một mảng, khi chúng ta bắt đầu duyệt hàng <span class="arithmatex">\(i\)</span>, mảng đó vẫn lưu trữ trạng thái của hàng <span class="arithmatex">\(i-1\)</span>.</p>
 <ul>
-<li>If using normal order traversal, then when traversing to <span class="arithmatex">\(dp[i, j]\)</span>, the values from the upper left <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> may have already been overwritten, thus the correct state transition result cannot be obtained.</li>
-<li>If using reverse order traversal, there will be no overwriting problem, and the state transition can be conducted correctly.</li>
+<li>Nếu sử dụng duyệt xuôi, khi duyệt đến <span class="arithmatex">\(dp[i, j]\)</span>, các giá trị ở phía trên bên trái <span class="arithmatex">\(dp[i-1, 1]\)</span> ~ <span class="arithmatex">\(dp[i-1, j-1]\)</span> có thể đã bị ghi đè, từ đó ngăn cản việc chuyển trạng thái chính xác.</li>
+<li>Nếu sử dụng duyệt ngược, sẽ không có vấn đề ghi đè, và việc chuyển trạng thái có thể tiến hành chính xác.</li>
 </ul>
-<p>The figures below show the transition process from row <span class="arithmatex">\(i = 1\)</span> to row <span class="arithmatex">\(i = 2\)</span> in a single array. Please think about the differences between normal order traversal and reverse order traversal.</p>
+<p>Hình bên dưới hiển thị quá trình chuyển trạng thái từ hàng <span class="arithmatex">\(i = 1\)</span> sang hàng <span class="arithmatex">\(i = 2\)</span> bằng cách sử dụng một mảng duy nhất. Xin hãy cân nhắc sự khác biệt giữa duyệt xuôi và duyệt ngược.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label><label for="__tabbed_2_5">&lt;5&gt;</label><label for="__tabbed_2_6">&lt;6&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dp_comp_step1.png" data-desc-position="bottom"><img alt="The space-optimized dynamic programming process of the 0-1 knapsack" src="../knapsack_problem.assets/knapsack_dp_comp_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dp_comp_step1.png" data-desc-position="bottom"><img alt="Quá trình quy hoạch động tối ưu không gian cho cái túi 0-1" src="../knapsack_problem.assets/knapsack_dp_comp_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../knapsack_problem.assets/knapsack_dp_comp_step2.png" data-desc-position="bottom"><img alt="knapsack_dp_comp_step2" src="../knapsack_problem.assets/knapsack_dp_comp_step2.png"></a></p>
@@ -3740,7 +3750,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 </div>
 </div>
 </div>
-<p>In the code implementation, we only need to delete the first dimension <span class="arithmatex">\(i\)</span> of the array <code>dp</code> and change the inner loop to reverse traversal:</p>
+<p>Trong triển khai mã nguồn, chúng ta đơn giản chỉ cần xóa chiều đầu tiên <span class="arithmatex">\(i\)</span> của mảng <code>dp</code> và thay đổi vòng lặp bên trong thành duyệt ngược:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[file]{knapsack}-[class]{}-[func]{knapsack_dp_comp}
 </code></pre></div>
 
@@ -3758,7 +3768,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <!-- Link to previous page -->
 
   
-  <a href="../dp_solution_pipeline/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 14.3 DP problem-solving approach¶" rel="prev">
+  <a href="../dp_solution_pipeline/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 14.3 Dynamic Programming Problem-Solving Approach" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3768,7 +3778,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
         Trước
       </span>
       <div class="md-ellipsis">
-        14.3 DP problem-solving approach¶
+        14.3 Dynamic Programming Problem-Solving Approach
       </div>
     </div>
   </a>
@@ -3777,13 +3787,13 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <!-- Link to next page -->
 
   
-  <a href="../unbounded_knapsack_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 14.5 Unbounded knapsack problem" rel="next">
+  <a href="../unbounded_knapsack_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 14.5 Unbounded Knapsack Problem" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
         Sau
       </span>
       <div class="md-ellipsis">
-        14.5 Unbounded knapsack problem
+        14.5 Unbounded Knapsack Problem
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3806,7 +3816,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
   Trở lại mục lục
@@ -3821,7 +3831,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../dp_solution_pipeline/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 14.3 DP problem-solving approach¶">
+          <a href="../dp_solution_pipeline/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 14.3 Dynamic Programming Problem-Solving Approach">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -3831,20 +3841,20 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
                 Trước
               </span>
               <div class="md-ellipsis">
-                14.3 DP problem-solving approach¶
+                14.3 Dynamic Programming Problem-Solving Approach
               </div>
             </div>
           </a>
         
         
           
-          <a href="../unbounded_knapsack_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 14.5 Unbounded knapsack problem">
+          <a href="../unbounded_knapsack_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 14.5 Unbounded Knapsack Problem">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Sau
               </span>
               <div class="md-ellipsis">
-                14.5 Unbounded knapsack problem
+                14.5 Unbounded Knapsack Problem
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3861,7 +3871,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright © 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
@@ -3914,7 +3924,7 @@ dp[i, c] = \max(dp[i-1, c], dp[i-1, c - wgt[i-1]] + val[i-1])
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>

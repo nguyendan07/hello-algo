@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_hashing/hash_collision/">
+        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_hashing/hash_collision/">
       
       
         <link rel="prev" href="../hash_map/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>6.2 Hash collision - Hello Algo</title>
+        <title>6.2 Hash Collision - Hello Algo</title>
       
     
     
@@ -43,9 +43,9 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -112,6 +112,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+      </div>
+    
     
       
 
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6.2 Hash collision
+              6.2 Hash Collision
             
           </span>
         </div>
@@ -153,7 +157,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,7 +167,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -209,8 +213,14 @@
           </li>
         
           <li class="md-select__item">
+            <a href="/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
             <a href="/vi/" hreflang="vi" class="md-select__link">
-              Tiếng Việt
+              Vietnamese
             </a>
           </li>
         
@@ -228,7 +238,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
@@ -237,7 +247,7 @@
       </label>
       <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
@@ -252,7 +262,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -322,7 +332,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -357,7 +367,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    Before starting
+    Before Starting
   </span>
   
 
@@ -368,9 +378,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before starting
+            Before Starting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -438,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 0. Preface
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -453,7 +463,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 About this book
+    0.1 About This Book
   </span>
   
 
@@ -474,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 How to read
+    0.2 How to Use This Book
   </span>
   
 
@@ -551,7 +561,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 1. Encounter with algorithms
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -567,9 +577,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with algorithms
+            Chapter 1. Encounter with Algorithms
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -584,7 +594,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms are everywhere
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -605,7 +615,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 What is an algorithm
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -686,7 +696,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 2. Complexity analysis
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -702,9 +712,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity analysis
+            Chapter 2. Complexity Analysis
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -719,7 +729,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm efficiency assessment
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -740,7 +750,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and recursion
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -761,7 +771,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 Time complexity
+    2.3 Time Complexity
   </span>
   
 
@@ -782,7 +792,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 Space complexity
+    2.4 Space Complexity
   </span>
   
 
@@ -863,7 +873,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 3. Data structures
+    Chapter 3. Data Structures
   </span>
   
 
@@ -879,9 +889,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data structures
+            Chapter 3. Data Structures
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -896,7 +906,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 Classification of data structures
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -917,7 +927,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 Basic data types
+    3.2 Basic Data Types
   </span>
   
 
@@ -938,7 +948,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 Number encoding *
+    3.3 Number Encoding *
   </span>
   
 
@@ -959,7 +969,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 Character encoding *
+    3.4 Character Encoding *
   </span>
   
 
@@ -1040,7 +1050,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 4. Array and linked list
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1056,9 +1066,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Array and linked list
+            Chapter 4. Arrays and Linked Lists
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1094,7 +1104,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 Linked list
+    4.2 Linked List
   </span>
   
 
@@ -1136,7 +1146,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 Memory and cache *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1215,7 +1225,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 5. Stack and queue
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1231,9 +1241,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stack and queue
+            Chapter 5. Stacks and Queues
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1290,7 +1300,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 Double-ended queue
+    5.3 Deque
   </span>
   
 
@@ -1360,7 +1370,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
         
           
           
@@ -1371,7 +1381,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 6. Hash table
+    Chapter 6. Hashing
   </span>
   
 
@@ -1387,9 +1397,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hash table
+            Chapter 6. Hashing
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1404,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 Hash table
+    6.1 Hash Table
   </span>
   
 
@@ -1434,7 +1444,7 @@
           
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1445,7 +1455,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1464,7 +1474,7 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#621-tach-chuoi" class="md-nav__link">
@@ -1546,7 +1556,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 Hash algorithm
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1647,7 +1657,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 7. Tree
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1662,7 +1672,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 Binary tree
+    7.1 Binary Tree
   </span>
   
 
@@ -1683,7 +1693,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Binary tree traversal
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1704,7 +1714,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of tree
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1725,7 +1735,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search tree
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1746,7 +1756,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1843,7 +1853,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 8. Heap
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1879,7 +1889,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 Building a heap
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1900,7 +1910,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 Top-k problem
+    8.3 Top-k Problem
   </span>
   
 
@@ -1997,7 +2007,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 9. Graph
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2033,7 +2043,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 Basic graph operations
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -2054,7 +2064,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 Graph traversal
+    9.3 Graph Traversal
   </span>
   
 
@@ -2155,7 +2165,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 10. Searching
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2170,7 +2180,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 Binary search
+    10.1 Binary Search
   </span>
   
 
@@ -2191,7 +2201,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 Binary search insertion
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2212,7 +2222,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 Binary search boundaries
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2233,7 +2243,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 Hashing optimization strategies
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2254,7 +2264,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 Search algorithms revisited
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2365,7 +2375,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 11. Sorting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2380,7 +2390,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 Sorting algorithms
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2401,7 +2411,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 Selection sort
+    11.2 Selection Sort
   </span>
   
 
@@ -2422,7 +2432,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 Bubble sort
+    11.3 Bubble Sort
   </span>
   
 
@@ -2443,7 +2453,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 Insertion sort
+    11.4 Insertion Sort
   </span>
   
 
@@ -2464,7 +2474,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 Quick sort
+    11.5 Quick Sort
   </span>
   
 
@@ -2485,7 +2495,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 Merge sort
+    11.6 Merge Sort
   </span>
   
 
@@ -2506,7 +2516,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 Heap sort
+    11.7 Heap Sort
   </span>
   
 
@@ -2527,7 +2537,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 Bucket sort
+    11.8 Bucket Sort
   </span>
   
 
@@ -2548,7 +2558,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 Counting sort
+    11.9 Counting Sort
   </span>
   
 
@@ -2569,7 +2579,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 Radix sort
+    11.10 Radix Sort
   </span>
   
 
@@ -2648,7 +2658,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and conquer
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2664,9 +2674,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and conquer
+            Chapter 12. Divide and Conquer
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2681,7 +2691,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 Divide and conquer algorithms
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2702,7 +2712,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 Divide and conquer search strategy
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2723,7 +2733,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 Building binary tree problem
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2744,7 +2754,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2841,7 +2851,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 13. Backtracking
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2856,7 +2866,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2877,7 +2887,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 Permutation problem
+    13.2 Permutations Problem
   </span>
   
 
@@ -2898,7 +2908,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 Subset sum problem
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2919,7 +2929,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 n queens problem
+    13.4 N-Queens Problem
   </span>
   
 
@@ -3002,7 +3012,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic programming
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -3018,9 +3028,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic programming
+            Chapter 14. Dynamic Programming
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3035,7 +3045,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to dynamic programming
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -3056,7 +3066,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of DP problems
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -3077,7 +3087,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 DP problem-solving approach¶
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -3098,7 +3108,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3119,7 +3129,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded knapsack problem
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3140,7 +3150,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 Edit distance problem
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3237,7 +3247,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 15. Greedy
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3252,7 +3262,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 Greedy algorithms
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3273,7 +3283,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 Fractional knapsack problem
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3294,7 +3304,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 Maximum capacity problem
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3315,7 +3325,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 Maximum product cutting problem
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3408,7 +3418,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 16. Appendix
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3423,7 +3433,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 Installation
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3444,7 +3454,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 Contributing
+    16.2 Contributing Together
   </span>
   
 
@@ -3465,7 +3475,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 Terminology
+    16.3 Glossary
   </span>
   
 
@@ -3528,7 +3538,7 @@
             <span class="md-nav__icon md-icon"></span>
             References
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3563,7 +3573,7 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#621-tach-chuoi" class="md-nav__link">
@@ -4306,13 +4316,13 @@
 <a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
 <a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="cm">/* Constructor */</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="n">HashMapOpenAddressing</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">buckets</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="n">HashMapOpenAddressing</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">buckets</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
 <a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="cm">/* Destructor */</span>
 <a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="o">~</span><span class="n">HashMapOpenAddressing</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Pair</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">                </span><span class="k">delete</span><span class="w"> </span><span class="n">pair</span><span class="p">;</span>
 <a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">            </span><span class="p">}</span>
 <a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">        </span><span class="p">}</span>
@@ -4334,7 +4344,7 @@
 <a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hashFunc</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
 <a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">firstTombstone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="w">        </span><span class="c1">// Linear probing, break when encountering an empty bucket</span>
-<a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="w">            </span><span class="c1">// If the key is encountered, return the corresponding bucket index</span>
 <a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="w">                </span><span class="c1">// If a removal mark was encountered earlier, move the key-value pair to that index</span>
@@ -4361,7 +4371,7 @@
 <a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a><span class="w">        </span><span class="c1">// Search for the bucket index corresponding to key</span>
 <a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findBucket</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
 <a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a><span class="w">        </span><span class="c1">// If the key-value pair is found, return the corresponding val</span>
-<a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
 <a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a><span class="w">        </span><span class="c1">// If key-value pair does not exist, return an empty string</span>
@@ -4377,7 +4387,7 @@
 <a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a><span class="w">        </span><span class="c1">// Search for the bucket index corresponding to key</span>
 <a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findBucket</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
 <a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a><span class="w">        </span><span class="c1">// If the key-value pair is found, overwrite val and return</span>
-<a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a><span class="w">            </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 <a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a><span class="w">        </span><span class="p">}</span>
@@ -4391,7 +4401,7 @@
 <a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a><span class="w">        </span><span class="c1">// Search for the bucket index corresponding to key</span>
 <a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findBucket</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
 <a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a><span class="w">        </span><span class="c1">// If the key-value pair is found, cover it with a removal mark</span>
-<a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-99" name="__codelineno-15-99" href="#__codelineno-15-99"></a><span class="w">            </span><span class="k">delete</span><span class="w"> </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
 <a id="__codelineno-15-100" name="__codelineno-15-100" href="#__codelineno-15-100"></a><span class="w">            </span><span class="n">buckets</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">;</span>
 <a id="__codelineno-15-101" name="__codelineno-15-101" href="#__codelineno-15-101"></a><span class="w">            </span><span class="n">size</span><span class="o">--</span><span class="p">;</span>
@@ -4404,11 +4414,11 @@
 <a id="__codelineno-15-108" name="__codelineno-15-108" href="#__codelineno-15-108"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Pair</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">bucketsTmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buckets</span><span class="p">;</span>
 <a id="__codelineno-15-109" name="__codelineno-15-109" href="#__codelineno-15-109"></a><span class="w">        </span><span class="c1">// Initialize the extended new hash table</span>
 <a id="__codelineno-15-110" name="__codelineno-15-110" href="#__codelineno-15-110"></a><span class="w">        </span><span class="n">capacity</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">extendRatio</span><span class="p">;</span>
-<a id="__codelineno-15-111" name="__codelineno-15-111" href="#__codelineno-15-111"></a><span class="w">        </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Pair</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<a id="__codelineno-15-111" name="__codelineno-15-111" href="#__codelineno-15-111"></a><span class="w">        </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Pair</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">);</span>
 <a id="__codelineno-15-112" name="__codelineno-15-112" href="#__codelineno-15-112"></a><span class="w">        </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-15-113" name="__codelineno-15-113" href="#__codelineno-15-113"></a><span class="w">        </span><span class="c1">// Move key-value pairs from the original hash table to the new hash table</span>
 <a id="__codelineno-15-114" name="__codelineno-15-114" href="#__codelineno-15-114"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Pair</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">bucketsTmp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-115" name="__codelineno-15-115" href="#__codelineno-15-115"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-115" name="__codelineno-15-115" href="#__codelineno-15-115"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-116" name="__codelineno-15-116" href="#__codelineno-15-116"></a><span class="w">                </span><span class="n">put</span><span class="p">(</span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">pair</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
 <a id="__codelineno-15-117" name="__codelineno-15-117" href="#__codelineno-15-117"></a><span class="w">                </span><span class="k">delete</span><span class="w"> </span><span class="n">pair</span><span class="p">;</span>
 <a id="__codelineno-15-118" name="__codelineno-15-118" href="#__codelineno-15-118"></a><span class="w">            </span><span class="p">}</span>
@@ -4418,7 +4428,7 @@
 <a id="__codelineno-15-122" name="__codelineno-15-122" href="#__codelineno-15-122"></a><span class="w">    </span><span class="cm">/* Print hash table */</span>
 <a id="__codelineno-15-123" name="__codelineno-15-123" href="#__codelineno-15-123"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-124" name="__codelineno-15-124" href="#__codelineno-15-124"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Pair</span><span class="w"> </span><span class="o">*</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-125" name="__codelineno-15-125" href="#__codelineno-15-125"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-125" name="__codelineno-15-125" href="#__codelineno-15-125"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-126" name="__codelineno-15-126" href="#__codelineno-15-126"></a><span class="w">                </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"nullptr"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <a id="__codelineno-15-127" name="__codelineno-15-127" href="#__codelineno-15-127"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TOMBSTONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-128" name="__codelineno-15-128" href="#__codelineno-15-128"></a><span class="w">                </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"TOMBSTONE"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
@@ -4788,7 +4798,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../hash_map/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 6.1 Hash table" rel="prev">
+  <a href="../hash_map/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 6.1 Hash Table" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4798,7 +4808,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        6.1 Hash table
+        6.1 Hash Table
       </div>
     </div>
   </a>
@@ -4807,13 +4817,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../hash_algorithm/" class="md-footer__link md-footer__link--next" aria-label="Sau: 6.3 Hash algorithm" rel="next">
+  <a href="../hash_algorithm/" class="md-footer__link md-footer__link--next" aria-label="Sau: 6.3 Hash Algorithm" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
         Sau
       </span>
       <div class="md-ellipsis">
-        6.3 Hash algorithm
+        6.3 Hash Algorithm
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -4826,6 +4836,49 @@
 
 <!-- Comment system -->
 
+  
+
+  <!-- Check-in button above comments -->
+  
+
+  <h5 align="center" id="__comments"></h5>
+
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="
+
+" crossorigin="anonymous" async="">
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    function getGiscusTheme() {
+      var palette = __md_get("__palette")
+      var isDark = palette && typeof palette.color === "object" && palette.color.scheme === "slate"
+      return isDark ? "noborder_dark" : "light"
+    }
+
+    /* Set palette on initial load */
+    giscus.setAttribute("data-theme", getGiscusTheme())
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      if (!ref) return
+      ref.addEventListener("change", function() {
+        var theme = getGiscusTheme()
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        if (!frame) return
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        )
+      })
+    })
+  </script>
+
                 
               </article>
             </div>
@@ -4836,7 +4889,7 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
   Trở lại mục lục
@@ -4851,7 +4904,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../hash_map/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 6.1 Hash table">
+          <a href="../hash_map/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 6.1 Hash Table">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4861,20 +4914,20 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                6.1 Hash table
+                6.1 Hash Table
               </div>
             </div>
           </a>
         
         
           
-          <a href="../hash_algorithm/" class="md-footer__link md-footer__link--next" aria-label="Sau: 6.3 Hash algorithm">
+          <a href="../hash_algorithm/" class="md-footer__link md-footer__link--next" aria-label="Sau: 6.3 Hash Algorithm">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Sau
               </span>
               <div class="md-ellipsis">
-                6.3 Hash algorithm
+                6.3 Hash Algorithm
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4891,7 +4944,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright © 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
@@ -4944,7 +4997,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>

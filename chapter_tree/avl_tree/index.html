@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_tree/avl_tree/">
+        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_tree/avl_tree/">
       
       
         <link rel="prev" href="../binary_search_tree/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>7.5 AVL tree * - Hello Algo</title>
+        <title>7.5 AVL Tree * - Hello Algo</title>
       
     
     
@@ -43,9 +43,9 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -112,6 +112,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+      </div>
+    
     
       
 
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.5 AVL tree *
+              7.5 AVL Tree *
             
           </span>
         </div>
@@ -153,7 +157,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,7 +167,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -209,8 +213,14 @@
           </li>
         
           <li class="md-select__item">
+            <a href="/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
             <a href="/vi/" hreflang="vi" class="md-select__link">
-              Tiếng Việt
+              Vietnamese
             </a>
           </li>
         
@@ -228,7 +238,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
@@ -237,7 +247,7 @@
       </label>
       <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
@@ -252,7 +262,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -322,7 +332,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -357,7 +367,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    Before starting
+    Before Starting
   </span>
   
 
@@ -368,9 +378,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before starting
+            Before Starting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -438,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 0. Preface
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -453,7 +463,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 About this book
+    0.1 About This Book
   </span>
   
 
@@ -474,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 How to read
+    0.2 How to Use This Book
   </span>
   
 
@@ -551,7 +561,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 1. Encounter with algorithms
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -567,9 +577,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with algorithms
+            Chapter 1. Encounter with Algorithms
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -584,7 +594,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms are everywhere
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -605,7 +615,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 What is an algorithm
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -686,7 +696,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 2. Complexity analysis
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -702,9 +712,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity analysis
+            Chapter 2. Complexity Analysis
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -719,7 +729,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm efficiency assessment
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -740,7 +750,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and recursion
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -761,7 +771,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 Time complexity
+    2.3 Time Complexity
   </span>
   
 
@@ -782,7 +792,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 Space complexity
+    2.4 Space Complexity
   </span>
   
 
@@ -863,7 +873,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 3. Data structures
+    Chapter 3. Data Structures
   </span>
   
 
@@ -879,9 +889,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data structures
+            Chapter 3. Data Structures
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -896,7 +906,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 Classification of data structures
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -917,7 +927,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 Basic data types
+    3.2 Basic Data Types
   </span>
   
 
@@ -938,7 +948,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 Number encoding *
+    3.3 Number Encoding *
   </span>
   
 
@@ -959,7 +969,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 Character encoding *
+    3.4 Character Encoding *
   </span>
   
 
@@ -1040,7 +1050,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 4. Array and linked list
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1056,9 +1066,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Array and linked list
+            Chapter 4. Arrays and Linked Lists
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1094,7 +1104,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 Linked list
+    4.2 Linked List
   </span>
   
 
@@ -1136,7 +1146,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 Memory and cache *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1215,7 +1225,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 5. Stack and queue
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1231,9 +1241,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stack and queue
+            Chapter 5. Stacks and Queues
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1290,7 +1300,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 Double-ended queue
+    5.3 Deque
   </span>
   
 
@@ -1369,7 +1379,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 6. Hash table
+    Chapter 6. Hashing
   </span>
   
 
@@ -1385,9 +1395,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hash table
+            Chapter 6. Hashing
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1402,7 +1412,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 Hash table
+    6.1 Hash Table
   </span>
   
 
@@ -1423,7 +1433,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1444,7 +1454,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 Hash algorithm
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1518,7 +1528,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked="">
         
           
           
@@ -1547,7 +1557,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 7. Tree
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1562,7 +1572,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 Binary tree
+    7.1 Binary Tree
   </span>
   
 
@@ -1583,7 +1593,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Binary tree traversal
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1604,7 +1614,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of tree
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1625,7 +1635,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search tree
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1655,7 +1665,7 @@
           
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1666,7 +1676,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1685,7 +1695,7 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#751-thuat-ngu-thuong-gap-trong-cay-avl" class="md-nav__link">
@@ -1739,86 +1749,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#2-quay-trai" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. &nbsp; Quay trái
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-quay-trai-phai" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. &nbsp; Quay trái-phải
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-lua-chon-phep-quay" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. &nbsp; Lựa chọn phép quay
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#753-cac-thao-tac-thong-dung-tren-cay-avl" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.5.3 &nbsp; Các thao tác thông dụng trên cây AVL
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.5.3 &nbsp; Các thao tác thông dụng trên cây AVL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-chen-nut" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. &nbsp; Chèn nút
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-xoa-nut" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. &nbsp; Xóa nút
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-tim-kiem-nut" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. &nbsp; Tìm kiếm nút
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#754-ung-dung-ien-hinh-cua-cay-avl" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.5.4 &nbsp; Ứng dụng điển hình của cây AVL
-    </span>
-  </a>
   
 </li>
       
@@ -1918,7 +1850,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 8. Heap
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1954,7 +1886,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 Building a heap
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1975,7 +1907,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 Top-k problem
+    8.3 Top-k Problem
   </span>
   
 
@@ -2072,7 +2004,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 9. Graph
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2108,7 +2040,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 Basic graph operations
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -2129,7 +2061,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 Graph traversal
+    9.3 Graph Traversal
   </span>
   
 
@@ -2230,7 +2162,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 10. Searching
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2245,7 +2177,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 Binary search
+    10.1 Binary Search
   </span>
   
 
@@ -2266,7 +2198,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 Binary search insertion
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2287,7 +2219,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 Binary search boundaries
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2308,7 +2240,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 Hashing optimization strategies
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2329,7 +2261,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 Search algorithms revisited
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2440,7 +2372,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 11. Sorting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2455,7 +2387,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 Sorting algorithms
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2476,7 +2408,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 Selection sort
+    11.2 Selection Sort
   </span>
   
 
@@ -2497,7 +2429,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 Bubble sort
+    11.3 Bubble Sort
   </span>
   
 
@@ -2518,7 +2450,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 Insertion sort
+    11.4 Insertion Sort
   </span>
   
 
@@ -2539,7 +2471,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 Quick sort
+    11.5 Quick Sort
   </span>
   
 
@@ -2560,7 +2492,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 Merge sort
+    11.6 Merge Sort
   </span>
   
 
@@ -2581,7 +2513,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 Heap sort
+    11.7 Heap Sort
   </span>
   
 
@@ -2602,7 +2534,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 Bucket sort
+    11.8 Bucket Sort
   </span>
   
 
@@ -2623,7 +2555,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 Counting sort
+    11.9 Counting Sort
   </span>
   
 
@@ -2644,7 +2576,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 Radix sort
+    11.10 Radix Sort
   </span>
   
 
@@ -2723,7 +2655,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and conquer
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2739,9 +2671,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and conquer
+            Chapter 12. Divide and Conquer
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2756,7 +2688,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 Divide and conquer algorithms
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2777,7 +2709,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 Divide and conquer search strategy
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2798,7 +2730,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 Building binary tree problem
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2819,7 +2751,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2916,7 +2848,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 13. Backtracking
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2931,7 +2863,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2952,7 +2884,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 Permutation problem
+    13.2 Permutations Problem
   </span>
   
 
@@ -2973,7 +2905,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 Subset sum problem
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2994,7 +2926,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 n queens problem
+    13.4 N-Queens Problem
   </span>
   
 
@@ -3077,7 +3009,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic programming
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -3093,9 +3025,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic programming
+            Chapter 14. Dynamic Programming
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3110,7 +3042,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to dynamic programming
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -3131,7 +3063,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of DP problems
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -3152,7 +3084,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 DP problem-solving approach¶
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -3173,7 +3105,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3194,7 +3126,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded knapsack problem
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3215,7 +3147,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 Edit distance problem
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3312,7 +3244,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 15. Greedy
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3327,7 +3259,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 Greedy algorithms
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3348,7 +3280,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 Fractional knapsack problem
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3369,7 +3301,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 Maximum capacity problem
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3390,7 +3322,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 Maximum product cutting problem
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3483,7 +3415,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 16. Appendix
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3498,7 +3430,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 Installation
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3519,7 +3451,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 Contributing
+    16.2 Contributing Together
   </span>
   
 
@@ -3540,7 +3472,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 Terminology
+    16.3 Glossary
   </span>
   
 
@@ -3603,7 +3535,7 @@
             <span class="md-nav__icon md-icon"></span>
             References
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3638,7 +3570,7 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
   <a href="#751-thuat-ngu-thuong-gap-trong-cay-avl" class="md-nav__link">
@@ -3692,86 +3624,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#2-quay-trai" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. &nbsp; Quay trái
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-quay-trai-phai" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. &nbsp; Quay trái-phải
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-lua-chon-phep-quay" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. &nbsp; Lựa chọn phép quay
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#753-cac-thao-tac-thong-dung-tren-cay-avl" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.5.3 &nbsp; Các thao tác thông dụng trên cây AVL
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7.5.3 &nbsp; Các thao tác thông dụng trên cây AVL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-chen-nut" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. &nbsp; Chèn nút
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-xoa-nut" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. &nbsp; Xóa nút
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-tim-kiem-nut" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. &nbsp; Tìm kiếm nút
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#754-ung-dung-ien-hinh-cua-cay-avl" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.5.4 &nbsp; Ứng dụng điển hình của cây AVL
-    </span>
-  </a>
   
 </li>
       
@@ -3917,9 +3771,9 @@
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// Con phải</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">val?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">height?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">left?</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">right?</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">val</span><span class="p">;</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">height</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">left</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">right</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">height</span><span class="p">;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">left</span><span class="p">;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">null</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">right</span><span class="p">;</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
 </code></pre></div>
@@ -4022,7 +3876,7 @@
 <div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Get node height */</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">height</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1">// Empty node height is -1, leaf node height is 0</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">;</span>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">}</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="cm">/* Update node height */</span>
@@ -4132,7 +3986,7 @@
 <div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cm">/* Get balance factor */</span>
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">balanceFactor</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="c1">// Empty node balance factor is 0</span>
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
 <a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">    </span><span class="c1">// Node balance factor = left subtree height - right subtree height</span>
 <a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
@@ -4221,745 +4075,7 @@
 </div>
 </div>
 </div>
-<p align="center"> Figure 7-26 &nbsp; Steps of right rotation </p>
-<p>Figure 7-27  Right rotation with grand_child &lt;/p</p>
-<p>"Quay phải" là cách nói hình tượng; trên thực tế, nó được thực hiện bằng cách thay đổi con trỏ của các nút, như trong mã sau:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:14"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><input id="__tabbed_5_3" name="__tabbed_5" type="radio"><input id="__tabbed_5_4" name="__tabbed_5" type="radio"><input id="__tabbed_5_5" name="__tabbed_5" type="radio"><input id="__tabbed_5_6" name="__tabbed_5" type="radio"><input id="__tabbed_5_7" name="__tabbed_5" type="radio"><input id="__tabbed_5_8" name="__tabbed_5" type="radio"><input id="__tabbed_5_9" name="__tabbed_5" type="radio"><input id="__tabbed_5_10" name="__tabbed_5" type="radio"><input id="__tabbed_5_11" name="__tabbed_5" type="radio"><input id="__tabbed_5_12" name="__tabbed_5" type="radio"><input id="__tabbed_5_13" name="__tabbed_5" type="radio"><input id="__tabbed_5_14" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Kotlin</label><label for="__tabbed_5_13">Ruby</label><label for="__tabbed_5_14">Zig</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.py</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">right_rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="sd">"""Right rotation operation"""</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="n">child</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>    <span class="n">grand_child</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">right</span>
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>    <span class="c1"># Rotate node to the right around child</span>
-<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>    <span class="n">child</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span>
-<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>    <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">grand_child</span>
-<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>    <span class="c1"># Update node height</span>
-<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update_height</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a>    <span class="c1"># Return the root of the subtree after rotation</span>
-<a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a>    <span class="k">return</span> <span class="n">child</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="cm">/* Right rotation operation */</span>
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">rightRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">grandChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">    </span><span class="c1">// Rotate node to the right around child</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">    </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grandChild</span><span class="p">;</span>
-<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">    </span><span class="c1">// Update node height</span>
-<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
-<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="w">    </span><span class="c1">// Return the root of the subtree after rotation</span>
-<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.java</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="cm">/* Right rotation operation */</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="nf">rightRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">grandChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">    </span><span class="c1">// Rotate node to the right around child</span>
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">    </span><span class="n">child</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grandChild</span><span class="p">;</span>
-<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">    </span><span class="c1">// Update node height</span>
-<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
-<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w">    </span><span class="c1">// Return the root of the subtree after rotation</span>
-<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cs</span><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">RightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.go</span><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.swift</span><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.js</span><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.ts</span><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.dart</span><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rs</span><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">right_rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.c</span><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.kt</span><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">right_rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.zig</span><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rightRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="2-quay-trai">2. &nbsp; Quay trái<a class="headerlink" href="#2-quay-trai" title="Permanent link">¶</a></h3>
-<p>Tương tự, nếu xem trường hợp đối xứng của cây mất cân bằng ở trên, cần thực hiện phép "quay trái" như hình dưới đây.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../avl_tree.assets/avltree_left_rotate.png" data-desc-position="bottom"><img alt="Left rotation operation" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate.png"></a></p>
-<p></p><p align="center"> Figure 7-28 &nbsp; Left rotation operation </p><p></p>
-<p>Tương tự, như hình dưới đây, khi <code>child</code> có con trái (gọi là <code>grand_child</code>), cần thêm bước trong phép quay trái: đặt <code>grand_child</code> làm con phải của <code>node</code>.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../avl_tree.assets/avltree_left_rotate_with_grandchild.png" data-desc-position="bottom"><img alt="Left rotation with grand_child" class="animation-figure" src="../avl_tree.assets/avltree_left_rotate_with_grandchild.png"></a></p>
-<p>&nbsp;</p><p align="center"> Figure 7-29 &nbsp; Left rotation with grand_child </p><p></p>
-<blockquote></blockquote>
-<p>Ta có thể thấy rằng <strong>quay phải và quay trái là đối xứng nhau về mặt logic, và chúng giải quyết hai loại mất cân bằng đối xứng</strong>. Dựa trên đối xứng, bằng cách thay tất cả <code>left</code> bằng <code>right</code> và tất cả <code>right</code> bằng <code>left</code> trong mã hiện thực của quay phải, ta sẽ có mã thực hiện quay trái:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:14"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><input id="__tabbed_6_3" name="__tabbed_6" type="radio"><input id="__tabbed_6_4" name="__tabbed_6" type="radio"><input id="__tabbed_6_5" name="__tabbed_6" type="radio"><input id="__tabbed_6_6" name="__tabbed_6" type="radio"><input id="__tabbed_6_7" name="__tabbed_6" type="radio"><input id="__tabbed_6_8" name="__tabbed_6" type="radio"><input id="__tabbed_6_9" name="__tabbed_6" type="radio"><input id="__tabbed_6_10" name="__tabbed_6" type="radio"><input id="__tabbed_6_11" name="__tabbed_6" type="radio"><input id="__tabbed_6_12" name="__tabbed_6" type="radio"><input id="__tabbed_6_13" name="__tabbed_6" type="radio"><input id="__tabbed_6_14" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">C++</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Go</label><label for="__tabbed_6_6">Swift</label><label for="__tabbed_6_7">JS</label><label for="__tabbed_6_8">TS</label><label for="__tabbed_6_9">Dart</label><label for="__tabbed_6_10">Rust</label><label for="__tabbed_6_11">C</label><label for="__tabbed_6_12">Kotlin</label><label for="__tabbed_6_13">Ruby</label><label for="__tabbed_6_14">Zig</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.py</span><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">left_rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="w">    </span><span class="sd">"""Left rotation operation"""</span>
-<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>    <span class="n">child</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
-<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>    <span class="n">grand_child</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">left</span>
-<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>    <span class="c1"># Rotate node to the left around child</span>
-<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>    <span class="n">child</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">node</span>
-<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>    <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">grand_child</span>
-<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>    <span class="c1"># Update node height</span>
-<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update_height</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-<a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a>    <span class="c1"># Return the root of the subtree after rotation</span>
-<a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a>    <span class="k">return</span> <span class="n">child</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="cm">/* Left rotation operation */</span>
-<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">leftRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
-<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">grandChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
-<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">    </span><span class="c1">// Rotate node to the left around child</span>
-<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="w">    </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grandChild</span><span class="p">;</span>
-<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="w">    </span><span class="c1">// Update node height</span>
-<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
-<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="w">    </span><span class="c1">// Return the root of the subtree after rotation</span>
-<a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.java</span><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="cm">/* Left rotation operation */</span>
-<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="nf">leftRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
-<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">grandChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
-<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="w">    </span><span class="c1">// Rotate node to the left around child</span>
-<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a><span class="w">    </span><span class="n">child</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a><span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grandChild</span><span class="p">;</span>
-<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a><span class="w">    </span><span class="c1">// Update node height</span>
-<a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
-<a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a><span class="w">    </span><span class="c1">// Return the root of the subtree after rotation</span>
-<a id="__codelineno-58-12" name="__codelineno-58-12" href="#__codelineno-58-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-58-13" name="__codelineno-58-13" href="#__codelineno-58-13"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cs</span><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">LeftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.go</span><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.swift</span><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.js</span><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.ts</span><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.dart</span><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rs</span><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">left_rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.c</span><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.kt</span><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">left_rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.zig</span><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">leftRotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="3-quay-trai-phai">3. &nbsp; Quay trái-phải<a class="headerlink" href="#3-quay-trai-phai" title="Permanent link">¶</a></h3>
-<p>Với nút mất cân bằng 3 như trong hình dưới đây, chỉ dùng quay trái hoặc quay phải một mình không khôi phục được cân bằng cho cây con. Trong trường hợp này, cần thực hiện một lần "quay trái" trên <code>child</code> trước, sau đó thực hiện "quay phải" trên <code>node</code>.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../avl_tree.assets/avltree_left_right_rotate.png" data-desc-position="bottom"><img alt="Left-right rotation" class="animation-figure" src="../avl_tree.assets/avltree_left_right_rotate.png"></a></p>
-<p align="center"> Figure 7-30 &nbsp; Left-right rotation </p>
-<p>Figure 7-31  Right-left rotation </p><p></p>
-<h3 id="5-lua-chon-phep-quay">5. &nbsp; Lựa chọn phép quay<a class="headerlink" href="#5-lua-chon-phep-quay" title="Permanent link">¶</a></h3>
-<p>Bốn loại mất cân bằng minh họa dưới đây tương ứng với các trường hợp đã mô tả, lần lượt yêu cầu quay phải, quay trái-phải, quay phải-trái và quay trái.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../avl_tree.assets/avltree_rotation_cases.png" data-desc-position="bottom"><img alt="The four rotation cases of AVL tree" class="animation-figure" src="../avl_tree.assets/avltree_rotation_cases.png"></a></p>
-<p>&nbsp;</p><p align="center"> Figure 7-32 &nbsp; The four rotation cases of AVL tree </p>
-<p></p>
-<p>Như trong bảng dưới đây, ta xác định nút mất cân bằng thuộc trường hợp nào bằng cách xét dấu của hệ số cân bằng của nút mất cân bằng và hệ số cân bằng của con ở phía có chiều cao lớn hơn.</p>
-<p align="center"> Table <id> &nbsp; Điều kiện chọn một trong bốn trường hợp quay </id></p>
-
-<div class="center-table">
-<table>
-<thead>
-<tr>
-<th>Hệ số cân bằng của nút mất cân bằng</th>
-<th>Hệ số cân bằng của nút con</th>
-<th>Phương pháp quay cần dùng</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="arithmatex">\(&gt; 1\)</span> (Nghiêng trái)</td>
-<td><span class="arithmatex">\(\geq 0\)</span></td>
-<td>Quay phải</td>
-</tr>
-<tr>
-<td><span class="arithmatex">\(&gt; 1\)</span> (Nghiêng trái)</td>
-<td><span class="arithmatex">\(&lt;0\)</span></td>
-<td>Quay trái rồi quay phải</td>
-</tr>
-<tr>
-<td><span class="arithmatex">\(&lt; -1\)</span> (Nghiêng phải)</td>
-<td><span class="arithmatex">\(\leq 0\)</span></td>
-<td>Quay trái</td>
-</tr>
-<tr>
-<td><span class="arithmatex">\(&lt;div -1\)</span> (Nghiêng phải)</td>
-<td><span class="arithmatex">\(&gt;0\)</span></td>
-<td>Quay phải rồi quay trái</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Để tiện lợi, chúng ta đóng gói các phép quay vào một hàm. <strong>Với hàm này, ta có thể thực hiện quay trên nhiều loại mất cân bằng, khôi phục cân bằng cho các nút mất cân bằng</strong>. Mã như sau:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:14"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><input id="__tabbed_7_2" name="__tabbed_7" type="radio"><input id="__tabbed_7_3" name="__tabbed_7" type="radio"><input id="__tabbed_7_4" name="__tabbed_7" type="radio"><input id="__tabbed_7_5" name="__tabbed_7" type="radio"><input id="__tabbed_7_6" name="__tabbed_7" type="radio"><input id="__tabbed_7_7" name="__tabbed_7" type="radio"><input id="__tabbed_7_8" name="__tabbed_7" type="radio"><input id="__tabbed_7_9" name="__tabbed_7" type="radio"><input id="__tabbed_7_10" name="__tabbed_7" type="radio"><input id="__tabbed_7_11" name="__tabbed_7" type="radio"><input id="__tabbed_7_12" name="__tabbed_7" type="radio"><input id="__tabbed_7_13" name="__tabbed_7" type="radio"><input id="__tabbed_7_14" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">C++</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">C#</label><label for="__tabbed_7_5">Go</label><label for="__tabbed_7_6">Swift</label><label for="__tabbed_7_7">JS</label><label for="__tabbed_7_8">TS</label><label for="__tabbed_7_9">Dart</label><label for="__tabbed_7_10">Rust</label><label for="__tabbed_7_11">C</label><label for="__tabbed_7_12">Kotlin</label><label for="__tabbed_7_13">Ruby</label><label for="__tabbed_7_14">Zig</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.py</span><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="w">    </span><span class="sd">"""Perform rotation operation to restore balance to the subtree"""</span>
-<a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a>    <span class="c1"># Get the balance factor of node</span>
-<a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>    <span class="n">balance_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>    <span class="c1"># Left-leaning tree</span>
-<a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a>    <span class="k">if</span> <span class="n">balance_factor</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-70-7" name="__codelineno-70-7" href="#__codelineno-70-7"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-70-8" name="__codelineno-70-8" href="#__codelineno-70-8"></a>            <span class="c1"># Right rotation</span>
-<a id="__codelineno-70-9" name="__codelineno-70-9" href="#__codelineno-70-9"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-70-10" name="__codelineno-70-10" href="#__codelineno-70-10"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-70-11" name="__codelineno-70-11" href="#__codelineno-70-11"></a>            <span class="c1"># First left rotation then right rotation</span>
-<a id="__codelineno-70-12" name="__codelineno-70-12" href="#__codelineno-70-12"></a>            <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
-<a id="__codelineno-70-13" name="__codelineno-70-13" href="#__codelineno-70-13"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-70-14" name="__codelineno-70-14" href="#__codelineno-70-14"></a>    <span class="c1"># Right-leaning tree</span>
-<a id="__codelineno-70-15" name="__codelineno-70-15" href="#__codelineno-70-15"></a>    <span class="k">elif</span> <span class="n">balance_factor</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-70-16" name="__codelineno-70-16" href="#__codelineno-70-16"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">balance_factor</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-70-17" name="__codelineno-70-17" href="#__codelineno-70-17"></a>            <span class="c1"># Left rotation</span>
-<a id="__codelineno-70-18" name="__codelineno-70-18" href="#__codelineno-70-18"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-70-19" name="__codelineno-70-19" href="#__codelineno-70-19"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-70-20" name="__codelineno-70-20" href="#__codelineno-70-20"></a>            <span class="c1"># First right rotation then left rotation</span>
-<a id="__codelineno-70-21" name="__codelineno-70-21" href="#__codelineno-70-21"></a>            <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_rotate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-<a id="__codelineno-70-22" name="__codelineno-70-22" href="#__codelineno-70-22"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-70-23" name="__codelineno-70-23" href="#__codelineno-70-23"></a>    <span class="c1"># Balanced tree, no rotation needed, return</span>
-<a id="__codelineno-70-24" name="__codelineno-70-24" href="#__codelineno-70-24"></a>    <span class="k">return</span> <span class="n">node</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="cm">/* Perform rotation operation to restore balance to the subtree */</span>
-<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">rotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="w">    </span><span class="c1">// Get the balance factor of node</span>
-<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">_balanceFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a><span class="w">    </span><span class="c1">// Left-leaning tree</span>
-<a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_balanceFactor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-8" name="__codelineno-71-8" href="#__codelineno-71-8"></a><span class="w">            </span><span class="c1">// Right rotation</span>
-<a id="__codelineno-71-9" name="__codelineno-71-9" href="#__codelineno-71-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-71-10" name="__codelineno-71-10" href="#__codelineno-71-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-11" name="__codelineno-71-11" href="#__codelineno-71-11"></a><span class="w">            </span><span class="c1">// First left rotation then right rotation</span>
-<a id="__codelineno-71-12" name="__codelineno-71-12" href="#__codelineno-71-12"></a><span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
-<a id="__codelineno-71-13" name="__codelineno-71-13" href="#__codelineno-71-13"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-71-14" name="__codelineno-71-14" href="#__codelineno-71-14"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-71-15" name="__codelineno-71-15" href="#__codelineno-71-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-71-16" name="__codelineno-71-16" href="#__codelineno-71-16"></a><span class="w">    </span><span class="c1">// Right-leaning tree</span>
-<a id="__codelineno-71-17" name="__codelineno-71-17" href="#__codelineno-71-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_balanceFactor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-18" name="__codelineno-71-18" href="#__codelineno-71-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-19" name="__codelineno-71-19" href="#__codelineno-71-19"></a><span class="w">            </span><span class="c1">// Left rotation</span>
-<a id="__codelineno-71-20" name="__codelineno-71-20" href="#__codelineno-71-20"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-71-21" name="__codelineno-71-21" href="#__codelineno-71-21"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-71-22" name="__codelineno-71-22" href="#__codelineno-71-22"></a><span class="w">            </span><span class="c1">// First right rotation then left rotation</span>
-<a id="__codelineno-71-23" name="__codelineno-71-23" href="#__codelineno-71-23"></a><span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
-<a id="__codelineno-71-24" name="__codelineno-71-24" href="#__codelineno-71-24"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-71-25" name="__codelineno-71-25" href="#__codelineno-71-25"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-71-26" name="__codelineno-71-26" href="#__codelineno-71-26"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-71-27" name="__codelineno-71-27" href="#__codelineno-71-27"></a><span class="w">    </span><span class="c1">// Balanced tree, no rotation needed, return</span>
-<a id="__codelineno-71-28" name="__codelineno-71-28" href="#__codelineno-71-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-71-29" name="__codelineno-71-29" href="#__codelineno-71-29"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.java</span><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="cm">/* Perform rotation operation to restore balance to the subtree */</span>
-<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="w">    </span><span class="c1">// Get the balance factor of node</span>
-<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="w">    </span><span class="c1">// Left-leaning tree</span>
-<a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a><span class="w">            </span><span class="c1">// Right rotation</span>
-<a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a><span class="w">            </span><span class="c1">// First left rotation then right rotation</span>
-<a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a><span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">);</span>
-<a id="__codelineno-72-13" name="__codelineno-72-13" href="#__codelineno-72-13"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-72-14" name="__codelineno-72-14" href="#__codelineno-72-14"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-72-15" name="__codelineno-72-15" href="#__codelineno-72-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-72-16" name="__codelineno-72-16" href="#__codelineno-72-16"></a><span class="w">    </span><span class="c1">// Right-leaning tree</span>
-<a id="__codelineno-72-17" name="__codelineno-72-17" href="#__codelineno-72-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-18" name="__codelineno-72-18" href="#__codelineno-72-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-19" name="__codelineno-72-19" href="#__codelineno-72-19"></a><span class="w">            </span><span class="c1">// Left rotation</span>
-<a id="__codelineno-72-20" name="__codelineno-72-20" href="#__codelineno-72-20"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-72-21" name="__codelineno-72-21" href="#__codelineno-72-21"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-72-22" name="__codelineno-72-22" href="#__codelineno-72-22"></a><span class="w">            </span><span class="c1">// First right rotation then left rotation</span>
-<a id="__codelineno-72-23" name="__codelineno-72-23" href="#__codelineno-72-23"></a><span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">);</span>
-<a id="__codelineno-72-24" name="__codelineno-72-24" href="#__codelineno-72-24"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-72-25" name="__codelineno-72-25" href="#__codelineno-72-25"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-72-26" name="__codelineno-72-26" href="#__codelineno-72-26"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-72-27" name="__codelineno-72-27" href="#__codelineno-72-27"></a><span class="w">    </span><span class="c1">// Balanced tree, no rotation needed, return</span>
-<a id="__codelineno-72-28" name="__codelineno-72-28" href="#__codelineno-72-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-72-29" name="__codelineno-72-29" href="#__codelineno-72-29"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cs</span><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">Rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.go</span><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.swift</span><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.js</span><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.ts</span><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.dart</span><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rs</span><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.c</span><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.kt</span><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.zig</span><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">rotate</span><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="753-cac-thao-tac-thong-dung-tren-cay-avl">7.5.3 &nbsp; Các thao tác thông dụng trên cây AVL<a class="headerlink" href="#753-cac-thao-tac-thong-dung-tren-cay-avl" title="Permanent link">¶</a></h2>
-<h3 id="1-chen-nut">1. &nbsp; Chèn nút<a class="headerlink" href="#1-chen-nut" title="Permanent link">¶</a></h3>
-<p>Thao tác chèn nút trên cây AVL giống với trên cây tìm kiếm nhị phân. Điểm khác là sau khi chèn một nút trong cây AVL, có thể xuất hiện một loạt các nút mất cân bằng dọc theo đường từ nút đó lên tới nút gốc. Do đó, <strong>ta cần bắt đầu từ nút vừa chèn và thực hiện các phép quay lên trên để khôi phục cân bằng cho tất cả các nút mất cân bằng</strong>. Mã như sau:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:14"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><input id="__tabbed_8_2" name="__tabbed_8" type="radio"><input id="__tabbed_8_3" name="__tabbed_8" type="radio"><input id="__tabbed_8_4" name="__tabbed_8" type="radio"><input id="__tabbed_8_5" name="__tabbed_8" type="radio"><input id="__tabbed_8_6" name="__tabbed_8" type="radio"><input id="__tabbed_8_7" name="__tabbed_8" type="radio"><input id="__tabbed_8_8" name="__tabbed_8" type="radio"><input id="__tabbed_8_9" name="__tabbed_8" type="radio"><input id="__tabbed_8_10" name="__tabbed_8" type="radio"><input id="__tabbed_8_11" name="__tabbed_8" type="radio"><input id="__tabbed_8_12" name="__tabbed_8" type="radio"><input id="__tabbed_8_13" name="__tabbed_8" type="radio"><input id="__tabbed_8_14" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">C++</label><label for="__tabbed_8_3">Java</label><label for="__tabbed_8_4">C#</label><label for="__tabbed_8_5">Go</label><label for="__tabbed_8_6">Swift</label><label for="__tabbed_8_7">JS</label><label for="__tabbed_8_8">TS</label><label for="__tabbed_8_9">Dart</label><label for="__tabbed_8_10">Rust</label><label for="__tabbed_8_11">C</label><label for="__tabbed_8_12">Kotlin</label><label for="__tabbed_8_13">Ruby</label><label for="__tabbed_8_14">Zig</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.py</span><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-<a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a><span class="w">    </span><span class="sd">"""Insert node"""</span>
-<a id="__codelineno-84-3" name="__codelineno-84-3" href="#__codelineno-84-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_helper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-84-4" name="__codelineno-84-4" href="#__codelineno-84-4"></a>
-<a id="__codelineno-84-5" name="__codelineno-84-5" href="#__codelineno-84-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span><span class="p">:</span>
-<a id="__codelineno-84-6" name="__codelineno-84-6" href="#__codelineno-84-6"></a><span class="w">    </span><span class="sd">"""Recursively insert node (helper method)"""</span>
-<a id="__codelineno-84-7" name="__codelineno-84-7" href="#__codelineno-84-7"></a>    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-84-8" name="__codelineno-84-8" href="#__codelineno-84-8"></a>        <span class="k">return</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-84-9" name="__codelineno-84-9" href="#__codelineno-84-9"></a>    <span class="c1"># 1. Find insertion position and insert node</span>
-<a id="__codelineno-84-10" name="__codelineno-84-10" href="#__codelineno-84-10"></a>    <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-<a id="__codelineno-84-11" name="__codelineno-84-11" href="#__codelineno-84-11"></a>        <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-84-12" name="__codelineno-84-12" href="#__codelineno-84-12"></a>    <span class="k">elif</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-<a id="__codelineno-84-13" name="__codelineno-84-13" href="#__codelineno-84-13"></a>        <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">insert_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-84-14" name="__codelineno-84-14" href="#__codelineno-84-14"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-84-15" name="__codelineno-84-15" href="#__codelineno-84-15"></a>        <span class="c1"># Do not insert duplicate nodes, return</span>
-<a id="__codelineno-84-16" name="__codelineno-84-16" href="#__codelineno-84-16"></a>        <span class="k">return</span> <span class="n">node</span>
-<a id="__codelineno-84-17" name="__codelineno-84-17" href="#__codelineno-84-17"></a>    <span class="c1"># Update node height</span>
-<a id="__codelineno-84-18" name="__codelineno-84-18" href="#__codelineno-84-18"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-84-19" name="__codelineno-84-19" href="#__codelineno-84-19"></a>    <span class="c1"># 2. Perform rotation operation to restore balance to the subtree</span>
-<a id="__codelineno-84-20" name="__codelineno-84-20" href="#__codelineno-84-20"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="cm">/* Insert node */</span>
-<a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a><span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a><span class="p">}</span>
-<a id="__codelineno-85-5" name="__codelineno-85-5" href="#__codelineno-85-5"></a>
-<a id="__codelineno-85-6" name="__codelineno-85-6" href="#__codelineno-85-6"></a><span class="cm">/* Recursively insert node (helper method) */</span>
-<a id="__codelineno-85-7" name="__codelineno-85-7" href="#__codelineno-85-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">insertHelper</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-85-8" name="__codelineno-85-8" href="#__codelineno-85-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
-<a id="__codelineno-85-9" name="__codelineno-85-9" href="#__codelineno-85-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-85-10" name="__codelineno-85-10" href="#__codelineno-85-10"></a><span class="w">    </span><span class="cm">/* 1. Find insertion position and insert node */</span>
-<a id="__codelineno-85-11" name="__codelineno-85-11" href="#__codelineno-85-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-85-12" name="__codelineno-85-12" href="#__codelineno-85-12"></a><span class="w">        </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-85-13" name="__codelineno-85-13" href="#__codelineno-85-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-85-14" name="__codelineno-85-14" href="#__codelineno-85-14"></a><span class="w">        </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-85-15" name="__codelineno-85-15" href="#__codelineno-85-15"></a><span class="w">    </span><span class="k">else</span>
-<a id="__codelineno-85-16" name="__codelineno-85-16" href="#__codelineno-85-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w">    </span><span class="c1">// Do not insert duplicate nodes, return</span>
-<a id="__codelineno-85-17" name="__codelineno-85-17" href="#__codelineno-85-17"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"> </span><span class="c1">// Update node height</span>
-<a id="__codelineno-85-18" name="__codelineno-85-18" href="#__codelineno-85-18"></a><span class="w">    </span><span class="cm">/* 2. Perform rotation operation to restore balance to the subtree */</span>
-<a id="__codelineno-85-19" name="__codelineno-85-19" href="#__codelineno-85-19"></a><span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-85-20" name="__codelineno-85-20" href="#__codelineno-85-20"></a><span class="w">    </span><span class="c1">// Return the root node of the subtree</span>
-<a id="__codelineno-85-21" name="__codelineno-85-21" href="#__codelineno-85-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-85-22" name="__codelineno-85-22" href="#__codelineno-85-22"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.java</span><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="cm">/* Insert node */</span>
-<a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-86-3" name="__codelineno-86-3" href="#__codelineno-86-3"></a><span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-86-4" name="__codelineno-86-4" href="#__codelineno-86-4"></a><span class="p">}</span>
-<a id="__codelineno-86-5" name="__codelineno-86-5" href="#__codelineno-86-5"></a>
-<a id="__codelineno-86-6" name="__codelineno-86-6" href="#__codelineno-86-6"></a><span class="cm">/* Recursively insert node (helper method) */</span>
-<a id="__codelineno-86-7" name="__codelineno-86-7" href="#__codelineno-86-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="nf">insertHelper</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-86-8" name="__codelineno-86-8" href="#__codelineno-86-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
-<a id="__codelineno-86-9" name="__codelineno-86-9" href="#__codelineno-86-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-86-10" name="__codelineno-86-10" href="#__codelineno-86-10"></a><span class="w">    </span><span class="cm">/* 1. Find insertion position and insert node */</span>
-<a id="__codelineno-86-11" name="__codelineno-86-11" href="#__codelineno-86-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
-<a id="__codelineno-86-12" name="__codelineno-86-12" href="#__codelineno-86-12"></a><span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-86-13" name="__codelineno-86-13" href="#__codelineno-86-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
-<a id="__codelineno-86-14" name="__codelineno-86-14" href="#__codelineno-86-14"></a><span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-86-15" name="__codelineno-86-15" href="#__codelineno-86-15"></a><span class="w">    </span><span class="k">else</span>
-<a id="__codelineno-86-16" name="__codelineno-86-16" href="#__codelineno-86-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span><span class="c1">// Do not insert duplicate nodes, return</span>
-<a id="__codelineno-86-17" name="__codelineno-86-17" href="#__codelineno-86-17"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"> </span><span class="c1">// Update node height</span>
-<a id="__codelineno-86-18" name="__codelineno-86-18" href="#__codelineno-86-18"></a><span class="w">    </span><span class="cm">/* 2. Perform rotation operation to restore balance to the subtree */</span>
-<a id="__codelineno-86-19" name="__codelineno-86-19" href="#__codelineno-86-19"></a><span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-86-20" name="__codelineno-86-20" href="#__codelineno-86-20"></a><span class="w">    </span><span class="c1">// Return the root node of the subtree</span>
-<a id="__codelineno-86-21" name="__codelineno-86-21" href="#__codelineno-86-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-86-22" name="__codelineno-86-22" href="#__codelineno-86-22"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cs</span><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">Insert</span><span class="p">}</span>
-<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>
-<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">InsertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.go</span><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">insert</span><span class="p">}</span>
-<a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>
-<a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.swift</span><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="bp">insert</span><span class="p">}</span>
-<a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a>
-<a id="__codelineno-89-3" name="__codelineno-89-3" href="#__codelineno-89-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.js</span><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">insert</span><span class="p">}</span>
-<a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a>
-<a id="__codelineno-90-3" name="__codelineno-90-3" href="#__codelineno-90-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.ts</span><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">insert</span><span class="p">}</span>
-<a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a>
-<a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.dart</span><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a>
-<a id="__codelineno-92-3" name="__codelineno-92-3" href="#__codelineno-92-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rs</span><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-93-2" name="__codelineno-93-2" href="#__codelineno-93-2"></a>
-<a id="__codelineno-93-3" name="__codelineno-93-3" href="#__codelineno-93-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert_helper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.c</span><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-94-2" name="__codelineno-94-2" href="#__codelineno-94-2"></a>
-<a id="__codelineno-94-3" name="__codelineno-94-3" href="#__codelineno-94-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.kt</span><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-95-2" name="__codelineno-95-2" href="#__codelineno-95-2"></a>
-<a id="__codelineno-95-3" name="__codelineno-95-3" href="#__codelineno-95-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a>
-<a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert_helper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.zig</span><pre><span></span><code><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
-<a id="__codelineno-97-2" name="__codelineno-97-2" href="#__codelineno-97-2"></a>
-<a id="__codelineno-97-3" name="__codelineno-97-3" href="#__codelineno-97-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insertHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="2-xoa-nut">2. &nbsp; Xóa nút<a class="headerlink" href="#2-xoa-nut" title="Permanent link">¶</a></h3>
-<p>Tương tự, dựa trên phương pháp xóa nút trong cây tìm kiếm nhị phân, cần thực hiện các phép quay từ dưới lên để khôi phục cân bằng cho tất cả các nút mất cân bằng. Mã như sau:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:14"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"><input id="__tabbed_9_2" name="__tabbed_9" type="radio"><input id="__tabbed_9_3" name="__tabbed_9" type="radio"><input id="__tabbed_9_4" name="__tabbed_9" type="radio"><input id="__tabbed_9_5" name="__tabbed_9" type="radio"><input id="__tabbed_9_6" name="__tabbed_9" type="radio"><input id="__tabbed_9_7" name="__tabbed_9" type="radio"><input id="__tabbed_9_8" name="__tabbed_9" type="radio"><input id="__tabbed_9_9" name="__tabbed_9" type="radio"><input id="__tabbed_9_10" name="__tabbed_9" type="radio"><input id="__tabbed_9_11" name="__tabbed_9" type="radio"><input id="__tabbed_9_12" name="__tabbed_9" type="radio"><input id="__tabbed_9_13" name="__tabbed_9" type="radio"><input id="__tabbed_9_14" name="__tabbed_9" type="radio"><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">C++</label><label for="__tabbed_9_3">Java</label><label for="__tabbed_9_4">C#</label><label for="__tabbed_9_5">Go</label><label for="__tabbed_9_6">Swift</label><label for="__tabbed_9_7">JS</label><label for="__tabbed_9_8">TS</label><label for="__tabbed_9_9">Dart</label><label for="__tabbed_9_10">Rust</label><label for="__tabbed_9_11">C</label><label for="__tabbed_9_12">Kotlin</label><label for="__tabbed_9_13">Ruby</label><label for="__tabbed_9_14">Zig</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.py</span><pre><span></span><code><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-98-2" name="__codelineno-98-2" href="#__codelineno-98-2"></a><span class="w">    </span><span class="sd">"""Remove node"""</span>
-<a id="__codelineno-98-3" name="__codelineno-98-3" href="#__codelineno-98-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_helper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-98-4" name="__codelineno-98-4" href="#__codelineno-98-4"></a>
-<a id="__codelineno-98-5" name="__codelineno-98-5" href="#__codelineno-98-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-98-6" name="__codelineno-98-6" href="#__codelineno-98-6"></a><span class="w">    </span><span class="sd">"""Recursively remove node (helper method)"""</span>
-<a id="__codelineno-98-7" name="__codelineno-98-7" href="#__codelineno-98-7"></a>    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-98-8" name="__codelineno-98-8" href="#__codelineno-98-8"></a>        <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-98-9" name="__codelineno-98-9" href="#__codelineno-98-9"></a>    <span class="c1"># 1. Find and remove the node</span>
-<a id="__codelineno-98-10" name="__codelineno-98-10" href="#__codelineno-98-10"></a>    <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-<a id="__codelineno-98-11" name="__codelineno-98-11" href="#__codelineno-98-11"></a>        <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-98-12" name="__codelineno-98-12" href="#__codelineno-98-12"></a>    <span class="k">elif</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-<a id="__codelineno-98-13" name="__codelineno-98-13" href="#__codelineno-98-13"></a>        <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-98-14" name="__codelineno-98-14" href="#__codelineno-98-14"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-98-15" name="__codelineno-98-15" href="#__codelineno-98-15"></a>        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-98-16" name="__codelineno-98-16" href="#__codelineno-98-16"></a>            <span class="n">child</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
-<a id="__codelineno-98-17" name="__codelineno-98-17" href="#__codelineno-98-17"></a>            <span class="c1"># Number of child nodes = 0, remove node and return</span>
-<a id="__codelineno-98-18" name="__codelineno-98-18" href="#__codelineno-98-18"></a>            <span class="k">if</span> <span class="n">child</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-98-19" name="__codelineno-98-19" href="#__codelineno-98-19"></a>                <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-98-20" name="__codelineno-98-20" href="#__codelineno-98-20"></a>            <span class="c1"># Number of child nodes = 1, remove node</span>
-<a id="__codelineno-98-21" name="__codelineno-98-21" href="#__codelineno-98-21"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-98-22" name="__codelineno-98-22" href="#__codelineno-98-22"></a>                <span class="n">node</span> <span class="o">=</span> <span class="n">child</span>
-<a id="__codelineno-98-23" name="__codelineno-98-23" href="#__codelineno-98-23"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-98-24" name="__codelineno-98-24" href="#__codelineno-98-24"></a>            <span class="c1"># Number of child nodes = 2, remove the next node in in-order traversal and replace the current node with it</span>
-<a id="__codelineno-98-25" name="__codelineno-98-25" href="#__codelineno-98-25"></a>            <span class="n">temp</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
-<a id="__codelineno-98-26" name="__codelineno-98-26" href="#__codelineno-98-26"></a>            <span class="k">while</span> <span class="n">temp</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-98-27" name="__codelineno-98-27" href="#__codelineno-98-27"></a>                <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">left</span>
-<a id="__codelineno-98-28" name="__codelineno-98-28" href="#__codelineno-98-28"></a>            <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_helper</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-98-29" name="__codelineno-98-29" href="#__codelineno-98-29"></a>            <span class="n">node</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">val</span>
-<a id="__codelineno-98-30" name="__codelineno-98-30" href="#__codelineno-98-30"></a>    <span class="c1"># Update node height</span>
-<a id="__codelineno-98-31" name="__codelineno-98-31" href="#__codelineno-98-31"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update_height</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-98-32" name="__codelineno-98-32" href="#__codelineno-98-32"></a>    <span class="c1"># 2. Perform rotation operation to restore balance to the subtree</span>
-<a id="__codelineno-98-33" name="__codelineno-98-33" href="#__codelineno-98-33"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cpp</span><pre><span></span><code><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a><span class="cm">/* Remove node */</span>
-<a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a><span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a><span class="p">}</span>
-<a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a>
-<a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a><span class="cm">/* Recursively remove node (helper method) */</span>
-<a id="__codelineno-99-7" name="__codelineno-99-7" href="#__codelineno-99-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">removeHelper</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-8" name="__codelineno-99-8" href="#__codelineno-99-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
-<a id="__codelineno-99-9" name="__codelineno-99-9" href="#__codelineno-99-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-99-10" name="__codelineno-99-10" href="#__codelineno-99-10"></a><span class="w">    </span><span class="cm">/* 1. Find and remove the node */</span>
-<a id="__codelineno-99-11" name="__codelineno-99-11" href="#__codelineno-99-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-99-12" name="__codelineno-99-12" href="#__codelineno-99-12"></a><span class="w">        </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-99-13" name="__codelineno-99-13" href="#__codelineno-99-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
-<a id="__codelineno-99-14" name="__codelineno-99-14" href="#__codelineno-99-14"></a><span class="w">        </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-99-15" name="__codelineno-99-15" href="#__codelineno-99-15"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-16" name="__codelineno-99-16" href="#__codelineno-99-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-17" name="__codelineno-99-17" href="#__codelineno-99-17"></a><span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
-<a id="__codelineno-99-18" name="__codelineno-99-18" href="#__codelineno-99-18"></a><span class="w">            </span><span class="c1">// Number of child nodes = 0, remove node and return</span>
-<a id="__codelineno-99-19" name="__codelineno-99-19" href="#__codelineno-99-19"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">child</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-20" name="__codelineno-99-20" href="#__codelineno-99-20"></a><span class="w">                </span><span class="k">delete</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-99-21" name="__codelineno-99-21" href="#__codelineno-99-21"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-99-22" name="__codelineno-99-22" href="#__codelineno-99-22"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-99-23" name="__codelineno-99-23" href="#__codelineno-99-23"></a><span class="w">            </span><span class="c1">// Number of child nodes = 1, remove node</span>
-<a id="__codelineno-99-24" name="__codelineno-99-24" href="#__codelineno-99-24"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-25" name="__codelineno-99-25" href="#__codelineno-99-25"></a><span class="w">                </span><span class="k">delete</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-99-26" name="__codelineno-99-26" href="#__codelineno-99-26"></a><span class="w">                </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-99-27" name="__codelineno-99-27" href="#__codelineno-99-27"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-99-28" name="__codelineno-99-28" href="#__codelineno-99-28"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-29" name="__codelineno-99-29" href="#__codelineno-99-29"></a><span class="w">            </span><span class="c1">// Number of child nodes = 2, remove the next node in in-order traversal and replace the current node with it</span>
-<a id="__codelineno-99-30" name="__codelineno-99-30" href="#__codelineno-99-30"></a><span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
-<a id="__codelineno-99-31" name="__codelineno-99-31" href="#__codelineno-99-31"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-99-32" name="__codelineno-99-32" href="#__codelineno-99-32"></a><span class="w">                </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
-<a id="__codelineno-99-33" name="__codelineno-99-33" href="#__codelineno-99-33"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-99-34" name="__codelineno-99-34" href="#__codelineno-99-34"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">tempVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
-<a id="__codelineno-99-35" name="__codelineno-99-35" href="#__codelineno-99-35"></a><span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-99-36" name="__codelineno-99-36" href="#__codelineno-99-36"></a><span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tempVal</span><span class="p">;</span>
-<a id="__codelineno-99-37" name="__codelineno-99-37" href="#__codelineno-99-37"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-99-38" name="__codelineno-99-38" href="#__codelineno-99-38"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-99-39" name="__codelineno-99-39" href="#__codelineno-99-39"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"> </span><span class="c1">// Update node height</span>
-<a id="__codelineno-99-40" name="__codelineno-99-40" href="#__codelineno-99-40"></a><span class="w">    </span><span class="cm">/* 2. Perform rotation operation to restore balance to the subtree */</span>
-<a id="__codelineno-99-41" name="__codelineno-99-41" href="#__codelineno-99-41"></a><span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-99-42" name="__codelineno-99-42" href="#__codelineno-99-42"></a><span class="w">    </span><span class="c1">// Return the root node of the subtree</span>
-<a id="__codelineno-99-43" name="__codelineno-99-43" href="#__codelineno-99-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-99-44" name="__codelineno-99-44" href="#__codelineno-99-44"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.java</span><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a><span class="cm">/* Remove node */</span>
-<a id="__codelineno-100-2" name="__codelineno-100-2" href="#__codelineno-100-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-100-3" name="__codelineno-100-3" href="#__codelineno-100-3"></a><span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-100-4" name="__codelineno-100-4" href="#__codelineno-100-4"></a><span class="p">}</span>
-<a id="__codelineno-100-5" name="__codelineno-100-5" href="#__codelineno-100-5"></a>
-<a id="__codelineno-100-6" name="__codelineno-100-6" href="#__codelineno-100-6"></a><span class="cm">/* Recursively remove node (helper method) */</span>
-<a id="__codelineno-100-7" name="__codelineno-100-7" href="#__codelineno-100-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="nf">removeHelper</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-100-8" name="__codelineno-100-8" href="#__codelineno-100-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
-<a id="__codelineno-100-9" name="__codelineno-100-9" href="#__codelineno-100-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-<a id="__codelineno-100-10" name="__codelineno-100-10" href="#__codelineno-100-10"></a><span class="w">    </span><span class="cm">/* 1. Find and remove the node */</span>
-<a id="__codelineno-100-11" name="__codelineno-100-11" href="#__codelineno-100-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
-<a id="__codelineno-100-12" name="__codelineno-100-12" href="#__codelineno-100-12"></a><span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-100-13" name="__codelineno-100-13" href="#__codelineno-100-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="p">)</span>
-<a id="__codelineno-100-14" name="__codelineno-100-14" href="#__codelineno-100-14"></a><span class="w">        </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
-<a id="__codelineno-100-15" name="__codelineno-100-15" href="#__codelineno-100-15"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-100-16" name="__codelineno-100-16" href="#__codelineno-100-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-100-17" name="__codelineno-100-17" href="#__codelineno-100-17"></a><span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
-<a id="__codelineno-100-18" name="__codelineno-100-18" href="#__codelineno-100-18"></a><span class="w">            </span><span class="c1">// Number of child nodes = 0, remove node and return</span>
-<a id="__codelineno-100-19" name="__codelineno-100-19" href="#__codelineno-100-19"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">child</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
-<a id="__codelineno-100-20" name="__codelineno-100-20" href="#__codelineno-100-20"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-<a id="__codelineno-100-21" name="__codelineno-100-21" href="#__codelineno-100-21"></a><span class="w">            </span><span class="c1">// Number of child nodes = 1, remove node</span>
-<a id="__codelineno-100-22" name="__codelineno-100-22" href="#__codelineno-100-22"></a><span class="w">            </span><span class="k">else</span>
-<a id="__codelineno-100-23" name="__codelineno-100-23" href="#__codelineno-100-23"></a><span class="w">                </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-100-24" name="__codelineno-100-24" href="#__codelineno-100-24"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-100-25" name="__codelineno-100-25" href="#__codelineno-100-25"></a><span class="w">            </span><span class="c1">// Number of child nodes = 2, remove the next node in in-order traversal and replace the current node with it</span>
-<a id="__codelineno-100-26" name="__codelineno-100-26" href="#__codelineno-100-26"></a><span class="w">            </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
-<a id="__codelineno-100-27" name="__codelineno-100-27" href="#__codelineno-100-27"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-100-28" name="__codelineno-100-28" href="#__codelineno-100-28"></a><span class="w">                </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
-<a id="__codelineno-100-29" name="__codelineno-100-29" href="#__codelineno-100-29"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-100-30" name="__codelineno-100-30" href="#__codelineno-100-30"></a><span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeHelper</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">val</span><span class="p">);</span>
-<a id="__codelineno-100-31" name="__codelineno-100-31" href="#__codelineno-100-31"></a><span class="w">            </span><span class="n">node</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">val</span><span class="p">;</span>
-<a id="__codelineno-100-32" name="__codelineno-100-32" href="#__codelineno-100-32"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-100-33" name="__codelineno-100-33" href="#__codelineno-100-33"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-100-34" name="__codelineno-100-34" href="#__codelineno-100-34"></a><span class="w">    </span><span class="n">updateHeight</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"> </span><span class="c1">// Update node height</span>
-<a id="__codelineno-100-35" name="__codelineno-100-35" href="#__codelineno-100-35"></a><span class="w">    </span><span class="cm">/* 2. Perform rotation operation to restore balance to the subtree */</span>
-<a id="__codelineno-100-36" name="__codelineno-100-36" href="#__codelineno-100-36"></a><span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rotate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-<a id="__codelineno-100-37" name="__codelineno-100-37" href="#__codelineno-100-37"></a><span class="w">    </span><span class="c1">// Return the root node of the subtree</span>
-<a id="__codelineno-100-38" name="__codelineno-100-38" href="#__codelineno-100-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<a id="__codelineno-100-39" name="__codelineno-100-39" href="#__codelineno-100-39"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.cs</span><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">Remove</span><span class="p">}</span>
-<a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a>
-<a id="__codelineno-101-3" name="__codelineno-101-3" href="#__codelineno-101-3"></a><span class="na">[class]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">RemoveHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.go</span><pre><span></span><code><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">remove</span><span class="p">}</span>
-<a id="__codelineno-102-2" name="__codelineno-102-2" href="#__codelineno-102-2"></a>
-<a id="__codelineno-102-3" name="__codelineno-102-3" href="#__codelineno-102-3"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">aVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.swift</span><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-103-2" name="__codelineno-103-2" href="#__codelineno-103-2"></a>
-<a id="__codelineno-103-3" name="__codelineno-103-3" href="#__codelineno-103-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.js</span><pre><span></span><code><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">remove</span><span class="p">}</span>
-<a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a>
-<a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.ts</span><pre><span></span><code><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">remove</span><span class="p">}</span>
-<a id="__codelineno-105-2" name="__codelineno-105-2" href="#__codelineno-105-2"></a>
-<a id="__codelineno-105-3" name="__codelineno-105-3" href="#__codelineno-105-3"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.dart</span><pre><span></span><code><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-106-2" name="__codelineno-106-2" href="#__codelineno-106-2"></a>
-<a id="__codelineno-106-3" name="__codelineno-106-3" href="#__codelineno-106-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rs</span><pre><span></span><code><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-107-2" name="__codelineno-107-2" href="#__codelineno-107-2"></a>
-<a id="__codelineno-107-3" name="__codelineno-107-3" href="#__codelineno-107-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove_helper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.c</span><pre><span></span><code><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">removeItem</span><span class="p">}</span>
-<a id="__codelineno-108-2" name="__codelineno-108-2" href="#__codelineno-108-2"></a>
-<a id="__codelineno-108-3" name="__codelineno-108-3" href="#__codelineno-108-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.kt</span><pre><span></span><code><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-109-2" name="__codelineno-109-2" href="#__codelineno-109-2"></a>
-<a id="__codelineno-109-3" name="__codelineno-109-3" href="#__codelineno-109-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.rb</span><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-110-2" name="__codelineno-110-2" href="#__codelineno-110-2"></a>
-<a id="__codelineno-110-3" name="__codelineno-110-3" href="#__codelineno-110-3"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">AVLTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove_helper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">avl_tree.zig</span><pre><span></span><code><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
-<a id="__codelineno-111-2" name="__codelineno-111-2" href="#__codelineno-111-2"></a>
-<a id="__codelineno-111-3" name="__codelineno-111-3" href="#__codelineno-111-3"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">AVLTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">removeHelper</span><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="3-tim-kiem-nut">3. &nbsp; Tìm kiếm nút<a class="headerlink" href="#3-tim-kiem-nut" title="Permanent link">¶</a></h3>
-<p>Phép tìm kiếm nút trong cây AVL giống với trong cây tìm kiếm nhị phân và sẽ không được trình bày chi tiết ở đây.</p>
-<h2 id="754-ung-dung-ien-hinh-cua-cay-avl">7.5.4 &nbsp; Ứng dụng điển hình của cây AVL<a class="headerlink" href="#754-ung-dung-ien-hinh-cua-cay-avl" title="Permanent link">¶</a></h2>
-<ul>
-<li>Tổ chức và lưu trữ một lượng lớn dữ liệu, phù hợp cho các kịch bản có tần suất tìm kiếm cao và tần suất chèn, xóa thấp.</li>
-<li>Dùng để xây dựng hệ thống chỉ mục trong cơ sở dữ liệu.</li>
-<li>Cây đỏ-đen cũng là một loại cây tìm kiếm nhị phân cân bằng phổ biến. So với cây AVL, cây đỏ-đen có điều kiện cân bằng lỏng hơn, cần ít phép quay hơn khi chèn và xóa nút, và có hiệu năng trung bình cao hơn cho các thao tác thêm và xóa nút.</li>
-</ul>
+<p align="center"> Figure 7-26 &nbsp; Steps of right rotation</p>
 
 
 
@@ -4975,7 +4091,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../binary_search_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.4 Binary Search tree" rel="prev">
+  <a href="../binary_search_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.4 Binary Search Tree" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4985,7 +4101,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        7.4 Binary Search tree
+        7.4 Binary Search Tree
       </div>
     </div>
   </a>
@@ -5013,6 +4129,49 @@
 
 <!-- Comment system -->
 
+  
+
+  <!-- Check-in button above comments -->
+  
+
+  <h5 align="center" id="__comments"></h5>
+
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="
+
+" crossorigin="anonymous" async="">
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    function getGiscusTheme() {
+      var palette = __md_get("__palette")
+      var isDark = palette && typeof palette.color === "object" && palette.color.scheme === "slate"
+      return isDark ? "noborder_dark" : "light"
+    }
+
+    /* Set palette on initial load */
+    giscus.setAttribute("data-theme", getGiscusTheme())
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      if (!ref) return
+      ref.addEventListener("change", function() {
+        var theme = getGiscusTheme()
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        if (!frame) return
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        )
+      })
+    })
+  </script>
+
                 
               </article>
             </div>
@@ -5023,7 +4182,7 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
   Trở lại mục lục
@@ -5038,7 +4197,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../binary_search_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.4 Binary Search tree">
+          <a href="../binary_search_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.4 Binary Search Tree">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -5048,7 +4207,7 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                7.4 Binary Search tree
+                7.4 Binary Search Tree
               </div>
             </div>
           </a>
@@ -5078,7 +4237,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright © 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
@@ -5131,7 +4290,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>

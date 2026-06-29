@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Structures and Algorithms Crash Course with Animated Illustrations and Off-the-Shelf Code">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/en/chapter_backtracking/backtracking_algorithm/">
+        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_backtracking/backtracking_algorithm/">
       
       
         <link rel="prev" href="../">
@@ -23,7 +23,7 @@
     
     
       
-        <title>13.1 Backtracking algorithms - Hello Algo</title>
+        <title>13.1 Backtracking Algorithm - Hello Algo</title>
       
     
     
@@ -43,9 +43,9 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backtracking-algorithms" class="md-skip">
+        <a href="#thuat-toan-quay-lui" class="md-skip">
           Bỏ qua
         </a>
       
@@ -111,6 +111,10 @@
         </aside>
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+      </div>
     
     
       
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13.1 Backtracking algorithms
+              13.1 Backtracking Algorithm
             
           </span>
         </div>
@@ -153,7 +157,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,7 +167,7 @@
     
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -209,8 +213,14 @@
           </li>
         
           <li class="md-select__item">
+            <a href="/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
             <a href="/vi/" hreflang="vi" class="md-select__link">
-              Tiếng Việt
+              Vietnamese
             </a>
           </li>
         
@@ -228,7 +238,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
@@ -237,7 +247,7 @@
       </label>
       <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
@@ -252,7 +262,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -322,7 +332,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix>
+  <ul class="md-nav__list" data-md-scrollfix="">
     
       
       
@@ -357,7 +367,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    Before starting
+    Before Starting
   </span>
   
 
@@ -368,9 +378,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before starting
+            Before Starting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -438,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 0. Preface
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -453,7 +463,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 About this book
+    0.1 About This Book
   </span>
   
 
@@ -474,7 +484,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 How to read
+    0.2 How to Use This Book
   </span>
   
 
@@ -551,7 +561,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 1. Encounter with algorithms
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -567,9 +577,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with algorithms
+            Chapter 1. Encounter with Algorithms
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -584,7 +594,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms are everywhere
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -605,7 +615,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 What is an algorithm
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -686,7 +696,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 2. Complexity analysis
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -702,9 +712,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity analysis
+            Chapter 2. Complexity Analysis
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -719,7 +729,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm efficiency assessment
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -740,7 +750,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and recursion
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -761,7 +771,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 Time complexity
+    2.3 Time Complexity
   </span>
   
 
@@ -782,7 +792,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 Space complexity
+    2.4 Space Complexity
   </span>
   
 
@@ -863,7 +873,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 3. Data structures
+    Chapter 3. Data Structures
   </span>
   
 
@@ -879,9 +889,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data structures
+            Chapter 3. Data Structures
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -896,7 +906,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 Classification of data structures
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -917,7 +927,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 Basic data types
+    3.2 Basic Data Types
   </span>
   
 
@@ -938,7 +948,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 Number encoding *
+    3.3 Number Encoding *
   </span>
   
 
@@ -959,7 +969,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 Character encoding *
+    3.4 Character Encoding *
   </span>
   
 
@@ -1040,7 +1050,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 4. Array and linked list
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1056,9 +1066,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Array and linked list
+            Chapter 4. Arrays and Linked Lists
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1094,7 +1104,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 Linked list
+    4.2 Linked List
   </span>
   
 
@@ -1136,7 +1146,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 Memory and cache *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1215,7 +1225,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 5. Stack and queue
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1231,9 +1241,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stack and queue
+            Chapter 5. Stacks and Queues
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1290,7 +1300,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 Double-ended queue
+    5.3 Deque
   </span>
   
 
@@ -1369,7 +1379,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
   
   <span class="md-ellipsis">
-    Chapter 6. Hash table
+    Chapter 6. Hashing
   </span>
   
 
@@ -1385,9 +1395,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hash table
+            Chapter 6. Hashing
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1402,7 +1412,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 Hash table
+    6.1 Hash Table
   </span>
   
 
@@ -1423,7 +1433,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 Hash collision
+    6.2 Hash Collision
   </span>
   
 
@@ -1444,7 +1454,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 Hash algorithm
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1545,7 +1555,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 7. Tree
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1560,7 +1570,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 Binary tree
+    7.1 Binary Tree
   </span>
   
 
@@ -1581,7 +1591,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Binary tree traversal
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1602,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of tree
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1623,7 +1633,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search tree
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1644,7 +1654,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 AVL tree *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1741,7 +1751,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 8. Heap
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1777,7 +1787,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 Building a heap
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1798,7 +1808,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 Top-k problem
+    8.3 Top-k Problem
   </span>
   
 
@@ -1895,7 +1905,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 9. Graph
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -1931,7 +1941,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 Basic graph operations
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -1952,7 +1962,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 Graph traversal
+    9.3 Graph Traversal
   </span>
   
 
@@ -2053,7 +2063,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 10. Searching
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2068,7 +2078,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 Binary search
+    10.1 Binary Search
   </span>
   
 
@@ -2089,7 +2099,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 Binary search insertion
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2110,7 +2120,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 Binary search boundaries
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2131,7 +2141,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 Hashing optimization strategies
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2152,7 +2162,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 Search algorithms revisited
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2263,7 +2273,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 11. Sorting
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2278,7 +2288,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 Sorting algorithms
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2299,7 +2309,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 Selection sort
+    11.2 Selection Sort
   </span>
   
 
@@ -2320,7 +2330,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 Bubble sort
+    11.3 Bubble Sort
   </span>
   
 
@@ -2341,7 +2351,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 Insertion sort
+    11.4 Insertion Sort
   </span>
   
 
@@ -2362,7 +2372,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 Quick sort
+    11.5 Quick Sort
   </span>
   
 
@@ -2383,7 +2393,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 Merge sort
+    11.6 Merge Sort
   </span>
   
 
@@ -2404,7 +2414,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 Heap sort
+    11.7 Heap Sort
   </span>
   
 
@@ -2425,7 +2435,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 Bucket sort
+    11.8 Bucket Sort
   </span>
   
 
@@ -2446,7 +2456,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 Counting sort
+    11.9 Counting Sort
   </span>
   
 
@@ -2467,7 +2477,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 Radix sort
+    11.10 Radix Sort
   </span>
   
 
@@ -2546,7 +2556,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and conquer
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2562,9 +2572,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and conquer
+            Chapter 12. Divide and Conquer
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2579,7 +2589,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 Divide and conquer algorithms
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2600,7 +2610,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 Divide and conquer search strategy
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2621,7 +2631,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 Building binary tree problem
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2642,7 +2652,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 Tower of Hanoi Problem
+    12.4 Hanota Problem
   </span>
   
 
@@ -2714,7 +2724,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked="">
         
           
           
@@ -2741,7 +2751,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 13. Backtracking
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -2765,7 +2775,7 @@
           
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2776,7 +2786,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking algorithms
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2795,57 +2805,57 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#trial-and-retreat" class="md-nav__link">
+  <a href="#thu-nghiem-va-quay-lui" class="md-nav__link">
     <span class="md-ellipsis">
-      Trial and retreat
+      Thử nghiệm và Quay lui
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prune" class="md-nav__link">
+  <a href="#cat-tia" class="md-nav__link">
     <span class="md-ellipsis">
-      Prune
+      Cắt tỉa
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#framework-code" class="md-nav__link">
+  <a href="#khung-ma-nguon-tong-quat" class="md-nav__link">
     <span class="md-ellipsis">
-      Framework code
+      Khung mã nguồn tổng quát
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-terminology" class="md-nav__link">
+  <a href="#cac-thuat-ngu-pho-bien" class="md-nav__link">
     <span class="md-ellipsis">
-      Common terminology
+      Các thuật ngữ phổ biến
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-and-limitations" class="md-nav__link">
+  <a href="#uu-iem-va-han-che" class="md-nav__link">
     <span class="md-ellipsis">
-      Advantages and limitations
+      Ưu điểm và Hạn chế
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-backtracking-problems" class="md-nav__link">
+  <a href="#cac-vi-du-ien-hinh-ve-quay-lui" class="md-nav__link">
     <span class="md-ellipsis">
-      Typical backtracking problems
+      Các ví dụ điển hình về Quay lui
     </span>
   </a>
   
@@ -2871,7 +2881,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 Permutation problem
+    13.2 Permutations Problem
   </span>
   
 
@@ -2892,7 +2902,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 Subset sum problem
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2913,7 +2923,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 n queens problem
+    13.4 N-Queens Problem
   </span>
   
 
@@ -2996,7 +3006,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic programming
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -3012,9 +3022,9 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic programming
+            Chapter 14. Dynamic Programming
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3029,7 +3039,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to dynamic programming
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -3050,7 +3060,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of DP problems
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -3071,7 +3081,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 DP problem-solving approach¶
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -3092,7 +3102,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack problem
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3113,7 +3123,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded knapsack problem
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3134,7 +3144,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 Edit distance problem
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3231,7 +3241,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 15. Greedy
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3246,7 +3256,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 Greedy algorithms
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3267,7 +3277,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 Fractional knapsack problem
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3288,7 +3298,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 Maximum capacity problem
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3309,7 +3319,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 Maximum product cutting problem
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3402,7 +3412,7 @@
             <span class="md-nav__icon md-icon"></span>
             Chapter 16. Appendix
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3417,7 +3427,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 Installation
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3438,7 +3448,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 Contributing
+    16.2 Contributing Together
   </span>
   
 
@@ -3459,7 +3469,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 Terminology
+    16.3 Glossary
   </span>
   
 
@@ -3522,7 +3532,7 @@
             <span class="md-nav__icon md-icon"></span>
             References
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
             
@@ -3557,57 +3567,57 @@
       <span class="md-nav__icon md-icon"></span>
       Mục lục
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#trial-and-retreat" class="md-nav__link">
+  <a href="#thu-nghiem-va-quay-lui" class="md-nav__link">
     <span class="md-ellipsis">
-      Trial and retreat
+      Thử nghiệm và Quay lui
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prune" class="md-nav__link">
+  <a href="#cat-tia" class="md-nav__link">
     <span class="md-ellipsis">
-      Prune
+      Cắt tỉa
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#framework-code" class="md-nav__link">
+  <a href="#khung-ma-nguon-tong-quat" class="md-nav__link">
     <span class="md-ellipsis">
-      Framework code
+      Khung mã nguồn tổng quát
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-terminology" class="md-nav__link">
+  <a href="#cac-thuat-ngu-pho-bien" class="md-nav__link">
     <span class="md-ellipsis">
-      Common terminology
+      Các thuật ngữ phổ biến
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-and-limitations" class="md-nav__link">
+  <a href="#uu-iem-va-han-che" class="md-nav__link">
     <span class="md-ellipsis">
-      Advantages and limitations
+      Ưu điểm và Hạn chế
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#typical-backtracking-problems" class="md-nav__link">
+  <a href="#cac-vi-du-ien-hinh-ve-quay-lui" class="md-nav__link">
     <span class="md-ellipsis">
-      Typical backtracking problems
+      Các ví dụ điển hình về Quay lui
     </span>
   </a>
   
@@ -3645,34 +3655,34 @@
 
 
 <!-- Page content -->
-<h1 id="backtracking-algorithms">Backtracking algorithms<a class="headerlink" href="#backtracking-algorithms" title="Permanent link">¶</a></h1>
-<p><u>Backtracking algorithm</u> is a method to solve problems by exhaustive search. Its core concept is to start from an initial state and brutally search for all possible solutions. The algorithm records the correct ones until a solution is found or all possible solutions have been tried but no solution can be found.</p>
-<p>Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary tree" chapter, we mentioned that pre-order, in-order, and post-order traversals are all depth-first searches. Next, we are going to use pre-order traversal to solve a backtracking problem. This helps us to understand how the algorithm works gradually.</p>
+<h1 id="thuat-toan-quay-lui">Thuật toán Quay lui<a class="headerlink" href="#thuat-toan-quay-lui" title="Permanent link">¶</a></h1>
+<p><u>Thuật toán quay lui</u> (Backtracking algorithm) là một phương pháp giải quyết bài toán thông qua việc tìm kiếm vét cạn. Ý tưởng cốt lõi của nó là bắt đầu từ một trạng thái ban đầu và tìm kiếm vét cạn tất cả các lời giải có thể. Khi tìm thấy một lời giải đúng, nó sẽ được ghi nhận. Quá trình này tiếp tục cho đến khi tìm thấy lời giải hoặc đã thử tất cả các lựa chọn có thể mà không tìm thấy lời giải.</p>
+<p>Thuật toán quay lui thường sử dụng "tìm kiếm theo chiều sâu" (depth-first search - DFS) để duyệt qua không gian lời giải. Trong chương "Cây nhị phân", chúng ta đã đề cập rằng duyệt tiền thứ, trung thứ và hậu thứ đều thuộc về tìm kiếm theo chiều sâu. Tiếp theo, chúng ta sẽ xây dựng một bài toán quay lui bằng cách sử dụng duyệt tiền thứ để từng bước hiểu cách thuật toán quay lui hoạt động.</p>
 <div class="admonition question">
-<p class="admonition-title">Example One</p>
-<p>Given a binary tree, search and record all nodes with a value of <span class="arithmatex">\(7\)</span> and return them in a list.</p>
+<p class="admonition-title">Ví dụ 1</p>
+<p>Cho một cây nhị phân, hãy tìm kiếm và ghi lại tất cả các nút có giá trị bằng <span class="arithmatex">\(7\)</span>, và trả về một danh sách các nút này.</p>
 </div>
-<p>To solve this problem, we traverse this tree in pre-order and check if the current node's value is <span class="arithmatex">\(7\)</span>. If it is, we add the node's value to the result list <code>res</code>. The process is shown in the figure below:</p>
+<p>Đối với bài toán này, chúng ta thực hiện duyệt tiền thứ cây và kiểm tra xem giá trị của nút hiện tại có bằng <span class="arithmatex">\(7\)</span> hay không. Nếu có, chúng ta thêm nút đó vào danh sách kết quả <code>res</code>. Triển khai liên quan được hiển thị trong hình ảnh và mã nguồn sau:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_nodes.png" data-desc-position="bottom"><img alt="Searching nodes in pre-order traversal" src="../backtracking_algorithm.assets/preorder_find_nodes.png"></a></p>
-<h2 id="trial-and-retreat">Trial and retreat<a class="headerlink" href="#trial-and-retreat" title="Permanent link">¶</a></h2>
-<p><strong>It is called a backtracking algorithm because it uses a "trial" and "retreat" strategy when searching the solution space</strong>. During the search, whenever it encounters a state where it can no longer proceed to obtain a satisfying solution, it undoes the previous choice and reverts to the previous state so that other possible choices can be chosen for the next attempt.</p>
-<p>In Example One, visiting each node starts a "trial". And passing a leaf node or the <code>return</code> statement to going back to the parent node suggests "retreat".</p>
-<p>It's worth noting that <strong>retreat is not merely about function returns</strong>. We'll expand slightly on Example One question to explain what it means.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_nodes.png" data-desc-position="bottom"><img alt="Tìm kiếm các nút trong duyệt tiền thứ" src="../backtracking_algorithm.assets/preorder_find_nodes.png"></a></p>
+<h2 id="thu-nghiem-va-quay-lui">Thử nghiệm và Quay lui<a class="headerlink" href="#thu-nghiem-va-quay-lui" title="Permanent link">¶</a></h2>
+<p><strong>Lý do nó được gọi là thuật toán quay lui là vì nó áp dụng chiến lược "thử nghiệm" và "quay lui" khi tìm kiếm trong không gian lời giải</strong>. Khi thuật toán gặp phải một trạng thái mà nó không thể tiếp tục đi tiếp hoặc không thể tìm thấy lời giải thỏa mãn các ràng buộc, nó sẽ hoàn tác (undo) lựa chọn trước đó, quay trở lại trạng thái trước và thử các lựa chọn có thể khác.</p>
+<p>Đối với Ví dụ 1, việc ghé thăm mỗi nút đại diện cho một lần "thử nghiệm", trong khi việc bỏ qua một nút lá hoặc câu lệnh <code>return</code> đưa quá trình duyệt quay trở lại nút cha đại diện cho một lần "quay lui".</p>
+<p>Đáng chú ý là <strong>quay lui không chỉ giới hạn ở việc hàm tự trả về (return)</strong>. Để minh họa điều này, hãy mở rộng Ví dụ 1 một chút.</p>
 <div class="admonition question">
-<p class="admonition-title">Example Two</p>
-<p>In a binary tree, search for all nodes with a value of <span class="arithmatex">\(7\)</span> and for all matching nodes, <strong>please return the paths from the root node to that node</strong>.</p>
+<p class="admonition-title">Ví dụ 2</p>
+<p>Trong một cây nhị phân, hãy tìm kiếm tất cả các nút có giá trị bằng <span class="arithmatex">\(7\)</span>, <strong>và trả về đường đi từ nút gốc đến các nút này</strong>.</p>
 </div>
-<p>Based on the code from Example One, we need to use a list called <code>path</code> to record the visited node paths. When a node with a value of <span class="arithmatex">\(7\)</span> is reached, we copy <code>path</code> and add it to the result list <code>res</code>. After the traversal, <code>res</code> holds all the solutions. The code is as shown:</p>
+<p>Dựa trên mã nguồn từ Ví dụ 1, chúng ta cần sử dụng một danh sách <code>path</code> để ghi lại đường đi của các nút đã ghé thăm. Khi đạt đến một nút có giá trị bằng <span class="arithmatex">\(7\)</span>, chúng ta sao chép <code>path</code> và thêm nó vào danh sách kết quả <code>res</code>. Sau khi hoàn thành duyệt, <code>res</code> chứa tất cả các lời giải. Mã nguồn như sau:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}
 </code></pre></div>
-<p>In each "trial", we record the path by adding the current node to <code>path</code>. Whenever we need to "retreat", we pop the node from <code>path</code> <strong>to restore the state prior to this failed attempt</strong>.</p>
-<p>By observing the process shown in the figure below, <strong>the trial is like "advancing", and retreat is like "undoing"</strong>. The later pairs can be seen as a reverse operation to their counterpart.</p>
+<p>Trong mỗi lần "thử nghiệm", chúng ta ghi lại đường đi bằng cách thêm nút hiện tại vào <code>path</code>; trước khi "quay lui", chúng ta cần xóa nút đó khỏi <code>path</code>, <strong>để khôi phục lại trạng thái trước lần thử nghiệm này</strong>.</p>
+<p>Quan sát quá trình được hiển thị trong hình bên dưới, <strong>chúng ta có thể hiểu thử nghiệm và quay lui như "tiến lên" và "hoàn tác"</strong>, hai thao tác ngược nhau.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:11"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><input id="__tabbed_1_7" name="__tabbed_1" type="radio"><input id="__tabbed_1_8" name="__tabbed_1" type="radio"><input id="__tabbed_1_9" name="__tabbed_1" type="radio"><input id="__tabbed_1_10" name="__tabbed_1" type="radio"><input id="__tabbed_1_11" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label><label for="__tabbed_1_10">&lt;10&gt;</label><label for="__tabbed_1_11">&lt;11&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_paths_step1.png" data-desc-position="bottom"><img alt="Trying and retreating" src="../backtracking_algorithm.assets/preorder_find_paths_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_paths_step1.png" data-desc-position="bottom"><img alt="Thử nghiệm và quay lui" src="../backtracking_algorithm.assets/preorder_find_paths_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
 <p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_paths_step2.png" data-desc-position="bottom"><img alt="preorder_find_paths_step2" src="../backtracking_algorithm.assets/preorder_find_paths_step2.png"></a></p>
@@ -3706,60 +3716,60 @@
 </div>
 </div>
 </div>
-<h2 id="prune">Prune<a class="headerlink" href="#prune" title="Permanent link">¶</a></h2>
-<p>Complex backtracking problems usually involve one or more constraints, <strong>which are often used for "pruning"</strong>.</p>
+<h2 id="cat-tia">Cắt tỉa<a class="headerlink" href="#cat-tia" title="Permanent link">¶</a></h2>
+<p>Các bài toán quay lui phức tạp thường chứa một hoặc nhiều ràng buộc. <strong>Các ràng buộc thường có thể được sử dụng để "cắt tỉa" (pruning)</strong>.</p>
 <div class="admonition question">
-<p class="admonition-title">Example Three</p>
-<p>In a binary tree, search for all nodes with a value of <span class="arithmatex">\(7\)</span> and return the paths from the root to these nodes, <strong>with restriction that the paths do not contain nodes with a value of <span class="arithmatex">\(3\)</span></strong>.</p>
+<p class="admonition-title">Ví dụ 3</p>
+<p>Trong một cây nhị phân, hãy tìm kiếm tất cả các nút có giá trị bằng <span class="arithmatex">\(7\)</span> và trả về đường đi từ nút gốc đến các nút này, <strong>nhưng yêu cầu đường đi không được chứa các nút có giá trị bằng <span class="arithmatex">\(3\)</span></strong>.</p>
 </div>
-<p>To meet the above constraints, <strong>we need to add a pruning operation</strong>: during the search process, if a node with a value of <span class="arithmatex">\(3\)</span> is encountered, it aborts further searching down through the path immediately. The code is as shown:</p>
+<p>Để thỏa mãn các ràng buộc trên, <strong>chúng ta cần thêm các thao tác cắt tỉa</strong>: trong quá trình tìm kiếm, nếu gặp một nút có giá trị bằng <span class="arithmatex">\(3\)</span>, chúng ta trả về sớm và không tiếp tục tìm kiếm. Mã nguồn như sau:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[file]{preorder_traversal_iii_compact}-[class]{}-[func]{pre_order}
 </code></pre></div>
-<p>"Pruning" is a very vivid noun. As shown in the figure below, in the search process, <strong>we "cut off" the search branches that do not meet the constraints</strong>. It avoids further unnecessary attempts, thus enhances the search efficiency.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" data-desc-position="bottom"><img alt="Pruning based on constraints" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png"></a></p>
-<h2 id="framework-code">Framework code<a class="headerlink" href="#framework-code" title="Permanent link">¶</a></h2>
-<p>Now, let's try to distill the main framework of "trial, retreat, and prune" from backtracking to enhance the code's universality.</p>
-<p>In the following framework code, <code>state</code> represents the current state of the problem, <code>choices</code> represents the choices available under the current state:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><input id="__tabbed_2_14" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
+<p>"Cắt tỉa" là một thuật ngữ rất hình tượng. Như hiển thị trong hình bên dưới, trong quá trình tìm kiếm, <strong>chúng ta "cắt tỉa" các nhánh tìm kiếm không thỏa mãn ràng buộc</strong>, tránh được nhiều lần thử nghiệm vô nghĩa và do đó cải thiện hiệu suất tìm kiếm.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/preorder_find_constrained_paths.png" data-desc-position="bottom"><img alt="Cắt tỉa theo các ràng buộc" src="../backtracking_algorithm.assets/preorder_find_constrained_paths.png"></a></p>
+<h2 id="khung-ma-nguon-tong-quat">Khung mã nguồn tổng quát<a class="headerlink" href="#khung-ma-nguon-tong-quat" title="Permanent link">¶</a></h2>
+<p>Tiếp theo, chúng ta cố gắng trích xuất một khung mã nguồn tổng quát xoay quanh "thử nghiệm, quay lui và cắt tỉa" của thuật toán quay lui để nâng cao tính tổng quát của mã nguồn.</p>
+<p>Trong khung mã nguồn sau, <code>state</code> đại diện cho trạng thái hiện tại của bài toán, và <code>choices</code> đại diện cho các lựa chọn khả thi ở trạng thái hiện tại:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">choice</span><span class="p">],</span> <span class="n">res</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">state</span><span class="p">]):</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">"""Backtracking algorithm framework"""</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="c1"># Check if it's a solution</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">"""Khung thuật toán quay lui"""</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="c1"># Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">if</span> <span class="n">is_solution</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="c1"># Record the solution</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="c1"># Ghi nhận lời giải</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="c1"># Stop searching</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="c1"># Dừng tìm kiếm</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="k">return</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="c1"># Iterate through all choices</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="c1"># Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="c1"># Prune: check if the choice is valid</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="c1"># Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">if</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="c1"># Trial: make a choice, update the state</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="c1"># Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>            <span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="c1"># Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="c1"># Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Choice</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">State</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3767,23 +3777,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3791,23 +3801,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">void</span><span class="w"> </span><span class="nf">Backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">RecordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">            </span><span class="n">MakeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">            </span><span class="n">Backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">            </span><span class="n">UndoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3815,23 +3825,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">*</span><span class="nx">State</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="w"> </span><span class="p">[]</span><span class="nx">Choice</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">*</span><span class="p">[]</span><span class="nx">State</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">isSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="nx">recordSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">choices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">isValid</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">            </span><span class="nx">makeChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">)</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="nx">undoChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">)</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3839,23 +3849,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">Choice</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="kr">inout</span><span class="w"> </span><span class="p">[</span><span class="n">State</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="p">&amp;</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">:</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3863,23 +3873,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="nx">recordSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isValid</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">            </span><span class="nx">makeChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">            </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="nx">undoChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3887,23 +3897,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="kt">State</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="o">:</span><span class="w"> </span><span class="kt">Choice</span><span class="p">[],</span><span class="w"> </span><span class="nx">res</span><span class="o">:</span><span class="w"> </span><span class="kt">State</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nx">recordSolution</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isValid</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="nx">makeChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="nx">backtrack</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choices</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">);</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">            </span><span class="nx">undoChoice</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">choice</span><span class="p">);</span>
 <a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3911,23 +3921,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Choice</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">      </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">      </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">      </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">      </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">      </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">      </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">      </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">  </span><span class="p">}</span>
@@ -3935,23 +3945,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">Choice</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">            </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">            </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">);</span>
 <a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3959,23 +3969,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="o">*</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">Choice</span><span class="w"> </span><span class="o">*</span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numChoices</span><span class="p">,</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">*</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numRes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">numRes</span><span class="p">);</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numChoices</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">numChoices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">numRes</span><span class="p">);</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">choices</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">    </span><span class="p">}</span>
@@ -3983,23 +3993,23 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Backtracking algorithm framework */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Khung thuật toán quay lui */</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State?,</span><span class="w"> </span><span class="n">choices</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Choice?&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">State?&gt;</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">// Check if it's a solution</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">// Kiểm tra xem đây có phải là một lời giải không</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSolution</span><span class="p">(</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="c1">// Record the solution</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="c1">// Ghi nhận lời giải</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="n">recordSolution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="c1">// Stop searching</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="c1">// Dừng tìm kiếm</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="k">return</span>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="c1">// Iterate through all choices</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="c1">// Duyệt qua tất cả các lựa chọn</span>
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="c1">// Prune: check if the choice is valid</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="c1">// Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
 <a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">            </span><span class="c1">// Trial: make a choice, update the state</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">            </span><span class="c1">// Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
 <a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">            </span><span class="n">makeChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="c1">// Retreat: undo the choice, revert to the previous state</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="c1">// Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
 <a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">            </span><span class="n">undoChoice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
 <a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">    </span><span class="p">}</span>
@@ -4007,107 +4017,123 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">### Khung thuật toán quay lui ###</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1"># Kiểm tra xem đây có phải là một lời giải không</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_solution?</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="c1"># Ghi nhận lời giải</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">        </span><span class="n">record_solution</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span><span class="k">return</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="c1"># Duyệt qua tất cả các lựa chọn</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">choices</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="c1"># Cắt tỉa: kiểm tra xem lựa chọn có hợp lệ không</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_valid?</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">            </span><span class="c1"># Thử nghiệm: thực hiện lựa chọn và cập nhật trạng thái</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">            </span><span class="n">make_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">            </span><span class="n">backtrack</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choices</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">            </span><span class="c1"># Quay lui: hoàn tác lựa chọn và khôi phục về trạng thái trước đó</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">            </span><span class="n">undo_choice</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">choice</span><span class="p">)</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">        </span><span class="k">end</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">    </span><span class="k">end</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="k">end</span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>
+</div>
+</div>
+<p>Tiếp theo, chúng ta giải Ví dụ 3 dựa trên khung mã nguồn. Trạng thái <code>state</code> là đường đi duyệt qua các nút, các lựa chọn <code>choices</code> là các nút con trái và phải của nút hiện tại, và kết quả <code>res</code> là danh sách các đường đi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
 </code></pre></div>
-</div>
-</div>
-</div>
-<p>Now, we are able to solve Example Three using the framework code. The <code>state</code> is the node traversal path, <code>choices</code> are the current node's left and right children, and the result <code>res</code> is the list of paths:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>[file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
-</code></pre></div>
-<p>As per the requirements, after finding a node with a value of <span class="arithmatex">\(7\)</span>, the search should continue. <strong>As a result, the <code>return</code> statement after recording the solution should be removed</strong>. The figure below compares the search processes with and without retaining the <code>return</code> statement.</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" data-desc-position="bottom"><img alt="Comparison of retaining and removing the return in the search process" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png"></a></p>
-<p>Compared to the implementation based on pre-order traversal, the code using the backtracking algorithm framework seems verbose. However, it has better universality. In fact, <strong>many backtracking problems can be solved within this framework</strong>. We just need to define <code>state</code> and <code>choices</code> according to the specific problem and implement the methods in the framework.</p>
-<h2 id="common-terminology">Common terminology<a class="headerlink" href="#common-terminology" title="Permanent link">¶</a></h2>
-<p>To analyze algorithmic problems more clearly, we summarize the meanings of commonly used terminology in backtracking algorithms and provide corresponding examples from Example Three as shown in the table below.</p>
-<p align="center"> Table <id> &nbsp; Common backtracking algorithm terminology </id></p>
+<p>Theo yêu cầu của đề bài, chúng ta nên tiếp tục tìm kiếm sau khi tìm thấy một nút có giá trị bằng <span class="arithmatex">\(7\)</span>. <strong>Do đó, chúng ta cần xóa câu lệnh <code>return</code> sau khi ghi nhận lời giải</strong>. Hình bên dưới so sánh quá trình tìm kiếm khi có và không có câu lệnh <code>return</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png" data-desc-position="bottom"><img alt="So sánh quá trình tìm kiếm khi có và không có câu lệnh return" src="../backtracking_algorithm.assets/backtrack_remove_return_or_not.png"></a></p>
+<p>So với mã nguồn dựa trên duyệt tiền thứ, mã nguồn dựa trên khung thuật toán quay lui trông có vẻ dài dòng hơn, nhưng lại có tính tổng quát cao hơn. Trên thực tế, <strong>nhiều bài toán quay lui có thể được giải quyết trong khung này</strong>. Chúng ta chỉ cần xác định <code>state</code> và <code>choices</code> cho bài toán cụ thể và triển khai từng phương thức trong khung.</p>
+<h2 id="cac-thuat-ngu-pho-bien">Các thuật ngữ phổ biến<a class="headerlink" href="#cac-thuat-ngu-pho-bien" title="Permanent link">¶</a></h2>
+<p>Để phân tích các bài toán thuật toán một cách rõ ràng hơn, chúng ta tóm tắt ý nghĩa của các thuật ngữ phổ biến được sử dụng trong thuật toán quay lui và cung cấp các ví dụ tương ứng từ Ví dụ 3, như hiển thị trong bảng dưới đây.</p>
+<p align="center"> Bảng <id> &nbsp; Các thuật ngữ phổ biến trong Thuật toán quay lui </id></p>
 
 <table>
 <thead>
 <tr>
-<th>Term</th>
-<th>Definition</th>
-<th>Example Three</th>
+<th>Thuật ngữ</th>
+<th>Định nghĩa</th>
+<th>Ví dụ 3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Solution</td>
-<td>A solution is an answer that satisfies specific conditions of the problem, which may have one or more</td>
-<td>All paths from the root node to node <span class="arithmatex">\(7\)</span> that meet the constraint</td>
+<td>Lời giải (solution)</td>
+<td>Lời giải là một đáp án thỏa mãn các điều kiện cụ thể của bài toán; có thể có một hoặc nhiều lời giải</td>
+<td>Tất cả các đường đi từ gốc đến các nút có giá trị bằng <span class="arithmatex">\(7\)</span> thỏa mãn ràng buộc</td>
 </tr>
 <tr>
-<td>Constraint</td>
-<td>Constraints are conditions in the problem that limit the feasibility of solutions, often used for pruning</td>
-<td>Paths do not contain node <span class="arithmatex">\(3\)</span></td>
+<td>Ràng buộc (constraint)</td>
+<td>Ràng buộc là một điều kiện trong bài toán giới hạn tính khả thi của các lời giải, thường được sử dụng để cắt tỉa</td>
+<td>Đường đi không chứa các nút có giá trị bằng <span class="arithmatex">\(3\)</span></td>
 </tr>
 <tr>
-<td>State</td>
-<td>State represents the situation of the problem at a certain moment, including choices made</td>
-<td>Current visited node path, i.e., <code>path</code> node list</td>
+<td>Trạng thái (state)</td>
+<td>Trạng thái đại diện cho tình trạng của bài toán tại một thời điểm nhất định, bao gồm các lựa chọn đã thực hiện</td>
+<td>Đường đi nút hiện đang được ghé thăm, tức là danh sách nút <code>path</code></td>
 </tr>
 <tr>
-<td>Trial</td>
-<td>A trial is the process of exploring the solution space based on available choices, including making choices, updating the state, and checking if it's a solution</td>
-<td>Recursively visiting left (right) child nodes, adding nodes to <code>path</code>, checking if the node's value is <span class="arithmatex">\(7\)</span></td>
+<td>Thử nghiệm (attempt)</td>
+<td>Thử nghiệm là quá trình khám phá không gian lời giải theo các lựa chọn khả thi, bao gồm thực hiện lựa chọn, cập nhật trạng thái và kiểm tra xem có phải là lời giải hay không</td>
+<td>Ghé thăm đệ quy các nút con trái (phải), thêm nút vào <code>path</code>, kiểm tra xem giá trị nút có bằng <span class="arithmatex">\(7\)</span> hay không</td>
 </tr>
 <tr>
-<td>Retreat</td>
-<td>Retreat refers to the action of undoing previous choices and returning to the previous state when encountering states that do not meet the constraints</td>
-<td>When passing leaf nodes, ending node visits, encountering nodes with a value of <span class="arithmatex">\(3\)</span>, terminating the search, and the recursion function returns</td>
+<td>Quay lui (backtracking)</td>
+<td>Quay lui đề cập đến việc hoàn tác các lựa chọn trước đó và quay trở lại trạng thái trước khi gặp một trạng thái không thỏa mãn ràng buộc</td>
+<td>Dừng tìm kiếm khi đi qua các nút lá, kết thúc lượt ghé thăm nút, hoặc gặp các nút có giá trị bằng <span class="arithmatex">\(3\)</span>; hàm tự trả về (return)</td>
 </tr>
 <tr>
-<td>Prune</td>
-<td>Prune is a method to avoid meaningless search paths based on the characteristics and constraints of the problem, which can enhance search efficiency</td>
-<td>When encountering a node with a value of <span class="arithmatex">\(3\)</span>, no further search is required</td>
+<td>Cắt tỉa (pruning)</td>
+<td>Cắt tỉa là một phương pháp loại bỏ các đường đi tìm kiếm vô nghĩa dựa trên đặc điểm bài toán và các ràng buộc, giúp cải thiện hiệu suất tìm kiếm</td>
+<td>Khi gặp một nút có giá trị bằng <span class="arithmatex">\(3\)</span>, không tiếp tục tìm kiếm nữa</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Concepts like problems, solutions, states, etc., are universal, and are involved in divide and conquer, backtracking, dynamic programming, and greedy algorithms, among others.</p>
+<p>Các khái niệm về bài toán, lời giải, trạng thái, v.v. là mang tính phổ quát và xuất hiện trong chia để trị, quay lui, quy hoạch động, thuật toán tham ăn và các thuật toán khác.</p>
 </div>
-<h2 id="advantages-and-limitations">Advantages and limitations<a class="headerlink" href="#advantages-and-limitations" title="Permanent link">¶</a></h2>
-<p>The backtracking algorithm is essentially a depth-first search algorithm that attempts all possible solutions until a satisfying solution is found. The advantage of this method is that it can find all possible solutions, and with reasonable pruning operations, it can be highly efficient.</p>
-<p>However, when dealing with large-scale or complex problems, <strong>the running efficiency of backtracking algorithm may not be acceptable</strong>.</p>
+<h2 id="uu-iem-va-han-che">Ưu điểm và Hạn chế<a class="headerlink" href="#uu-iem-va-han-che" title="Permanent link">¶</a></h2>
+<p>Thuật toán quay lui về bản chất là một thuật toán tìm kiếm theo chiều sâu (DFS), thử tất cả các lời giải có thể cho đến khi tìm thấy lời giải thỏa mãn điều kiện. Ưu điểm của cách tiếp cận này là nó có thể tìm thấy tất cả các lời giải có thể, và với các thao tác cắt tỉa hợp lý, nó đạt được hiệu suất cao.</p>
+<p>Tuy nhiên, khi xử lý các bài toán quy mô lớn hoặc phức tạp, <strong>hiệu suất chạy của thuật toán quay lui có thể không thể chấp nhận được</strong>.</p>
 <ul>
-<li><strong>Time complexity</strong>: Backtracking algorithms usually need to traverse all possible states in the state space, which can reach exponential or factorial time complexity.</li>
-<li><strong>Space complexity</strong>: In recursive calls, it is necessary to save the current state (such as paths, auxiliary variables for pruning, etc.). When the depth is very large, the space need may become significantly bigger.</li>
+<li><strong>Thời gian</strong>: Thuật toán quay lui thường cần duyệt qua tất cả các khả năng trong không gian trạng thái, và độ phức tạp thời gian có thể đạt đến cấp hàm mũ hoặc giai thừa.</li>
+<li><strong>Không gian</strong>: Trong các lần gọi đệ quy, trạng thái hiện tại cần được lưu lại (chẳng hạn như các đường đi, biến phụ trợ được sử dụng để cắt tỉa, v.v.), và khi độ sâu lớn, yêu cầu về không gian có thể trở nên rất lớn.</li>
 </ul>
-<p>Even so, <strong>backtracking remains the best solution for certain search problems and constraint satisfaction problems</strong>. For these problems, there is no way to predict which choices can generate valid solutions. We have to traverse all possible choices. In this case, <strong>the key is about how to optimize the efficiency</strong>. There are two common efficiency optimization methods.</p>
+<p>Mặc dù vậy, <strong>thuật toán quay lui vẫn là giải pháp tốt nhất cho một số bài toán tìm kiếm và bài toán thỏa mãn ràng buộc nhất định</strong>. Đối với các bài toán này, vì chúng ta không thể dự đoán lựa chọn nào sẽ tạo ra lời giải hợp lệ, chúng ta bắt buộc phải duyệt qua tất cả các lựa chọn có thể. Trong trường hợp này, <strong>mấu chốt là cách tối ưu hóa hiệu suất</strong>. Có hai phương pháp tối ưu hóa hiệu suất phổ biến.</p>
 <ul>
-<li><strong>Prune</strong>: Avoid searching paths that definitely will not produce a solution, thus saving time and space.</li>
-<li><strong>Heuristic search</strong>: Introduce some strategies or estimates during the search process to prioritize the paths that are most likely to produce valid solutions.</li>
+<li><strong>Cắt tỉa</strong>: Tránh tìm kiếm các đường đi chắc chắn không tạo ra lời giải, từ đó tiết kiệm thời gian và không gian.</li>
+<li><strong>Tìm kiếm kinh nghiệm (Heuristic search)</strong>: Đưa vào các chiến lược hoặc giá trị ước tính nhất định trong quá trình tìm kiếm để ưu tiên tìm kiếm các đường đi có khả năng tạo ra lời giải hợp lệ nhất.</li>
 </ul>
-<h2 id="typical-backtracking-problems">Typical backtracking problems<a class="headerlink" href="#typical-backtracking-problems" title="Permanent link">¶</a></h2>
-<p>Backtracking algorithms can be used to solve many search problems, constraint satisfaction problems, and combinatorial optimization problems.</p>
-<p><strong>Search problems</strong>: The goal of these problems is to find solutions that meet specific conditions.</p>
+<h2 id="cac-vi-du-ien-hinh-ve-quay-lui">Các ví dụ điển hình về Quay lui<a class="headerlink" href="#cac-vi-du-ien-hinh-ve-quay-lui" title="Permanent link">¶</a></h2>
+<p>Thuật toán quay lui có thể được sử dụng để giải quyết nhiều bài toán tìm kiếm, bài toán thỏa mãn ràng buộc và bài toán tối ưu hóa tổ hợp.</p>
+<p><strong>Bài toán tìm kiếm</strong>: Mục tiêu của các bài toán này là tìm các lời giải thỏa mãn các điều kiện cụ thể.</p>
 <ul>
-<li>Full permutation problem: Given a set, find all possible permutations and combinations of it.</li>
-<li>Subset sum problem: Given a set and a target sum, find all subsets of the set that sum to the target.</li>
-<li>Tower of Hanoi problem: Given three rods and a series of different-sized discs, the goal is to move all the discs from one rod to another, moving only one disc at a time, and never placing a larger disc on a smaller one.</li>
+<li>Bài toán hoán vị: Cho một tập hợp, hãy tìm tất cả các hoán vị và tổ hợp có thể.</li>
+<li>Bài toán tổng tập con: Cho một tập hợp và một tổng mục tiêu, hãy tìm tất cả các tập con trong tập hợp có tổng các phần tử bằng tổng mục tiêu.</li>
+<li>Tháp Hà Nội: Cho ba cọc và một chuỗi các đĩa có kích thước khác nhau, di chuyển tất cả các đĩa từ cọc này sang cọc khác, mỗi lần chỉ di chuyển một đĩa và không bao giờ đặt đĩa lớn hơn lên đĩa nhỏ hơn.</li>
 </ul>
-<p><strong>Constraint satisfaction problems</strong>: The goal of these problems is to find solutions that satisfy all the constraints.</p>
+<p><strong>Bài toán thỏa mãn ràng buộc</strong>: Mục tiêu của các bài toán này là tìm các lời giải thỏa mãn tất cả các ràng buộc.</p>
 <ul>
-<li><span class="arithmatex">\(n\)</span> queens: Place <span class="arithmatex">\(n\)</span> queens on an <span class="arithmatex">\(n \times n\)</span> chessboard so that they do not attack each other.</li>
-<li>Sudoku: Fill a <span class="arithmatex">\(9 \times 9\)</span> grid with the numbers <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(9\)</span>, ensuring that the numbers do not repeat in each row, each column, and each <span class="arithmatex">\(3 \times 3\)</span> subgrid.</li>
-<li>Graph coloring problem: Given an undirected graph, color each vertex with the fewest possible colors so that adjacent vertices have different colors.</li>
+<li>N-Queens (Bài toán N quân hậu): Đặt <span class="arithmatex">\(n\)</span> quân hậu trên bàn cờ <span class="arithmatex">\(n \times n\)</span> sao cho chúng không tấn công lẫn nhau.</li>
+<li>Sudoku: Điền các số từ <span class="arithmatex">\(1\)</span> đến <span class="arithmatex">\(9\)</span> vào lưới <span class="arithmatex">\(9 \times 9\)</span> sao cho mỗi hàng, mỗi cột và mỗi lưới con <span class="arithmatex">\(3 \times 3\)</span> không chứa các chữ số lặp lại.</li>
+<li>Tô màu đồ thị: Cho một đồ thị vô hướng, tô màu mỗi đỉnh với số lượng màu tối thiểu sao cho các đỉnh kề nhau có màu khác nhau.</li>
 </ul>
-<p><strong>Combinatorial optimization problems</strong>: The goal of these problems is to find the optimal solution within a combination space that meets certain conditions.</p>
+<p><strong>Bài toán tối ưu hóa tổ hợp</strong>: Mục tiêu của các bài toán này là tìm một lời giải tối ưu thỏa mãn các điều kiện nhất định trong không gian tổ hợp.</p>
 <ul>
-<li>0-1 knapsack problem: Given a set of items and a backpack, each item has a certain value and weight. The goal is to choose items to maximize the total value within the backpack's capacity limit.</li>
-<li>Traveling salesman problem: In a graph, starting from one point, visit all other points exactly once and then return to the starting point, seeking the shortest path.</li>
-<li>Maximum clique problem: Given an undirected graph, find the largest complete subgraph, i.e., a subgraph where any two vertices are connected by an edge.</li>
+<li>0-1 Knapsack (Cái túi 0-1): Cho một tập hợp các đồ vật và một cái túi, mỗi đồ vật có một giá trị và trọng lượng. Dưới ràng buộc dung lượng cái túi, hãy chọn các đồ vật để tối đa hóa tổng giá trị.</li>
+<li>Bài toán người du lịch (Traveling Salesman Problem - TSP): Bắt đầu từ một điểm trong đồ thị, ghé thăm tất cả các điểm khác đúng một lần và quay trở lại điểm xuất phát, tìm đường đi ngắn nhất.</li>
+<li>Tìm phe tối đại (Maximum Clique): Cho một đồ thị vô hướng, hãy tìm đồ thị con đầy đủ lớn nhất, tức là một đồ thị con mà hai đỉnh bất kỳ đều được nối với nhau bằng một cạnh.</li>
 </ul>
-<p>Please note that for many combinatorial optimization problems, backtracking is not the optimal solution.</p>
+<p>Lưu ý rằng đối với nhiều bài toán tối ưu hóa tổ hợp, quay lui không phải là giải pháp tối ưu.</p>
 <ul>
-<li>The 0-1 knapsack problem is usually solved using dynamic programming to achieve higher time efficiency.</li>
-<li>The traveling salesman is a well-known NP-Hard problem, commonly solved using genetic algorithms and ant colony algorithms, among others.</li>
-<li>The maximum clique problem is a classic problem in graph theory, which can be solved using greedy algorithms and other heuristic methods.</li>
+<li>Bài toán Cái túi 0-1 thường được giải bằng quy hoạch động để đạt hiệu suất thời gian cao hơn.</li>
+<li>Bài toán người du lịch là một bài toán NP-Khó nổi tiếng; các giải pháp phổ biến bao gồm thuật toán di truyền và thuật toán đàn kiến.</li>
+<li>Bài toán Phe tối đại là một bài toán kinh điển trong lý thuyết đồ thị và có thể giải bằng các thuật toán kinh nghiệm như thuật toán tham ăn.</li>
 </ul>
 
 
@@ -4124,7 +4150,7 @@
 <!-- Link to previous page -->
 
   
-  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Backtracking" rel="prev">
+  <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Thuật toán Quay lui" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4134,7 +4160,7 @@
         Trước
       </span>
       <div class="md-ellipsis">
-        Backtracking
+        Thuật toán Quay lui
       </div>
     </div>
   </a>
@@ -4143,13 +4169,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.2 Permutation problem" rel="next">
+  <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.2 Permutations Problem" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
         Sau
       </span>
       <div class="md-ellipsis">
-        13.2 Permutation problem
+        13.2 Permutations Problem
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -4172,7 +4198,7 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
   Trở lại mục lục
@@ -4187,7 +4213,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Backtracking">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Trước: Thuật toán Quay lui">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
@@ -4197,20 +4223,20 @@
                 Trước
               </span>
               <div class="md-ellipsis">
-                Backtracking
+                Thuật toán Quay lui
               </div>
             </div>
           </a>
         
         
           
-          <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.2 Permutation problem">
+          <a href="../permutations_problem/" class="md-footer__link md-footer__link--next" aria-label="Sau: 13.2 Permutations Problem">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Sau
               </span>
               <div class="md-ellipsis">
-                13.2 Permutation problem
+                13.2 Permutations Problem
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4227,7 +4253,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+      Copyright © 2026 krahets<br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
   
   
@@ -4280,7 +4306,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
