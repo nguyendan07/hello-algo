@@ -12,131 +12,131 @@ use std::rc::Rc;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
-/* AVL 树 */
+/* AVL tree */
 struct AVLTree {
-    root: OptionTreeNodeRc, // 根节点
+    root: OptionTreeNodeRc, // Root node
 }
 
 impl AVLTree {
-    /* 构造方法 */
+    /* Constructor */
     fn new() -> Self {
         Self { root: None }
     }
 
-    /* 获取节点高度 */
+    /* Get node height */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // 空节点高度为 -1 ，叶节点高度为 0
+        // Empty node height is -1, leaf node height is 0
         match node {
             Some(node) => node.borrow().height,
             None => -1,
         }
     }
 
-    /* 更新节点高度 */
+    /* Update node height */
     fn update_height(node: OptionTreeNodeRc) {
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // 节点高度等于最高子树高度 + 1
+            // Node height equals the height of the tallest subtree + 1
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
 
-    /* 获取平衡因子 */
+    /* Get balance factor */
     fn balance_factor(node: OptionTreeNodeRc) -> i32 {
         match node {
-            // 空节点平衡因子为 0
+            // Empty node balance factor is 0
             None => 0,
-            // 节点平衡因子 = 左子树高度 - 右子树高度
+            // Node balance factor = left subtree height - right subtree height
             Some(node) => {
                 Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
             }
         }
     }
 
-    /* 右旋操作 */
+    /* Right rotation operation */
     fn right_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         match node {
             Some(node) => {
                 let child = node.borrow().left.clone().unwrap();
                 let grand_child = child.borrow().right.clone();
-                // 以 child 为原点，将 node 向右旋转
+                // Using child as pivot, rotate node to the right
                 child.borrow_mut().right = Some(node.clone());
                 node.borrow_mut().left = grand_child;
-                // 更新节点高度
+                // Update node height
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // 返回旋转后子树的根节点
+                // Return root node of subtree after rotation
                 Some(child)
             }
             None => None,
         }
     }
 
-    /* 左旋操作 */
+    /* Left rotation operation */
     fn left_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         match node {
             Some(node) => {
                 let child = node.borrow().right.clone().unwrap();
                 let grand_child = child.borrow().left.clone();
-                // 以 child 为原点，将 node 向左旋转
+                // Using child as pivot, rotate node to the left
                 child.borrow_mut().left = Some(node.clone());
                 node.borrow_mut().right = grand_child;
-                // 更新节点高度
+                // Update node height
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // 返回旋转后子树的根节点
+                // Return root node of subtree after rotation
                 Some(child)
             }
             None => None,
         }
     }
 
-    /* 执行旋转操作，使该子树重新恢复平衡 */
+    /* Perform rotation operation to restore balance to this subtree */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
-        // 获取节点 node 的平衡因子
+        // Get balance factor of node
         let balance_factor = Self::balance_factor(node.clone());
-        // 左偏树
+        // Left-leaning tree
         if balance_factor > 1 {
             let node = node.unwrap();
             if Self::balance_factor(node.borrow().left.clone()) >= 0 {
-                // 右旋
+                // Right rotation
                 Self::right_rotate(Some(node))
             } else {
-                // 先左旋后右旋
+                // First left rotation then right rotation
                 let left = node.borrow().left.clone();
                 node.borrow_mut().left = Self::left_rotate(left);
                 Self::right_rotate(Some(node))
             }
         }
-        // 右偏树
+        // Right-leaning tree
         else if balance_factor < -1 {
             let node = node.unwrap();
             if Self::balance_factor(node.borrow().right.clone()) <= 0 {
-                // 左旋
+                // Left rotation
                 Self::left_rotate(Some(node))
             } else {
-                // 先右旋后左旋
+                // First right rotation then left rotation
                 let right = node.borrow().right.clone();
                 node.borrow_mut().right = Self::right_rotate(right);
                 Self::left_rotate(Some(node))
             }
         } else {
-            // 平衡树，无须旋转，直接返回
+            // Balanced tree, no rotation needed, return directly
             node
         }
     }
 
-    /* 插入节点 */
+    /* Insert node */
     fn insert(&mut self, val: i32) {
         self.root = Self::insert_helper(self.root.clone(), val);
     }
 
-    /* 递归插入节点（辅助方法） */
+    /* Recursively insert node (helper method) */
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查找插入位置并插入节点 */
+                /* 1. Find insertion position and insert node */
                 match {
                     let node_val = node.borrow().val;
                     node_val
@@ -152,30 +152,30 @@ impl AVLTree {
                         node.borrow_mut().right = Self::insert_helper(right, val);
                     }
                     Ordering::Equal => {
-                        return Some(node); // 重复节点不插入，直接返回
+                        return Some(node); // Duplicate node not inserted, return directly
                     }
                 }
-                Self::update_height(Some(node.clone())); // 更新节点高度
+                Self::update_height(Some(node.clone())); // Update node height
 
-                /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+                /* 2. Perform rotation operation to restore balance to this subtree */
                 node = Self::rotate(Some(node)).unwrap();
-                // 返回子树的根节点
+                // Return root node of subtree
                 Some(node)
             }
             None => Some(TreeNode::new(val)),
         }
     }
 
-    /* 删除节点 */
+    /* Remove node */
     fn remove(&self, val: i32) {
         Self::remove_helper(self.root.clone(), val);
     }
 
-    /* 递归删除节点（辅助方法） */
+    /* Recursively delete node (helper method) */
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查找节点并删除 */
+                /* 1. Find node and delete */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -189,15 +189,15 @@ impl AVLTree {
                         node.borrow().right.clone()
                     };
                     match child {
-                        // 子节点数量 = 0 ，直接删除 node 并返回
+                        // Number of child nodes = 0, delete node directly and return
                         None => {
                             return None;
                         }
-                        // 子节点数量 = 1 ，直接删除 node
+                        // Number of child nodes = 1, delete node directly
                         Some(child) => node = child,
                     }
                 } else {
-                    // 子节点数量 = 2 ，则将中序遍历的下个节点删除，并用该节点替换当前节点
+                    // Number of child nodes = 2, delete the next node in inorder traversal and replace current node with it
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -210,38 +210,38 @@ impl AVLTree {
                     node.borrow_mut().right = Self::remove_helper(right, temp.borrow().val);
                     node.borrow_mut().val = temp.borrow().val;
                 }
-                Self::update_height(Some(node.clone())); // 更新节点高度
+                Self::update_height(Some(node.clone())); // Update node height
 
-                /* 2. 执行旋转操作，使该子树重新恢复平衡 */
+                /* 2. Perform rotation operation to restore balance to this subtree */
                 node = Self::rotate(Some(node)).unwrap();
-                // 返回子树的根节点
+                // Return root node of subtree
                 Some(node)
             }
             None => None,
         }
     }
 
-    /* 查找节点 */
+    /* Search node */
     fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // 循环查找，越过叶节点后跳出
+        // Loop search, exit after passing leaf node
         while let Some(current) = cur.clone() {
             match current.borrow().val.cmp(&val) {
-                // 目标节点在 cur 的右子树中
+                // Target node is in cur's right subtree
                 Ordering::Less => {
                     cur = current.borrow().right.clone();
                 }
-                // 目标节点在 cur 的左子树中
+                // Target node is in cur's left subtree
                 Ordering::Greater => {
                     cur = current.borrow().left.clone();
                 }
-                // 找到目标节点，跳出循环
+                // Found target node, exit loop
                 Ordering::Equal => {
                     break;
                 }
             }
         }
-        // 返回目标节点
+        // Return target node
         cur
     }
 }
@@ -250,21 +250,21 @@ impl AVLTree {
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\n插入节点 {} 后，AVL 树为", val);
+        println!("\nAfter inserting node {}, AVL tree is", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\n删除节点 {} 后，AVL 树为", val);
+        println!("\nAfter deleting node {}, AVL tree is", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
-    /* 初始化空 AVL 树 */
+    /* Please pay attention to how the AVL tree maintains balance after inserting nodes */
     let mut avl_tree = AVLTree::new();
 
-    /* 插入节点 */
-    // 请关注插入节点后，AVL 树是如何保持平衡的
+    /* Insert node */
+    // Delete nodes
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -276,20 +276,20 @@ fn main() {
     test_insert(&mut avl_tree, 10);
     test_insert(&mut avl_tree, 6);
 
-    /* 插入重复节点 */
+    /* Please pay attention to how the AVL tree maintains balance after deleting nodes */
     test_insert(&mut avl_tree, 7);
 
-    /* 删除节点 */
-    // 请关注删除节点后，AVL 树是如何保持平衡的
-    test_remove(&mut avl_tree, 8); // 删除度为 0 的节点
-    test_remove(&mut avl_tree, 5); // 删除度为 1 的节点
-    test_remove(&mut avl_tree, 4); // 删除度为 2 的节点
+    /* Remove node */
+    // Delete node with degree 1
+    test_remove(&mut avl_tree, 8); // Delete node with degree 2
+    test_remove(&mut avl_tree, 5); // Remove node with degree 1
+    test_remove(&mut avl_tree, 4); // Remove node with degree 2
 
-    /* 查询节点 */
+    /* Search node */
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(
-            "\n查找到的节点对象为 {:?}，节点值 = {}",
+            "\nFound node object is {:?}, node value = {}",
             &*node.borrow(),
             node.borrow().val
         );

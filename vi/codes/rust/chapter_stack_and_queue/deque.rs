@@ -9,41 +9,41 @@ use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
-    // 初始化双向队列
+    // Get the length of the double-ended queue
     let mut deque: VecDeque<i32> = VecDeque::new();
     deque.push_back(3);
     deque.push_back(2);
     deque.push_back(5);
-    print!("双向队列 deque = ");
+    print!("Double-ended queue deque = ");
     print_util::print_queue(&deque);
 
-    // 访问元素
+    // Update element
     let peek_first = deque.front().unwrap();
-    print!("\n队首元素 peekFirst = {peek_first}");
+    print!("\nFront element peekFirst = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\n队尾元素 peekLast = {peek_last}");
+    print!("\nRear element peekLast = {peek_last}");
 
-    /* 元素入队 */
+    /* Elements enqueue */
     deque.push_back(4);
-    print!("\n元素 4 队尾入队后 deque = ");
+    print!("\nAfter element 4 enqueues at rear, deque = ");
     print_util::print_queue(&deque);
     deque.push_front(1);
-    print!("\n元素 1 队首入队后 deque = ");
+    print!("\nAfter element 1 enqueues at front, deque = ");
     print_util::print_queue(&deque);
 
-    // 元素出队
+    // Element dequeue
     let pop_last = deque.pop_back().unwrap();
-    print!("\n队尾出队元素 = {pop_last}，队尾出队后 deque = ");
+    print!("\nDequeue rear element = {pop_last}, after dequeue deque = ");
     print_util::print_queue(&deque);
     let pop_first = deque.pop_front().unwrap();
-    print!("\n队首出队元素 = {pop_first}，队首出队后 deque = ");
+    print!("\nDequeue front element = {pop_first}, after dequeue deque = ");
     print_util::print_queue(&deque);
 
-    // 获取双向队列的长度
+    // Get the length of the double-ended queue
     let size = deque.len();
-    print!("\n双向队列长度 size = {size}");
+    print!("\nDeque length size = {size}");
 
-    // 判断双向队列是否为空
+    // Check if the double-ended queue is empty
     let is_empty = deque.is_empty();
-    print!("\n双向队列是否为空 = {is_empty}");
+    print!("\nIs deque empty = {is_empty}");
 }

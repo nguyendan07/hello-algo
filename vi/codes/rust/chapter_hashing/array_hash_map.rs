@@ -4,37 +4,37 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com)
  */
 
-/* 键值对 */
+/* Key-value pair */
 #[derive(Debug, Clone, PartialEq)]
 pub struct Pair {
     pub key: i32,
     pub val: String,
 }
-/* 基于数组实现的哈希表 */
+/* Hash table based on array implementation */
 pub struct ArrayHashMap {
     buckets: Vec<Option<Pair>>,
 }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // 初始化数组，包含 100 个桶
+        // Initialize array with 100 buckets
         Self {
             buckets: vec![None; 100],
         }
     }
 
-    /* 哈希函数 */
+    /* Hash function */
     fn hash_func(&self, key: i32) -> usize {
         key as usize % 100
     }
 
-    /* 查询操作 */
+    /* Query operation */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
         self.buckets[index].as_ref().map(|pair| &pair.val)
     }
 
-    /* 添加操作 */
+    /* Add operation */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
         self.buckets[index] = Some(Pair {
@@ -43,14 +43,14 @@ impl ArrayHashMap {
         });
     }
 
-    /* 删除操作 */
+    /* Remove operation */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // 置为 None ，代表删除
+        // Set to None to represent removal
         self.buckets[index] = None;
     }
 
-    /* 获取所有键值对 */
+    /* Get all key-value pairs */
     pub fn entry_set(&self) -> Vec<&Pair> {
         self.buckets
             .iter()
@@ -58,7 +58,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* 获取所有键 */
+    /* Get all keys */
     pub fn key_set(&self) -> Vec<&i32> {
         self.buckets
             .iter()
@@ -66,7 +66,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* 获取所有值 */
+    /* Get all values */
     pub fn value_set(&self) -> Vec<&String> {
         self.buckets
             .iter()
@@ -74,7 +74,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* 打印哈希表 */
+    /* Print hash table */
     pub fn print(&self) {
         for pair in self.entry_set() {
             println!("{} -> {}", pair.key, pair.val);
@@ -83,41 +83,41 @@ impl ArrayHashMap {
 }
 
 fn main() {
-    /* 初始化哈希表 */
+    /* Initialize hash table */
     let mut map = ArrayHashMap::new();
-    /*添加操作 */
-    // 在哈希表中添加键值对（key, value）
-    map.put(12836, "小哈");
-    map.put(15937, "小啰");
-    map.put(16750, "小算");
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
-    println!("\n添加完成后，哈希表为\nKey -> Value");
+    /* Add operation */
+    // Add key-value pair (key, value) to hash table
+    map.put(12836, "Xiao Ha");
+    map.put(15937, "Xiao Luo");
+    map.put(16750, "Xiao Suan");
+    map.put(13276, "Xiao Fa");
+    map.put(10583, "Xiao Ya");
+    println!("\nAfter adding is complete, hash table is\nKey -> Value");
     map.print();
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    /* Query operation */
+    // Input key into hash table to get value
     let name = map.get(15937).unwrap();
-    println!("\n输入学号 15937 ，查询到姓名 {}", name);
+    println!("\nInput student ID 15937, found name {}", name);
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
+    /* Remove operation */
+    // Remove key-value pair (key, value) from hash table
     map.remove(10583);
-    println!("\n删除 10583 后，哈希表为\nKey -> Value");
+    println!("\nAfter removing 10583, hash table is\nKey -> Value");
     map.print();
 
-    /* 遍历哈希表 */
-    println!("\n遍历键值对 Key->Value");
+    /* Traverse hash table */
+    println!("\nTraverse key-value pairs Key->Value");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\n单独遍历键 Key");
+    println!("\nTraverse keys only Key");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\n单独遍历值 Value");
+    println!("\nTraverse values only Value");
     for val in map.value_set() {
         println!("{}", val);
     }

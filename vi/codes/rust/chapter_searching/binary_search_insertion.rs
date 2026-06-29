@@ -5,57 +5,57 @@
  */
 #![allow(unused)]
 
-/* 二分查找插入点（无重复元素） */
+/* Binary search for insertion point (no duplicate elements) */
 fn binary_search_insertion_simple(nums: &[i32], target: i32) -> i32 {
-    let (mut i, mut j) = (0, nums.len() as i32 - 1); // 初始化双闭区间 [0, n-1]
+    let (mut i, mut j) = (0, nums.len() as i32 - 1); // Initialize closed interval [0, n-1]
     while i <= j {
-        let m = i + (j - i) / 2; // 计算中点索引 m
+        let m = i + (j - i) / 2; // Calculate the midpoint index m
         if nums[m as usize] < target {
-            i = m + 1; // target 在区间 [m+1, j] 中
+            i = m + 1; // target is in the interval [m+1, j]
         } else if nums[m as usize] > target {
-            j = m - 1; // target 在区间 [i, m-1] 中
+            j = m - 1; // target is in the interval [i, m-1]
         } else {
             return m;
         }
     }
-    // 未找到 target ，返回插入点 i
+    // Target not found, return insertion point i
     i
 }
 
-/* 二分查找插入点（存在重复元素） */
+/* Binary search for insertion point (with duplicate elements) */
 pub fn binary_search_insertion(nums: &[i32], target: i32) -> i32 {
-    let (mut i, mut j) = (0, nums.len() as i32 - 1); // 初始化双闭区间 [0, n-1]
+    let (mut i, mut j) = (0, nums.len() as i32 - 1); // Initialize closed interval [0, n-1]
     while i <= j {
-        let m = i + (j - i) / 2; // 计算中点索引 m
+        let m = i + (j - i) / 2; // Calculate the midpoint index m
         if nums[m as usize] < target {
-            i = m + 1; // target 在区间 [m+1, j] 中
+            i = m + 1; // target is in the interval [m+1, j]
         } else if nums[m as usize] > target {
-            j = m - 1; // target 在区间 [i, m-1] 中
+            j = m - 1; // target is in the interval [i, m-1]
         } else {
-            j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            j = m - 1; // The first element less than target is in the interval [i, m-1]
         }
     }
-    // 返回插入点 i
+    // Return insertion point i
     i
 }
 
 /* Driver Code */
 fn main() {
-    // 无重复元素的数组
+    // Array without duplicate elements
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-    println!("\n数组 nums = {:?}", nums);
-    // 二分查找插入点
+    println!("\nArray nums = {:?}", nums);
+    // Binary search for insertion point
     for target in [6, 9] {
         let index = binary_search_insertion_simple(&nums, target);
-        println!("元素 {} 的插入点的索引为 {}", target, index);
+        println!("Insertion point index for element {} is {}", target, index);
     }
 
-    // 包含重复元素的数组
+    // Array with duplicate elements
     let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-    println!("\n数组 nums = {:?}", nums);
-    // 二分查找插入点
+    println!("\nArray nums = {:?}", nums);
+    // Binary search for insertion point
     for target in [2, 6, 20] {
         let index = binary_search_insertion(&nums, target);
-        println!("元素 {} 的插入点的索引为 {}", target, index);
+        println!("Insertion point index for element {} is {}", target, index);
     }
 }

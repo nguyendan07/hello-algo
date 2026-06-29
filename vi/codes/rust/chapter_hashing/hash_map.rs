@@ -10,38 +10,38 @@ use std::collections::HashMap;
 
 /* Driver Code */
 pub fn main() {
-    // 初始化哈希表
+    // Initialize hash table
     let mut map = HashMap::new();
 
-    // 添加操作
-    // 在哈希表中添加键值对 (key, value)
-    map.insert(12836, "小哈");
-    map.insert(15937, "小啰");
-    map.insert(16750, "小算");
-    map.insert(13276, "小法");
-    map.insert(10583, "小鸭");
-    println!("\n添加完成后，哈希表为\nKey -> Value");
+    // Add operation
+    // Add key-value pair (key, value) to the hash table
+    map.insert(12836, "Xiao Ha");
+    map.insert(15937, "Xiao Luo");
+    map.insert(16750, "Xiao Suan");
+    map.insert(13276, "Xiao Fa");
+    map.insert(10583, "Xiao Ya");
+    println!("\nAfter adding is complete, hash table is\nKey -> Value");
     print_util::print_hash_map(&map);
 
-    // 查询操作
-    // 向哈希表中输入键 key ，得到值 value
+    // Query operation
+    // Input key into hash table to get value
     let name = map.get(&15937).copied().unwrap();
-    println!("\n输入学号 15937 ，查询到姓名 {name}");
+    println!("\nInput student ID 15937, found name {name}");
 
-    // 删除操作
-    // 在哈希表中删除键值对 (key, value)
+    // Remove operation
+    // Remove key-value pair (key, value) from hash table
     _ = map.remove(&10583);
-    println!("\n删除 10583 后，哈希表为\nKey -> Value");
+    println!("\nAfter removing 10583, hash table is\nKey -> Value");
     print_util::print_hash_map(&map);
 
-    // 遍历哈希表
-    println!("\n遍历键值对 Key->Value");
+    // Traverse hash table
+    println!("\nTraverse key-value pairs Key->Value");
     print_util::print_hash_map(&map);
-    println!("\n单独遍历键 Key");
+    println!("\nTraverse keys only Key");
     for key in map.keys() {
         println!("{key}");
     }
-    println!("\n单独遍历值 value");
+    println!("\nTraverse values separately");
     for value in map.values() {
         println!("{value}");
     }

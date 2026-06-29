@@ -8,43 +8,43 @@ mod binary_search_insertion;
 
 use binary_search_insertion::binary_search_insertion;
 
-/* 二分查找最左一个 target */
+/* Binary search for the leftmost target */
 fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
-    // 等价于查找 target 的插入点
+    // Equivalent to finding the insertion point of target
     let i = binary_search_insertion(nums, target);
-    // 未找到 target ，返回 -1
+    // Target not found, return -1
     if i == nums.len() as i32 || nums[i as usize] != target {
         return -1;
     }
-    // 找到 target ，返回索引 i
+    // Found target, return index i
     i
 }
 
-/* 二分查找最右一个 target */
+/* Binary search for the rightmost target */
 fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
-    // 转化为查找最左一个 target + 1
+    // Convert to finding the leftmost target + 1
     let i = binary_search_insertion(nums, target + 1);
-    // j 指向最右一个 target ，i 指向首个大于 target 的元素
+    // j points to the rightmost target, i points to the first element greater than target
     let j = i - 1;
-    // 未找到 target ，返回 -1
+    // Target not found, return -1
     if j == -1 || nums[j as usize] != target {
         return -1;
     }
-    // 找到 target ，返回索引 j
+    // Found target, return index j
     j
 }
 
 /* Driver Code */
 fn main() {
-    // 包含重复元素的数组
+    // Array with duplicate elements
     let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-    println!("\n数组 nums = {:?}", nums);
+    println!("\nArray nums = {:?}", nums);
 
-    // 二分查找左边界和右边界
+    // Binary search left and right boundaries
     for target in [6, 7] {
         let index = binary_search_left_edge(&nums, target);
-        println!("最左一个元素 {} 的索引为 {}", target, index);
+        println!("Leftmost element {} index is {}", target, index);
         let index = binary_search_right_edge(&nums, target);
-        println!("最右一个元素 {} 的索引为 {}", target, index);
+        println!("Rightmost element {} index is {}", target, index);
     }
 }

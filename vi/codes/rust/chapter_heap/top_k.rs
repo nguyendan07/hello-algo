@@ -9,17 +9,17 @@ use hello_algo_rust::include::print_util;
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-/* 基于堆查找数组中最大的 k 个元素 */
+/* Find the largest k elements in array based on heap */
 fn top_k_heap(nums: Vec<i32>, k: usize) -> BinaryHeap<Reverse<i32>> {
-    // BinaryHeap 是大顶堆，使用 Reverse 将元素取反，从而实现小顶堆
+    // BinaryHeap is a max heap, use Reverse to negate elements to implement min heap
     let mut heap = BinaryHeap::<Reverse<i32>>::new();
-    // 将数组的前 k 个元素入堆
+    // Enter the first k elements of array into heap
     for &num in nums.iter().take(k) {
         heap.push(Reverse(num));
     }
-    // 从第 k+1 个元素开始，保持堆的长度为 k
+    // Starting from the (k+1)th element, maintain heap length as k
     for &num in nums.iter().skip(k) {
-        // 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆
+        // If current element is greater than top element, top element exits heap, current element enters heap
         if num > heap.peek().unwrap().0 {
             heap.pop();
             heap.push(Reverse(num));
@@ -34,6 +34,6 @@ fn main() {
     let k = 3;
 
     let res = top_k_heap(nums, k);
-    println!("最大的 {} 个元素为", k);
+    println!("The largest {} elements are", k);
     print_util::print_heap(res.into_iter().map(|item| item.0).collect());
 }

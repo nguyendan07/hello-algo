@@ -4,16 +4,16 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-/* 基于环形数组实现的队列 */
+/* Queue based on circular array implementation */
 struct ArrayQueue<T> {
-    nums: Vec<T>,      // 用于存储队列元素的数组
-    front: i32,        // 队首指针，指向队首元素
-    que_size: i32,     // 队列长度
-    que_capacity: i32, // 队列容量
+    nums: Vec<T>,      // Array for storing queue elements
+    front: i32,        // Front pointer, points to the front of the queue element
+    que_size: i32,     // Queue length
+    que_capacity: i32, // Queue capacity
 }
 
 impl<T: Copy + Default> ArrayQueue<T> {
-    /* 构造方法 */
+    /* Constructor */
     fn new(capacity: i32) -> ArrayQueue<T> {
         ArrayQueue {
             nums: vec![T::default(); capacity as usize],
@@ -23,45 +23,45 @@ impl<T: Copy + Default> ArrayQueue<T> {
         }
     }
 
-    /* 获取队列的容量 */
+    /* Get the capacity of the queue */
     fn capacity(&self) -> i32 {
         self.que_capacity
     }
 
-    /* 获取队列的长度 */
+    /* Get the length of the queue */
     fn size(&self) -> i32 {
         self.que_size
     }
 
-    /* 判断队列是否为空 */
+    /* Check if the queue is empty */
     fn is_empty(&self) -> bool {
         self.que_size == 0
     }
 
-    /* 入队 */
+    /* Enqueue */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("队列已满");
+            println!("Queue is full");
             return;
         }
-        // 计算队尾指针，指向队尾索引 + 1
-        // 通过取余操作实现 rear 越过数组尾部后回到头部
+        // Use modulo operation to wrap rear around to the head after passing the tail of the array
+        // Add num to the rear of the queue
         let rear = (self.front + self.que_size) % self.que_capacity;
-        // 将 num 添加至队尾
+        // Front pointer moves one position backward
         self.nums[rear as usize] = num;
         self.que_size += 1;
     }
 
-    /* 出队 */
+    /* Dequeue */
     fn pop(&mut self) -> T {
         let num = self.peek();
-        // 队首指针向后移动一位，若越过尾部，则返回到数组头部
+        // Move front pointer backward by one position, if it passes the tail, return to array head
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
         num
     }
 
-    /* 访问队首元素 */
+    /* Return list for printing */
     fn peek(&self) -> T {
         if self.is_empty() {
             panic!("index out of bounds");
@@ -69,7 +69,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.nums[self.front as usize]
     }
 
-    /* 返回数组 */
+    /* Return array */
     fn to_vector(&self) -> Vec<T> {
         let cap = self.que_capacity;
         let mut j = self.front;
@@ -84,42 +84,42 @@ impl<T: Copy + Default> ArrayQueue<T> {
 
 /* Driver Code */
 fn main() {
-    /* 初始化队列 */
+    /* Access front of the queue element */
     let capacity = 10;
     let mut queue = ArrayQueue::new(capacity);
 
-    /* 元素入队 */
+    /* Elements enqueue */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    println!("队列 queue = {:?}", queue.to_vector());
+    println!("Queue queue = {:?}", queue.to_vector());
 
-    /* 访问队首元素 */
+    /* Return list for printing */
     let peek = queue.peek();
-    println!("队首元素 peek = {}", peek);
+    println!("Front element peek = {}", peek);
 
-    /* 元素出队 */
+    /* Element dequeue */
     let pop = queue.pop();
     println!(
-        "出队元素 pop = {:?},出队后 queue = {:?}",
+        "Dequeue element pop = {:?}, after dequeue queue = {:?}",
         pop,
         queue.to_vector()
     );
 
-    /* 获取队列的长度 */
+    /* Get the length of the queue */
     let size = queue.size();
-    println!("队列长度 size = {}", size);
+    println!("Queue length size = {}", size);
 
-    /* 判断队列是否为空 */
+    /* Check if the queue is empty */
     let is_empty = queue.is_empty();
-    println!("队列是否为空 = {}", is_empty);
+    println!("Is queue empty = {}", is_empty);
 
-    /* 测试环形数组 */
+    /* Test circular array */
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("第 {:?} 轮入队 + 出队后 queue = {:?}", i, queue.to_vector());
+        println!("After round {:?} of enqueue + dequeue, queue = {:?}", i, queue.to_vector());
     }
 }

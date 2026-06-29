@@ -8,33 +8,33 @@ use hello_algo_rust::include::ListNode;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 线性查找（数组） */
+/* Linear search (array) */
 fn linear_search_array(nums: &[i32], target: i32) -> i32 {
-    // 遍历数组
+    // Traverse array
     for (i, num) in nums.iter().enumerate() {
-        // 找到目标元素，返回其索引
+        // Found the target element, return its index
         if num == &target {
             return i as i32;
         }
     }
-    // 未找到目标元素，返回 -1
+    // Target element not found, return -1
     return -1;
 }
 
-/* 线性查找（链表） */
+/* Linear search (linked list) */
 fn linear_search_linked_list(
     head: Rc<RefCell<ListNode<i32>>>,
     target: i32,
 ) -> Option<Rc<RefCell<ListNode<i32>>>> {
-    // 找到目标节点，返回之
+    // Found the target node, return it
     if head.borrow().val == target {
         return Some(head);
     };
-    // 找到目标节点，返回之
+    // Found the target node, return it
     if let Some(node) = &head.borrow_mut().next {
         return linear_search_linked_list(node.clone(), target);
     }
-    // 未找到目标节点，返回 None
+    // Target node not found, return None
     return None;
 }
 
@@ -42,13 +42,13 @@ fn linear_search_linked_list(
 pub fn main() {
     let target = 3;
 
-    /* 在数组中执行线性查找 */
+    /* Perform linear search in array */
     let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
     let index = linear_search_array(&nums, target);
-    println!("目标元素 3 的索引 = {}", index);
+    println!("Index of target element 3 = {}", index);
 
-    /* 在链表中执行线性查找 */
+    /* Perform linear search in linked list */
     let head = ListNode::arr_to_linked_list(&nums);
     let node = linear_search_linked_list(head.unwrap(), target);
-    println!("目标节点值 3 的对应节点对象为 {:?}", node);
+    println!("Node object corresponding to target node value 3 is {:?}", node);
 }

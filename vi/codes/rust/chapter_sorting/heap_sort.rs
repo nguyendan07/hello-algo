@@ -6,10 +6,10 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 堆的长度为 n ，从节点 i 开始，从顶至底堆化 */
+/* Heap length is n, start heapifying node i, from top to bottom */
 fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
     loop {
-        // 判断节点 i, l, r 中值最大的节点，记为 ma
+        // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
         let l = 2 * i + 1;
         let r = 2 * i + 2;
         let mut ma = i;
@@ -19,28 +19,28 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
         if r < n && nums[r] > nums[ma] {
             ma = r;
         }
-        // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+        // Swap two nodes
         if ma == i {
             break;
         }
-        // 交换两节点
+        // Swap two nodes
         nums.swap(i, ma);
-        // 循环向下堆化
+        // Loop downwards heapification
         i = ma;
     }
 }
 
-/* 堆排序 */
+/* Heap sort */
 fn heap_sort(nums: &mut [i32]) {
-    // 建堆操作：堆化除叶节点以外的其他所有节点
+    // Build heap operation: heapify all nodes except leaves
     for i in (0..nums.len() / 2).rev() {
         sift_down(nums, nums.len(), i);
     }
-    // 从堆中提取最大元素，循环 n-1 轮
+    // Extract the largest element from the heap and repeat for n-1 rounds
     for i in (1..nums.len()).rev() {
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
+        // Delete node
         nums.swap(0, i);
-        // 以根节点为起点，从顶至底进行堆化
+        // Start heapifying the root node, from top to bottom
         sift_down(nums, i, 0);
     }
 }
@@ -49,6 +49,6 @@ fn heap_sort(nums: &mut [i32]) {
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     heap_sort(&mut nums);
-    print!("堆排序完成后 nums = ");
+    print!("After heap sort completes, nums = ");
     print_util::print_array(&nums);
 }

@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 回溯算法：n 皇后 */
+/* Backtracking algorithm: N queens */
 fn backtrack(
     row: usize,
     n: usize,
@@ -14,37 +14,37 @@ fn backtrack(
     diags1: &mut [bool],
     diags2: &mut [bool],
 ) {
-    // 当放置完所有行时，记录解
+    // When all rows are placed, record the solution
     if row == n {
         res.push(state.clone());
         return;
     }
-    // 遍历所有列
+    // Traverse all columns
     for col in 0..n {
-        // 计算该格子对应的主对角线和次对角线
+        // Calculate the main diagonal and anti-diagonal corresponding to this cell
         let diag1 = row + n - 1 - col;
         let diag2 = row + col;
-        // 剪枝：不允许该格子所在列、主对角线、次对角线上存在皇后
+        // Pruning: do not allow queens to exist in the column, main diagonal, and anti-diagonal of this cell
         if !cols[col] && !diags1[diag1] && !diags2[diag2] {
-            // 尝试：将皇后放置在该格子
+            // Attempt: place the queen in this cell
             state[row][col] = "Q".into();
             (cols[col], diags1[diag1], diags2[diag2]) = (true, true, true);
-            // 放置下一行
+            // Place the next row
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
-            // 回退：将该格子恢复为空位
+            // Backtrack: restore this cell to an empty cell
             state[row][col] = "#".into();
             (cols[col], diags1[diag1], diags2[diag2]) = (false, false, false);
         }
     }
 }
 
-/* 求解 n 皇后 */
+/* Solve N queens */
 fn n_queens(n: usize) -> Vec<Vec<Vec<String>>> {
-    // 初始化 n*n 大小的棋盘，其中 'Q' 代表皇后，'#' 代表空位
+    // Initialize an n*n chessboard, where 'Q' represents a queen and '#' represents an empty cell
     let mut state: Vec<Vec<String>> = vec![vec!["#".to_string(); n]; n];
-    let mut cols = vec![false; n]; // 记录列是否有皇后
-    let mut diags1 = vec![false; 2 * n - 1]; // 记录主对角线上是否有皇后
-    let mut diags2 = vec![false; 2 * n - 1]; // 记录次对角线上是否有皇后
+    let mut cols = vec![false; n]; // Record whether there is a queen in the column
+    let mut diags1 = vec![false; 2 * n - 1]; // Record whether there is a queen on the main diagonal
+    let mut diags2 = vec![false; 2 * n - 1]; // Record whether there is a queen on the anti-diagonal
     let mut res: Vec<Vec<Vec<String>>> = Vec::new();
 
     backtrack(
@@ -65,8 +65,8 @@ pub fn main() {
     let n: usize = 4;
     let res = n_queens(n);
 
-    println!("输入棋盘长宽为 {n}");
-    println!("皇后放置方案共有 {} 种", res.len());
+    println!("Input board size is {n}");
+    println!("Total queen placement solutions: {}", res.len());
     for state in res.iter() {
         println!("--------------------");
         for row in state.iter() {

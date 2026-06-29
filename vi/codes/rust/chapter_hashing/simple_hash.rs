@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* 加法哈希 */
+/* Additive hash */
 fn add_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -16,7 +16,7 @@ fn add_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* 乘法哈希 */
+/* Multiplicative hash */
 fn mul_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -28,7 +28,7 @@ fn mul_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* 异或哈希 */
+/* XOR hash */
 fn xor_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -40,7 +40,7 @@ fn xor_hash(key: &str) -> i32 {
     (hash & MODULUS) as i32
 }
 
-/* 旋转哈希 */
+/* Rotational hash */
 fn rot_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -54,17 +54,17 @@ fn rot_hash(key: &str) -> i32 {
 
 /* Driver Code */
 fn main() {
-    let key = "Hello 算法";
+    let key = "Hello Algo";
 
     let hash = add_hash(key);
-    println!("加法哈希值为 {hash}");
+    println!("Additive hash value is {hash}");
 
     let hash = mul_hash(key);
-    println!("乘法哈希值为 {hash}");
+    println!("Multiplicative hash value is {hash}");
 
     let hash = xor_hash(key);
-    println!("异或哈希值为 {hash}");
+    println!("XOR hash value is {hash}");
 
     let hash = rot_hash(key);
-    println!("旋转哈希值为 {hash}");
+    println!("Rotational hash value is {hash}");
 }

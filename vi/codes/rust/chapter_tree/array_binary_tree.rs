@@ -6,25 +6,25 @@
 
 use hello_algo_rust::include::{print_util, tree_node};
 
-/* 数组表示下的二叉树类 */
+/* Binary tree class represented by array */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
 
 impl ArrayBinaryTree {
-    /* 构造方法 */
+    /* Constructor */
     fn new(arr: Vec<Option<i32>>) -> Self {
         Self { tree: arr }
     }
 
-    /* 列表容量 */
+    /* List capacity */
     fn size(&self) -> i32 {
         self.tree.len() as i32
     }
 
-    /* 获取索引为 i 节点的值 */
+    /* Get value of node at index i */
     fn val(&self, i: i32) -> Option<i32> {
-        // 若索引越界，则返回 None ，代表空位
+        // If index is out of bounds, return None, representing empty position
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,63 +32,63 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* 获取索引为 i 节点的左子节点的索引 */
+    /* Get index of left child node of node at index i */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* 获取索引为 i 节点的右子节点的索引 */
+    /* Get index of right child node of node at index i */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* 获取索引为 i 节点的父节点的索引 */
+    /* Get index of parent node of node at index i */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
 
-    /* 层序遍历 */
+    /* Level-order traversal */
     fn level_order(&self) -> Vec<i32> {
         self.tree.iter().filter_map(|&x| x).collect()
     }
 
-    /* 深度优先遍历 */
+    /* Depth-first traversal */
     fn dfs(&self, i: i32, order: &'static str, res: &mut Vec<i32>) {
         if self.val(i).is_none() {
             return;
         }
         let val = self.val(i).unwrap();
-        // 前序遍历
+        // Preorder traversal
         if order == "pre" {
             res.push(val);
         }
         self.dfs(self.left(i), order, res);
-        // 中序遍历
+        // Inorder traversal
         if order == "in" {
             res.push(val);
         }
         self.dfs(self.right(i), order, res);
-        // 后序遍历
+        // Postorder traversal
         if order == "post" {
             res.push(val);
         }
     }
 
-    /* 前序遍历 */
+    /* Preorder traversal */
     fn pre_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "pre", &mut res);
         res
     }
 
-    /* 中序遍历 */
+    /* Inorder traversal */
     fn in_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "in", &mut res);
         res
     }
 
-    /* 后序遍历 */
+    /* Postorder traversal */
     fn post_order(&self) -> Vec<i32> {
         let mut res = vec![];
         self.dfs(0, "post", &mut res);
@@ -98,8 +98,8 @@ impl ArrayBinaryTree {
 
 /* Driver Code */
 fn main() {
-    // 初始化二叉树
-    // 这里借助了一个从数组直接生成二叉树的函数
+    // Initialize binary tree
+    // Here we use a function to generate a binary tree directly from an array
     let arr = vec![
         Some(1),
         Some(2),
@@ -119,8 +119,8 @@ fn main() {
     ];
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
-    println!("\n初始化二叉树\n");
-    println!("二叉树的数组表示：");
+    println!("\nInitialize binary tree\n");
+    println!("Array representation of binary tree:");
     println!(
         "[{}]",
         arr.iter()
@@ -132,19 +132,19 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("二叉树的链表表示：");
+    println!("Linked list representation of binary tree:");
     print_util::print_tree(&root);
 
-    // 数组表示下的二叉树类
+    // Binary tree class represented by array
     let abt = ArrayBinaryTree::new(arr);
 
-    // 访问节点
+    // Access node
     let i = 1;
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\n当前节点的索引为 {} ，值为 {}",
+        "\nCurrent node index is {}, value is {}",
         i,
         if let Some(val) = abt.val(i) {
             format!("{val}")
@@ -153,7 +153,7 @@ fn main() {
         }
     );
     println!(
-        "其左子节点的索引为 {} ，值为 {}",
+        "Left child index is {}, value is {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +162,7 @@ fn main() {
         }
     );
     println!(
-        "其右子节点的索引为 {} ，值为 {}",
+        "Right child index is {}, value is {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -171,7 +171,7 @@ fn main() {
         }
     );
     println!(
-        "其父节点的索引为 {} ，值为 {}",
+        "Parent node index is {}, value is {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")
@@ -180,13 +180,13 @@ fn main() {
         }
     );
 
-    // 遍历树
+    // Traverse tree
     let mut res = abt.level_order();
-    println!("\n层序遍历为：{:?}", res);
+    println!("\nLevel-order traversal is: {:?}", res);
     res = abt.pre_order();
-    println!("前序遍历为：{:?}", res);
+    println!("Pre-order traversal is: {:?}", res);
     res = abt.in_order();
-    println!("中序遍历为：{:?}", res);
+    println!("In-order traversal is: {:?}", res);
     res = abt.post_order();
-    println!("后序遍历为：{:?}", res);
+    println!("Post-order traversal is: {:?}", res);
 }

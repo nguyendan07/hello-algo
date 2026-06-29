@@ -4,25 +4,25 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 爬楼梯：动态规划 */
+/* Climbing stairs: Dynamic programming */
 fn climbing_stairs_dp(n: usize) -> i32 {
-    // 已知 dp[1] 和 dp[2] ，返回之
+    // Known dp[1] and dp[2], return them
     if n == 1 || n == 2 {
         return n as i32;
     }
-    // 初始化 dp 表，用于存储子问题的解
+    // Initialize dp table, used to store solutions to subproblems
     let mut dp = vec![-1; n + 1];
-    // 初始状态：预设最小子问题的解
+    // Initial state: preset the solution to the smallest subproblem
     dp[1] = 1;
     dp[2] = 2;
-    // 状态转移：从较小子问题逐步求解较大子问题
+    // State transition: gradually solve larger subproblems from smaller ones
     for i in 3..=n {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
     dp[n]
 }
 
-/* 爬楼梯：空间优化后的动态规划 */
+/* Climbing stairs: Space-optimized dynamic programming */
 fn climbing_stairs_dp_comp(n: usize) -> i32 {
     if n == 1 || n == 2 {
         return n as i32;
@@ -41,8 +41,8 @@ pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dp(n);
-    println!("爬 {n} 阶楼梯共有 {res} 种方案");
+    println!("Climbing {n} stairs has {res} solutions");
 
     let res = climbing_stairs_dp_comp(n);
-    println!("爬 {n} 阶楼梯共有 {res} 种方案");
+    println!("Climbing {n} stairs has {res} solutions");
 }

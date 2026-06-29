@@ -10,18 +10,18 @@ mod array_hash_map;
 
 use array_hash_map::Pair;
 
-/* 开放寻址哈希表 */
+/* Hash table with open addressing */
 struct HashMapOpenAddressing {
-    size: usize,                // 键值对数量
-    capacity: usize,            // 哈希表容量
-    load_thres: f64,            // 触发扩容的负载因子阈值
-    extend_ratio: usize,        // 扩容倍数
-    buckets: Vec<Option<Pair>>, // 桶数组
-    TOMBSTONE: Option<Pair>,    // 删除标记
+    size: usize,                // Number of key-value pairs
+    capacity: usize,            // Hash table capacity
+    load_thres: f64,            // Load factor threshold for triggering expansion
+    extend_ratio: usize,        // Expansion multiplier
+    buckets: Vec<Option<Pair>>, // Bucket array
+    TOMBSTONE: Option<Pair>,    // Removal marker
 }
 
 impl HashMapOpenAddressing {
-    /* 构造方法 */
+    /* Constructor */
     fn new() -> Self {
         Self {
             size: 0,
@@ -36,40 +36,40 @@ impl HashMapOpenAddressing {
         }
     }
 
-    /* 哈希函数 */
+    /* Hash function */
     fn hash_func(&self, key: i32) -> usize {
         (key % self.capacity as i32) as usize
     }
 
-    /* 负载因子 */
+    /* Load factor */
     fn load_factor(&self) -> f64 {
         self.size as f64 / self.capacity as f64
     }
 
-    /* 搜索 key 对应的桶索引 */
+    /* Search for bucket index corresponding to key */
     fn find_bucket(&mut self, key: i32) -> usize {
         let mut index = self.hash_func(key);
         let mut first_tombstone = -1;
-        // 线性探测，当遇到空桶时跳出
+        // Linear probing, break when encountering an empty bucket
         while self.buckets[index].is_some() {
-            // 若遇到 key，返回对应的桶索引
+            // If key is found, return corresponding bucket index
             if self.buckets[index].as_ref().unwrap().key == key {
-                // 若之前遇到了删除标记，则将建值对移动至该索引
+                // If deletion marker was encountered before, move key-value pair to that index
                 if first_tombstone != -1 {
                     self.buckets[first_tombstone as usize] = self.buckets[index].take();
                     self.buckets[index] = self.TOMBSTONE.clone();
-                    return first_tombstone as usize; // 返回移动后的桶索引
+                    return first_tombstone as usize; // Return the moved bucket index
                 }
-                return index; // 返回桶索引
+                return index; // Return bucket index
             }
-            // 记录遇到的首个删除标记
+            // Record the first removal marker encountered
             if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                 first_tombstone = index as i32;
             }
-            // 计算桶索引，越过尾部则返回头部
+            // Calculate bucket index, wrap around to the head if past the tail
             index = (index + 1) % self.capacity;
         }
-        // 若 key 不存在，则返回添加点的索引
+        // If key does not exist, return the index for insertion
         if first_tombstone == -1 {
             index
         } else {
@@ -77,57 +77,57 @@ impl HashMapOpenAddressing {
         }
     }
 
-    /* 查询操作 */
+    /* Query operation */
     fn get(&mut self, key: i32) -> Option<&str> {
-        // 搜索 key 对应的桶索引
+        // Search for bucket index corresponding to key
         let index = self.find_bucket(key);
-        // 若找到键值对，则返回对应 val
+        // If key-value pair is found, return corresponding val
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             return self.buckets[index].as_ref().map(|pair| &pair.val as &str);
         }
-        // 若键值对不存在，则返回 null
+        // If key-value pair does not exist, return null
         None
     }
 
-    /* 添加操作 */
+    /* Add operation */
     fn put(&mut self, key: i32, val: String) {
-        // 当负载因子超过阈值时，执行扩容
+        // When load factor exceeds threshold, perform expansion
         if self.load_factor() > self.load_thres {
             self.extend();
         }
-        // 搜索 key 对应的桶索引
+        // Search for bucket index corresponding to key
         let index = self.find_bucket(key);
-        // 若找到键值对，则覆盖 val 并返回
+        // If key-value pair is found, overwrite val and return
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             self.buckets[index].as_mut().unwrap().val = val;
             return;
         }
-        // 若键值对不存在，则添加该键值对
+        // If key-value pair does not exist, add the key-value pair
         self.buckets[index] = Some(Pair { key, val });
         self.size += 1;
     }
 
-    /* 删除操作 */
+    /* Remove operation */
     fn remove(&mut self, key: i32) {
-        // 搜索 key 对应的桶索引
+        // Search for bucket index corresponding to key
         let index = self.find_bucket(key);
-        // 若找到键值对，则用删除标记覆盖它
+        // If key-value pair is found, overwrite it with removal marker
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             self.buckets[index] = self.TOMBSTONE.clone();
             self.size -= 1;
         }
     }
 
-    /* 扩容哈希表 */
+    /* Expand hash table */
     fn extend(&mut self) {
-        // 暂存原哈希表
+        // Temporarily store the original hash table
         let buckets_tmp = self.buckets.clone();
-        // 初始化扩容后的新哈希表
+        // Initialize expanded new hash table
         self.capacity *= self.extend_ratio;
         self.buckets = vec![None; self.capacity];
         self.size = 0;
 
-        // 将键值对从原哈希表搬运至新哈希表
+        // Move key-value pairs from original hash table to new hash table
         for pair in buckets_tmp {
             if pair.is_none() || pair == self.TOMBSTONE {
                 continue;
@@ -137,7 +137,7 @@ impl HashMapOpenAddressing {
             self.put(pair.key, pair.val);
         }
     }
-    /* 打印哈希表 */
+    /* Print hash table */
     fn print(&self) {
         for pair in &self.buckets {
             if pair.is_none() {
@@ -154,28 +154,28 @@ impl HashMapOpenAddressing {
 
 /* Driver Code */
 fn main() {
-    /* 初始化哈希表 */
+    /* Initialize hash table */
     let mut hashmap = HashMapOpenAddressing::new();
 
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    hashmap.put(12836, "小哈".to_string());
-    hashmap.put(15937, "小啰".to_string());
-    hashmap.put(16750, "小算".to_string());
-    hashmap.put(13276, "小法".to_string());
-    hashmap.put(10583, "小鸭".to_string());
+    /* Add operation */
+    // Add key-value pair (key, value) to the hash table
+    hashmap.put(12836, "Xiao Ha".to_string());
+    hashmap.put(15937, "Xiao Luo".to_string());
+    hashmap.put(16750, "Xiao Suan".to_string());
+    hashmap.put(13276, "Xiao Fa".to_string());
+    hashmap.put(10583, "Xiao Ya".to_string());
 
-    println!("\n添加完成后，哈希表为\nKey -> Value");
+    println!("\nAfter adding is complete, hash table is\nKey -> Value");
     hashmap.print();
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 val
+    /* Query operation */
+    // Input key into hash table to get value val
     let name = hashmap.get(13276).unwrap();
-    println!("\n输入学号 13276 ，查询到姓名 {}", name);
+    println!("\nInput student ID 13276, found name {}", name);
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, val)
+    /* Remove operation */
+    // Remove key-value pair (key, val) from hash table
     hashmap.remove(16750);
-    println!("\n删除 16750 后，哈希表为\nKey -> Value");
+    println!("\nAfter removing 16750, hash table is\nKey -> Value");
     hashmap.print();
 }

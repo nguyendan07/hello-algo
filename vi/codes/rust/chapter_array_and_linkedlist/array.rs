@@ -1,65 +1,65 @@
 /*
- * Tệp: array.rs
- * Thời gian tạo: 2023-01-15
- * Tác giả: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
+ * File: array.rs
+ * Created Time: 2023-01-15
+ * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
 use hello_algo_rust::include::print_util;
 use rand::Rng;
 
-/* Truy cập ngẫu nhiên phần tử */
+/* Random access to element */
 fn random_access(nums: &[i32]) -> i32 {
-    // Trong khoảng [0, nums.len()) ngẫu nhiên chọn một số
+    // Randomly select a number in interval [0, nums.len())
     let random_index = rand::thread_rng().gen_range(0..nums.len());
-    // Lấy và trả về phần tử ngẫu nhiên
+    // Retrieve and return the random element
     let random_num = nums[random_index];
     random_num
 }
 
-/* Mở rộng độ dài mảng */
+/* Extend array length */
 fn extend(nums: &[i32], enlarge: usize) -> Vec<i32> {
-    // Khởi tạo một mảng với độ dài mở rộng
+    // Initialize an array with extended length
     let mut res: Vec<i32> = vec![0; nums.len() + enlarge];
-    // Sao chép tất cả phần tử của mảng gốc vào mảng mới
+    // Copy all elements from original array to new
     res[0..nums.len()].copy_from_slice(nums);
 
-    // Trả về mảng mới đã mở rộng
+    // Return the extended new array
     res
 }
 
-/* Chèn phần tử num tại chỉ mục index của mảng */
+/* Insert element num at index index in the array */
 fn insert(nums: &mut [i32], num: i32, index: usize) {
-    // Dịch chuyển tất cả phần tử từ chỉ mục index trở đi về sau một vị trí
+    // Move all elements at and after index index backward by one position
     for i in (index + 1..nums.len()).rev() {
         nums[i] = nums[i - 1];
     }
-    // Gán num cho phần tử tại vị trí index
+    // Assign num to the element at index index
     nums[index] = num;
 }
 
-/* Xóa phần tử tại chỉ mục index */
+/* Remove the element at index index */
 fn remove(nums: &mut [i32], index: usize) {
-    // Dịch chuyển tất cả phần tử sau chỉ mục index về trước một vị trí
+    // Move all elements after index index forward by one position
     for i in index..nums.len() - 1 {
         nums[i] = nums[i + 1];
     }
 }
 
-/* Duyệt mảng */
+/* Traverse array */
 fn traverse(nums: &[i32]) {
     let mut _count = 0;
-    // Duyệt mảng qua chỉ mục
+    // Traverse array by index
     for i in 0..nums.len() {
         _count += nums[i];
     }
-    // Duyệt trực tiếp các phần tử của mảng
+    // Direct traversal of array elements
     _count = 0;
     for &num in nums {
         _count += num;
     }
 }
 
-/* Tìm phần tử chỉ định trong mảng */
+/* Find the specified element in the array */
 fn find(nums: &[i32], target: i32) -> Option<usize> {
     for i in 0..nums.len() {
         if nums[i] == target {
@@ -69,44 +69,43 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
     None
 }
 
-/* Mã chính */
+/* Driver Code */
 fn main() {
-    /* Khởi tạo mảng */
+    /* Initialize array */
     let arr: [i32; 5] = [0; 5];
-    print!("Mảng arr = ");
+    print!("Array arr = ");
     print_util::print_array(&arr);
-    // Trong Rust, khi chỉ định độ dài ([i32; 5]) là mảng, không chỉ định độ dài (&[i32]) là lát cắt
-    // Vì mảng Rust được thiết kế để xác định độ dài tại thời điểm biên dịch, nên chỉ có thể sử dụng hằng số để chỉ định độ dài
-    // Vector là kiểu được sử dụng làm mảng động trong Rust nói chung
-    // Để thuận tiện cho việc triển khai phương thức mở rộng extend(), dưới đây coi vector như mảng (array)
+    // In Rust, specifying length ([i32; 5]) is an array, without length (&[i32]) is a slice
+    // Since Rust arrays are designed to have compile-time determined length, only constants can specify length
+    // Vector is the type Rust generally uses as a dynamic array
+    // To facilitate implementing the extend() method, the following treats vector as array
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
-    print!("\nMảng nums = ");
+    print!("\nArray nums = ");
     print_util::print_array(&nums);
 
-    // Truy cập ngẫu nhiên
+    // Insert element
     let random_num = random_access(&nums);
-    println!("\nLấy phần tử ngẫu nhiên trong nums {}", random_num);
+    println!("\nGet random element {} from nums", random_num);
 
-    // Mở rộng độ dài
+    // Traverse array
     let mut nums: Vec<i32> = extend(&nums, 3);
-    print!("Mở rộng độ dài mảng lên 8 , được nums = ");
+    print!("Extend array length to 8, resulting in nums = ");
     print_util::print_array(&nums);
 
-    // Chèn phần tử
+    // Insert element
     insert(&mut nums, 6, 3);
-    print!("\nChèn số 6 tại chỉ mục 3 , được nums = ");
+    print!("\nInsert number 6 at index 3, get nums = ");
     print_util::print_array(&nums);
 
-    // Xóa phần tử
+    // Remove element
     remove(&mut nums, 2);
-    print!("\nXóa phần tử tại chỉ mục 2, được nums = ");
+    print!("\nDelete element at index 2, get nums = ");
     print_util::print_array(&nums);
 
-    // Duyệt mảng
+    // Traverse array
     traverse(&nums);
 
-    // Tìm phần tử
+    // Find element
     let index = find(&nums, 3).unwrap();
-    println!("\nTìm phần tử 3 trong nums , được chỉ mục = {}", index);
+    println!("\nFind element 3 in nums, index = {}", index);
 }
-

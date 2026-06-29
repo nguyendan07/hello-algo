@@ -9,11 +9,11 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 基于链表实现的栈 */
+/* Stack based on linked list implementation */
 #[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 将头节点作为栈顶
-    stk_size: usize,                              // 栈的长度
+    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Use head node as stack top
+    stk_size: usize,                              // Stack length
 }
 
 impl<T: Copy> LinkedListStack<T> {
@@ -24,17 +24,17 @@ impl<T: Copy> LinkedListStack<T> {
         }
     }
 
-    /* 获取栈的长度 */
+    /* Get the length of the stack */
     pub fn size(&self) -> usize {
         return self.stk_size;
     }
 
-    /* 判断栈是否为空 */
+    /* Check if the stack is empty */
     pub fn is_empty(&self) -> bool {
         return self.size() == 0;
     }
 
-    /* 入栈 */
+    /* Push */
     pub fn push(&mut self, num: T) {
         let node = ListNode::new(num);
         node.borrow_mut().next = self.stack_peek.take();
@@ -42,7 +42,7 @@ impl<T: Copy> LinkedListStack<T> {
         self.stk_size += 1;
     }
 
-    /* 出栈 */
+    /* Pop */
     pub fn pop(&mut self) -> Option<T> {
         self.stack_peek.take().map(|old_head| {
             self.stack_peek = old_head.borrow_mut().next.take();
@@ -52,12 +52,12 @@ impl<T: Copy> LinkedListStack<T> {
         })
     }
 
-    /* 访问栈顶元素 */
+    /* Return list for printing */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.stack_peek.as_ref()
     }
 
-    /* 将 List 转化为 Array 并返回 */
+    /* Convert List to Array and return */
     pub fn to_array(&self) -> Vec<T> {
         fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
             if let Some(node) = head {
@@ -74,32 +74,32 @@ impl<T: Copy> LinkedListStack<T> {
 
 /* Driver Code */
 fn main() {
-    /* 初始化栈 */
+    /* Access top of the stack element */
     let mut stack = LinkedListStack::new();
 
-    /* 元素入栈 */
+    /* Elements push onto stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("栈 stack = ");
+    print!("Stack stack = ");
     print_util::print_array(&stack.to_array());
 
-    /* 访问栈顶元素 */
+    /* Return list for printing */
     let peek = stack.peek().unwrap().borrow().val;
-    print!("\n栈顶元素 peek = {}", peek);
+    print!("\nTop element peek = {}", peek);
 
-    /* 元素出栈 */
+    /* Element pop from stack */
     let pop = stack.pop().unwrap();
-    print!("\n出栈元素 pop = {}，出栈后 stack = ", pop);
+    print!("\nPop element pop = {}, after pop stack = ", pop);
     print_util::print_array(&stack.to_array());
 
-    /* 获取栈的长度 */
+    /* Get the length of the stack */
     let size = stack.size();
-    print!("\n栈的长度 size = {}", size);
+    print!("\nStack length size = {}", size);
 
-    /* 判断是否为空 */
+    /* Check if empty */
     let is_empty = stack.is_empty();
-    print!("\n栈是否为空 = {}", is_empty);
+    print!("\nIs stack empty = {}", is_empty);
 }

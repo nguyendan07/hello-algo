@@ -19,7 +19,7 @@ impl<T> ListNode<T> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
 
-    /* 将数组反序列化为链表 */
+    /* Deserialize array to linked list */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
     where
         T: Copy + Clone,
@@ -36,7 +36,7 @@ impl<T> ListNode<T> {
         head
     }
 
-    /* 将链表转化为哈希表 */
+    /* Convert linked list to hash table */
     pub fn linked_list_to_hashmap(
         linked_list: Option<Rc<RefCell<ListNode<T>>>>,
     ) -> HashMap<T, Rc<RefCell<ListNode<T>>>>

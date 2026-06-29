@@ -14,69 +14,69 @@ use hello_algo_rust::include::TreeNode;
 
 type OptionTreeNodeRc = Option<Rc<RefCell<TreeNode>>>;
 
-/* 二叉搜索树 */
+/* Binary search tree */
 pub struct BinarySearchTree {
     root: OptionTreeNodeRc,
 }
 
 impl BinarySearchTree {
-    /* 构造方法 */
+    /* Constructor */
     pub fn new() -> Self {
-        // 初始化空树
+        // Initialize empty tree
         Self { root: None }
     }
 
-    /* 获取二叉树根节点 */
+    /* Get binary tree root node */
     pub fn get_root(&self) -> OptionTreeNodeRc {
         self.root.clone()
     }
 
-    /* 查找节点 */
+    /* Search node */
     pub fn search(&self, num: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // 循环查找，越过叶节点后跳出
+        // Loop search, exit after passing leaf node
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 目标节点在 cur 的右子树中
+                // Target node is in cur's right subtree
                 Ordering::Greater => cur = node.borrow().right.clone(),
-                // 目标节点在 cur 的左子树中
+                // Target node is in cur's left subtree
                 Ordering::Less => cur = node.borrow().left.clone(),
-                // 找到目标节点，跳出循环
+                // Found target node, exit loop
                 Ordering::Equal => break,
             }
         }
 
-        // 返回目标节点
+        // Return target node
         cur
     }
 
-    /* 插入节点 */
+    /* Insert node */
     pub fn insert(&mut self, num: i32) {
-        // 若树为空，则初始化根节点
+        // If tree is empty, initialize root node
         if self.root.is_none() {
             self.root = Some(TreeNode::new(num));
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // 循环查找，越过叶节点后跳出
+        // Loop search, exit after passing leaf node
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 找到重复节点，直接返回
+                // Found duplicate node, return directly
                 Ordering::Equal => return,
-                // 插入位置在 cur 的右子树中
+                // Insertion position is in cur's right subtree
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // 插入位置在 cur 的左子树中
+                // Insertion position is in cur's left subtree
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
                 }
             }
         }
-        // 插入节点
+        // Insert node
         let pre = pre.unwrap();
         let node = Some(TreeNode::new(num));
         if num > pre.borrow().val {
@@ -86,44 +86,44 @@ impl BinarySearchTree {
         }
     }
 
-    /* 删除节点 */
+    /* Remove node */
     pub fn remove(&mut self, num: i32) {
-        // 若树为空，直接提前返回
+        // If tree is empty, return directly
         if self.root.is_none() {
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // 循环查找，越过叶节点后跳出
+        // Loop search, exit after passing leaf node
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 找到待删除节点，跳出循环
+                // Found node to delete, exit loop
                 Ordering::Equal => break,
-                // 待删除节点在 cur 的右子树中
+                // Node to delete is in cur's right subtree
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // 待删除节点在 cur 的左子树中
+                // Node to delete is in cur's left subtree
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
                 }
             }
         }
-        // 若无待删除节点，则直接返回
+        // If no node to delete, return directly
         if cur.is_none() {
             return;
         }
         let cur = cur.unwrap();
         let (left_child, right_child) = (cur.borrow().left.clone(), cur.borrow().right.clone());
         match (left_child.clone(), right_child.clone()) {
-            // 子节点数量 = 0 or 1
+            // Number of child nodes = 0 or 1
             (None, None) | (Some(_), None) | (None, Some(_)) => {
-                // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
+                // When number of child nodes = 0 / 1, child = nullptr / that child node
                 let child = left_child.or(right_child);
                 let pre = pre.unwrap();
-                // 删除节点 cur
+                // Delete node cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
                     let left = pre.borrow().left.clone();
                     if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
@@ -132,13 +132,13 @@ impl BinarySearchTree {
                         pre.borrow_mut().right = child;
                     }
                 } else {
-                    // 若删除节点为根节点，则重新指定根节点
+                    // If deleted node is root node, reassign root node
                     self.root = child;
                 }
             }
-            // 子节点数量 = 2
+            // Number of child nodes = 2
             (Some(_), Some(_)) => {
-                // 获取中序遍历中 cur 的下一个节点
+                // Get next node of cur in inorder traversal
                 let mut tmp = cur.borrow().right.clone();
                 while let Some(node) = tmp.clone() {
                     if node.borrow().left.is_some() {
@@ -148,9 +148,9 @@ impl BinarySearchTree {
                     }
                 }
                 let tmp_val = tmp.unwrap().borrow().val;
-                // 递归删除节点 tmp
+                // Recursively delete node tmp
                 self.remove(tmp_val);
-                // 用 tmp 覆盖 cur
+                // Replace cur with tmp
                 cur.borrow_mut().val = tmp_val;
             }
         }
@@ -159,37 +159,37 @@ impl BinarySearchTree {
 
 /* Driver Code */
 fn main() {
-    /* 初始化二叉搜索树 */
+    /* Initialize binary search tree */
     let mut bst = BinarySearchTree::new();
-    // 请注意，不同的插入顺序会生成不同的二叉树，该序列可以生成一个完美二叉树
+    // Please note that different insertion orders will generate different binary trees, this sequence can generate a perfect binary tree
     let nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
     for &num in &nums {
         bst.insert(num);
     }
-    println!("\n初始化的二叉树为\n");
+    println!("\nInitialized binary tree is\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
-    /* 查找结点 */
+    /* Search node */
     let node = bst.search(7);
     println!(
-        "\n查找到的节点对象为 {:?}，节点值 = {}",
+        "\nFound node object is {:?}, node value = {}",
         node.clone().unwrap(),
         node.clone().unwrap().borrow().val
     );
 
-    /* 插入节点 */
+    /* Insert node */
     bst.insert(16);
-    println!("\n插入节点 16 后，二叉树为\n");
+    println!("\nAfter inserting node 16, binary tree is\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
-    /* 删除节点 */
+    /* Remove node */
     bst.remove(1);
-    println!("\n删除节点 1 后，二叉树为\n");
+    println!("\nAfter removing node 1, binary tree is\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
     bst.remove(2);
-    println!("\n删除节点 2 后，二叉树为\n");
+    println!("\nAfter removing node 2, binary tree is\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
     bst.remove(4);
-    println!("\n删除节点 4 后，二叉树为\n");
+    println!("\nAfter removing node 4, binary tree is\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 }

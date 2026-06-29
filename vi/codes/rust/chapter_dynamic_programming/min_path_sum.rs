@@ -4,60 +4,60 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 最小路径和：暴力搜索 */
+/* Minimum path sum: Brute-force search */
 fn min_path_sum_dfs(grid: &Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
-    // 若为左上角单元格，则终止搜索
+    // If it's the top-left cell, terminate the search
     if i == 0 && j == 0 {
         return grid[0][0];
     }
-    // 若行列索引越界，则返回 +∞ 代价
+    // If row or column index is out of bounds, return +∞ cost
     if i < 0 || j < 0 {
         return i32::MAX;
     }
-    // 计算从左上角到 (i-1, j) 和 (i, j-1) 的最小路径代价
+    // Calculate the minimum path cost from top-left to (i-1, j) and (i, j-1)
     let up = min_path_sum_dfs(grid, i - 1, j);
     let left = min_path_sum_dfs(grid, i, j - 1);
-    // 返回从左上角到 (i, j) 的最小路径代价
+    // Return the minimum path cost from top-left to (i, j)
     std::cmp::min(left, up) + grid[i as usize][j as usize]
 }
 
-/* 最小路径和：记忆化搜索 */
+/* Minimum path sum: Memoization search */
 fn min_path_sum_dfs_mem(grid: &Vec<Vec<i32>>, mem: &mut Vec<Vec<i32>>, i: i32, j: i32) -> i32 {
-    // 若为左上角单元格，则终止搜索
+    // If it's the top-left cell, terminate the search
     if i == 0 && j == 0 {
         return grid[0][0];
     }
-    // 若行列索引越界，则返回 +∞ 代价
+    // If row or column index is out of bounds, return +∞ cost
     if i < 0 || j < 0 {
         return i32::MAX;
     }
-    // 若已有记录，则直接返回
+    // If there's a record, return it directly
     if mem[i as usize][j as usize] != -1 {
         return mem[i as usize][j as usize];
     }
-    // 左边和上边单元格的最小路径代价
+    // Minimum path cost for left and upper cells
     let up = min_path_sum_dfs_mem(grid, mem, i - 1, j);
     let left = min_path_sum_dfs_mem(grid, mem, i, j - 1);
-    // 记录并返回左上角到 (i, j) 的最小路径代价
+    // Record and return the minimum path cost from top-left to (i, j)
     mem[i as usize][j as usize] = std::cmp::min(left, up) + grid[i as usize][j as usize];
     mem[i as usize][j as usize]
 }
 
-/* 最小路径和：动态规划 */
+/* Minimum path sum: Dynamic programming */
 fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
-    // 初始化 dp 表
+    // Initialize dp table
     let mut dp = vec![vec![0; m]; n];
     dp[0][0] = grid[0][0];
-    // 状态转移：首行
+    // State transition: first row
     for j in 1..m {
         dp[0][j] = dp[0][j - 1] + grid[0][j];
     }
-    // 状态转移：首列
+    // State transition: first column
     for i in 1..n {
         dp[i][0] = dp[i - 1][0] + grid[i][0];
     }
-    // 状态转移：其余行和列
+    // State transition: rest of the rows and columns
     for i in 1..n {
         for j in 1..m {
             dp[i][j] = std::cmp::min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
@@ -66,21 +66,21 @@ fn min_path_sum_dp(grid: &Vec<Vec<i32>>) -> i32 {
     dp[n - 1][m - 1]
 }
 
-/* 最小路径和：空间优化后的动态规划 */
+/* Minimum path sum: Space-optimized dynamic programming */
 fn min_path_sum_dp_comp(grid: &Vec<Vec<i32>>) -> i32 {
     let (n, m) = (grid.len(), grid[0].len());
-    // 初始化 dp 表
+    // Initialize dp table
     let mut dp = vec![0; m];
-    // 状态转移：首行
+    // State transition: first row
     dp[0] = grid[0][0];
     for j in 1..m {
         dp[j] = dp[j - 1] + grid[0][j];
     }
-    // 状态转移：其余行
+    // State transition: rest of the rows
     for i in 1..n {
-        // 状态转移：首列
+        // State transition: first column
         dp[0] = dp[0] + grid[i][0];
-        // 状态转移：其余列
+        // State transition: rest of the columns
         for j in 1..m {
             dp[j] = std::cmp::min(dp[j - 1], dp[j]) + grid[i][j];
         }
@@ -98,23 +98,23 @@ pub fn main() {
     ];
     let (n, m) = (grid.len(), grid[0].len());
 
-    // 暴力搜索
+    // Brute-force search
     let res = min_path_sum_dfs(&grid, n as i32 - 1, m as i32 - 1);
-    println!("从左上角到右下角的最小路径和为 {res}");
+    println!("Minimum path sum from top-left to bottom-right is {res}");
 
-    // 记忆化搜索
+    // Memoization search
     let mut mem = vec![vec![0; m]; n];
     for row in mem.iter_mut() {
         row.fill(-1);
     }
     let res = min_path_sum_dfs_mem(&grid, &mut mem, n as i32 - 1, m as i32 - 1);
-    println!("从左上角到右下角的最小路径和为 {res}");
+    println!("Minimum path sum from top-left to bottom-right is {res}");
 
-    // 动态规划
+    // Dynamic programming
     let res = min_path_sum_dp(&grid);
-    println!("从左上角到右下角的最小路径和为 {res}");
+    println!("Minimum path sum from top-left to bottom-right is {res}");
 
-    // 空间优化后的动态规划
+    // Space-optimized dynamic programming
     let res = min_path_sum_dp_comp(&grid);
-    println!("从左上角到右下角的最小路径和为 {res}");
+    println!("Minimum path sum from top-left to bottom-right is {res}");
 }

@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, TreeNode};
 use std::collections::HashMap;
 use std::{cell::RefCell, rc::Rc};
 
-/* 构建二叉树：分治 */
+/* Build binary tree: divide and conquer */
 fn dfs(
     preorder: &[i32],
     inorder_map: &HashMap<i32, i32>,
@@ -16,25 +16,25 @@ fn dfs(
     l: i32,
     r: i32,
 ) -> Option<Rc<RefCell<TreeNode>>> {
-    // 子树区间为空时终止
+    // Terminate when the subtree interval is empty
     if r - l < 0 {
         return None;
     }
-    // 初始化根节点
+    // Initialize the root node
     let root = TreeNode::new(preorder[i as usize]);
-    // 查询 m ，从而划分左右子树
+    // Query m to divide the left and right subtrees
     let m = inorder_map.get(&preorder[i as usize]).unwrap();
-    // 子问题：构建左子树
+    // Subproblem: build the left subtree
     root.borrow_mut().left = dfs(preorder, inorder_map, i + 1, l, m - 1);
-    // 子问题：构建右子树
+    // Subproblem: build the right subtree
     root.borrow_mut().right = dfs(preorder, inorder_map, i + 1 + m - l, m + 1, r);
-    // 返回根节点
+    // Return the root node
     Some(root)
 }
 
-/* 构建二叉树 */
+/* Build binary tree */
 fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
-    // 初始化哈希表，存储 inorder 元素到索引的映射
+    // Initialize hash map, storing the mapping from inorder elements to indices
     let mut inorder_map: HashMap<i32, i32> = HashMap::new();
     for i in 0..inorder.len() {
         inorder_map.insert(inorder[i], i as i32);
@@ -47,10 +47,10 @@ fn build_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>
 fn main() {
     let preorder = [3, 9, 2, 1, 7];
     let inorder = [9, 3, 1, 2, 7];
-    println!("中序遍历 = {:?}", preorder);
-    println!("前序遍历 = {:?}", inorder);
+    println!("In-order traversal = {:?}", preorder);
+    println!("Pre-order traversal = {:?}", inorder);
 
     let root = build_tree(&preorder, &inorder);
-    println!("构建的二叉树为：");
+    println!("The constructed binary tree is:");
     print_util::print_tree(root.as_ref().unwrap());
 }

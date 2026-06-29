@@ -4,58 +4,58 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 0-1 背包：暴力搜索 */
+/* 0-1 knapsack: Brute-force search */
 fn knapsack_dfs(wgt: &[i32], val: &[i32], i: usize, c: usize) -> i32 {
-    // 若已选完所有物品或背包无剩余容量，则返回价值 0
+    // If all items have been selected or knapsack has no remaining capacity, return value 0
     if i == 0 || c == 0 {
         return 0;
     }
-    // 若超过背包容量，则只能选择不放入背包
+    // If exceeds knapsack capacity, can only choose not to put it in
     if wgt[i - 1] > c as i32 {
         return knapsack_dfs(wgt, val, i - 1, c);
     }
-    // 计算不放入和放入物品 i 的最大价值
+    // Calculate the maximum value of not putting in and putting in item i
     let no = knapsack_dfs(wgt, val, i - 1, c);
     let yes = knapsack_dfs(wgt, val, i - 1, c - wgt[i - 1] as usize) + val[i - 1];
-    // 返回两种方案中价值更大的那一个
+    // Return the larger value of the two options
     std::cmp::max(no, yes)
 }
 
-/* 0-1 背包：记忆化搜索 */
+/* 0-1 knapsack: Memoization search */
 fn knapsack_dfs_mem(wgt: &[i32], val: &[i32], mem: &mut Vec<Vec<i32>>, i: usize, c: usize) -> i32 {
-    // 若已选完所有物品或背包无剩余容量，则返回价值 0
+    // If all items have been selected or knapsack has no remaining capacity, return value 0
     if i == 0 || c == 0 {
         return 0;
     }
-    // 若已有记录，则直接返回
+    // If there's a record, return it directly
     if mem[i][c] != -1 {
         return mem[i][c];
     }
-    // 若超过背包容量，则只能选择不放入背包
+    // If exceeds knapsack capacity, can only choose not to put it in
     if wgt[i - 1] > c as i32 {
         return knapsack_dfs_mem(wgt, val, mem, i - 1, c);
     }
-    // 计算不放入和放入物品 i 的最大价值
+    // Calculate the maximum value of not putting in and putting in item i
     let no = knapsack_dfs_mem(wgt, val, mem, i - 1, c);
     let yes = knapsack_dfs_mem(wgt, val, mem, i - 1, c - wgt[i - 1] as usize) + val[i - 1];
-    // 记录并返回两种方案中价值更大的那一个
+    // Record and return the larger value of the two options
     mem[i][c] = std::cmp::max(no, yes);
     mem[i][c]
 }
 
-/* 0-1 背包：动态规划 */
+/* 0-1 knapsack: Dynamic programming */
 fn knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     let n = wgt.len();
-    // 初始化 dp 表
+    // Initialize dp table
     let mut dp = vec![vec![0; cap + 1]; n + 1];
-    // 状态转移
+    // State transition
     for i in 1..=n {
         for c in 1..=cap {
             if wgt[i - 1] > c as i32 {
-                // 若超过背包容量，则不选物品 i
+                // If exceeds knapsack capacity, don't select item i
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // 不选和选物品 i 这两种方案的较大值
+                // The larger value between not selecting and selecting item i
                 dp[i][c] = std::cmp::max(
                     dp[i - 1][c],
                     dp[i - 1][c - wgt[i - 1] as usize] + val[i - 1],
@@ -66,17 +66,17 @@ fn knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     dp[n][cap]
 }
 
-/* 0-1 背包：空间优化后的动态规划 */
+/* 0-1 knapsack: Space-optimized dynamic programming */
 fn knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     let n = wgt.len();
-    // 初始化 dp 表
+    // Initialize dp table
     let mut dp = vec![0; cap + 1];
-    // 状态转移
+    // State transition
     for i in 1..=n {
-        // 倒序遍历
+        // Traverse in reverse order
         for c in (1..=cap).rev() {
             if wgt[i - 1] <= c as i32 {
-                // 不选和选物品 i 这两种方案的较大值
+                // The larger value between not selecting and selecting item i
                 dp[c] = std::cmp::max(dp[c], dp[c - wgt[i - 1] as usize] + val[i - 1]);
             }
         }
@@ -91,23 +91,23 @@ pub fn main() {
     let cap: usize = 50;
     let n = wgt.len();
 
-    // 暴力搜索
+    // Brute-force search
     let res = knapsack_dfs(&wgt, &val, n, cap);
-    println!("不超过背包容量的最大物品价值为 {res}");
+    println!("Maximum item value not exceeding knapsack capacity is {res}");
 
-    // 记忆搜索
+    // Memoization search
     let mut mem = vec![vec![0; cap + 1]; n + 1];
     for row in mem.iter_mut() {
         row.fill(-1);
     }
     let res = knapsack_dfs_mem(&wgt, &val, &mut mem, n, cap);
-    println!("不超过背包容量的最大物品价值为 {res}");
+    println!("Maximum item value not exceeding knapsack capacity is {res}");
 
-    // 动态规划
+    // Dynamic programming
     let res = knapsack_dp(&wgt, &val, cap);
-    println!("不超过背包容量的最大物品价值为 {res}");
+    println!("Maximum item value not exceeding knapsack capacity is {res}");
 
-    // 空间优化后的动态规划
+    // Space-optimized dynamic programming
     let res = knapsack_dp_comp(&wgt, &val, cap);
-    println!("不超过背包容量的最大物品价值为 {res}");
+    println!("Maximum item value not exceeding knapsack capacity is {res}");
 }

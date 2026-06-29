@@ -5,13 +5,13 @@
  */
 
 #[derive(Clone)]
-/* 键值对 */
+/* Key-value pair */
 struct Pair {
     key: i32,
     val: String,
 }
 
-/* 链式地址哈希表 */
+/* Hash table with separate chaining */
 struct HashMapChaining {
     size: usize,
     capacity: usize,
@@ -21,7 +21,7 @@ struct HashMapChaining {
 }
 
 impl HashMapChaining {
-    /* 构造方法 */
+    /* Constructor */
     fn new() -> Self {
         Self {
             size: 0,
@@ -32,21 +32,21 @@ impl HashMapChaining {
         }
     }
 
-    /* 哈希函数 */
+    /* Hash function */
     fn hash_func(&self, key: i32) -> usize {
         key as usize % self.capacity
     }
 
-    /* 负载因子 */
+    /* Load factor */
     fn load_factor(&self) -> f32 {
         self.size as f32 / self.capacity as f32
     }
 
-    /* 删除操作 */
+    /* Remove operation */
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // 遍历桶，从中删除键值对
+        // Traverse bucket and remove key-value pair from it
         for (i, p) in self.buckets[index].iter_mut().enumerate() {
             if p.key == key {
                 let pair = self.buckets[index].remove(i);
@@ -55,21 +55,21 @@ impl HashMapChaining {
             }
         }
 
-        // 若未找到 key ，则返回 None
+        // If key is not found, return None
         None
     }
 
-    /* 扩容哈希表 */
+    /* Expand hash table */
     fn extend(&mut self) {
-        // 暂存原哈希表
+        // Temporarily store the original hash table
         let buckets_tmp = std::mem::take(&mut self.buckets);
 
-        // 初始化扩容后的新哈希表
+        // Initialize expanded new hash table
         self.capacity *= self.extend_ratio;
         self.buckets = vec![Vec::new(); self.capacity as usize];
         self.size = 0;
 
-        // 将键值对从原哈希表搬运至新哈希表
+        // Move key-value pairs from original hash table to new hash table
         for bucket in buckets_tmp {
             for pair in bucket {
                 self.put(pair.key, pair.val);
@@ -77,7 +77,7 @@ impl HashMapChaining {
         }
     }
 
-    /* 打印哈希表 */
+    /* Print hash table */
     fn print(&self) {
         for bucket in &self.buckets {
             let mut res = Vec::new();
@@ -88,16 +88,16 @@ impl HashMapChaining {
         }
     }
 
-    /* 添加操作 */
+    /* Add operation */
     fn put(&mut self, key: i32, val: String) {
-        // 当负载因子超过阈值时，执行扩容
+        // When load factor exceeds threshold, perform expansion
         if self.load_factor() > self.load_thres {
             self.extend();
         }
 
         let index = self.hash_func(key);
 
-        // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
+        // Traverse bucket, if specified key is encountered, update corresponding val and return
         for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
@@ -105,56 +105,56 @@ impl HashMapChaining {
             }
         }
 
-        // 若无该 key ，则将键值对添加至尾部
+        // If key does not exist, append key-value pair to the end
         let pair = Pair { key, val };
         self.buckets[index].push(pair);
         self.size += 1;
     }
 
-    /* 查询操作 */
+    /* Query operation */
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
-        // 遍历桶，若找到 key ，则返回对应 val
+        // Traverse bucket, if key is found, return corresponding val
         for pair in self.buckets[index].iter() {
             if pair.key == key {
                 return Some(&pair.val);
             }
         }
 
-        // 若未找到 key ，则返回 None
+        // If key is not found, return None
         None
     }
 }
 
 /* Driver Code */
 pub fn main() {
-    /* 初始化哈希表 */
+    /* Initialize hash table */
     let mut map = HashMapChaining::new();
 
-    /* 添加操作 */
-    // 在哈希表中添加键值对 (key, value)
-    map.put(12836, "小哈".to_string());
-    map.put(15937, "小啰".to_string());
-    map.put(16750, "小算".to_string());
-    map.put(13276, "小法".to_string());
-    map.put(10583, "小鸭".to_string());
-    println!("\n添加完成后，哈希表为\nKey -> Value");
+    /* Add operation */
+    // Add key-value pair (key, value) to the hash table
+    map.put(12836, "Xiao Ha".to_string());
+    map.put(15937, "Xiao Luo".to_string());
+    map.put(16750, "Xiao Suan".to_string());
+    map.put(13276, "Xiao Fa".to_string());
+    map.put(10583, "Xiao Ya".to_string());
+    println!("\nAfter adding is complete, hash table is\nKey -> Value");
     map.print();
 
-    /* 查询操作 */
-    // 向哈希表中输入键 key ，得到值 value
+    /* Query operation */
+    // Input key into hash table to get value
     println!(
-        "\n输入学号 13276,查询到姓名 {}",
+        "\nInput student ID 13276, found name {}",
         match map.get(13276) {
             Some(value) => value,
             None => "Not a valid Key",
         }
     );
 
-    /* 删除操作 */
-    // 在哈希表中删除键值对 (key, value)
+    /* Remove operation */
+    // Remove key-value pair (key, value) from hash table
     map.remove(12836);
-    println!("\n删除 12836 后，哈希表为\nKey -> Value");
+    println!("\nAfter removing 12836, hash table is\nKey -> Value");
     map.print();
 }

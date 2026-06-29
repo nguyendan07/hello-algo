@@ -10,39 +10,39 @@ use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::{HashSet, VecDeque};
 
-/* 广度优先遍历 */
-// 使用邻接表来表示图，以便获取指定顶点的所有邻接顶点
+/* Breadth-first traversal */
+// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // 顶点遍历序列
+    // Vertex traversal sequence
     let mut res = vec![];
-    // 哈希集合，用于记录已被访问过的顶点
+    // Hash set for recording vertices that have been visited
     let mut visited = HashSet::new();
     visited.insert(start_vet);
-    // 队列用于实现 BFS
+    // Queue used to implement BFS
     let mut que = VecDeque::new();
     que.push_back(start_vet);
-    // 以顶点 vet 为起点，循环直至访问完所有顶点
+    // Starting from vertex vet, loop until all vertices are visited
     while let Some(vet) = que.pop_front() {
-        res.push(vet); // 记录访问顶点
+        res.push(vet); // Record visited vertex
 
-        // 遍历该顶点的所有邻接顶点
+        // Traverse all adjacent vertices of this vertex
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // 跳过已被访问的顶点
+                    continue; // Skip vertices that have been visited
                 }
-                que.push_back(adj_vet); // 只入队未访问的顶点
-                visited.insert(adj_vet); // 标记该顶点已被访问
+                que.push_back(adj_vet); // Only enqueue unvisited vertices
+                visited.insert(adj_vet); // Mark this vertex as visited
             }
         }
     }
-    // 返回顶点遍历序列
+    // Return vertex traversal sequence
     res
 }
 
 /* Driver Code */
 fn main() {
-    /* 初始化无向图 */
+    /* Add edge */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     let edges = vec![
         [v[0], v[1]],
@@ -59,11 +59,11 @@ fn main() {
         [v[7], v[8]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\n初始化后，图为");
+    println!("\nAfter initialization, graph is");
     graph.print();
 
-    /* 广度优先遍历 */
+    /* Breadth-first traversal */
     let res = graph_bfs(graph, v[0]);
-    println!("\n广度优先遍历（BFS）顶点序列为");
+    println!("\nBreadth-first traversal (BFS) vertex sequence is");
     println!("{:?}", vets_to_vals(res));
 }

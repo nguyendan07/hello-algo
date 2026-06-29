@@ -6,107 +6,107 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 大顶堆 */
+/* Max heap */
 struct MaxHeap {
-    // 使用 vector 而非数组，这样无须考虑扩容问题
+    // Use vector instead of array to avoid capacity concerns
     max_heap: Vec<i32>,
 }
 
 impl MaxHeap {
-    /* 构造方法，根据输入列表建堆 */
+    /* Constructor, build heap based on input list */
     fn new(nums: Vec<i32>) -> Self {
-        // 将列表元素原封不动添加进堆
+        // Add list elements to heap as is
         let mut heap = MaxHeap { max_heap: nums };
-        // 堆化除叶节点以外的其他所有节点
+        // Heapify all nodes except leaf nodes
         for i in (0..=Self::parent(heap.size() - 1)).rev() {
             heap.sift_down(i);
         }
         heap
     }
 
-    /* 获取左子节点的索引 */
+    /* Get index of left child node */
     fn left(i: usize) -> usize {
         2 * i + 1
     }
 
-    /* 获取右子节点的索引 */
+    /* Get index of right child node */
     fn right(i: usize) -> usize {
         2 * i + 2
     }
 
-    /* 获取父节点的索引 */
+    /* Get index of parent node */
     fn parent(i: usize) -> usize {
-        (i - 1) / 2 // 向下整除
+        (i - 1) / 2 // Floor division
     }
 
-    /* 交换元素 */
+    /* Swap elements */
     fn swap(&mut self, i: usize, j: usize) {
         self.max_heap.swap(i, j);
     }
 
-    /* 获取堆大小 */
+    /* Get heap size */
     fn size(&self) -> usize {
         self.max_heap.len()
     }
 
-    /* 判断堆是否为空 */
+    /* Check if heap is empty */
     fn is_empty(&self) -> bool {
         self.max_heap.is_empty()
     }
 
-    /* 访问堆顶元素 */
+    /* Access top element */
     fn peek(&self) -> Option<i32> {
         self.max_heap.first().copied()
     }
 
-    /* 元素入堆 */
+    /* Element enters heap */
     fn push(&mut self, val: i32) {
-        // 添加节点
+        // Add node
         self.max_heap.push(val);
-        // 从底至顶堆化
+        // Heapify from bottom to top
         self.sift_up(self.size() - 1);
     }
 
-    /* 从节点 i 开始，从底至顶堆化 */
+    /* Starting from node i, heapify from bottom to top */
     fn sift_up(&mut self, mut i: usize) {
         loop {
-            // 节点 i 已经是堆顶节点了，结束堆化
+            // Node i is already the heap root, end heapification
             if i == 0 {
                 break;
             }
-            // 获取节点 i 的父节点
+            // Get parent node of node i
             let p = Self::parent(i);
-            // 当“节点无须修复”时，结束堆化
+            // When "node needs no repair", end heapification
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
-            // 交换两节点
+            // Swap two nodes
             self.swap(i, p);
-            // 循环向上堆化
+            // Loop upward heapify
             i = p;
         }
     }
 
-    /* 元素出堆 */
+    /* Element exits heap */
     fn pop(&mut self) -> i32 {
-        // 判空处理
+        // Handle empty case
         if self.is_empty() {
             panic!("index out of bounds");
         }
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
+        // Delete node
         self.swap(0, self.size() - 1);
-        // 删除节点
+        // Remove node
         let val = self.max_heap.pop().unwrap();
-        // 从顶至底堆化
+        // Return top element
         self.sift_down(0);
-        // 返回堆顶元素
+        // Return heap top element
         val
     }
 
-    /* 从节点 i 开始，从顶至底堆化 */
+    /* Starting from node i, heapify from top to bottom */
     fn sift_down(&mut self, mut i: usize) {
         loop {
-            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
             let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
             if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
                 ma = l;
@@ -114,18 +114,18 @@ impl MaxHeap {
             if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
                 ma = r;
             }
-            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            // Swap two nodes
             if ma == i {
                 break;
             }
-            // 交换两节点
+            // Swap two nodes
             self.swap(i, ma);
-            // 循环向下堆化
+            // Loop downwards heapification
             i = ma;
         }
     }
 
-    /* 打印堆（二叉树） */
+    /* Driver Code */
     fn print(&self) {
         print_util::print_heap(self.max_heap.clone());
     }
@@ -133,33 +133,33 @@ impl MaxHeap {
 
 /* Driver Code */
 fn main() {
-    /* 初始化大顶堆 */
+    /* Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap */
     let mut max_heap = MaxHeap::new(vec![9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    println!("\n输入列表并建堆后");
+    println!("\nAfter inputting list and building heap");
     max_heap.print();
 
-    /* 获取堆顶元素 */
+    /* Check if heap is empty */
     let peek = max_heap.peek();
     if let Some(peek) = peek {
-        println!("\n堆顶元素为 {}", peek);
+        println!("\nHeap top element is {}", peek);
     }
 
-    /* 元素入堆 */
+    /* Element enters heap */
     let val = 7;
     max_heap.push(val);
-    println!("\n元素 {} 入堆后", val);
+    println!("\nAfter element {} pushes to heap", val);
     max_heap.print();
 
-    /* 堆顶元素出堆 */
+    /* Time complexity is O(n), not O(nlogn) */
     let peek = max_heap.pop();
-    println!("\n堆顶元素 {} 出堆后", peek);
+    println!("\nAfter heap top element {} pops from heap", peek);
     max_heap.print();
 
-    /* 获取堆大小 */
+    /* Get heap size */
     let size = max_heap.size();
-    println!("\n堆元素数量为 {}", size);
+    println!("\nHeap size is {}", size);
 
-    /* 判断堆是否为空 */
+    /* Check if heap is empty */
     let is_empty = max_heap.is_empty();
-    println!("\n堆是否为空 {}", is_empty);
+    println!("\nIs heap empty {}", is_empty);
 }

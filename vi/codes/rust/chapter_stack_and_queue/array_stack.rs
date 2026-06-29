@@ -6,48 +6,48 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 基于数组实现的栈 */
+/* Stack based on array implementation */
 struct ArrayStack<T> {
     stack: Vec<T>,
 }
 
 impl<T> ArrayStack<T> {
-    /* 初始化栈 */
+    /* Access top of the stack element */
     fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
         }
     }
 
-    /* 获取栈的长度 */
+    /* Get the length of the stack */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    /* 判断栈是否为空 */
+    /* Check if the stack is empty */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
 
-    /* 入栈 */
+    /* Push */
     fn push(&mut self, num: T) {
         self.stack.push(num);
     }
 
-    /* 出栈 */
+    /* Pop */
     fn pop(&mut self) -> Option<T> {
         self.stack.pop()
     }
 
-    /* 访问栈顶元素 */
+    /* Return list for printing */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
-            panic!("栈为空")
+            panic!("Stack is empty")
         };
         self.stack.last()
     }
 
-    /* 返回 &Vec */
+    /* Return &Vec */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
@@ -55,32 +55,32 @@ impl<T> ArrayStack<T> {
 
 /* Driver Code */
 fn main() {
-    // 初始化栈
+    // Access top of the stack element
     let mut stack = ArrayStack::<i32>::new();
 
-    // 元素入栈
+    // Elements push onto stack
     stack.push(1);
     stack.push(3);
     stack.push(2);
     stack.push(5);
     stack.push(4);
-    print!("栈 stack = ");
+    print!("Stack stack = ");
     print_util::print_array(stack.to_array());
 
-    //访问栈顶元素
+    // Return list for printing
     let peek = stack.peek().unwrap();
-    print!("\n栈顶元素 peek = {}", peek);
+    print!("\nTop element peek = {}", peek);
 
-    // 元素出栈
+    // Element pop from stack
     let pop = stack.pop().unwrap();
-    print!("\n出栈元素 pop = {pop}，出栈后 stack = ");
+    print!("\nPop element pop = {pop}, after pop stack = ");
     print_util::print_array(stack.to_array());
 
-    // 获取栈的长度
+    // Get the length of the stack
     let size = stack.size();
-    print!("\n栈的长度 size = {size}");
+    print!("\nStack length size = {size}");
 
-    // 判断是否为空
+    // Check if empty
     let is_empty = stack.is_empty();
-    print!("\n栈是否为空 = {is_empty}");
+    print!("\nIs stack empty = {is_empty}");
 }

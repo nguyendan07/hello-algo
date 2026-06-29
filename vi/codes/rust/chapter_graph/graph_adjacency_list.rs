@@ -8,19 +8,19 @@ pub use hello_algo_rust::include::{vals_to_vets, vets_to_vals, Vertex};
 
 use std::collections::HashMap;
 
-/* 基于邻接表实现的无向图类型 */
+/* Undirected graph type based on adjacency list */
 pub struct GraphAdjList {
-    // 邻接表，key：顶点，value：该顶点的所有邻接顶点
+    // Adjacency list, key: vertex, value: all adjacent vertices of that vertex
     pub adj_list: HashMap<Vertex, Vec<Vertex>>, // maybe HashSet<Vertex> for value part is better?
 }
 
 impl GraphAdjList {
-    /* 构造方法 */
+    /* Constructor */
     pub fn new(edges: Vec<[Vertex; 2]>) -> Self {
         let mut graph = GraphAdjList {
             adj_list: HashMap::new(),
         };
-        // 添加所有顶点和边
+        // Add all vertices and edges
         for edge in edges {
             graph.add_vertex(edge[0]);
             graph.add_vertex(edge[1]);
@@ -30,29 +30,29 @@ impl GraphAdjList {
         graph
     }
 
-    /* 获取顶点数量 */
+    /* Get the number of vertices */
     #[allow(unused)]
     pub fn size(&self) -> usize {
         self.adj_list.len()
     }
 
-    /* 添加边 */
+    /* Add edge */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
             panic!("value error");
         }
-        // 添加边 vet1 - vet2
+        // Add edge vet1 - vet2
         self.adj_list.entry(vet1).or_default().push(vet2);
         self.adj_list.entry(vet2).or_default().push(vet1);
     }
 
-    /* 删除边 */
+    /* Remove edge */
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
             panic!("value error");
         }
-        // 删除边 vet1 - vet2
+        // Remove edge vet1 - vet2
         self.adj_list
             .entry(vet1)
             .and_modify(|v| v.retain(|&e| e != vet2));
@@ -61,29 +61,29 @@ impl GraphAdjList {
             .and_modify(|v| v.retain(|&e| e != vet1));
     }
 
-    /* 添加顶点 */
+    /* Add vertex */
     pub fn add_vertex(&mut self, vet: Vertex) {
         if self.adj_list.contains_key(&vet) {
             return;
         }
-        // 在邻接表中添加一个新链表
+        // Add a new linked list in the adjacency list
         self.adj_list.insert(vet, vec![]);
     }
 
-    /* 删除顶点 */
+    /* Remove vertex */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
-        // 在邻接表中删除顶点 vet 对应的链表
+        // Remove the linked list corresponding to vertex vet in the adjacency list
         self.adj_list.remove(&vet);
-        // 遍历其他顶点的链表，删除所有包含 vet 的边
+        // Traverse the linked lists of other vertices and remove all edges containing vet
         for list in self.adj_list.values_mut() {
             list.retain(|&v| v != vet);
         }
     }
 
-    /* 打印邻接表 */
+    /* Print adjacency list */
     pub fn print(&self) {
-        println!("邻接表 =");
+        println!("Adjacency list =");
         for (vertex, list) in &self.adj_list {
             let list = list.iter().map(|vertex| vertex.val).collect::<Vec<i32>>();
             println!("{}: {:?},", vertex.val, list);
@@ -94,7 +94,7 @@ impl GraphAdjList {
 /* Driver Code */
 #[allow(unused)]
 fn main() {
-    /* 初始化无向图 */
+    /* Add edge */
     let v = vals_to_vets(vec![1, 3, 2, 5, 4]);
     let edges = vec![
         [v[0], v[1]],
@@ -106,30 +106,30 @@ fn main() {
     ];
 
     let mut graph = GraphAdjList::new(edges);
-    println!("\n初始化后，图为");
+    println!("\nAfter initialization, graph is");
     graph.print();
 
-    /* 添加边 */
-    // 顶点 1, 2 即 v[0], v[2]
+    /* Add edge */
+    // Vertices 1, 3 are v[0], v[1]
     graph.add_edge(v[0], v[2]);
-    println!("\n添加边 1-2 后，图为");
+    println!("\nAfter adding edge 1-2, graph is");
     graph.print();
 
-    /* 删除边 */
-    // 顶点 1, 3 即 v[0], v[1]
+    /* Remove edge */
+    // Vertex 3 is v[1]
     graph.remove_edge(v[0], v[1]);
-    println!("\n删除边 1-3 后，图为");
+    println!("\nAfter removing edge 1-3, graph is");
     graph.print();
 
-    /* 添加顶点 */
+    /* Add vertex */
     let v5 = Vertex { val: 6 };
     graph.add_vertex(v5);
-    println!("\n添加顶点 6 后，图为");
+    println!("\nAfter adding vertex 6, graph is");
     graph.print();
 
-    /* 删除顶点 */
-    // 顶点 3 即 v[1]
+    /* Remove vertex */
+    // Vertex 3 is v[1]
     graph.remove_vertex(v[1]);
-    println!("\n删除顶点 3 后，图为");
+    println!("\nAfter removing vertex 3, graph is");
     graph.print();
 }

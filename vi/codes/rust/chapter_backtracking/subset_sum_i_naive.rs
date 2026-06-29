@@ -4,7 +4,7 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 回溯算法：子集和 I */
+/* Backtracking algorithm: Subset sum I */
 fn backtrack(
     state: &mut Vec<i32>,
     target: i32,
@@ -12,31 +12,31 @@ fn backtrack(
     choices: &[i32],
     res: &mut Vec<Vec<i32>>,
 ) {
-    // 子集和等于 target 时，记录解
+    // When the subset sum equals target, record the solution
     if total == target {
         res.push(state.clone());
         return;
     }
-    // 遍历所有选择
+    // Traverse all choices
     for i in 0..choices.len() {
-        // 剪枝：若子集和超过 target ，则跳过该选择
+        // Pruning: if the subset sum exceeds target, skip this choice
         if total + choices[i] > target {
             continue;
         }
-        // 尝试：做出选择，更新元素和 total
+        // Attempt: make choice, update element sum total
         state.push(choices[i]);
-        // 进行下一轮选择
+        // Proceed to the next round of selection
         backtrack(state, target, total + choices[i], choices, res);
-        // 回退：撤销选择，恢复到之前的状态
+        // Backtrack: undo choice, restore to previous state
         state.pop();
     }
 }
 
-/* 求解子集和 I（包含重复子集） */
+/* Solve subset sum I (including duplicate subsets) */
 fn subset_sum_i_naive(nums: &[i32], target: i32) -> Vec<Vec<i32>> {
-    let mut state = Vec::new(); // 状态（子集）
-    let total = 0; // 子集和
-    let mut res = Vec::new(); // 结果列表（子集列表）
+    let mut state = Vec::new(); // State (subset)
+    let total = 0; // Subset sum
+    let mut res = Vec::new(); // Result list (subset list)
     backtrack(&mut state, target, total, nums, &mut res);
     res
 }
@@ -48,7 +48,7 @@ pub fn main() {
 
     let res = subset_sum_i_naive(&nums, target);
 
-    println!("输入数组 nums = {:?}, target = {}", &nums, target);
-    println!("所有和等于 {} 的子集 res = {:?}", target, &res);
-    println!("请注意，该方法输出的结果包含重复集合");
+    println!("Input array nums = {:?}, target = {}", &nums, target);
+    println!("All subsets with sum equal to {} res = {:?}", target, &res);
+    println!("Please note that this method outputs results containing duplicate sets");
 }

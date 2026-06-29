@@ -4,23 +4,23 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 零钱兑换 II：动态规划 */
+/* Coin change II: Dynamic programming */
 fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
-    // 初始化 dp 表
+    // Initialize dp table
     let mut dp = vec![vec![0; amt + 1]; n + 1];
-    // 初始化首列
+    // Initialize first column
     for i in 0..=n {
         dp[i][0] = 1;
     }
-    // 状态转移
+    // State transition
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
-                // 若超过目标金额，则不选硬币 i
+                // If exceeds target amount, don't select coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 不选和选硬币 i 这两种方案之和
+                // Sum of the two options: not selecting and selecting coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1] as usize];
             }
         }
@@ -28,20 +28,20 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     dp[n][amt]
 }
 
-/* 零钱兑换 II：空间优化后的动态规划 */
+/* Coin change II: Space-optimized dynamic programming */
 fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
-    // 初始化 dp 表
+    // Initialize dp table
     let mut dp = vec![0; amt + 1];
     dp[0] = 1;
-    // 状态转移
+    // State transition
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
-                // 若超过目标金额，则不选硬币 i
+                // If exceeds target amount, don't select coin i
                 dp[a] = dp[a];
             } else {
-                // 不选和选硬币 i 这两种方案之和
+                // Sum of the two options: not selecting and selecting coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1] as usize];
             }
         }
@@ -54,11 +54,11 @@ pub fn main() {
     let coins = [1, 2, 5];
     let amt: usize = 5;
 
-    // 动态规划
+    // Dynamic programming
     let res = coin_change_ii_dp(&coins, amt);
-    println!("凑出目标金额的硬币组合数量为 {res}");
+    println!("Number of coin combinations to make target amount is {res}");
 
-    // 空间优化后的动态规划
+    // Space-optimized dynamic programming
     let res = coin_change_ii_dp_comp(&coins, amt);
-    println!("凑出目标金额的硬币组合数量为 {res}");
+    println!("Number of coin combinations to make target amount is {res}");
 }

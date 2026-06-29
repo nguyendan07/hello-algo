@@ -9,11 +9,11 @@ use hello_algo_rust::include::print_util;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 双向链表节点 */
+/* Doubly linked list node */
 pub struct ListNode<T> {
-    pub val: T,                                 // 节点值
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
-    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前驱节点指针
+    pub val: T,                                 // Node value
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Successor node pointer
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Predecessor node pointer
 }
 
 impl<T> ListNode<T> {
@@ -26,12 +26,12 @@ impl<T> ListNode<T> {
     }
 }
 
-/* 基于双向链表实现的双向队列 */
+/* Double-ended queue based on doubly linked list implementation */
 #[allow(dead_code)]
 pub struct LinkedListDeque<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 头节点 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾节点 rear
-    que_size: usize,                         // 双向队列的长度
+    front: Option<Rc<RefCell<ListNode<T>>>>, // Head node front
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // Tail node rear
+    que_size: usize,                         // Length of the double-ended queue
 }
 
 impl<T: Copy> LinkedListDeque<T> {
@@ -43,125 +43,125 @@ impl<T: Copy> LinkedListDeque<T> {
         }
     }
 
-    /* 获取双向队列的长度 */
+    /* Get the length of the double-ended queue */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
 
-    /* 判断双向队列是否为空 */
+    /* Check if the double-ended queue is empty */
     pub fn is_empty(&self) -> bool {
         return self.que_size == 0;
     }
 
-    /* 入队操作 */
+    /* Enqueue operation */
     fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
-        // 队首入队操作
+        // Front of the queue enqueue operation
         if is_front {
             match self.front.take() {
-                // 若链表为空，则令 front 和 rear 都指向 node
+                // If the linked list is empty, make both front and rear point to node
                 None => {
                     self.rear = Some(node.clone());
                     self.front = Some(node);
                 }
-                // 将 node 添加至链表头部
+                // Add node to the head of the linked list
                 Some(old_front) => {
                     old_front.borrow_mut().prev = Some(node.clone());
                     node.borrow_mut().next = Some(old_front);
-                    self.front = Some(node); // 更新头节点
+                    self.front = Some(node); // Update head node
                 }
             }
         }
-        // 队尾入队操作
+        // Rear of the queue enqueue operation
         else {
             match self.rear.take() {
-                // 若链表为空，则令 front 和 rear 都指向 node
+                // If the linked list is empty, make both front and rear point to node
                 None => {
                     self.front = Some(node.clone());
                     self.rear = Some(node);
                 }
-                // 将 node 添加至链表尾部
+                // Add node to the tail of the linked list
                 Some(old_rear) => {
                     old_rear.borrow_mut().next = Some(node.clone());
                     node.borrow_mut().prev = Some(old_rear);
-                    self.rear = Some(node); // 更新尾节点
+                    self.rear = Some(node); // Update tail node
                 }
             }
         }
-        self.que_size += 1; // 更新队列长度
+        self.que_size += 1; // Update queue length
     }
 
-    /* 队首入队 */
+    /* Front of the queue enqueue */
     pub fn push_first(&mut self, num: T) {
         self.push(num, true);
     }
 
-    /* 队尾入队 */
+    /* Rear of the queue enqueue */
     pub fn push_last(&mut self, num: T) {
         self.push(num, false);
     }
 
-    /* 出队操作 */
+    /* Dequeue operation */
     fn pop(&mut self, is_front: bool) -> Option<T> {
-        // 若队列为空，直接返回 None
+        // If queue is empty, return None directly
         if self.is_empty() {
             return None;
         };
-        // 队首出队操作
+        // Temporarily store head node value
         if is_front {
             self.front.take().map(|old_front| {
                 match old_front.borrow_mut().next.take() {
                     Some(new_front) => {
                         new_front.borrow_mut().prev.take();
-                        self.front = Some(new_front); // 更新头节点
+                        self.front = Some(new_front); // Update head node
                     }
                     None => {
                         self.rear.take();
                     }
                 }
-                self.que_size -= 1; // 更新队列长度
+                self.que_size -= 1; // Update queue length
                 old_front.borrow().val
             })
         }
-        // 队尾出队操作
+        // Temporarily store tail node value
         else {
             self.rear.take().map(|old_rear| {
                 match old_rear.borrow_mut().prev.take() {
                     Some(new_rear) => {
                         new_rear.borrow_mut().next.take();
-                        self.rear = Some(new_rear); // 更新尾节点
+                        self.rear = Some(new_rear); // Update tail node
                     }
                     None => {
                         self.front.take();
                     }
                 }
-                self.que_size -= 1; // 更新队列长度
+                self.que_size -= 1; // Update queue length
                 old_rear.borrow().val
             })
         }
     }
 
-    /* 队首出队 */
+    /* Rear of the queue dequeue */
     pub fn pop_first(&mut self) -> Option<T> {
         return self.pop(true);
     }
 
-    /* 队尾出队 */
+    /* Access rear of the queue element */
     pub fn pop_last(&mut self) -> Option<T> {
         return self.pop(false);
     }
 
-    /* 访问队首元素 */
+    /* Return list for printing */
     pub fn peek_first(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* 访问队尾元素 */
+    /* Driver Code */
     pub fn peek_last(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.rear.as_ref()
     }
 
-    /* 返回数组用于打印 */
+    /* Return array for printing */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
         fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
@@ -178,41 +178,41 @@ impl<T: Copy> LinkedListDeque<T> {
 
 /* Driver Code */
 fn main() {
-    /* 初始化双向队列 */
+    /* Get the length of the double-ended queue */
     let mut deque = LinkedListDeque::new();
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("双向队列 deque = ");
+    print!("Double-ended queue deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* 访问元素 */
+    /* Update element */
     let peek_first = deque.peek_first().unwrap().borrow().val;
-    print!("\n队首元素 peek_first = {}", peek_first);
+    print!("\nFront element peek_first = {}", peek_first);
     let peek_last = deque.peek_last().unwrap().borrow().val;
-    print!("\n队尾元素 peek_last = {}", peek_last);
+    print!("\nRear element peek_last = {}", peek_last);
 
-    /* 元素入队 */
+    /* Elements enqueue */
     deque.push_last(4);
-    print!("\n元素 4 队尾入队后 deque = ");
+    print!("\nAfter element 4 enqueues at rear, deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
     deque.push_first(1);
-    print!("\n元素 1 队首入队后 deque = ");
+    print!("\nAfter element 1 enqueues at front, deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* 元素出队 */
+    /* Element dequeue */
     let pop_last = deque.pop_last().unwrap();
-    print!("\n队尾出队元素 = {}，队尾出队后 deque = ", pop_last);
+    print!("\nDequeue rear element = {}, after dequeue deque = ", pop_last);
     print_util::print_array(&deque.to_array(deque.peek_first()));
     let pop_first = deque.pop_first().unwrap();
-    print!("\n队首出队元素 = {}，队首出队后 deque = ", pop_first);
+    print!("\nDequeue front element = {}, after dequeue deque = ", pop_first);
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* 获取双向队列的长度 */
+    /* Get the length of the double-ended queue */
     let size = deque.size();
-    print!("\n双向队列长度 size = {}", size);
+    print!("\nDeque length size = {}", size);
 
-    /* 判断双向队列是否为空 */
+    /* Check if the double-ended queue is empty */
     let is_empty = deque.is_empty();
-    print!("\n双向队列是否为空 = {}", is_empty);
+    print!("\nIs deque empty = {}", is_empty);
 }

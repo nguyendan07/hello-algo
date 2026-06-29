@@ -6,18 +6,18 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 列表类 */
+/* List class */
 #[allow(dead_code)]
 struct MyList {
-    arr: Vec<i32>,       // 数组（存储列表元素）
-    capacity: usize,     // 列表容量
-    size: usize,         // 列表长度（当前元素数量）
-    extend_ratio: usize, // 每次列表扩容的倍数
+    arr: Vec<i32>,       // Array (stores list elements)
+    capacity: usize,     // List capacity
+    size: usize,         // List length (current number of elements)
+    extend_ratio: usize, // Multiple by which the list capacity is extended each time
 }
 
 #[allow(unused, unused_comparisons)]
 impl MyList {
-    /* 构造方法 */
+    /* Constructor */
     pub fn new(capacity: usize) -> Self {
         let mut vec = vec![0; capacity];
         Self {
@@ -28,90 +28,90 @@ impl MyList {
         }
     }
 
-    /* 获取列表长度（当前元素数量）*/
+    /* Get list length (current number of elements) */
     pub fn size(&self) -> usize {
         return self.size;
     }
 
-    /* 获取列表容量 */
+    /* Get list capacity */
     pub fn capacity(&self) -> usize {
         return self.capacity;
     }
 
-    /* 访问元素 */
+    /* Update element */
     pub fn get(&self, index: usize) -> i32 {
-        // 索引如果越界，则抛出异常，下同
+        // If the index is out of bounds, throw an exception, as below
         if index >= self.size {
-            panic!("索引越界")
+            panic!("Index out of bounds")
         };
         return self.arr[index];
     }
 
-    /* 更新元素 */
+    /* Add elements at the end */
     pub fn set(&mut self, index: usize, num: i32) {
         if index >= self.size {
-            panic!("索引越界")
+            panic!("Index out of bounds")
         };
         self.arr[index] = num;
     }
 
-    /* 在尾部添加元素 */
+    /* Direct traversal of list elements */
     pub fn add(&mut self, num: i32) {
-        // 元素数量超出容量时，触发扩容机制
+        // When the number of elements exceeds capacity, trigger the extension mechanism
         if self.size == self.capacity() {
             self.extend_capacity();
         }
         self.arr[self.size] = num;
-        // 更新元素数量
+        // Update the number of elements
         self.size += 1;
     }
 
-    /* 在中间插入元素 */
+    /* Sort list */
     pub fn insert(&mut self, index: usize, num: i32) {
         if index >= self.size() {
-            panic!("索引越界")
+            panic!("Index out of bounds")
         };
-        // 元素数量超出容量时，触发扩容机制
+        // When the number of elements exceeds capacity, trigger the extension mechanism
         if self.size == self.capacity() {
             self.extend_capacity();
         }
-        // 将索引 index 以及之后的元素都向后移动一位
+        // Move all elements after index index forward by one position
         for j in (index..self.size).rev() {
             self.arr[j + 1] = self.arr[j];
         }
         self.arr[index] = num;
-        // 更新元素数量
+        // Update the number of elements
         self.size += 1;
     }
 
-    /* 删除元素 */
+    /* Remove element */
     pub fn remove(&mut self, index: usize) -> i32 {
         if index >= self.size() {
-            panic!("索引越界")
+            panic!("Index out of bounds")
         };
         let num = self.arr[index];
-        // 将索引 index 之后的元素都向前移动一位
+        // Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
         for j in index..self.size - 1 {
             self.arr[j] = self.arr[j + 1];
         }
-        // 更新元素数量
+        // Update the number of elements
         self.size -= 1;
-        // 返回被删除的元素
+        // Return the removed element
         return num;
     }
 
-    /* 列表扩容 */
+    /* Driver Code */
     pub fn extend_capacity(&mut self) {
-        // 新建一个长度为原数组 extend_ratio 倍的新数组，并将原数组复制到新数组
+        // Create new array with length extend_ratio times original, copy original array to new array
         let new_capacity = self.capacity * self.extend_ratio;
         self.arr.resize(new_capacity, 0);
-        // 更新列表容量
+        // Add elements at the end
         self.capacity = new_capacity;
     }
 
-    /* 将列表转换为数组 */
+    /* Convert list to array */
     pub fn to_array(&self) -> Vec<i32> {
-        // 仅转换有效长度范围内的列表元素
+        // Elements enqueue
         let mut arr = Vec::new();
         for i in 0..self.size {
             arr.push(self.get(i));
@@ -122,43 +122,43 @@ impl MyList {
 
 /* Driver Code */
 fn main() {
-    /* 初始化列表 */
+    /* Initialize list */
     let mut nums = MyList::new(10);
-    /* 在尾部添加元素 */
+    /* Direct traversal of list elements */
     nums.add(1);
     nums.add(3);
     nums.add(2);
     nums.add(5);
     nums.add(4);
-    print!("列表 nums = ");
+    print!("List nums = ");
     print_util::print_array(&nums.to_array());
-    print!(" ，容量 = {} ，长度 = {}", nums.capacity(), nums.size());
+    print!(", capacity = {}, length = {}", nums.capacity(), nums.size());
 
-    /* 在中间插入元素 */
+    /* Sort list */
     nums.insert(3, 6);
-    print!("\n在索引 3 处插入数字 6 ，得到 nums = ");
+    print!("\nInsert number 6 at index 3, get nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* 删除元素 */
+    /* Remove element */
     nums.remove(3);
-    print!("\n删除索引 3 处的元素，得到 nums = ");
+    print!("\nDelete element at index 3, get nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* 访问元素 */
+    /* Update element */
     let num = nums.get(1);
-    println!("\n访问索引 1 处的元素，得到 num = {num}");
+    println!("\nAccess element at index 1, get num = {num}");
 
-    /* 更新元素 */
+    /* Add elements at the end */
     nums.set(1, 0);
-    print!("将索引 1 处的元素更新为 0 ，得到 nums = ");
+    print!("Update element at index 1 to 0, resulting in nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* 测试扩容机制 */
+    /* Test capacity expansion mechanism */
     for i in 0..10 {
-        // 在 i = 5 时，列表长度将超出列表容量，此时触发扩容机制
+        // At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
         nums.add(i);
     }
-    print!("\n扩容后的列表 nums = ");
+    print!("\nAfter expanding list, nums = ");
     print_util::print_array(&nums.to_array());
-    print!(" ，容量 = {} ，长度 = {}", nums.capacity(), nums.size());
+    print!(", capacity = {}, length = {}", nums.capacity(), nums.size());
 }

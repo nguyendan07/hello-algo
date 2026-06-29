@@ -6,22 +6,22 @@
 
 use hello_algo_rust::include::print_util;
 
-/* 选择排序 */
+/* Selection sort */
 fn selection_sort(nums: &mut [i32]) {
     if nums.is_empty() {
         return;
     }
     let n = nums.len();
-    // 外循环：未排序区间为 [i, n-1]
+    // Outer loop: unsorted interval is [i, n-1]
     for i in 0..n - 1 {
-        // 内循环：找到未排序区间内的最小元素
+        // Inner loop: find the smallest element within the unsorted interval
         let mut k = i;
         for j in i + 1..n {
             if nums[j] < nums[k] {
-                k = j; // 记录最小元素的索引
+                k = j; // Record the index of the smallest element
             }
         }
-        // 将该最小元素与未排序区间的首个元素交换
+        // Swap the smallest element with the first element of the unsorted interval
         nums.swap(i, k);
     }
 }
@@ -30,6 +30,6 @@ fn selection_sort(nums: &mut [i32]) {
 pub fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     selection_sort(&mut nums);
-    print!("\n选择排序完成后 nums = ");
+    print!("\nAfter selection sort, nums = ");
     print_util::print_array(&nums);
 }

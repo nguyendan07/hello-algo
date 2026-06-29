@@ -4,19 +4,19 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* 最大容量：贪心 */
+/* Max capacity: Greedy algorithm */
 fn max_capacity(ht: &[i32]) -> i32 {
-    // 初始化 i, j，使其分列数组两端
+    // Initialize i, j to be at both ends of the array
     let mut i = 0;
     let mut j = ht.len() - 1;
-    // 初始最大容量为 0
+    // Initial max capacity is 0
     let mut res = 0;
-    // 循环贪心选择，直至两板相遇
+    // Loop for greedy selection until the two boards meet
     while i < j {
-        // 更新最大容量
+        // Update max capacity
         let cap = std::cmp::min(ht[i], ht[j]) * (j - i) as i32;
         res = std::cmp::max(res, cap);
-        // 向内移动短板
+        // Move the shorter board inward
         if ht[i] < ht[j] {
             i += 1;
         } else {
@@ -30,7 +30,7 @@ fn max_capacity(ht: &[i32]) -> i32 {
 fn main() {
     let ht = [3, 8, 5, 2, 7, 7, 3, 4];
 
-    // 贪心算法
+    // Greedy algorithm
     let res = max_capacity(&ht);
-    println!("最大容量为 {}", res);
+    println!("Maximum capacity is {}", res);
 }

@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 在链表的节点 n0 之后插入节点 P */
+/* Insert node P after node n0 in the linked list */
 #[allow(non_snake_case)]
 pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     let n1 = n0.borrow_mut().next.take();
@@ -16,7 +16,7 @@ pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     n0.borrow_mut().next = Some(P);
 }
 
-/* 删除链表的节点 n0 之后的首个节点 */
+/* Remove the first node after node n0 in the linked list */
 #[allow(non_snake_case)]
 pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     // n0 -> P -> n1
@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* 访问链表中索引为 index 的节点 */
+/* Access the node at index index in the linked list */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -47,7 +47,7 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCel
     dfs(Some(head).as_ref(), index)
 }
 
-/* 在链表中查找值为 target 的首个节点 */
+/* Find the first node with value target in the linked list */
 pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
         if let Some(node) = head {
@@ -65,36 +65,36 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
 
 /* Driver Code */
 fn main() {
-    /* 初始化链表 */
-    // 初始化各个节点
+    /* Initialize linked list */
+    // Initialize each node
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-    // 构建节点之间的引用
+    // Build references between nodes
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("初始化的链表为 ");
+    print!("Initialized linked list is ");
     print_util::print_linked_list(&n0);
 
-    /* 插入节点 */
+    /* Insert node */
     insert(&n0, ListNode::new(0));
-    print!("插入节点后的链表为 ");
+    print!("After inserting node, linked list is ");
     print_util::print_linked_list(&n0);
 
-    /* 删除节点 */
+    /* Remove node */
     remove(&n0);
-    print!("删除节点后的链表为 ");
+    print!("After deleting node, linked list is ");
     print_util::print_linked_list(&n0);
 
-    /* 访问节点 */
+    /* Access node */
     let node = access(n0.clone(), 3);
-    println!("链表中索引 3 处的节点的值 = {}", node.unwrap().borrow().val);
+    println!("Value of node at index 3 in linked list = {}", node.unwrap().borrow().val);
 
-    /* 查找节点 */
+    /* Search node */
     let index = find(n0.clone(), 2);
-    println!("链表中值为 2 的节点的索引 = {}", index);
+    println!("Index of node with value 2 in linked list = {}", index);
 }

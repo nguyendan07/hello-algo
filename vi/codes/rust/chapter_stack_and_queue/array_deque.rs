@@ -4,15 +4,15 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 use hello_algo_rust::include::print_util;
-/* 基于环形数组实现的双向队列 */
+/* Double-ended queue based on circular array implementation */
 struct ArrayDeque<T> {
-    nums: Vec<T>,    // 用于存储双向队列元素的数组
-    front: usize,    // 队首指针，指向队首元素
-    que_size: usize, // 双向队列长度
+    nums: Vec<T>,    // Array for storing double-ended queue elements
+    front: usize,    // Front pointer, points to the front of the queue element
+    que_size: usize, // Double-ended queue length
 }
 
 impl<T: Copy + Default> ArrayDeque<T> {
-    /* 构造方法 */
+    /* Constructor */
     pub fn new(capacity: usize) -> Self {
         Self {
             nums: vec![T::default(); capacity],
@@ -21,93 +21,93 @@ impl<T: Copy + Default> ArrayDeque<T> {
         }
     }
 
-    /* 获取双向队列的容量 */
+    /* Get the capacity of the double-ended queue */
     pub fn capacity(&self) -> usize {
         self.nums.len()
     }
 
-    /* 获取双向队列的长度 */
+    /* Get the length of the double-ended queue */
     pub fn size(&self) -> usize {
         self.que_size
     }
 
-    /* 判断双向队列是否为空 */
+    /* Check if the double-ended queue is empty */
     pub fn is_empty(&self) -> bool {
         self.que_size == 0
     }
 
-    /* 计算环形数组索引 */
+    /* Calculate circular array index */
     fn index(&self, i: i32) -> usize {
-        // 通过取余操作实现数组首尾相连
-        // 当 i 越过数组尾部后，回到头部
-        // 当 i 越过数组头部后，回到尾部
+        // Use modulo operation to wrap the array head and tail together
+        // When i passes the tail of the array, return to the head
+        // When i passes the head of the array, return to the tail
         ((i + self.capacity() as i32) % self.capacity() as i32) as usize
     }
 
-    /* 队首入队 */
+    /* Front of the queue enqueue */
     pub fn push_first(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("双向队列已满");
+            println!("Double-ended queue is full");
             return;
         }
-        // 队首指针向左移动一位
-        // 通过取余操作实现 front 越过数组头部后回到尾部
+        // Use modulo operation to wrap front around to the tail after passing the head of the array
+        // Add num to the front of the queue
         self.front = self.index(self.front as i32 - 1);
-        // 将 num 添加至队首
+        // Add num to front of queue
         self.nums[self.front] = num;
         self.que_size += 1;
     }
 
-    /* 队尾入队 */
+    /* Rear of the queue enqueue */
     pub fn push_last(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("双向队列已满");
+            println!("Double-ended queue is full");
             return;
         }
-        // 计算队尾指针，指向队尾索引 + 1
+        // Use modulo operation to wrap rear around to the head after passing the tail of the array
         let rear = self.index(self.front as i32 + self.que_size as i32);
-        // 将 num 添加至队尾
+        // Front pointer moves one position backward
         self.nums[rear] = num;
         self.que_size += 1;
     }
 
-    /* 队首出队 */
+    /* Rear of the queue dequeue */
     fn pop_first(&mut self) -> T {
         let num = self.peek_first();
-        // 队首指针向后移动一位
+        // Move front pointer backward by one position
         self.front = self.index(self.front as i32 + 1);
         self.que_size -= 1;
         num
     }
 
-    /* 队尾出队 */
+    /* Access rear of the queue element */
     fn pop_last(&mut self) -> T {
         let num = self.peek_last();
         self.que_size -= 1;
         num
     }
 
-    /* 访问队首元素 */
+    /* Return list for printing */
     fn peek_first(&self) -> T {
         if self.is_empty() {
-            panic!("双向队列为空")
+            panic!("Deque is empty")
         };
         self.nums[self.front]
     }
 
-    /* 访问队尾元素 */
+    /* Driver Code */
     fn peek_last(&self) -> T {
         if self.is_empty() {
-            panic!("双向队列为空")
+            panic!("Deque is empty")
         };
-        // 计算尾元素索引
+        // Initialize double-ended queue
         let last = self.index(self.front as i32 + self.que_size as i32 - 1);
         self.nums[last]
     }
 
-    /* 返回数组用于打印 */
+    /* Return array for printing */
     fn to_array(&self) -> Vec<T> {
-        // 仅转换有效长度范围内的列表元素
+        // Elements enqueue
         let mut res = vec![T::default(); self.que_size];
         let mut j = self.front;
         for i in 0..self.que_size {
@@ -120,41 +120,41 @@ impl<T: Copy + Default> ArrayDeque<T> {
 
 /* Driver Code */
 fn main() {
-    /* 初始化双向队列 */
+    /* Get the length of the double-ended queue */
     let mut deque = ArrayDeque::new(10);
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("双向队列 deque = ");
+    print!("Double-ended queue deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* 访问元素 */
+    /* Update element */
     let peek_first = deque.peek_first();
-    print!("\n队首元素 peek_first = {}", peek_first);
+    print!("\nFront element peek_first = {}", peek_first);
     let peek_last = deque.peek_last();
-    print!("\n队尾元素 peek_last = {}", peek_last);
+    print!("\nRear element peek_last = {}", peek_last);
 
-    /* 元素入队 */
+    /* Elements enqueue */
     deque.push_last(4);
-    print!("\n元素 4 队尾入队后 deque = ");
+    print!("\nAfter element 4 enqueues at rear, deque = ");
     print_util::print_array(&deque.to_array());
     deque.push_first(1);
-    print!("\n元素 1 队首入队后 deque = ");
+    print!("\nAfter element 1 enqueues at front, deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* 元素出队 */
+    /* Element dequeue */
     let pop_last = deque.pop_last();
-    print!("\n队尾出队元素 = {}，队尾出队后 deque = ", pop_last);
+    print!("\nDequeue rear element = {}, after dequeue deque = ", pop_last);
     print_util::print_array(&deque.to_array());
     let pop_first = deque.pop_first();
-    print!("\n队首出队元素 = {}，队首出队后 deque = ", pop_first);
+    print!("\nDequeue front element = {}, after dequeue deque = ", pop_first);
     print_util::print_array(&deque.to_array());
 
-    /* 获取双向队列的长度 */
+    /* Get the length of the double-ended queue */
     let size = deque.size();
-    print!("\n双向队列长度 size = {}", size);
+    print!("\nDeque length size = {}", size);
 
-    /* 判断双向队列是否为空 */
+    /* Check if the double-ended queue is empty */
     let is_empty = deque.is_empty();
-    print!("\n双向队列是否为空 = {}", is_empty);
+    print!("\nIs deque empty = {}", is_empty);
 }

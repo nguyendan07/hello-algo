@@ -7,7 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 二叉树节点类型 */
+/* Binary tree node type */
 #[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
@@ -18,7 +18,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
-    /* 构造方法 */
+    /* Constructor */
     pub fn new(val: i32) -> Rc<RefCell<Self>> {
         Rc::new(RefCell::new(Self {
             val,
@@ -39,11 +39,11 @@ macro_rules! op_vec {
     };
 }
 
-// 序列化编码规则请参考：
+// For the serialization encoding rules, please refer to:
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二叉树的数组表示：
+// Array representation of binary tree:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二叉树的链表表示：
+// Linked list representation of binary tree:
 //             /——— 15
 //         /——— 7
 //     /——— 3
@@ -55,7 +55,7 @@ macro_rules! op_vec {
 //         \——— 4
 //             \——— 8
 
-/* 将列表反序列化为二叉树：递归 */
+/* Deserialize a list into a binary tree: recursion */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -66,12 +66,12 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     Some(root)
 }
 
-/* 将列表反序列化为二叉树 */
+/* Deserialize a list into a binary tree */
 pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* 将二叉树序列化为列表：递归 */
+/* Serialize a binary tree into a list: recursion */
 fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if let Some(root) = root {
         // i + 1 is the minimum valid size to access index i
@@ -84,7 +84,7 @@ fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec
     }
 }
 
-/* 将二叉树序列化为列表 */
+/* Serialize a binary tree into a list */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
     tree_to_vec_dfs(root.as_ref(), 0, &mut res);

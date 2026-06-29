@@ -4,126 +4,126 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com)
  */
 
-/* 快速排序 */
+/* Quick sort */
 struct QuickSort;
 
 impl QuickSort {
-    /* 哨兵划分 */
+    /* Sentinel partition */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
-        // 以 nums[left] 为基准数
+        // Use nums[left] as the pivot
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1; // 从右向左找首个小于基准数的元素
+                j -= 1; // Search from right to left for the first element smaller than the pivot
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1; // 从左向右找首个大于基准数的元素
+                i += 1; // Search from left to right for the first element greater than the pivot
             }
-            nums.swap(i, j); // 交换这两个元素
+            nums.swap(i, j); // Swap these two elements
         }
-        nums.swap(i, left); // 将基准数交换至两子数组的分界线
-        i // 返回基准数的索引
+        nums.swap(i, left); // Swap the pivot to the boundary between the two subarrays
+        i // Return the index of the pivot
     }
 
-    /* 快速排序 */
+    /* Quick sort */
     pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
-        // 子数组长度为 1 时终止递归
+        // Terminate recursion when subarray length is 1
         if left >= right {
             return;
         }
-        // 哨兵划分
+        // Sentinel partition
         let pivot = Self::partition(nums, left as usize, right as usize) as i32;
-        // 递归左子数组、右子数组
+        // Recursively process the left subarray and right subarray
         Self::quick_sort(left, pivot - 1, nums);
         Self::quick_sort(pivot + 1, right, nums);
     }
 }
 
-/* 快速排序（中位基准数优化） */
+/* Quick sort (recursion depth optimization) */
 struct QuickSortMedian;
 
 impl QuickSortMedian {
-    /* 选取三个候选元素的中位数 */
+    /* Select the median of three candidate elements */
     fn median_three(nums: &mut [i32], left: usize, mid: usize, right: usize) -> usize {
         let (l, m, r) = (nums[left], nums[mid], nums[right]);
         if (l <= m && m <= r) || (r <= m && m <= l) {
-            return mid; // m 在 l 和 r 之间
+            return mid; // m is between l and r
         }
         if (m <= l && l <= r) || (r <= l && l <= m) {
-            return left; // l 在 m 和 r 之间
+            return left; // l is between m and r
         }
         right
     }
 
-    /* 哨兵划分（三数取中值） */
+    /* Sentinel partition (median of three) */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
-        // 选取三个候选元素的中位数
+        // Select the median of three candidate elements
         let med = Self::median_three(nums, left, (left + right) / 2, right);
-        // 将中位数交换至数组最左端
+        // Swap the median to the array's leftmost position
         nums.swap(left, med);
-        // 以 nums[left] 为基准数
+        // Use nums[left] as the pivot
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1; // 从右向左找首个小于基准数的元素
+                j -= 1; // Search from right to left for the first element smaller than the pivot
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1; // 从左向右找首个大于基准数的元素
+                i += 1; // Search from left to right for the first element greater than the pivot
             }
-            nums.swap(i, j); // 交换这两个元素
+            nums.swap(i, j); // Swap these two elements
         }
-        nums.swap(i, left); // 将基准数交换至两子数组的分界线
-        i // 返回基准数的索引
+        nums.swap(i, left); // Swap the pivot to the boundary between the two subarrays
+        i // Return the index of the pivot
     }
 
-    /* 快速排序 */
+    /* Quick sort */
     pub fn quick_sort(left: i32, right: i32, nums: &mut [i32]) {
-        // 子数组长度为 1 时终止递归
+        // Terminate recursion when subarray length is 1
         if left >= right {
             return;
         }
-        // 哨兵划分
+        // Sentinel partition
         let pivot = Self::partition(nums, left as usize, right as usize) as i32;
-        // 递归左子数组、右子数组
+        // Recursively process the left subarray and right subarray
         Self::quick_sort(left, pivot - 1, nums);
         Self::quick_sort(pivot + 1, right, nums);
     }
 }
 
-/* 快速排序（递归深度优化） */
+/* Quick sort (recursion depth optimization) */
 struct QuickSortTailCall;
 
 impl QuickSortTailCall {
-    /* 哨兵划分 */
+    /* Sentinel partition */
     fn partition(nums: &mut [i32], left: usize, right: usize) -> usize {
-        // 以 nums[left] 为基准数
+        // Use nums[left] as the pivot
         let (mut i, mut j) = (left, right);
         while i < j {
             while i < j && nums[j] >= nums[left] {
-                j -= 1; // 从右向左找首个小于基准数的元素
+                j -= 1; // Search from right to left for the first element smaller than the pivot
             }
             while i < j && nums[i] <= nums[left] {
-                i += 1; // 从左向右找首个大于基准数的元素
+                i += 1; // Search from left to right for the first element greater than the pivot
             }
-            nums.swap(i, j); // 交换这两个元素
+            nums.swap(i, j); // Swap these two elements
         }
-        nums.swap(i, left); // 将基准数交换至两子数组的分界线
-        i // 返回基准数的索引
+        nums.swap(i, left); // Swap the pivot to the boundary between the two subarrays
+        i // Return the index of the pivot
     }
 
-    /* 快速排序（递归深度优化） */
+    /* Quick sort (recursion depth optimization) */
     pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
-        // 子数组长度为 1 时终止
+        // Terminate when subarray length is 1
         while left < right {
-            // 哨兵划分操作
+            // Sentinel partition operation
             let pivot = Self::partition(nums, left as usize, right as usize) as i32;
-            // 对两个子数组中较短的那个执行快速排序
+            // Perform quick sort on the shorter of the two subarrays
             if pivot - left < right - pivot {
-                Self::quick_sort(left, pivot - 1, nums); // 递归排序左子数组
-                left = pivot + 1; // 剩余未排序区间为 [pivot + 1, right]
+                Self::quick_sort(left, pivot - 1, nums); // Recursively sort the left subarray
+                left = pivot + 1; // Remaining unsorted interval is [pivot + 1, right]
             } else {
-                Self::quick_sort(pivot + 1, right, nums); // 递归排序右子数组
-                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+                Self::quick_sort(pivot + 1, right, nums); // Recursively sort the right subarray
+                right = pivot - 1; // Remaining unsorted interval is [left, pivot - 1]
             }
         }
     }
@@ -131,18 +131,18 @@ impl QuickSortTailCall {
 
 /* Driver Code */
 fn main() {
-    /* 快速排序 */
+    /* Quick sort */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSort::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("快速排序完成后 nums = {:?}", nums);
+    println!("After quick sort, nums = {:?}", nums);
 
-    /* 快速排序（中位基准数优化） */
+    /* Quick sort (recursion depth optimization) */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSortMedian::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("快速排序（中位基准数优化）完成后 nums = {:?}", nums);
+    println!("After quick sort (median pivot optimization), nums = {:?}", nums);
 
-    /* 快速排序（递归深度优化） */
+    /* Quick sort (recursion depth optimization) */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSortTailCall::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("快速排序（递归深度优化）完成后 nums = {:?}", nums);
+    println!("After quick sort (recursion depth optimization), nums = {:?}", nums);
 }

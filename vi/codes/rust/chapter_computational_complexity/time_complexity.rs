@@ -4,7 +4,7 @@
  * Author: xBLACICEx (xBLACKICEx@outlook.com), codingonion (coderonion@gmail.com)
  */
 
-/* 常数阶 */
+/* Constant order */
 fn constant(n: i32) -> i32 {
     _ = n;
     let mut count = 0;
@@ -15,7 +15,7 @@ fn constant(n: i32) -> i32 {
     count
 }
 
-/* 线性阶 */
+/* Linear order */
 fn linear(n: i32) -> i32 {
     let mut count = 0;
     for _ in 0..n {
@@ -24,20 +24,20 @@ fn linear(n: i32) -> i32 {
     count
 }
 
-/* 线性阶（遍历数组） */
+/* Linear order (traversing array) */
 fn array_traversal(nums: &[i32]) -> i32 {
     let mut count = 0;
-    // 循环次数与数组长度成正比
+    // Number of iterations is proportional to the array length
     for _ in nums {
         count += 1;
     }
     count
 }
 
-/* 平方阶 */
+/* Exponential order */
 fn quadratic(n: i32) -> i32 {
     let mut count = 0;
-    // 循环次数与数据大小 n 成平方关系
+    // Number of iterations is quadratically related to the data size n
     for _ in 0..n {
         for _ in 0..n {
             count += 1;
@@ -46,31 +46,31 @@ fn quadratic(n: i32) -> i32 {
     count
 }
 
-/* 平方阶（冒泡排序） */
+/* Quadratic order (bubble sort) */
 fn bubble_sort(nums: &mut [i32]) -> i32 {
-    let mut count = 0; // 计数器
+    let mut count = 0; // Counter
 
-    // 外循环：未排序区间为 [0, i]
+    // Outer loop: unsorted range is [0, i]
     for i in (1..nums.len()).rev() {
-        // 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
         for j in 0..i {
             if nums[j] > nums[j + 1] {
-                // 交换 nums[j] 与 nums[j + 1]
+                // Swap nums[j] and nums[j + 1]
                 let tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3; // 元素交换包含 3 个单元操作
+                count += 3; // Element swap includes 3 unit operations
             }
         }
     }
     count
 }
 
-/* 指数阶（循环实现） */
+/* Exponential order (loop implementation) */
 fn exponential(n: i32) -> i32 {
     let mut count = 0;
     let mut base = 1;
-    // 细胞每轮一分为二，形成数列 1, 2, 4, 8, ..., 2^(n-1)
+    // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
     for _ in 0..n {
         for _ in 0..base {
             count += 1
@@ -81,7 +81,7 @@ fn exponential(n: i32) -> i32 {
     count
 }
 
-/* 指数阶（递归实现） */
+/* Exponential order (recursive implementation) */
 fn exp_recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
@@ -89,7 +89,7 @@ fn exp_recur(n: i32) -> i32 {
     exp_recur(n - 1) + exp_recur(n - 1) + 1
 }
 
-/* 对数阶（循环实现） */
+/* Logarithmic order (loop implementation) */
 fn logarithmic(mut n: i32) -> i32 {
     let mut count = 0;
     while n > 1 {
@@ -99,7 +99,7 @@ fn logarithmic(mut n: i32) -> i32 {
     count
 }
 
-/* 对数阶（递归实现） */
+/* Logarithmic order (recursive implementation) */
 fn log_recur(n: i32) -> i32 {
     if n <= 1 {
         return 0;
@@ -107,7 +107,7 @@ fn log_recur(n: i32) -> i32 {
     log_recur(n / 2) + 1
 }
 
-/* 线性对数阶 */
+/* Linearithmic order */
 fn linear_log_recur(n: i32) -> i32 {
     if n <= 1 {
         return 1;
@@ -119,13 +119,13 @@ fn linear_log_recur(n: i32) -> i32 {
     return count;
 }
 
-/* 阶乘阶（递归实现） */
+/* Factorial order (recursive implementation) */
 fn factorial_recur(n: i32) -> i32 {
     if n == 0 {
         return 1;
     }
     let mut count = 0;
-    // 从 1 个分裂出 n 个
+    // Split from 1 into n
     for _ in 0..n {
         count += factorial_recur(n - 1);
     }
@@ -134,37 +134,37 @@ fn factorial_recur(n: i32) -> i32 {
 
 /* Driver Code */
 fn main() {
-    // 可以修改 n 运行，体会一下各种复杂度的操作数量变化趋势
+    // You can modify n to run and observe the trend of the number of operations for various complexities
     let n: i32 = 8;
-    println!("输入数据大小 n = {}", n);
+    println!("Input data size n = {}", n);
 
     let mut count = constant(n);
-    println!("常数阶的操作数量 = {}", count);
+    println!("Constant-time operations count = {}", count);
 
     count = linear(n);
-    println!("线性阶的操作数量 = {}", count);
+    println!("Linear-time operations count = {}", count);
     count = array_traversal(&vec![0; n as usize]);
-    println!("线性阶（遍历数组）的操作数量 = {}", count);
+    println!("Linear-time (array traversal) operations count = {}", count);
 
     count = quadratic(n);
-    println!("平方阶的操作数量 = {}", count);
+    println!("Quadratic-time operations count = {}", count);
     let mut nums = (1..=n).rev().collect::<Vec<_>>(); // [n,n-1,...,2,1]
     count = bubble_sort(&mut nums);
-    println!("平方阶（冒泡排序）的操作数量 = {}", count);
+    println!("Quadratic-time (bubble sort) operations count = {}", count);
 
     count = exponential(n);
-    println!("指数阶（循环实现）的操作数量 = {}", count);
+    println!("Exponential-time (iterative) operations count = {}", count);
     count = exp_recur(n);
-    println!("指数阶（递归实现）的操作数量 = {}", count);
+    println!("Exponential-time (recursive) operations count = {}", count);
 
     count = logarithmic(n);
-    println!("对数阶（循环实现）的操作数量 = {}", count);
+    println!("Logarithmic-time (iterative) operations count = {}", count);
     count = log_recur(n);
-    println!("对数阶（递归实现）的操作数量 = {}", count);
+    println!("Logarithmic-time (recursive) operations count = {}", count);
 
     count = linear_log_recur(n);
-    println!("线性对数阶（递归实现）的操作数量 = {}", count);
+    println!("Linearithmic-time (recursive) operations count = {}", count);
 
     count = factorial_recur(n);
-    println!("阶乘阶（递归实现）的操作数量 = {}", count);
+    println!("Factorial-time (recursive) operations count = {}", count);
 }
