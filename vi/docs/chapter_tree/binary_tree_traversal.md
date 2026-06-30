@@ -10,7 +10,7 @@ Như hình dưới đây, <u>duyệt theo mức</u> duyệt cây nhị phân t�
 
 Duyệt theo mức thực chất là một dạng của <u>duyệt theo chiều rộng</u>, còn gọi là <u>tìm kiếm theo chiều rộng (BFS)</u>, thể hiện phương pháp duyệt "mở rộng theo vòng tròn ra ngoài" từng lớp một.
 
-![Duyệt theo mức của một cây nhị phân](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }{ class="animation-figure" }
+![Duyệt theo mức của một cây nhị phân](binary_tree_traversal.assets/binary_tree_bfs.png){ class="animation-figure" }
 
 <p align="center"> Figure 7-9 &nbsp; Duyệt theo mức của một cây nhị phân </p>
 
