@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="vi" class="no-js"><head>
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
+        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_tree/summary/">
+        <link rel="canonical" href="https://www.hello-algo.com/chapter_tree/summary/">
       
       
         <link rel="prev" href="../avl_tree/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>7.6 Summary - Hello Algo</title>
+        <title>7.6 &nbsp; 小结 - Hello 算法</title>
       
     
     
@@ -44,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -87,8 +87,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#tom-tat" class="md-skip">
-          Bỏ qua
+        <a href="#_1" class="md-skip">
+          跳转至
         </a>
       
     </div>
@@ -99,11 +99,13 @@
             
             
 
+    
+
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
         <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
     </svg>
-    <span></span>
+    <span>纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a></span>
 </div>
 
           </div>
@@ -112,18 +114,14 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
-        
-      </div>
-    
     
       
 
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
-    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
@@ -136,13 +134,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello Algo
+            Hello 算法
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.6 Summary
+              7.6 &nbsp; 小结
             
           </span>
         </div>
@@ -155,9 +153,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="深色模式" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
+      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -165,9 +163,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="浅色模式" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
+      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -182,7 +180,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
     </button>
     <div class="md-select__inner">
@@ -238,21 +236,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
       </label>
-      <nav class="md-search__options" aria-label="Tìm kiếm">
+      <nav class="md-search__options" aria-label="查找">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
         </button>
@@ -265,7 +263,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -276,7 +274,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
+        <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -310,18 +308,18 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="Thanh điều hướng" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
+    <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    Hello Algo
+    Hello 算法
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
+      <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -367,7 +365,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    Before Starting
+    序
   </span>
   
 
@@ -378,7 +376,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Before Starting
+            序
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -427,10 +425,8 @@
             <a href="../../chapter_preface/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 4H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 19V6h8v13H3m18 0h-8V6h8v13m-7-9.5h6V11h-6V9.5m0 2.5h6v1.5h-6V12m0 2.5h6V16h-6v-1.5Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 0. Preface
+    第 0 章 &nbsp; 前言
   </span>
   
 
@@ -446,7 +442,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 0. Preface
+            第 0 章 &nbsp; 前言
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -463,7 +459,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 About This Book
+    0.1 &nbsp; 关于本书
   </span>
   
 
@@ -484,7 +480,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 How to Use This Book
+    0.2 &nbsp; 如何使用本书
   </span>
   
 
@@ -505,7 +501,7 @@
         
   
   <span class="md-ellipsis">
-    0.3 Summary
+    0.3 &nbsp; 小结
   </span>
   
 
@@ -558,10 +554,8 @@
             <a href="../../chapter_introduction/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 1. Encounter with Algorithms
+    第 1 章 &nbsp; 初识算法
   </span>
   
 
@@ -577,7 +571,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 1. Encounter with Algorithms
+            第 1 章 &nbsp; 初识算法
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -594,7 +588,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 Algorithms Are Everywhere
+    1.1 &nbsp; 算法无处不在
   </span>
   
 
@@ -615,7 +609,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 What Is an Algorithm
+    1.2 &nbsp; 算法是什么
   </span>
   
 
@@ -636,7 +630,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 Summary
+    1.3 &nbsp; 小结
   </span>
   
 
@@ -693,10 +687,8 @@
             <a href="../../chapter_computational_complexity/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 2. Complexity Analysis
+    第 2 章 &nbsp; 复杂度分析
   </span>
   
 
@@ -712,7 +704,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 2. Complexity Analysis
+            第 2 章 &nbsp; 复杂度分析
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -729,7 +721,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 Algorithm Efficiency Evaluation
+    2.1 &nbsp; 算法效率评估
   </span>
   
 
@@ -750,7 +742,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 Iteration and Recursion
+    2.2 &nbsp; 迭代与递归
   </span>
   
 
@@ -771,7 +763,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 Time Complexity
+    2.3 &nbsp; 时间复杂度
   </span>
   
 
@@ -792,7 +784,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 Space Complexity
+    2.4 &nbsp; 空间复杂度
   </span>
   
 
@@ -813,7 +805,7 @@
         
   
   <span class="md-ellipsis">
-    2.5 Summary
+    2.5 &nbsp; 小结
   </span>
   
 
@@ -870,10 +862,8 @@
             <a href="../../chapter_data_structure/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 3. Data Structures
+    第 3 章 &nbsp; 数据结构
   </span>
   
 
@@ -889,7 +879,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 3. Data Structures
+            第 3 章 &nbsp; 数据结构
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -906,7 +896,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 Classification of Data Structures
+    3.1 &nbsp; 数据结构分类
   </span>
   
 
@@ -927,7 +917,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 Basic Data Types
+    3.2 &nbsp; 基本数据类型
   </span>
   
 
@@ -948,7 +938,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 Number Encoding *
+    3.3 &nbsp; 数字编码 *
   </span>
   
 
@@ -969,7 +959,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 Character Encoding *
+    3.4 &nbsp; 字符编码 *
   </span>
   
 
@@ -990,7 +980,7 @@
         
   
   <span class="md-ellipsis">
-    3.5 Summary
+    3.5 &nbsp; 小结
   </span>
   
 
@@ -1047,10 +1037,8 @@
             <a href="../../chapter_array_and_linkedlist/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 4. Arrays and Linked Lists
+    第 4 章 &nbsp; 数组与链表
   </span>
   
 
@@ -1066,7 +1054,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4. Arrays and Linked Lists
+            第 4 章 &nbsp; 数组与链表
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1083,7 +1071,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 Array
+    4.1 &nbsp; 数组
   </span>
   
 
@@ -1104,7 +1092,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 Linked List
+    4.2 &nbsp; 链表
   </span>
   
 
@@ -1125,7 +1113,7 @@
         
   
   <span class="md-ellipsis">
-    4.3 List
+    4.3 &nbsp; 列表
   </span>
   
 
@@ -1146,7 +1134,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 Random-Access Memory and Cache *
+    4.4 &nbsp; 内存与缓存 *
   </span>
   
 
@@ -1167,7 +1155,7 @@
         
   
   <span class="md-ellipsis">
-    4.5 Summary
+    4.5 &nbsp; 小结
   </span>
   
 
@@ -1222,10 +1210,8 @@
             <a href="../../chapter_stack_and_queue/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 5. Stacks and Queues
+    第 5 章 &nbsp; 栈与队列
   </span>
   
 
@@ -1241,7 +1227,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5. Stacks and Queues
+            第 5 章 &nbsp; 栈与队列
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1258,7 +1244,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 Stack
+    5.1 &nbsp; 栈
   </span>
   
 
@@ -1279,7 +1265,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 Queue
+    5.2 &nbsp; 队列
   </span>
   
 
@@ -1300,7 +1286,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 Deque
+    5.3 &nbsp; 双向队列
   </span>
   
 
@@ -1321,7 +1307,7 @@
         
   
   <span class="md-ellipsis">
-    5.4 Summary
+    5.4 &nbsp; 小结
   </span>
   
 
@@ -1376,10 +1362,8 @@
             <a href="../../chapter_hashing/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 6. Hashing
+    第 6 章 &nbsp; 哈希表
   </span>
   
 
@@ -1395,7 +1379,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 6. Hashing
+            第 6 章 &nbsp; 哈希表
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1412,7 +1396,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 Hash Table
+    6.1 &nbsp; 哈希表
   </span>
   
 
@@ -1433,7 +1417,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 Hash Collision
+    6.2 &nbsp; 哈希冲突
   </span>
   
 
@@ -1454,7 +1438,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 Hash Algorithm
+    6.3 &nbsp; 哈希算法
   </span>
   
 
@@ -1475,7 +1459,7 @@
         
   
   <span class="md-ellipsis">
-    6.4 Summary
+    6.4 &nbsp; 小结
   </span>
   
 
@@ -1536,10 +1520,8 @@
             <a href="../" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 7. Tree
+    第 7 章 &nbsp; 树
   </span>
   
 
@@ -1555,7 +1537,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 7. Tree
+            第 7 章 &nbsp; 树
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1572,7 +1554,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 Binary Tree
+    7.1 &nbsp; 二叉树
   </span>
   
 
@@ -1593,7 +1575,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 Binary Tree Traversal
+    7.2 &nbsp; 二叉树遍历
   </span>
   
 
@@ -1614,7 +1596,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 Array Representation of Binary Trees
+    7.3 &nbsp; 二叉树数组表示
   </span>
   
 
@@ -1635,7 +1617,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 Binary Search Tree
+    7.4 &nbsp; 二叉搜索树
   </span>
   
 
@@ -1656,7 +1638,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 AVL Tree *
+    7.5 &nbsp; AVL 树 *
   </span>
   
 
@@ -1686,7 +1668,7 @@
           
   
   <span class="md-ellipsis">
-    7.6 Summary
+    7.6 &nbsp; 小结
   </span>
   
 
@@ -1697,7 +1679,7 @@
         
   
   <span class="md-ellipsis">
-    7.6 Summary
+    7.6 &nbsp; 小结
   </span>
   
 
@@ -1705,7 +1687,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -1714,23 +1696,23 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Mục lục
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#on-tap-chinh" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Ôn tập chính
+      重点回顾
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hoi-ap" class="md-nav__link">
+  <a href="#q-a" class="md-nav__link">
     <span class="md-ellipsis">
-      Hỏi &amp; Đáp
+      Q &amp; A
     </span>
   </a>
   
@@ -1790,10 +1772,8 @@
             <a href="../../chapter_heap/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 11 5.79V7H7a2 2 0 0 0-2 2v.71A2.5 2.5 0 0 0 3.5 12 2.5 2.5 0 0 0 5 14.29V15H4a2 2 0 0 0-2 2v1.21A2.5 2.5 0 0 0 .5 20.5 2.5 2.5 0 0 0 3 23a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 4 18.21V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 9 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2H7v-.71A2.5 2.5 0 0 0 8.5 12 2.5 2.5 0 0 0 7 9.71V9h10v.71A2.5 2.5 0 0 0 15.5 12a2.5 2.5 0 0 0 1.5 2.29V15h-1a2 2 0 0 0-2 2v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 15 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 21 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2h-1v-.71A2.5 2.5 0 0 0 20.5 12 2.5 2.5 0 0 0 19 9.71V9a2 2 0 0 0-2-2h-4V5.79a2.5 2.5 0 0 0 1.5-2.29A2.5 2.5 0 0 0 12 1m0 1.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M6 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m12 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M3 19.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 8. Heap
+    第 8 章 &nbsp; 堆
   </span>
   
 
@@ -1809,7 +1789,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 8. Heap
+            第 8 章 &nbsp; 堆
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1826,7 +1806,7 @@
         
   
   <span class="md-ellipsis">
-    8.1 Heap
+    8.1 &nbsp; 堆
   </span>
   
 
@@ -1847,7 +1827,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 Heap Construction Operation
+    8.2 &nbsp; 建堆操作
   </span>
   
 
@@ -1868,7 +1848,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 Top-k Problem
+    8.3 &nbsp; Top-k 问题
   </span>
   
 
@@ -1889,7 +1869,7 @@
         
   
   <span class="md-ellipsis">
-    8.4 Summary
+    8.4 &nbsp; 小结
   </span>
   
 
@@ -1944,10 +1924,8 @@
             <a href="../../chapter_graph/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59-.44.06M6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43.43 0 .83.16 1.12.43l4.28-2.53H6.6M12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68.93 0 1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25 5.51-9.64m2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24-4.5-2.58Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 9. Graph
+    第 9 章 &nbsp; 图
   </span>
   
 
@@ -1963,7 +1941,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 9. Graph
+            第 9 章 &nbsp; 图
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1980,7 +1958,7 @@
         
   
   <span class="md-ellipsis">
-    9.1 Graph
+    9.1 &nbsp; 图
   </span>
   
 
@@ -2001,7 +1979,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 Basic Operations on Graphs
+    9.2 &nbsp; 图基础操作
   </span>
   
 
@@ -2022,7 +2000,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 Graph Traversal
+    9.3 &nbsp; 图的遍历
   </span>
   
 
@@ -2043,7 +2021,7 @@
         
   
   <span class="md-ellipsis">
-    9.4 Summary
+    9.4 &nbsp; 小结
   </span>
   
 
@@ -2102,10 +2080,8 @@
             <a href="../../chapter_searching/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 10. Searching
+    第 10 章 &nbsp; 搜索
   </span>
   
 
@@ -2121,7 +2097,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 10. Searching
+            第 10 章 &nbsp; 搜索
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2138,7 +2114,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 Binary Search
+    10.1 &nbsp; 二分查找
   </span>
   
 
@@ -2159,7 +2135,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 Binary Search Insertion Point
+    10.2 &nbsp; 二分查找插入点
   </span>
   
 
@@ -2180,7 +2156,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 Binary Search Boundaries
+    10.3 &nbsp; 二分查找边界
   </span>
   
 
@@ -2201,7 +2177,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 Hash Optimization Strategy
+    10.4 &nbsp; 哈希优化策略
   </span>
   
 
@@ -2222,7 +2198,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 Searching Algorithms Revisited
+    10.5 &nbsp; 重识搜索算法
   </span>
   
 
@@ -2243,7 +2219,7 @@
         
   
   <span class="md-ellipsis">
-    10.6 Summary
+    10.6 &nbsp; 小结
   </span>
   
 
@@ -2312,10 +2288,8 @@
             <a href="../../chapter_sorting/" class="md-nav__link ">
               
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
-  
   <span class="md-ellipsis">
-    Chapter 11. Sorting
+    第 11 章 &nbsp; 排序
   </span>
   
 
@@ -2331,7 +2305,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 11. Sorting
+            第 11 章 &nbsp; 排序
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2348,7 +2322,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 Sorting Algorithm
+    11.1 &nbsp; 排序算法
   </span>
   
 
@@ -2369,7 +2343,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 Selection Sort
+    11.2 &nbsp; 选择排序
   </span>
   
 
@@ -2390,7 +2364,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 Bubble Sort
+    11.3 &nbsp; 冒泡排序
   </span>
   
 
@@ -2411,7 +2385,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 Insertion Sort
+    11.4 &nbsp; 插入排序
   </span>
   
 
@@ -2432,7 +2406,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 Quick Sort
+    11.5 &nbsp; 快速排序
   </span>
   
 
@@ -2453,7 +2427,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 Merge Sort
+    11.6 &nbsp; 归并排序
   </span>
   
 
@@ -2474,7 +2448,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 Heap Sort
+    11.7 &nbsp; 堆排序
   </span>
   
 
@@ -2495,7 +2469,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 Bucket Sort
+    11.8 &nbsp; 桶排序
   </span>
   
 
@@ -2516,7 +2490,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 Counting Sort
+    11.9 &nbsp; 计数排序
   </span>
   
 
@@ -2537,7 +2511,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 Radix Sort
+    11.10 &nbsp; 基数排序
   </span>
   
 
@@ -2558,7 +2532,7 @@
         
   
   <span class="md-ellipsis">
-    11.11 Summary
+    11.11 &nbsp; 小结
   </span>
   
 
@@ -2616,7 +2590,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 12. Divide and Conquer
+    第 12 章 &nbsp; 分治
   </span>
   
 
@@ -2632,7 +2606,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 12. Divide and Conquer
+            第 12 章 &nbsp; 分治
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2649,7 +2623,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 Divide and Conquer Algorithms
+    12.1 &nbsp; 分治算法
   </span>
   
 
@@ -2670,7 +2644,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 Divide and Conquer Search Strategy
+    12.2 &nbsp; 分治搜索策略
   </span>
   
 
@@ -2691,7 +2665,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 Building a Binary Tree Problem
+    12.3 &nbsp; 构建树问题
   </span>
   
 
@@ -2712,7 +2686,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 Hanota Problem
+    12.4 &nbsp; 汉诺塔问题
   </span>
   
 
@@ -2733,7 +2707,7 @@
         
   
   <span class="md-ellipsis">
-    12.5 Summary
+    12.5 &nbsp; 小结
   </span>
   
 
@@ -2791,7 +2765,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 13. Backtracking
+    第 13 章 &nbsp; 回溯
   </span>
   
 
@@ -2807,7 +2781,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 13. Backtracking
+            第 13 章 &nbsp; 回溯
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2824,7 +2798,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 Backtracking Algorithm
+    13.1 &nbsp; 回溯算法
   </span>
   
 
@@ -2845,7 +2819,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 Permutations Problem
+    13.2 &nbsp; 全排列问题
   </span>
   
 
@@ -2866,7 +2840,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 Subset-Sum Problem
+    13.3 &nbsp; 子集和问题
   </span>
   
 
@@ -2887,7 +2861,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 N-Queens Problem
+    13.4 &nbsp; N 皇后问题
   </span>
   
 
@@ -2908,7 +2882,7 @@
         
   
   <span class="md-ellipsis">
-    13.5 Summary
+    13.5 &nbsp; 小结
   </span>
   
 
@@ -2970,7 +2944,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 14. Dynamic Programming
+    第 14 章 &nbsp; 动态规划
   </span>
   
 
@@ -2986,7 +2960,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 14. Dynamic Programming
+            第 14 章 &nbsp; 动态规划
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3003,7 +2977,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 Introduction to Dynamic Programming
+    14.1 &nbsp; 初探动态规划
   </span>
   
 
@@ -3024,7 +2998,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 Characteristics of Dynamic Programming Problems
+    14.2 &nbsp; DP 问题特性
   </span>
   
 
@@ -3045,7 +3019,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 Dynamic Programming Problem-Solving Approach
+    14.3 &nbsp; DP 解题思路
   </span>
   
 
@@ -3066,7 +3040,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 0-1 Knapsack Problem
+    14.4 &nbsp; 0-1 背包问题
   </span>
   
 
@@ -3087,7 +3061,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 Unbounded Knapsack Problem
+    14.5 &nbsp; 完全背包问题
   </span>
   
 
@@ -3108,7 +3082,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 Edit Distance Problem
+    14.6 &nbsp; 编辑距离问题
   </span>
   
 
@@ -3129,7 +3103,7 @@
         
   
   <span class="md-ellipsis">
-    14.7 Summary
+    14.7 &nbsp; 小结
   </span>
   
 
@@ -3187,7 +3161,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 15. Greedy
+    第 15 章 &nbsp; 贪心
   </span>
   
 
@@ -3203,7 +3177,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_17">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 15. Greedy
+            第 15 章 &nbsp; 贪心
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3220,7 +3194,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 Greedy Algorithm
+    15.1 &nbsp; 贪心算法
   </span>
   
 
@@ -3241,7 +3215,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 Fractional Knapsack Problem
+    15.2 &nbsp; 分数背包问题
   </span>
   
 
@@ -3262,7 +3236,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 Maximum Capacity Problem
+    15.3 &nbsp; 最大容量问题
   </span>
   
 
@@ -3283,7 +3257,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 Maximum Product Cutting Problem
+    15.4 &nbsp; 最大切分乘积问题
   </span>
   
 
@@ -3304,7 +3278,7 @@
         
   
   <span class="md-ellipsis">
-    15.5 Summary
+    15.5 &nbsp; 小结
   </span>
   
 
@@ -3358,7 +3332,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 16. Appendix
+    第 16 章 &nbsp; 附录
   </span>
   
 
@@ -3374,7 +3348,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_18">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 16. Appendix
+            第 16 章 &nbsp; 附录
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3391,7 +3365,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 Programming Environment Installation
+    16.1 &nbsp; 编程环境安装
   </span>
   
 
@@ -3412,7 +3386,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 Contributing Together
+    16.2 &nbsp; 一起参与创作
   </span>
   
 
@@ -3433,7 +3407,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 Glossary
+    16.3 &nbsp; 术语表
   </span>
   
 
@@ -3483,7 +3457,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"></path></svg>
   
   <span class="md-ellipsis">
-    References
+    参考文献
   </span>
   
 
@@ -3494,7 +3468,72 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            References
+            参考文献
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20">
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../chapter_paperbook/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"></path></svg>
+  
+  <span class="md-ellipsis">
+    纸质书
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="最近添加">
+    </span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+            纸质书
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3520,7 +3559,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -3529,23 +3568,23 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Mục lục
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#on-tap-chinh" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Ôn tập chính
+      重点回顾
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hoi-ap" class="md-nav__link">
+  <a href="#q-a" class="md-nav__link">
     <span class="md-ellipsis">
-      Hỏi &amp; Đáp
+      Q &amp; A
     </span>
   </a>
   
@@ -3572,7 +3611,7 @@
 
   <!-- Edit button -->
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/vi/docs/chapter_tree/summary.md" title="Chỉnh sửa" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_tree/summary.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2 344 121.9l46.1 46.1-134.3 134.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25c-28.1-28.1-73.7-28.1-101.8 0zM88 64c-48.6 0-88 39.4-88 88v272c0 48.6 39.4 88 88 88h272c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24v112c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40h112c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"></path></svg>
     </a>
@@ -3583,43 +3622,43 @@
 
 
 <!-- Page content -->
-<h1 id="tom-tat">Tóm tắt<a class="headerlink" href="#tom-tat" title="Permanent link">¶</a></h1>
-<h3 id="on-tap-chinh">Ôn tập chính<a class="headerlink" href="#on-tap-chinh" title="Permanent link">¶</a></h3>
+<h1 id="_1">小结<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<h3 id="_2">重点回顾<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <ul>
-<li>Cây nhị phân là một cấu trúc dữ liệu phi tuyến thể hiện tư duy "chia để trị" khi tách một phần tử thành hai. Mỗi nút của cây nhị phân chứa một giá trị và hai con trỏ, trỏ đến nút con bên trái và bên phải tương ứng.</li>
-<li>Đối với một nút trong cây nhị phân, nút con bên trái (bên phải) và cây được tạo ra dưới nó được gọi chung là cây con bên trái (bên phải) của nút đó.</li>
-<li>Các thuật ngữ liên quan đến cây nhị phân bao gồm nút gốc, nút lá, mức (level), bậc (degree), cạnh, chiều cao và độ sâu.</li>
-<li>Các thao tác khởi tạo cây nhị phân, chèn nút và xóa nút tương tự như các thao tác trên danh sách liên kết.</li>
-<li>Các loại cây nhị phân phổ biến bao gồm cây nhị phân hoàn hảo, cây nhị phân đầy đủ (complete), cây nhị phân đầy (full) và cây nhị phân cân bằng. Cây nhị phân hoàn hảo là trạng thái lý tưởng, trong khi danh sách liên kết là trạng thái tệ nhất khi suy thoái.</li>
-<li>Cây nhị phân có thể được biểu diễn bằng mảng bằng cách sắp xếp các giá trị nút và các ô trống theo thứ tự duyệt theo tầng (level-order) và triển khai các con trỏ dựa trên quan hệ ánh xạ chỉ số giữa nút cha và nút con.</li>
-<li>Duyệt theo tầng (level-order) của cây nhị phân là phương pháp tìm kiếm theo chiều rộng (breadth-first), thể hiện cách duyệt theo lớp "mở rộng vòng này sang vòng khác". Thường được triển khai bằng hàng đợi (queue).</li>
-<li>Duyệt trước (pre-order), duyệt giữa (in-order) và duyệt sau (post-order) đều là các phương pháp tìm kiếm theo chiều sâu (depth-first), thể hiện cách duyệt "đi tới tận cùng trước, rồi quay lui để tiếp tục". Thường được triển khai bằng đệ quy.</li>
-<li>Cây tìm kiếm nhị phân (binary search tree) là cấu trúc dữ liệu hiệu quả cho việc tìm kiếm phần tử, với độ phức tạp thời gian cho các thao tác tìm kiếm, chèn và xóa đều là <span class="arithmatex">\(O(\log n)\)</span>. Khi cây tìm kiếm nhị phân suy thoái thành danh sách liên kết, các độ phức tạp này giảm xuống <span class="arithmatex">\(O(n)\)</span>.</li>
-<li>Cây AVL, còn gọi là cây tìm kiếm nhị phân cân bằng, đảm bảo cây luôn cân bằng sau nhiều lần chèn và xóa nút bằng các phép quay (rotation).</li>
-<li>Các phép quay trong cây AVL bao gồm phép quay phải, phép quay trái, quay phải-trái và quay trái-phải. Sau khi chèn hoặc xóa nút, cây AVL cân bằng lại bằng cách thực hiện các phép quay này theo chiều từ dưới lên.</li>
+<li>二叉树是一种非线性数据结构，体现“一分为二”的分治逻辑。每个二叉树节点包含一个值以及两个指针，分别指向其左子节点和右子节点。</li>
+<li>对于二叉树中的某个节点，其左（右）子节点及其以下形成的树被称为该节点的左（右）子树。</li>
+<li>二叉树的相关术语包括根节点、叶节点、层、度、边、高度和深度等。</li>
+<li>二叉树的初始化、节点插入和节点删除操作与链表操作方法类似。</li>
+<li>常见的二叉树类型有完美二叉树、完全二叉树、完满二叉树和平衡二叉树。完美二叉树是最理想的状态，而链表是退化后的最差状态。</li>
+<li>二叉树可以用数组表示，方法是将节点值和空位按层序遍历顺序排列，并根据父节点与子节点之间的索引映射关系来实现指针。</li>
+<li>二叉树的层序遍历是一种广度优先搜索方法，它体现了“一圈一圈向外扩展”的逐层遍历方式，通常通过队列来实现。</li>
+<li>前序、中序、后序遍历皆属于深度优先搜索，它们体现了“先走到尽头，再回溯继续”的遍历方式，通常使用递归来实现。</li>
+<li>二叉搜索树是一种高效的元素查找数据结构，其查找、插入和删除操作的时间复杂度均为 <span class="arithmatex">\(O(\log n)\)</span> 。当二叉搜索树退化为链表时，各项时间复杂度会劣化至 <span class="arithmatex">\(O(n)\)</span> 。</li>
+<li>AVL 树，也称平衡二叉搜索树，它通过旋转操作确保在不断插入和删除节点后树仍然保持平衡。</li>
+<li>AVL 树的旋转操作包括右旋、左旋、先右旋再左旋、先左旋再右旋。在插入或删除节点后，AVL 树会从底向顶执行旋转操作，使树重新恢复平衡。</li>
 </ul>
-<h3 id="hoi-ap">Hỏi &amp; Đáp<a class="headerlink" href="#hoi-ap" title="Permanent link">¶</a></h3>
-<p><strong>Q</strong>: Với một cây nhị phân chỉ có một nút, cả chiều cao của cây và độ sâu của nút gốc có phải là <span class="arithmatex">\(0\)</span> không?</p>
-<p>Có, vì chiều cao và độ sâu thường được định nghĩa là "số cạnh đã đi qua."</p>
-<p><strong>Q</strong>: Việc chèn và xóa trong cây nhị phân thường thực hiện bằng một tập hợp các thao tác. "Một tập hợp các thao tác" ở đây đề cập đến gì? Có hàm ý giải phóng tài nguyên của các nút con không?</p>
-<p>Lấy cây tìm kiếm nhị phân làm ví dụ, thao tác xóa một nút cần xử lý ở ba trường hợp khác nhau, mỗi trường hợp cần thực hiện nhiều bước thao tác trên các nút.</p>
-<p><strong>Q</strong>: Tại sao có ba thứ tự: pre-order, in-order và post-order cho việc duyệt DFS của cây nhị phân, và mục đích của chúng là gì?</p>
-<p>Tương tự như duyệt tuần tự và duyệt ngược của mảng, pre-order, in-order và post-order là ba phương pháp duyệt cây nhị phân, cho phép ta thu được kết quả duyệt theo một thứ tự nhất định. Ví dụ, trong cây tìm kiếm nhị phân, vì kích thước các nút thỏa mãn <code>left child node value &lt; root node value &lt; right child node value</code>, ta có thể thu được một dãy các nút có thứ tự bằng cách duyệt cây theo ưu tiên "trái <span class="arithmatex">\(\rightarrow\)</span> gốc <span class="arithmatex">\(\rightarrow\)</span> phải".</p>
-<p><strong>Q</strong>: Trong phép quay phải xử lý mối quan hệ giữa các nút mất cân bằng <code>node</code>, <code>child</code>, <code>grand_child</code>, phải chăng sau khi quay phải sẽ làm mất mối liên kết giữa <code>node</code> và nút cha của nó cũng như liên kết gốc của <code>node</code>?</p>
-<p>Cần nhìn vấn đề này dưới góc độ đệ quy. Thao tác <code>right_rotate(root)</code> nhận nút gốc của một cây con và cuối cùng trả về nút gốc của cây con sau khi quay bằng <code>return child</code>. Việc liên kết giữa nút gốc của cây con đó và nút cha của nó được thiết lập sau khi hàm này trả về, điều đó nằm ngoài phạm vi bảo trì của phép quay phải.</p>
-<p><strong>Q</strong>: Trong C++, các hàm được chia thành phần <code>private</code> và <code>public</code>. Cần cân nhắc gì cho việc này? Tại sao hàm <code>height()</code> và hàm <code>updateHeight()</code> lại được đặt lần lượt ở <code>public</code> và <code>private</code>?</p>
-<p>Điều đó phụ thuộc vào phạm vi sử dụng của phương thức. Nếu một phương thức chỉ dùng trong lớp thì nên đặt là <code>private</code>. Ví dụ, người dùng không nên tự gọi <code>updateHeight()</code>, vì nó chỉ là một bước trong thao tác chèn hoặc xóa. Ngược lại, <code>height()</code> dùng để truy xuất chiều cao của nút, tương tự <code>vector.size()</code>, nên được đặt <code>public</code> để sử dụng.</p>
-<p><strong>Q</strong>: Làm thế nào để xây dựng một cây tìm kiếm nhị phân từ một tập dữ liệu đầu vào? Việc chọn nút gốc có quan trọng không?</p>
-<p>Có, phương pháp xây dựng cây được cung cấp trong hàm <code>build_tree()</code> trong mã của cây tìm kiếm nhị phân. Về việc chọn nút gốc, ta thường sắp xếp dữ liệu đầu vào rồi chọn phần tử ở giữa làm gốc, sau đó đệ quy xây dựng các cây con trái và phải. Cách này giúp cây cân bằng tối đa.</p>
-<p><strong>Q</strong>: Trong Java, có phải luôn luôn phải dùng phương thức <code>equals()</code> để so sánh chuỗi không?</p>
-<p>Trong Java, với kiểu dữ liệu nguyên thủy (primitive), dùng <code>==</code> để so sánh xem giá trị của hai biến có bằng nhau không. Với kiểu tham chiếu, nguyên lý hoạt động của hai ký hiệu này khác nhau.</p>
+<h3 id="q-a">Q &amp; A<a class="headerlink" href="#q-a" title="Permanent link">¶</a></h3>
+<p><strong>Q</strong>：对于只有一个节点的二叉树，树的高度和根节点的深度都是 <span class="arithmatex">\(0\)</span> 吗？</p>
+<p>是的，因为高度和深度通常定义为“经过的边的数量”。</p>
+<p><strong>Q</strong>：二叉树中的插入与删除一般由一套操作配合完成，这里的“一套操作”指什么呢？可以理解为资源的子节点的资源释放吗？</p>
+<p>拿二叉搜索树来举例，删除节点操作要分三种情况处理，其中每种情况都需要进行多个步骤的节点操作。</p>
+<p><strong>Q</strong>：为什么 DFS 遍历二叉树有前、中、后三种顺序，分别有什么用呢？</p>
+<p>与顺序和逆序遍历数组类似，前序、中序、后序遍历是三种二叉树遍历方法，我们可以使用它们得到一个特定顺序的遍历结果。例如在二叉搜索树中，由于节点大小满足 <code>左子节点值 &lt; 根节点值 &lt; 右子节点值</code> ，因此我们只要按照“左 <span class="arithmatex">\(\rightarrow\)</span> 根 <span class="arithmatex">\(\rightarrow\)</span> 右”的优先级遍历树，就可以获得有序的节点序列。</p>
+<p><strong>Q</strong>：右旋操作是处理失衡节点 <code>node</code>、<code>child</code>、<code>grand_child</code> 之间的关系，那 <code>node</code> 的父节点和 <code>node</code> 原来的连接不需要维护吗？右旋操作后岂不是断掉了？</p>
+<p>我们需要从递归的视角来看这个问题。右旋操作 <code>right_rotate(root)</code> 传入的是子树的根节点，最终 <code>return child</code> 返回旋转之后的子树的根节点。子树的根节点和其父节点的连接是在该函数返回后完成的，不属于右旋操作的维护范围。</p>
+<p><strong>Q</strong>：在 C++ 中，函数被划分到 <code>private</code> 和 <code>public</code> 中，这方面有什么考量吗？为什么要将 <code>height()</code> 函数和 <code>updateHeight()</code> 函数分别放在 <code>public</code> 和 <code>private</code> 中呢？</p>
+<p>主要看方法的使用范围，如果方法只在类内部使用，那么就设计为 <code>private</code> 。例如，用户单独调用 <code>updateHeight()</code> 是没有意义的，它只是插入、删除操作中的一步。而 <code>height()</code> 是访问节点高度，类似于 <code>vector.size()</code> ，因此设置成 <code>public</code> 以便使用。</p>
+<p><strong>Q</strong>：如何从一组输入数据构建一棵二叉搜索树？根节点的选择是不是很重要？</p>
+<p>是的，构建树的方法已在二叉搜索树代码中的 <code>build_tree()</code> 方法中给出。至于根节点的选择，我们通常会将输入数据排序，然后将中点元素作为根节点，再递归地构建左右子树。这样做可以最大程度保证树的平衡性。</p>
+<p><strong>Q</strong>：在 Java 中，字符串对比是否一定要用 <code>equals()</code> 方法？</p>
+<p>在 Java 中，对于基本数据类型，<code>==</code> 用于对比两个变量的值是否相等。对于引用类型，两种符号的工作原理是不同的。</p>
 <ul>
-<li><code>==</code>: Dùng để so sánh hai biến có cùng trỏ tới một đối tượng hay không, tức là vị trí trong bộ nhớ có giống nhau hay không.</li>
-<li><code>equals()</code>: Dùng để so sánh giá trị của hai đối tượng có bằng nhau hay không.</li>
+<li><code>==</code> ：用来比较两个变量是否指向同一个对象，即它们在内存中的位置是否相同。</li>
+<li><code>equals()</code>：用来对比两个对象的值是否相等。</li>
 </ul>
-<p>Do đó, để so sánh giá trị, ta nên dùng <code>equals()</code>. Tuy nhiên, các chuỗi khởi tạo như <code>String a = "hi"; String b = "hi";</code> được lưu trong pool hằng chuỗi và trỏ tới cùng một đối tượng, nên <code>a == b</code> cũng có thể dùng để so sánh nội dung trong trường hợp đó.</p>
-<p><strong>Q</strong>: Trước khi tới tầng đáy, số nút trong hàng đợi có phải là <span class="arithmatex">\(2^h\)</span> trong duyệt theo chiều rộng không?</p>
-<p>Có, ví dụ một cây nhị phân đầy đủ với chiều cao <span class="arithmatex">\(h = 2\)</span> có tổng số nút <span class="arithmatex">\(n = 7\)</span>, thì tầng đáy có <span class="arithmatex">\(4 = 2^h = (n + 1) / 2\)</span> nút.</p>
+<p>因此，如果要对比值，我们应该使用 <code>equals()</code> 。然而，通过 <code>String a = "hi"; String b = "hi";</code> 初始化的字符串都存储在字符串常量池中，它们指向同一个对象，因此也可以用 <code>a == b</code> 来比较两个字符串的内容。</p>
+<p><strong>Q</strong>：广度优先遍历到最底层之前，队列中的节点数量是 <span class="arithmatex">\(2^h\)</span> 吗？</p>
+<p>是的，例如高度 <span class="arithmatex">\(h = 2\)</span> 的满二叉树，其节点总数 <span class="arithmatex">\(n = 7\)</span> ，则底层节点数量 <span class="arithmatex">\(4 = 2^h = (n + 1) / 2\)</span> 。</p>
 
 
 
@@ -3630,22 +3669,22 @@
 
 
 
-<nav class="md-footer__inner md-grid" aria-label="Chân trang">
+<nav class="md-footer__inner md-grid" aria-label="页脚">
 
 <!-- Link to previous page -->
 
   
-  <a href="../avl_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.5 AVL Tree *" rel="prev">
+  <a href="../avl_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.5 &amp;nbsp; AVL 树 *" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
     </div>
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        Trước
+        上一页
       </span>
       <div class="md-ellipsis">
-        7.5 AVL Tree *
+        7.5 &nbsp; AVL 树 *
       </div>
     </div>
   </a>
@@ -3654,13 +3693,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../../chapter_heap/" class="md-footer__link md-footer__link--next" aria-label="Sau: Chương 8. &amp;nbsp; Heap" rel="next">
+  <a href="../../chapter_heap/" class="md-footer__link md-footer__link--next" aria-label="下一页: 堆" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        Sau
+        下一页
       </span>
       <div class="md-ellipsis">
-        Chương 8. &nbsp; Heap
+        堆
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3686,7 +3725,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-  Trở lại mục lục
+  回到页面顶部
 </button>
         
       </main>
@@ -3695,33 +3734,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Chân trang">
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../avl_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.5 AVL Tree *">
+          <a href="../avl_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.5 &amp;nbsp; AVL 树 *">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Trước
+                上一页
               </span>
               <div class="md-ellipsis">
-                7.5 AVL Tree *
+                7.5 &nbsp; AVL 树 *
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../chapter_heap/" class="md-footer__link md-footer__link--next" aria-label="Sau: Chương 8. &amp;nbsp; Heap">
+          <a href="../../chapter_heap/" class="md-footer__link md-footer__link--next" aria-label="下一页: 堆">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Sau
+                下一页
               </span>
               <div class="md-ellipsis">
-                Chương 8. &nbsp; Heap
+                堆
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3791,7 +3830,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "1.3.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
