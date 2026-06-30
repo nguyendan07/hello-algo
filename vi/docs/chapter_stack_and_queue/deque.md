@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 5.3 &nbsp; Hàng đợi hai đầu (Double-ended queue)
 
 Trong hàng đợi (queue), chúng ta chỉ có thể xóa các phần tử từ đầu hoặc thêm các phần tử vào cuối. Như hình dưới đây, <u>hàng đợi hai đầu (deque)</u> cung cấp sự linh hoạt hơn, cho phép thêm hoặc xóa các phần tử ở cả đầu và cuối.

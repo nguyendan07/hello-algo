@@ -1,5 +1,4 @@
 ---
-comments: true
 icon: material/graph-outline
 ---
 

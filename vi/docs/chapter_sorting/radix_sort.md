@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.10 &nbsp; Radix sort
 
 Phần trước đã giới thiệu counting sort, thích hợp cho các tình huống

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 6.3 &nbsp; Thuật toán băm (Hash algorithms)
 
 Hai phần trước đã giới thiệu nguyên lý hoạt động của bảng băm và các phương pháp xử lý va chạm băm. Tuy nhiên, cả phương pháp địa chỉ mở và phương pháp dây chuyền **chỉ đảm bảo bảng băm hoạt động bình thường khi xảy ra va chạm, chứ không thể giảm tần suất va chạm băm**.

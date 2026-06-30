@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 8.1 &nbsp; Heap
 
 Một <u>heap</u> là một complete binary tree thỏa mãn các điều kiện cụ thể và có

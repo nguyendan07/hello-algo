@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.1 &nbsp; Thuật toán sắp xếp
 
 <u>Thuật toán sắp xếp</u> được sử dụng để sắp xếp một tập hợp dữ liệu theo

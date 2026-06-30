@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 8.2 &nbsp; Thao tác xây dựng heap
 
 Trong một số trường hợp, chúng ta muốn xây dựng một heap sử dụng tất cả các phần tử

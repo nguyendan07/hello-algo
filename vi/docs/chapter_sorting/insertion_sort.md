@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.4 &nbsp; Insertion sort
 
 <u>Insertion sort</u> là một thuật toán sắp xếp đơn giản, hoạt động rất giống

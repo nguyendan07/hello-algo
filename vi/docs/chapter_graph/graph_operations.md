@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 9.2 &nbsp; Hoạt động cơ bản trên graph
 
 Các hoạt động cơ bản trên graph có thể được chia thành các hoạt động trên "cạnh"

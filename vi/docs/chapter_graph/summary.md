@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 9.4 &nbsp; Tóm tắt
 
 ### 1. &nbsp; Tổng quan chính

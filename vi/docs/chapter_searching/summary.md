@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 10.6 &nbsp; Tóm tắt
 
 - Binary search phụ thuộc vào thứ tự của dữ liệu và thực hiện tìm kiếm bằng

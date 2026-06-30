@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 9.3 &nbsp; Duyệt đồ thị
 
 Các tree biểu diễn quan hệ "một-nhiều", trong khi các graph có mức độ tự do cao hơn

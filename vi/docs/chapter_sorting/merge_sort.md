@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.6 &nbsp; Merge sort
 
 <u>Merge sort</u> là một thuật toán sắp xếp dựa trên chiến lược divide-and-conquer,

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 7.1 &nbsp; Cây nhị phân
 
 Một <u>cây nhị phân</u> là một cấu trúc dữ liệu phi tuyến thể hiện mối quan hệ hệ thống giữa tổ tiên và hậu duệ và bao hàm tư duy chia để trị "tách thành hai". Tương tự như danh sách liên kết, đơn vị cơ bản của cây nhị phân là một nút, và mỗi nút chứa một giá trị, một tham chiếu tới nút con bên trái và một tham chiếu tới nút con bên phải.

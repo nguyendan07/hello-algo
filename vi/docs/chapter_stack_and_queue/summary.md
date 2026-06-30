@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 5.4 &nbsp; Tóm tắt
 
 ### 1. &nbsp; Ôn tập kiến thức chính

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.3 &nbsp; Bubble sort
 
 <u>Bubble sort</u> hoạt động bằng cách liên tục so sánh và hoán đổi các

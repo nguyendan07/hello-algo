@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 9.1 &nbsp; Graph
 
 Một <u>graph</u> (đồ thị) là một loại cấu trúc dữ liệu phi tuyến tính, bao gồm các <u>vertices</u>

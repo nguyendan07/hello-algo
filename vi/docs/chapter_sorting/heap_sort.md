@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.7 &nbsp; Heap sort
 
 !!! tip

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 10.5 &nbsp; Thuật toán tìm kiếm được xem xét lại
 
 <u>Thuật toán tìm kiếm (search algorithms)</u> được sử dụng để truy xuất

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.8 &nbsp; Bucket sort
 
 Các thuật toán sắp xếp đã được đề cập trước đây đều là các "thuật toán sắp xếp

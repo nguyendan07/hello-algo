@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.11 &nbsp; Tóm tắt
 
 ### 1. &nbsp; Tổng quan chính

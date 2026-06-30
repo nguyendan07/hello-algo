@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 10.1 &nbsp; Binary search
 
 <u>Binary search</u> là một thuật toán tìm kiếm hiệu quả sử dụng chiến lược

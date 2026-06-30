@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 6.1 &nbsp; Bảng băm (Hash table)
 
 Một <u>bảng băm</u>, còn được gọi là <u>bảng ánh xạ băm</u> (hash map), là một cấu trúc dữ liệu thiết lập mối quan hệ ánh xạ giữa các khóa (key) và giá trị (value), cho phép truy xuất phần tử hiệu quả. Cụ thể, khi chúng ta nhập một `key` vào bảng băm, chúng ta có thể truy xuất `value` tương ứng trong thời gian phức tạp $O(1)$.

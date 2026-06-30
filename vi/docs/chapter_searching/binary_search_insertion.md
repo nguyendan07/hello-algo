@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 10.2 &nbsp; Binary search: Tìm vị trí chèn
 
 Binary search không chỉ được sử dụng để tìm kiếm các phần tử mục tiêu mà còn để

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 5.1 &nbsp; Stack
 
 <u>Stack</u> là một cấu trúc dữ liệu tuyến tính tuân theo nguyên tắc Last-In-First-Out (LIFO) - Vào Sau Ra Trước.

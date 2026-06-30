@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 10.4 &nbsp; Chiến lược tối ưu hóa Hash
 
 Trong các bài toán thuật toán, **chúng ta thường giảm time complexity của một thuật toán**

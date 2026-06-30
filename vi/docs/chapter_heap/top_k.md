@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 8.3 &nbsp; Bài toán Top-k
 
 !!! question

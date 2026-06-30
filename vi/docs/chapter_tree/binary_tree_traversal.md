@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 7.2 &nbsp; Duyệt cây nhị phân
 
 Về mặt cấu trúc, cây là một cấu trúc dữ liệu dựa trên danh sách liên kết. Do đó, phương pháp duyệt của nó liên quan đến việc truy cập từng nút một thông qua con trỏ. Tuy nhiên, cây là một cấu trúc dữ liệu phi tuyến tính, khiến việc duyệt cây phức tạp hơn so với duyệt danh sách liên kết, cần đến sự hỗ trợ của các thuật toán tìm kiếm.

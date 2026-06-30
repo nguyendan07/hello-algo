@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 10.3 &nbsp; Binary search ranh giới
 
 ## 10.3.1 &nbsp; Tìm biên trái

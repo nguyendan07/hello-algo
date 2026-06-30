@@ -1,5 +1,4 @@
 ---
-comments: true
 icon: material/rocket-launch-outline
 ---
 

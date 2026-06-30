@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 7.3 &nbsp; Biểu diễn cây nhị phân bằng mảng
 
 Trong biểu diễn bằng danh sách liên kết, đơn vị lưu trữ của một cây nhị phân là một nút `TreeNode`, các nút được nối với nhau bằng các con trỏ. Các thao tác cơ bản của cây nhị phân dưới biểu diễn danh sách liên kết đã được giới thiệu trong phần trước.

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.2 &nbsp; Selection sort
 
 <u>Selection sort</u> hoạt động dựa trên một nguyên tắc rất đơn giản:

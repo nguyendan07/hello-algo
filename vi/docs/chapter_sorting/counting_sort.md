@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.9 &nbsp; Counting sort
 
 <u>Counting sort</u> thực hiện sắp xếp bằng cách đếm số lượng phần tử, thường được áp dụng cho các array số nguyên.

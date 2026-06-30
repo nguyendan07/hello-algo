@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 7.5 &nbsp; Cây AVL *
 
 Trong phần "Cây tìm kiếm nhị phân", chúng ta đã đề cập rằng sau nhiều lần chèn và xóa, một cây tìm kiếm nhị phân có thể thoái hóa thành một danh sách liên kết. Trong những trường hợp như vậy, độ phức tạp thời gian của tất cả các thao tác giảm từ $O(\log n)$ xuống $O(n)$.

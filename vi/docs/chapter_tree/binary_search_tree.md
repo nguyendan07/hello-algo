@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 7.4 &nbsp; Cây tìm kiếm nhị phân
 
 Như hình bên dưới, một <u>cây tìm kiếm nhị phân</u> thỏa mãn các điều kiện sau.

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 5.2 &nbsp; Hàng đợi (Queue)
 
 <u>Hàng đợi (queue)</u> là một cấu trúc dữ liệu tuyến tính tuân theo nguyên tắc Nhập Trước Xuất Trước (FIFO). Như tên gọi của nó, hàng đợi mô phỏng hiện tượng xếp hàng, trong đó người mới đến sẽ tham gia vào hàng đợi ở phía sau và người ở phía trước sẽ rời khỏi hàng đợi trước.

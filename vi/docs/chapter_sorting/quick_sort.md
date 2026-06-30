@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 11.5 &nbsp; Quick sort
 
 <u>Quick sort</u> là một thuật toán sắp xếp dựa trên chiến lược chia để trị,
