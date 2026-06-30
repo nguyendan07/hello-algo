@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="zh" class="no-js"><head>
+<!DOCTYPE html><html lang="vi" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="动画图解、一键运行的数据结构与算法教程">
+        <meta name="description" content="Data structures and algorithms tutorial with animated illustrations and ready-to-run code">
       
       
         <meta name="author" content="krahets">
       
       
-        <link rel="canonical" href="https://www.hello-algo.com/chapter_tree/binary_search_tree/">
+        <link rel="canonical" href="https://nguyendan07.github.io/hello-algo/chapter_tree/binary_search_tree/">
       
       
         <link rel="prev" href="../array_representation_of_tree/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>7.4 &nbsp; 二叉搜索树 - Hello 算法</title>
+        <title>7.4 Binary Search Tree - Hello Algo</title>
       
     
     
@@ -44,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -87,8 +87,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
-          跳转至
+        <a href="#74-cay-tim-kiem-nhi-phan" class="md-skip">
+          Bỏ qua
         </a>
       
     </div>
@@ -99,13 +99,11 @@
             
             
 
-    
-
 <div class="banner-svg">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
         <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
     </svg>
-    <span>纸质书已发行，详情请见<a href="/chapter_paperbook/">这里</a></span>
+    <span></span>
 </div>
 
           </div>
@@ -120,8 +118,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Hello 算法" class="md-header__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="../.." title="Hello Algo" class="md-header__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
@@ -134,13 +132,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Hello 算法
+            Hello Algo
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.4 &nbsp; 二叉搜索树
+              7.4 Binary Search Tree
             
           </span>
         </div>
@@ -153,9 +151,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="深色模式" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden="">
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -163,9 +161,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="浅色模式" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden="">
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"></path></svg>
       </label>
     
@@ -180,7 +178,7 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
     </button>
     <div class="md-select__inner">
@@ -236,21 +234,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Tìm kiếm">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Chia sẻ" aria-label="Chia sẻ" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
         </button>
@@ -263,7 +261,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix="">
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -274,7 +272,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -308,18 +306,18 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hello 算法" class="md-nav__button md-logo" aria-label="Hello 算法" data-md-component="logo">
+    <a href="../.." title="Hello Algo" class="md-nav__button md-logo" aria-label="Hello Algo" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    Hello 算法
+    Hello Algo
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/krahets/hello-algo" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/krahets/hello-algo" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -365,7 +363,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27l-2.77 6.1M5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0m-5.66 7.07-1.41-1.41 1.41 1.41M6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22h1.41M2 22h1.41l4.77-4.76-1.42-1.41L2 20.59V22m0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76v1.41Z"></path></svg>
   
   <span class="md-ellipsis">
-    序
+    Before Starting
   </span>
   
 
@@ -376,7 +374,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            序
+            Before Starting
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -425,8 +423,10 @@
             <a href="../../chapter_preface/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 4H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 19V6h8v13H3m18 0h-8V6h8v13m-7-9.5h6V11h-6V9.5m0 2.5h6v1.5h-6V12m0 2.5h6V16h-6v-1.5Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 0 章 &nbsp; 前言
+    Chapter 0. Preface
   </span>
   
 
@@ -442,7 +442,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            第 0 章 &nbsp; 前言
+            Chapter 0. Preface
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -459,7 +459,7 @@
         
   
   <span class="md-ellipsis">
-    0.1 &nbsp; 关于本书
+    0.1 About This Book
   </span>
   
 
@@ -480,7 +480,7 @@
         
   
   <span class="md-ellipsis">
-    0.2 &nbsp; 如何使用本书
+    0.2 How to Use This Book
   </span>
   
 
@@ -501,7 +501,7 @@
         
   
   <span class="md-ellipsis">
-    0.3 &nbsp; 小结
+    0.3 Summary
   </span>
   
 
@@ -554,8 +554,10 @@
             <a href="../../chapter_introduction/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14M6.2 7.7h5v1.5h-5V7.7m6.8 8.1h5v1.5h-5v-1.5m0-2.6h5v1.5h-5v-1.5M8 18h1.5v-2h2v-1.5h-2v-2H8v2H6V16h2v2m6.1-7.1 1.4-1.4 1.4 1.4 1.1-1-1.4-1.4L18 7.1 16.9 6l-1.4 1.4L14.1 6 13 7.1l1.4 1.4L13 9.9l1.1 1Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 1 章 &nbsp; 初识算法
+    Chapter 1. Encounter with Algorithms
   </span>
   
 
@@ -571,7 +573,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            第 1 章 &nbsp; 初识算法
+            Chapter 1. Encounter with Algorithms
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -588,7 +590,7 @@
         
   
   <span class="md-ellipsis">
-    1.1 &nbsp; 算法无处不在
+    1.1 Algorithms Are Everywhere
   </span>
   
 
@@ -609,7 +611,7 @@
         
   
   <span class="md-ellipsis">
-    1.2 &nbsp; 算法是什么
+    1.2 What Is an Algorithm
   </span>
   
 
@@ -630,7 +632,7 @@
         
   
   <span class="md-ellipsis">
-    1.3 &nbsp; 小结
+    1.3 Summary
   </span>
   
 
@@ -687,8 +689,10 @@
             <a href="../../chapter_computational_complexity/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2m10 14.5-4-4-4 4V20h8v-3.5m-4-5 4-4V4H8v3.5l4 4M10 6h4v.75l-2 2-2-2V6Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 2 章 &nbsp; 复杂度分析
+    Chapter 2. Complexity Analysis
   </span>
   
 
@@ -704,7 +708,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            第 2 章 &nbsp; 复杂度分析
+            Chapter 2. Complexity Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -721,7 +725,7 @@
         
   
   <span class="md-ellipsis">
-    2.1 &nbsp; 算法效率评估
+    2.1 Algorithm Efficiency Evaluation
   </span>
   
 
@@ -742,7 +746,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 &nbsp; 迭代与递归
+    2.2 Iteration and Recursion
   </span>
   
 
@@ -763,7 +767,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 &nbsp; 时间复杂度
+    2.3 Time Complexity
   </span>
   
 
@@ -784,7 +788,7 @@
         
   
   <span class="md-ellipsis">
-    2.4 &nbsp; 空间复杂度
+    2.4 Space Complexity
   </span>
   
 
@@ -805,7 +809,7 @@
         
   
   <span class="md-ellipsis">
-    2.5 &nbsp; 小结
+    2.5 Summary
   </span>
   
 
@@ -862,8 +866,10 @@
             <a href="../../chapter_data_structure/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8h8m-2 2H5v4h4v-4M12 2l5.5 9h-11L12 2m0 3.86L10.08 9h3.84L12 5.86M17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 3 章 &nbsp; 数据结构
+    Chapter 3. Data Structures
   </span>
   
 
@@ -879,7 +885,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            第 3 章 &nbsp; 数据结构
+            Chapter 3. Data Structures
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -896,7 +902,7 @@
         
   
   <span class="md-ellipsis">
-    3.1 &nbsp; 数据结构分类
+    3.1 Classification of Data Structures
   </span>
   
 
@@ -917,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    3.2 &nbsp; 基本数据类型
+    3.2 Basic Data Types
   </span>
   
 
@@ -938,7 +944,7 @@
         
   
   <span class="md-ellipsis">
-    3.3 &nbsp; 数字编码 *
+    3.3 Number Encoding *
   </span>
   
 
@@ -959,7 +965,7 @@
         
   
   <span class="md-ellipsis">
-    3.4 &nbsp; 字符编码 *
+    3.4 Character Encoding *
   </span>
   
 
@@ -980,7 +986,7 @@
         
   
   <span class="md-ellipsis">
-    3.5 &nbsp; 小结
+    3.5 Summary
   </span>
   
 
@@ -1037,8 +1043,10 @@
             <a href="../../chapter_array_and_linkedlist/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5v14h17V5H3m4 2v2H5V7h2m-2 6v-2h2v2H5m0 2h2v2H5v-2m13 2H9v-2h9v2m0-4H9v-2h9v2m0-4H9V7h9v2Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 4 章 &nbsp; 数组与链表
+    Chapter 4. Arrays and Linked Lists
   </span>
   
 
@@ -1054,7 +1062,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            第 4 章 &nbsp; 数组与链表
+            Chapter 4. Arrays and Linked Lists
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1071,7 +1079,7 @@
         
   
   <span class="md-ellipsis">
-    4.1 &nbsp; 数组
+    4.1 Array
   </span>
   
 
@@ -1092,7 +1100,7 @@
         
   
   <span class="md-ellipsis">
-    4.2 &nbsp; 链表
+    4.2 Linked List
   </span>
   
 
@@ -1113,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    4.3 &nbsp; 列表
+    4.3 List
   </span>
   
 
@@ -1134,7 +1142,7 @@
         
   
   <span class="md-ellipsis">
-    4.4 &nbsp; 内存与缓存 *
+    4.4 Random-Access Memory and Cache *
   </span>
   
 
@@ -1155,7 +1163,7 @@
         
   
   <span class="md-ellipsis">
-    4.5 &nbsp; 小结
+    4.5 Summary
   </span>
   
 
@@ -1210,8 +1218,10 @@
             <a href="../../chapter_stack_and_queue/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56M6.77 14.32l.37-1.76 8.79 1.85-.37 1.76-8.79-1.85m1.16-4.21.76-1.61 8.14 3.78-.76 1.62-8.14-3.79m2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37-6.9-5.75m4.45-4.25L20 9.08l-1.44 1.07-5.36-7.21 1.44-1.07M6.59 18.41v-1.8h8.98v1.8H6.59Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 5 章 &nbsp; 栈与队列
+    Chapter 5. Stacks and Queues
   </span>
   
 
@@ -1227,7 +1237,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            第 5 章 &nbsp; 栈与队列
+            Chapter 5. Stacks and Queues
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1244,7 +1254,7 @@
         
   
   <span class="md-ellipsis">
-    5.1 &nbsp; 栈
+    5.1 Stack
   </span>
   
 
@@ -1265,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    5.2 &nbsp; 队列
+    5.2 Queue
   </span>
   
 
@@ -1286,7 +1296,7 @@
         
   
   <span class="md-ellipsis">
-    5.3 &nbsp; 双向队列
+    5.3 Deque
   </span>
   
 
@@ -1307,7 +1317,7 @@
         
   
   <span class="md-ellipsis">
-    5.4 &nbsp; 小结
+    5.4 Summary
   </span>
   
 
@@ -1362,8 +1372,10 @@
             <a href="../../chapter_hashing/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21l-3.09-3.11m-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54h.03M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 6 章 &nbsp; 哈希表
+    Chapter 6. Hashing
   </span>
   
 
@@ -1379,7 +1391,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            第 6 章 &nbsp; 哈希表
+            Chapter 6. Hashing
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1396,7 +1408,7 @@
         
   
   <span class="md-ellipsis">
-    6.1 &nbsp; 哈希表
+    6.1 Hash Table
   </span>
   
 
@@ -1417,7 +1429,7 @@
         
   
   <span class="md-ellipsis">
-    6.2 &nbsp; 哈希冲突
+    6.2 Hash Collision
   </span>
   
 
@@ -1438,7 +1450,7 @@
         
   
   <span class="md-ellipsis">
-    6.3 &nbsp; 哈希算法
+    6.3 Hash Algorithm
   </span>
   
 
@@ -1459,7 +1471,7 @@
         
   
   <span class="md-ellipsis">
-    6.4 &nbsp; 小结
+    6.4 Summary
   </span>
   
 
@@ -1520,8 +1532,10 @@
             <a href="../" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 7 章 &nbsp; 树
+    Chapter 7. Tree
   </span>
   
 
@@ -1537,7 +1551,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            第 7 章 &nbsp; 树
+            Chapter 7. Tree
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1554,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    7.1 &nbsp; 二叉树
+    7.1 Binary Tree
   </span>
   
 
@@ -1575,7 +1589,7 @@
         
   
   <span class="md-ellipsis">
-    7.2 &nbsp; 二叉树遍历
+    7.2 Binary Tree Traversal
   </span>
   
 
@@ -1596,7 +1610,7 @@
         
   
   <span class="md-ellipsis">
-    7.3 &nbsp; 二叉树数组表示
+    7.3 Array Representation of Binary Trees
   </span>
   
 
@@ -1626,7 +1640,7 @@
           
   
   <span class="md-ellipsis">
-    7.4 &nbsp; 二叉搜索树
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1637,7 +1651,7 @@
         
   
   <span class="md-ellipsis">
-    7.4 &nbsp; 二叉搜索树
+    7.4 Binary Search Tree
   </span>
   
 
@@ -1645,7 +1659,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -1654,51 +1668,51 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#741-cac-thao-tac-tren-cay-tim-kiem-nhi-phan" class="md-nav__link">
     <span class="md-ellipsis">
-      二叉搜索树的操作
+      7.4.1 &nbsp; Các thao tác trên cây tìm kiếm nhị phân
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="二叉搜索树的操作">
+    <nav class="md-nav" aria-label="7.4.1 &nbsp; Các thao tác trên cây tìm kiếm nhị phân">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#1-tim-kiem-mot-nut" class="md-nav__link">
     <span class="md-ellipsis">
-      查找节点
+      1. &nbsp; Tìm kiếm một nút
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#2-chen-mot-nut" class="md-nav__link">
     <span class="md-ellipsis">
-      插入节点
+      2. &nbsp; Chèn một nút
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#3-xoa-mot-nut" class="md-nav__link">
     <span class="md-ellipsis">
-      删除节点
+      3. &nbsp; Xóa một nút
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#4-duyet-in-order-tao-thu-tu-tang-dan" class="md-nav__link">
     <span class="md-ellipsis">
-      中序遍历有序
+      4. &nbsp; Duyệt in-order tạo thứ tự tăng dần
     </span>
   </a>
   
@@ -1710,18 +1724,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#742-hieu-nang-cua-cay-tim-kiem-nhi-phan" class="md-nav__link">
     <span class="md-ellipsis">
-      二叉搜索树的效率
+      7.4.2 &nbsp; Hiệu năng của cây tìm kiếm nhị phân
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#743-ung-dung-pho-bien-cua-cay-tim-kiem-nhi-phan" class="md-nav__link">
     <span class="md-ellipsis">
-      二叉搜索树常见应用
+      7.4.3 &nbsp; Ứng dụng phổ biến của cây tìm kiếm nhị phân
     </span>
   </a>
   
@@ -1747,7 +1761,7 @@
         
   
   <span class="md-ellipsis">
-    7.5 &nbsp; AVL 树 *
+    7.5 AVL Tree *
   </span>
   
 
@@ -1768,7 +1782,7 @@
         
   
   <span class="md-ellipsis">
-    7.6 &nbsp; 小结
+    7.6 Summary
   </span>
   
 
@@ -1823,8 +1837,10 @@
             <a href="../../chapter_heap/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 11 5.79V7H7a2 2 0 0 0-2 2v.71A2.5 2.5 0 0 0 3.5 12 2.5 2.5 0 0 0 5 14.29V15H4a2 2 0 0 0-2 2v1.21A2.5 2.5 0 0 0 .5 20.5 2.5 2.5 0 0 0 3 23a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 4 18.21V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 9 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2H7v-.71A2.5 2.5 0 0 0 8.5 12 2.5 2.5 0 0 0 7 9.71V9h10v.71A2.5 2.5 0 0 0 15.5 12a2.5 2.5 0 0 0 1.5 2.29V15h-1a2 2 0 0 0-2 2v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 15 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17h4v1.21a2.5 2.5 0 0 0-1.5 2.29A2.5 2.5 0 0 0 21 23a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1.5-2.29V17a2 2 0 0 0-2-2h-1v-.71A2.5 2.5 0 0 0 20.5 12 2.5 2.5 0 0 0 19 9.71V9a2 2 0 0 0-2-2h-4V5.79a2.5 2.5 0 0 0 1.5-2.29A2.5 2.5 0 0 0 12 1m0 1.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M6 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m12 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M3 19.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 8 章 &nbsp; 堆
+    Chapter 8. Heap
   </span>
   
 
@@ -1840,7 +1856,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            第 8 章 &nbsp; 堆
+            Chapter 8. Heap
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -1857,7 +1873,7 @@
         
   
   <span class="md-ellipsis">
-    8.1 &nbsp; 堆
+    8.1 Heap
   </span>
   
 
@@ -1878,7 +1894,7 @@
         
   
   <span class="md-ellipsis">
-    8.2 &nbsp; 建堆操作
+    8.2 Heap Construction Operation
   </span>
   
 
@@ -1899,7 +1915,7 @@
         
   
   <span class="md-ellipsis">
-    8.3 &nbsp; Top-k 问题
+    8.3 Top-k Problem
   </span>
   
 
@@ -1920,7 +1936,7 @@
         
   
   <span class="md-ellipsis">
-    8.4 &nbsp; 小结
+    8.4 Summary
   </span>
   
 
@@ -1975,8 +1991,10 @@
             <a href="../../chapter_graph/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.37-.44-.06L6 14.9c.24.21.4.48.47.78h11.06c.07-.3.23-.57.47-.78l-5.56-9.59-.44.06M6.6 16.53l4.28 2.53c.29-.27.69-.43 1.12-.43.43 0 .83.16 1.12.43l4.28-2.53H6.6M12 22a1.68 1.68 0 0 1-1.68-1.68l.09-.56-4.3-2.55c-.31.36-.76.58-1.27.58a1.68 1.68 0 0 1-1.68-1.68c0-.79.53-1.45 1.26-1.64V9.36c-.83-.11-1.47-.82-1.47-1.68A1.68 1.68 0 0 1 4.63 6c.55 0 1.03.26 1.34.66l4.41-2.53-.06-.45c0-.93.75-1.68 1.68-1.68.93 0 1.68.75 1.68 1.68l-.06.45 4.41 2.53c.31-.4.79-.66 1.34-.66a1.68 1.68 0 0 1 1.68 1.68c0 .86-.64 1.57-1.47 1.68v5.11c.73.19 1.26.85 1.26 1.64a1.68 1.68 0 0 1-1.68 1.68c-.51 0-.96-.22-1.27-.58l-4.3 2.55.09.56A1.68 1.68 0 0 1 12 22M10.8 4.86 6.3 7.44l.02.24c0 .71-.44 1.32-1.06 1.57l.03 5.25 5.51-9.64m2.4 0 5.51 9.64.03-5.25c-.62-.25-1.06-.86-1.06-1.57l.02-.24-4.5-2.58Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 9 章 &nbsp; 图
+    Chapter 9. Graph
   </span>
   
 
@@ -1992,7 +2010,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            第 9 章 &nbsp; 图
+            Chapter 9. Graph
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2009,7 +2027,7 @@
         
   
   <span class="md-ellipsis">
-    9.1 &nbsp; 图
+    9.1 Graph
   </span>
   
 
@@ -2030,7 +2048,7 @@
         
   
   <span class="md-ellipsis">
-    9.2 &nbsp; 图基础操作
+    9.2 Basic Operations on Graphs
   </span>
   
 
@@ -2051,7 +2069,7 @@
         
   
   <span class="md-ellipsis">
-    9.3 &nbsp; 图的遍历
+    9.3 Graph Traversal
   </span>
   
 
@@ -2072,7 +2090,7 @@
         
   
   <span class="md-ellipsis">
-    9.4 &nbsp; 小结
+    9.4 Summary
   </span>
   
 
@@ -2131,8 +2149,10 @@
             <a href="../../chapter_searching/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 10 章 &nbsp; 搜索
+    Chapter 10. Searching
   </span>
   
 
@@ -2148,7 +2168,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            第 10 章 &nbsp; 搜索
+            Chapter 10. Searching
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2165,7 +2185,7 @@
         
   
   <span class="md-ellipsis">
-    10.1 &nbsp; 二分查找
+    10.1 Binary Search
   </span>
   
 
@@ -2186,7 +2206,7 @@
         
   
   <span class="md-ellipsis">
-    10.2 &nbsp; 二分查找插入点
+    10.2 Binary Search Insertion Point
   </span>
   
 
@@ -2207,7 +2227,7 @@
         
   
   <span class="md-ellipsis">
-    10.3 &nbsp; 二分查找边界
+    10.3 Binary Search Boundaries
   </span>
   
 
@@ -2228,7 +2248,7 @@
         
   
   <span class="md-ellipsis">
-    10.4 &nbsp; 哈希优化策略
+    10.4 Hash Optimization Strategy
   </span>
   
 
@@ -2249,7 +2269,7 @@
         
   
   <span class="md-ellipsis">
-    10.5 &nbsp; 重识搜索算法
+    10.5 Searching Algorithms Revisited
   </span>
   
 
@@ -2270,7 +2290,7 @@
         
   
   <span class="md-ellipsis">
-    10.6 &nbsp; 小结
+    10.6 Summary
   </span>
   
 
@@ -2339,8 +2359,10 @@
             <a href="../../chapter_sorting/" class="md-nav__link ">
               
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h3l-4 4-4-4h3V3h2M2 17h10v2H2M6 5v2H2V5m0 6h7v2H2v-2Z"></path></svg>
+  
   <span class="md-ellipsis">
-    第 11 章 &nbsp; 排序
+    Chapter 11. Sorting
   </span>
   
 
@@ -2356,7 +2378,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            第 11 章 &nbsp; 排序
+            Chapter 11. Sorting
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2373,7 +2395,7 @@
         
   
   <span class="md-ellipsis">
-    11.1 &nbsp; 排序算法
+    11.1 Sorting Algorithm
   </span>
   
 
@@ -2394,7 +2416,7 @@
         
   
   <span class="md-ellipsis">
-    11.2 &nbsp; 选择排序
+    11.2 Selection Sort
   </span>
   
 
@@ -2415,7 +2437,7 @@
         
   
   <span class="md-ellipsis">
-    11.3 &nbsp; 冒泡排序
+    11.3 Bubble Sort
   </span>
   
 
@@ -2436,7 +2458,7 @@
         
   
   <span class="md-ellipsis">
-    11.4 &nbsp; 插入排序
+    11.4 Insertion Sort
   </span>
   
 
@@ -2457,7 +2479,7 @@
         
   
   <span class="md-ellipsis">
-    11.5 &nbsp; 快速排序
+    11.5 Quick Sort
   </span>
   
 
@@ -2478,7 +2500,7 @@
         
   
   <span class="md-ellipsis">
-    11.6 &nbsp; 归并排序
+    11.6 Merge Sort
   </span>
   
 
@@ -2499,7 +2521,7 @@
         
   
   <span class="md-ellipsis">
-    11.7 &nbsp; 堆排序
+    11.7 Heap Sort
   </span>
   
 
@@ -2520,7 +2542,7 @@
         
   
   <span class="md-ellipsis">
-    11.8 &nbsp; 桶排序
+    11.8 Bucket Sort
   </span>
   
 
@@ -2541,7 +2563,7 @@
         
   
   <span class="md-ellipsis">
-    11.9 &nbsp; 计数排序
+    11.9 Counting Sort
   </span>
   
 
@@ -2562,7 +2584,7 @@
         
   
   <span class="md-ellipsis">
-    11.10 &nbsp; 基数排序
+    11.10 Radix Sort
   </span>
   
 
@@ -2583,7 +2605,7 @@
         
   
   <span class="md-ellipsis">
-    11.11 &nbsp; 小结
+    11.11 Summary
   </span>
   
 
@@ -2641,7 +2663,7 @@
               
   
   <span class="md-ellipsis">
-    第 12 章 &nbsp; 分治
+    Chapter 12. Divide and Conquer
   </span>
   
 
@@ -2657,7 +2679,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
-            第 12 章 &nbsp; 分治
+            Chapter 12. Divide and Conquer
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2674,7 +2696,7 @@
         
   
   <span class="md-ellipsis">
-    12.1 &nbsp; 分治算法
+    12.1 Divide and Conquer Algorithms
   </span>
   
 
@@ -2695,7 +2717,7 @@
         
   
   <span class="md-ellipsis">
-    12.2 &nbsp; 分治搜索策略
+    12.2 Divide and Conquer Search Strategy
   </span>
   
 
@@ -2716,7 +2738,7 @@
         
   
   <span class="md-ellipsis">
-    12.3 &nbsp; 构建树问题
+    12.3 Building a Binary Tree Problem
   </span>
   
 
@@ -2737,7 +2759,7 @@
         
   
   <span class="md-ellipsis">
-    12.4 &nbsp; 汉诺塔问题
+    12.4 Hanota Problem
   </span>
   
 
@@ -2758,7 +2780,7 @@
         
   
   <span class="md-ellipsis">
-    12.5 &nbsp; 小结
+    12.5 Summary
   </span>
   
 
@@ -2816,7 +2838,7 @@
               
   
   <span class="md-ellipsis">
-    第 13 章 &nbsp; 回溯
+    Chapter 13. Backtracking
   </span>
   
 
@@ -2832,7 +2854,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
-            第 13 章 &nbsp; 回溯
+            Chapter 13. Backtracking
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -2849,7 +2871,7 @@
         
   
   <span class="md-ellipsis">
-    13.1 &nbsp; 回溯算法
+    13.1 Backtracking Algorithm
   </span>
   
 
@@ -2870,7 +2892,7 @@
         
   
   <span class="md-ellipsis">
-    13.2 &nbsp; 全排列问题
+    13.2 Permutations Problem
   </span>
   
 
@@ -2891,7 +2913,7 @@
         
   
   <span class="md-ellipsis">
-    13.3 &nbsp; 子集和问题
+    13.3 Subset-Sum Problem
   </span>
   
 
@@ -2912,7 +2934,7 @@
         
   
   <span class="md-ellipsis">
-    13.4 &nbsp; N 皇后问题
+    13.4 N-Queens Problem
   </span>
   
 
@@ -2933,7 +2955,7 @@
         
   
   <span class="md-ellipsis">
-    13.5 &nbsp; 小结
+    13.5 Summary
   </span>
   
 
@@ -2995,7 +3017,7 @@
               
   
   <span class="md-ellipsis">
-    第 14 章 &nbsp; 动态规划
+    Chapter 14. Dynamic Programming
   </span>
   
 
@@ -3011,7 +3033,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
-            第 14 章 &nbsp; 动态规划
+            Chapter 14. Dynamic Programming
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3028,7 +3050,7 @@
         
   
   <span class="md-ellipsis">
-    14.1 &nbsp; 初探动态规划
+    14.1 Introduction to Dynamic Programming
   </span>
   
 
@@ -3049,7 +3071,7 @@
         
   
   <span class="md-ellipsis">
-    14.2 &nbsp; DP 问题特性
+    14.2 Characteristics of Dynamic Programming Problems
   </span>
   
 
@@ -3070,7 +3092,7 @@
         
   
   <span class="md-ellipsis">
-    14.3 &nbsp; DP 解题思路
+    14.3 Dynamic Programming Problem-Solving Approach
   </span>
   
 
@@ -3091,7 +3113,7 @@
         
   
   <span class="md-ellipsis">
-    14.4 &nbsp; 0-1 背包问题
+    14.4 0-1 Knapsack Problem
   </span>
   
 
@@ -3112,7 +3134,7 @@
         
   
   <span class="md-ellipsis">
-    14.5 &nbsp; 完全背包问题
+    14.5 Unbounded Knapsack Problem
   </span>
   
 
@@ -3133,7 +3155,7 @@
         
   
   <span class="md-ellipsis">
-    14.6 &nbsp; 编辑距离问题
+    14.6 Edit Distance Problem
   </span>
   
 
@@ -3154,7 +3176,7 @@
         
   
   <span class="md-ellipsis">
-    14.7 &nbsp; 小结
+    14.7 Summary
   </span>
   
 
@@ -3212,7 +3234,7 @@
               
   
   <span class="md-ellipsis">
-    第 15 章 &nbsp; 贪心
+    Chapter 15. Greedy
   </span>
   
 
@@ -3228,7 +3250,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_17">
             <span class="md-nav__icon md-icon"></span>
-            第 15 章 &nbsp; 贪心
+            Chapter 15. Greedy
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3245,7 +3267,7 @@
         
   
   <span class="md-ellipsis">
-    15.1 &nbsp; 贪心算法
+    15.1 Greedy Algorithm
   </span>
   
 
@@ -3266,7 +3288,7 @@
         
   
   <span class="md-ellipsis">
-    15.2 &nbsp; 分数背包问题
+    15.2 Fractional Knapsack Problem
   </span>
   
 
@@ -3287,7 +3309,7 @@
         
   
   <span class="md-ellipsis">
-    15.3 &nbsp; 最大容量问题
+    15.3 Maximum Capacity Problem
   </span>
   
 
@@ -3308,7 +3330,7 @@
         
   
   <span class="md-ellipsis">
-    15.4 &nbsp; 最大切分乘积问题
+    15.4 Maximum Product Cutting Problem
   </span>
   
 
@@ -3329,7 +3351,7 @@
         
   
   <span class="md-ellipsis">
-    15.5 &nbsp; 小结
+    15.5 Summary
   </span>
   
 
@@ -3383,7 +3405,7 @@
               
   
   <span class="md-ellipsis">
-    第 16 章 &nbsp; 附录
+    Chapter 16. Appendix
   </span>
   
 
@@ -3399,7 +3421,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_18">
             <span class="md-nav__icon md-icon"></span>
-            第 16 章 &nbsp; 附录
+            Chapter 16. Appendix
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3416,7 +3438,7 @@
         
   
   <span class="md-ellipsis">
-    16.1 &nbsp; 编程环境安装
+    16.1 Programming Environment Installation
   </span>
   
 
@@ -3437,7 +3459,7 @@
         
   
   <span class="md-ellipsis">
-    16.2 &nbsp; 一起参与创作
+    16.2 Contributing Together
   </span>
   
 
@@ -3458,7 +3480,7 @@
         
   
   <span class="md-ellipsis">
-    16.3 &nbsp; 术语表
+    16.3 Glossary
   </span>
   
 
@@ -3508,7 +3530,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"></path></svg>
   
   <span class="md-ellipsis">
-    参考文献
+    References
   </span>
   
 
@@ -3519,72 +3541,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
-            参考文献
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20">
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_paperbook/" class="md-nav__link ">
-              
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5V2M6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5Z"></path></svg>
-  
-  <span class="md-ellipsis">
-    纸质书
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--new" title="最近添加">
-    </span>
-  
-
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_20">
-            <span class="md-nav__icon md-icon"></span>
-            纸质书
+            References
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
@@ -3610,7 +3567,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -3619,51 +3576,51 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#741-cac-thao-tac-tren-cay-tim-kiem-nhi-phan" class="md-nav__link">
     <span class="md-ellipsis">
-      二叉搜索树的操作
+      7.4.1 &nbsp; Các thao tác trên cây tìm kiếm nhị phân
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="二叉搜索树的操作">
+    <nav class="md-nav" aria-label="7.4.1 &nbsp; Các thao tác trên cây tìm kiếm nhị phân">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#1-tim-kiem-mot-nut" class="md-nav__link">
     <span class="md-ellipsis">
-      查找节点
+      1. &nbsp; Tìm kiếm một nút
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#2-chen-mot-nut" class="md-nav__link">
     <span class="md-ellipsis">
-      插入节点
+      2. &nbsp; Chèn một nút
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#3-xoa-mot-nut" class="md-nav__link">
     <span class="md-ellipsis">
-      删除节点
+      3. &nbsp; Xóa một nút
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#4-duyet-in-order-tao-thu-tu-tang-dan" class="md-nav__link">
     <span class="md-ellipsis">
-      中序遍历有序
+      4. &nbsp; Duyệt in-order tạo thứ tự tăng dần
     </span>
   </a>
   
@@ -3675,18 +3632,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#742-hieu-nang-cua-cay-tim-kiem-nhi-phan" class="md-nav__link">
     <span class="md-ellipsis">
-      二叉搜索树的效率
+      7.4.2 &nbsp; Hiệu năng của cây tìm kiếm nhị phân
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#743-ung-dung-pho-bien-cua-cay-tim-kiem-nhi-phan" class="md-nav__link">
     <span class="md-ellipsis">
-      二叉搜索树常见应用
+      7.4.3 &nbsp; Ứng dụng phổ biến của cây tìm kiếm nhị phân
     </span>
   </a>
   
@@ -3713,7 +3670,7 @@
 
   <!-- Edit button -->
   
-    <a href="https://github.com/krahets/hello-algo/tree/main/docs/chapter_tree/binary_search_tree.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/krahets/hello-algo/tree/main/vi/docs/chapter_tree/binary_search_tree.md" title="Chỉnh sửa" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2 344 121.9l46.1 46.1-134.3 134.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25c-28.1-28.1-73.7-28.1-101.8 0zM88 64c-48.6 0-88 39.4-88 88v272c0 48.6 39.4 88 88 88h272c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24v112c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40h112c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"></path></svg>
     </a>
@@ -3724,130 +3681,593 @@
 
 
 <!-- Page content -->
-<h1 id="_1">二叉搜索树<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>如下图所示，<u>二叉搜索树（binary search tree）</u>满足以下条件。</p>
+<h1 id="74-cay-tim-kiem-nhi-phan">7.4 &nbsp; Cây tìm kiếm nhị phân<a class="headerlink" href="#74-cay-tim-kiem-nhi-phan" title="Permanent link">¶</a></h1>
+<p>Như hình bên dưới, một <u>cây tìm kiếm nhị phân</u> thỏa mãn các điều kiện sau.</p>
 <ol>
-<li>对于根节点，左子树中所有节点的值 <span class="arithmatex">\(&lt;\)</span> 根节点的值 <span class="arithmatex">\(&lt;\)</span> 右子树中所有节点的值。</li>
-<li>任意节点的左、右子树也是二叉搜索树，即同样满足条件 <code>1.</code> 。</li>
+<li>Với nút gốc, giá trị của tất cả các nút trong cây con trái <span class="arithmatex">\(&lt;\)</span> giá trị của nút gốc <span class="arithmatex">\(&lt;\)</span> giá trị của tất cả các nút trong cây con phải.</li>
+<li>Cây con trái và phải của bất kỳ nút nào cũng là cây tìm kiếm nhị phân, tức là chúng cũng thỏa mãn điều kiện <code>1.</code>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/binary_search_tree.png" data-desc-position="bottom"><img alt="二叉搜索树" src="../binary_search_tree.assets/binary_search_tree.png"></a></p>
-<h2 id="_2">二叉搜索树的操作<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>我们将二叉搜索树封装为一个类 <code>BinarySearchTree</code> ，并声明一个成员变量 <code>root</code> ，指向树的根节点。</p>
-<h3 id="_3">查找节点<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>给定目标节点值 <code>num</code> ，可以根据二叉搜索树的性质来查找。如下图所示，我们声明一个节点 <code>cur</code> ，从二叉树的根节点 <code>root</code> 出发，循环比较节点值 <code>cur.val</code> 和 <code>num</code> 之间的大小关系。</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/binary_search_tree.png" data-desc-position="bottom"><img alt="Binary search tree" class="animation-figure" src="../binary_search_tree.assets/binary_search_tree.png"></a></p>
+<p align="center"> Figure 7-16 &nbsp; Binary search tree </p>
+
+<h2 id="741-cac-thao-tac-tren-cay-tim-kiem-nhi-phan">7.4.1 &nbsp; Các thao tác trên cây tìm kiếm nhị phân<a class="headerlink" href="#741-cac-thao-tac-tren-cay-tim-kiem-nhi-phan" title="Permanent link">¶</a></h2>
+<p>Ta đóng gói cây tìm kiếm nhị phân vào một lớp <code>BinarySearchTree</code> và khai báo biến thành viên <code>root</code> trỏ tới nút gốc của cây.</p>
+<h3 id="1-tim-kiem-mot-nut">1. &nbsp; Tìm kiếm một nút<a class="headerlink" href="#1-tim-kiem-mot-nut" title="Permanent link">¶</a></h3>
+<p>Cho giá trị nút mục tiêu <code>num</code>, ta có thể tìm kiếm theo tính chất của cây tìm kiếm nhị phân. Như hình bên dưới, ta khai báo một nút <code>cur</code>, bắt đầu từ nút gốc <code>root</code>, và lặp để so sánh giá trị giữa <code>cur.val</code> và <code>num</code>.</p>
 <ul>
-<li>若 <code>cur.val &lt; num</code> ，说明目标节点在 <code>cur</code> 的右子树中，因此执行 <code>cur = cur.right</code> 。</li>
-<li>若 <code>cur.val &gt; num</code> ，说明目标节点在 <code>cur</code> 的左子树中，因此执行 <code>cur = cur.left</code> 。</li>
-<li>若 <code>cur.val = num</code> ，说明找到目标节点，跳出循环并返回该节点。</li>
+<li>Nếu <code>cur.val &lt; num</code>, nghĩa là nút mục tiêu nằm trong cây con phải của <code>cur</code>, nên thực hiện <code>cur = cur.right</code>.</li>
+<li>Nếu <code>cur.val &gt; num</code>, nghĩa là nút mục tiêu nằm trong cây con trái của <code>cur</code>, nên thực hiện <code>cur = cur.left</code>.</li>
+<li>Nếu <code>cur.val = num</code>, nghĩa là đã tìm thấy nút mục tiêu, thoát vòng lặp và trả về nút đó.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step1.png" data-desc-position="bottom"><img alt="二叉搜索树查找节点示例" src="../binary_search_tree.assets/bst_search_step1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step1.png" data-desc-position="bottom"><img alt="Ví dụ tìm kiếm một nút trong cây tìm kiếm nhị phân" class="animation-figure" src="../binary_search_tree.assets/bst_search_step1.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step2.png" data-desc-position="bottom"><img alt="bst_search_step2" src="../binary_search_tree.assets/bst_search_step2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step2.png" data-desc-position="bottom"><img alt="Bước 2" class="animation-figure" src="../binary_search_tree.assets/bst_search_step2.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step3.png" data-desc-position="bottom"><img alt="bst_search_step3" src="../binary_search_tree.assets/bst_search_step3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step3.png" data-desc-position="bottom"><img alt="Bước 3" class="animation-figure" src="../binary_search_tree.assets/bst_search_step3.png"></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step4.png" data-desc-position="bottom"><img alt="bst_search_step4" src="../binary_search_tree.assets/bst_search_step4.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_search_step4.png" data-desc-position="bottom"><img alt="Bước 4" class="animation-figure" src="../binary_search_tree.assets/bst_search_step4.png"></a></p>
 </div>
 </div>
 </div>
-<p>二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。示例代码如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{search}
-</code></pre></div>
-<h3 id="_4">插入节点<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>给定一个待插入元素 <code>num</code> ，为了保持二叉搜索树“左子树 &lt; 根节点 &lt; 右子树”的性质，插入操作流程如下图所示。</p>
-<ol>
-<li><strong>查找插入位置</strong>：与查找操作相似，从根节点出发，根据当前节点值和 <code>num</code> 的大小关系循环向下搜索，直到越过叶节点（遍历至 <code>None</code> ）时跳出循环。</li>
-<li><strong>在该位置插入节点</strong>：初始化节点 <code>num</code> ，将该节点置于 <code>None</code> 的位置。</li>
-</ol>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_insert.png" data-desc-position="bottom"><img alt="在二叉搜索树中插入节点" src="../binary_search_tree.assets/bst_insert.png"></a></p>
-<p>在代码实现中，需要注意以下两点。</p>
-<ul>
-<li>二叉搜索树不允许存在重复节点，否则将违反其定义。因此，若待插入节点在树中已存在，则不执行插入，直接返回。</li>
-<li>为了实现插入节点，我们需要借助节点 <code>pre</code> 保存上一轮循环的节点。这样在遍历至 <code>None</code> 时，我们可以获取到其父节点，从而完成节点插入操作。</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{insert}
-</code></pre></div>
-<p>与查找节点相同，插入节点使用 <span class="arithmatex">\(O(\log n)\)</span> 时间。</p>
-<h3 id="_5">删除节点<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>先在二叉树中查找到目标节点，再将其删除。与插入节点类似，我们需要保证在删除操作完成后，二叉搜索树的“左子树 &lt; 根节点 &lt; 右子树”的性质仍然满足。因此，我们根据目标节点的子节点数量，分 0、1 和 2 三种情况，执行对应的删除节点操作。</p>
-<p>如下图所示，当待删除节点的度为 <span class="arithmatex">\(0\)</span> 时，表示该节点是叶节点，可以直接删除。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case1.png" data-desc-position="bottom"><img alt="在二叉搜索树中删除节点（度为 0 ）" src="../binary_search_tree.assets/bst_remove_case1.png"></a></p>
-<p>如下图所示，当待删除节点的度为 <span class="arithmatex">\(1\)</span> 时，将待删除节点替换为其子节点即可。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case2.png" data-desc-position="bottom"><img alt="在二叉搜索树中删除节点（度为 1 ）" src="../binary_search_tree.assets/bst_remove_case2.png"></a></p>
-<p>当待删除节点的度为 <span class="arithmatex">\(2\)</span> 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左子树 <span class="arithmatex">\(&lt;\)</span> 根节点 <span class="arithmatex">\(&lt;\)</span> 右子树”的性质，<strong>因此这个节点可以是右子树的最小节点或左子树的最大节点</strong>。</p>
-<p>假设我们选择右子树的最小节点（中序遍历的下一个节点），则删除操作流程如下图所示。</p>
-<ol>
-<li>找到待删除节点在“中序遍历序列”中的下一个节点，记为 <code>tmp</code> 。</li>
-<li>用 <code>tmp</code> 的值覆盖待删除节点的值，并在树中递归删除节点 <code>tmp</code> 。</li>
-</ol>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label><label for="__tabbed_2_4">&lt;4&gt;</label></div>
+<p align="center"> Figure 7-17 &nbsp; Example of searching for a node in a binary search tree </p>
+
+<p>Thao tác tìm kiếm trong cây tìm kiếm nhị phân hoạt động theo cùng một nguyên lý với thuật toán tìm kiếm nhị phân, loại bỏ một nửa trường hợp ở mỗi bước. Số vòng lặp tối đa bằng chiều cao của cây. Khi cây cân bằng, thời gian là <span class="arithmatex">\(O(\log n)\)</span>. Ví dụ mã như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:14"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><input id="__tabbed_2_14" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label><label for="__tabbed_2_14">Zig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step1.png" data-desc-position="bottom"><img alt="在二叉搜索树中删除节点（度为 2 ）" src="../binary_search_tree.assets/bst_remove_case3_step1.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step2.png" data-desc-position="bottom"><img alt="bst_remove_case3_step2" src="../binary_search_tree.assets/bst_remove_case3_step2.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step3.png" data-desc-position="bottom"><img alt="bst_remove_case3_step3" src="../binary_search_tree.assets/bst_remove_case3_step3.png"></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step4.png" data-desc-position="bottom"><img alt="bst_remove_case3_step4" src="../binary_search_tree.assets/bst_remove_case3_step4.png"></a></p>
-</div>
-</div>
-</div>
-<p>删除节点操作同样使用 <span class="arithmatex">\(O(\log n)\)</span> 时间，其中查找待删除节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间，获取中序遍历后继节点需要 <span class="arithmatex">\(O(\log n)\)</span> 时间。示例代码如下：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{remove}
+<div class="highlight"><span class="filename">binary_search_tree.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Search node"""</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">while</span> <span class="n">cur</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="c1"># Target node is in cur's right subtree</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="c1"># Target node is in cur's left subtree</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="k">elif</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="c1"># Found target node, break loop</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="k">break</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">return</span> <span class="n">cur</span>
 </code></pre></div>
-<h3 id="_6">中序遍历有序<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p>如下图所示，二叉树的中序遍历遵循“左 <span class="arithmatex">\(\rightarrow\)</span> 根 <span class="arithmatex">\(\rightarrow\)</span> 右”的遍历顺序，而二叉搜索树满足“左子节点 <span class="arithmatex">\(&lt;\)</span> 根节点 <span class="arithmatex">\(&lt;\)</span> 右子节点”的大小关系。</p>
-<p>这意味着在二叉搜索树中进行中序遍历时，总是会优先遍历下一个最小节点，从而得出一个重要性质：<strong>二叉搜索树的中序遍历序列是升序的</strong>。</p>
-<p>利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 <span class="arithmatex">\(O(n)\)</span> 时间，无须进行额外的排序操作，非常高效。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_inorder_traversal.png" data-desc-position="bottom"><img alt="二叉搜索树的中序遍历序列" src="../binary_search_tree.assets/bst_inorder_traversal.png"></a></p>
-<h2 id="_7">二叉搜索树的效率<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>给定一组数据，我们考虑使用数组或二叉搜索树存储。观察下表，二叉搜索树的各项操作的时间复杂度都是对数阶，具有稳定且高效的性能。只有在高频添加、低频查找删除数据的场景下，数组比二叉搜索树的效率更高。</p>
-<p align="center"> 表 <id> &nbsp; 数组与搜索树的效率对比 </id></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.cpp</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Search node */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="c1">// Target node is in cur's right subtree</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="c1">// Target node is in cur's left subtree</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Found target node, break loop</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="c1">// Return target node</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Search node */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="c1">// Target node is in cur's right subtree</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="c1">// Target node is in cur's left subtree</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Found target node, break loop</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c1">// Return target node</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.cs</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">Search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.go</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">binarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.swift</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.ts</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.rs</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.c</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.kt</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.rb</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">BinarySearchTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.zig</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">search</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="2-chen-mot-nut">2. &nbsp; Chèn một nút<a class="headerlink" href="#2-chen-mot-nut" title="Permanent link">¶</a></h3>
+<p>Cho một phần tử <code>num</code> cần chèn, để giữ tính chất của cây tìm kiếm nhị phân "cây con trái &lt; nút gốc &lt; cây con phải", thao tác chèn tiến hành như hình dưới.</p>
+<ol>
+<li><strong>Tìm vị trí chèn</strong>: Tương tự thao tác tìm kiếm, bắt đầu từ nút gốc, lặp xuống theo quan hệ giá trị giữa nút hiện tại và <code>num</code>, cho tới khi vượt qua nút lá (duyệt đến <code>None</code>), rồi thoát vòng lặp.</li>
+<li><strong>Chèn nút vào vị trí này</strong>: Khởi tạo nút <code>num</code> và đặt vào chỗ <code>None</code> đã đến.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_insert.png" data-desc-position="bottom"><img alt="Chèn một nút vào cây tìm kiếm nhị phân" class="animation-figure" src="../binary_search_tree.assets/bst_insert.png"></a></p>
+<p align="center"> Figure 7-18 &nbsp; Inserting a node into a binary search tree </p>
 
+<p>Trong hiện thực mã, lưu ý hai điểm sau.</p>
+<ul>
+<li>Cây tìm kiếm nhị phân không cho phép tồn tại các nút trùng lặp; nếu không định nghĩa sẽ bị vi phạm. Do đó, nếu nút cần chèn đã tồn tại trong cây, không thực hiện chèn và trả về trực tiếp.</li>
+<li>Để thực hiện chèn, ta cần dùng nút <code>pre</code> lưu lại nút ở vòng lặp trước. Bằng cách này, khi duyệt tới <code>None</code>, ta sẽ có được nút cha của vị trí cần chèn, từ đó hoàn thành thao tác chèn.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:14"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><input id="__tabbed_3_5" name="__tabbed_3" type="radio"><input id="__tabbed_3_6" name="__tabbed_3" type="radio"><input id="__tabbed_3_7" name="__tabbed_3" type="radio"><input id="__tabbed_3_8" name="__tabbed_3" type="radio"><input id="__tabbed_3_9" name="__tabbed_3" type="radio"><input id="__tabbed_3_10" name="__tabbed_3" type="radio"><input id="__tabbed_3_11" name="__tabbed_3" type="radio"><input id="__tabbed_3_12" name="__tabbed_3" type="radio"><input id="__tabbed_3_13" name="__tabbed_3" type="radio"><input id="__tabbed_3_14" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label><label for="__tabbed_3_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">"""Insert node"""</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="c1"># If tree is empty, initialize root node</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="k">return</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="c1"># Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="k">while</span> <span class="n">cur</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        <span class="c1"># Found duplicate node, thus return</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>            <span class="k">return</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>        <span class="n">pre</span> <span class="o">=</span> <span class="n">cur</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        <span class="c1"># Insertion position is in cur's right subtree</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>        <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>        <span class="c1"># Insertion position is in cur's left subtree</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>    <span class="c1"># Insert node</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>    <span class="n">node</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    <span class="k">if</span> <span class="n">pre</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>        <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>        <span class="n">pre</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">node</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.cpp</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Insert node */</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1">// If tree is empty, initialize root node</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="k">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="c1">// Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">        </span><span class="c1">// Found duplicate node, thus return</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">        </span><span class="k">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">        </span><span class="c1">// Insertion position is in cur's right subtree</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="c1">// Insertion position is in cur's left subtree</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">    </span><span class="c1">// Insert node</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">pre</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">        </span><span class="k">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">        </span><span class="k">pre</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.java</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Insert node */</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">// If tree is empty, initialize root node</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="c1">// Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="c1">// Found duplicate node, thus return</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">        </span><span class="c1">// Insertion position is in cur's right subtree</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">        </span><span class="c1">// Insertion position is in cur's left subtree</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">    </span><span class="c1">// Insert node</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pre</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">        </span><span class="n">pre</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">        </span><span class="n">pre</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.cs</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">Insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.go</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">binarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.swift</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="bp">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.js</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.ts</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.rs</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.c</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.kt</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.rb</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">BinarySearchTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.zig</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">insert</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Tương tự tìm kiếm, chèn một nút có thời gian <span class="arithmatex">\(O(\log n)\)</span>.</p>
+<h3 id="3-xoa-mot-nut">3. &nbsp; Xóa một nút<a class="headerlink" href="#3-xoa-mot-nut" title="Permanent link">¶</a></h3>
+<p>Đầu tiên, tìm nút mục tiêu trong cây, sau đó xóa nó. Tương tự chèn, ta cần đảm bảo rằng sau khi xóa, cây vẫn thỏa mãn tính chất 'cây con trái &lt; nút gốc &lt; cây con phải'. Do đó, dựa vào số con của nút cần xóa, chia thành ba trường hợp: 0, 1 và 2, và thực hiện các thao tác xóa tương ứng.</p>
+<p>Như hình dưới, khi bậc (số con) của nút cần xóa là <span class="arithmatex">\(0\)</span>, nghĩa là nút là lá và có thể xóa trực tiếp.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case1.png" data-desc-position="bottom"><img alt="Removing a node in a binary search tree (degree 0)" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case1.png"></a></p>
+<p align="center"> Figure 7-19 &nbsp; Removing a node in a binary search tree (degree 0) </p>
+
+<p>Như hình dưới, khi bậc của nút cần xóa là <span class="arithmatex">\(1\)</span>, thay thế nút cần xóa bằng con của nó là đủ.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case2.png" data-desc-position="bottom"><img alt="Removing a node in a binary search tree (degree 1)" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case2.png"></a></p>
+<p align="center"> Figure 7-20 &nbsp; Removing a node in a binary search tree (degree 1) </p>
+
+<p>Khi nút cần xóa có bậc <span class="arithmatex">\(2\)</span>, không thể xóa trực tiếp mà cần dùng một nút để thay thế. Để duy trì tính chất 'cây con trái <span class="arithmatex">\(&lt;\)</span> nút gốc <span class="arithmatex">\(&lt;\)</span> cây con phải', <strong>nút thay thế có thể là nút nhỏ nhất của cây con phải hoặc nút lớn nhất của cây con trái</strong>.</p>
+<p>Giả sử ta chọn nút nhỏ nhất của cây con phải (nút kế tiếp trong duyệt in-order), thì thao tác xóa như sau.</p>
+<ol>
+<li>Tìm nút kế tiếp trong "trình tự duyệt trung thứ tự (in-order)" của nút cần xóa, gọi là <code>tmp</code>.</li>
+<li>Thay giá trị của nút cần xóa bằng giá trị của <code>tmp</code>, và đệ quy xóa nút <code>tmp</code> trong cây.</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><input id="__tabbed_4_4" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">&lt;1&gt;</label><label for="__tabbed_4_2">&lt;2&gt;</label><label for="__tabbed_4_3">&lt;3&gt;</label><label for="__tabbed_4_4">&lt;4&gt;</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step1.png" data-desc-position="bottom"><img alt="Xóa một nút trong cây tìm kiếm nhị phân (bậc 2) - bước 1" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case3_step1.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step2.png" data-desc-position="bottom"><img alt="Bước 2" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case3_step2.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step3.png" data-desc-position="bottom"><img alt="Bước 3" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case3_step3.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_remove_case3_step4.png" data-desc-position="bottom"><img alt="Bước 4" class="animation-figure" src="../binary_search_tree.assets/bst_remove_case3_step4.png"></a></p>
+</div>
+</div>
+</div>
+<p align="center"> Figure 7-21 &nbsp; Removing a node in a binary search tree (degree 2) </p>
+
+<p>Thao tác xóa một nút cũng có thời gian <span class="arithmatex">\(O(\log n)\)</span>, trong đó tìm nút cần xóa tốn <span class="arithmatex">\(O(\log n)\)</span> và tìm nút kế tiếp theo duyệt in-order cũng tốn <span class="arithmatex">\(O(\log n)\)</span>. Ví dụ mã như sau:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:14"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><input id="__tabbed_5_3" name="__tabbed_5" type="radio"><input id="__tabbed_5_4" name="__tabbed_5" type="radio"><input id="__tabbed_5_5" name="__tabbed_5" type="radio"><input id="__tabbed_5_6" name="__tabbed_5" type="radio"><input id="__tabbed_5_7" name="__tabbed_5" type="radio"><input id="__tabbed_5_8" name="__tabbed_5" type="radio"><input id="__tabbed_5_9" name="__tabbed_5" type="radio"><input id="__tabbed_5_10" name="__tabbed_5" type="radio"><input id="__tabbed_5_11" name="__tabbed_5" type="radio"><input id="__tabbed_5_12" name="__tabbed_5" type="radio"><input id="__tabbed_5_13" name="__tabbed_5" type="radio"><input id="__tabbed_5_14" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">C++</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Go</label><label for="__tabbed_5_6">Swift</label><label for="__tabbed_5_7">JS</label><label for="__tabbed_5_8">TS</label><label for="__tabbed_5_9">Dart</label><label for="__tabbed_5_10">Rust</label><label for="__tabbed_5_11">C</label><label for="__tabbed_5_12">Kotlin</label><label for="__tabbed_5_13">Ruby</label><label for="__tabbed_5_14">Zig</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.py</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="sd">"""Remove node"""</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    <span class="c1"># If tree is empty, return</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>        <span class="k">return</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    <span class="c1"># Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    <span class="n">cur</span><span class="p">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    <span class="k">while</span> <span class="n">cur</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>        <span class="c1"># Found node to be removed, break loop</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>        <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>            <span class="k">break</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>        <span class="n">pre</span> <span class="o">=</span> <span class="n">cur</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>        <span class="c1"># Node to be removed is in cur's right subtree</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>        <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>        <span class="c1"># Node to be removed is in cur's left subtree</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>    <span class="c1"># If no node to be removed, return</span>
+<a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>    <span class="k">if</span> <span class="n">cur</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>        <span class="k">return</span>
+<a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>
+<a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>    <span class="c1"># Number of child nodes = 0 or 1</span>
+<a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>    <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a>        <span class="c1"># When the number of child nodes = 0/1, child = null/that child node</span>
+<a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a>        <span class="n">child</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">left</span> <span class="ow">or</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a>        <span class="c1"># Remove node cur</span>
+<a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a>        <span class="k">if</span> <span class="n">cur</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="p">:</span>
+<a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a>            <span class="k">if</span> <span class="n">pre</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="n">cur</span><span class="p">:</span>
+<a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a>                <span class="n">pre</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">child</span>
+<a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a>                <span class="n">pre</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">child</span>
+<a id="__codelineno-28-33" name="__codelineno-28-33" href="#__codelineno-28-33"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-28-34" name="__codelineno-28-34" href="#__codelineno-28-34"></a>            <span class="c1"># If the removed node is the root, reassign the root</span>
+<a id="__codelineno-28-35" name="__codelineno-28-35" href="#__codelineno-28-35"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="o">=</span> <span class="n">child</span>
+<a id="__codelineno-28-36" name="__codelineno-28-36" href="#__codelineno-28-36"></a>    <span class="c1"># Number of child nodes = 2</span>
+<a id="__codelineno-28-37" name="__codelineno-28-37" href="#__codelineno-28-37"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-28-38" name="__codelineno-28-38" href="#__codelineno-28-38"></a>        <span class="c1"># Get the next node in in-order traversal of cur</span>
+<a id="__codelineno-28-39" name="__codelineno-28-39" href="#__codelineno-28-39"></a>        <span class="n">tmp</span><span class="p">:</span> <span class="n">TreeNode</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">right</span>
+<a id="__codelineno-28-40" name="__codelineno-28-40" href="#__codelineno-28-40"></a>        <span class="k">while</span> <span class="n">tmp</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-28-41" name="__codelineno-28-41" href="#__codelineno-28-41"></a>            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">left</span>
+<a id="__codelineno-28-42" name="__codelineno-28-42" href="#__codelineno-28-42"></a>        <span class="c1"># Recursively remove node tmp</span>
+<a id="__codelineno-28-43" name="__codelineno-28-43" href="#__codelineno-28-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<a id="__codelineno-28-44" name="__codelineno-28-44" href="#__codelineno-28-44"></a>        <span class="c1"># Replace cur with tmp</span>
+<a id="__codelineno-28-45" name="__codelineno-28-45" href="#__codelineno-28-45"></a>        <span class="n">cur</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">val</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.cpp</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cm">/* Remove node */</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="c1">// If tree is empty, return</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="k">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">    </span><span class="c1">// Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">        </span><span class="c1">// Found node to be removed, break loop</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="w">        </span><span class="k">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="w">        </span><span class="c1">// Node to be removed is in cur's right subtree</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">        </span><span class="c1">// Node to be removed is in cur's left subtree</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a><span class="w">    </span><span class="c1">// If no node to be removed, return</span>
+<a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a><span class="w">    </span><span class="c1">// Number of child nodes = 0 or 1</span>
+<a id="__codelineno-29-24" name="__codelineno-29-24" href="#__codelineno-29-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-25" name="__codelineno-29-25" href="#__codelineno-29-25"></a><span class="w">        </span><span class="c1">// When the number of child nodes = 0 / 1, child = nullptr / that child node</span>
+<a id="__codelineno-29-26" name="__codelineno-29-26" href="#__codelineno-29-26"></a><span class="w">        </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-29-27" name="__codelineno-29-27" href="#__codelineno-29-27"></a><span class="w">        </span><span class="c1">// Remove node cur</span>
+<a id="__codelineno-29-28" name="__codelineno-29-28" href="#__codelineno-29-28"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-29" name="__codelineno-29-29" href="#__codelineno-29-29"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">pre</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">cur</span><span class="p">)</span>
+<a id="__codelineno-29-30" name="__codelineno-29-30" href="#__codelineno-29-30"></a><span class="w">                </span><span class="k">pre</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-29-31" name="__codelineno-29-31" href="#__codelineno-29-31"></a><span class="w">            </span><span class="k">else</span>
+<a id="__codelineno-29-32" name="__codelineno-29-32" href="#__codelineno-29-32"></a><span class="w">                </span><span class="k">pre</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-29-33" name="__codelineno-29-33" href="#__codelineno-29-33"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-34" name="__codelineno-29-34" href="#__codelineno-29-34"></a><span class="w">            </span><span class="c1">// If the removed node is the root, reassign the root</span>
+<a id="__codelineno-29-35" name="__codelineno-29-35" href="#__codelineno-29-35"></a><span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-29-36" name="__codelineno-29-36" href="#__codelineno-29-36"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-29-37" name="__codelineno-29-37" href="#__codelineno-29-37"></a><span class="w">        </span><span class="c1">// Free memory</span>
+<a id="__codelineno-29-38" name="__codelineno-29-38" href="#__codelineno-29-38"></a><span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-29-39" name="__codelineno-29-39" href="#__codelineno-29-39"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-29-40" name="__codelineno-29-40" href="#__codelineno-29-40"></a><span class="w">    </span><span class="c1">// Number of child nodes = 2</span>
+<a id="__codelineno-29-41" name="__codelineno-29-41" href="#__codelineno-29-41"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-42" name="__codelineno-29-42" href="#__codelineno-29-42"></a><span class="w">        </span><span class="c1">// Get the next node in in-order traversal of cur</span>
+<a id="__codelineno-29-43" name="__codelineno-29-43" href="#__codelineno-29-43"></a><span class="w">        </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-29-44" name="__codelineno-29-44" href="#__codelineno-29-44"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-29-45" name="__codelineno-29-45" href="#__codelineno-29-45"></a><span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-29-46" name="__codelineno-29-46" href="#__codelineno-29-46"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-29-47" name="__codelineno-29-47" href="#__codelineno-29-47"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tmpVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-29-48" name="__codelineno-29-48" href="#__codelineno-29-48"></a><span class="w">        </span><span class="c1">// Recursively remove node tmp</span>
+<a id="__codelineno-29-49" name="__codelineno-29-49" href="#__codelineno-29-49"></a><span class="w">        </span><span class="n">remove</span><span class="p">(</span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+<a id="__codelineno-29-50" name="__codelineno-29-50" href="#__codelineno-29-50"></a><span class="w">        </span><span class="c1">// Replace cur with tmp</span>
+<a id="__codelineno-29-51" name="__codelineno-29-51" href="#__codelineno-29-51"></a><span class="w">        </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpVal</span><span class="p">;</span>
+<a id="__codelineno-29-52" name="__codelineno-29-52" href="#__codelineno-29-52"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-29-53" name="__codelineno-29-53" href="#__codelineno-29-53"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.java</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="cm">/* Remove node */</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="c1">// If tree is empty, return</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">    </span><span class="c1">// Loop find, break after passing leaf nodes</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">        </span><span class="c1">// Found node to be removed, break loop</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">        </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">;</span>
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="w">        </span><span class="c1">// Node to be removed is in cur's right subtree</span>
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a><span class="w">        </span><span class="c1">// Node to be removed is in cur's left subtree</span>
+<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a><span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a><span class="w">    </span><span class="c1">// If no node to be removed, return</span>
+<a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a><span class="w">    </span><span class="c1">// Number of child nodes = 0 or 1</span>
+<a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a><span class="w">        </span><span class="c1">// When the number of child nodes = 0/1, child = null/that child node</span>
+<a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a><span class="w">        </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a><span class="w">        </span><span class="c1">// Remove node cur</span>
+<a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pre</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">cur</span><span class="p">)</span>
+<a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a><span class="w">                </span><span class="n">pre</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a><span class="w">            </span><span class="k">else</span>
+<a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a><span class="w">                </span><span class="n">pre</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a><span class="w">            </span><span class="c1">// If the removed node is the root, reassign the root</span>
+<a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a><span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a><span class="w">    </span><span class="c1">// Number of child nodes = 2</span>
+<a id="__codelineno-30-39" name="__codelineno-30-39" href="#__codelineno-30-39"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a><span class="w">        </span><span class="c1">// Get the next node in in-order traversal of cur</span>
+<a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a><span class="w">        </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">right</span><span class="p">;</span>
+<a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a><span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">left</span><span class="p">;</span>
+<a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a><span class="w">        </span><span class="c1">// Recursively remove node tmp</span>
+<a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a><span class="w">        </span><span class="n">remove</span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="na">val</span><span class="p">);</span>
+<a id="__codelineno-30-47" name="__codelineno-30-47" href="#__codelineno-30-47"></a><span class="w">        </span><span class="c1">// Replace cur with tmp</span>
+<a id="__codelineno-30-48" name="__codelineno-30-48" href="#__codelineno-30-48"></a><span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">val</span><span class="p">;</span>
+<a id="__codelineno-30-49" name="__codelineno-30-49" href="#__codelineno-30-49"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-30-50" name="__codelineno-30-50" href="#__codelineno-30-50"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.cs</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="na">[class]</span><span class="p">{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">Remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.go</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">[</span><span class="nx">class</span><span class="p">]{</span><span class="nx">binarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="nx">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.swift</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="kd">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.js</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.ts</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">[</span><span class="kd">class</span><span class="p">]{</span><span class="nx">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="nx">func</span><span class="p">]{</span><span class="nx">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.dart</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.rs</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.c</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">removeItem</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.kt</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.rb</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="o">[</span><span class="n">class</span><span class="o">]</span><span class="p">{</span><span class="no">BinarySearchTree</span><span class="p">}</span><span class="o">-[</span><span class="n">func</span><span class="o">]</span><span class="p">{</span><span class="n">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">binary_search_tree.zig</span><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">[</span><span class="n">class</span><span class="p">]{</span><span class="n">BinarySearchTree</span><span class="p">}</span><span class="o">-</span><span class="p">[</span><span class="n">func</span><span class="p">]{</span><span class="n">remove</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="4-duyet-in-order-tao-thu-tu-tang-dan">4. &nbsp; Duyệt in-order tạo thứ tự tăng dần<a class="headerlink" href="#4-duyet-in-order-tao-thu-tu-tang-dan" title="Permanent link">¶</a></h3>
+<p>Như hình dưới, duyệt in-order của một cây nhị phân theo thứ tự "trái <span class="arithmatex">\(\rightarrow\)</span> gốc <span class="arithmatex">\(\rightarrow\)</span> phải", và cây tìm kiếm nhị phân thỏa mãn quan hệ "nút con trái <span class="arithmatex">\(&lt;\)</span> nút gốc <span class="arithmatex">\(&lt;\)</span> nút con phải".</p>
+<p>Điều này có nghĩa khi duyệt in-order trên cây tìm kiếm nhị phân, các nút nhỏ hơn sẽ được duyệt trước, dẫn tới một tính chất quan trọng: <strong>Dãy các nút theo duyệt in-order của cây tìm kiếm nhị phân là tăng dần</strong>.</p>
+<p>Dựa vào tính chất tăng dần của duyệt in-order, lấy dữ liệu có thứ tự từ cây tìm kiếm nhị phân chỉ tốn <span class="arithmatex">\(O(n)\)</span> thời gian, không cần sắp xếp thêm, rất hiệu quả.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_inorder_traversal.png" data-desc-position="bottom"><img alt="In-order traversal sequence of a binary search tree" class="animation-figure" src="../binary_search_tree.assets/bst_inorder_traversal.png"></a></p>
+<p align="center"> Figure 7-22 &nbsp; In-order traversal sequence of a binary search tree </p>
+
+<h2 id="742-hieu-nang-cua-cay-tim-kiem-nhi-phan">7.4.2 &nbsp; Hiệu năng của cây tìm kiếm nhị phân<a class="headerlink" href="#742-hieu-nang-cua-cay-tim-kiem-nhi-phan" title="Permanent link">¶</a></h2>
+<p>Với một tập dữ liệu, ta cân nhắc dùng mảng hoặc cây tìm kiếm nhị phân để lưu trữ. Nhìn vào bảng dưới, các thao tác trên cây tìm kiếm nhị phân đều có độ phức tạp logarit, ổn định và hiệu quả. Mảng chỉ hiệu quả hơn khi thêm phần tử thường xuyên nhưng tìm kiếm hoặc xóa ít.</p>
+<p align="center"> Bảng <id> &nbsp; So sánh hiệu năng giữa mảng và cây tìm kiếm </id></p>
+
+<div class="center-table">
 <table>
 <thead>
 <tr>
-<th></th>
-<th>无序数组</th>
-<th>二叉搜索树</th>
+<th>------------</th>
+<th>Mảng không sắp xếp</th>
+<th>Cây tìm kiếm nhị phân</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>查找元素</td>
+<td>Tìm phần tử</td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
 </tr>
 <tr>
-<td>插入元素</td>
+<td>Chèn phần tử</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
 </tr>
 <tr>
-<td>删除元素</td>
+<td>Xóa phần tử</td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
 <td><span class="arithmatex">\(O(\log n)\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>在理想情况下，二叉搜索树是“平衡”的，这样就可以在 <span class="arithmatex">\(\log n\)</span> 轮循环内查找任意节点。</p>
-<p>然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为下图所示的链表，这时各种操作的时间复杂度也会退化为 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_degradation.png" data-desc-position="bottom"><img alt="二叉搜索树退化" src="../binary_search_tree.assets/bst_degradation.png"></a></p>
-<h2 id="_8">二叉搜索树常见应用<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+</div>
+<p>Lý tưởng thì cây tìm kiếm nhị phân là "cân bằng", cho phép tìm bất kỳ nút nào trong <span class="arithmatex">\(\log n\)</span> vòng lặp.</p>
+<p>Tuy nhiên, nếu ta liên tục chèn và xóa, cây tìm kiếm nhị phân có thể thoái biến thành một danh sách liên kết như hình dưới, khi đó độ phức tạp của các thao tác giảm xuống <span class="arithmatex">\(O(n)\)</span>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../binary_search_tree.assets/bst_degradation.png" data-desc-position="bottom"><img alt="Degradation of a binary search tree" class="animation-figure" src="../binary_search_tree.assets/bst_degradation.png"></a></p>
+<p align="center"> Figure 7-23 &nbsp; Degradation of a binary search tree </p>
+
+<h2 id="743-ung-dung-pho-bien-cua-cay-tim-kiem-nhi-phan">7.4.3 &nbsp; Ứng dụng phổ biến của cây tìm kiếm nhị phân<a class="headerlink" href="#743-ung-dung-pho-bien-cua-cay-tim-kiem-nhi-phan" title="Permanent link">¶</a></h2>
 <ul>
-<li>用作系统中的多级索引，实现高效的查找、插入、删除操作。</li>
-<li>作为某些搜索算法的底层数据结构。</li>
-<li>用于存储数据流，以保持其有序状态。</li>
+<li>Được dùng làm chỉ mục đa cấp trong hệ thống để thực hiện tìm kiếm, chèn và xóa hiệu quả.</li>
+<li>Làm cấu trúc dữ liệu nền tảng cho một số thuật toán tìm kiếm.</li>
+<li>Dùng để lưu luồng dữ liệu nhằm giữ thứ tự của chúng.</li>
 </ul>
 
 
@@ -3859,22 +4279,22 @@
 
 
 
-<nav class="md-footer__inner md-grid" aria-label="页脚">
+<nav class="md-footer__inner md-grid" aria-label="Chân trang">
 
 <!-- Link to previous page -->
 
   
-  <a href="../array_representation_of_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.3 &amp;nbsp; 二叉树数组表示" rel="prev">
+  <a href="../array_representation_of_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.3 Array Representation of Binary Trees" rel="prev">
     <div class="md-footer__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
     </div>
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        上一页
+        Trước
       </span>
       <div class="md-ellipsis">
-        7.3 &nbsp; 二叉树数组表示
+        7.3 Array Representation of Binary Trees
       </div>
     </div>
   </a>
@@ -3883,13 +4303,13 @@
 <!-- Link to next page -->
 
   
-  <a href="../avl_tree/" class="md-footer__link md-footer__link--next" aria-label="下一页: 7.5 &amp;nbsp; AVL 树 *" rel="next">
+  <a href="../avl_tree/" class="md-footer__link md-footer__link--next" aria-label="Sau: 7.5 AVL Tree *" rel="next">
     <div class="md-footer__title">
       <span class="md-footer__direction">
-        下一页
+        Sau
       </span>
       <div class="md-ellipsis">
-        7.5 &nbsp; AVL 树 *
+        7.5 AVL Tree *
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3901,6 +4321,49 @@
 </nav>
 
 <!-- Comment system -->
+
+  
+
+  <!-- Check-in button above comments -->
+  
+
+  <h5 align="center" id="__comments"></h5>
+
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="
+
+" crossorigin="anonymous" async="">
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    function getGiscusTheme() {
+      var palette = __md_get("__palette")
+      var isDark = palette && typeof palette.color === "object" && palette.color.scheme === "slate"
+      return isDark ? "noborder_dark" : "light"
+    }
+
+    /* Set palette on initial load */
+    giscus.setAttribute("data-theme", getGiscusTheme())
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      if (!ref) return
+      ref.addEventListener("change", function() {
+        var theme = getGiscusTheme()
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        if (!frame) return
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        )
+      })
+    })
+  </script>
 
                 
               </article>
@@ -3915,7 +4378,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-  回到页面顶部
+  Trở lại mục lục
 </button>
         
       </main>
@@ -3924,33 +4387,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚">
+      <nav class="md-footer__inner md-grid" aria-label="Chân trang">
         
           
-          <a href="../array_representation_of_tree/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 7.3 &amp;nbsp; 二叉树数组表示">
+          <a href="../array_representation_of_tree/" class="md-footer__link md-footer__link--prev" aria-label="Trước: 7.3 Array Representation of Binary Trees">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Trước
               </span>
               <div class="md-ellipsis">
-                7.3 &nbsp; 二叉树数组表示
+                7.3 Array Representation of Binary Trees
               </div>
             </div>
           </a>
         
         
           
-          <a href="../avl_tree/" class="md-footer__link md-footer__link--next" aria-label="下一页: 7.5 &amp;nbsp; AVL 树 *">
+          <a href="../avl_tree/" class="md-footer__link md-footer__link--next" aria-label="Sau: 7.5 AVL Tree *">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Sau
               </span>
               <div class="md-ellipsis">
-                7.5 &nbsp; AVL 树 *
+                7.5 AVL Tree *
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4020,7 +4483,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
